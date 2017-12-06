@@ -1,0 +1,59 @@
+% jam 2004-09-05
+
+\section{Barycentric coordinates}
+\label{sec:barycentric-coordinates}
+
+In this section, I describe how to compute
+the barycentric coordinates of a point $\q$
+with respect to a $n$-simplex in
+a finite dimensional inner product space $\Vspace$
+(with $\dimension (\Vspace ) = m \ge n$) ---
+and the derivatives with respect to the vertex positions.
+
+Let $S$ be the geometric $n$-simplex
+with vertex positions $\{\p_0 , \ldots , \p_n\}$;
+in $\Vspace$.
+
+The {\it span} of $S$, $\affine_span ( S )$,
+is the affine span of its vertex positions
+$\affine_span \{\p_0 , \ldots , \p_n\}$,
+that is, the set of points $\q$ such that
+$\q = \sum_{j=n}^{m} b_j \p_j $ where $1 = \sum_{j=0}^{n} b_j $.
+$b_j$ are {\it barycentric coordinates} of $\q$ with respect to $S$.
+Barycentric coordinates of an arbitrary point $\q \in \Vspace$,
+are barycentric coordinates of the closest point in $\affine_span(S)$.
+If $S$ is non-degenerate (the dimension of its span is $m$),
+then the barycentric coordinates of any point are unique.
+
+Assume in what follows that $S$ is non-degenerate.
+When faced with for a degenerate simplex, there are several options.
+One can use the minimum norm $\b$.
+It is often possible to use the barycentric coordinates
+with respect to the 'largest' non-degenerate face instead.
+We may also want to choose $\b$ to be as close to convex,
+$0 \le \b_j \le 1$, as possible. {\it (How?)}
+
+Let $\{ \v_0 \ldots \v_{n-1} \} = \{ (\p_0 - \p_n) \ldots (\p_{n-1} - \p_n)\},$
+and let $\Vmap = \sum_{j=0}^{n-1} ( \v_j \otimes \e_j^{\Reals^n} )$,
+the linear map from $\Reals^n \mapsto \Vspace$,
+whose 'columns' are the $\v_j$.
+Let $\b = \left( \b_0 \ldots \b_{n-1} \right) \in \Reals^n$
+be the unconstrained vector of the first $n$ barycentric coordinates.
+For $\q \in \affine_span ( S )$, $\q = \Vmap \b + \p_m$
+and $\b = \Vmap^{-1} \left ( \q - \p_m \right)$.
+For arbitrary $\q \in \Vspace$,
+$\b = \Vmap^{-} (\q - \p_m)$
+(see section \ref{sec:Inverses-and-pseudo-inverses}).
+
+
+
+
+
+
+
+
+
+
+
+
+

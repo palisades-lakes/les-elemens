@@ -1,0 +1,624 @@
+\label{sec:general}
+
+
+%--------------------------------------------------------------------
+
+\subsection{Identities for real vector operations}
+\label{sec:RX}
+
+See \cite{Spivak_1965}, p. 85, ex. 4-9.
+
+Let $\p, \q \in \Re^{n}$.
+Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
+
+\begin{itemize}
+\item The inner (dot) product:
+\begin{equation}
+\p \bullet \q \; \equiv \; \sum_{i=0}^{n-1} p_i q_i
+\end{equation}
+
+\item The euclidean ($l_2$) norm:
+\begin{equation}
+\| \p \|^2 \; \equiv \; \p \bullet \p
+\end{equation}
+\begin{equation}
+\p \bullet \q \; = \; \| \p \| \| \q \| \cos(\theta(\p,\q))
+\end{equation}
+
+\item Orthogonal complement:
+\begin{equation}
+\p \perp \q \; \equiv \; \p \; - \; \left( \p \bullet \frac{\q}{\|\q\|}\right) \frac{\q}{\|\q\|}
+\end{equation}
+
+\item The tensor product
+
+Let $\p \in \Re^m, \q, \r \in \Re^n.$
+$\p \otimes \q$ is a rank 1 linear transformation
+from $\Re^n$ to $\Re^m$, defined by:
+\begin{equation}
+(\p \otimes \q)(\r) \; \equiv \; \p (\q \bullet \r)
+\end{equation}
+
+\end{itemize}
+
+%--------------------------------------------------------------------
+
+\subsection{Identities for 3-dimensional vector operations}
+\label{sec:R3X}
+
+See \cite{Spivak_1965}, p. 85, ex. 4-9.
+
+Let $\p, \q, \r \in \Re^3$.
+Let $(p_0,p_1,p_2), (q_0,q_1,q_2), (r_0,r_1,r_2), $ be their coordinates
+in some orthonormal basis.
+
+The cross product:
+\begin{equation}
+\p \times \q  \; \equiv \; (p_1 q_2 - p_2 q_1, \; p_2 q_0 - p_0 q_2, \; p_0 q_1 - p_1 q_0)
+\end{equation}
+\begin{equation}
+\p \times \q  \; = \; - \; \q \times \p
+\end{equation}
+\begin{equation}
+\| \p \times \q \| \; = \; \| \p \| \; \| \q \| \; \sin(\theta(\p,\q))
+\end{equation}
+\begin{equation}
+\| \p \times \q \|  \; = \;  \sqrt{\| \p \|^2 \| \q \|^2 \; - \; (\p \bullet \q)^2}
+\end{equation}
+\begin{equation}
+\p \bullet ( \p \times \q ) \; = \; ( \p \times \q ) \bullet \q \; = \; 0
+\end{equation}
+\begin{equation}
+\label{eq:dot_cross}
+\p \bullet ( \q \times \r ) \; = \; ( \p \times \q ) \bullet \r \; = \; \q \bullet ( \r \times \p )
+\end{equation}
+\begin{equation}
+\p \times ( \q \times \r ) \; = \; ( \p \bullet \r ) \q \; - \; (\p \bullet \q) \r
+\end{equation}
+\begin{equation}
+( \p \times \q ) \times \r \; = \; ( \p \bullet \r ) \q \; - \; (\q \bullet \r) \p
+\end{equation}
+\begin{equation}
+( \p \times \q ) \times \r \; = \; \left((\q \otimes \p) - (\p \otimes \q)\right) \r
+\end{equation}
+
+
+%-------------------------------------------------------------------------------
+
+\subsection{Functions on real vector spaces}
+\label{sec:functions}
+
+This paper describes functions of triangular meshes.
+
+Interesting functions usually depend, directly or indirectly,
+on the positions of some subset of the vertices.
+I consider the vertex positions to be elements of $\Re^3$,
+with an (implied) universal origin,
+and thus do not distinguish points and vectors.
+
+In general, the functions discussed here map between real vector spaces:
+$\f:{\Re}^{n} \mapsto \Re^{m}$, where $\Re^n$ is the
+{\it domain} and $\Re^m$ is the {\it codomain}.
+Strictly speaking, the {\it range} of $\f$ is the set $\f(\Re^n)$,
+which may be a proper subset of its codomain $\Re^m$.
+
+I typically use $\p$, $\q$, $\r$, etc., for elements of $\Re^n$
+and
+$\f$, $\g$, $\h$ for vector-valued functions.
+I generally do not distinguish $\Re$, the real numbers,
+and $\Re^1$, the 1-dimensional real vector space.
+I sometimes use $f$, $g$, $h$ for extra clarity in the special
+case of real-valued functions.
+
+The domains of many interesting functions,
+such as those that depend on vertex positions,
+are direct sums of $\Re^3$.
+The {\it direct sum} $\Re^n \oplus \Re^m$ is the cartesian product
+of $\Re^n$ and $\Re^m$ --- the set of ordered pairs $(\p,\q)$
+where $\p \in \Re^n$ and $\q \in \Re^m$ ---
+with the restriction that the inner product is the obvious extension of the
+inner products on $\Re^n$ and $\Re^m$:
+$(\p_0,\q_0) \bullet (\p_1,\q_1) = (\p_0 \bullet \p_1) + (\q_0 \bullet \q_1).$
+For simplicity, I identify
+$\Re^{3n} = \Re^3 \oplus \Re^3 \oplus \cdots \oplus \Re^3 = \oplus^n \Re^3
+= \Re^n \oplus \Re^n \oplus \Re^n $.
+I will usually write an element of $\oplus^n \Re^3$ as
+$(\p_0,\ldots,\p_{n-1})$
+and use
+$\f(\p_0,\p_1,\ldots,\p_{n-1})$
+for a function that depends on $n$ vertices.
+Sometimes it will be useful to separate the $x,$ $y,$ and $z$ coordinates:
+$\p = (\x,\y,\z),$
+where $\x =(x_0, \ldots x_{n-1}) \in \Re^n$, are the $x$-coordinates
+of the positions of the vertices, and similarly for $y$ and $z$.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Derivatives}
+\label{sec:derivatives}
+
+One way to view the derivative of a function
+$\f:{\Re}^{n} \mapsto \Re^{m}$,
+at a point $\p$,
+is as the linear transformation $\L:{\Re}^{n} \mapsto \Re^{m}$,
+that best approximates the local 'slope' of $\f$ at $\p$.
+To be a little more precise, we want
+\begin{displaymath}
+\lim_{ \|{\bf \delta}  \| \mapsto 0}
+{ \|{\f(\p + {\bf \delta}) - (\f(\p) + \L({\bf\delta})) \|}
+  \over  \|{\bf \delta}  \|}
+ = 0
+\end{displaymath}
+For a concise and correct discussion, see \cite{Spivak_1965}.
+
+\begin{itemize}
+
+\item $\Da{\f}$
+
+In its most general form,
+I denote the derivative of $\f$ by $\Da{\f}$.
+Note that this is
+linear-transformation-valued function of the domain of $\f$.
+
+\item $\Db{\f}{\p}$
+
+I denote the derivative of $\f$ at $\p$ by $\Db{\f}{\p}$.
+$\Db{\f}{\p}$ is a specific linear transformation from
+the domain of $\f$ to the codomain of $\f$.
+
+\item $\Dc{\f}{\p}{\q}$
+
+The derivative is most often represented by the {\it Jacobian},
+the $m \times n$ matrix of partial derivatives
+with respect to some bases for $\Re^n$ and $\Re^m$.
+However, it's often easier to express the derivative clearly if we
+explicitly include the argument of the linear transformation.
+In this case, I write $\Dc{\f}{\p}{\q}$
+for the derivative of $f$ at the point $\p$
+applied to the vector $\q$.
+
+\item $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_i}$
+
+For functions on direct sum spaces,
+$\f(\p_0,\p_1,\ldots,\p_{n-1})$, $\p_i \in \Re^{n_i}$,
+it's often easier to consider the derivative
+with respect to one argument at a time.
+I write $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_0,\ldots,\r_{n-1}}$
+for the derivative of $\f$ with respect to $\p_i$,
+at the point $(\q_0,\ldots,\q_{n-1}) \in \oplus_{i=0}^{n-1} \Re^{m_i}$,
+applied to the vector $\r_i \in \Re^{n_i}$.
+Note that, if you consider $\f$ to be a function
+of direct sums of $\Re^1$, we have the usual
+partial derivatives.
+
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Gradients of real-valued functions}
+\label{sec:gradients}
+
+\begin{itemize}
+
+\item $\Ga{f}$
+
+In minimizing real-valued functions, $f(\p)$, $\p \in \Re^n$,
+we frequently need
+the {\it gradient,} $\Ga{f} \in \Re^n$,
+the vector pointing in the direction of most rapid increase of $f$,
+whose magnitude is the rate of increase, or slope,
+of $f$ in that direction.
+
+The gradient, $\Ga{f}$,
+has a close relationship to the derivative, $\Da{f}$,
+and the two are often confused.
+Recall that the derivative is a linear transformation
+from the domain of $f$ to its codomain.
+In the case of real-valued functions,
+this means the derivative is a linear function on $\Re^n$,
+an element of the dual space of $\Re^n$, a 'row' vector.
+It's easy to see that the gradient is simply the dual (the 'transpose')
+of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
+(see \cite{Spivak_1965}, p. 96, ex. 4-18).
+
+Notation for the various versions of the gradient
+follows that for derivatives:
+
+\item $\Gb{f}{\q}$
+
+The gradient of $f$ at $\q$.
+
+\item $\Gc{\p_i}{f}{\q}$
+
+The gradient of $f$
+with respect to $\p_i$ at $\q$.
+
+\item $(\Gb{f}{\q}) \bullet \; \r$
+
+The analog to exressing the derivative as a linear transformation
+with an explicit argument is to write expressions for
+the inner product of the gradient and an arbitrary other vector $\r$
+
+\item $(\Gc{\p_i}{f}{\q}) \bullet \;\r_i$
+
+See above.
+
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Chain rule}
+\label{sec:chain}
+
+The most general identity used in computing derivatives is the {\it chain rule.}
+Suppose
+$\f:\Re^{n_0} \mapsto \Re^{n_1}$,
+$\g:\Re^{n_1} \mapsto \Re^{n_2}$,
+and
+$\h = \g \circ \f : \Re^{n_0} \mapsto \Re^{n_2}.$
+Then
+\begin{equation}
+\label{eq:chain_rule}
+\Db{\h}{\p} \;\; = \;\; \Db{(\g \circ \f)}{\p}
+            \;\; = \;\; \Db{\g}{\f(\p)} \; \circ \; \Db{\f} {\p}.
+\end{equation}
+
+See \cite{Spivak_1965}, Theorem 2-2.
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of multilinear functions}
+\label{sec:multilinear}
+
+A function $\f(\p_0,\ldots,\p_k):\Re^{n_0} \oplus \Re^{n_k} \mapsto \Re^m$
+is {\it multilinear} if
+\begin{equation}
+\f(a_{00} \p_{00} + a_{01} \p_{01}, \ldots, a_{k0} \p_{k0} + a_{k1} \p_{k1})
+\; = \; \sum_{i_0,\ldots,i_k = 0,1} \;(a_{0i_0} \cdots a_{ki_k}) \f(\p_{0i_0}, \ldots, \p_{ki_k}).
+\end{equation}
+
+The derivative of $\f$
+at the point $(\p_0,\ldots,\p_k)$, applied to the vector $(\q_0,\ldots,\q_k)$ is
+
+\begin{equation}
+\Dc{\f}{(\p_0,\ldots,\p_k)}{\q_0,\ldots,\q_k}
+\; = \; \sum_{i=0,k} \f(\p_0,\ldots,\p_{i-1},\q_i,\p_{i+1},\ldots,\p_k).
+\end{equation}
+
+See \cite{Spivak_1965}, ex. 2-14.
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of bilinear functions}
+\label{sec:bilinear}
+
+Bilinear functions are a useful special case of multilinear functions.
+
+A function $\f(\p,\q):\Re^{n_0} \oplus \Re^{n_1} \mapsto \Re^m$
+is {\it bilinear} if
+\begin{eqnarray}
+\f(a_0 \p_0 + a_1 \p_1, b_0 \q_0 + b_1 \q_1) & = & a_0 b_0 f(\p_0,\q_0)  \\
+                                             & + & a_0 b_1 f(\p_0,\q_1) \nonumber \\
+                                             & + & a_1 b_0 f(\p_1,\q_0) \nonumber \\
+                                             & + & a_1 b_1 f(\p_1,\q_1).\nonumber
+\end{eqnarray}
+
+The derivative of $\f$
+at the point $(\p_0,\q_0)$, applied to the vector $(\p,\q)$ is
+
+\begin{equation}
+\Dc{\f}{(\p_0,\q_0)}{\p,\q} = \f(\p_0,\q) + \f(\p,\q_0).
+\end{equation}
+
+See \cite{Spivak_1965}, ex. 2-12.
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of linear functions}
+\label{sec:Derivatives-of-linear-functions}
+
+Linear functions are another useful special case of multilinear functions.
+A function $\f(\p):\Re^{n} \mapsto \Re^m$
+is {\it linear} if
+\begin{equation}
+\f(a_0 \p_0 + a_1 \p_1)
+ =
+a_0 \f(\p_0) + a_1 \f(\p_1)
+\end{equation}
+
+The derivative of $\f$ is simply $\f$ itself.
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of inner products}
+\label{sec:inner}
+
+We can view the inner product on $\Re^m$, $\p \bullet \q$,
+as a bilinear function $d(\p,\q) : \Re^m \oplus \Re^m \mapsto \Re$.
+Thus
+\begin{equation}
+\Dc{d}{(\p_0,\q_0)}{\p,\q} = \p_0 \bullet \q + \p \bullet \q_0.
+\end{equation}
+
+Suppose
+$\f:\Re^{n} \mapsto \Re^{m}$, and
+$\g:\Re^{n} \mapsto \Re^{m}$.
+The derivative of $\f \bullet \g$ is:
+\begin{eqnarray}
+\label{eq:dot_derivative}
+\Dc{(\f \bullet \g)}{\p_0}{\p}
+& =
+& \Db{d}{(\f(\p_0),\g(\p_0))} \;\circ \;(\Dc{\f}{\p_0}{\p}, \Dc{\g}{\p_0}{\p})
+\\
+& =
+& \f(\p_0) \bullet \Dc{\g}{\p_0}{\p} \; + \; \g(\p_0) \bullet \Dc{\f}{\p_0}{\p} \nonumber
+\end{eqnarray}
+
+See \cite{Spivak_1965}, ex. 2-13.
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of cross products}
+\label{sec:cross}
+
+We can view the 3-dimensional cross product
+$ \times $
+as a bilinear function
+$\c(\p,\q) = \p \times \q : \Re^3 \oplus \Re^3 \mapsto \Re^3$.
+As with the inner product,
+the derivative is
+\begin{equation}
+\Dc{c}{(\p_0,\q_0)}{\p,\q} = \p_0 \times \q + \p \times \q_0.
+\end{equation}
+
+Suppose
+$\f:\Re^{n} \mapsto \Re^3$, and
+$\g:\Re^{n} \mapsto \Re^3$.
+The derivative of $\f \times \g$ is:
+\begin{eqnarray}
+\Dc{(\f \times \g)}{\p_0}{\p}
+& =
+& \Db{\c}{(\f(\p_0),\g(\p_0))} \;\circ \;(\Dc{\f}{\p_0}{\p}, \Dc{\g}{\p_0}{\p})
+\\
+& =
+& \f(\p_0) \;\times \;\Dc{\g}{\p_0}{\p} \;+ \;\Dc{\f}{\p_0}{\p} \;\times \;\g(\p_0) \nonumber
+\end{eqnarray}
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of scalar products}
+\label{sec:scalar}
+
+Suppose
+$f:\Re^{n} \mapsto \Re$, and
+$\g:\Re^{n} \mapsto \Re^m$.
+It follows from the chain rule that the derivative of $\h = f\g$ is:
+\begin{eqnarray}
+\label{eq:scalar_product_derivative}
+\Db{(f\g)}{\p}
+& = & f(\p) \;\Db{\g}{\p} \;+ \g(\p) \; \Db{f}{\p}  \\
+& = & f(\p) \;\Db{\g}{\p} \;+ \g(\p) \otimes \Gb{f}{\p} \; \nonumber
+\end{eqnarray}
+
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of euclidean norms}
+\label{sec:norms}
+
+Let $l_2^2(\p) = \; \| \p  \|^2 : \Re^n \mapsto \Re$
+be the square of the usual euclidean norm on $\Re^n$.
+($ \| \p  \|^2  = \sum_{i=0,n-1} \p_i^2$.)
+\begin{eqnarray}
+\label{eq:l2-gradient}
+\Gb{l_2^2}{\p} & = & 2\p \\
+\Db{l_2^2}{\p} & = & 2\p^\dagger
+\end{eqnarray}
+
+Let $l_2(\p) = \; \| \p  \|$ be the usual euclidean norm.
+
+$\Gb{l_2}{\p} = {{ \p } \over { \| \p  \|}}$,
+
+$\Db{l_2}{\p} = {{ \p^\dagger } \over { \| \p  \|}}$.
+
+Let $\f(\p) : \Re^n \mapsto \Re^m$.
+By the chain rule:
+$\Db{\| \f \|^2}{\p}  =  2 {\f(\p)}^{\dagger} \Db{\f}{\p} $.
+
+
+\begin{equation}
+\Gb{\| \f \|^2}{\p}  =  2 \;\Db{\f}{\p}^\dagger \;\circ \;\f(\p)
+\end{equation}
+
+\begin{eqnarray}
+\label{eq:norm_derivative}
+\Db{\| \f \|}{\p}
+& = &
+{{\f(\p)^\dagger} \over {\| \f(\p) \|}} \Db{\f}{\p}  \\
+\Gb{\| \f \|}{\p}
+& = &
+\left(\Db{\f}{\p}\right)^\dagger \;\circ \;{{\f(\p)} \over { \| \f(\p)  \|}}
+\label{eq:norm_gradient}
+\end{eqnarray}
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of normalized functions}
+\label{sec:normalized-function}
+
+Let $\tilde{\f}$ be the normalized version of $\f$:
+\begin{equation}
+\tilde{\f} \;= \;{{\f} \over {\| \f \|}}
+\end{equation}
+
+Then, from equations \ref{eq:scalar_product_derivative}
+and \ref{eq:norm_derivative}:
+\begin{eqnarray}
+\Dc{\tilde{\f}}{\p}{\q}
+& = &
+\Dc{\left({\f \over {\| \f \|}}\right)}{\p}{\q}
+\\
+& = &
+{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+\; + \;
+\f(\p) \; \Dc{\left({1 \over {\| \f \|}}\right)}{\p}{\q} \nonumber \\
+& = &
+{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+\; - \;
+\f(\p) {{\Dc{\| \f \|}{\p}{\q}} \over {\|\f(\p)\|^2}} \nonumber \\
+& = &
+{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+\; - \;
+\f(\p) \left( {{\f(\p)^\dagger} \over {\| \f(\p) \|^3}} \;\Dc{\f}{\p}{\q} \right) \nonumber \\
+& = &
+{\| \f(\p) \|^2 \Dc{\f}{\p}{\q}
+\; - \;
+\f(\p)\left( \f(\p) \bullet \Dc{\f}{\p}{\q} \right) }
+\over {\| \f(\p) \|^3}  \nonumber \\
+& = &
+{{\| \f(\p) \|^2 \I_{\Re^3} \;- \;\left( \f(\p) \otimes \f(\p) \right)  }
+\over {\| \f(\p) \|^3} }
+\;\Dc{\f}{\p}{\q} \nonumber \\
+& = &
+{{\I_{\Re^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right)  }
+\over {\| \f(\p) \|} }
+\;\Dc{\f}{\p}{\q} \nonumber
+\end{eqnarray}
+
+$\otimes$ is the elementary tensor product operation.
+If you are stuck thinking in terms of row and column vectors,
+$\p \otimes \q \;= \;\p\q^\dagger$.
+More generally, if $\p \in \Re^m$ and $\q \in \Re^n$,
+then $\p \otimes \q$ is the rank 1 linear transformation from $\Re^n \mapsto \Re^m$:
+$\left(\p \otimes \q\right) (\r) \;= \;\p \left(\q \bullet \r\right)$.
+
+We can write the derivative above without reference to the argument $\q$:
+\begin{eqnarray}
+\label{eq:normalized_function_derivative}
+\Db{\tilde{\f}}{\p}
+& = &
+\Db{\left({\f \over {\| \f \|}}\right)}{\p}  \\
+& = &
+{{\I_{\Re^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right) }
+\over {\| \f(\p) \|} }
+\;\Db{\f}{\p} \nonumber
+\end{eqnarray}
+
+A common, trivial, normalized function is the normalized version of
+a vector:
+\begin{equation}
+\tilde{\p} \;= \;{{\p} \over {\| \p \|}}
+\end{equation}
+
+From equation \ref{eq:normalized_function_derivative}
+it follows that:
+\begin{eqnarray}
+\label{eq:normalized_vector_derivative}
+\Db{\tilde{\p}}{\q}
+& = &
+\Db{\left({\p \over {\| \p \|}}\right)}{\q}
+\\
+& = &
+{{\I_{\Re^3} \;- \;\left( \tilde{\q} \otimes \tilde{\q} \right) }
+\over {\| \q \|} }
+\nonumber
+\\
+& = &
+{{\| \q \|^2 \I_{\Re^3} \;- \;\left( \q \otimes \q \right) }
+\over {\| \q \|^3} }
+\nonumber
+\end{eqnarray}
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Derivatives of angles}
+\label{sec:angles}
+
+The angle between 2 vectors $\p_0, \p_1 \in \Re^m$, is the inverse cosine
+of their normalized inner product:
+\begin{equation}
+\theta(\p_0,\p_1)
+=
+\cos^{-1}
+\left(
+{ \p_0 \bullet \p_1 } \over {\|\p_0\| \|\p_1\|}
+\right)
+\end{equation}
+Recall that the derivative of the $\cos^{-1}$ is:
+\begin{equation}
+\frac{d}{\mathit dx} \cos^{-1}(x) = { -1 \over \sqrt{1 - x^2} }
+\end{equation}
+It follows that:
+\begin{eqnarray}
+\label{eq:angle_gradient}
+\Gc{\p_0}{\theta(\p_0,\p_1)}{\q}
+& = &
+{{-1} \over
+{ \sqrt{1 - \left( {\q_0 \bullet \q_1} \over {\| \q_0 \| \| \q_1 \|} \right)^2 }}}
+\Gc{\p_0}{\left( {\q_0 \bullet \q_1} \over {\| \q_0 \| \| \q_1 \|} \right)} {\q}
+\\
+& = &
+{
+{-\|\q_0\|\|\q_1\|}
+\over
+{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+}
+\left[
+{{\q_1} \over {\|\q_0\|\|\q_1\|}}
++
+{{\left( \q_0 \bullet \q_1 \right)} \over {\| \q1 \|}}
+\Gc{\p_0}{\left( {1} \over {\| \p_0 \|} \right)} {\q}
+\right]
+\nonumber
+\\
+& = &
+{
+{-\|\q_0\|\|\q_1\|}
+\over
+{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+}
+\left[
+{{\q_1} \over {\|\q_0\|\|\q_1\|}}
+-
+{{\left( \q_0 \bullet \q_1 \right) \q0} \over {\| \q1 \| \|\q_0\|^3}}
+\right]
+\nonumber
+\\
+& = &
+{
+{-1}
+\over
+{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+}
+\left[
+\q_1
+-
+{{\left( \q_0 \bullet \q_1 \right) \q0} \over {\|\q_0\|^2}}
+\right]
+\nonumber
+\\
+& = &
+{
+{- \q_1 \perp \q_0}
+\over
+{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+}
+\nonumber
+\\
+&  &
+\nonumber
+\\
+\Gc{\p_1}{\theta(\p_0,\p_1)}{\q}
+& = &
+{
+{- \q_0 \perp \q_1}
+\over
+{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+}
+\nonumber
+\end{eqnarray}

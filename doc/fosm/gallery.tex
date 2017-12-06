@@ -1,0 +1,254 @@
+% Sample file: gallery.tex formula template file
+% Typeset with LaTeX format
+
+\documentclass{article}
+
+\usepackage{amssymb,latexsym,amsmath}
+
+\begin{document}
+
+Section 3.1 Formula gallery
+
+Formula 1
+\[
+   x \mapsto \{\, c \in C \mid c \leq x \,\}
+\]
+
+Formula 2
+\[
+   \left| \bigcup (\, I_{j} \mid j \in J \,) \right|
+    < \mathfrak{m}
+\]
+
+Formula 3
+\[
+   A = \{\, x \in X \mid x \in X_{i},
+         \mbox{ for some } i \in I \,\}
+\]
+
+Formula 4
+\[
+   \langle a_{1}, a_{2} \rangle \leq \langle a'_{1}, a'_{2}\rangle
+    \qquad \mbox{if{f}} \qquad a_{1} < a'_{1} \quad  \mbox{or}
+    \quad a_{1} = a'_{1} \mbox{ and } a_{2} \leq a'_{2}
+\]
+
+Formula 5
+\[
+   \Gamma_{u'} = \{\, \gamma \mid \gamma < 2\chi,
+    \ B_{\alpha} \nsubseteq u', \ B_{\gamma} \subseteq u' \,\}
+\]
+
+Formula 6
+\[
+   A = B^{2} \times \mathbb{Z}
+\]
+
+Formula 7
+\[
+   \left( \bigvee (\, s_{i} \mid i \in I \,) \right)^{c} =
+    \bigwedge (\, s_{i}^{c} \mid i \in I \,)
+\]
+
+Formula 8
+\[
+   y \vee \bigvee (\, [B_{\gamma}] \mid \gamma
+    \in \Gamma \,) \equiv z \vee \bigvee (\, [B_{\gamma}]
+    \mid \gamma \in \Gamma \,) \pmod{ \Phi^{x} }
+\]
+
+Formula 9
+\[
+   f(\mathbf{x}) = \bigvee\nolimits_{\!\mathfrak{m}}
+    \left(\,
+       \bigwedge\nolimits_{\mathfrak{m}}
+       (\, x_{j} \mid j \in I_{i} \,) \mid i < \aleph_{\alpha}
+    \,\right)
+\]
+
+Formula 10
+\[
+   \left. \widehat{F}(x) \right|_{a}^{b} =
+      \widehat{F}(b) - \widehat{F}(a)
+\]
+
+Formula 11
+\[
+  u \underset{\alpha}{+} v \overset{1}{\thicksim} w
+    \overset{2}{\thicksim} z
+\]
+
+Formula 12
+\[
+   f(x) \overset{ \text{def} }{=} x^{2} - 1
+\]
+
+Formula 13
+\[
+   \overbrace{a + b + \cdots + z}^{n}
+\]
+
+Formula 14
+\[
+   \begin{vmatrix}
+      a + b + c & uv\\
+      a + b & c + d
+   \end{vmatrix}
+   = 7
+\]
+
+\[
+   \begin{Vmatrix}
+      a + b + c & uv\\
+      a + b & c + d
+   \end{Vmatrix}
+   = 7
+\]
+
+Formula 15
+\[
+   \sum_{j \in \mathbf{N}} b_{ij} \hat{y}_{j} =
+   \sum_{j \in \mathbf{N}} b^{(\lambda)}_{ij} \hat{y}_{j} +
+   (b_{ii} - \lambda_{i}) \hat{y}_{i} \hat{y}
+\]
+
+Formula 16
+\[
+   \left( \prod^n_{\, j = 1} \hat x_{j} \right) H_{c} =
+    \frac{1}{2} \hat k_{ij} \det \hat{ \mathbf{K} }(i|i)
+\]
+
+\[
+   \biggl( \prod^n_{\, j = 1} \hat x_{j} \biggr) H_{c} =
+    \frac{1}{2} \hat{k}_{ij} \det \widehat{ \mathbf{K} }(i|i)
+\]
+
+Formula 17
+\[
+   \det \mathbf{K} (t = 1, t_{1}, \ldots, t_{n}) =
+    \sum_{I \in \mathbf{n} }(-1)^{|I|}
+    \prod_{i \in I} t_{i}
+    \prod_{j \in I} (D_{j} + \lambda_{j} t_{j})
+    \det \mathbf{A}^{(\lambda)} (\,\overline{I} | \overline{I}\,) = 0
+\]
+
+Formula 18
+\[
+   \lim_{(v, v') \to (0, 0)}
+    \frac{H(z + v) - H(z + v') - BH(z)(v - v')}
+         {\| v - v' \|} = 0
+\]
+
+Formula 19
+\[
+   \int_{\mathcal{D}} | \overline{\partial u} |^{2}
+    \Phi_{0}(z) e^{\alpha |z|^2} \geq
+    c_{4} \alpha \int_{\mathcal{D}} |u|^{2} \Phi_{0}
+    e^{\alpha |z|^{2}} + c_{5} \delta^{-2} \int_{A}
+    |u|^{2} \Phi_{0} e^{\alpha |z|^{2}}
+\]
+
+Formula 20
+\[
+   \mathbf{A} =
+   \begin{pmatrix}
+      \dfrac{\varphi \cdot X_{n, 1}}
+            {\varphi_{1} \times \varepsilon_{1}}
+      & (x + \varepsilon_{2})^{2} & \cdots
+      & (x + \varepsilon_{n - 1})^{n - 1}
+      & (x + \varepsilon_{n})^{n}\\[10pt]
+      \dfrac{\varphi \cdot X_{n, 1}}
+            {\varphi_{2} \times \varepsilon_{1}}
+      & \dfrac{\varphi \cdot X_{n, 2}}
+              {\varphi_{2} \times \varepsilon_{2}}
+      & \cdots & (x + \varepsilon_{n - 1})^{n - 1}
+      & (x + \varepsilon_{n})^{n}\\
+      \hdotsfor{5}\\
+      \dfrac{\varphi \cdot X_{n, 1}}
+            {\varphi_{n} \times \varepsilon_{1}}
+      & \dfrac{\varphi \cdot X_{n, 2}}
+              {\varphi_{n} \times \varepsilon_{2}}
+      & \cdots & \dfrac{\varphi \cdot X_{n, n - 1}}
+                       {\varphi_{n} \times \varepsilon_{n - 1}}
+      & \dfrac{\varphi\cdot X_{n, n}}
+              {\varphi_{n} \times \varepsilon_{n}}
+   \end{pmatrix}
+    + \mathbf{I}_{n}
+\]
+
+
+Section 3.2. User-defined commands
+
+Formula 20 with user-defined commands:
+
+\newcommand{\quot}[2]{%
+\dfrac{\varphi \cdot X_{n, #1}}%
+{\varphi_{#2} \times \varepsilon_{#1}}}
+\newcommand{\exn}[1]{(x+\varepsilon_{#1})^{#1}}
+
+\[
+   \mathbf{A} =
+   \begin{pmatrix}
+     \quot{1}{1} & \exn{2} & \cdots & \exn{n - 1}&\exn{n}\\[10pt]
+     \quot{1}{2} & \quot{2}{2} & \cdots & \exn{n - 1} &\exn{n}\\
+     \hdotsfor{5}\\
+     \quot{1}{n} & \quot{2}{n} & \cdots &
+     \quot{n - 1}{n} & \quot{n}{n}
+   \end{pmatrix}
+   + \mathbf{I}_{n}
+\]
+
+Section 3.3. Building a formula step-by-step
+
+Step 1
+$\left[ \frac{n}{2} \right]$
+
+Step 2
+\[
+   \sum_{i = 1}^{ \left[ \frac{n}{2} \right] }
+\]
+
+Step 3
+\[
+   x_{i, i + 1}^{i^{2}} \qquad \left[ \frac{i + 3}{3} \right]
+\]
+
+Step 4
+\[
+   \binom{ x_{i,i + 1}^{i^{2}} }{ \left[ \frac{i + 3}{3} \right] }
+\]
+
+Step 5
+$\sqrt{ \mu(i)^{ \frac{3}{2} } (i^{2} - 1) }$
+
+$\sqrt{ \mu(i)^{ \frac{3}{2} } (i^{2} - 1) }$
+
+Step 6
+$\sqrt[3]{ \rho(i) - 2 }$  $\sqrt[3]{ \rho(i) - 1 }$
+
+Step 7
+\[
+   \frac{ \sqrt{ \mu(i)^{ \frac{3}{2}} (i^{2} -1) } }
+        { \sqrt[3]{\rho(i) - 2} + \sqrt[3]{\rho(i) - 1} }
+\]
+
+Step 8
+\[
+   \sum_{i = 1}^{ \left[ \frac{n}{2} \right] }
+      \binom{ x_{i, i + 1}^{i^{2}} }
+            { \left[ \frac{i + 3}{3} \right] }
+      \frac{ \sqrt{ \mu(i)^{ \frac{3}{2}} (i^{2} - 1) } }
+           { \sqrt[3]{\rho(i) - 2} + \sqrt[3]{\rho(i) - 1} }
+\]
+
+\[\sum_{i=1}^{\left[\frac{n}{2}\right]}\binom{x_{i,i+1}^{i^{2}}}
+{\left[\frac{i+3}{3}\right]}\frac{\sqrt{\mu(i)^{\frac{3}
+{2}}(i^{2}-1)}}{\sqrt[3]{\rho(i)-2}+\sqrt[3]{\rho(i)-1}}\]
+
+%\[\sum_{i=1}^{\left[\frac{n}{2}\right]}\binom{x_{i,i+1}^{i^{2}}}
+%{\left[\frac{i+3}{3}\right]}\frac{\sqrt{\mu(i)^{\frac{3}
+%{2}}}(i^{2}-1)}}{\sqrt[3]{\rho(i)-2}+\sqrt[3]{\rho(i)-1}}\]
+
+
+\end{document}
+

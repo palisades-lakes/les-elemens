@@ -1,0 +1,75 @@
+\section{Classifying projected simplexes}
+\label{sec:classifying}
+
+%--------------------------------------------------------------------
+
+The convex hull of a $(d-1)$ dimensional projection of a $d$-simplex
+is either a $(d-1)$-simplex or a $(d-1)$ dimensional cross polytope.
+
+\begin{Lemma}
+\label{rambau-lemma}
+Any set $Z$ of $(d+2)$ points whose convex hull is of dimension $d$
+has exactly two triangulations denoted $T_{Z^+}$ and $T_{Z^-}$.
+\end{Lemma}
+
+See Rambau \cite{rambau-jorg-1996}, Lemma 1.1.2.
+
+Let $S=(\p_0, \p_1, \ldots , \p_m)$ be an $m$-simplex in $\Re^{n}$.
+Let $\pi$ be a projection from $\Re^{n}$ to $Q$, an $(m-1)$-dimensional
+affine subspace of $\Re^{n}$.
+Assume $\pi$ is chosen so that the points
+$\{\pi \p_0, \pi \p_1, \ldots , \pi \p_m\}$ are in {\it general position},
+that is, any $l+1$ of the projected points spans an $l$-dimensional
+affine subspace of $Q$.
+
+By Lemma \ref{rambau-lemma},
+there are two exactly triangulations of the convex hull of the projected points.
+The $(m-1)$-simplexes of the triangulations are images of the $(m-1)$-simplexes of $S$,
+and two triangulations correspond to a partition of $(m-1)$-simplexes of $S$
+into two subsets, the "top" and "bottom" of $S$ with respect to $\pi$.
+
+To see why this is true, and to further classify the triangulations,
+consider the fact that the boundary of the convex hull of $\pi S$
+must contain either $m$ or $m+1$ of the $\pi \p_i$.
+(Any fewer and the points cannot be in general position.)
+
+\begin{Theorem}
+\label{one-simplex-case}
+If the boundary of the convex hull of $\pi S$
+contains $m$ of the $\pi \p_i$,
+then it is a $(m-1)$-simplex
+and the image of one of the $(m-1)$-simplexes, $F$, in $S$.
+The first triangulation is just $\pi F$.
+The second triangulation consists of the images of
+all the remaining $(m-1)$-simplexes of $S$.
+The second triangulation is itself the mutual refinement of both.
+\end{Theorem}
+
+The first 2 statements are obvious.
+If we label the vertices so that $\{\pi \p_1, \ldots , \pi \p_m\}$
+are on the boundary, and $\pi \p_0$ is in the interior,
+then the second triangulation results from refining the first
+triangulation {\it pulling}
+\cite{lee-hdcg-2004} the vertex $\pi \p_0$.
+The faces of the triangulation formed by pulling
+are the images of the $m$ $(m-1)$-simplexes
+of $S$ that contain $\p_0$, that is, all the $(m-1)$-simplexes in $S$,
+other than $(\p_1, \ldots , \pi \p_m)$.
+
+\begin{Theorem}
+\label{two-simplex-case}
+If the boundary of the convex hull of $\pi S$
+contains all $m+1$ of the $\pi \p_i$,
+then it is the image of 2 of the $(m-1)$-simplexes in $S$,
+which share a common $(m-2)$-simplex.
+These 2 simplexes are the first triangulation.
+The second triangulation consists of the images
+of the remaining $m-1$ $(m-1)$-simplexes of $S$,
+which share a common $1$-simplex.
+The mutual refinement is formed by splitting either
+the shared $(m-2)$-simplex in the first triangulation
+or the shared $1$-simplex in the second.
+\end{Theorem}
+
+
+

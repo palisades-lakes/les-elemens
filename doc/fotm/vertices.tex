@@ -1,0 +1,213 @@
+\subsection{Functions of the vertices}
+\label{sec:vertices}
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Vertex surround angle}
+\label{sec:vertex_surround_angle}
+
+\paragraph{Non-boundary case}
+\label{sec:non_boundary_vertex_surround_angle}
+
+\begin{figure}[!htp]
+\centering
+\begin{verbatim}
+                v2/e2 o           o v1/e1
+                       \   f1    /
+                        \       /
+                     f2  \ g1  /   f0
+                          \ ^ /
+                       g2( \ / )g0
+             v3/e3 o--------o--------o v0/e0
+                       g3( / \ )gn-1
+                          / v \
+                     f3  /     \  fn-1
+                        /       \
+                 v4/e4 o   ...   o vn-1/en-1
+\end{verbatim}
+\caption{Vertex surround angle.
+\label{fig:vertex_surround_angle}}
+\end{figure}
+
+Consider the non-boundary vertex
+labeled $\v$ in figure \ref{fig:vertex_surround_angle}.
+$\v$ has degree $n$;
+the incident edges are labeled $\e_0, \e_1, \ldots, \e_{n-1}$;
+the incident faces are labeled $\f_0, \f_1, \ldots, \f_{n-1}$;
+and the neighboring vertices are labeled $\v_0, \v_1, \ldots, \v_{n-1}$.
+The angle between edges $\e_j$ and $\e_{j + 1 \bmod n}$ is $\gamma_j$.
+
+$\gamma_j = \gamma(\f_j,\v)$ is the {\em corner angle} in face $\f_j$
+of vertex $\v$.
+
+The {\em surround angle} of $\v$ is the sum of all its corner angles:
+\begin{equation}
+\alpha(\v) = \sum_{j=0}^{n-1} \gamma(\f_j,\v),
+\end{equation}
+
+If the neighborhood of $\v$ is flat, then $\alpha(\v)=2\pi$.
+A neighborhood with $\alpha(\v) < 2\pi$, corresponds very roughly
+to positive Gaussian curvature,
+and, $\alpha(\v) > 2\pi$,
+is analogous to negative Gaussian curvature.
+However, it's important to remember that, unlike the case
+with smooth surfaces, where the most complicated local
+shape is a saddle,
+the crinkling of a vertex neighborhood can be arbitrarily complicated,
+for any non-zero surround angle.
+
+Although a mesh with all surround angles of $2\pi$ is not guaranteed
+to be flat,
+a mesh with surround angles different from $2\pi$ is guaranteed
+to be not-flat,
+and, in some sense,
+the more different the surround angles are from $2\pi$
+the more non-flat is the mesh.
+This leads to the following as a mesh roughness measure:
+\begin{eqnarray}
+f(\M)
+& = & \sum_{\v \in \V(\M)} \left[ \alpha(\v) - 2\pi \right]^2
+\\
+& = & \sum_{\v \in \V(\M)}
+\left[ \left(\sum_{\f \in \F(\v)} \gamma(\f,\v)\right)
+ - 2\pi \right]^2
+\nonumber
+\end{eqnarray}
+The natural implementation of this function is to first compute
+all the corner angles and cache them with the faces,
+then compute the surround angles and cache with each vertex,
+and then do a lookup while computing the sum.
+
+In computing the gradient, it's simplest to re-arrange the
+order of summation:
+\begin{eqnarray}
+\Ga{f}
+& = & \Ga{ \left[ \sum_{\v \in \V(\M)} \left[ \alpha(\v) - 2\pi \right]^2 \right]}
+\\
+& = & 2 \sum_{\v \in \V(\M)} \left[ \alpha(\v) - 2\pi \right] \Ga{\alpha(\v)}
+\nonumber
+\\
+& = & 2 \sum_{\v \in \V(\M)} \left[ \alpha(\v) - 2\pi \right]
+\sum_{\f \in \F(\v)} \Ga{\gamma(\f,\v)}
+\nonumber
+\\
+& = & 2 \sum_{\v \in \V(\M)}
+\sum_{\f \in \F(\v)}
+\left[ \alpha(\v) - 2\pi \right]
+\Ga{\gamma(\f,\v)}
+\nonumber
+\\
+& = & 2
+\sum_{\f \in \F(\M)}
+\sum_{\v \in \V(\f)}
+\left[ \alpha(\v) - 2\pi \right]
+\Ga{\gamma(\f,\v)}
+\nonumber
+\\
+& = & 2
+\sum_{\f \in \F(\M)}
+\sum_{i=0}^2
+\left[ \alpha(\v_i(\f)) - 2\pi \right]
+\Ga{\gamma(\p_i(\f),\p_{i+1 \% 2}(\f),\p_{i+2 \% 3}(\f))}
+\nonumber
+\end{eqnarray}
+
+Consider the partial gradient with respect to
+location of one of the vertices:
+\begin{eqnarray}
+\label{eq:surround_angle_partial_gradient}
+\Gc{\p_j}{f}{q}
+& = 2 \sum_{\f \in \F(\M)} &
+\sum_{i=0}^2
+\left[ \alpha(\v_i(\f)) - 2\pi \right]
+\Gc{\p_j}{\gamma(\p_i(\f),\p_{i+1 \% 2}(\f),\p_{i+2 \% 3}(\f))}{\q}
+\\
+& = 2 \sum_{\f \in \F(\v_j)} &
+\sum_{i=0}^2
+\left[ \alpha(\v_i(\f)) - 2\pi \right]
+\Gc{\p_j}{\gamma(\p_i(\f),\p_{i+1 \% 2}(\f),\p_{i+2 \% 3}(\f))}{\q}
+\nonumber
+\\
+& = 2 \sum_{\f \in \F(\v_j)} & \left(
+\left[ \alpha({\mathrm p}(\v_j,\f) - 2\pi \right]
+\Gc{\p_j}{\gamma({\mathrm p}(\p_j,\f),\p_j,{\mathrm s}(\p_j,\f))}{\q}
+\right.
+\nonumber
+\\
+& & +
+\left[ \alpha(\v_j) - 2\pi \right]
+\Gc{\p_j}{\gamma(\p_j,{\mathrm s}(\p_j,\f),{\mathrm p}(\p_j,\f)}{\q}
+\nonumber
+\\
+& & +
+\left.
+\left[ \alpha({\mathrm s}(\v_j,\f) - 2\pi \right]
+\Gc{\p_j}{\gamma({\mathrm s}(\p_j,\f),{\mathrm p}(\p_j,\f),\p_j)}{\q}
+\right)
+\nonumber
+\end{eqnarray}
+where ${\mathrm p}(\v,\f)$ is $\v$'s {\em predecessor},
+the vertex that comes before $\v$ in the oriented face $\f$,
+${\mathrm s}(\v_j,\f)$ the {\em successor}
+the vertex that comes after $\v$,
+and similarly for the vertex positions $\p$.
+
+Consider the term corresponding to a particular face $\f$ in
+the sum in equation \ref{eq:surround_angle_partial_gradient}.
+Call that face's vertices and positions $\v_0, \v_1, \v_2$
+and $\p_0, \p_1, \p_2$.
+\begin{eqnarray}
+\Gc{\p_0}{f_{\f}}{q}
+& = &
+\left[ \alpha(\v_0) - 2\pi \right] \Gc{\p_0}{\gamma(\p_0,\p_1,\p_2)}{\q}
+\\
+& + &
+\left[ \alpha(\v_1) - 2\pi \right] \Gc{\p_0}{\gamma(\p_1,\p_2,\p_0)}{\q}
+\nonumber
+\\
+& + &
+\left[ \alpha(\v_2) - 2\pi \right] \Gc{\p_0}{\gamma(\p_2,\p_0,\p_1)}{\q}
+\nonumber
+\\
+&  &
+\nonumber
+\\
+& = &
+\left[ \alpha(\v_0) - 2\pi \right]
+{{(\q_1 - \q_0) \perp (\q_2 - \q_0) + (\q_2 - \q_0) \perp (\q_1 - \q_0)}
+\over
+{
+\sqrt{
+\| \q_2 - \q_0 \|^2 \| \q_1 - \q_0 \|^2
+-
+\left( ( \q_1 -\q_0 ) \bullet ( \q_2 -\q_0 ) \right)^2
+}
+}}
+\nonumber
+\\
+& - &
+\left[ \alpha(\v_1) - 2\pi \right]
+{{(\q_0 - \q_1) \perp (\q_2 - \q_1)}
+\over
+{
+\sqrt{
+\| \q_0 - \q_1 \|^2 \| \q_2 - \q_1 \|^2
+-
+\left( ( \q_0 -\q_1 ) \bullet ( \q_2 - \q_1 ) \right)^2
+}
+}}
+\nonumber
+\\
+& - &
+\left[ \alpha(\v_2) - 2\pi \right]
+{{(\q_0 - \q_2) \perp (\q_1 - \q_2)}
+\over
+{
+\sqrt{
+\| \q_0 - \q_2 \|^2 \| \q_1 - \q_2 \|^2
+-
+\left( ( \q_0 -\q_2 ) \bullet ( \q_1 -\q_2 ) \right)^2
+}
+} }
+\nonumber
+\end{eqnarray}

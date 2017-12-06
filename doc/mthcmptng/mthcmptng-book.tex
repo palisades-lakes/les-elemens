@@ -1,0 +1,276 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: '-halt-on-error' } 
+% arara: biber
+% arara: makeglossaries
+% arara: makeindex
+% arara: xelatex: { synctex: on, options: '-halt-on-error'  } 
+% arara: xelatex: { synctex: on, options: '-halt-on-error'   } 
+% arara: clean: { files: [ mthcmptng-book.aux, mthcmptng-book.bbl] }
+% arara: clean: { files: [ mthcmptng-book.bcf, mthcmptng-book.blg] }
+% arara: clean: { files: [ mthcmptng-book.glg, mthcmptng-book.glo] }
+% arara: clean: { files: [ mthcmptng-book.gls, mthcmptng-book.gls] }
+% arara: clean: { files: [ mthcmptng-book.idx, mthcmptng-book.ilg] }
+% arara: clean: { files: [ mthcmptng-book.ind, mthcmptng-book.loe] }
+% arara: clean: { files: [ mthcmptng-book.lof, mthcmptng-book.log ] }
+% arara: clean: { files: [ mthcmptng-book.log, mthcmptng-book.lol ] }
+% arara: clean: { files: [ mthcmptng-book.out ] }
+% arara: clean: { files: [ mthcmptng-book.run.xml] }
+% arara: clean: { files: [ mthcmptng-book.toc, mthcmptng-book.xdy] }
+% arara: clean: { files: [ mthcmptng-book.synctex.gz] }
+%-------------------------------------------------------------------------------
+\documentclass[10pt,openany]{book}
+\input{head}
+\input{landscape-2col-header}
+\input{clj-listings}
+\input{glossary}
+\addbibresource{cactus.bib}
+\addbibresource{clojure.bib}
+\addbibresource{halmos.bib}
+\addbibresource{ieeestd.bib}
+\addbibresource{tex.bib}
+\addbibresource{fparith.bib}
+%-------------------------------------------------------------------------------
+\title{Math Computing (working title)}
+\author{\textsc{John Alan McDonald}}
+%\email{mcdonald.john.alan at gmail.com}
+\date{draft of \today}
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\begingroup
+\let\onecolumn\twocolumn
+\sffamily
+\tableofcontents
+\rmfamily
+\endgroup
+
+\mainmatter
+
+\part{Aspirations and Inspirations}
+\chapter{Good writing}
+
+\index{Good writing|see{Set}}
+Primary goal of writing, whether in a natural language (eg
+English), mathematics, or a programming language, is communicating
+an idea to the reader.
+This is (perhaps) obvious for natural and mathematical language,
+but not univerally accepted for programming languages.
+
+\cite{Halmos1970HowToWrite}
+
+('Literate' programming confuses stream of consciousness writing
+with communication with other people.)
+
+Express the idea completely enough, without excess.
+and specify no more than
+necessary --- the he/she problem.
+\index{Type problems@\textsl{Sam}!he/she@\textbf{he/she}}
+Make it clear what you aren't making clear.
+
+\part{Foundations}
+
+Most readers will be familiar with most of what's here, 
+but it's worth at least skimming, 
+because the point of view is different.
+
+\chapter{Mathematics}
+\section{Ambiguity}
+\section{Abstraction, instantiation, and representation}
+
+pragmatic, semi-axiomatic definition of things.
+
+\chapter{A model for computation}		
+
+Transformation of data structures.
+
+\section{Data Structures}
+
+A \textit{data structure} is a collection of \textit{places}
+that hold values. 
+Using Clojure/Java for specificity.
+A value might be primitive
+(\texttt{int}, \texttt{double}, \ldots)
+or a references to an 'independent' data structure.
+
+\begin{example}[Java array]
+Places correspond to \texttt{int}s from 0 to length minus 1.
+Values restricted to instances of array's type.
+\end{example}  
+
+\begin{example}[Instance of Java class]
+Places correspond to the class's fields.
+Values restricted to each field's type.
+\end{example}  
+
+\begin{example}[EDN data]
+Nested sequences and hashmaps. Similar to JSON.
+
+Places correspond to the class's fields.
+Values restricted to each field's type.
+\end{example}  
+
+\subsection{Mutability}
+\subsection{Random access}
+
+Means different things. 
+Constant time to any place.
+Absolute origin, rather than relative references.
+Places known/easily enumerable, rather than requring traversal
+to find out what places there are.
+No general guarantee that you can visit everything, once.
+
+\subsection{An unsolved problem}
+
+Where's the boundary of a thing? 
+Is a reference part of a path, or
+an encapsulated value?
+No language I know does this well.
+
+Deep copy vs shallow copy.
+
+
+\section{Code and data}
+
+Data is just bits. 
+Meaning determined by the code that manipulates it. 
+
+Code and meaning always changing.
+
+Correctness difficulty increases
+with 'distance' between code and data. 
+
+Multiple implementations of meaning really bad.
+Data standards (eg IEEE 754 \cite{Higham2002ASNA, IEEE:1985:AIS,
+P754:2008:ISF, Muller-et-al-2010}) major undertaking even for
+small simple unchanging data semantics.
+
+Services bad; shared libraries good.
+Crossing programming language boundaries bad; 
+monolingual environments \cite{Heering:1985:TMP:3318.3321} good.
+
+\section{Types and prototypes}
+
+The ``he or she'' problem: forced to specify irrelevant details.
+
+
+
+
+\section{Clojure and Java}
+
+\chapter{Comparisons}
+
+\part{Spaces and functions between them}
+
+I'm assuming that you are generally familiar with things like:
+\begin{itemize}
+  \item what a \gls{Set} is, at least in general terms.
+  \item the usual number systems: 
+the natural numbers, the integers, the rationals, and the reals, 
+and the arithmetic operations ($+$, $-$, $*$, $/$) on them.
+\item the difference between the
+countable infinities of the natural, integral, and rational numbers,
+and the difference from the uncountable infinity of the real numbers.
+\end{itemize} 
+
+If not, it would be good to review some basic source, like Wikipedia.
+
+In the rest of this book, I'm going to use the word 'space' to refer to
+mathematical structures, like the usual number systems, vector and affine
+spaces, groups, fields, \ldots, that consist of one, or two, or a few, sets,
+plus operations on the elements of those sets.
+
+The first concrete examples of this will be the usual number systems 
+in~\autoref{ch:Numbers}.
+
+\input{sets}
+\input{functions}
+\input{numbers}
+
+\chapter{Simplexes}
+\section{mathematics}
+\subsection{Orientation}
+\section{computation}
+\section{examples}
+
+\chapter{Linear (vector) spaces and functions}
+\section{mathematics}
+\cite{Halmos1960Finite}
+\section{computation}
+\section{examples}
+
+\chapter{Affine (flat) spaces and functions}
+\section{mathematics}
+\section{computation}
+\section{examples}
+
+\chapter{Projective spaces and functions}
+\section{mathematics}
+\section{computation}
+\section{examples}
+
+\chapter{Barycentric (convex) spaces and functions}
+\section{mathematics}
+\section{computation}
+\section{examples}
+
+\chapter{Spherical spaces and functions}
+\section{mathematics}
+\section{computation}
+\section{examples}
+
+
+%\chapter{Notation and general results}
+%\input{general}
+
+%\part{Smoothness}
+%\cleardoublepage
+
+%\chapter{Polylines}
+%\input{curves}
+%\cleardoublepage
+
+%\chapter{Triangular Meshes}
+%\input{faces}
+%\input{edges}
+%\input{vertices}
+%\cleardoublepage
+
+%\chapter{Subdivision Surfaces}
+%\input{subdivision}
+
+%\part{Fitting}
+%\cleardoublepage
+
+%\chapter{Data Fitting}
+%\input{data-fitting}
+%\cleardoublepage
+
+%\chapter{Image Fitting}
+%\input{image-fitting}
+%\cleardoublepage
+
+%\chapter{Registration}
+%\input{registration}
+%\cleardoublepage
+
+%\chapter{Averaging}
+%\input{averaging}
+
+\glsaddallunused
+%-------------------------------------------------------------------------------
+\appendix
+\part{Appendices}
+\input{typesetting}
+\input{annoyances}
+%-------------------------------------------------------------------------------
+\backmatter
+
+
+\part{Backmatter}
+\input{tail}
+%-------------------------------------------------------------------------------
+\end{document}

@@ -1,0 +1,132 @@
+\label{sec:Averaging}
+
+A {\it mesh catalog} is a set $\{ \M_0 \ldots \M_{n-1} \}$
+of $n$ meshes which are all embeddings
+of the same simplicial complex
+(that is, they have the same vertices, edges, and faces,
+but the vertex positions may be different).
+
+\subsection{Linear weights}
+\label{sec:Linear-weights}
+
+We can compute a {\it weighted average mesh} by averaging the vertex positions:
+\begin{equation}
+\p_i(\w) = \sum_{j=0}^{n-1} w_j \p_{ij}
+\end{equation}
+where $\p_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of the average mesh,
+and $\p_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
+
+In {\it catalog fitting} we fit a registered weighted average mesh,
+to a set of data, $\{ \d_k \in \Re^3; k=0 \ldots p-1 \}$
+by minimizing
+\begin{equation}
+f(\M(\Tr,\w)) = \sum_{k=0}^{p-1} \| \d_k - \Pr_{\M(\Tr,\w)} (\d_k) \|^2 ,
+\end{equation}
+over a family of registration transforms $\{\Tr\}$
+and vectors of weights $\w \in \Re^n$.
+The vertex positions $\p(\Tr,\w) = (\p_0(\Tr,\w), \ldots , \p_{n-1}(\Tr,\w))$
+of the registered average mesh, $\M(\Tr,\w)$, are given by:
+\begin{equation}
+\p_i(\Tr,\w) = \Tr ( \sum_{j=0}^{n-1} w_j \p_{ij} )
+\end{equation}
+
+The partial derivative with respect to $\Tr$
+is:
+\begin{eqnarray}
+\De{\Tr}{f(\M(\Tr,\w))}{\Tr^0,\w^0}
+& = &
+\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\circ
+\De{\Tr}{\p(\Tr,\w)}{\Tr^0,\w^0}
+\\
+& = &
+\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\circ
+\De{\Tr}{\Tr\p(\w^0)}{\Tr^0}
+\nonumber
+\end{eqnarray}
+
+$\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}$ is the derivative of $f$ with respect to
+the vertex positions of of the registered average mesh.
+It's value for data fitting distance functions
+is given in section \ref{sec:data-fitting}.
+
+$\Df{\Tr}{\Tr\p}$ is given in section \ref{sec:Transforms}
+for various families of transforms $\{\Tr\}$: affine, euclidean, and rigid.
+
+Using the chain rule, the partial derivative with respect to $\w$ is:
+\begin{eqnarray}
+\De{\w}{f(\M(\Tr,\w))}{\Tr^0,\w^0}
+& = &
+\De{\w}{f(\Tr(\M(\w)))}{\Tr^0,\w^0}
+\\
+& = &
+\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\circ
+\De{\Tr}{\Tr\p(\w^0)}{\Tr^0}
+\circ
+\De{\w}{\p(\w)}{\w^0}
+\nonumber
+\end{eqnarray}
+
+$\Df{\p}{f}$ and $\Df{\Tr}{\Tr\p}$ are already known
+so we need only determine $\Df{\w}{\p(\w)}$.
+Using reasoning similar
+to equation \ref{eq:total-registration-transform-derivative},
+we have $\p(\w) = \bigoplus_{j=0}^{m-1} \p_i(\w)$,
+and
+$\Df{\w}{\p(\w)}
+=
+\Df{\w}{\bigoplus_{j=0}^{m-1} \p_i(\w)}
+=
+\bigoplus_{j=0}^{m-1} \Df{\w}{\p_i(\w)}$,
+so we can restrict ourselves to
+$\Df{\w}{\p(\w)}$, where $\p(\w) = \sum_{i=0}^{n-1} w_i \p_i$,
+and $\p, \p_i \in \Re^3$.
+
+Note that $\p(\w)$ is a linear transform from $\Re^n \mapsto \Re^3$,
+which can be expressed as $\P = \sum_{i=0}^{n-1} \p_i \otimes \e_i$,
+where $\e_i$ are the canonical basis vectors of $\Re^n$.
+($\P$ can be written as a matrix whose $i$th column is the vector $\p_i$.)
+Thus it follows that
+\begin{equation}
+\Df{\w}{\p(\w)} = \Df{\w}{\P\w} = \P
+\end{equation}
+
+\subsection{Convex weights}
+\label{sec:Convex-weights}
+
+It may be desireable to restrict the weights to be convex,
+that is, $0 \leq w_i \leq 1; \sum w_i = 1$.
+To use unconstrained optimization methods with convex weights,
+we re-parameterize:
+\begin{equation}
+u_i(\w) = {{w_i^2} \over {\| \w \|^2}}
+\end{equation}
+where, as usual, $\| \w \|^2 = \sum_{j=0}^{n-1} w_j^2$.
+
+Then we need to compute
+\begin{eqnarray}
+\De{\w}{\p(\u(\w))}{\w^0}
+& = &
+\De{\u}{\p(\u)}{\u(\w^0)}
+\circ
+\De{\w}{\u(\w)}{\w^0}
+\\
+& = &
+\P
+\circ
+\De{\w}{\u(\w)}{\w^0}
+\nonumber
+\end{eqnarray}
+
+The partial derivatives are
+\begin{eqnarray}
+\Df{w_j}{u_i(\w))}
+& = &
+\Df{w_j}{{w_i^2} \over {\| \w \|^2}}
+\\
+& = &
+{{2 w_j} \over {\| \w \|^4}} \left( \delta_{ij} \| \w \|^2 - w_i^2 \right)
+\nonumber
+\end{eqnarray}

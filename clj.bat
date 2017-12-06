@@ -1,0 +1,28 @@
+@echo off
+:: mcdonald.john.alan@gmail.com
+:: 2017-05-31
+
+::set GC=-XX:+AggressiveHeap -XX:+UseStringDeduplication 
+set GC=
+
+set COMPRESSED=
+::set COMPRESSED=-XX:CompressedClassSpaceSize=3g 
+
+set TRACE=
+::set TRACE=-XX:+PrintGCDetails -XX:+TraceClassUnloading -XX:+TraceClassLoading
+
+::set PROF=
+set PROF=-Xrunhprof:cpu=samples,depth=96,thread=y,doe=y
+
+::set THRUPUT=-d64 -server -XX:+AggressiveOpts 
+set THRUPUT=-d64 -server
+::set THRUPUT=
+
+set XMX=-Xms29g -Xmx29g -Xmn11g 
+
+set CP=-cp ./src/scripts/clojure;lib/*
+set JAVA="%JAVA_HOME%\bin\java"
+
+set CMD=%JAVA% %THRUPUT% -ea %GC% %PROF% %XMX% %COMPRESSED% %TRACE% %CP% clojure.main %*
+::echo %CMD%
+%CMD%

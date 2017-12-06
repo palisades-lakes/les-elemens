@@ -1,0 +1,84 @@
+% LaTeX Article Template - customizing page format
+%
+% LaTeX document uses 10-point fonts by default.  To use
+% 11-point or 12-point fonts, use \documentclass[11pt]{article}
+% or \documentclass[12pt]{article}.
+
+\documentclass[10pt,fleqn]{report}
+
+% Set left margin - The default is 1 inch, so the following
+% command sets a 1.25-inch left margin.
+\setlength{\oddsidemargin}{-0.0in}
+
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{6.5in}
+
+% Set top margin - The default is 1 inch, so the following
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{-0.5in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{9.0in}
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\input{symbols}
+
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\title{Functions of Triangular Meshes}
+\author{ \sc John Alan McDonald }
+
+\date{\today}
+
+\maketitle
+
+\input{abstract}
+
+\tableofcontents
+
+%\listoffigures
+
+\section{Introduction}
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\input{introduction}
+
+\section{Notation and general results}
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\input{general}
+
+\section{Data Fitting}
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\input{data-fitting}
+
+\section{Registration}
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\input{registration}
+
+\section{Averaging}
+\pagestyle{myheadings}
+\markboth{Draft of \today}{Draft of \today}
+
+\input{averaging}
+
+
+\newpage
+{\small
+\bibliographystyle{plain}
+\bibliography{mesh}
+}
+
+\end{document}

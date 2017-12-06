@@ -1,0 +1,255 @@
+% jam 2004-03-01
+%%%---------------------------------------
+%%% Random latex macros
+%%%---------------------------------------
+
+\newcommand {\ignorethis}[1]{}
+
+\def\Splot(#1,#2)#3{
+\setlength{\unitlength}{1in}
+\centering\begin{picture}(#1,#2)
+\put(0,0){\special{#3}}
+\end{picture}}
+
+\def\frameSplot(#1,#2)#3{
+\setlength{\unitlength}{1in}
+\centering\begin{picture}(#1,#2)
+\put(0,0){\framebox(#1,#2)[bl]{\special{#3}}}
+\end{picture}}
+
+\newcommand {\myskip} {\hspace{.15em}}
+\newcommand {\fb}[1] {\hbox{\small\bf #1}\myskip}
+\newcommand {\xon} {\mbox{$x_1,\ldots,x_n$}}
+\newcommand {\Xon} {\mbox{$X_1,\ldots,X_n$}}
+\newcommand {\yon} {\mbox{$y_1,\ldots,y_n$}}
+\newcommand {\mif} {\mbox{if}}
+\newcommand {\ev} {\fb {E}}
+\newcommand {\trace} {\fb {tr }}
+%\newcommand {\p} {\fb {p}}
+\newcommand {\var} {\fb {var}}
+\newcommand {\bias} {\fb {bias}}
+\newcommand {\cor} {\fb {cor}}
+\newcommand {\cov} {\fb {cov}}
+\newcommand {\ave} {\fb {ave}}
+\newcommand {\are} {\fb {are}}
+\newcommand {\avar} {\fb {avar}}
+\newcommand {\smooth} {\fb {S}}
+\newcommand {\ese} {\fb {ese}}
+\newcommand {\esep} {\hbox{$\hbox{\small\bf ese}_p$}}
+\newcommand {\esee} {\hbox{$\hbox{\small\bf ese}_e$}}
+\newcommand {\mean} {\fb {mean}}
+\newcommand {\med} {\fb {med}}
+\newcommand {\ql} {\fb {q1}}
+\newcommand {\qu} {\fb {q3}}
+\newcommand {\sd} {\fb {sd}}
+\newcommand {\trm} {\fb {trm}}
+\newcommand {\hls} {\fb {hls}}
+\newcommand {\md} {\fb {md}}
+\newcommand {\mad} {\fb {mad}}
+\newcommand {\rss} {\fb {rss}}
+\newcommand {\cv} {\fb {cv}}
+\newcommand {\sk} {\fb {sk}}
+\newcommand {\ku} {\fb {ku}}
+\newcommand {\N} {\fb {N}}
+\newcommand {\eps} {\epsilon}
+\newcommand {\iqr} {\fb {iqr}}
+\newcommand {\dis} {\fb {d}}
+\newcommand {\1} {\fb {1}}
+\renewcommand {\d}[1] {\myskip\hbox{d}#1}
+\newcommand {\given} {\; | \myskip}
+\renewcommand {\vec}[1] {\hbox{\bf #1}}
+\newcommand {\parn} {\par\medskip\noindent}
+\newcommand {\norm}[1] {\left\| #1 \right\| }
+\newcommand {\abs}[1] {\left | #1\right |}
+\newcommand {\be} {\begin {equation}}
+\newcommand {\ee} {\end {equation}}
+\newcommand {\bea} {\begin{eqnarray}}
+\newcommand {\eea} {\end{eqnarray}}
+\newcommand {\beau} {\begin{eqnarray*}}
+%\newcommand {\bea*} {\begin{eqnarray*}}
+\newcommand {\eeau} {\end{eqnarray*}}
+%\newcommand {\eea*} {\end{eqnarray*}}
+\renewcommand {\choose}[2] {\left (
+                            \begin{array}{c} #1\\#2 \end{array}
+                          \right )}
+\newcommand {\w} {\vec{w}}
+\renewcommand {\v} {\vec{v}}
+\newcommand {\W} {\vec{W}}
+\newcommand {\x} {\vec{x}}
+\newcommand {\y} {\vec{y}}
+\newcommand {\z} {\vec{z}}
+\newcommand {\X} {\vec{X}}
+\newcommand {\Y} {\vec{Y}}
+\newcommand {\Z} {\vec{Z}}
+\newcommand {\R} {\fb{R}}
+\newcommand {\grad} {\fb{grad }}
+\newcommand {\IC} {\fb{IC }}
+% \newcommand {\x1n} {x_1\ldots x_n}
+
+\newcommand {\fig}[1] {\rule[1mm]{\textwidth}{0.5mm}
+            \centerline{Figure \ref{#1} about here}\\
+            \rule{\textwidth}{0.5mm}}
+
+\newcommand {\tab}[1] {\rule[1mm]{\textwidth}{0.5mm}
+            \centerline{Table \ref{#1} about here}\\
+            \rule{\textwidth}{0.5mm}}
+
+\parindent=0.0in
+\parskip=0.17cm
+
+%%%---------------------------------------
+%%% Symbol definitions
+%%%---------------------------------------
+
+\def\starnb#1{\mbox{star}(#1)}  % \starnb{s;K}
+\def\starbar#1{\overline{\mbox{star}}(#1)}
+        % \starbar{s;K}
+\def\link#1{\mbox{link}(#1)}  % \link{s;K}
+\def\abs#1{\left| #1\right|}  % topological embedding, $\abs{K}$
+\def\simplex#1{\{#1\}}    % $\simplex{i,j}$, $\simplex{i}$
+\def\argmin{\mathop{\rm argmin}}
+% \def\scop#1{\stackrel{\rm #1}{\Rightarrow}}
+%         % s.c. operation $K \scop{} K'$
+% \def\sk{{\cal K}}   % space of s.c.'s homeomorphic to K $\sk$
+
+
+% \def\Re{{\rm I\kern-.17em R}} % set of Reals, $\Re^3$
+\def\Re{{\bf R}}    % set of Reals, $\Re^3$
+\def\x{{\bf x}}     % instance of point $\x$, $\x_i \in X$
+\def\p{{\bf p}}     % generic point $p$
+\def\v{{\bf v}}     % vertex $\v_i \in V$ or vect of vert $\v$
+\def\b{{\bf b}}     % barycentric coord. $\b_i$, $\b_{i,j}$
+\def\d{{\bf d}}     % right-hand vector in least squares, $\d$
+\def\e{{\bf e}}     % standard basis vectors
+\def\Etot{{E}}      % total energy $\Etot = \Edis+\Erep+\Espr$
+\def\Edis{{E_{dist}}}
+\def\Erep{{E_{rep}}}
+\def\Espr{{E_{spring}}}
+\def\tension{\kappa}    % spring constant, $\tension$
+\def\crep{c_{rep}}    % constant in front of m for \Erep
+\def\tr{{\scriptscriptstyle T}} % transpose $A^\tr$
+\def\starnb#1{\mbox{star}(#1)}  % \starnb{s;K}
+\def\starbar#1{\overline{\mbox{star}}(#1)}
+        % \starbar{s;K}
+\def\link#1{\mbox{link}(#1)}  % \link{s;K}
+\def\abs#1{\left| #1\right|}  % topological embedding, $\abs{K}$
+\def\simplex#1{\{#1\}}    % $\simplex{i,j}$, $\simplex{i}$
+\def\argmin{\mathop{\rm argmin}}
+\def\scop#1{\stackrel{\rm #1}{\Rightarrow}}
+        % s.c. operation $K \scop{} K'$
+\def\sk{{\cal K}}   % space of s.c.'s homeomorphic to K $\sk$
+\def\Exp#1#2{\mbox{$#1\!\times\!\! 10^{#2}$}} % \Exp{1.23}{-5}
+
+% \def\vz{\vec{\bf 0}}    % zero vector $\vz$
+% \def\proj#1#2{\pi_{#1}(#2)} % projection onto #1 of #2 $\proj{M}{\x_i}$
+% \def\dist#1#2{d(#1,#2)} % Hausdorff distance between 2 sets $d(X,Y)$
+% \newtheorem{Def}{Def}[section]
+% \newtheorem{Prop}{Prop}[section]
+
+\def\hh{\it}      % Hugues' modifications {\hh modification}
+\def\proc#1{{\protect \small \sf #1}} % procedures (used to be \sl)
+
+  \newcommand{\Ffirstminusone}{6}
+  \newcommand{\Fnum}{7}
+  \newcommand{\Frealreconstructions       }{\Fnum i--\Fnum k,\Fnum m--\Fnum o}
+  \newcommand{\Fmechpartorig              }{\Fnum a}
+  \newcommand{\Fmechpartpts               }{\Fnum b}
+  \newcommand{\Fmechparts                 }{\Fnum c}
+  \newcommand{\Fmechpartsprzero           }{\Fnum d}
+  \newcommand{\Fmechpartgfit              }{\Fnum e}
+  \newcommand{\Fmechparttensiona          }{\Fnum f}
+  \newcommand{\Fmechparttensionb          }{\Fnum g}
+  \newcommand{\Fmechpartallstoc           }{\Fnum h}
+  \newcommand{\Fmechpartallstocsegmented  }{\Fnum i}
+  \newcommand{\Fmechpartallstocsmooth     }{\Fnum m}
+  \newcommand{\Fdistcappts                }{\Fnum j}
+  \newcommand{\Fdistcaps                  }{\Fnum k}
+  \newcommand{\Fdistcapallstoc            }{\Fnum l}
+  \newcommand{\Fclubpts                   }{\Fnum n}
+  \newcommand{\Fclubs                     }{\Fnum o}
+  \newcommand{\Fcluballstoc               }{\Fnum p}
+  \newcommand{\Fhypersheetorig            }{\Fnum q}
+  \newcommand{\Fhypersheetpts             }{\Fnum r}
+  \newcommand{\Fhypersheetallstocscrep    }{\Fnum s}
+  \newcommand{\Fhypersheetallstocbcrep    }{\Fnum t}
+
+%%%---------------------------------------
+%%% HHH stuff for figures, from figsym.tex
+%%%---------------------------------------
+
+%\input psfig.tex \pssilent % for postscript figures
+
+% inspired from \boxit from tex/tugproc.sty
+\def\hhbox#1{\vbox{%
+  \hrule\hbox{\vrule\hspace{.2mm}#1\hspace{-1.05mm}\vrule}\hrule}}
+
+\newlength{\twofigdim}
+\setlength{\twofigdim}{2.3in}
+% Put 2 figures side by side (files #1 and #3) with captions #2 and #4.
+% Each figure has width and height \twofigdim
+\def\twofigs#1#2#3#4{
+  \centerline{
+    \begin{tabular}{ll}
+      \hhbox{\psfig{figure=#1,height=\twofigdim}} &
+      \hhbox{\psfig{figure=#3,height=\twofigdim}} \\
+      {\small #2} & {\small #4}
+    \end{tabular}
+  }
+}
+\def\topofpage{\vspace*{0.0in}}
+
+\newlength{\threefd} \setlength{\threefd}{2.1in}
+% Put 3 figures side by side (files #1,#3,#5) with captions #2,#4,#6
+% Each figure has width and height \threefd
+\def\threefigs#1#2#3#4#5#6{
+  \centerline{
+    \setlength{\tabcolsep}{3pt} % default 6pt in article.sty
+    \begin{tabular}{lll}
+      \hhbox{\psfig{figure=#1,height=\threefd}} &
+      \hhbox{\psfig{figure=#3,height=\threefd}} &
+      \hhbox{\psfig{figure=#5,height=\threefd}}\\[-.2em]
+      {\small #2} & {\small #4} & {\small #6}
+    \end{tabular}
+  }
+}
+
+\newlength{\fourfd} \setlength{\fourfd}{1.7in}
+\def\fourfigs#1#2#3#4#5#6#7#8{
+    \setlength{\tabcolsep}{.5pt}
+    \begin{tabular}{llll}
+      \hhbox{\psfig{figure=#1,height=\fourfd}} &
+      \hhbox{\psfig{figure=#3,height=\fourfd}} &
+      \hhbox{\psfig{figure=#5,height=\fourfd}} &
+      \hhbox{\psfig{figure=#7,height=\fourfd}}\\[-.4em]
+      {\small #2} & {\small #4} & {\small #6} & {\small #8}
+    \end{tabular}\\[-.1em]
+}
+\def\fourfigsnocap#1#2#3#4{
+    \setlength{\tabcolsep}{.5pt}
+    \begin{tabular}{llll}
+      \hhbox{\psfig{figure=#1,height=\fourfd}} &
+      \hhbox{\psfig{figure=#2,height=\fourfd}} &
+      \hhbox{\psfig{figure=#3,height=\fourfd}} &
+      \hhbox{\psfig{figure=#4,height=\fourfd}}
+    \end{tabular}\\[-.4em]
+}
+
+\newlength{\fivefigd}
+\setlength{\fivefigd}{1.2in}
+
+
+\def\fivefigs#1#2#3#4#5{
+  \centerline{
+    \setlength{\tabcolsep}{2pt} % default 6pt in article.sty
+    \begin{tabular}{lllll}
+      \hhbox{\psfig{figure=#1,height=\fivefigd}} &
+      \hhbox{\psfig{figure=#2,height=\fivefigd}} &
+      \hhbox{\psfig{figure=#3,height=\fivefigd}} &
+      \hhbox{\psfig{figure=#4,height=\fivefigd}} &
+      \hhbox{\psfig{figure=#5,height=\fivefigd}}
+    \end{tabular}
+  }
+}
+
+
+\def\hcaption#1{\begin{quote}#1\end{quote}}
