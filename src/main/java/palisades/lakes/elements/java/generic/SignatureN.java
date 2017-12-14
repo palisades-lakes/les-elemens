@@ -1,14 +1,15 @@
 package palisades.lakes.elements.java.generic;
 
+import java.util.Objects;
+
 import palisades.lakes.elements.java.generic.Signature;
 import palisades.lakes.elements.java.generic.SignatureN;
 
 /** A pair of classes, for optimizing multimethod dispatch 
  * functions.
  *
- * @author mcdonald dot john dot alan at gmail dot com
- * @since 2017-06-05
- * @version 2017-06-05
+ * @author palisades dot lakes at gmail dot com
+ * @version 2017-12-13
  */
 
 @SuppressWarnings("unchecked")
@@ -21,7 +22,7 @@ public final class SignatureN implements Signature {
   public final boolean isAssignableFrom (final SignatureN that) {
     final Class[] those = that.classes;
     for (int i=0;i<classes.length;i++) {
-      if (! classes[i].isAssignableFrom(those[i])) {
+      if (! Classes.isAssignableFrom(classes[i],those[i])) {
         return false; } }
     return true; }
   
@@ -51,7 +52,7 @@ public final class SignatureN implements Signature {
   @Override
   public final boolean isAssignableFrom (final Class... ks) {
     for (int i=0;i<classes.length;i++) {
-      if (! classes[i].isAssignableFrom(ks[i])) {
+      if (! Classes.isAssignableFrom(classes[i],ks[i])) {
         return false; } }
     return true; }
 
@@ -71,7 +72,7 @@ public final class SignatureN implements Signature {
   @Override
   public final boolean equiv (final Class... ks) {
     for (int i=0;i<classes.length;i++) {
-      if (! classes[i].equals(ks[i])) { return false; } }
+      if (! Objects.equals(classes[i],ks[i])) { return false; } }
     return true; }
   
   //--------------------------------------------------------------
@@ -82,7 +83,7 @@ public final class SignatureN implements Signature {
   public final int hashCode () {
     int result = 17;
     for (final Class c : classes) {
-      result = 37*result + c.hashCode(); }
+      result = 37*result + Objects.hashCode(c); }
     return result; }
 
   @Override
@@ -99,7 +100,7 @@ public final class SignatureN implements Signature {
     builder.append(getClass().getSimpleName());
     builder.append(". "); 
     for (final Class c : classes) {
-      builder.append(c.getName());
+      builder.append(Classes.getName(c));
       builder.append(" "); } 
     builder.append(")"); 
     return builder.toString(); }

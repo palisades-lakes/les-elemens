@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.sets.dynamic2
   
   {:doc "defmultis for sets."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-06-05"
    :version "2017-06-05"}
   

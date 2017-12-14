@@ -5,7 +5,7 @@ package palisades.lakes.elements.java.sets;
  * All methods are optional. Throwing an exception is not the same
  * as returning false.
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-22
  * @version 2017-05-22
  */

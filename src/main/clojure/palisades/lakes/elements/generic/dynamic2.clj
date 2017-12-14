@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.generic.dynamic2
   
   {:doc "Fork of defmulti/defmethod for performance experiments."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-06-02"
    :version "2017-06-06"}
   (:refer-clojure :exclude [defmethod defmulti get-method methods 

@@ -20,7 +20,7 @@ import palisades.lakes.elements.java.numbers.sum.Naive;
  *      href="https://en.wikipedia.org/wiki/Pairwise_summation">
  *      Wikipedia:Pairwise_summation</a>
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-04-11
  * @version 2017-05-03
  */

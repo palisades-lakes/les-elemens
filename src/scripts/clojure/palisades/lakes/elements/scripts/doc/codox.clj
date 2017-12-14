@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.scripts.doc.codox
   
   {:doc "Generate codox docs manually (not using leiningen)."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-05-24"
    :version "2017-05-24"}
   

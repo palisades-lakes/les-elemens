@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.numbers.prng
   
   {:doc "pseudo-random number generators."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-04-05"
    :version "2017-05-29"}
   

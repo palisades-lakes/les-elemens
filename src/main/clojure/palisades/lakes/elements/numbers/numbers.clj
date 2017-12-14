@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.numbers.numbers
   
   {:doc "Utilities for numbers."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-04-07"
    :version "2017-04-12"}
   

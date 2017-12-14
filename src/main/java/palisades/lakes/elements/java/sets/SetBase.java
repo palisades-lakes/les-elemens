@@ -3,7 +3,7 @@ package palisades.lakes.elements.java.sets;
 import palisades.lakes.elements.java.sets.Set;
 
 /**
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-22
  * @version 2017-06-02
  */

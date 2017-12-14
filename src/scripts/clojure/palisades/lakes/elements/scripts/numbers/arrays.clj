@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.scripts.numbers.arrays
   
   {:doc "Memory consumption measurement."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-03-31"
    :version "2017-04-20"}
   

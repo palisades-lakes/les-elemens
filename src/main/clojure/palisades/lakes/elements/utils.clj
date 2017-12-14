@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.utils
   
   {:doc "General utilities, probably eventually somewhere more specific."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-04-21"
    :version "2017-05-26"}
   

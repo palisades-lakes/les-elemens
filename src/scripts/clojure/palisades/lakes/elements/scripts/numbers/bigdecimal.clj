@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.scripts.numbers.bigdecimal
   
   {:doc "Test limits of Big Decimal."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-05-18"
    :version "2017-05-24"}
   

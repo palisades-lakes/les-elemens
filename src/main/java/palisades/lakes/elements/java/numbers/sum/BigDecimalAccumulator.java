@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  *  Note: BigDecimal.doubleValue() may not round correctly, to
  *  nearest, so this may not be exact!
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-12
  * @version 2017-05-18
  */

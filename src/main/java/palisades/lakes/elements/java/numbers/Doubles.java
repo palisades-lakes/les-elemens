@@ -11,7 +11,7 @@ import org.apache.commons.rng.UniformRandomProvider;
  * <a href="http://www.ma.man.ac.uk/~higham/asna/" >
  * Higham, "Accuracy and stability of numerical algorithms".</a>
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-03
  * @version 2017-05-13
  */

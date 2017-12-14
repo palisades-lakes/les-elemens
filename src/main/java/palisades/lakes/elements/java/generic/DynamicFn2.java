@@ -1,6 +1,7 @@
 package palisades.lakes.elements.java.generic;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.google.common.collect.ImmutableMap;
@@ -15,9 +16,8 @@ import palisades.lakes.elements.java.generic.Signature2;
 /**
  * A dynamic function of 2 arguments.
  *
- * @author mcdonald dot john dot alan at gmail dot com
- * @since 2017-06-02
- * @version 2017-06-06
+ * @author palisades dot lakes at gmail dot com
+ * @version 2017-12-13
  */
 
 @SuppressWarnings("unchecked")
@@ -228,17 +228,17 @@ public final class DynamicFn2 extends AFn {
   @Override
   synchronized public final Object invoke (final Object x0, 
                                            final Object x1) {
-    final Class c0 = x0.getClass();
-    final Class c1 = x1.getClass();
-    if (c0.equals(class0) && c1.equals(class1)) {
+    final Class c0 = Classes.classOf(x0);
+    final Class c1 = Classes.classOf(x1);
+    if (Objects.equals(c0,class0) && Objects.equals(c1,class1)) {
       return lastFn.invoke(x0,x1); }
 
     final IFn f = getMethod(c0,c1);
     if (null == f) {
       throw new UnsupportedOperationException(
         "no method for (" + name + " " 
-          + c0.getName() + " "
-          + c1.getName() + ")"); }
+          + Classes.getName(c0) + " "
+          + Classes.getName(c1) + ")"); }
     class0 = c0;
     class1 = c1;
     lastFn = f;

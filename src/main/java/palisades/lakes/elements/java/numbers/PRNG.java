@@ -13,7 +13,7 @@ import palisades.lakes.elements.java.numbers.Doubles;
  *
  * @see <a href="https://github.com/aseldawy/sumn">sumn, Ahmed Eldawy</a>
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-04-27
  * @version 2017-05-18
  */

@@ -1,6 +1,6 @@
 # mathcomputing
 # sum.R
-# mcdonald dot john dot alan at gmail dot com
+# palisades dot lakes at gmail dot com
 # since 2017-03-30
 # version 2017-04-14
 #-----------------------------------------------------------------

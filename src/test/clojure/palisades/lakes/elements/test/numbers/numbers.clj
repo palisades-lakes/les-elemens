@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.test.numbers.numbers
   
   {:doc "Unit tests for palisades.lakes.elements.numbers.numbers"
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-04-11"
    :version "2017-04-20"}
   

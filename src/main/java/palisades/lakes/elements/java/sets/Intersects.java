@@ -8,7 +8,7 @@ import palisades.lakes.elements.java.numbers.IntegerInterval;
 
 /** Implementations of a generic intersection test.
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-29
  * @version 2017-06-06
  */

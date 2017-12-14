@@ -20,6 +20,7 @@ package palisades.lakes.elements.java.generic;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import clojure.lang.AFn;
@@ -39,9 +40,8 @@ import palisades.lakes.elements.java.generic.Signature2;
 /**
  * Fork of clojure.lang.MultiFn, for performance experiments.
  *
- * @author mcdonald dot john dot alan at gmail dot com
- * @since 2017-06-02
- * @version 2017-06-06
+ * @author palisades dot lakes at gmail dot com
+ * @version 2017-12-13
  */
 
 @SuppressWarnings("unchecked")
@@ -220,7 +220,7 @@ public final class MultiFn extends AFn {
 
   
   synchronized private final IFn getFn (final Object signature) {
-    if (signature.equals(lastSignature)) { return lastFn; }
+    if (Objects.equals(signature,lastSignature)) { return lastFn; }
     final IFn targetFn = getMethod(signature);
     lastSignature = signature;
     lastFn = targetFn;

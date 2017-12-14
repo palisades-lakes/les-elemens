@@ -6,13 +6,14 @@ import java.lang.invoke.MethodType;
 import java.lang.invoke.MutableCallSite;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import palisades.lakes.elements.java.sets.Intersects;
 import palisades.lakes.elements.java.sets.IntersectsCallSite;
 
 /** Implementations of a generic intersection test.
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-31
  * @version 2017-06-01
  */
@@ -76,7 +77,7 @@ public final class IntersectsCallSite extends Object {
     throws NoSuchMethodException, IllegalAccessException {
     final Class c0 = s0.getClass();
     final Class c1 = s1.getClass();
-    if (! ((c0.equals(class0) && c1.equals(class1)))) {
+    if (! (Objects.equals(c0,class0) && Objects.equals(c1,class1))) {
       class0 = c0;
       class1 = c1;
       callSite.setTarget(getHandle(c0,c1)); }  }

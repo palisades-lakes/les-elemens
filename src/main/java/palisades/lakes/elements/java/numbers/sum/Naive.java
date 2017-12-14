@@ -15,7 +15,7 @@ import palisades.lakes.elements.java.numbers.sum.Add;
 /** Default (left-to-right) accumulation of sums.
  * Not a good choice for floating point numbers.
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-04-11
  * @version 2017-05-03
  */

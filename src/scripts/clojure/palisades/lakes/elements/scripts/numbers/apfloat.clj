@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.scripts.numbers.apfloat
   
   {:doc "Apfloat experiments."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-05-24"
    :version "2017-05-24"}
   

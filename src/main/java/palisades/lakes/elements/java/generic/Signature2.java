@@ -1,14 +1,15 @@
 package palisades.lakes.elements.java.generic;
 
+import java.util.Objects;
+
 import palisades.lakes.elements.java.generic.Signature;
 import palisades.lakes.elements.java.generic.Signature2;
 
 /** A pair of classes, for optimizing multimethod dispatch 
  * functions.
  *
- * @author mcdonald dot john dot alan at gmail dot com
- * @since 2017-06-02
- * @version 2017-06-06
+ * @author palisades dot lakes at gmail dot com
+ * @version 2017-12-13
  */
 
 @SuppressWarnings("unchecked")
@@ -18,15 +19,15 @@ public final class Signature2 implements Signature {
   public final Class c1;
 
   //--------------------------------------------------------------
-  
+
   public final boolean isAssignableFrom (final Signature2 that) {
     return
-    c0.isAssignableFrom(that.c0)
-    &&
-    c1.isAssignableFrom(that.c1); }
-  
+      Classes.isAssignableFrom(c0,that.c0)
+      &&
+      Classes.isAssignableFrom(c1,that.c1); }
+
   //--------------------------------------------------------------
-  
+
   @Override
   public final boolean isAssignableFrom (final Signature that) {
     if (that instanceof Signature2) {
@@ -40,7 +41,8 @@ public final class Signature2 implements Signature {
   @Override
   public final boolean isAssignableFrom (final Class k0, 
                                          final Class k1) {
-    return c0.isAssignableFrom(k0) && c1.isAssignableFrom(k1); }
+    return Classes.isAssignableFrom(c0,k0) && 
+      Classes.isAssignableFrom(c1,k1); }
 
   @Override
   public final boolean isAssignableFrom (final Class k0, 
@@ -56,42 +58,43 @@ public final class Signature2 implements Signature {
 
   @Override
   public final boolean equiv (final Class k0,
-                               final Class k1) {
-    return c0.equals(k0) && c1.equals(k1); }
-  
+                              final Class k1) {
+    return Objects.equals(c0,k0) && Objects.equals(c1,k1); }
+
   @Override
   public final boolean equiv (final Class k0, 
-                               final Class k1, 
-                               final Class k2) {
+                              final Class k1, 
+                              final Class k2) {
     return false; }
-  
+
   @Override
   public final boolean equiv (final Class... ks) {
     return false; }
-  
+
   //--------------------------------------------------------------
   // Object interface
   //--------------------------------------------------------------
 
   @Override
   public final int hashCode () {
-    return  37*((37*17) + c0.hashCode()) + c1.hashCode(); }
+    return  37*((37*17) + Objects.hashCode(c0)) 
+      + Objects.hashCode(c1); }
 
   @Override
   public final boolean equals (final Object that) {
     if (this == that) { return true; }
     if (that instanceof Signature2) {
       return 
-        c0.equals(((Signature2) that).c0) 
+        Objects.equals(c0,((Signature2) that).c0) 
         &&
-        c1.equals(((Signature2) that).c1); }
+        Objects.equals(c1,((Signature2) that).c1); }
     return false; }
-  
+
   @Override
   public final String toString () {
     return "(" + getClass().getSimpleName() + ". " 
-      + c0.getName() + " " + c1.getName() + ")"; }
-  
+      + Classes.getName(c0) + " " + Classes.getName(c1) + ")"; }
+
   //--------------------------------------------------------------
 
   private Signature2 (final Class k0, final Class k1) {
@@ -102,7 +105,7 @@ public final class Signature2 implements Signature {
 
 
   // TODO: memoize singleton instances?
-  
+
   //--------------------------------------------------------------
 }
 //--------------------------------------------------------------

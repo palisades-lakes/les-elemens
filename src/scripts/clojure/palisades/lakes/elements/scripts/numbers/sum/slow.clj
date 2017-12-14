@@ -5,7 +5,7 @@
   
   "Benchmarks for slow methods for sums of double[]."
   
-  {:author "mcdonald dot john dot alan at gmail dot com"
+  {:author "palisades dot lakes at gmail dot com"
    :since "2017-04-06"
    :version "2017-05-29"}
   

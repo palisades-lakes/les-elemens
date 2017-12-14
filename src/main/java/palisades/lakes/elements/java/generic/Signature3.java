@@ -1,14 +1,15 @@
 package palisades.lakes.elements.java.generic;
 
+import java.util.Objects;
+
 import palisades.lakes.elements.java.generic.Signature;
 import palisades.lakes.elements.java.generic.Signature3;
 
 /** A pair of classes, for optimizing multimethod dispatch 
  * functions.
  *
- * @author mcdonald dot john dot alan at gmail dot com
- * @since 2017-06-05
- * @version 2017-06-06
+ * @author palisades dot lakes at gmail dot com
+ * @version 2017-12-13
  */
 
 @SuppressWarnings("unchecked")
@@ -19,17 +20,17 @@ public final class Signature3 implements Signature {
   public final Class c2;
 
   //--------------------------------------------------------------
-  
+
   public final boolean isAssignableFrom (final Signature3 that) {
     return
-      c0.isAssignableFrom(that.c0)
+      Classes.isAssignableFrom(c0,that.c0)
       &&
-      c1.isAssignableFrom(that.c1)
+      Classes.isAssignableFrom(c1,that.c1)
       &&
-      c2.isAssignableFrom(that.c2); }
-  
+      Classes.isAssignableFrom(c2,that.c2); }
+
   //--------------------------------------------------------------
-  
+
   @Override
   public final boolean isAssignableFrom (final Signature that) {
     if (that instanceof Signature3) {
@@ -44,15 +45,15 @@ public final class Signature3 implements Signature {
   public final boolean isAssignableFrom (final Class k0, 
                                          final Class k1) {
     return false; }
-  
+
   @Override
   public final boolean isAssignableFrom (final Class k0, 
                                          final Class k1,
                                          final Class k2) {
     return 
-      c0.isAssignableFrom(k0) && 
-      c1.isAssignableFrom(k1) && 
-      c2.isAssignableFrom(k2); }
+      Classes.isAssignableFrom(c0,k0) && 
+      Classes.isAssignableFrom(c1,k1) && 
+      Classes.isAssignableFrom(c2,k2); }
 
   @Override
   public final boolean isAssignableFrom (final Class... ks) {
@@ -64,20 +65,20 @@ public final class Signature3 implements Signature {
   public final boolean equiv (final Class k0,
                               final Class k1) {
     return false; }
-  
+
   @Override
   public final boolean equiv (final Class k0, 
                               final Class k1, 
                               final Class k2) {
     return 
-      c0.equals(k0) && 
-      c1.equals(k1) && 
-      c2.equals(k2); }
-  
+      Objects.equals(c0,k0) && 
+      Objects.equals(c1,k1) && 
+      Objects.equals(c2,k2); }
+
   @Override
   public final boolean equiv (final Class... ks) { 
     return false; }
-  
+
   //--------------------------------------------------------------
   // Object interface
   //--------------------------------------------------------------
@@ -85,29 +86,29 @@ public final class Signature3 implements Signature {
   @Override
   public final int hashCode () {
     return  
-      37*(37*((37*17) + c0.hashCode()) 
-        + c1.hashCode())
-      + c2.hashCode(); }
+      37*(37*((37*17) + Objects.hashCode(c0)) 
+        + Objects.hashCode(c1))
+      + Objects.hashCode(c2); }
 
   @Override
   public final boolean equals (final Object that) {
     if (this == that) { return true; }
     if (that instanceof Signature3) {
       return 
-        c0.equals(((Signature3) that).c0) 
+        Objects.equals(c0,((Signature3) that).c0) 
         &&
-        c1.equals(((Signature3) that).c1) 
+        Objects.equals(c1,((Signature3) that).c1) 
         &&
-        c2.equals(((Signature3) that).c2); }
+        Objects.equals(c2,((Signature3) that).c2); }
     return false; }
-  
+
   @Override
   public final String toString () {
     return "(" + getClass().getSimpleName() + ". " 
-      + c0.getName() + " " 
-      + c1.getName() + " " 
-      + c2.getName() + ")"; }
-  
+      + Classes.getName(c0) + " " 
+      + Classes.getName(c1) + " " 
+      + Classes.getName(c2) + ")"; }
+
   //--------------------------------------------------------------
 
   private Signature3 (final Class k0, 
@@ -122,7 +123,7 @@ public final class Signature3 implements Signature {
 
 
   // TODO: memoize singleton instances?
-  
+
   //--------------------------------------------------------------
 }
 //--------------------------------------------------------------

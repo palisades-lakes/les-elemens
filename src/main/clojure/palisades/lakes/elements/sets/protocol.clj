@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.sets.protocol
   
   {:doc "protocol for sets."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-05-22"
    :version "2017-05-22"}
   

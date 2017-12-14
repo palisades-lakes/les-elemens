@@ -4,7 +4,7 @@
 (ns palisades.lakes.elements.scripts.uncomplicate.mkl
   
   {:doc "Hello world for neanderthal/mkl."
-   :author "mcdonald dot john dot alan at gmail dot com"
+   :author "palisades dot lakes at gmail dot com"
    :since "2017-04-24"
    :version "2017-04-25"}
   

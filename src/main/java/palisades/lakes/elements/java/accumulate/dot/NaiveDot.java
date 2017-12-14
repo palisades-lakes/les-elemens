@@ -7,7 +7,7 @@ import palisades.lakes.elements.java.accumulate.dot.NaiveDot;
 /** Default (left-to-right) accumulation of sums.
  * Not a good choice for floating point numbers.
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-05-17
  * @version 2017-05-17
  */

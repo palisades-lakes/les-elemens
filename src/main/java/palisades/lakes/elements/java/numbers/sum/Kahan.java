@@ -8,7 +8,7 @@ package palisades.lakes.elements.java.numbers.sum;
  *      href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">
  *      Wikipedia:Kahan_summation_algorithm</a>
  *
- * @author mcdonald dot john dot alan at gmail dot com
+ * @author palisades dot lakes at gmail dot com
  * @since 2017-04-11
  * @version 2017-05-03
  */

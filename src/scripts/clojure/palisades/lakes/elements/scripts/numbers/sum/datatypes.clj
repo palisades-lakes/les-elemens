@@ -5,7 +5,7 @@
   
   "Benchmarks for simple sums with various data representations."
   
-  {:author "mcdonald dot john dot alan at gmail dot com"
+  {:author "palisades dot lakes at gmail dot com"
    :since "2017-04-06"
    :version "2017-05-29"}
   
