@@ -9,7 +9,7 @@ import palisades.lakes.elements.java.generic.Signature3;
  * functions.
  *
  * @author palisades dot lakes at gmail dot com
- * @version 2017-12-13
+ * @version 2018-02-12
  */
 
 @SuppressWarnings("unchecked")
@@ -86,7 +86,7 @@ public final class Signature3 implements Signature {
   @Override
   public final int hashCode () {
     return  
-      37*(37*((37*17) + Objects.hashCode(c0)) 
+      31*(31*((31*17) + Objects.hashCode(c0)) 
         + Objects.hashCode(c1))
       + Objects.hashCode(c2); }
 
