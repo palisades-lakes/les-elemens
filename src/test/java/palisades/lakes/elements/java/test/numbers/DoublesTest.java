@@ -318,27 +318,27 @@ public final class DoublesTest {
     -2089949815, 1235929901, 844849263, 264245041, 1700595120,
     -64904453, 1436463329, -1016299735, 1915725877, 1093668127,
     -417314264, };
-  
-  @SuppressWarnings("unused")
-  private final double[] subnormals = 
-  { 0x0.fffffffffffffp-1022,
-    0x0.0000000000001p-1022,
-  };
 
   @SuppressWarnings("unused")
-  private final double[] notfinite = 
-  { Double.NaN,
-    Double.POSITIVE_INFINITY,
-    Double.NEGATIVE_INFINITY,
-  };
+  private final double[] subnormals = 
+{ 0x0.fffffffffffffp-1022,
+  0x0.0000000000001p-1022,
+};
+
+  @SuppressWarnings("unused")
+  private final double[] nonfinite = 
+{ Double.NaN,
+  Double.POSITIVE_INFINITY,
+  Double.NEGATIVE_INFINITY,
+};
 
   @SuppressWarnings("unused")
   private final double[] numbers0 = 
-  { 0x0.0p0, -0x0.0p0, 0x1.0p0, -0x1.0p0, 0x1.0p1, 0x1.8p1, 
-    0x1.0p-1, 0x1.0p-2, 0x1.fffffffffffffp1023, 0x1.0p-1022,
-    0x0.fffffffffffffp-1022, 0x0.0000000000001p-1022,
-    1.0 / Math.E, Math.nextUp(1.0 / Math.E),                                       
-  };
+{ 0x0.0p0, -0x0.0p0, 0x1.0p0, -0x1.0p0, 0x1.0p1, 0x1.8p1, 
+  0x1.0p-1, 0x1.0p-2, 0x1.fffffffffffffp1023, 0x1.0p-1022,
+  0x0.fffffffffffffp-1022, 0x0.0000000000001p-1022,
+  1.0 / Math.E, Math.nextUp(1.0 / Math.E),                                       
+};
 
   private double[] numbers1;
   private double[] numbers2;
@@ -348,7 +348,7 @@ public final class DoublesTest {
   private double[] numbers4;
 
   private static final int N = 1000;
- 
+
   //--------------------------------------------------------------
 
   @Before
@@ -404,8 +404,8 @@ public final class DoublesTest {
     Assert.assertTrue(Double.toHexString(x0), x0 == 0x1.0p1);
     Assert.assertEquals(x0,0x1.0p1,0.0);
   }
-    @Test
-    public final void isNormal () {
+  @Test
+  public final void isNormal () {
     //System.out.println(0);
     //allNormal(numbers0);
     System.out.println(1);
@@ -416,15 +416,15 @@ public final class DoublesTest {
     Assert.assertTrue(someNormal(numbers2));
     //Assert.assertTrue(allNormal(numbers2));
     Assert.assertTrue(someNegative(numbers2));
-        
-        System.out.println(3);
-        allNormal(numbers3);
-        System.out.println(4);
-        allNormal(numbers4);
-//        System.out.println("subnormals");
-//        noNormal(subnormals); 
-//        System.out.println("notfinite");
-//        noNormal(notfinite); 
+
+    System.out.println(3);
+    allNormal(numbers3);
+    System.out.println(4);
+    allNormal(numbers4);
+    //System.out.println("subnormals");
+    //noNormal(subnormals); 
+    //System.out.println("nonfinite");
+    //noNormal(nonfinite); 
   }
 
 }
