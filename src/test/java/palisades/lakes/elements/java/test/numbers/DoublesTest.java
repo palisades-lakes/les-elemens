@@ -2,10 +2,11 @@ package palisades.lakes.elements.java.test.numbers;
 
 import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.simple.RandomSource;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import palisades.lakes.elements.java.numbers.Doubles;
 import palisades.lakes.elements.java.numbers.PRNG;
@@ -22,7 +23,7 @@ import palisades.lakes.elements.java.numbers.PRNG;
  * 
  * @author palisades dot lakes at gmail dot com
  * @since 2017-05-03
- * @version 2017-05-03
+ * @version 2018-08-29
  */
 
 public final class DoublesTest {
@@ -351,7 +352,7 @@ public final class DoublesTest {
 
   //--------------------------------------------------------------
 
-  @Before
+  @BeforeEach
   public void setUp () {
     assert 1391 == SEED.length;
     final UniformRandomProvider prng = 
@@ -362,7 +363,7 @@ public final class DoublesTest {
     numbers4 = PRNG.randomDoublesZeroSum(N,prng);
   }
 
-  @After
+  @AfterEach
   public void tearDown () { 
     numbers1 = null; 
     numbers2 = null; 
@@ -401,21 +402,21 @@ public final class DoublesTest {
   public final void makeDouble () {
     final double x0 = Doubles.makeDouble(0,1024,0L);
     //System.out.println(Double.toHexString(x0));
-    Assert.assertTrue(Double.toHexString(x0), x0 == 0x1.0p1);
-    Assert.assertEquals(x0,0x1.0p1,0.0);
+    Assertions.assertTrue(x0 == 0x1.0p1,Double.toHexString(x0));
+    Assertions.assertEquals(x0,0x1.0p1);
   }
   @Test
   public final void isNormal () {
     //System.out.println(0);
     //allNormal(numbers0);
     System.out.println(1);
-    Assert.assertTrue(someNormal(numbers1));
-    //Assert.assertTrue(allNormal(numbers1));
-    Assert.assertTrue(noNegative(numbers1));
+    Assertions.assertTrue(someNormal(numbers1));
+    //Assertions.assertTrue(allNormal(numbers1));
+    Assertions.assertTrue(noNegative(numbers1));
     System.out.println(2);
-    Assert.assertTrue(someNormal(numbers2));
-    //Assert.assertTrue(allNormal(numbers2));
-    Assert.assertTrue(someNegative(numbers2));
+    Assertions.assertTrue(someNormal(numbers2));
+    //Assertions.assertTrue(allNormal(numbers2));
+    Assertions.assertTrue(someNegative(numbers2));
 
     System.out.println(3);
     allNormal(numbers3);

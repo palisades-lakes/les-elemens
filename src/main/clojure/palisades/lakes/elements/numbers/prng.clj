@@ -6,7 +6,7 @@
   {:doc "pseudo-random number generators."
    :author "palisades dot lakes at gmail dot com"
    :since "2017-04-05"
-   :version "2017-05-29"}
+   :version "2018-08-29"}
   
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]

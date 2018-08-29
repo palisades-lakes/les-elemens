@@ -8,7 +8,7 @@
   
   {:author "palisades dot lakes at gmail dot com"
    :since "2017-04-06"
-   :version "2017-05-26"}
+   :version "2018-08-29"}
   
   (:require [clojure.set :as set]
             [clojure.string :as s]
@@ -23,8 +23,7 @@
 (require '[uncomplicate.commons.core :as ucc])
 (require '[uncomplicate.clojurecl 
            [core :as ucl2c] 
-           [info :as ucl2i]
-           [legacy :as ucl2l]])
+           [info :as ucl2i]])
 (require '[uncomplicate.neanderthal
            [core :as unc] 
            [native :as unn]
@@ -41,7 +40,7 @@
 ;;----------------------------------------------------------------
 (time
   (let [today (LocalDate/now)]
-    (ucl2l/with-default-1
+    (ucl2c/with-default-1
       ;;(uno/with-default-engine
       (uno/with-engine uno/opencl-double ucl2c/*command-queue*
         (doseq [coerce [double-array
@@ -83,26 +82,26 @@
                       (mc/write-tsv 
                         records (defs/data-file 
                                   *ns* (fname generator n ".tsv"))
-                      records)
-                    records))
-                []
-                (for [generator [#_defs/random-doubles-nonnegative 
-                                 #_defs/random-doubles 
-                                 defs/random-doubles-minus-mean 
-                                 #_defs/random-doubles-zero-sum 
-                                 #_defs/uniform-doubles]
-                      n (map #(* 1024 1024 (long %)) [#_1 #_4 16 #_64 #_256 #_1024])
-                      f [#_mc/sum-zhu-hayes-exact
-                         #_mc/sum-zhu-hayes-branch
-                         #_mc/sum-zhu-hayes-nobranch
-                         #_mc/sum-big-decimal
-                         #_mc/sum-big-fraction
-                         #_mc/sum-ifast
-                         mc/sum-naive 
-                         #_mc/sum-naive-accumulator
-                         #_mc/sum-pairwise 
-                         #_mc/sum-kahan 
-                         #_mc/sum-kahan-accumulator]]
-                  (defs/bench f coerce generator n))))))))))
+                        records)
+                      records))
+                  []
+                  (for [generator [#_defs/random-doubles-nonnegative 
+                                   #_defs/random-doubles 
+                                   defs/random-doubles-minus-mean 
+                                   #_defs/random-doubles-zero-sum 
+                                   #_defs/uniform-doubles]
+                        n (map #(* 1024 1024 (long %)) [#_1 #_4 16 #_64 #_256 #_1024])
+                        f [#_mc/sum-zhu-hayes-exact
+                           #_mc/sum-zhu-hayes-branch
+                           #_mc/sum-zhu-hayes-nobranch
+                           #_mc/sum-big-decimal
+                           #_mc/sum-big-fraction
+                           #_mc/sum-ifast
+                           mc/sum-naive 
+                           #_mc/sum-naive-accumulator
+                           #_mc/sum-pairwise 
+                           #_mc/sum-kahan 
+                           #_mc/sum-kahan-accumulator]]
+                    (defs/bench f coerce generator n))))))))))
   ;;----------------------------------------------------------------
   

@@ -3,10 +3,11 @@
 ;;----------------------------------------------------------------
 (ns palisades.lakes.elements.utils
   
-  {:doc "General utilities, probably eventually somewhere more specific."
+  {:doc 
+   "General utilities, probably eventually somewhere more specific."
    :author "palisades dot lakes at gmail dot com"
    :since "2017-04-21"
-   :version "2017-05-26"}
+   :version "2018-08-29"}
   
   (:require [clojure.string :as s]
             [clojure.java.io :as io]))
@@ -17,8 +18,7 @@
 (require '[uncomplicate.commons.core :as ucc])
 (require '[uncomplicate.clojurecl 
            [core :as ucl2c] 
-           [info :as ucl2i]
-           [legacy :as ucl2l]])
+           [info :as ucl2i]])
 (require '[uncomplicate.neanderthal
            [core :as unc] 
            [native :as unn]

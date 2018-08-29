@@ -94,6 +94,11 @@
   </dependency>
   <dependency>
    <groupId>org.apache.commons</groupId>
+   <artifactId>commons-rng-simple</artifactId>
+   <version>${commons-rng-version}</version>
+  </dependency>
+  <dependency>
+   <groupId>org.apache.commons</groupId>
    <artifactId>commons-rng-sampling</artifactId>
    <version>${commons-rng-version}</version>
   </dependency>
@@ -101,6 +106,7 @@
    <groupId>org.apache.commons</groupId>
    <artifactId>commons-rng-examples</artifactId>
    <version>${commons-rng-version}</version>
+   <type>pom</type>
   </dependency>
   <dependency>
    <groupId>io.gatling.uncommons.maths</groupId>
@@ -208,9 +214,21 @@
    <version>${clatrix-version}</version>
   </dependency>
   <dependency>
-   <groupId>junit</groupId>
-   <artifactId>junit</artifactId>
-   <version>${junit-version}</version>
+   <groupId>org.junit.jupiter</groupId>
+   <artifactId>junit-jupiter-api</artifactId>
+   <version>${junit-jupiter-version}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.junit.jupiter</groupId>
+   <artifactId>junit-jupiter-params</artifactId>
+   <version>${junit-jupiter-version}</version>
+   <scope>test</scope>
+  </dependency>
+  <dependency>
+   <groupId>org.junit.jupiter</groupId>
+   <artifactId>junit-jupiter-engine</artifactId>
+   <version>${junit-jupiter-version}</version>
    <scope>test</scope>
   </dependency>
   <dependency>
