@@ -1,10 +1,10 @@
 % !TEX TS-program = arara
-% arara: xelatex: { synctex: on, options: '-halt-on-error' } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: biber
 % arara: makeglossaries
 % arara: makeindex
-% arara: xelatex: { synctex: on, options: '-halt-on-error'  } 
-% arara: xelatex: { synctex: on, options: '-halt-on-error'   } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
 % arara: clean: { files: [ mthcmptng-book.aux, mthcmptng-book.bbl] }
 % arara: clean: { files: [ mthcmptng-book.bcf, mthcmptng-book.blg] }
 % arara: clean: { files: [ mthcmptng-book.glg, mthcmptng-book.glo] }
@@ -20,7 +20,7 @@
 %-------------------------------------------------------------------------------
 \documentclass[10pt,openany]{book}
 \input{head}
-\input{landscape-2col-header}
+\input{landscape-2col}
 \input{clj-listings}
 \input{glossary}
 \addbibresource{cactus.bib}
