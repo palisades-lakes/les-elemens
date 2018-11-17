@@ -18,40 +18,61 @@
 % arara: clean: { files: [ mthcmptng-book.toc, mthcmptng-book.xdy] }
 % arara: clean: { files: [ mthcmptng-book.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[10pt,openany]{book}
-\input{head}
-\input{landscape-2col}
-\input{clj-listings}
-\input{glossary}
-\addbibresource{cactus.bib}
-\addbibresource{clojure.bib}
-\addbibresource{halmos.bib}
-\addbibresource{ieeestd.bib}
-\addbibresource{tex.bib}
-\addbibresource{fparith.bib}
-%-------------------------------------------------------------------------------
+\documentclass[11pt,openany]{book}
+\input{../tex/head}
+\input{../tex/symbols}
+
+%\input{../tex/kindle-paperwhite}
+\input{../tex/landscape-2col-8x17}
+%input{../landscape-2col-9x16}
+%\input{../tex/landscape-2col-a4}
+%\input{../tex/landscape-2col-letter}
+%\input{../tex/landscape-2col-legal}
+%\input{../tex/portrait-1col}
+\input{../tex/clj-listings}
+\input{../glossary}
+\addbibresource{../bib/algebra.bib}
+\addbibresource{../bib/cactus.bib}
+\addbibresource{../bib/clojure.bib}
+\addbibresource{../bib/halmos.bib}
+\addbibresource{../bib/interpolation.bib}
+\addbibresource{../bib/ieeestd.bib}
+\addbibresource{../bib/mcdonald.bib}
+\addbibresource{../bib/mop.bib}
+\addbibresource{../bib/tex.bib}
+\addbibresource{../bib/fparith.bib}
+%-----------------------------------------------------------------
 \title{Math Computing (working title)}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
 \date{draft of \today}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \begin{document}
-
 \maketitle
-
 \frontmatter
-
 \begingroup
 \let\onecolumn\twocolumn
 \sffamily
 \tableofcontents
 \rmfamily
 \endgroup
-
 \mainmatter
-
-\part{Aspirations and Inspirations}
-\chapter{Good writing}
+%-----------------------------------------------------------------
+% 7 for part level
+% 6 for chapter level
+% 5 for section level
+% 4 for subsection level
+% 3 for subsubsection level
+% 2 for paragraph level
+% 1 for subparagraph level
+\setcounter{baseSectionLevel}{6}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Aspirations and Inspirations}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Good writing}
 
 \index{Good writing|see{Set}}
 Primary goal of writing, whether in a natural language (eg
@@ -71,24 +92,28 @@ necessary --- the he/she problem.
 \index{Type problems@\textsl{Sam}!he/she@\textbf{he/she}}
 Make it clear what you aren't making clear.
 
-\part{Foundations}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Foundations}
 
 Most readers will be familiar with most of what's here, 
 but it's worth at least skimming, 
 because the point of view is different.
-
-\chapter{Mathematics}
-\section{Ambiguity}
-\section{Abstraction, instantiation, and representation}
-
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Mathematics}
+%-----------------------------------------------------------------
+\leveldown{Ambiguity}
+%-----------------------------------------------------------------
+\levelstay{Abstraction, instantiation, and representation}
 pragmatic, semi-axiomatic definition of things.
-
-\chapter{A model for computation}		
-
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{A model for computation}		
 Transformation of data structures.
-
-\section{Data Structures}
-
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Data Structures}
 A \textit{data structure} is a collection of \textit{places}
 that hold values. 
 Using Clojure/Java for specificity.
@@ -113,8 +138,10 @@ Places correspond to the class's fields.
 Values restricted to each field's type.
 \end{example}  
 
-\subsection{Mutability}
-\subsection{Random access}
+%-----------------------------------------------------------------
+\leveldown{Mutability}
+%-----------------------------------------------------------------
+\levelstay{Random access}
 
 Means different things. 
 Constant time to any place.
@@ -122,8 +149,8 @@ Absolute origin, rather than relative references.
 Places known/easily enumerable, rather than requring traversal
 to find out what places there are.
 No general guarantee that you can visit everything, once.
-
-\subsection{An unsolved problem}
+%-----------------------------------------------------------------
+\levelstay{An unsolved problem}
 
 Where's the boundary of a thing? 
 Is a reference part of a path, or
@@ -131,9 +158,8 @@ an encapsulated value?
 No language I know does this well.
 
 Deep copy vs shallow copy.
-
-
-\section{Code and data}
+%-----------------------------------------------------------------
+\levelup{Code and data}
 
 Data is just bits. 
 Meaning determined by the code that manipulates it. 
@@ -151,19 +177,17 @@ small simple unchanging data semantics.
 Services bad; shared libraries good.
 Crossing programming language boundaries bad; 
 monolingual environments \cite{Heering:1985:TMP:3318.3321} good.
-
-\section{Types and prototypes}
+%-----------------------------------------------------------------
+\levelstay{Types and prototypes}
 
 The ``he or she'' problem: forced to specify irrelevant details.
-
-
-
-
-\section{Clojure and Java}
-
-\chapter{Comparisons}
-
-\part{Spaces and functions between them}
+%-----------------------------------------------------------------
+\levelstay{Java}
+%-----------------------------------------------------------------
+\levelstay{Clojure}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Foundations: Sets and functions}
 
 I'm assuming that you are generally familiar with things like:
 \begin{itemize}
@@ -185,92 +209,127 @@ plus operations on the elements of those sets.
 
 The first concrete examples of this will be the usual number systems 
 in~\autoref{ch:Numbers}.
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../sets}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../functions}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Mathenmatical Structures}
+A mathematical structure~\cite{wiki:Mathematical-structure} 
+consists of a few sets, and functions between those sets,
+or cartesian products of those sets,
+or sometimes subsets of the sets.
 
-\input{sets}
-\input{functions}
-\input{numbers}
+There is usually a primary set, whose elements are the 'elements'
+of the structure:
 
-\chapter{Simplexes}
-\section{mathematics}
-\subsection{Orientation}
-\section{computation}
-\section{examples}
+\begin{example}[Linear Space]
+\begin{itemize}
+  \item Set of vectors
+  \item field of scalars
+  \item linear combination
+\end{itemize}
+\end{example}
 
-\chapter{Linear (vector) spaces and functions}
-\section{mathematics}
-\cite{Halmos1960Finite}
-\section{computation}
-\section{examples}
+It's tempting to identify a mathematical structure with a class,
+but that won't work, because you will need to support multiple
+representations (dense and sparse vectors, \texttt{double}
+and \texttt{BigFraction}) and the functions
+operate on multiple sets (vectors and scalars)
+each with multiple representations.
 
-\chapter{Affine (flat) spaces and functions}
-\section{mathematics}
-\section{computation}
-\section{examples}
-
-\chapter{Projective spaces and functions}
-\section{mathematics}
-\section{computation}
-\section{examples}
-
-\chapter{Barycentric (convex) spaces and functions}
-\section{mathematics}
-\section{computation}
-\section{examples}
-
-\chapter{Spherical spaces and functions}
-\section{mathematics}
-\section{computation}
-\section{examples}
-
-
-%\chapter{Notation and general results}
-%\input{general}
-
-%\part{Smoothness}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../algebra}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../numbers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../polynomial}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Simplexes}
+%-----------------------------------------------------------------
+\leveldown{Orientation}
+%-----------------------------------------------------------------
+\levelstay{Implementation}
+%-----------------------------------------------------------------
+\levelstay{examples}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../spaces}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../derivatives}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Curves and Surfaces}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../interpolation}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelup{Smoothness}
 %\cleardoublepage
-
-%\chapter{Polylines}
-%\input{curves}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Polylines}
+%\input{../curves}
 %\cleardoublepage
-
-%\chapter{Triangular Meshes}
-%\input{faces}
-%\input{edges}
-%\input{vertices}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Triangular Meshes}
+%\input{../faces}
+%\input{../edges}
+%\input{../vertices}
 %\cleardoublepage
-
-%\chapter{Subdivision Surfaces}
-%\input{subdivision}
-
-%\part{Fitting}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Subdivision Surfaces}
+%\input{../subdivision}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Fitting}
 %\cleardoublepage
-
-%\chapter{Data Fitting}
-%\input{data-fitting}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Data Fitting}
+%\input{../data-fitting}
 %\cleardoublepage
-
-%\chapter{Image Fitting}
-%\input{image-fitting}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Image Fitting}
+%\input{../image-fitting}
 %\cleardoublepage
-
-%\chapter{Registration}
-%\input{registration}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Registration}
+%\input{../registration}
 %\cleardoublepage
-
-%\chapter{Averaging}
-%\input{averaging}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Averaging}
+%\input{../averaging}
 
 \glsaddallunused
-%-------------------------------------------------------------------------------
 \appendix
-\part{Appendices}
-\input{typesetting}
-\input{annoyances}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Appendices}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../tex/typesetting}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../annoyances}
+%-----------------------------------------------------------------
 \backmatter
-
-
-\part{Backmatter}
-\input{tail}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelup{Backmatter}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../tex/tail}
+%-----------------------------------------------------------------
 \end{document}

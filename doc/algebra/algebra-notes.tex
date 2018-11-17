@@ -1,0 +1,70 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: [--halt-on-error] } 
+% arara: biber
+% arara: makeglossaries
+% arara: makeindex
+% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error]   } 
+% arara: clean: { files: [algebra-notes.aux,algebra-notes.bbl] }
+% arara: clean: { files: [algebra-notes.bcf,algebra-notes.blg] }
+% arara: clean: { files: [algebra-notes.glg,algebra-notes.glo] }
+% arara: clean: { files: [algebra-notes.gls,algebra-notes.gls] }
+% arara: clean: { files: [algebra-notes.idx,algebra-notes.ilg] }
+% arara: clean: { files: [algebra-notes.ind,algebra-notes.loe] }
+% arara: clean: { files: [algebra-notes.lof,algebra-notes.log ] }
+% arara: clean: { files: [algebra-notes.log,algebra-notes.lol ] }
+% arara: clean: { files: [algebra-notes.out ] }
+% arara: clean: { files: [algebra-notes.run.xml] }
+% arara: clean: { files: [algebra-notes.toc,algebra-notes.xdy] }
+% arara: clean: { files: [algebra-notes.synctex.gz] }
+%-------------------------------------------------------------------------------
+\documentclass[10pt,openany]{book}
+\input{../head}
+%\input{../kindle-paperwhite}
+\input{../landscape-2col-letter}
+%\input{../portrait-1col}
+\input{../clj-listings}
+\input{../glossary}
+\addbibresource{../bib/algebra.bib}
+\addbibresource{../bib/cactus.bib}
+\addbibresource{../bib/clojure.bib}
+\addbibresource{../bib/halmos.bib}
+\addbibresource{../bib/interpolation.bib}
+%\addbibresource{../bib/ieeestd.bib}
+\addbibresource{../bib/tex.bib}
+\addbibresource{../bib/fparith.bib}
+%-------------------------------------------------------------------------------
+\title{Notes on algebra}
+\author{\textsc{John Alan McDonald}}
+%\email{mcdonald.john.alan at gmail.com}
+\date{draft of \today}
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\begingroup
+\let\onecolumn\twocolumn
+\sffamily
+\tableofcontents
+\rmfamily
+\endgroup
+
+\mainmatter
+
+\input{../algebra}
+
+%-------------------------------------------------------------------------------
+\appendix
+%\part{Appendices}
+\input{../typesetting}
+%-------------------------------------------------------------------------------
+\backmatter
+
+
+%\part{Backmatter}
+\input{../tail}
+%-------------------------------------------------------------------------------
+\end{document}

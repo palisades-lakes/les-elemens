@@ -1,0 +1,102 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: [--halt-on-error] } 
+% arara: biber
+% arara: makeglossaries
+% arara: makeindex
+% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error]   } 
+% arara: clean: { files: [ interpolation-notes.aux] }
+% arara: clean: { files: [ interpolation-notes.bcf, interpolation-notes.blg] }
+% arara: clean: { files: [ interpolation-notes.glg, interpolation-notes.glo] }
+% arara: clean: { files: [ interpolation-notes.gls, interpolation-notes.gls] }
+% arara: clean: { files: [ interpolation-notes.idx, interpolation-notes.ilg] }
+% arara: clean: { files: [ interpolation-notes.ind, interpolation-notes.loe] }
+% arara: clean: { files: [ interpolation-notes.lof, interpolation-notes.log ] }
+% arara: clean: { files: [ interpolation-notes.log, interpolation-notes.lol ] }
+% arara: clean: { files: [ interpolation-notes.out ] }
+% arara: clean: { files: [ interpolation-notes.run.xml] }
+% arara: clean: { files: [ interpolation-notes.toc, interpolation-notes.xdy] }
+% arara: clean: { files: [ interpolation-notes.synctex.gz] }
+%-------------------------------------------------------------------------------
+%\documentclass[10pt,openany]{book}
+\documentclass[11pt,openany]{article}
+\input{../tex/head}
+\input{../tex/symbols}
+
+%\input{../tex/kindle-paperwhite}
+\input{../tex/landscape-2col-8x17}
+%input{../landscape-2col-9x16}
+%\input{../tex/landscape-2col-a4}
+%\input{../tex/landscape-2col-letter}
+%\input{../tex/landscape-2col-legal}
+%\input{../tex/portrait-1col}
+\input{../tex/clj-listings}
+\input{../glossary}
+\addbibresource{../bib/algebra.bib}
+\addbibresource{../bib/cactus.bib}
+\addbibresource{../bib/clojure.bib}
+\addbibresource{../bib/halmos.bib}
+\addbibresource{../bib/interpolation.bib}
+%\addbibresource{../bib/ieeestd.bib}
+\addbibresource{../bib/mcdonald.bib}
+\addbibresource{../bib/mop.bib}
+\addbibresource{../bib/tex.bib}
+\addbibresource{../bib/fparith.bib}
+%-----------------------------------------------------------------
+\title{Notes on interpolation}
+\author{\textsc{John Alan McDonald}}
+%\email{mcdonald.john.alan at gmail.com}
+\date{draft of \today}
+%-----------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+% 7 for part level
+% 6 for chapter level
+% 5 for section level
+% 4 for subsection level
+% 3 for subsubsection level
+% 2 for paragraph level
+% 1 for subparagraph level
+\setcounter{baseSectionLevel}{5}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../interpolation}
+
+%\glsaddallunused
+%-----------------------------------------------------------------
+\pagebreak
+\appendix
+%\part{Appendices}
+%7 for part level
+% 6 for chapter level
+% 5 for section level
+% 4 for subsection level
+% 3 for subsubsection level
+% 2 for paragraph level
+% 1 for subparagraph level
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../sets}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../functions}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../algebra}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../numbers}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../spaces}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../derivatives}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../polynomial}
+\pagebreak
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../tex/typesetting}
+%-----------------------------------------------------------------
+%\backmatter
+%\part{Backmatter}
+\pagebreak
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\input{../tex/tail}
+%-------------------------------------------------------------------------------
+\end{document}
