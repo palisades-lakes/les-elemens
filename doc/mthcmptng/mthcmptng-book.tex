@@ -217,7 +217,8 @@ in~\autoref{ch:Numbers}.
 \input{../functions}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Mathenmatical Structures}
+\levelup{Mathematical Structures}
+
 A mathematical structure~\cite{wiki:Mathematical-structure} 
 consists of a few sets, and functions between those sets,
 or cartesian products of those sets,
@@ -227,11 +228,28 @@ There is usually a primary set, whose elements are the 'elements'
 of the structure:
 
 \begin{example}[Linear Space]
+\bigskip
+A \textit{linear space} $\Space{V}$ is:
 \begin{itemize}
-  \item Set of vectors
-  \item field of scalars
-  \item linear combination
+  \item a set of vectors $\Set{V}$,
+  \item a field of scalars $\Space{F}$,
+  \item a linear combination operation/function: 
+\begin{equation}
+\left( \text{linear-combination} 
+\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
+= \; a_0*\Vector{v}_0 + a_1*\Vector{v}_1
+\; \rightarrow \; \Vector{v}_2  \in \Set{V}
+\end{equation}
+for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
+and $a_0, a_1 \in \Space{F}$.
+Linear combination is often defined in terms of
+$2$ other operations:
+scalar multiplication $a * \Vector{v} \in \Set{V}$,
+and vector addition $\Vector{v}_0 + \Vector{v}_1 \in \Set{V}$
 \end{itemize}
+Usually the distinction between $\Set{V}$ and 
+$\Space{V} = \left[ \Set{V}, \Space{F}, \text{linear-combination} \right]$
+is ignored.
 \end{example}
 
 It's tempting to identify a mathematical structure with a class,

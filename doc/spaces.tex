@@ -9,13 +9,138 @@ the texts I used as a college freshman for linear algebra and
 multivariate calculus: Halmos \cite{halmos-1958}
 and Spivak \cite{spivak-1965}.
 
-Some useful definitions/identities:
+\begin{definition}[Linear space]
+\bigskip
+A \textit{linear space} 
+$\Space{V} = \left[ \Set{V}, \Space{F}, \text{linear-combination} \right]$
+ is:
+\begin{itemize}
+  \item a set of \textit{vectors} $\Set{V}$,
+  \item a field  of scalars $\Space{F}$,
+  \item a linear combination function: 
+\begin{equation}
+\left( \text{linear-combination} 
+\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
+ \rightarrow \; \Vector{v}_2  \in \Set{V}
+\end{equation}
+for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
+and $a_0, a_1 \in \Space{F}$.
+Linear combination is often defined in terms of
+$2$ binary operations:
+scalar multiplication $a * \Vector{v} \in \Set{V}$,
+and vector addition $\Vector{v}_0 + \Vector{v}_1 \in \Set{V}$:
+\begin{equation}
+\left( \text{linear-combination} 
+\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
+= \; a_0*\Vector{v}_0 + a_1*\Vector{v}_1
+\end{equation}
+\textbf{TODO:} required identities for $+$ and $*$ from Spivak or Halmos.
+\end{itemize}
+\end{definition}
+Usually the distinction between $\Set{V}$ and $\Space{V}$ 
+is ignored, and we will say, for example, 
+$\Vector{v} \in \Space{V}$.
+
+Examples:
+
+\begin{example}[$\Space{F}^n$]
+%{}
+%\bigskip
+Where $\Space{F}$ is any field.
+%\leavevmode \vspace{-\baselineskip}
+\begin{itemize}
+  \item vectors:
+  $\Set{V} = \Space{F}^n = \{ \Vector{x}
+  = \left[ x_0, \ldots , x_{n-1} \right] \}$,
+  tuples of $n$ elements $x_i \in \Space{F}$.
+  \item scalars: $\Space{F}$
+  \item scalar multiplication:
+  $ a*\left[ x_0, \ldots , x_{n-1} \right] =
+  \left[ a*x_0, \ldots , a*x_{n-1} \right]$
+  \item vector addition:
+  $\Vector{x} + \Vector{y}
+  = \left[ \ldots , \left( x_i + y_i \right) ,\ldots \right]$
+\end{itemize}
+\end{example}
+
+\begin{example}[$\Space{R}^n$]
+%{}
+%\bigskip
+See \cite[][chapter 1]{spivak-1965} and \cite[][chapter 1]{halmos-1958}.
+%\cite[See][chapter 1]{spivak-1965} and \cite[See][chapter 1]{halmos-1958}.
+%\leavevmode \vspace{-\baselineskip}
+\begin{itemize}
+  \item vectors:
+  $\Set{V} = \Space{R}^n = \{ \Vector{x}
+  = \left[ x_0, \ldots , x_{n-1} \right] \}$,
+  tuples of $n$ elements $x_i \in \Space{R}$.
+  \item scalars: $\Space{R}$
+  \item scalar multiplication:
+  $ a*\left[ x_0, \ldots , x_{n-1} \right] =
+  \left[ \ldots , \left( a*x_i \right) , \ldots \right]$
+  \item vector addition:
+  $\Vector{x} + \Vector{y}
+  = \left[ \ldots , \left( x_i + y_i \right) , \ldots \right]$
+\end{itemize}
+
+\textbf{TODO: DANGER:} Apple-orange mistakes resulting from
+using $\Space{R}^n$ in problems where coordinates don't mean the
+same thing, so canonical inner product and $l2$ distance
+aren't correct.
+
+Homogeneous problems often don't have meaningful coordinates.
+
+Can only approximate $\Space{R}^n$ with tuples of \texttt{double},
+which is fundamentally different due to lack of associativity,
+which leads to accumulation of rounding error.
+\end{example}
+
+\textbf{TODO:} Exact float arithmetic as an alternative?
+
+\begin{example}[$\Space{Q}^n$]
+%{}\bigskip
+Like $\Space{R}^n$, only over rational rather than real numbers.
+Has the advantage that it can be implemented accurately
+using arbitrary precision fractions, though at considerable
+space-time cost.
+
+\textbf{TODO:} measure cost compared to \texttt{double}
+approximation to $\Space{R}^n$
+\end{example}
+
+
+\begin{example}[ $ \Set{F} \{ \Set{D}, \Space{V} \} $ ]
+The functions from any domain to some linear space.
+\textbf{TODO:} lisp notation for clarity below.
+\begin{itemize}
+  \item vectors: $\Set{V} = $ any function on $\Set{D}$
+  that returns values in the linear space $\Space{V}$.
+  \item scalars: $\Space{F}$, the same scalar field used by
+  $\Space{V}=\left[ \Set{V}, \Space{F}, +, * \right]$.
+  \item scalar multiplication:
+  $ \left(a*\Vector{f}\right) : \Set{D} \rightarrow \Space{V}$
+  is the function defined by
+   $ \left(a*\Vector{f}\right) (x)
+   = a*\left(\Vector{f}\left( x \right) \right) $
+  \item vector addition:
+  $\left( \Vector{f} + \Vector{g} \right) $
+  is the function defined by
+  $\left( \Vector{f} + \Vector{g} \right) \left( x \right) =
+  \Vector{f} \left( x \right) + \Vector{g} \left( x\right)$
+\end{itemize}
+\end{example}
+
+\begin{example}[Canonical subspaces]
+\bigskip
+Finite index set of integers, a real value for each.
+Relationships between index sets define super/sub space relations
+intersections.
+\end{example}
 
 %-----------------------------------------------------------------
 \leveldown{Inner product spaces}
 Let $\Space{V}$ be an $n$-dimensional real inner product space.
 Let $\v, \w \in \Vspace$.
-
 
 \begin{itemize}
 \item The inner (dot) product on $\Reals^n$:
@@ -115,7 +240,7 @@ then
 %-----------------------------------------------------------------
 \levelstay{examples}
 %-----------------------------------------------------------------
-\levelstay{Manifolds}
+\levelup{Manifolds}
 \label{sec:Manifolds}
 
 %-----------------------------------------------------------------

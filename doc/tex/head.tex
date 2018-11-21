@@ -134,39 +134,44 @@ BoldItalicFont = *08-Italic ]
 \makeatother
 % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end/42728#42728
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{mathtools}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{amsthm}
-%\theoremstyle{definition}
-%\newtheorem{example}{Example}[section]
 \usepackage{thmtools}
-\theoremstyle{definition}
+% \newtheoremstyle{break}%
+% {}{}%
+% {}{}%
+% {}{}% % Note that final punctuation is omitted.
+% {\newline}{}
+% \theoremstyle{break}
+% \newtheorem{example}{Example}[section]
+% \newtheorem{definition}{\textsf{Definition}}[section]
+% \newtheorem{fact}{\textsf{Fact}}[section]
 \DeclareRobustCommand{\rvspace}[1]{\vspace{#1}}
+% \theoremstyle{break}
 \declaretheoremstyle[
+% TODO: should be relative to parskip, or something like that
 spaceabove=12pt,
 spacebelow=10pt,
-headpunct={\sffamily\mdseries:},
+%headpunct={\sffamily\mdseries:},
 %headformat=margin,
-headpunct={},
+%headpunct={},
 headfont=\sffamily\mdseries,
 notefont=\sffamily\mdseries,
 notebraces={}{},
 bodyfont=\normalfont,
-postheadspace=\newline,%
+postheadspace=\newline,
 ]{mythmstyle}
 \declaretheorem[style=mythmstyle,title=Definition,name={Definition}]{definition}
 \declaretheorem[style=mythmstyle,title=Example,name={Example}]{example}
 \renewcommand{\thmtformatoptarg}[1]{#1}%
-%\theoremstyle{definition}
-%\newtheorem{definition}{\textsf{Definition}}[section]
-%\newtheorem{fact}{\textsf{Fact}}[section]
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \numberwithin{definition}{section}
 \numberwithin{example}{section}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{listings}
 \lstset{backgroundcolor={\color{GhostWhite}},
 basicstyle={\ttfamily\small},
@@ -181,7 +186,7 @@ keywordstyle={\ttfamily}}
 \providecommand{\exercisename}{Exercise}
 \providecommand{\theoremname}{Theorem}
 \providecommand{\examplename}{Example}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \makeatletter
 % \let\orig@item\item
 % 

@@ -106,8 +106,8 @@ where
 Example:
 
 %-----------------------------------------------------------------
-\levelstay{Fields}
-\label{sec:Fields}
+\levelstay{Field}
+\label{sec:Field}
 \cite{wiki:Field-mathematics}
 
 A ring $\left[ \Set{S}, +, * \right]$ where
@@ -153,6 +153,14 @@ Examples:
 
 Two non-associative commutative operations on a finite,
 almost ordered set.
+\begin{example}[Floating point arithmetic is not associative]
+
+clojure/java code showing how different results can be\ldots
+ 
+\end{example}
+
+\leveldown{'Exact' floating point arithmetic}
+\cite{Higham2002ASNA,Muller-et-al-2010,Zhu:2010:A9O:1824801.1824815}
 
 \textbf{TODO:} do TwoPlus and TwoMutliply 
 suggest any way to get associative operations?
@@ -166,3 +174,8 @@ Is it possible to replace $\pm\infty$ and \texttt{NaN}
 by symbolic expressions that can later be combined to get 
 accurate finite values?
 
+
+\textbf{TODO:} is it possible for a clojure macro/compiler
+to support exact floating operations generated from
+$+$ and $*$ within a function, by incorporating an error
+accumulator? 
