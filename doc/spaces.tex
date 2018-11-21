@@ -55,11 +55,11 @@ Where $\Space{F}$ is any field.
   tuples of $n$ elements $x_i \in \Space{F}$.
   \item scalars: $\Space{F}$
   \item scalar multiplication:
-  $ a*\left[ x_0, \ldots , x_{n-1} \right] =
-  \left[ a*x_0, \ldots , a*x_{n-1} \right]$
+  $ a *_{\Space{F}^n} \left[ x_0, \ldots , x_{n-1} \right] =
+  \left[ \ldots , a *_{\Space{F}} x_{i} , \ldots \right]$
   \item vector addition:
-  $\Vector{x} + \Vector{y}
-  = \left[ \ldots , \left( x_i + y_i \right) ,\ldots \right]$
+  $\Vector{x} +_{\Space{F}^n} \Vector{y}
+  = \left[ \ldots , \left( x_i +_{\Space{F}} y_i \right) ,\ldots \right]$
 \end{itemize}
 \end{example}
 
@@ -109,7 +109,7 @@ approximation to $\Space{R}^n$
 \end{example}
 
 
-\begin{example}[ $ \Set{F} \{ \Set{D}, \Space{V} \} $ ]
+\begin{example}[{ $ \Set{F} \left[ \Set{D}, \Space{V} \right] \} $ }]
 The functions from any domain to some linear space.
 \textbf{TODO:} lisp notation for clarity below.
 \begin{itemize}
