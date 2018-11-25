@@ -33,7 +33,7 @@
 \input{../glossary}
 \addbibresource{../bib/algebra.bib}
 \addbibresource{../bib/cactus.bib}
-\addbibresource{../bib/clojure.bib}
+\addbibresource{../bib/proglang.bib}
 \addbibresource{../bib/halmos.bib}
 \addbibresource{../bib/interpolation.bib}
 \addbibresource{../bib/ieeestd.bib}
@@ -66,226 +66,18 @@
 % 2 for paragraph level
 % 1 for subparagraph level
 \setcounter{baseSectionLevel}{6}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Aspirations and Inspirations}
+\input{writing}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Good writing}
-
-\index{Good writing|see{Set}}
-Primary goal of writing, whether in a natural language (eg
-English), mathematics, or a programming language, is communicating
-an idea to the reader.
-This is (perhaps) obvious for natural and mathematical language,
-but not univerally accepted for programming languages.
-
-\cite{Halmos1970HowToWrite}
-
-('Literate' programming confuses stream of consciousness writing
-with communication with other people.)
-
-Express the idea completely enough, without excess.
-and specify no more than
-necessary --- the he/she problem.
-\index{Type problems@\textsl{Sam}!he/she@\textbf{he/she}}
-Make it clear what you aren't making clear.
-
+\input{computation}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Foundations}
-
-Most readers will be familiar with most of what's here, 
-but it's worth at least skimming, 
-because the point of view is different.
+\input{mathematics}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Mathematics}
-%-----------------------------------------------------------------
-\leveldown{Ambiguity}
-%-----------------------------------------------------------------
-\levelstay{Abstraction, instantiation, and representation}
-pragmatic, semi-axiomatic definition of things.
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{A model for computation}		
-Transformation of data structures.
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Data Structures}
-A \textit{data structure} is a collection of \textit{places}
-that hold values. 
-Using Clojure/Java for specificity.
-A value might be primitive
-(\texttt{int}, \texttt{double}, \ldots)
-or a references to an 'independent' data structure.
-
-\begin{example}[Java array]
-Places correspond to \texttt{int}s from 0 to length minus 1.
-Values restricted to instances of array's type.
-\end{example}  
-
-\begin{example}[Instance of Java class]
-Places correspond to the class's fields.
-Values restricted to each field's type.
-\end{example}  
-
-\begin{example}[EDN data]
-Nested sequences and hashmaps. Similar to JSON.
-
-Places correspond to the class's fields.
-Values restricted to each field's type.
-\end{example}  
-
-%-----------------------------------------------------------------
-\leveldown{Mutability}
-%-----------------------------------------------------------------
-\levelstay{Random access}
-
-Means different things. 
-Constant time to any place.
-Absolute origin, rather than relative references.
-Places known/easily enumerable, rather than requring traversal
-to find out what places there are.
-No general guarantee that you can visit everything, once.
-%-----------------------------------------------------------------
-\levelstay{An unsolved problem}
-
-Where's the boundary of a thing? 
-Is a reference part of a path, or
-an encapsulated value?
-No language I know does this well.
-
-Deep copy vs shallow copy.
-%-----------------------------------------------------------------
-\levelup{Code and data}
-
-Data is just bits. 
-Meaning determined by the code that manipulates it. 
-
-Code and meaning always changing.
-
-Correctness difficulty increases
-with 'distance' between code and data. 
-
-Multiple implementations of meaning really bad.
-Data standards (eg IEEE 754 \cite{Higham2002ASNA, IEEE:1985:AIS,
-P754:2008:ISF, Muller-et-al-2010}) major undertaking even for
-small simple unchanging data semantics.
-
-Services bad; shared libraries good.
-Crossing programming language boundaries bad; 
-monolingual environments \cite{Heering:1985:TMP:3318.3321} good.
-%-----------------------------------------------------------------
-\levelstay{Types and prototypes}
-
-The ``he or she'' problem: forced to specify irrelevant details.
-%-----------------------------------------------------------------
-\levelstay{Java}
-%-----------------------------------------------------------------
-\levelstay{Clojure}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Foundations: Sets and functions}
-
-I'm assuming that you are generally familiar with things like:
-\begin{itemize}
-  \item what a \gls{Set} is, at least in general terms.
-  \item the usual number systems: 
-the natural numbers, the integers, the rationals, and the reals, 
-and the arithmetic operations ($+$, $-$, $*$, $/$) on them.
-\item the difference between the
-countable infinities of the natural, integral, and rational numbers,
-and the difference from the uncountable infinity of the real numbers.
-\end{itemize} 
-
-If not, it would be good to review some basic source, like Wikipedia.
-
-In the rest of this book, I'm going to use the word 'space' to refer to
-mathematical structures, like the usual number systems, vector and affine
-spaces, groups, fields, \ldots, that consist of one, or two, or a few, sets,
-plus operations on the elements of those sets.
-
-The first concrete examples of this will be the usual number systems 
-in~\autoref{ch:Numbers}.
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../sets}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../functions}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Mathematical Structures}
-
-A mathematical structure~\cite{wiki:Mathematical-structure} 
-consists of a few sets, and functions between those sets,
-or cartesian products of those sets,
-or sometimes subsets of the sets.
-
-There is usually a primary set, whose elements are the 'elements'
-of the structure:
-
-\begin{example}[Linear Space]
-\bigskip
-A \textit{linear space} $\Space{V}$ is:
-\begin{itemize}
-  \item a set of vectors $\Set{V}$,
-  \item a field of scalars $\Space{F}$,
-  \item a linear combination operation/function: 
-\begin{equation}
-\left( \text{linear-combination} 
-\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
-= \; a_0*\Vector{v}_0 + a_1*\Vector{v}_1
-\; \rightarrow \; \Vector{v}_2  \in \Set{V}
-\end{equation}
-for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
-and $a_0, a_1 \in \Space{F}$.
-Linear combination is often defined in terms of
-$2$ other operations:
-scalar multiplication $a * \Vector{v} \in \Set{V}$,
-and vector addition $\Vector{v}_0 + \Vector{v}_1 \in \Set{V}$
-\end{itemize}
-Usually the distinction between $\Set{V}$ and 
-$\Space{V} = \left[ \Set{V}, \Space{F}, \text{linear-combination} \right]$
-is ignored.
-\end{example}
-
-It's tempting to identify a mathematical structure with a class,
-but that won't work, because you will need to support multiple
-representations (dense and sparse vectors, \texttt{double}
-and \texttt{BigFraction}) and the functions
-operate on multiple sets (vectors and scalars)
-each with multiple representations.
-
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../algebra}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../numbers}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../polynomial}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Simplexes}
-%-----------------------------------------------------------------
-\leveldown{Orientation}
-%-----------------------------------------------------------------
-\levelstay{Implementation}
-%-----------------------------------------------------------------
-\levelstay{examples}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../spaces}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../derivatives}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Curves and Surfaces}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelup{Curves and Surfaces}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \input{../interpolation}

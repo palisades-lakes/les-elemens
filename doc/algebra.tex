@@ -23,23 +23,8 @@ that the operations satisfy.
 Unfortunately, the names for algebraic structures 
 are, as a rule, not very informative.
 
-
-Other structures:
-\begin{itemize}
-  \item Order
-  \item Measure
-  \item Metric
-  \item Geometry
-  \item Topology
-\end{itemize}
-
-For \glssymbol{RealNumbers}:
-Order and Metric induce Topology.
-Order and Algebraic structure lead to ordered field.
-Algebraic structure and topology make Lie group.
-
-Some relevant examples:
-
+%-----------------------------------------------------------------
+\levelstay{One set, one operation}
 %-----------------------------------------------------------------
 \leveldown{Monoid}
 
@@ -86,11 +71,13 @@ Example:
 $\left[ \glssymbol{Integers}, *_{\glssymbol{Integers}} \right]$
 
 %-----------------------------------------------------------------
-\levelstay{Ring}
+\levelup{One set, two operations}
+%-----------------------------------------------------------------
+\leveldown{Ring}
 \label{sec:Ring}
 \cite{wiki:Ring-mathematics}
 
-A set and 2 operations: $\left[ \Set{S}, +, * \right]$
+A set and $2$ operations: $\left[ \Set{S}, +, * \right]$
 where
 \begin{description}
   \item[Addition group] $\left[ \Set{S}, + \right]$ 
@@ -178,4 +165,36 @@ accurate finite values?
 \textbf{TODO:} is it possible for a clojure macro/compiler
 to support exact floating operations generated from
 $+$ and $*$ within a function, by incorporating an error
-accumulator? 
+accumulator?
+
+%-----------------------------------------------------------------
+\levelup{Two sets, one operation}
+\leveldown{Category}
+
+A base set, $\Set{O}$, 
+whose elements are ususally refered to as \textit{objects}.
+A second set, $\Set{M}$, of \textit{morphisms}, 
+each of which depends on an ordered pair 
+$\left( \text{source} , \text{target} \right)$ of elements of 
+$\Set{O}$. 
+A \textit{composition} operation, $\circ$, on 
+the subset of the pairs of morphisms $f , g \in \Set{M}$
+where $\text{source}(f) = \text{target}(g)$, satisfying:
+\begin{description}
+\item[Associativity:] $f \circ g \circ g \defeq 
+\left( f \circ g \right) \circ h 
+= f \circ \left( g \circ h \right)$
+\item[Identity:] For each $x \in \Set{O}$, there exists an element
+$1_x \in \Set{M}$ such that 
+$x = \text{source}(1_x) = \text{target}(1_x)$, and 
+$1_x \circ f = f$ (when $x = \text{target(f)}$) and
+$f \circ 1_x = f$ (when $x = \text{source(f)}$).
+\end{description}
+
+ \begin{example}[The Set category]
+ $\Set{O} = $ some collection of sets;
+ $\Set{M} = $ the functions between those sets;
+ $\circ = $ function composition.  
+ \end{example}
+%-----------------------------------------------------------------
+ 
