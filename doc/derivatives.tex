@@ -17,7 +17,7 @@ To be a little more precise, we want
 \end{equation}
 For a concise and correct discussion, see Spivak \cite{spivak-1965}.
 
-Note that for a linear map $\Lmap$,
+Note that for a linear function $\Lmap$,
 the derivative is constant over the domain
 and the value is $\Lmap$ itself.
 
@@ -27,7 +27,7 @@ and the value is $\Lmap$ itself.
 
 In its most general form,
 I denote the derivative of $\f$ by $\Da{\f}$.
-Note that this is linear-map-valued function of the domain of $\f$.
+Note that this is linear-function-valued function of the domain of $\f$.
 
 \item $\Db{\f}{\u}$
 
@@ -64,8 +64,8 @@ a single coordinate $v_j$ of the domain.
 More formally, this is the directional derivative of $\f$
 in the direction of the $j$-th canonical basis vector $\e_j^{\Vspace}$.
 
-$\da{j}{\f}$ is a map from the domain of $\f$ to the co-domain of $\f$.
-$\db{j}{\f}{\u}$ is the value of that map at $\u$.
+$\da{j}{\f}$ is a function from the domain of $\f$ to the co-domain of $\f$.
+$\db{j}{\f}{\u}$ is the value of that function at $\u$.
 The partial derivative is related to the derivative by
 \begin{eqnarray}
 \label{eq:partial-full-dervatives}
@@ -138,7 +138,7 @@ we get an expression for $\Ga{f}$ in terms of the partial derivatives of $f$:
 \end{equation}
 
 $\Ga{\f_i}$ is the gradient of a particular (real-valued) coordinate
-of a vector-valued map. It is related to the derivative $\Da{\f}$
+of a vector-valued function. It is related to the derivative $\Da{\f}$
 in a way simlilar to the relationship between $\Da{\f}$ and its partials $\da{j}{\f}$.
 \begin{equation}
 \Db{\f}{\u} = \sum_{i=0}^{n-1}  \e_i^{\Wspace} \otimes \Gb{\f_i}{\u}
@@ -173,7 +173,8 @@ See Spivak \cite{spivak-1965}, Theorem 2-2.
 \leveldown{Multilinear functions}
 \label{sec:Multilinear-functions}
 
-A map $\f(\v_0 \ldots \v_k):\Vspace_0 \oplus \ldots \oplus \Vspace_k \mapsto \Wspace$
+A function
+ $\f(\v_0 \ldots \v_k):\Vspace_0 \oplus \ldots \oplus \Vspace_k \mapsto \Wspace$
 is {\it multilinear} if
 \begin{equation}
 \f(a_{00} \v_{00} + a_{01} \v_{01}, \ldots, a_{k0} \v_{k0} + a_{k1} \v_{k1})
@@ -191,7 +192,31 @@ at the point $(\v_0 \ldots \v_k)$, applied to the vector $(\u_0 \ldots \u_k)$ is
 See Spivak \cite{spivak-1965}, ex. 2-14.
 
 %-----------------------------------------------------------------
-\levelstay{Bilinear maps}
+\leveldown{Canonical vector 'volume'}
+\label{sec:Canonical-vector-volume}
+
+Let $\text{volume} : \times^{n} \Space{R} \mapsto \Space{R}$ be defined as
+\begin{equation}
+\text{volume} \left( x_0 , \ldots , x_{n-1} \right) = \prod_{i=0}^{n-1} x_i
+\end{equation}
+This is multilinear as a functional on $\times^{n} \Space{R}$.
+
+We can also interpret this as a multilinear function on the
+inner product space
+$\oplus^{n} \Space{R}$.
+In that case, $\text{volume}$ is the volume of the coordinate axis aligned
+$n$-rectangle whose diagonal is $\Vector(x)$.
+
+Note the dependence on both the choice of inner product, 
+and the coordinate system.
+
+\begin{equation}
+\Dc{\text{volume}}{(\v_0 \ldots \v_{n-1})}{\u_0 \ldots \u_{n-1}}
+ =  \sum_{i=0}^{n-1} \u_i \left( \prod_{j \neq i} \v_j \right).
+\end{equation}
+
+%-----------------------------------------------------------------
+\levelstay{Bilinear functions}
 \label{sec:Bilinear-functions}
 
 Bilinear functions are a useful special case of multilinear functions.
@@ -242,7 +267,7 @@ The derivative of $\f \times \g$ is:
 \end{eqnarray}
 
 %-----------------------------------------------------------------
-\levelstay{Scalar products}
+\levelup{Scalar products}
 \label{sec:Scalar-products}
 
 Suppose

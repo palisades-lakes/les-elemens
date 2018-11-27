@@ -12,11 +12,11 @@ and Spivak \cite{spivak-1965}.
 \begin{definition}[Linear space]
 \bigskip
 A \textit{linear space} 
-$\Space{V} = \left[ \Set{V}, \Space{F}, \text{linear-combination} \right]$
+$\Space{V} = \left[ \Set{V}, \Space{K}, \text{linear-combination} \right]$
  is:
 \begin{itemize}
   \item a set of \textit{vectors} $\Set{V}$,
-  \item a field  of scalars $\Space{F}$,
+  \item a field  of scalars $\Space{K}$,
   \item a linear combination function: 
 \begin{equation}
 \left( \text{linear-combination} 
@@ -24,7 +24,7 @@ $\Space{V} = \left[ \Set{V}, \Space{F}, \text{linear-combination} \right]$
  \rightarrow \; \Vector{v}_2  \in \Set{V}
 \end{equation}
 for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
-and $a_0, a_1 \in \Space{F}$.
+and $a_0, a_1 \in \Space{K}$.
 Linear combination is often defined in terms of
 $2$ binary operations:
 scalar multiplication $a * \Vector{v} \in \Set{V}$,
@@ -43,29 +43,30 @@ $\Vector{v} \in \Space{V}$.
 
 Examples:
 
-\begin{example}[$\Space{F}^n$]
+\begin{example}[$\Space{K}^n$]
 %{}
 %\bigskip
-Where $\Space{F}$ is any field.
+Where $\Space{K}$ is any field.
 %\leavevmode \vspace{-\baselineskip}
 \begin{itemize}
   \item vectors:
-  $\Set{V} = \Space{F}^n = \{ \Vector{x}
+  $\Set{V} = \Space{K}^n = \{ \Vector{x}
   = \left[ x_0, \ldots , x_{n-1} \right] \}$,
-  tuples of $n$ elements $x_i \in \Space{F}$.
-  \item scalars: $\Space{F}$
+  tuples of $n$ elements $x_i \in \Space{K}$.
+  \item scalars: $\Space{K}$
   \item scalar multiplication:
-  $ a *_{\Space{F}^n} \left[ x_0, \ldots , x_{n-1} \right] =
-  \left[ \ldots , a *_{\Space{F}} x_{i} , \ldots \right]$
+  $ a *_{\Space{K}^n} \left[ x_0, \ldots , x_{n-1} \right] =
+  \left[ \ldots , a *_{\Space{K}} x_{i} , \ldots \right]$
   \item vector addition:
-  $\Vector{x} +_{\Space{F}^n} \Vector{y}
-  = \left[ \ldots , \left( x_i +_{\Space{F}} y_i \right) ,\ldots \right]$
+  $\Vector{x} +_{\Space{K}^n} \Vector{y}
+  = \left[ \ldots , \left( x_i +_{\Space{K}} y_i \right) ,\ldots \right]$
 \end{itemize}
 \end{example}
 
 \begin{example}[$\Space{R}^n$]
-%{}
-%\bigskip
+\vspace{\topsep}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0pt}
 See \cite[][chapter 1]{spivak-1965} and \cite[][chapter 1]{halmos-1958}.
 %\cite[See][chapter 1]{spivak-1965} and \cite[See][chapter 1]{halmos-1958}.
 %\leavevmode \vspace{-\baselineskip}
@@ -93,6 +94,7 @@ Homogeneous problems often don't have meaningful coordinates.
 Can only approximate $\Space{R}^n$ with tuples of \texttt{double},
 which is fundamentally different due to lack of associativity,
 which leads to accumulation of rounding error.
+
 \end{example}
 
 \textbf{TODO:} Exact float arithmetic as an alternative?
@@ -109,14 +111,14 @@ approximation to $\Space{R}^n$
 \end{example}
 
 
-\begin{example}[{ $ \Set{F} \left[ \Set{D}, \Space{V} \right] \} $ }]
+\begin{example}[{ $ \Space{F} \left[ \Set{D}, \Space{V} \right] \} $ }]
 The functions from any domain to some linear space.
 \textbf{TODO:} lisp notation for clarity below.
 \begin{itemize}
   \item vectors: $\Set{V} = $ any function on $\Set{D}$
   that returns values in the linear space $\Space{V}$.
-  \item scalars: $\Space{F}$, the same scalar field used by
-  $\Space{V}=\left[ \Set{V}, \Space{F}, +, * \right]$.
+  \item scalars: $\Space{K}$, the same scalar field used by
+  $\Space{V}=\left[ \Set{V}, \Space{K}, +, * \right]$.
   \item scalar multiplication:
   $ \left(a*\Vector{f}\right) : \Set{D} \rightarrow \Space{V}$
   is the function defined by
@@ -128,17 +130,62 @@ The functions from any domain to some linear space.
   $\left( \Vector{f} + \Vector{g} \right) \left( x \right) =
   \Vector{f} \left( x \right) + \Vector{g} \left( x\right)$
 \end{itemize}
+Canonical coordinates: 
+$\Vector{f}\left( d \right) \; \forall d \in \Set{D}$
 \end{example}
 
-\begin{example}[Canonical subspaces]
+\begin{example}[{ $\Space{R}^n$ as a function space }]
+%{}
+%\bigskip
+We can identify 
+$\Space{R}^n$ and 
+$ \Space{F} \left[ \{ 0, 1, \ldots, {n-1} \}, \Space{R} \right] $
+by
+$\Vector{x} \Leftrightarrow f_{\Vector{x}}$
+where $f_{\Vector{x}} \left( i \right) = \Vector{x}_i$
+for $\Vector{x} \in \Space{R}^n$ and 
+$i \in \{ 0, 1, \ldots, {n-1} \}$
+\end{example}
+
+%-----------------------------------------------------------------
+\begin{definition}[Linear dependence]
+Suppose $\Space{V}$ is a linear space and
+$\Vector{v}_0, \ldots , \Vector{v}_{n-1} \in \Space{V}$.
+If there exists $a_0, \ldots , a_{n-1}$ such that
+$\Vector{0} = \sum a_i \Vector{v}_i$ then the $\{ \Vector{v}_i \}$
+are \textit{linearly dependent}.
+\cite[][section 5]{halmos-1958}
+
+Otherwise they are \textit{linearly independent}.
+\end{definition}
+%-----------------------------------------------------------------
+\levelstay{Bases}
+%-----------------------------------------------------------------
+\levelstay{Dimension}
+%-----------------------------------------------------------------
+\levelstay{Subspaces}
+
+A subset which is also a linear space with the
+same scalars and operations.
+
+
+\begin{example}[Canonical subspaces of a function space]
+\bigskip
+Let $\Set{D}_0 \subset \Set{D}_1$ be a proper subset.
+Consider 
+$\Space{F}_0 = \Space{F} \left[ \Set{D}_0, \Space{V} \right] \}$
+and
+$\Space{F}_1 = \Space{F} \left[ \Set{D}_1, \Space{V} \right] \}$.
+\end{example}
+
+\begin{example}[Canonical subspaces of $\Space{R}^n$]
 \bigskip
 Finite index set of integers, a real value for each.
 Relationships between index sets define super/sub space relations
 intersections.
 \end{example}
-
 %-----------------------------------------------------------------
-\leveldown{Normed linear spaces}
+\levelstay{Normed linear spaces}
 %-----------------------------------------------------------------
 \levelstay{Inner product (linear) spaces}
 Let $\Space{V}$ be an $n$-dimensional real inner product space.
@@ -216,45 +263,40 @@ then
 \end{itemize}
 
 %-----------------------------------------------------------------
-\levelup{Affine spaces}
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\leveldown{Affine spaces}
 \label{sec:affine-spaces}
 \leveldown{Euclidean space}
 %-----------------------------------------------------------------
-\levelup{Projective spaces}
-\label{sec:Projective-spaces}
-
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Projective spaces}
+%\label{sec:Projective-spaces}
 %-----------------------------------------------------------------
-\levelstay{Oriented projective spaces}
-\label{sec:Oriented-projective-spaces}
-\cite{Stolfi1991opg}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Oriented projective spaces}
+%\label{sec:Oriented-projective-spaces}
+%\cite{Stolfi1991opg}
+%-----------------------------------------------------------------
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Barycentric (convex) spaces and functions}
+%-----------------------------------------------------------------
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Projective spaces}
+%-----------------------------------------------------------------
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Metric spaces}
+%\label{sec:Metric-spaces}
+%-----------------------------------------------------------------
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Spherical spaces}
+%-----------------------------------------------------------------
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\leveldown{Manifolds}
+%\label{sec:Manifolds}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Barycentric (convex) spaces and functions}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Projective spaces}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Metric spaces}
-\label{sec:Metric-spaces}
-%-----------------------------------------------------------------
-\leveldown{Implementation}
-%-----------------------------------------------------------------
-\levelstay{examples}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Spherical spaces and functions}
-%-----------------------------------------------------------------
-\leveldown{Implementation}
-%-----------------------------------------------------------------
-\levelstay{examples}
-%-----------------------------------------------------------------
-\levelup{Manifolds}
-\label{sec:Manifolds}
-
-%-----------------------------------------------------------------
-\levelup{Functions between linear spaces}
-\label{sec:functions}
+\levelstay{Functions between spaces}
+\label{sec:Functions-between-spaces}
 
 In general, the functions discussed here map between real inner product spaces:
 $\f:\Vspace \mapsto \Wspace$, where $\Vspace$ is the
@@ -340,14 +382,14 @@ Examples:
 $\Lmap = \sum_{j=0}^{n-1} ( \c_j^{\Lmap} \otimes \e_j^{\Vspace} )$
 
 $\c_j^{\Lmap} \in \Wspace$ are the 'columns' of $\Lmap$.
-$\\linearspan\{ \c_0^{\Lmap} \ldots \c_{n-1}^{\Lmap} \} = \range(\Lmap)$
+$\linearspan\{ \c_0^{\Lmap} \ldots \c_{n-1}^{\Lmap} \} = \range(\Lmap)$
 (see section \ref{sec:spans-and-projections}).
 
 \item Row-wise:
 $\Lmap = \sum_{i=0}^{m-1} ( \e_i^{\Wspace} \otimes  \r_i^{\Lmap} )$
 
 $\r_i^{\Lmap} \in \Vspace$ are the 'rows' of $\Lmap$.
-$\\linearspan\{ \r_0^{\Lmap} \ldots \r_{m-1}^{\Lmap} \} =  \kernel(\Lmap)^{\perp}$
+$\linearspan\{ \r_0^{\Lmap} \ldots \r_{m-1}^{\Lmap} \} =  \kernel(\Lmap)^{\perp}$
 (see section \ref{sec:spans-and-projections}).
 
 \item Householder:
@@ -389,9 +431,9 @@ Let $\Vspace$ be an $n$-dimensional inner product space.
 The {\it linear span} of a set of $m$ vectors in $\Vspace$
 is the set of linear combinations of those vectors:
 \begin{equation}
-\\linearspan\{ \v_0 \ldots \v_{m-1} \} = \{\v \in \Vspace : \v = \sum_{i=0}^{m-1} a_i \v_i\}
+\linearspan\{ \v_0 \ldots \v_{m-1} \} = \{\v \in \Vspace : \v = \sum_{i=0}^{m-1} a_i \v_i\}
 \end{equation}
-$\\linearspan\{ \v_0 \ldots \v_{m-1} \}$ is a linear subspace of $\Vspace$.
+$\linearspan\{ \v_0 \ldots \v_{m-1} \}$ is a linear subspace of $\Vspace$.
 
 The {\it projection} $\Projection_{\Sset} \v$ of a vector $\v \in \Vspace$
 onto an arbitrary subset $\Sset \subset \Vspace$
@@ -400,8 +442,8 @@ Projection onto a linear subspace is a linear function and
 can be computed by summing
 elementary orthogonal projections onto an orthonormal basis for the subspace.
 
-An orthonormal basis for $\\linearspan\{ \v_0 \ldots \v_{m-1} \}$
-(and $\\linearspan\{ \v_0 \ldots \v_{m-1} \}^\perp$)
+An orthonormal basis for $\linearspan\{ \v_0 \ldots \v_{m-1} \}$
+(and $\linearspan\{ \v_0 \ldots \v_{m-1} \}^\perp$)
 can be computed using the QR decomposition
 of the function $\Vmap = \sum_{i=0}^{m-1} \v_i \otimes \e_i$,
 (the $n \times m$ matrix whose columns are the $\v_i$)
@@ -434,7 +476,7 @@ Projection onto an affine space is clearly an affine function.
 We can represent the affine span of a set of $m+1$ vectors
 as a translation of a linear span:
 \begin{equation}
-\affinespan\{ \p_0 \ldots \p_{m} \} = \p_m + \\linearspan\{\v_0 \ldots \v_{m-1}\}
+\affinespan\{ \p_0 \ldots \p_{m} \} = \p_m + \linearspan\{\v_0 \ldots \v_{m-1}\}
 \end{equation}
 where $\v_i = \p_i - \p_m$,
 which allows us to compute the projection onto

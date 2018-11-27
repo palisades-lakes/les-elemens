@@ -112,9 +112,10 @@ a + b = c
 where $a,b,c\in \glssymbol{NaturalNumbers}$ and we know $b$ and $c$,
 but not $a$.
 
-\begin{minipage}{\linewidth}
+%\begin{minipage}{\linewidth}
 \begin{lstlisting}[
-caption={[Re-inventing subtraction]},
+caption={[Re-inventing subtraction]Reinventing subtraction},
+captionpos=b,
 label=reinvent-subtraction,
 mathescape=true,
 %escapeinside={<*}{*>}
@@ -126,28 +127,12 @@ mathescape=true,
       (< $c$ (+ $a$ $b$)) :no-solution
       :else (recur (+ 1 $a$)))))
 \end{lstlisting}
-\end{minipage}
+%\end{minipage}
 
 Rationals: 
 \begin{math}
 a * b = c
 \end{math}
-
-\begin{minipage}{\linewidth}
-\begin{lstlisting}[
-caption={[Re-inventing subtraction]},
-label=reinvent-subtraction,
-mathescape=true,
-%escapeinside={<*}{*>}
-] 
-(when (<= $b$ $c$)
-  (loop [$a$ 0]
-    (cond 
-      (= $c$ (* $a$ $b$)) $a$
-      (< $c$ (* $a$ $b$)) :no-solution
-      :else (recur (+ 1 $a$)))))
-\end{lstlisting}
-\end{minipage}
 
 Reals: closure under sequence limit.
 Suppose we have $x_0, x_1, \ldots \in \glssymbol{RealNumbers}$

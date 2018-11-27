@@ -5,18 +5,18 @@
 % arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
-% arara: clean: { files: [ mthcmptng-book.aux, mthcmptng-book.bbl] }
-% arara: clean: { files: [ mthcmptng-book.bcf, mthcmptng-book.blg] }
-% arara: clean: { files: [ mthcmptng-book.glg, mthcmptng-book.glo] }
-% arara: clean: { files: [ mthcmptng-book.gls, mthcmptng-book.gls] }
-% arara: clean: { files: [ mthcmptng-book.idx, mthcmptng-book.ilg] }
-% arara: clean: { files: [ mthcmptng-book.ind, mthcmptng-book.loe] }
-% arara: clean: { files: [ mthcmptng-book.lof, mthcmptng-book.log ] }
-% arara: clean: { files: [ mthcmptng-book.log, mthcmptng-book.lol ] }
-% arara: clean: { files: [ mthcmptng-book.out ] }
-% arara: clean: { files: [ mthcmptng-book.run.xml] }
-% arara: clean: { files: [ mthcmptng-book.toc, mthcmptng-book.xdy] }
-% arara: clean: { files: [ mthcmptng-book.synctex.gz] }
+% arara: clean: { files: [ le-book.aux, le-book.bbl] }
+% arara: clean: { files: [ le-book.bcf, le-book.blg] }
+% arara: clean: { files: [ le-book.glg, le-book.glo] }
+% arara: clean: { files: [ le-book.gls, le-book.gls] }
+% arara: clean: { files: [ le-book.idx, le-book.ilg] }
+% arara: clean: { files: [ le-book.ind, le-book.loe] }
+% arara: clean: { files: [ le-book.lof, le-book.log ] }
+% arara: clean: { files: [ le-book.log, le-book.lol ] }
+% arara: clean: { files: [ le-book.out ] }
+% arara: clean: { files: [ le-book.run.xml] }
+% arara: clean: { files: [ le-book.toc, le-book.xdy] }
+% arara: clean: { files: [ le-book.synctex.gz] }
 %-------------------------------------------------------------------------------
 \documentclass[11pt,openany]{book}
 \input{../tex/head}
@@ -42,7 +42,7 @@
 \addbibresource{../bib/tex.bib}
 \addbibresource{../bib/fparith.bib}
 %-----------------------------------------------------------------
-\title{Math Computing (working title)}
+\title{Elements of mathematics and their implementation (working title)}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
 \date{draft of \today}
@@ -82,47 +82,47 @@
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \input{../interpolation}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelup{Smoothness}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Polylines}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Polylines}
 %\input{../curves}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Triangular Meshes}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Triangular Meshes}
 %\input{../faces}
 %\input{../edges}
 %\input{../vertices}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Subdivision Surfaces}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Subdivision Surfaces}
 %\input{../subdivision}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Fitting}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelup{Fitting}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Data Fitting}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Data Fitting}
 %\input{../data-fitting}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Image Fitting}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Image Fitting}
 %\input{../image-fitting}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Registration}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Registration}
 %\input{../registration}
 %\cleardoublepage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Averaging}
+%\setcounter{currentlevel}{\value{baseSectionLevel}}
+%\levelstay{Averaging}
 %\input{../averaging}
 
 \glsaddallunused
