@@ -1,4 +1,5 @@
 \levelstay{Polynomial Interpolation}
+
 \cite{wiki:Interpolation,wiki:Polynomial-interpolation}
 
 TODO:
@@ -45,7 +46,7 @@ minimum effort and defers other work until first call to
 \texttt{value} or \texttt{derivative}.)
 
 The polynomials of degree $k$ form a linear space of dimension
-$k+1$\cite{wiki:Polynomial}.
+$k+1$~\cite{wiki:Polynomial}.
 The most common interpolating polynomials are quadratic or cubic,
 so we will have $3$ or $4$ dimensions (degrees of freedom) to play
 with. 
@@ -480,6 +481,8 @@ the objective is close to quadratic?
 % $2$ domain locations:
 % \input{rawtex/monomial-yyd_2}
 
+\newpage 
+
 Constraints:
 \begin{align}
 y_0 & = \mu_0+\mu_1 x_0+\mu_2 x_0^{2}  
@@ -512,11 +515,12 @@ x_0 x_{10} \left( x_1 d_1 - x_0 y_1 \right)
 \hat{x} & =
 \dfrac{
 \left(x_0+x_1\right) x_{10} d_1 - 2 y_{10} x_1
-}{2 \left(x_{10}) d_1 - y_{10} \right)}
+}{2 \left( x_{10} d_1 - y_{10} \right)}
 \nonumber 
 \end{align}
 
-%\newgeometry{onecolumn=true}
+\newpage
+
 Derivative of $\hat{x}$ with respect to inputs
 $(x_0,y_0,x_1,y_1,d_1)$,
 using $z_{ij} \defeq z_i - z_j$:
@@ -695,7 +699,6 @@ Dependence on monomial coeficients:
 \end{equation}
 
 %-----------------------------------------------------------------
-\newgeometry{onecolumn=true}
 \leveldown{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
 \label{sec:monomial-yyyy}
 
@@ -714,6 +717,8 @@ y_3 & = \mu_0 + \mu_1 x_3 + \mu_2 x_3^2 + \mu_3 x_3^3
 0 & =  mu_1 + 2 mu_2 \hat{x} + 3 mu_3 \hat{x}^2
 \nonumber
 \end{align}
+
+\newgeometry{onecolumn=true}
 
 Solutions (using $z_{ij} \defeq z_i - z_j$):
 \begin{equation}
@@ -736,7 +741,7 @@ Solutions (using $z_{ij} \defeq z_i - z_j$):
 }{
 x_{01} x_{02} x_{03} x_{12} x_{13} x_{23}
 }
-\\
+\\[2ex]
 \mu_1 & = \dfrac{
 -\left(
    \left(y_{02} x_3^{2}-y_{03} x_2^{2}\right) x_1^{3}
@@ -752,7 +757,7 @@ x_{01} x_{02} x_{03} x_{12} x_{13} x_{23}
 x_{01} x_{02} x_{03} x_{12} x_{13} 
 x_{23}
 }
-\\
+\\[2ex]
 \mu_2 & = \dfrac{
 \left(y_{02} x_3-y_{03} x_2\right) x_1^{3}
 -\left(x_2+x_3\right) x_{23} 
@@ -765,7 +770,7 @@ y_{01} x_2 x_3
 }{
 x_{01} x_{02} x_{03} x_{12} x_{13} x_{23}
 }
-\\
+\\[2ex]
 \mu_3 & = \dfrac{
 -\left(\left(
 y_{02} x_3-y_{03} x_2\right) x_1^{2}-\left(x_2-x_3
@@ -777,7 +782,7 @@ x_0
 }{
 x_{01} x_{02} x_{03} x_{12} x_{13} x_{23}
  }
-\\
+\\[2ex]
 \hat{x} & = 
 \dfrac{
 -\left(\left(y_{13} x_2^{3}-y_{23} x_1^{3}-
@@ -884,6 +889,139 @@ y_1-y_3\right) x_2^{2}-y_{23} x_1^{2}-y_{12} x_3^{2}-
 \left(y_{13} x_2-y_{23} x_1-y_{12} x_3
 \right) x_0\right) x_0
 }
+\end{aligned}
+\end{equation}
+
+\newpage
+
+Standardized:
+\begin{equation}
+\begin{aligned}
+v_1 & =  \left(a_2+a_3 u_1\right) u_1^{2}+a_1 u_1 \\[2ex] v_2 & =  \left(a_2+a_3 u_2\right) u_2^{2}+
+a_1 u_2 \\[2ex] 1 & = a_2+a_3+a_1 \\[2ex] 0 & = \left(2 a_2+3 a_3 \hat{u}\right) \hat{u}+a_1
+\end{aligned}
+\end{equation}
+\newpage
+
+\begin{equation}
+\begin{aligned}
+a_1 & = \left(\left(u_2^{2}-v_2\right) u_1^{3}+\left(u_2-1\right) u_2^{2} v_1-
+\left(u_2^{3}-v_2\right) u_1^{2}\right)/\left(\left(u_1-u_2\right) \left(u_1-1
+\right) \left(u_2-1\right) u_1 u_2\right) \\[2ex] a_2 & = \left(-\left(\left(u_2-v_2
+\right) u_1^{3}+\left(u_2+1\right) \left(u_2-1\right) u_2 v_1\right)+\left(u_2
+^{3}-v_2\right) u_1\right)/\left(\left(u_1-u_2\right) \left(u_1-1\right) 
+\left(u_2-1\right) u_1 u_2\right) \\[2ex] a_3 & = \left(\left(u_2-v_2\right) u_1^{2}+
+\left(u_2-1\right) u_2 v_1-\left(u_2^{2}-v_2\right) u_1\right)/\left(\left(u_1-
+u_2\right) \left(u_1-1\right) \left(u_2-1\right) u_1 u_2\right) \\[2ex] \hat{u} & = \left(
+-\left(\left(u_2^{3}-v_2\right) u_1-\sqrt {-\left(\left(\left(2 v_2-3\right)
+ v_1-3 v_2\right) u_2^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(
+3 v_2-2\right) v_1+3 v_2\right) u_2^{2}\right) u_1^{3}+\left(\left(3 \left(v_2
++1\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2} 
+v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 v_2-
+2 v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1\right) u_2 v_1\right) 
+\left(u_2-1\right) u_2 v_1-\left(3 \left(u_2^{2}-v_2\right)-\left(u_2-v_2
+\right) u_1\right) \left(u_2-v_2\right) u_1^{5}+\left(4 u_2^{4}-u_2^{3} v_2-6 
+u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right) u_1^{4}}\right)+\left(u_2-v_2\right) u_1^{3}
++\left(u_2+1\right) \left(u_2-1\right) u_2 v_1\right)/\left(3 \left(\left(u_2
+-v_2\right) u_1^{2}+\left(u_2-1\right) u_2 v_1\right)-3 \left(u_2^{2}-v_2
+\right) u_1\right)
+\end{aligned}
+\end{equation}
+\newpage
+
+\begin{equation}
+\begin{aligned}
+\left(\left(2 \sqrt {-\left(\left(\left(2 v_2-3\right) v_1-3 v_2\right) u_2
+^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(3 v_2-2\right) v_1+3
+ v_2\right) u_2^{2}\right) u_1^{3}-\left(\left(3 \left(u_2^{2}-v_2\right)-
+\left(u_2-v_2\right) u_1\right) \left(u_2-v_2\right) u_1-\left(4 u_2^{4}-u_2^{3}
+ v_2-6 u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right)\right) u_1^{4}+\left(\left(3 \left(
+v_2+1\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2
+} v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 
+v_2-2 v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1\right) u_2 v_1
+\right) \left(u_2-1\right) u_2 v_1} u_2-2 \sqrt {-\left(\left(\left(2 v_2-3
+\right) v_1-3 v_2\right) u_2^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-
+\left(\left(3 v_2-2\right) v_1+3 v_2\right) u_2^{2}\right) u_1^{3}-\left(
+\left(3 \left(u_2^{2}-v_2\right)-\left(u_2-v_2\right) u_1\right) \left(u_2-v_2
+\right) u_1-\left(4 u_2^{4}-u_2^{3} v_2-6 u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right)
+\right) u_1^{4}+\left(\left(3 \left(v_2+1\right) v_1-2 v_2\right) u_2^{3}+u_2
+^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2} v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1
+^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 v_2-2 v_2\right) u_1-\left(u_2^{2}-u_2+1
+\right) \left(u_2-1\right) u_2 v_1\right) \left(u_2-1\right) u_2 v_1} v_2+2 u_1
+^{3} u_2^{2}-4 u_1^{3} u_2 v_2+2 u_1^{3} v_2^{2}-3 u_1^{2} u_2^{3}+3 u_1^{2} u_2^{
+2} v_2+3 u_1^{2} u_2 v_2-3 u_1^{2} v_2^{2}+u_1 u_2^{4}+2 u_1 u_2^{3} v_2-6 u_1 u_2^{2
+} v_2+2 u_1 u_2 v_2+u_1 v_2^{2}-u_2^{4} v_1-2 u_2^{3} v_1 v_2+3 u_2^{3} v_1+3 u_2^{2} 
+v_1 v_2-2 u_2^{2} v_1-u_2 v_1 v_2\right) \left(u_1^{4} u_2-u_1^{4} v_2-2 u_1^{3} u_2
+^{2}+2 u_1^{3} v_2+u_1^{2} u_2^{3}+3 u_1^{2} u_2^{2} v_1-3 u_1^{2} u_2 v_1-u_1^{2} 
+v_2-2 u_1 u_2^{3} v_1+2 u_1 u_2 v_1+u_2^{3} v_1-u_2^{2} v_1\right)\right)/\left(6 
+\sqrt {-\left(\left(\left(2 v_2-3\right) v_1-3 v_2\right) u_2^{3}+3 u_2^{5}+
+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(3 v_2-2\right) v_1+3 v_2\right) u_2
+^{2}\right) u_1^{3}-\left(\left(3 \left(u_2^{2}-v_2\right)-\left(u_2-v_2
+\right) u_1\right) \left(u_2-v_2\right) u_1-\left(4 u_2^{4}-u_2^{3} v_2-6 u_2^{2
+} v_2-u_2 v_2+4 v_2^{2}\right)\right) u_1^{4}+\left(\left(3 \left(v_2+1\right)
+ v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2} v_1 v_2+3 
+u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 v_2-2 v_2
+\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1\right) u_2 v_1\right) 
+\left(u_2-1\right) u_2 v_1} \left(\left(u_2-v_2\right) u_1^{2}+\left(u_2-1
+\right) u_2 v_1-\left(u_2^{2}-v_2\right) u_1\right)^{2}\right) \\[2ex] \left(-
+\left(2 \sqrt {-\left(\left(\left(2 v_2-3\right) v_1-3 v_2\right) u_2^{3}+3 
+u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(3 v_2-2\right) v_1+3 v_2
+\right) u_2^{2}\right) u_1^{3}-\left(\left(3 \left(u_2^{2}-v_2\right)-\left(
+u_2-v_2\right) u_1\right) \left(u_2-v_2\right) u_1-\left(4 u_2^{4}-u_2^{3} v_2-6 
+u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right)\right) u_1^{4}+\left(\left(3 \left(v_2+1
+\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2} v_1
+ v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 v_2-2 
+v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1\right) u_2 v_1\right) 
+\left(u_2-1\right) u_2 v_1} u_2-2 \sqrt {-\left(\left(\left(2 v_2-3\right) v_1
+-3 v_2\right) u_2^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(3 
+v_2-2\right) v_1+3 v_2\right) u_2^{2}\right) u_1^{3}-\left(\left(3 \left(u_2^{
+2}-v_2\right)-\left(u_2-v_2\right) u_1\right) \left(u_2-v_2\right) u_1-\left(4 
+u_2^{4}-u_2^{3} v_2-6 u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right)\right) u_1^{4}+\left(
+\left(3 \left(v_2+1\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2
+^{4} v_1-6 u_2^{2} v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2
+^{4}-u_2^{3}+u_2 v_2-2 v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1
+\right) u_2 v_1\right) \left(u_2-1\right) u_2 v_1} v_2+2 u_1^{3} u_2^{2}-4 u_1^{3
+} u_2 v_2+2 u_1^{3} v_2^{2}-3 u_1^{2} u_2^{3}+3 u_1^{2} u_2^{2} v_2+3 u_1^{2} u_2 
+v_2-3 u_1^{2} v_2^{2}+u_1 u_2^{4}+2 u_1 u_2^{3} v_2-6 u_1 u_2^{2} v_2+2 u_1 u_2 v_2+u_1
+ v_2^{2}-u_2^{4} v_1-2 u_2^{3} v_1 v_2+3 u_2^{3} v_1+3 u_2^{2} v_1 v_2-2 u_2^{2} v_1-
+u_2 v_1 v_2\right) \left(u_1-u_2\right) \left(u_1-1\right) \left(u_2-1\right) 
+u_1 u_2\right)/\left(6 \sqrt {-\left(\left(\left(2 v_2-3\right) v_1-3 v_2
+\right) u_2^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(3 v_2-2
+\right) v_1+3 v_2\right) u_2^{2}\right) u_1^{3}-\left(\left(3 \left(u_2^{2}-
+v_2\right)-\left(u_2-v_2\right) u_1\right) \left(u_2-v_2\right) u_1-\left(4 u_2
+^{4}-u_2^{3} v_2-6 u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right)\right) u_1^{4}+\left(
+\left(3 \left(v_2+1\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2
+^{4} v_1-6 u_2^{2} v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2
+^{4}-u_2^{3}+u_2 v_2-2 v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1
+\right) u_2 v_1\right) \left(u_2-1\right) u_2 v_1} \left(\left(u_2-v_2\right) 
+u_1^{2}+\left(u_2-1\right) u_2 v_1-\left(u_2^{2}-v_2\right) u_1\right)^{2}
+\right)
+\end{aligned}
+\end{equation}
+\newpage
+
+\begin{equation}
+\begin{aligned}
+a_1 & = \left(\left(u_2^{2}-v_2\right) u_1^{3}+\left(u_2-1\right) u_2^{2} v_1-
+\left(u_2^{3}-v_2\right) u_1^{2}\right)/\left(\left(u_1-u_2\right) \left(u_1-1
+\right) \left(u_2-1\right) u_1 u_2\right) \\[2ex] a_2 & = \left(-\left(\left(u_2-v_2
+\right) u_1^{3}+\left(u_2+1\right) \left(u_2-1\right) u_2 v_1\right)+\left(u_2
+^{3}-v_2\right) u_1\right)/\left(\left(u_1-u_2\right) \left(u_1-1\right) 
+\left(u_2-1\right) u_1 u_2\right) \\[2ex] a_3 & = \left(\left(u_2-v_2\right) u_1^{2}+
+\left(u_2-1\right) u_2 v_1-\left(u_2^{2}-v_2\right) u_1\right)/\left(\left(u_1-
+u_2\right) \left(u_1-1\right) \left(u_2-1\right) u_1 u_2\right) \\[2ex] \hat{u} & = \left(
+-\left(\left(u_2^{3}-v_2\right) u_1+\sqrt {-\left(\left(\left(2 v_2-3\right)
+ v_1-3 v_2\right) u_2^{3}+3 u_2^{5}+u_2^{4} v_1+u_2 v_1 v_2+3 v_2^{2}-\left(\left(
+3 v_2-2\right) v_1+3 v_2\right) u_2^{2}\right) u_1^{3}+\left(\left(3 \left(v_2
++1\right) v_1-2 v_2\right) u_2^{3}+u_2^{6}+3 u_2^{5} v_1-6 u_2^{4} v_1-6 u_2^{2} 
+v_1 v_2+3 u_2 v_1 v_2+v_2^{2}\right) u_1^{2}-\left(\left(2 u_2^{4}-u_2^{3}+u_2 v_2-
+2 v_2\right) u_1-\left(u_2^{2}-u_2+1\right) \left(u_2-1\right) u_2 v_1\right) 
+\left(u_2-1\right) u_2 v_1-\left(3 \left(u_2^{2}-v_2\right)-\left(u_2-v_2
+\right) u_1\right) \left(u_2-v_2\right) u_1^{5}+\left(4 u_2^{4}-u_2^{3} v_2-6 
+u_2^{2} v_2-u_2 v_2+4 v_2^{2}\right) u_1^{4}}\right)+\left(u_2-v_2\right) u_1^{3}
++\left(u_2+1\right) \left(u_2-1\right) u_2 v_1\right)/\left(3 \left(\left(u_2
+-v_2\right) u_1^{2}+\left(u_2-1\right) u_2 v_1\right)-3 \left(u_2^{2}-v_2
+\right) u_1\right)
 \end{aligned}
 \end{equation}
 
@@ -4172,6 +4310,7 @@ Constraints:
 \begin{equation}
 \begin{aligned}
 y_0 & = l_0 \lambda^{\text{yd}}_0 (x_0) + l_1 \lambda^{\text{yd}}_1 (x_0) 
+\\
 d_0 & = l_0 \partial\lambda^{\text{yd}}_0 (x_0) + l_1 \partial\lambda^{\text{yd}}_1 (x_0) 
 \end{aligned}
 \end{equation}
@@ -4197,7 +4336,7 @@ The argmin $\hat{x}$ is $-\sign(d_0)\infty$.
 \levelup{Quadratic Lagrange}
 
 %-----------------------------------------------------------------
-\leveldown{Input: $(x_0,y_0),(x_1,y_1),(x_1,y_1)$}
+\leveldown{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2)$}
 
 This is the standard case, and the basis functions are,
 for example:
@@ -4241,7 +4380,10 @@ x_{01} x_{02} x_{12} y_{12}
 \end{equation}
 
 %-----------------------------------------------------------------
-\levelstay{yyd}
+\levelstay{Input: $(x_0,y_0),(x_1,y_1,d_1)$}
+\label{sec:lagrange-yyd}
+
+This is again the 'semi-hermite' problem (section~\ref{sec:monomial-yyd}).
 
 We need 
 $\lambda^{\text{yyd}}_0(x_0) = 1$, 
@@ -4290,10 +4432,13 @@ $\partial{f}(x_2) = (x_2 - x_0) + (x_2 - x_1)$:
 \end{equation}
 
 %-----------------------------------------------------------------
-\levelstay{ydd}
-\label{sec:lagrange-ydd}
+\levelstay{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
+\label{sec:lagrange-dyd}
 
-(Secant)
+This is an elaboration of the secant step 
+(as in section~\ref{sec:monomial-dyd}),
+extending an affine interpolation of function slopes
+to a quadratic interpolant of function values.
 
 For $\lambda^{\text{ydd}}_0$ we need:
 \begin{align}
@@ -4338,7 +4483,9 @@ and, by symmetry,
 \levelup{Cubic Lagrange}
  
 %-----------------------------------------------------------------
-\leveldown{yyyy}
+\leveldown{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
+\label{sec:lagrange-yyyy}
+
 
 For example:
 
@@ -4409,14 +4556,16 @@ For example:
 % satisfies its constraintz.
  
 %-----------------------------------------------------------------
-\levelstay{Input}\label{sec:lagrange-yydd}
+\levelstay{Input}
+\label{sec:lagrange-ydyd}
 
+Hermite interpolation as in section~\ref{sec:Monomial-cubic-hermite}
 We need 
 \begin{align}
-\lambda^{\text{yydd}}_0(x_0) & = 1 \\ 
-\lambda^{\text{yydd}}_0(x_1) & = 0 \nonumber \\
-\partial\lambda^{\text{yydd}}_0(x_2) & = 0 \nonumber \\
-\partial\lambda^{\text{yydd}}_0(x_3) & = 0 \nonumber 
+\lambda^{\text{hermite}}_0(x_0) & = 1 \\ 
+\lambda^{\text{hermite}}_0(x_1) & = 0 \nonumber \\
+\partial\lambda^{\text{hermite}}_0(x_2) & = 0 \nonumber \\
+\partial\lambda^{\text{hermite}}_0(x_3) & = 0 \nonumber 
 \end{align}
 
 Consider functions of the form $(x-x_1)(x-(a_0+b_0))(x-(a_0-b_)))$.
@@ -4449,11 +4598,11 @@ symbolic algebra system to solve this.)
 
 By symmetry,  
 \begin{align}
-\lambda^{\text{yydd}}_0(x) & =
+\lambda^{\text{hermite}}_0(x) & =
 \frac{(x-x_1)(x-(a_0+b_0))(x-(a_0-b_0))}
 {(x_0-x_1)(x_0-(a_0+b_0))(x_0-(a_0-b_0))}
 \\
-\lambda^{\text{yydd}}_1(x) & =
+\lambda^{\text{hermite}}_1(x) & =
 \frac{(x-x_0)(x-(a_1+b_1))(x-(a_1-b_1))}
 {(x_1-x_0)(x_1-(a_0+b_1))(x_1-(a_1-b_1))}
 \nonumber
@@ -4462,14 +4611,14 @@ where $a_1$ and $b_1$ can be obtained
 by replacing $x_1$ by $x_0$ in the formulas
 above.
 
-For $\lambda^{\text{yydd}}_2$ and $\lambda^{\text{yydd}}_3$, 
+For $\lambda^{\text{hermite}}_2$ and $\lambda^{\text{hermite}}_3$, 
 consider functions of the form $(x-x_0)(x-x_1)(x-c_i)$.
 We need, for example, 
 \begin{align}
-\lambda^{\text{yydd}}_3(x_0) & = 1 \\ 
-\lambda^{\text{yydd}}_3(x_1) & = 0 \nonumber \\
-\partial\lambda^{\text{yydd}}_3(x_2) & = 0 \nonumber \\
-\partial\lambda^{\text{yydd}}_3(x_3) & = 1 \nonumber 
+\lambda^{\text{hermite}}_3(x_0) & = 1 \\ 
+\lambda^{\text{hermite}}_3(x_1) & = 0 \nonumber \\
+\partial\lambda^{\text{hermite}}_3(x_2) & = 0 \nonumber \\
+\partial\lambda^{\text{hermite}}_3(x_3) & = 1 \nonumber 
 \end{align}
 It's reasonably easy to see that 
 \begin{align}
@@ -4480,14 +4629,14 @@ c_3 & = x_2 +
 \end{align}
 so
 \begin{align}
-\lambda^{\text{yydd}}_2(x) & =
+\lambda^{\text{hermite}}_2(x) & =
 \frac{(x-x_0)(x-x_1)(x-c_2)}
 {
 (x_2-x_0)(x_2-x_1) +
 (x_2-x_1)(x_2-c_2) +
 (x_2-c_2)(x_2-x_0)}
 \\
-\lambda^{\text{yydd}}_3(x) & =
+\lambda^{\text{hermite}}_3(x) & =
 \frac{(x-x_0)(x-x_1)(x-x_2)}
 {
 (x_3-x_0)(x_3-x_1) +
@@ -4528,7 +4677,7 @@ The constraints are then:
 \end{align}
 The $4$ basis functions can be determined by substituting $x_0$
 for $x_2$ and $x_1$ for $x_3$ in the results in 
-section~\ref{sec:lagrange-yydd}:
+section~\ref{sec:lagrange-hermite}:
 \begin{align}
 \lambda^{\text{hermite}}_{00}(x) & =
 \frac
@@ -4569,8 +4718,8 @@ section~\ref{sec:lagrange-yydd}:
 % \partial\lambda^{\text{yddd}}_1(x_2) & = 0 \nonumber \\
 % \partial\lambda^{\text{yddd}}_1(x_3) & = 0 \nonumber 
 % \end{align}
-% This is essentially the same problem as that of $\lambda^{\text{yydd}}_0$
-% in section~\ref{sec:lagrange-yydd},
+% This is essentially the same problem as that of $\lambda^{\text{hermite}}_0$
+% in section~\ref{sec:lagrange-hermite},
 % so the solution is:
 % \begin{align}
 % \lambda^{\text{yddd}}_1(x) & =
