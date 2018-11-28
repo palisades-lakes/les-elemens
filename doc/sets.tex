@@ -52,11 +52,11 @@ the subset of those elements about which the assertion is true.}
 A \gls{Set}, at its most fundamental, is a defined by a rule,
 or method,
 for determining if any given 'thing' is an element: 
-$s \glssymbol{elementOf} \aSet{S}$.
-\footnote{$(s \notin \aSet{S}) = \text{not}(s \in \aSet{S})$.}
-($s \not\in \aSet{S}$)
+$s \glssymbol{elementOf} \Set{S}$.
+\footnote{$(s \notin \Set{S}) = \text{not}(s \in \Set{S})$.}
+($s \not\in \Set{S}$)
 %, or in pseudocode:
-%\lstinline|(element-of $\aSet{S}$ $s$)|.
+%\lstinline|(element-of $\Set{S}$ $s$)|.
 An example, in standard set notation:
 the even numbers $= \{ i | \, i/2 \, \text{is an integer}\}$.
 
@@ -77,22 +77,22 @@ And it fails for uncountable sets like the real numbers.
 \end{description}
 
 What's unstated, but required, in both these approaches, is the
-existence of some prior 'universe' set, $\aSet{U}$, and a function
+existence of some prior 'universe' set, $\Set{U}$, and a function
 (see~\autoref{sec:Functions}) we can apply to the elements of
-$\aSet{U}$ to determine the set of interest:
+$\Set{U}$ to determine the set of interest:
 
 \begin{description}
 \item[Specification] 
-$\aSet{S} =
-\{ u \glssymbol{elementOf} \aSet{U} | p(u) = \text{true} \}$ 
+$\Set{S} =
+\{ u \glssymbol{elementOf} \Set{U} | p(u) = \text{true} \}$ 
 
 For example: the even numbers $= \{ i \glssymbol{elementOf} 
 \glssymbol{Integers} |
  \, i/2 \glssymbol{elementOf} \glssymbol{Integers} \}$.
 
 \item[Enumeration]
-$\aSet{S} =
-\{ f(u) | u \glssymbol{elementOf} \aSet{U} \}$ 
+$\Set{S} =
+\{ f(u) | u \glssymbol{elementOf} \Set{U} \}$ 
 
 For example: the even numbers $= \{ 2*i | \, i
 \glssymbol{elementOf} \glssymbol{Integers} \}$.
@@ -120,10 +120,10 @@ turing1937computability-lambda},
 which I am going to pass over here, except to note the 
 'halting problem'~\cite{wiki:Halting-problem}:
 
-If we call $p(u)$ to determine if $u \in \aSet{S}$, 
+If we call $p(u)$ to determine if $u \in \Set{S}$, 
 it might return $\text{true}$, might return $\text{false}$,
 or it might not return at all.
-In the third case, we might define $u \in \aSet{S}$ as only those
+In the third case, we might define $u \in \Set{S}$ as only those
 $u$ where $p(u)$ halts and returns $\text{true}$, but it turns 
 out that given $p$ and $u$, deciding whether $p(u)$ will ever
 finish is itself undecidable (more turtles \ldots).
@@ -153,12 +153,12 @@ See~\cite{wiki:cardinal-number} for an introduction to the other
 possibilities.)
 
 Notation for set cardinality varies widely:
-$\#\aSet{S}$,  $|\aSet{S}|$,
-$\bar{\bar{\aSet{S}}}$, $n(\aSet{S})$,
-$\text{card}(\aSet{S})$, \ldots, nearly all of which conflict
+$\#\Set{S}$,  $|\Set{S}|$,
+$\bar{\bar{\Set{S}}}$, $n(\Set{S})$,
+$\text{card}(\Set{S})$, \ldots, nearly all of which conflict
 with something (eg $\#\{ 0 \, 1 \, 2 \} = 3$ vs 
 \lstinline|#{1 2 3}| Clojure set syntax).
-I will use $\text{cardinality}(\aSet{S})$.
+I will use $\text{cardinality}(\Set{S})$.
 
 %-----------------------------------------------------------------
 \levelstay{Identity}
@@ -200,48 +200,49 @@ take $\glssymbol{Integers} \subset \glssymbol{RationalNumbers}$.
 %-----------------------------------------------------------------
 \levelstay{Subsets, partitions, and quotients}
 
-Families: $\{ \aSet{S}_{i} | i \in \, \text{index set} \, \aSet{I}
+Families: $\{ \Set{S}_{i} \, | \, i \in \, \text{index set} \, \Set{I}
 \}$.
 
 
 %\gls{subset} \gls{superset}
 
-$\aSet{A} \subseteq \aSet{B}$ ($\aSet{B} \supseteq \aSet{A}$)
+$\Set{A} \subseteq \Set{B}$ ($\Set{B} \supseteq \Set{A}$)
 means
-every element of $\aSet{A}$ is an element of $\aSet{B}$, 
-that is, $a \in \aSet{A}$ 
-implies $a \in \aSet{B}$.
-I reserve $\aSet{A} \subset \aSet{B}$ (($\aSet{B} \supset
-\aSet{A}$)) for strict subsets;
-it means $\aSet{A} \subseteq \aSet{B}$
-and there is some $\b\in\aSet{B}$ which
-is not in $\aSet{A}$.
+every element of $\Set{A}$ is an element of $\Set{B}$, 
+that is, $a \in \Set{A}$ 
+implies $a \in \Set{B}$.
+I reserve $\Set{A} \subset \Set{B}$ (($\Set{B} \supset
+\Set{A}$)) for strict subsets;
+it means $\Set{A} \subseteq \Set{B}$
+and there is some $\b\in\Set{B}$ which
+is not in $\Set{A}$.
 
 
 %\gls{power set}
 
-The \emph{power set}, ${\displaystyle \wp}(\aSet{S})$ is the set 
+The \emph{power set}, $\PowerSet{\Set{S}}$,
+ is the set 
 of all subsets of
-$\aSet{S}$.
+$\Set{S}$.
 
 %\gls{intersection} \gls{union} \gls{set-difference}
-As usual, $\aSet{A} \cap \aSet{B}$ is the set of elements in both 
-$\aSet{A}$ and $\aSet{B}$; $\aSet{A} \cup \aSet{B}$ are those things
-that are in either $\aSet{A}$ or $\aSet{B}$.
+As usual, $\Set{A} \cap \Set{B}$ is the set of elements in both 
+$\Set{A}$ and $\Set{B}$; $\Set{A} \cup \Set{B}$ are those things
+that are in either $\Set{A}$ or $\Set{B}$.
 
-$\aSet{A} \cap \aSet{B} \cap \aSet{C} 
-= (\aSet{A} \cap \aSet{B}) \cap \aSet{C} 
-= \aSet{A} \cap (\aSet{B} \cap \aSet{C}) $
+$\Set{A} \cap \Set{B} \cap \Set{C} 
+= (\Set{A} \cap \Set{B}) \cap \Set{C} 
+= \Set{A} \cap (\Set{B} \cap \Set{C}) $
 
-$\bigcap_{i \in \aSet{I}} \aSet{S}_{i} = \{ s | s \in \aSet{S}_{i}
-\forall \aSet{S}_{i} \}$
+$\bigcap_{i \in \Set{I}} \Set{S}_{i} = \{ s | s \in \Set{S}_{i}
+\forall \Set{S}_{i} \}$
 
-$\aSet{A} \setminus \aSet{B}$ are the elements of $\aSet{A}$ 
-not in $\aSet{B}$.
+$\Set{A} \setminus \Set{B}$ are the elements of $\Set{A}$ 
+not in $\Set{B}$.
 
 %\gls{partition}
-A partition of $\aSet{S}$ is a set of disjoint nonempty subsets of
-$\aSet{S}$ whose union is $\aSet{S}$.
+A partition of $\Set{S}$ is a set of disjoint nonempty subsets of
+$\Set{S}$ whose union is $\Set{S}$.
 
 %-----------------------------------------------------------------
 \levelstay{Cartesian products}
@@ -253,20 +254,20 @@ or sometimes as $a \times b \times c$.
 
 % \gls{cartesian-product}
 The cartesian product set 
-$\aSet{A} \times \aSet{B} =
-\{[a \, b] | a \in \aSet{A} \text{ and } b \in \aSet{B}\}$.
+$\Set{A} \times \Set{B} =
+\{[a \, b] | a \in \Set{A} \text{ and } b \in \Set{B}\}$.
 
 Extending this notation beyond two terms,
-$\aSet{A} \times \aSet{B} \times \aSet{C}$,
+$\Set{A} \times \Set{B} \times \Set{C}$,
 introduces ambiguity typically ignored in mathematics literature,
 using the implied natural identity mentioned above.
 Strictly speaking,
 \begin{itemize}
-  \item $\aSet{A} \times \aSet{B} \times \aSet{C} = 
+  \item $\Set{A} \times \Set{B} \times \Set{C} = 
   \{[a \, b \, c] | \ldots \}$
-  \item $\aSet{A} \times (\aSet{B} \times \aSet{C}) = 
+  \item $\Set{A} \times (\Set{B} \times \Set{C}) = 
   \{[a \, [b \,c]] | \ldots \}$
-  \item $(\aSet{A} \times \aSet{B}) \times \aSet{C} = 
+  \item $(\Set{A} \times \Set{B}) \times \Set{C} = 
   \{[[a \, b] \, c]] | \ldots \}$
 \end{itemize}
 are 3 distinct sets.
@@ -290,10 +291,10 @@ possibly mutable, finite sets (\autoref{java.util.Set:general},
  caption={[\texttt{java.util.Set} general]\texttt{java.util.Set} 
  operations applicable to any set.}, 
  label=java.util.Set:general]
-boolean contains (Object o) //$ \; o \in \aSet{S}$
-boolean containsAll (Collection c) //$\;\aSet{C}\subseteq\aSet{S}$ 
-boolean isEmpty () //$ \; \aSet{S} = \varnothing $
-boolean equals (Object o) //$\; \aSet{S} = \aSet{O} $
+boolean contains (Object o) //$ \; o \in \Set{S}$
+boolean containsAll (Collection c) //$\;\Set{C}\subseteq\Set{S}$ 
+boolean isEmpty () //$ \; \Set{S} = \varnothing $
+boolean equals (Object o) //$\; \Set{S} = \Set{O} $
 \end{lstlisting}
 %-----------------------------------------------------------------
 \begin{lstlisting}[
@@ -321,12 +322,12 @@ Object[] toArray (Object[] a)
  caption={[\texttt{java.util.Set}]\texttt{java.util.Set} optional
  operations, requiring mutable sets.}, 
  label=java.util.Set:optional,]
-boolean add(E e) //$\; \aSet{S} \leftarrow \aSet{S} \cup \{e\} $
-boolean addAll(Collection c) //$\;\aSet{S}\leftarrow\aSet{S}\cup\aSet{C}$ 
-void  clear() //$\; \aSet{S} \leftarrow \varnothing $ 
-boolean remove (Object o) //$\;\aSet{S}\leftarrow\aSet{S}\setminus\{e\}$
-boolean removeAll (Collection c) //$\;\aSet{S}\leftarrow\aSet{S}\setminus\aSet{C}$ 
-boolean retainAll (Collection c) //$\;\aSet{S}\leftarrow\aSet{S}\cap\aSet{C}$
+boolean add(E e) //$\; \Set{S} \leftarrow \Set{S} \cup \{e\} $
+boolean addAll(Collection c) //$\;\Set{S}\leftarrow\Set{S}\cup\Set{C}$ 
+void  clear() //$\; \Set{S} \leftarrow \varnothing $ 
+boolean remove (Object o) //$\;\Set{S}\leftarrow\Set{S}\setminus\{e\}$
+boolean removeAll (Collection c) //$\;\Set{S}\leftarrow\Set{S}\setminus\Set{C}$ 
+boolean retainAll (Collection c) //$\;\Set{S}\leftarrow\Set{S}\cap\Set{C}$
 \end{lstlisting}
 %-----------------------------------------------------------------
 
@@ -362,14 +363,14 @@ for all Clojure collections, not always what you would expect:
 \begin{lstlisting}[
  caption={Clojure set 'API'}, 
  label=Clojure:set-API,]
-(contains? s x) ;;  $x \in \aSet{S}$.
-(empty? s) ;; $\aSet{S} = \varnothing$
-(count s) ;; $\text{cardinality}(\aSet{S})$
-(conj s x) ;; $\aSet{S} \cup \{x\}$
-(disj s x) ;; $\aSet{S} \setminus \{x\}$
-(clojure.set/intersection s0 s1 s2 $\ldots$) ;; $\aSet{S}_0 \cap \aSet{S}_1 \cap \aSet{S}_2 \cap \ldots$ 
-(clojure.set/union s0 s1 s2 $\ldots$) ;; $\aSet{S}_0 \cup \aSet{S}_1 \cup \aSet{S}_2 \cup \ldots$ 
-(clojure.set/difference s0 s1 s2 $\ldots$) ;; $\aSet{S}_0 \setminus (\aSet{S}_1 \cup \aSet{S}_2 \cup \ldots)$
+(contains? s x) ;;  $x \in \Set{S}$.
+(empty? s) ;; $\Set{S} = \varnothing$
+(count s) ;; $\text{cardinality}(\Set{S})$
+(conj s x) ;; $\Set{S} \cup \{x\}$
+(disj s x) ;; $\Set{S} \setminus \{x\}$
+(clojure.set/intersection s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \cap \Set{S}_1 \cap \Set{S}_2 \cap \ldots$ 
+(clojure.set/union s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \cup \Set{S}_1 \cup \Set{S}_2 \cup \ldots$ 
+(clojure.set/difference s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \setminus (\Set{S}_1 \cup \Set{S}_2 \cup \ldots)$
 \end{lstlisting}
 
 Confusion with dictionary 'API':

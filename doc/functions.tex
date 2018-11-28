@@ -20,40 +20,40 @@ provide both definitions.
 \label{sec:Relations}
 
 A \textit{relation}, 
-$\aSet{R}$, on $\aSet{S}_0, \aSet{S}_1, \ldots \aSet{S}_{n-1}$,  
+$\Set{R}$, on $\Set{S}_0, \Set{S}_1, \ldots \Set{S}_{n-1}$,  
 is any subset 
-$\aSet{R} \subseteq \aSet{S}_0 \times \aSet{S}_1 \times \ldots 
-\times \aSet{S}_{n-1}$,
+$\Set{R} \subseteq \Set{S}_0 \times \Set{S}_1 \times \ldots 
+\times \Set{S}_{n-1}$,
 that is, a set of tuples.
 
-Ambiguity note: a given set of tuples, $\aSet{R}$, can be
+Ambiguity note: a given set of tuples, $\Set{R}$, can be
 considered as a relation over many cartesian product sets.
 The minimal such set is 
-$\aSet{R}_0 \times \aSet{R}_1 \times \ldots \times
-\aSet{R}_{n-1}$, 
+$\Set{R}_0 \times \Set{R}_1 \times \ldots \times
+\Set{R}_{n-1}$, 
 where 
-$\aSet{R}_i = \{ x | \exists r 
-\in \aSet{R} \text{ s.t. } r_i = x\}$.
+$\Set{R}_i = \{ x | \exists r 
+\in \Set{R} \text{ s.t. } r_i = x\}$.
 
 A general \textit{binary relation} is a set of ordered
-pairs $\aSet{R} \subseteq \aSet{S}_0 \times \aSet{S}_1$.
+pairs $\Set{R} \subseteq \Set{S}_0 \times \Set{S}_1$.
 It's common to write a binary relation as a predicate, 
-$r(s_0,s_1) = ([s_0 \, s_1] \in \aSet{R})$,
+$r(s_0,s_1) = ([s_0 \, s_1] \in \Set{R})$,
 or $(r \, s_0 \, s_1)$ in pseudo-code,
 or as a binary operation $s_0 \, R \, s_1$.
 
 An important special case
-are binary relations on $\aSet{S}^2 = \aSet{S} \times \aSet{S}$
-(often just written as ``binary relation on $\aSet{S}$''). 
+are binary relations on $\Set{S}^2 = \Set{S} \times \Set{S}$
+(often just written as ``binary relation on $\Set{S}$''). 
 In this case we can define certain properties:
 
 \begin{description}
 \item[Transitive]
 $r(s_0,s_1) \text{ and } r(s_1,s_2) \Rightarrow r(s_0,s_2)$.
 \item[Reflexive] $r(s,s)$ is always true.
-\item[Symmetric] For $s_0 \neq s1$, $r(s_0,s_1)$ implies
+\item[Symmetric] For $s_0 \neq s_1$, $r(s_0,s_1)$ implies
 $r(s_1,s_0)$.
-\item[Antisymmetric] For $s_0 \neq s1$, $r(s_0,s_1)$ implies not
+\item[Antisymmetric] For $s_0 \neq s_1$, $r(s_0,s_1)$ implies not
 $r(s_1,s_0)$.
 \end{description}
 These properties determine 2 important classes of relations:
@@ -66,27 +66,27 @@ Transitive, reflexive, and antisymmetric.
 %-----------------------------------------------------------------
 \levelstay{Functions}
 
-A \textit{functional} binary relation, $\aSet{F}$ on $\aSet{X}
-\times \aSet{Y}$ has exactly one $y \in \aSet{Y}$ for each
-$x \in \aSet{X}$ such that $[x \, y] \in \aSet{F}$.
+A \textit{functional} binary relation, $\Set{F}$ on $\Set{X}
+\times \Set{Y}$ has exactly one $y \in \Set{Y}$ for each
+$x \in \Set{X}$ such that $[x \, y] \in \Set{F}$.
 More conventional notation writes the \textit{function}, 
-$f : \aSet{X} \rightarrow \aSet{Y}$ as $y = f(x)$.
+$f : \Set{X} \rightarrow \Set{Y}$ as $y = f(x)$.
 
-Any function, $f : \aSet{X} \rightarrow \aSet{Y}$ defines an
-equivalence relation on $\aSet{X}$ via 
-$\aSet{E}_f = {[x_0 \, x_1] | f(x_0) = f(x_1)}$
+Any function, $f : \Set{X} \rightarrow \Set{Y}$ defines an
+equivalence relation on $\Set{X}$ via 
+$\Set{E}_f = {[x_0 \, x_1] | f(x_0) = f(x_1)}$
 
 %-----------------------------------------------------------------
 \levelstay{Equivalence classes and quotient sets}
 
-If $\aSet{E}$ is an equivalence relation on $\aSet{S}^2$, then we
+If $\Set{E}$ is an equivalence relation on $\Set{S}^2$, then we
 can define the \textit{equivalence class} of $s_0$, $E(s_0) = \{
-s_1 \in \aSet{S} | [s_0 \, s_1] \in \aSet{E} \}$.
-The set of distinct equivalence classes partitions $\aSet{S}$,
-and is called the \textit{quotient set}: $\aSet{S} / \aSet{E}$.
+s_1 \in \Set{S} | [s_0 \, s_1] \in \Set{E} \}$.
+The set of distinct equivalence classes partitions $\Set{S}$,
+and is called the \textit{quotient set}: $\Set{S} / \Set{E}$.
 
 In the case where the equivalence relation is derived from a
-function, we write $\aSet{S} / f$.
+function, we write $\Set{S} / f$.
 
 Equivalence classes and quotient sets will turn out to be
 important. A common representational/implementation trick is to
@@ -100,6 +100,59 @@ $[\text{numerator} \, \text{denominator}]$, but the actual
 rational numbers are the equivalence classes defined by 
 $\{ [[p_0 \, q_0] \, [p_1 \, q_1]] | p_0*q_1 = p_1*q_0 \}$,
 that is, $[1 \, 2]$ and $[2 \, 4]$ represent the same rational.
+
+%-----------------------------------------------------------------
+\levelstay{Inverses and pseudo-inverses}
+\label{sec:Inverses-and-pseudo-inverses}
+
+Given a function $f : \Set{D} \mapsto \Set{C}$,
+the \textit{inverse} of $f$ is 
+$f^{-1}(c) = \SetSpec{d}{f(d) = c}$.
+Note that $f^{-1} : \Set{C}  \mapsto \PowerSet{\Set(D)}$.
+
+$\Set{L}\left( f , c \right) = f^{-1}(c)$ is a \textit{level set} of
+$f$ at $c$.
+
+For more symmetry, we can extend $f$ to 
+$\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
+by defining
+$f(\Set{S}) = 
+\SetSpec{c}{\exists \, d \, \in \Set{S} \; \text{s.t.} \; c = f \left( d \right)}$
+
+The usual definition of inverse treats $f^{-1}$
+as a function from $\Set{C} \mapsto \Set{D}$,
+which is undefined where the value of the true
+inverse is not a set containing a single point.
+
+\textbf{TODO:} When is a function 
+$\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
+derivable from a function $\Set{D} \mapsto \Set{C}$?
+
+%-----------------------------------------------------------------
+\levelstay{Implicit functions}
+\label{sec:Implicit-functions}
+
+Suppose 
+$f : \left( \Set{D}_0 \times \Set{D}_1 \right) \mapsto \Set{C}$.
+Then each level set $f^{-1}\left( c \right)$ defines a relation on 
+$\Set{R}_{f^{-1}(c)} \left( \Set{D}_0 , \Set{D}_1 \right)$.
+If that relation is a function
+(one $d_1$ paired to each $d_0$),
+we call it an \textit{implicit function},
+which we might write $g_{f^{-1}(c)} : \Set{D}_0 \mapsto \Set{D}_1$
+
+Implicit functions are generally difficult to use,
+because they don't tell us how to compute 
+$g_{f^{-1}(c)} \left( d_0 \right)$.
+Essentially, one has to use an iterativc zero-finding 
+algorithm, which is difficult and non-robust except
+for very low dimensional problems.
+An alternative is to minimize something like
+$\| c - f\left( d_0, d_1 \right) \|^2$ over $d_0$,
+and check that the minimum value is close enough to $0$.
+
+
+
 
 %-----------------------------------------------------------------
 %\levelstay{Computable functions}

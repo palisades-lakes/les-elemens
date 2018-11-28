@@ -1,10 +1,4 @@
 %-------------------------------------------------------------------------------
-\newcommand{\aSet}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\aSpace}[1]{\ensuremath{\mathbb{#1}}}
-\newcommand{\aVector}[1]{\ensuremath{\vec{#1}}}
-\newcommand{\aPoint}[1]{\ensuremath{\mathbf{#1}}}
-\newcommand{\setSpec}[2]{\ensuremath{\{#1 | #2\}}}
-%-------------------------------------------------------------------------------
 %\usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
 \usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
 %-------------------------------------------------------------------------------
@@ -62,7 +56,7 @@
   name={Set},
   text={set},
   first={a generic set},
-  symbol={\aSet{S}},
+  symbol={\Set{S}},
   description={a generic \emph{set}},
   sort=set,
   parent=Sets}
@@ -89,53 +83,53 @@
 \newglossaryentry{Integers}{
   name={integers},
   text={integers},
-  symbol={\aSpace{Z}},
+  symbol={\Space{Z}},
   description={the integers}}
 
 \newglossaryentry{PositiveIntegers}{
   name={positive integers},
   text={positive integers},
-  symbol={\ensuremath{\aSpace{Z}_{+}}},
-  description={\setSpec{i\glssymbol{elementOf}\glssymbol{Integers}}{i>0}},
+  symbol={\ensuremath{\Space{Z}_{+}}},
+  description={\SetSpec{i\glssymbol{elementOf}\glssymbol{Integers}}{i>0}},
   parent=Integers}
 
 \newglossaryentry{NaturalNumbers}{
   name={natural numbers},
   text={natural numbers},
-  symbol={\aSpace{N}},
-  description={\setSpec{i\glssymbol{elementOf}\glssymbol{Integers}}{i \geq 0}}}
+  symbol={\Space{N}},
+  description={\SetSpec{i\glssymbol{elementOf}\glssymbol{Integers}}{i \geq 0}}}
 
 \newglossaryentry{RationalNumbers}{
   name={rational numbers},
   text={rational numbers},
-  symbol={\aSpace{Q}},
+  symbol={\Space{Q}},
   description={
-  \setSpec{i/j}{
+  \SetSpec{i/j}{
   i \glssymbol{elementOf} \glssymbol{Integers}, 
   j \glssymbol{elementOf} \glssymbol{PositiveIntegers}}}}
 
 \newglossaryentry{RealNumbers}{
   name={real numbers},
   text={real numbers},
-  symbol={\aSpace{R}},
+  symbol={\Space{R}},
   description={the real numbers}}
 
 \newglossaryentry{DoublePrecisionFloat}{
   name={doubles},
   text={doubles},
-  symbol={\aSpace{D}},
+  symbol={\Space{D}},
   description={the IEEE 754 64 bit floating point numbers}}
 
 \newglossaryentry{SinglePrecisionFloat}{
   name={floats},
   text={floats},
-  symbol={\aSpace{F}},
+  symbol={\Space{F}},
   description={the IEEE 754 32 bit floating point numbers}}
 
 \newglossaryentry{GenericSpace}{
   name={a generic space},
   text={a generic space},
-  symbol={\aSpace{S}},
+  symbol={\Space{S}},
   description={a generic space}}
 
 
@@ -163,7 +157,7 @@
 % \def\P{{\mathbf P}}                   % vector of unconstrained weights
 % \def\u{{\mathbf u}}                   % vector of convex weights
 % 
-% \def\etal{{\it et al.}}
+% \def\etal{\textit{et al.}}
 % 
 % \def\Re{\mathcal{R}}		% set of Reals, $\Re^3$
 % \def\Qs{\mathcal{Q}}		% set of Quaternions
