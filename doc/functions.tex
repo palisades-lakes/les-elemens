@@ -32,8 +32,8 @@ The minimal such set is
 $\Set{R}_0 \times \Set{R}_1 \times \ldots \times
 \Set{R}_{n-1}$, 
 where 
-$\Set{R}_i = \{ x | \exists r 
-\in \Set{R} \text{ s.t. } r_i = x\}$.
+$\Set{R}_i = \SetSpec{ x }{ \exists r 
+\in \Set{R} \text{ s.t. } r_i = x }$.
 
 A general \textit{binary relation} is a set of ordered
 pairs $\Set{R} \subseteq \Set{S}_0 \times \Set{S}_1$.
@@ -74,14 +74,14 @@ $f : \Set{X} \rightarrow \Set{Y}$ as $y = f(x)$.
 
 Any function, $f : \Set{X} \rightarrow \Set{Y}$ defines an
 equivalence relation on $\Set{X}$ via 
-$\Set{E}_f = {[x_0 \, x_1] | f(x_0) = f(x_1)}$
+$\Set{E}_f = \SetSpec{[x_0 \, x_1]}{f(x_0) = f(x_1)}$
 
 %-----------------------------------------------------------------
 \levelstay{Equivalence classes and quotient sets}
 
 If $\Set{E}$ is an equivalence relation on $\Set{S}^2$, then we
 can define the \textit{equivalence class} of $s_0$, $E(s_0) = \{
-s_1 \in \Set{S} | [s_0 \, s_1] \in \Set{E} \}$.
+\SetSpec{s_1 \in \Set{S}}{[s_0 \, s_1] \in \Set{E} }$.
 The set of distinct equivalence classes partitions $\Set{S}$,
 and is called the \textit{quotient set}: $\Set{S} / \Set{E}$.
 
@@ -98,7 +98,7 @@ The first one we will encounter here will be the rational numbers,
 which are represented/implemented as pairs of integers
 $[\text{numerator} \, \text{denominator}]$, but the actual
 rational numbers are the equivalence classes defined by 
-$\{ [[p_0 \, q_0] \, [p_1 \, q_1]] | p_0*q_1 = p_1*q_0 \}$,
+$\SetSpec{ [[p_0 \, q_0] \, [p_1 \, q_1]]}{p_0*q_1 = p_1*q_0 }$,
 that is, $[1 \, 2]$ and $[2 \, 4]$ represent the same rational.
 
 %-----------------------------------------------------------------
@@ -113,7 +113,7 @@ Note that $f^{-1} : \Set{C}  \mapsto \PowerSet{\Set(D)}$.
 $\Set{L}\left( f , c \right) = f^{-1}(c)$ is a \textit{level set} of
 $f$ at $c$.
 
-For more symmetry, we can extend $f$ to 
+For more symmetry, we can extend $f$ and $f^{-1}$ to 
 $\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
 by defining
 $f(\Set{S}) = 
@@ -127,6 +127,10 @@ inverse is not a set containing a single point.
 \textbf{TODO:} When is a function 
 $\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
 derivable from a function $\Set{D} \mapsto \Set{C}$?
+
+Inverse function theorem~\cite[][Theorem 2-1]{spivak-1965}
+for $\Space{R}^n$. 
+Generalizations?~\cite{wiki:Inverse-function-theorem}
 
 %-----------------------------------------------------------------
 \levelstay{Implicit functions}
@@ -151,6 +155,11 @@ An alternative is to minimize something like
 $\| c - f\left( d_0, d_1 \right) \|^2$ over $d_0$,
 and check that the minimum value is close enough to $0$.
 
+\textbf{TODO:} When does a level set correspond to a function?
+Implicit function theorem~\cite[][Theorem 2-2]{spivak-1965}
+for $\Space{R}^n$. 
+Generalizations?~\cite{wiki:Implicit-function-theorem,
+wiki:Inverse-function-theorem}
 
 
 

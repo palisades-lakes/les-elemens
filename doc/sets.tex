@@ -58,7 +58,8 @@ $s \glssymbol{elementOf} \Set{S}$.
 %, or in pseudocode:
 %\lstinline|(element-of $\Set{S}$ $s$)|.
 An example, in standard set notation:
-the even numbers $= \{ i | \, i/2 \, \text{is an integer}\}$.
+the even numbers 
+$= \SetSpec{ i }{ \, i/2 \, \text{is an integer} }$.
 
 \item[Enumeration]
 
@@ -84,18 +85,19 @@ $\Set{U}$ to determine the set of interest:
 \begin{description}
 \item[Specification] 
 $\Set{S} =
-\{ u \glssymbol{elementOf} \Set{U} | p(u) = \text{true} \}$ 
+\SetSpec{ u \glssymbol{elementOf} \Set{U} }{ p(u) = \text{true} }$ 
 
-For example: the even numbers $= \{ i \glssymbol{elementOf} 
-\glssymbol{Integers} |
- \, i/2 \glssymbol{elementOf} \glssymbol{Integers} \}$.
+For example: the even numbers
+ $= \SetSpec{ i \glssymbol{elementOf} 
+\glssymbol{Integers} }{
+ i/2 \glssymbol{elementOf} \glssymbol{Integers} }$.
 
 \item[Enumeration]
 $\Set{S} =
-\{ f(u) | u \glssymbol{elementOf} \Set{U} \}$ 
+\SetSpec{ f(u) }{ u \glssymbol{elementOf} \Set{U} }$ 
 
-For example: the even numbers $= \{ 2*i | \, i
-\glssymbol{elementOf} \glssymbol{Integers} \}$.
+For example: the even numbers 
+$= \SetSpec{ 2*i }{ i \glssymbol{elementOf} \glssymbol{Integers} }$.
 
 \end{description}
 A variation on 
@@ -174,10 +176,10 @@ extension:} two sets are the \emph{same thing} if they have the
 same elements (regardless of how they are defined).
 
 Example: 
-$\{ 2*i | \, i \in \glssymbol{Integers} \}$
+$\SetSpec{ 2*i }{ \, i \in \glssymbol{Integers} }$
 and
-$\{ i \in \glssymbol{Integers} |
- \, i/2 \in \glssymbol{Integers} \}$
+$\SetSpec{ i \in \glssymbol{Integers} }
+{ i/2 \in \glssymbol{Integers} }$
 are two distinct definitions of the same set. 
  
 Pragmatically, however, it's going to be much easier to determine
@@ -200,8 +202,8 @@ take $\glssymbol{Integers} \subset \glssymbol{RationalNumbers}$.
 %-----------------------------------------------------------------
 \levelstay{Subsets, partitions, and quotients}
 
-Families: $\{ \Set{S}_{i} \, | \, i \in \, \text{index set} \, \Set{I}
-\}$.
+Families: 
+$\SetSpec{ \Set{S}_{i} }{ i \in \, \text{index set} \, \Set{I} }$.
 
 
 %\gls{subset} \gls{superset}
@@ -234,8 +236,8 @@ $\Set{A} \cap \Set{B} \cap \Set{C}
 = (\Set{A} \cap \Set{B}) \cap \Set{C} 
 = \Set{A} \cap (\Set{B} \cap \Set{C}) $
 
-$\bigcap_{i \in \Set{I}} \Set{S}_{i} = \{ s | s \in \Set{S}_{i}
-\forall \Set{S}_{i} \}$
+$\bigcap_{i \in \Set{I}} \Set{S}_{i} = 
+\SetSpec{ s }{ s \in \Set{S}_{i} \forall \Set{S}_{i} }$
 
 $\Set{A} \setminus \Set{B}$ are the elements of $\Set{A}$ 
 not in $\Set{B}$.
@@ -255,7 +257,7 @@ or sometimes as $a \times b \times c$.
 % \gls{cartesian-product}
 The cartesian product set 
 $\Set{A} \times \Set{B} =
-\{[a \, b] | a \in \Set{A} \text{ and } b \in \Set{B}\}$.
+\SetSpec{[a \, b] }{ a \in \Set{A} \text{ and } b \in \Set{B} }$.
 
 Extending this notation beyond two terms,
 $\Set{A} \times \Set{B} \times \Set{C}$,
@@ -264,11 +266,11 @@ using the implied natural identity mentioned above.
 Strictly speaking,
 \begin{itemize}
   \item $\Set{A} \times \Set{B} \times \Set{C} = 
-  \{[a \, b \, c] | \ldots \}$
+  \SetSpec{[a \, b \, c] }{ \ldots }$
   \item $\Set{A} \times (\Set{B} \times \Set{C}) = 
-  \{[a \, [b \,c]] | \ldots \}$
+  \SetSpec{[a \, [b \,c]] }{ \ldots }$
   \item $(\Set{A} \times \Set{B}) \times \Set{C} = 
-  \{[[a \, b] \, c]] | \ldots \}$
+  \SetSpec{[[a \, b] \, c]] }{ \ldots }$
 \end{itemize}
 are 3 distinct sets.
 
