@@ -17,13 +17,11 @@
 %-----------------------------------------------------------------
 \lstset{language=Clojure}
 
-To establish notation:
-
-The \textit{\gls{Integers}}: 
-$\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
+\leveldown{Natural numbers}
+\label{sec:Natural-numbers}
 
 The \textit{\gls{NaturalNumbers}} (aka non-negative integers, aka counting
-numbers):
+numbers):\label{NaturalNumbers}
 $\glssymbol{NaturalNumbers} = \glsdesc{NaturalNumbers}$.\footnote{ 
 Some
 equate \gls{NaturalNumbers} with \glssymbol{PositiveIntegers} 
@@ -32,12 +30,52 @@ $\glssymbol{NaturalNumbers}^{0}$ for the non-negative integers.
 See~\autoref{sec:math-sets} if the set specification
 notation is new to you.}
 
+The natural numbers form a semiring (sec~\ref{Semiring}).
+
 The \textit{strictly positive integers}: 
 $\glssymbol{PositiveIntegers} = \glsdesc{PositiveIntegers}$, which 
 may also be written $\glssymbol{NaturalNumbers}^{+}$.
 
+\levelstay{\texttt{unsigned int}}
+\label{sec:unsigned-int}
+
+\levelstay{Integers}
+\label{sec:Integers}
+
+The \textit{\gls{Integers}}: 
+
+$\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
+
+A ring (sec~\ref{sec:Ring}).
+
+\levelstay{Cyclic integers}
+\label{sec:Cyclic-integers}
+
+$\Space{Z}_{k} = \left[ \Set{Z}_{k}, +_k, *_k, 0, 1 \right]$
+is a ring (?):
+\begin{itemize}
+  \item $\Set{Z}_{k} = \left\{ 0. \ldots k-1  \right\}$
+  \item $ a +_k b = \left( a + b \right) \text{mod} k$
+  \item $ a *_k b = \left( a * b \right) \text{mod} k$
+\end{itemize}
+
+\levelstay{\texttt{int}}
+\label{sec:int}
+
+\levelstay{\texttt{BigInteger}}
+\label{sec:BigInteger}
+
+\levelstay{Rational numbers}
+\label{sec:Rational-numbers}
+
 The \textit{\gls{RationalNumbers}}: 
 $\glssymbol{RationalNumbers} = \glsdesc{RationalNumbers}$.
+
+\levelstay{\texttt{BigFraction}}
+\label{sec:BigFraction}
+
+\levelstay{Real numbers}
+\label{sec:Real-numbers}
 
 The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
 can be defined in a number of ways. 

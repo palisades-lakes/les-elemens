@@ -30,6 +30,7 @@ are, as a rule, not very informative.
 \levelstay{One set, one operation}
 %-----------------------------------------------------------------
 \leveldown{Monoid}
+\label{sec:Monoid}
 
 Set $\Set{S}$ and operation $\diamond$ such that,
 if $a, b, c \in \Set{S}$, then
@@ -45,10 +46,12 @@ if $a, b, c \in \Set{S}$, then
  \end{description}
 
 Example: 
+
 $\Set{S}$ the functions from some domain $\Set{X}$ to itself. 
 Operation $\diamond$ is function composition:
 $\left( f \diamond g \right) (x) = 
 f \left( g \left( x \right) \right)$.
+
 
 %-----------------------------------------------------------------
 \levelstay{Group}
@@ -76,7 +79,33 @@ $\left[ \glssymbol{Integers}, *_{\glssymbol{Integers}} \right]$
 %-----------------------------------------------------------------
 \levelup{One set, two operations}
 %-----------------------------------------------------------------
-\leveldown{Ring}
+\leveldown{Semiring}
+\label{sec:Semiring}
+
+A set and $2$ operations: $\left[ \Set{S}, +, * \right]$
+where
+\begin{description}
+  \item[Addition] $+$ is commutative, associative, and has an 
+  identity element ($0$):
+  $a + b = b + a$; 
+  $a + \left( b + c \right) =\left( a + b  \right) + c $;
+   and $ 0 + a = a$, for all $a,b,c \in \Set{S}$.
+  \item[Multiplication] $*$ is associative, and has an 
+  identity element ($1$):
+ $a * \left( b * c \right) =\left( a * b \right) * c $
+  and $ 1 * a = a$, for all $a,b,c \in \Set{S}$.]
+  \item[Distributive] $a * \left( b + c \right) 
+  = \left( a * b \right) + \left( a * c \right)$
+\end{description}
+
+Example: 
+
+The \textit{\gls{NaturalNumbers}}: 
+$\glssymbol{NaturalNumbers} = \glsdesc{NaturalNumbers}$.
+(sec~\ref{sec:Natural-numbers}).
+
+%-----------------------------------------------------------------
+\levelstay{Ring}
 \label{sec:Ring}
 \cite{wiki:Ring-mathematics}
 
@@ -94,6 +123,9 @@ where
 \end{description}
 
 Example:
+
+The \textit{\gls{Integers}}: 
+$\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 
 %-----------------------------------------------------------------
 \levelstay{Field}
