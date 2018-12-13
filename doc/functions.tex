@@ -1,6 +1,6 @@
 %-----------------------------------------------------------------
-\levelstay{Functions}
-\label{sec:Functions}
+\levelstay{Functions and relations}
+\label{sec:Functions-and-relations}
 
 In mathematics literature, \textit{function} is usually defined as
 a special kind of \textit{relation} --- essentially a set of
@@ -65,16 +65,42 @@ Transitive, reflexive, and antisymmetric.
 
 %-----------------------------------------------------------------
 \levelstay{Functions}
+\label{sec:Functions}
 
 A \textit{functional} binary relation, $\Set{F}$ on $\Set{X}
 \times \Set{Y}$ has exactly one $y \in \Set{Y}$ for each
 $x \in \Set{X}$ such that $[x \, y] \in \Set{F}$.
 More conventional notation writes the \textit{function}, 
 $f : \Set{X} \rightarrow \Set{Y}$ as $y = f(x)$.
+In that case, $\Set{X}$ is the \textit{domain} of $f$
+and $\Set{Y}$ is the $codomain$.
+
+It is nearly universal to extend or identify a function $f$ that maps 
+elements of the domain $\Set{X}$
+to elements of 
+the codomain $\Set{Y}$
+the closely related function that maps
+subsets of $\Set{X}$ to subsets of $\Set{Y}$,
+via $f\left( \Set{A} \right) = 
+\SetSpec{y \in \Set{Y}}{\exists \, x \in \Set{A} 
+\text{ such that } f\left( x \right) = y}$
+ 
+The \textit{range} of $f$ is then $f\left( \Set{X} \right)$.
+
+We will also frequently encounter the notion of the 
+\textit{support} of a function, which is less consisntently
+defined. In general, the support is a subset of the domain
+where the function takes on some non-trivial value, for example,
+where a numerically valued function is non-zero, or sometimes,
+finite.
 
 Any function, $f : \Set{X} \rightarrow \Set{Y}$ defines an
 equivalence relation on $\Set{X}$ via 
 $\Set{E}_f = \SetSpec{[x_0 \, x_1]}{f(x_0) = f(x_1)}$
+(see~\ref{sec:Implicit-functions}).
+
+$\Set{F}\left( \Set{D}, \Set{C} \right)$ is the set of all 
+functions with domain $\Set{D}$ and codomain $\Set{C}.$
 
 %-----------------------------------------------------------------
 \levelstay{Equivalence classes and quotient sets}
@@ -108,13 +134,13 @@ that is, $[1 \, 2]$ and $[2 \, 4]$ represent the same rational.
 Given a function $f : \Set{D} \mapsto \Set{C}$,
 the \textit{inverse} of $f$ is 
 $f^{-1}(c) = \SetSpec{d}{f(d) = c}$.
-Note that $f^{-1} : \Set{C}  \mapsto \PowerSet{\Set(D)}$.
+Note that $f^{-1} : \Set{C}  \mapsto \PowerSet{\Set{D}}$.
 
 $\Set{L}\left( f , c \right) = f^{-1}(c)$ is a \textit{level set} of
 $f$ at $c$.
 
 For more symmetry, we can extend $f$ and $f^{-1}$ to 
-$\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
+$\PowerSet{\Set{D}}  , \PowerSet{\Set{C}}$
 by defining
 $f(\Set{S}) = 
 \SetSpec{c}{\exists \, d \, \in \Set{S} \; \text{s.t.} \; c = f \left( d \right)}$
@@ -125,7 +151,7 @@ which is undefined where the value of the true
 inverse is not a set containing a single point.
 
 \textbf{TODO:} When is a function 
-$\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set(C)}$
+$\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set{C}}$
 derivable from a function $\Set{D} \mapsto \Set{C}$?
 
 Inverse function theorem~\cite[][Theorem 2-1]{spivak-1965}
@@ -133,7 +159,7 @@ for $\Space{R}^n$.
 Generalizations?~\cite{wiki:Inverse-function-theorem}
 
 %-----------------------------------------------------------------
-\levelstay{Implicit functions}
+\levelstay{Level sets and implicit functions}
 \label{sec:Implicit-functions}
 
 Suppose 
@@ -161,7 +187,54 @@ for $\Space{R}^n$.
 Generalizations?~\cite{wiki:Implicit-function-theorem,
 wiki:Inverse-function-theorem}
 
+%-----------------------------------------------------------------
+\levelstay{Multiple arguments}
+\label{sec:Multiple-arguments}
 
+Often useful to consider 
+functions of several arguments
+$f \left( x_0, x_1, \ldots x_{n-1}\right)$.
+
+Simpler in general to deal with functions of one argument.
+Two ways to identify a function of several argmuments
+with a single argument function:
+\begin{description}
+\item[Catesian product domains]
+Define $f \left( x_0, x_1, \ldots x_{n-1} \right) 
+= f \left( \left[x_0, x_1, \ldots , x_{n-1} \right]\right)$
+where $\left[x_0, x_1, \ldots x_{n-1} \right] \in
+\Set{X}_0 \times \Set{X}_1 \times \ldots \times \Set{X}_{n-1}$. 
+(Note that domain/support may be a strict subset of full cartesian 
+product.)
+\item[Currying]
+In pseudo-lisp: $\left(f \, x_0 \, x_1 \, \ldots x_{n-1} \right) 
+= 
+\left(
+\left(
+\ldots 
+\left( 
+\left( 
+f 
+\, x_0 
+\right) 
+\, x_1
+\right) 
+\ldots 
+\right) 
+\, x_{n-1}
+\right) 
+$.
+This is easier to follow in the $2$ argument case.
+Then we interpret $f : \Set{X}_0 \rightarrow 
+\Set{F}\left(\Set{X}_1, \Set{Y} \right)$,
+that is, the value $f \left( x_0 \right)$ is a function 
+$\Set{X}_1 \mapsto \Set{Y}$,
+so, in confusing infix notation,
+$f \left( x_0 , x_1 \right) = 
+f \left( x_0 \right) \left( x_1 \right) \Rightarrow y \in \Set{Y}$,
+or, in pseudo-lisp, 
+$\left( f \, x_0 \, x_1 \right) = \left( \left( f \, x_0 \right) x_1 \right) \Rightarrow y$
+\end{description}
 
 %-----------------------------------------------------------------
 %\levelstay{Computable functions}
