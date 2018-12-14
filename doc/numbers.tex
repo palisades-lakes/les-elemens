@@ -30,17 +30,58 @@ $\glssymbol{NaturalNumbers}^{0}$ for the non-negative integers.
 See~\autoref{sec:math-sets} if the set specification
 notation is new to you.}
 
-The natural numbers form a semiring (sec~\ref{Semiring}).
-
 The \textit{strictly positive integers}: 
 $\glssymbol{PositiveIntegers} = \glsdesc{PositiveIntegers}$, which 
-may also be written $\glssymbol{NaturalNumbers}^{+}$.
+may also be written $\glssymbol{NaturalNumbers}_{+}$.
+
+Origin: counting things.
+
+Addition $+_{\glssymbol{NaturalNumbers}}$ 
+derived from counting problem.
+Associative, commutative, identity element $0$ $\Rightarrow$ 
+commutative monoid (sec~\ref{sec:Monoid}).
+
+Multiplication $*_{\glssymbol{NaturalNumbers}}$
+derived from addition problem (?).
+Associative, commutative, identity element $1$,
+additive identity $0$ annihilates,
+$*_{\glssymbol{NaturalNumbers}}$ distributes over 
+$+_{\glssymbol{NaturalNumbers}}$ 
+ $\Rightarrow$
+commutative semiring 
+(sec~\ref{sec:Semiring}).
+
+
+\leveldown{Cyclic natural numbers}
+
+${\glssymbol{NaturalNumbers}}_{k} = 
+\left[ \left\{ 0, 1, \ldots, k-1 \right\},
++_{\glssymbol{NaturalNumbers}_{k}},
+*_{\glssymbol{NaturalNumbers}_{k}} \right]$
+
+where
+$a +_{\glssymbol{NaturalNumbers}_{k}} b =
+\left( a +_{\glssymbol{NaturalNumbers}} b \right) \text{mod} k$
+
+Also a commutative semiring.
 
 \levelstay{\texttt{unsigned int}}
 \label{sec:unsigned-int}
 
-\levelstay{Integers}
+Most C family languages provide \texttt{unsigned} integers
+of various lengths, typically: 
+\texttt{unsigned short} $\in \left[ 0, 2^{16} - 1 \right]$,
+\texttt{unsigned int} $\in \left[ 0, 2^{32} - 1 \right]$,,
+\texttt{unsigned long} $\in \left[ 0, 2^{64} - 1 \right]$,.
+
+Implementations of $\glssymbol{NaturalNumbers}_{k}$,
+for $k = 2^{16}, 2^{32}, 2^{64}$.
+
+\levelup{Integers}
 \label{sec:Integers}
+
+Given $a,b,c \in \glssymbol{NaturalNumbers}$,
+solve $a = b + c$ for $c$.
 
 The \textit{\gls{Integers}}: 
 
@@ -59,22 +100,26 @@ is a ring (?):
   \item $ a *_k b = \left( a * b \right) \text{mod} k$
 \end{itemize}
 
-\levelstay{\texttt{int}}
+\leveldown{\texttt{byte}, \texttt{short}, \texttt{int}, \texttt{long}}
 \label{sec:int}
+
+Clojure favors \texttt{long} --- why?
 
 \levelstay{\texttt{BigInteger}}
 \label{sec:BigInteger}
 
-\levelstay{Rational numbers}
+\levelup{Rational numbers}
 \label{sec:Rational-numbers}
 
 The \textit{\gls{RationalNumbers}}: 
 $\glssymbol{RationalNumbers} = \glsdesc{RationalNumbers}$.
 
-\levelstay{\texttt{BigFraction}}
+\leveldown{\texttt{BigFraction}}
 \label{sec:BigFraction}
 
-\levelstay{Real numbers}
+Performance comparisons.
+
+\levelup{Real numbers}
 \label{sec:Real-numbers}
 
 The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
@@ -83,6 +128,42 @@ Qualitatively, \glssymbol{RealNumbers} is the completion of
 \glssymbol{RationalNumbers}, in the sense it provides a limiting value for every
 convergent sequence in \glssymbol{RationalNumbers}.
 
+What algebraic structure if extended with $\pm\infty$?
+'Not even a semigroup' wikipedia.
+$\infty - \infty$, etc. \textit{undefined} values $\Rightarrow$
+\texttt{NaN}.
+Something like a field with an extra $\text{undefined}$
+element --- operations obey field constraints unless value is
+$\text{undefined}$.
+
+Can this be fixed by changing $=$ to handle $\text{undefined}$
+apprpriately?
+
+\leveldown{IEEE 754 floating point}
+
+What algebraic structure?
+
+Not associative.
+
+\texttt{NaN} absorbing in arithmetic, not self equal.
+
+Similar to extended real numbers, but also distinguish $\pm 0$.
+
+\levelstay{\texttt{float}, \texttt[double]}
+
+\levelstay{\texttt{DoubleDouble}}
+
+\levelstay{Extending floating point to be a field}
+
+Fix associativity by carrying accumulator bank,
+as in exact sum.
+
+But \texttt{NaN}: $0$ doesn't annihilate,
+no additive or multiplicative inverse.
+
+Change behavior of $0 / 0$, etc.?
+
+\levelup{Others}
 (Other number sets:
 $\text{Constructible numbers} = \glssymbol{RationalNumbers}
 + \text{square roots}$
