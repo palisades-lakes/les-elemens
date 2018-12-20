@@ -5,7 +5,7 @@
 \label{sec:Topological-spaces}
 
 A generalization of
-\cite[][chapter 1]{spivak-1965}.
+\cite[chapter~1]{spivak-1965}.
 
 \textit{Open sets}, \textit{neighborhoods}.
 
@@ -34,7 +34,8 @@ whole set.
 
 Limits.
 
-\textit{Continuity} of functions: \cite[See][Theorem 1.8]{spivak-1965}
+\textit{Continuity} of functions: 
+(See \cite[Theorem~1-8]{spivak-1965}.)
 $f \, : \, \Set{D} \mapsto \Set{C}$,
 for topological spaces $\Set{D}$ and $\Set{C}$,
 is \textit{continuous}
@@ -122,8 +123,7 @@ Where $\Space{K}$ is any field.
 \vspace{\topsep}
 \setlength{\parskip}{5pt}
 \setlength{\parindent}{0pt}
-See \cite[][chapter 1]{spivak-1965} and \cite[][chapter 1]{halmos-1958}.
-%\cite[See][chapter 1]{spivak-1965} and \cite[See][chapter 1]{halmos-1958}.
+See \cite[chapter~1]{spivak-1965} and \cite[chapter~1]{halmos-1958}.
 %\leavevmode \vspace{-\baselineskip}
 \begin{itemize}
   \item vectors:
@@ -166,11 +166,11 @@ approximation to $\Space{R}^n$
 \end{example}
 
 
-\begin{example}[{ $ \Space{F} \left[ \Set{D}, \Space{V} \right] \} $ }]
+\begin{example}[{ $ \Space{F} \left[ \Set{D}, \Space{V} \right] $ }]
 The functions from any domain to some linear space.
 \textbf{TODO:} lisp notation for clarity below.
 \begin{itemize}
-  \item vectors: $\Set{V} = $ any function on $\Set{D}$
+  \item vectors: $\Set{F} = $ any function on $\Set{D}$
   that returns values in the linear space $\Space{V}$.
   \item scalars: $\Space{K}$, the same scalar field used by
   $\Space{V}=\left[ \Set{V}, \Space{K}, +, * \right]$.
@@ -192,7 +192,7 @@ $\Vector{f}\left( d \right) \; \forall d \in \Set{D}$
 \begin{example}[{ $\Space{R}^n$ as a function space }]
 %{}
 %\bigskip
-We can identify~\cite[see][sec. 24]{Halmos1958Finite} 
+We can identify~\cite[sec.~24]{Halmos1958Finite} 
 $\Space{R}^n$ and 
 $ \Space{F} \left[ \{ 0, 1, \ldots, {n-1} \}, \Space{R} \right] $
 by
@@ -209,7 +209,7 @@ $\Vector{v}_0, \ldots , \Vector{v}_{n-1} \in \Space{V}$.
 If there exists $a_0, \ldots , a_{n-1}$ such that
 $\Vector{0} = \sum a_i \Vector{v}_i$ then the $\{ \Vector{v}_i \}$
 are \textit{linearly dependent}.
-\cite[][section 5]{halmos-1958}
+\cite[section~5]{halmos-1958}
 
 Otherwise they are \textit{linearly independent}.
 \end{definition}
@@ -419,10 +419,11 @@ Then $\Lmap$ can be expressed as
 \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} L_{ij} ( \e_i^{\Space{W}} \otimes \e_j^{\Space{V}} )
 \end{equation}
 $(L_{ij})$ is the matrix representation of $\Lmap$ with respect to
-the two bases\cite{halmos-1958}.
+the two bases~\cite{halmos-1958}.
 
 It is important to note that there are many usful
-representations for linear functions other than matrices \cite{mcdonald-1989b}.
+representations for linear functions other than 
+matrices~\cite{mcdonald-1989b}.
 Sometimes other representations are used for convenience,
 or to enforce some constraint like symmetry.
 In some cases, a non-matrix representation must be used,
@@ -502,7 +503,7 @@ An orthonormal basis for $\linearspan\{ \v_0 \ldots \v_{m-1} \}$
 can be computed using the QR decomposition
 of the function $\Vmap = \sum_{i=0}^{m-1} \v_i \otimes \e_i$,
 (the $n \times m$ matrix whose columns are the $\v_i$)
-\cite[See][sec. 5.2 ]{golub-vanloan-2012}.
+(see \cite[sec.~5.2 ]{golub-vanloan-2012}).
 
 The \textit{affine span} of a set of $m+1$ vectors in $\Space{V}$
 is the set of affine combinations of those vectors:
@@ -567,8 +568,8 @@ $\hat{\v}$ is the unique element of $\kernel^{\perp}(\Lmap)$
 such that $\Lmap(\hat{\v}) = \hat{\w}$.
 
 The pseudo-inverse of a linear function can be characterized
-by the four Moore-Penrose conditions
-\cite[See][sec. 5.5.2]{golub-vanloan-2012}:
+by the four Moore-Penrose 
+conditions~\cite[sec.~5.5.2]{golub-vanloan-2012}:
 \begin{enumerate}
 \item $\Lmap \Lmap^{-} \Lmap = \Lmap$
 \item $\Lmap^{-} \Lmap \Lmap^{-} = \Lmap^{-}$

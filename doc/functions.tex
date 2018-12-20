@@ -1,4 +1,5 @@
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Functions and relations}
 \label{sec:Functions-and-relations}
 
@@ -16,7 +17,8 @@ Because we need the notion of ``relation'' anyway, I'm going to
 provide both definitions.
 
 %-----------------------------------------------------------------
-\leveldown{Relations}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Relations}
 \label{sec:Relations}
 
 A \textit{relation}, 
@@ -64,6 +66,7 @@ Transitive, reflexive, and antisymmetric.
 \end{description}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Functions}
 \label{sec:Functions}
 
@@ -103,6 +106,7 @@ $\Set{F}\left( \Set{D}, \Set{C} \right)$ is the set of all
 functions with domain $\Set{D}$ and codomain $\Set{C}.$
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Equivalence classes and quotient sets}
 
 If $\Set{E}$ is an equivalence relation on $\Set{S}^2$, then we
@@ -128,6 +132,7 @@ $\SetSpec{ [[p_0 \, q_0] \, [p_1 \, q_1]]}{p_0*q_1 = p_1*q_0 }$,
 that is, $[1 \, 2]$ and $[2 \, 4]$ represent the same rational.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Inverses and pseudo-inverses}
 \label{sec:Inverses-and-pseudo-inverses}
 
@@ -154,11 +159,13 @@ inverse is not a set containing a single point.
 $\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set{C}}$
 derivable from a function $\Set{D} \mapsto \Set{C}$?
 
-Inverse function theorem~\cite[][Theorem 2-1]{spivak-1965}
+Inverse function theorem~\cite[Theorem~2-1]{spivak-1965}
 for $\Space{R}^n$. 
+
 Generalizations?~\cite{wiki:Inverse-function-theorem}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Level sets and implicit functions}
 \label{sec:Implicit-functions}
 
@@ -182,12 +189,14 @@ $\| c - f\left( d_0, d_1 \right) \|^2$ over $d_0$,
 and check that the minimum value is close enough to $0$.
 
 \textbf{TODO:} When does a level set correspond to a function?
-Implicit function theorem~\cite[][Theorem 2-2]{spivak-1965}
+Implicit function theorem~\cite[Theorem~2-2]{spivak-1965}
 for $\Space{R}^n$. 
+
 Generalizations?~\cite{wiki:Implicit-function-theorem,
 wiki:Inverse-function-theorem}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Multiple arguments}
 \label{sec:Multiple-arguments}
 
@@ -237,11 +246,36 @@ $\left( f \, x_0 \, x_1 \right) = \left( \left( f \, x_0 \right) x_1 \right) \Ri
 \end{description}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Cartesion product functions}
+\label{sec:Cartesion-product-functions}
+
+Aka \textit{coordinate functions}.
+
+Suppose $f : \Set{X} \rightarrow \Set{Y}_0 \times \Set{Y}_1$,
+and $f \left( x \right) = \left[ y_0 ,y_1 \right]$
+Then we can write $f = f_0 \times f_1$ where
+$f_0 \left( x \right) = y_0 $
+and
+$f_1 \left( x \right) = y_1 $.
+
+\textbf{TODO:} $f$ corresponds to a functional relation on 
+$\Set{X} \times \left( \Set{Y}_0 \times \Set{Y}-1 \right)$).
+Does this imply functional relations $f_i$ on
+$\Set{X} \times \Set{Y}_i$?
+How about $f_i = e_i \circ f$,
+where $e_i : \times_j \Set{X}_j  \rightarrow \Set{X}_i$ by
+$e_i \left( [x_0, x_1, \ldots , x_{n-1} \right) = x_i$ 
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 %\levelstay{Computable functions}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 %\levelstay{implementation}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 %\levelstay{examples}
 

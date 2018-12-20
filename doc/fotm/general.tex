@@ -6,7 +6,7 @@
 \subsection{Identities for real vector operations}
 \label{sec:RX}
 
-See \cite{spivak-1965}, p. 85, ex. 4-9.
+See \cite[p. 85, ex. 4-9]{spivak-1965}.
 
 Let $\p, \q \in \Re^{n}$.
 Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
@@ -46,7 +46,7 @@ from $\Re^n$ to $\Re^m$, defined by:
 \subsection{Identities for 3-dimensional vector operations}
 \label{sec:R3X}
 
-See \cite{spivak-1965}, p. 85, ex. 4-9.
+See \cite[p. 85, ex. 4-9]{spivak-1965}.
 
 Let $\p, \q, \r \in \Re^3$.
 Let $(p_0,p_1,p_2), (q_0,q_1,q_2), (r_0,r_1,r_2), $ be their coordinates
@@ -220,7 +220,7 @@ this means the derivative is a linear function on $\Re^n$,
 an element of the dual space of $\Re^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
 of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
-(see \cite{spivak-1965}, p. 96, ex. 4-18).
+(see \cite[p. 96, ex. 4-18]{spivak-1965}).
 
 Notation for the various versions of the gradient
 follows that for derivatives:
@@ -260,13 +260,12 @@ and
 $\h = \g \circ \f : \Re^{n_0} \mapsto \Re^{n_2}.$
 Then
 \begin{equation}
-\label{eq:chain_rule}
+\label{eq:chain-rule}
 \Db{\h}{\p} \;\; = \;\; \Db{(\g \circ \f)}{\p}
             \;\; = \;\; \Db{\g}{\f(\p)} \; \circ \; \Db{\f} {\p}.
 \end{equation}
 
-See \cite{spivak-1965}, Theorem 2-2.
-
+See \cite[Theorem~2-2]{spivak-1965}, .
 
 %-------------------------------------------------------------------------------
 
@@ -288,7 +287,7 @@ at the point $(\p_0,\ldots,\p_k)$, applied to the vector $(\q_0,\ldots,\q_k)$ is
 \; = \; \sum_{i=0,k} \f(\p_0,\ldots,\p_{i-1},\q_i,\p_{i+1},\ldots,\p_k).
 \end{equation}
 
-See \cite{spivak-1965}, ex. 2-14.
+See \cite[ex.~2-14]{spivak-1965}, .
 
 
 %-------------------------------------------------------------------------------
@@ -314,7 +313,7 @@ at the point $(\p_0,\q_0)$, applied to the vector $(\p,\q)$ is
 \Dc{\f}{(\p_0,\q_0)}{\p,\q} = \f(\p_0,\q) + \f(\p,\q_0).
 \end{equation}
 
-See \cite{spivak-1965}, ex. 2-12.
+See \cite[ex.~2-12]{spivak-1965}.
 
 %-------------------------------------------------------------------------------
 
@@ -358,7 +357,7 @@ The derivative of $\f \bullet \g$ is:
 & \f(\p_0) \bullet \Dc{\g}{\p_0}{\p} \; + \; \g(\p_0) \bullet \Dc{\f}{\p_0}{\p} \nonumber
 \end{eqnarray}
 
-See \cite{spivak-1965}, ex. 2-13.
+See \cite[ex.~2-13]{spivak-1965}.
 
 
 %-------------------------------------------------------------------------------
@@ -449,7 +448,7 @@ $\Db{\| \f \|^2}{\p}  =  2 {\f(\p)}^{\dagger} \Db{\f}{\p} $.
 %-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of normalized functions}
-\label{sec:normalized-function}
+\label{sec:Derivatives-of-normalized-functions}
 
 Let $\tilde{\f}$ be the normalized version of $\f$:
 \begin{equation}
@@ -537,7 +536,7 @@ it follows that:
 %-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of angles}
-\label{sec:angles}
+\label{sec:derivatives-of-angles}
 
 The angle between 2 vectors $\p_0, \p_1 \in \Re^m$, is the inverse cosine
 of their normalized inner product:
