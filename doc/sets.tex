@@ -1,5 +1,5 @@
-\setcounter{baseSectionLevel}{\value{currentlevel}}
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Sets}
 \index{Set}
 \epigraph{A pack of wolves, a bunch of grapes, or a flock of
@@ -35,7 +35,8 @@ from first principles, without introducing paradoxes.
 \lstset{language=Clojure}
 
 %-----------------------------------------------------------------
-\leveldown{Defining sets}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Defining sets}
 \epigraph{All the basic principles of set theory, except only the
 axiom of extension, are designed to make new sets out of old ones.
 The first and most important of these basic principles of set
@@ -139,6 +140,7 @@ can guarantee an answer fast enough for the context in which the
 sets are being used.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Cardinality}
 
 % \gls{cardinality}  \gls{countable infinity} \gls{uncountable
@@ -163,6 +165,7 @@ with something (eg $\#\{ 0 \, 1 \, 2 \} = 3$ vs
 I will use $\text{cardinality}(\Set{S})$.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Identity}
 
 The question of whether two sets are the same set is a recurring
@@ -200,6 +203,7 @@ subset of the rationals with denominator $1$ with the integers and
 take $\glssymbol{Integers} \subset \glssymbol{RationalNumbers}$.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Subsets, partitions, and quotients}
 
 Families: 
@@ -218,7 +222,6 @@ I reserve $\Set{A} \subset \Set{B}$ (($\Set{B} \supset
 it means $\Set{A} \subseteq \Set{B}$
 and there is some $\b\in\Set{B}$ which
 is not in $\Set{A}$.
-
 
 %\gls{power set}
 
@@ -247,38 +250,12 @@ A partition of $\Set{S}$ is a set of disjoint nonempty subsets of
 $\Set{S}$ whose union is $\Set{S}$.
 
 %-----------------------------------------------------------------
-\levelstay{Cartesian products}
-
-% \gls{tuple}
-A tuple is a fixed length list, which I will write, for example,
-$[a \, b \, c]$, in a Clojure-like syntax,
-or sometimes as $a \times b \times c$.
-
-% \gls{cartesian-product}
-The cartesian product set 
-$\Set{A} \times \Set{B} =
-\SetSpec{[a \, b] }{ a \in \Set{A} \text{ and } b \in \Set{B} }$.
-
-Extending this notation beyond two terms,
-$\Set{A} \times \Set{B} \times \Set{C}$,
-introduces ambiguity typically ignored in mathematics literature,
-using the implied natural identity mentioned above.
-Strictly speaking,
-\begin{itemize}
-  \item $\Set{A} \times \Set{B} \times \Set{C} = 
-  \SetSpec{[a \, b \, c] }{ \ldots }$
-  \item $\Set{A} \times (\Set{B} \times \Set{C}) = 
-  \SetSpec{[a \, [b \,c]] }{ \ldots }$
-  \item $(\Set{A} \times \Set{B}) \times \Set{C} = 
-  \SetSpec{[[a \, b] \, c]] }{ \ldots }$
-\end{itemize}
-are 3 distinct sets.
-
-%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Implementation}
 
 %-----------------------------------------------------------------
-\leveldown{Java}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Java}
 \lstset{language=Java}
 
 Java provides an interface \lstinline|java.util.Set| intended for
@@ -337,6 +314,7 @@ More Java set classes? Guava or Apache Commons?
 Set operations, union, cartesian products, \ldots.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Clojure}
 \lstset{language=Clojure}
 
@@ -388,6 +366,7 @@ However, other functions designed for dictionaries (eg
 \lstinline|keys|) don't work for sets.
  
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Les Elemens}
 
 Set interface:
@@ -447,7 +426,8 @@ Set interface:
 % firstline=11,lastline=18]{listings/checksum.clj}
  
 %-----------------------------------------------------------------
-\levelstay{examples}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Examples}
  
 1d and 2d intervals.
  

@@ -1,6 +1,11 @@
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Algebraic structures}
 \label{sec:Algebraic-structures}
+
+\textbf{TODO:} redo as Universal Algebras?
+Implies more operations, typically binary, unary, and nullary
+(nullary function equivalent to element of set).
 
 An algebraic 
 structure~\cite{
@@ -27,9 +32,11 @@ Unfortunately, the names for algebraic structures
 are, as a rule, not very informative.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{One set, one operation}
 %-----------------------------------------------------------------
-\leveldown{Monoid}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Monoid}
 \label{sec:Monoid}
 
 Set $\Set{S}$ and operation $\diamond$ such that,
@@ -54,6 +61,7 @@ f \left( g \left( x \right) \right)$.
 
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Group}
 
 Monoid $\left[ \Set{S}, \diamond \right]$ such that
@@ -64,6 +72,7 @@ Monoid $\left[ \Set{S}, \diamond \right]$ such that
 \end{description}
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Commutative group}
 
 (aka abelian group.)
@@ -77,9 +86,11 @@ Example:
 $\left[ \glssymbol{Integers}, *_{\glssymbol{Integers}} \right]$
 
 %-----------------------------------------------------------------
-\levelup{One set, two operations}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{One set, two operations}
 %-----------------------------------------------------------------
-\leveldown{Semiring}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Semiring}
 \label{sec:Semiring}
 
 A set and $2$ operations: $\left[ \Set{S}, +, * \right]$
@@ -105,6 +116,7 @@ $\glssymbol{NaturalNumbers} = \glsdesc{NaturalNumbers}$.
 (sec~\ref{sec:Natural-numbers}).
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Ring}
 \label{sec:Ring}
 \cite{wiki:Ring-mathematics}
@@ -128,6 +140,7 @@ The \textit{\gls{Integers}}:
 $\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Field}
 \label{sec:Field}
 \cite{wiki:Field-mathematics}
@@ -171,40 +184,11 @@ Examples:
 \glssymbol{RationalNumbers}, \glssymbol{RealNumbers}.
 
 %-----------------------------------------------------------------
-\levelstay{Floating point numbers as an algebraic structure}
-
-Two non-associative commutative operations on a finite,
-almost ordered set.
-\begin{example}[Floating point arithmetic is not associative]
-
-clojure/java code showing how different results can be\ldots
- 
-\end{example}
-
-\leveldown{'Exact' floating point arithmetic}
-\cite{Higham2002ASNA,Muller-et-al-2010,Zhu:2010:A9O:1824801.1824815}
-
-\textbf{TODO:} do TwoPlus and TwoMutliply 
-suggest any way to get associative operations?
-Idea is to carry error accumulators so 
-any sequence of additions and multiplies 
-returns the correct \glssymbol{RealNumbers} value rounded to float.
-EG: $ a +_{\text{fl}} b = c +_{\text{fl}} \epsilon$
-where $\text{fl} c +_{\glssymbol{RealNumbers}} \epsilon) = c$
-Absorbing elements at $\pm\infty$, \texttt{NaN} make that hard.
-Is it possible to replace $\pm\infty$ and \texttt{NaN}
-by symbolic expressions that can later be combined to get 
-accurate finite values?
-
-
-\textbf{TODO:} is it possible for a clojure macro/compiler
-to support exact floating operations generated from
-$+$ and $*$ within a function, by incorporating an error
-accumulator?
-
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Two sets, one operation}
 %-----------------------------------------------------------------
-\levelup{Two sets, one operation}
-\leveldown{Category}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Category}
 
 A base set, $\Set{O}$, 
 whose elements are ususally refered to as \textit{objects}.

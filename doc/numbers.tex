@@ -1,4 +1,5 @@
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Numbers}
 \label{sec:Numbers}
 
@@ -17,7 +18,9 @@
 %-----------------------------------------------------------------
 \lstset{language=Clojure}
 
-\leveldown{Natural numbers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Natural numbers}
 \label{sec:Natural-numbers}
 
 The \textit{\gls{NaturalNumbers}} (aka non-negative integers, aka counting
@@ -52,7 +55,9 @@ commutative semiring
 (sec~\ref{sec:Semiring}).
 
 
-\leveldown{Cyclic natural numbers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Cyclic natural numbers}
 
 ${\glssymbol{NaturalNumbers}}_{k} = 
 \left[ \left\{ 0, 1, \ldots, k-1 \right\},
@@ -65,6 +70,8 @@ $a +_{\glssymbol{NaturalNumbers}_{k}} b =
 
 Also a commutative semiring.
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{\texttt{unsigned int}}
 \label{sec:unsigned-int}
 
@@ -77,7 +84,9 @@ of various lengths, typically:
 Implementations of $\glssymbol{NaturalNumbers}_{k}$,
 for $k = 2^{16}, 2^{32}, 2^{64}$.
 
-\levelup{Integers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Integers}
 \label{sec:Integers}
 
 Given $a,b,c \in \glssymbol{NaturalNumbers}$,
@@ -89,6 +98,8 @@ $\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 
 A ring (sec~\ref{sec:Ring}).
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Cyclic integers}
 \label{sec:Cyclic-integers}
 
@@ -100,26 +111,36 @@ is a ring (?):
   \item $ a *_k b = \left( a * b \right) \text{mod} k$
 \end{itemize}
 
-\leveldown{\texttt{byte}, \texttt{short}, \texttt{int}, \texttt{long}}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{\texttt{byte}, \texttt{short}, \texttt{int}, \texttt{long}}
 \label{sec:int}
 
 Clojure favors \texttt{long} --- why?
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{\texttt{BigInteger}}
 \label{sec:BigInteger}
 
-\levelup{Rational numbers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Rational numbers}
 \label{sec:Rational-numbers}
 
 The \textit{\gls{RationalNumbers}}: 
 $\glssymbol{RationalNumbers} = \glsdesc{RationalNumbers}$.
 
-\leveldown{\texttt{BigFraction}}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{\texttt{BigFraction}}
 \label{sec:BigFraction}
 
 Performance comparisons.
 
-\levelup{Real numbers}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Real numbers}
 \label{sec:Real-numbers}
 
 The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
@@ -137,9 +158,11 @@ element --- operations obey field constraints unless value is
 $\text{undefined}$.
 
 Can this be fixed by changing $=$ to handle $\text{undefined}$
-apprpriately?
+appropriately?
 
-\leveldown{IEEE 754 floating point}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{IEEE 754 floating point}
 
 What algebraic structure?
 
@@ -149,10 +172,16 @@ Not associative.
 
 Similar to extended real numbers, but also distinguish $\pm 0$.
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{\texttt{float}, \texttt[double]}
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{\texttt{DoubleDouble}}
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Extending floating point to be a field}
 
 Fix associativity by carrying accumulator bank,
@@ -163,7 +192,44 @@ no additive or multiplicative inverse.
 
 Change behavior of $0 / 0$, etc.?
 
-\levelup{Others}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Floating point numbers as an algebraic structure}
+
+Two non-associative commutative operations on a finite,
+almost ordered set.
+\begin{example}[Floating point arithmetic is not associative]
+
+clojure/java code showing how different results can be\ldots
+ 
+\end{example}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{'Exact' floating point arithmetic}
+\cite{Higham2002ASNA,Muller-et-al-2010,Zhu:2010:A9O:1824801.1824815}
+
+\textbf{TODO:} do TwoPlus and TwoMutliply 
+suggest any way to get associative operations?
+Idea is to carry error accumulators so 
+any sequence of additions and multiplies 
+returns the correct \glssymbol{RealNumbers} value rounded to float.
+EG: $ a +_{\text{fl}} b = c +_{\text{fl}} \epsilon$
+where $\text{fl} c +_{\glssymbol{RealNumbers}} \epsilon) = c$
+Absorbing elements at $\pm\infty$, \texttt{NaN} make that hard.
+Is it possible to replace $\pm\infty$ and \texttt{NaN}
+by symbolic expressions that can later be combined to get 
+accurate finite values?
+
+
+\textbf{TODO:} is it possible for a clojure macro/compiler
+to support exact floating operations generated from
+$+$ and $*$ within a function, by incorporating an error
+accumulator?
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Others}
 (Other number sets:
 $\text{Constructible numbers} = \glssymbol{RationalNumbers}
 + \text{square roots}$
@@ -211,7 +277,8 @@ when I feel the need to be clear about, eg, non-negative versus
 strictly positive.
 
 %-----------------------------------------------------------------
-\leveldown{Generating spaces by 'closure'}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Generating spaces by 'closure'}
 
 Generating these 'spaces' by closure under arithmetic operations
 \cite{pickert-gorke-real-numbers-1974}.
@@ -263,6 +330,7 @@ with quick arg or ref to why it converges, but not to a rational
 number.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Intervals}
 
 Open and closed intervals, half open, etc.:
@@ -278,14 +346,18 @@ $[a,b) \subset \glssymbol{GenericSpace} =
 and so on.
 
 %-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Java}
 \lstset{language=Java}
 
 %-----------------------------------------------------------------
-\leveldown{Primitives}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Primitives}
 
 %-----------------------------------------------------------------
-\leveldown{Integers}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Integers}
 Finite subsets of \glssymbol{Integers} are exactly
 represented by the primitive integer types using two's complement arithmetic, 
 covering $[−2^{n−1}, 2^{n−1} − 1]$ where $n$ is the number of bits used:
@@ -309,7 +381,8 @@ smallest non-zero value $4.9406564584124654 x 10^{-324}$.
 \end{description}
 
 %-----------------------------------------------------------------
-\levelup{Objects}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Objects}
 
 \begin{figure}[htbp]
 \centering
@@ -323,7 +396,8 @@ int vs long vs float vs double vs Integer \ldots vs BigDecimal.
 
 
 %-----------------------------------------------------------------
-\levelup{Clojure}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Clojure}
 \lstset{language=Clojure}
 
 Clojure provides the primitive and boxed object numbers from Java,

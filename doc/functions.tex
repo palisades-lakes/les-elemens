@@ -87,8 +87,17 @@ subsets of $\Set{X}$ to subsets of $\Set{Y}$,
 via $f\left( \Set{A} \right) = 
 \SetSpec{y \in \Set{Y}}{\exists \, x \in \Set{A} 
 \text{ such that } f\left( x \right) = y}$
- 
+
 The \textit{range} of $f$ is then $f\left( \Set{X} \right)$.
+
+Arbitrariness of codomain:
+Note that $\text{range}\left( f \right)$ 
+is unambiguous.
+If  $f_0 : \Set{X} \rightarrow \Set{Y}_0$,
+and $\Set{Y}_0 \subset \rightarrow \Set{Y}_1$,
+then is $f_1 : \Set{X} \rightarrow \Set{Y}_1$
+defined by $f_1(x) = f_0(x)$
+the same function as $f_0$?
 
 We will also frequently encounter the notion of the 
 \textit{support} of a function, which is less consisntently
@@ -97,6 +106,8 @@ where the function takes on some non-trivial value, for example,
 where a numerically valued function is non-zero, or sometimes,
 finite.
 
+Partial functions: support vs domain.
+
 Any function, $f : \Set{X} \rightarrow \Set{Y}$ defines an
 equivalence relation on $\Set{X}$ via 
 $\Set{E}_f = \SetSpec{[x_0 \, x_1]}{f(x_0) = f(x_1)}$
@@ -104,6 +115,8 @@ $\Set{E}_f = \SetSpec{[x_0 \, x_1]}{f(x_0) = f(x_1)}$
 
 $\Set{F}\left( \Set{D}, \Set{C} \right)$ is the set of all 
 functions with domain $\Set{D}$ and codomain $\Set{C}.$
+
+
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
@@ -244,28 +257,6 @@ f \left( x_0 \right) \left( x_1 \right) \Rightarrow y \in \Set{Y}$,
 or, in pseudo-lisp, 
 $\left( f \, x_0 \, x_1 \right) = \left( \left( f \, x_0 \right) x_1 \right) \Rightarrow y$
 \end{description}
-
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Cartesion product functions}
-\label{sec:Cartesion-product-functions}
-
-Aka \textit{coordinate functions}.
-
-Suppose $f : \Set{X} \rightarrow \Set{Y}_0 \times \Set{Y}_1$,
-and $f \left( x \right) = \left[ y_0 ,y_1 \right]$
-Then we can write $f = f_0 \times f_1$ where
-$f_0 \left( x \right) = y_0 $
-and
-$f_1 \left( x \right) = y_1 $.
-
-\textbf{TODO:} $f$ corresponds to a functional relation on 
-$\Set{X} \times \left( \Set{Y}_0 \times \Set{Y}-1 \right)$).
-Does this imply functional relations $f_i$ on
-$\Set{X} \times \Set{Y}_i$?
-How about $f_i = e_i \circ f$,
-where $e_i : \times_j \Set{X}_j  \rightarrow \Set{X}_i$ by
-$e_i \left( [x_0, x_1, \ldots , x_{n-1} \right) = x_i$ 
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
