@@ -34,6 +34,9 @@ lisp notation.
 For a concise and correct discussion, 
 see Spivak \cite[chapter 2]{spivak-1965}.
 
+\textbf{TODO:} better notation for derivatives, especially 
+'evaluated at' and partial.
+
 \begin{itemize}
 
 \item $\Da{\f}$
@@ -62,7 +65,7 @@ applied to the vector $\t$.
 \item $\Dd{\v_i}{\f}{(\u_0 \ldots \u_{n-1})}{\t_i}$
 
 For functions on direct sum spaces,
-$\f(\v_0,\v_1 \ldots \v_{n-1})$, $\v_i \in \Space{V}_i$,
+$\f(\v_0,\v_1, \ldots, \v_{n-1})$, $\v_i \in \Space{V}_i$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
 I write $\Dd{\v_i}{\f}{(\u_0 \ldots \u_{n-1})}{\t_0 \ldots \t_{n-1}}$
@@ -191,7 +194,7 @@ See Spivak \cite[Theorem~2-2]{spivak-1965}.
 
 Suppose 
 $\Vector{f} : \Space{X} \times \Space{Y} \rightarrow \Space{Y}$,
-for linear spaces $\Space{X}$ and $\Space{Y}$.
+for topological linear spaces $\Space{X}$ and $\Space{Y}$.
 
 WLOG, consider the level set 
 $\SetSpec{\left[ \Vector{x} , \Vector{y} \right]}
@@ -239,10 +242,10 @@ Note that
 \end{aligned} 
 \end{equation}
 
-Equation~\ref{eq:Implicit-function}, the chain rule 
-(equation~\ref{eq:chain-rule}),
-and
- imply
+Equation~\ref{eq:Implicit-function}, 
+the chain rule (equation~\ref{eq:chain-rule}),
+and the linearity of $\Vector{I}_{\Space{X}}$
+imply
 \begin{equation}\label{eq:Implicit-derivative}
 \begin{aligned}
 \Vector{0} & = \Db{\Vector{h}}{\Vector{x}_0}
@@ -251,9 +254,52 @@ and
 \circ \left( 
 \Vector{I}_{\Space{X}} 
 \times 
-\Db{\Vector{g}}{\Vector{x}_0 }
+\Db{\Vector{g}}{\Vector{x}_0}
+\right)
+\\
+& = 
+\left(
+\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\circ 
+\Vector{I}_{\Space{X}}
+\right)
++ 
+\left(
+\De{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\circ 
+\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+\right)
+\\
+& = 
+\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
++ 
+\left(
+\De{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\circ 
+\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
 \right)
 \end{aligned}
+\end{equation}
+which implies
+\begin{equation}
+\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+=
+\left(
+\De{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\right)^{-1}
+\circ 
+\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\end{equation}
+
+When $\Space{Y}=\Space{R}$, this reduces to:
+\begin{equation}
+\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+=
+\dfrac{
+\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+}{
+\db{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+}
 \end{equation}
 
 \begin{example}[Circle]
