@@ -369,7 +369,23 @@ However, other functions designed for dictionaries (eg
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Les Elemens}
 
-Set interface:
+Set interface.
+
+Implementation almost always requires multiple objects
+representing a single set element
+
+\begin{equation}
+a \parallel b
+\end{equation}
+vs
+\begin{equation}
+a = b
+\end{equation}
+
+vs
+\begin{equation}
+a \equiv b
+\end{equation}
 
 % \begin{lstlisting}[
 % caption={[checksum namespace]Checksum and related functions via
