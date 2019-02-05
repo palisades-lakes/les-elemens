@@ -46,8 +46,8 @@ public final class JavaNumbers {
         Double.valueOf(b),
         Double.valueOf(a/b))); }
 
-  private static final void combinations (final double a,
-                                    final double b) {
+  public static final void combinations (final double a,
+                                         final double b) {
     add(a,b);
     subtract(a,b);
     multiply(a,b);
@@ -57,11 +57,18 @@ public final class JavaNumbers {
 
   public static final void main (final String[] args) {
 
-    combinations(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY);
-    combinations(1.0,Double.POSITIVE_INFINITY);
-    combinations(0.0,Double.POSITIVE_INFINITY);
-    combinations(0.0,-0.0);
-       //    System.out.println("i =" + Integer.MAX_VALUE); 
+    final int i0 = (Integer.MAX_VALUE + 2);
+    final int i1 = i0 - 3;
+    final int i2 = (Integer.MAX_VALUE - 1);
+    System.out.println("i0= " + i0);
+    System.out.println("i1= " + i1);
+    System.out.println("i2= " + i2);
+    //    combinations(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY);
+    //    combinations(1.0,Double.POSITIVE_INFINITY);
+    //    combinations(0.0,Double.POSITIVE_INFINITY);
+    //    combinations(0.0,-0.0);
+
+    //    System.out.println("i =" + Integer.MAX_VALUE); 
     //    System.out.println("i + 1 =" + (Integer.MAX_VALUE + 1)); 
 
     //    byte b = Byte.MIN_VALUE;
