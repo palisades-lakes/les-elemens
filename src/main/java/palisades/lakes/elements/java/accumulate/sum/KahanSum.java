@@ -1,7 +1,6 @@
 package palisades.lakes.elements.java.accumulate.sum;
 
 import palisades.lakes.elements.java.accumulate.AccumulatorBase;
-import palisades.lakes.elements.java.accumulate.sum.KahanSum;
 
 //----------------------------------------------------------------
 /** Compensated summation for lots of numbers. Only makes sense
