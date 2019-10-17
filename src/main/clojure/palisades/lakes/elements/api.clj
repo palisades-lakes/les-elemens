@@ -22,7 +22,6 @@
   [palisades.lakes.elements.utils
    fn-name
    element-type
-   release
    write-tsv])
 ;;----------------------------------------------------------------
 (potemkin/import-vars 

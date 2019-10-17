@@ -7,7 +7,7 @@
    "General utilities, probably eventually somewhere more specific."
    :author "palisades dot lakes at gmail dot com"
    :since "2017-04-21"
-   :version "2018-08-29"}
+   :version "2019-10-17"}
   
   (:require [clojure.string :as s]
             [clojure.java.io :as io]))
@@ -15,14 +15,6 @@
 (set! *warn-on-reflection* false)
 (set! *unchecked-math* false)
 (require '[clatrix.core :as clatrix])
-(require '[uncomplicate.commons.core :as ucc])
-(require '[uncomplicate.clojurecl 
-           [core :as ucl2c] 
-           [info :as ucl2i]])
-(require '[uncomplicate.neanderthal
-           [core :as unc] 
-           [native :as unn]
-           [opencl :as uno]])
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
 ;;----------------------------------------------------------------
@@ -42,16 +34,7 @@
     (cond 
       (.isArray c) (.getComponentType c)
       (instance? clatrix.core.Vector x) Double/TYPE
-      (instance? uncomplicate.neanderthal.internal.api.DataAccessorProvider x)
-      (.entryType 
-        ^uncomplicate.neanderthal.internal.api.DataAccessor
-        (.data_accessor 
-          ^uncomplicate.neanderthal.internal.api.DataAccessorProvider x))
       :else Object)))
-;;----------------------------------------------------------------
-(defn release [x]
-  (when (instance? uncomplicate.commons.core.Releaseable x) 
-    (ucc/release x)))
 ;;----------------------------------------------------------------
 (defn used-ram-bytes ^double []
   (let [runtime (Runtime/getRuntime)]

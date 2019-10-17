@@ -6,7 +6,7 @@
   {:doc "Wrapper for palisades.lakes.elements.java.numbers.sum.Kahan, etc."
    :author "palisades dot lakes at gmail dot com"
    :since "2017-04-07"
-   :version "2017-11-07"}
+   :version "2019-10-17"}
   
   (:require [palisades.lakes.elements.numbers.arrays :as a])
   
@@ -23,14 +23,6 @@
 (set! *warn-on-reflection* false) ;
 (set! *unchecked-math* false)
 (require '[clatrix.core :as clatrix])
-(require '[uncomplicate.neanderthal.internal.device.clblock 
-           :as clblock])
-(import '[uncomplicate.neanderthal.internal.device.clblock 
-          CLBlockVector])
-(require '[uncomplicate.neanderthal
-           [core :as unc] 
-           [native :as unn]
-           [opencl :as uno]])
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
 ;;----------------------------------------------------------------
@@ -216,8 +208,6 @@
   (^double [x]
     (cond
       (instance? clatrix.core.Vector x) (clatrix/sum x)
-      (instance? uncomplicate.neanderthal.internal.host.buffer_block.RealBlockVector x) (unc/sum x)
-      (instance? CLBlockVector x) (unc/sum x)
       (instance? clojure.lang.LazySeq x) 
       (Naive/sum ^clojure.lang.ISeq x)
       :else 

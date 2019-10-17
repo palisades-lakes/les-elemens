@@ -6,7 +6,7 @@
   {:doc "Benchmarks for sums."
    :author "palisades dot lakes at gmail dot com"
    :since "2017-04-06"
-   :version "2018-08-29"}
+   :version "2019-10-17"}
   
   (:require [clojure.string :as s]
             [clojure.java.io :as io]
@@ -17,21 +17,11 @@
   
   (:import [java.util ArrayList]
            [com.carrotsearch.sizeof RamUsageEstimator]
-           [uncomplicate.neanderthal.internal.host.buffer_block
-            RealBlockVector]
            [palisades.lakes.elements.java.accumulate.sum BigFractionCondition]))
 ;;----------------------------------------------------------------
 (set! *warn-on-reflection* false)
 (set! *unchecked-math* false)
 (require '[clatrix.core :as clatrix])
-(require '[uncomplicate.commons.core :as ucc])
-(require '[uncomplicate.clojurecl 
-           [core :as ucl2c] 
-           [info :as ucl2i]])
-(require '[uncomplicate.neanderthal
-           [core :as unc] 
-           [native :as unn]
-           [opencl :as uno]])
 (require '[criterium.core :as criterium])
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
@@ -39,41 +29,6 @@
 ;; coercions
 ;;----------------------------------------------------------------
 (defn clatrix-vector ^clatrix.core.Vector [x] (clatrix/vector x))
-;;----------------------------------------------------------------
-(defn mkl-vector ;;neanderthal-real-block-vector 
-  ^uncomplicate.neanderthal.internal.host.buffer_block.RealBlockVector 
-  [x] 
-  (unn/dv (vec x)))
-
-(defn opencl-vector ;;neanderthal-default-cl-block-vector 
-  ^uncomplicate.neanderthal.internal.opencl.clblock.CLBlockVector 
-  [x] 
-  (ucl2c/with-default
-    (uno/with-default-engine
-      (uno/clv (vec x)))))
-
-#_(defn opencl1-vector ;;neanderthal-default1-cl-block-vector 
-    ^uncomplicate.neanderthal.internal.opencl.clblock.CLBlockVector 
-    [x] 
-    (ucl2/with-default-1
-      (uno/with-default-engine
-        (uno/clv (vec x)))))
-
-(defn opencl1-vector ;;neanderthal-default1-cl-block-vector 
-  ^uncomplicate.neanderthal.internal.opencl.clblock.CLBlockVector 
-  [x] 
-  (uno/clv (vec x)))
-
-(defn opencl0-vector ;;neanderthal-gpu0-cl-block-vector 
-  ^uncomplicate.neanderthal.internal.opencl.clblock.CLBlockVector
-  [x] 
-  (ucl2c/with-platform (first (ucl2c/platforms))
-    (let [dev (first 
-                (ucl2c/sort-by-cl-version (ucl2c/devices :gpu)))]
-      (ucl2c/with-context (ucl2c/context [dev])
-        (ucl2c/with-queue (ucl2c/command-queue-1 dev)
-          (uno/with-default-engine
-            (uno/clv (vec x))))))))
 ;;----------------------------------------------------------------
 (defn data-sizes []
   (mapv #(* (long %) 1024) 

@@ -182,28 +182,6 @@
    <version>${jcuda-version}</version>
   </dependency>
   <dependency>
-   <groupId>uncomplicate</groupId>
-   <artifactId>neanderthal</artifactId>
-   <version>${neanderthal-version}</version>
-   <exclusions>
-    <exclusion>
-     <groupId>org.ow2.asm</groupId>
-     <artifactId>asm</artifactId>
-    </exclusion>
-   </exclusions>
-  </dependency>
-  <dependency>
-   <groupId>uncomplicate</groupId>
-   <artifactId>clojurecl</artifactId>
-   <version>${clojurecl-version}</version>
-   <exclusions>
-    <exclusion>
-     <groupId>org.clojure</groupId>
-     <artifactId>core.async</artifactId>
-    </exclusion>
-   </exclusions>
-  </dependency>
-  <dependency>
    <groupId>org.apfloat</groupId>
    <artifactId>apfloat</artifactId>
    <version>${apfloat-version}</version>
