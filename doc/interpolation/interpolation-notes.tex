@@ -59,8 +59,14 @@
 % 3 for subsubsection level
 % 2 for paragraph level
 % 1 for subparagraph level
-\setcounter{baseSectionLevel}{5}
+\setcounter{baseSectionLevel}{6}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
+\numberwithin{theorem}{section}
+\numberwithin{definition}{section}
+\numberwithin{example}{section}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
 \input{../interpolation}
 
 %\glsaddallunused

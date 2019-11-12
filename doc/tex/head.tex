@@ -185,11 +185,16 @@ postheadspace=1em,
 \declaretheorem[style=mythmstyle,title=Example,name={Example}]{example}
 %\renewcommand{\thmtformatoptarg}[1]{#1}%
 %-----------------------------------------------------------------
-\numberwithin{theorem}{chapter}
-\numberwithin{definition}{chapter}
-\numberwithin{example}{chapter}
-\numberwithin{equation}{chapter}
-\numberwithin{figure}{chapter}
+% \numberwithin{theorem}{chapter}
+% \numberwithin{definition}{chapter}
+% \numberwithin{example}{chapter}
+% \numberwithin{equation}{chapter}
+% \numberwithin{figure}{chapter}
+\numberwithin{theorem}{section}
+\numberwithin{definition}{section}
+\numberwithin{example}{section}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
 %-----------------------------------------------------------------
 \usepackage{listings}
 \lstset{backgroundcolor={\color{GhostWhite}},
