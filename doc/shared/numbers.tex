@@ -3,15 +3,70 @@
 \levelstay{Numbers}
 \label{sec:Numbers}
 
-% In this chapter, I'm listing a number of things I'm taken as \emph{given,} in
-% the sense that I'm assuming we both know what I mean, without further
+\epigraph{
+\textsl{Aber die so gegebenen Definitionen dieser Grundoperationen
+geniigen der weitern Entwicklung der Arithmetik nicht mehr, 
+und zwar aus dem Grunde, weil sic
+die Zahlen, mit denen sic operieren lehrt, auf ein sehr kleines 
+Gebiet beschr/inkt annimmt. Die
+Forderung der Arithmetik n/imlich, durch jede dieser Operationen 
+das gesamte vorhandene Zahlgebiet
+jedesmal von neuem zu erzeugen, oder mit andern Worten: 
+die Forderung der unbedingten
+Ausfiihrbarkeit der indirekten, umgekehrten Operationen, 
+der Substraktion, Division usw., Rihrt
+auf die Notwendigkeit, neue Klassen von Zahlen zu schaffen, 
+da mit der urspriinglichen Reihe
+der absoluten ganzen Zahlen 
+dieser Forderung kein Geniige geleistet werden kann.}
+\par
+(But these definitions of the fundamental operations n
+o longer suffice for the further development
+of arithmetic, the reason being that it assumes the numbers with 
+which it teaches us
+to operate restricted to a very narrow domain. The requirement of 
+arithmetic, namely, to
+recreate again the entire existing number-domain through each 
+of these operations, or otherwise
+said: the requirement of the unconditional possibility 
+of carrying through the indirect,
+inverse operations of substraction, division, etc., 
+makes it necessary to create new classes of
+numbers, since with the original sequence 
+of the absolute integers that requirement cannot be
+satisfied.)}%
+{Dedekind~\cite{Dedekind1854}, 
+translation from~\cite{Ewald2005KantToHilbert},
+as quoted in~\cite{ferreiros2007labyrinth}.}
+
+\epigraph{
+\textsl{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
+\par
+(What will the forbearing reader say at the end? That the author, in a squandering of indescribable
+work, has happily managed to surround the clearest ideas in a disturbing obscurity!
+)}%
+{Dedekind to Klein, April 1888, 
+from~\cite{dugac1976DedekindFondements},
+as quoted in~\cite{ferreiros2007labyrinth}.}
+
+
+% In this chapter, I'm listing a number of things I'm taken as 
+% \emph{given,} in
+% the sense that I'm assuming we both know what I mean, 
+%without further
 % explanation. 
-% If you doubt the correctness of that assumption, I'll either provide a
-% reference, or you can take the corresponding Wikipedia entry as good enough.
+% If you doubt the correctness of that assumption, 
+% I'll either provide a
+% reference, or you can take the corresponding Wikipedia entry % as good enough.
 % 
-% The main purpose for listing these things is to make it clear what I'm
-% not going to explain, and, secondarily, to establish notation, though my intent
-% is to stick to the most widely used notation, except when I given a reason not
+% The main purpose for listing these things is to make it clear 
+% what I'm
+% not going to explain, and, secondarily, to establish notation, 
+% though my intent
+% is to stick to the most widely used notation, 
+% except when I given a reason not
 % to.
 
 
@@ -23,9 +78,11 @@
 \levelstay{Natural numbers}
 \label{sec:Natural-numbers}
 
-The \textit{\gls{NaturalNumbers}} (aka non-negative integers, aka counting
+The \textit{\gls{NaturalNumbers}} 
+(aka non-negative integers, aka counting
 numbers):\label{NaturalNumbers}
-$\glssymbol{NaturalNumbers} = \glsdesc{NaturalNumbers}$.\footnote{ 
+$\glssymbol{NaturalNumbers} = 
+\glsdesc{NaturalNumbers}$.\footnote{ 
 Some
 equate \gls{NaturalNumbers} with \glssymbol{PositiveIntegers} 
 or $\glssymbol{NaturalNumbers}^{+}$ and use
@@ -56,7 +113,7 @@ commutative semiring
 
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Cyclic natural numbers}
 
 ${\glssymbol{NaturalNumbers}}_{k} = 
@@ -71,7 +128,7 @@ $a +_{\glssymbol{NaturalNumbers}_{k}} b =
 Also a commutative semiring.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{\texttt{unsigned int}}
 \label{sec:unsigned-int}
 
@@ -99,7 +156,7 @@ $\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 A ring (sec~\ref{sec:Ring}).
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Cyclic integers}
 \label{sec:Cyclic-integers}
 
@@ -112,14 +169,15 @@ is a ring (?):
 \end{itemize}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{\texttt{byte}, \texttt{short}, \texttt{int}, \texttt{long}}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{\texttt{byte}, \texttt{short}, \texttt{int},
+ \texttt{long}}
 \label{sec:int}
 
 Clojure favors \texttt{long} --- why?
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{\texttt{BigInteger}}
 \label{sec:BigInteger}
 
@@ -132,36 +190,167 @@ The \textit{\gls{RationalNumbers}}:
 $\glssymbol{RationalNumbers} = \glsdesc{RationalNumbers}$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{\texttt{BigFraction}}
-\label{sec:BigFraction}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Axiomatic definition of $\mathbb{Q}$}
+\label{sec:Axiomatic_definition_of_Q}
 
-Performance comparisons.
+``The rational numbers are the prime field of characteristic 
+0."~\cite{quora:Rational_axioms}.
+
+Prime field: has no proper subfields.
+
+Characteristic~\cite{wiki:Field_mathematics}: 
+Field $\mathbb{F}$ with additive identity $0_{\mathbb{F}}$
+and multiplicative identity $1_{\mathbb{F}}$.
+Define $n \ast f$, for $n \in \mathbb{N}$ and $f \in \mathbb{F}$
+as $f +_{\mathbb{F}} f +_{\mathbb{F}} \ldots +_{\mathbb{F}} f$, 
+with $n$ $f$'s added.
+The \textit{characteristic} of $\mathbb{F}$
+is the smallest $n$ such that 
+$n \ast 1_{\mathbb{F}} \,=\, 0_{\mathbb{F}}$.
+If there is no such $n$, then the characteristic is 
+$0$.
+
+
+Not possible in 1st order language of fields:
+$ \mathcal{L}_{\text{Field}} $.
+Requires a second order language:
+
+
+``1. There Exists No First-Order Characterization of $ \mathbb{Q} $
+
+The answer is ‘no’, if one is seeking a first-order 
+characterization of $ \mathbb{Q} $. 
+This follows from the Upward Löwenheim-Skolem Theorem, 
+which is a classical tool in logic and model theory.
+
+Observe that $ \mathbb{Q} $ is an infinite 
+$ \mathcal{L}_{\text{Field}} $-structure 
+of cardinality $ \aleph_{0} $. 
+The Upward L\"{o}wenheim-Skolem Theorem then says that 
+there exists an $ \mathcal{L}_{\text{Field}} $-structure 
+(i.e., a field) $ \mathbb{F} $ of cardinality $ \aleph_{1} $ 
+that is an elementary extension of $ \mathbb{Q} $. 
+By definition, this means that $ \mathbb{Q} $ and $ \mathbb{F} $ 
+satisfy the same set of $ \mathcal{L}_{\text{Field}} $-sentences, 
+so we cannot use first-order logic to distinguish $ \mathbb{Q} $ 
+and $ \mathbb{F} $. In other words, as far as first-order logic 
+can tell, these two fields are identical
+(an analogy may be found in point-set topology,
+where two distinct points of a non-$ T_{0} $ topological space 
+can be topologically indistinguishable). 
+However, $ \mathbb{Q} $ and $ \mathbb{F} $ have different 
+cardinalities, so they are not isomorphic. 
+This phenomenon is ultimately due to the fact 
+that the notion of cardinality cannot be formalized
+ using $ \mathcal{L}_{\text{Field}} $. 
+ Therefore, any difference between the two fields 
+ can only be seen externally, outside of first-order logic.
+
+2. Finding a Second-Order Characterization of $ \mathbb{Q} $
+
+This part is inspired by lhf's answer below, 
+which I believe deserves more credit. 
+We start by formalizing the notion of proper subfield 
+using second-order logic.
+
+Let $ P $ be a variable for unary predicates. 
+Consider the following six formulas: 
+\begin{align} 
+\Phi^{P}_{1} &\stackrel{\text{def}}{\equiv} 
+(\exists x) \neg P(x); 
+\\ \Phi^{P}_{2} &\stackrel{\text{def}}{\equiv} P(0); 
+\\ \Phi^{P}_{3} &\stackrel{\text{def}}{\equiv} P(1); 
+\\ \Phi^{P}_{4} &\stackrel{\text{def}}{\equiv} 
+(\forall x)(\forall y)((P(x) \land P(y)) 
+\rightarrow P(x + y)); \\ \Phi^{P}_{5} 
+&\stackrel{\text{def}}{\equiv} 
+(\forall x)(\forall y)
+((P(x) 
+\land P(y)) \rightarrow P(x \cdot y));
+\\ \Phi^{P}_{6} 
+&\stackrel{\text{def}}{\equiv} 
+(\forall x)((P(x) \land \neg (x = 0)) \rightarrow
+(\exists y)(P(y) \land (x \cdot y = 1))). 
+\end{align} 
+What $ \Phi^{P}_{1},\ldots,\Phi^{P}_{6} $ are saying is that 
+the set of all elements of the domain of discourse 
+that satisfy the predicate $ P $ 
+forms a proper subfield of the domain. 
+The domain itself will be a field 
+if we impose upon it the first-order field axioms. 
+Hence, 
+$ \{ \text{First-order field axioms} \} 
+\cup 
+\{ \text{First-order axioms defining characteristic $ 0 $} \}
+ \cup
+\{ \neg (\exists P)(\Phi^{P}_{1} 
+~ \land ~ \Phi^{P}_{2} ~ \land ~ 
+\Phi^{P}_{3} ~ \land ~ 
+\Phi^{P}_{4} ~ \land ~ 
+\Phi^{P}_{5} ~ \land ~ \Phi^{P}_{6}) \} $
+is a set of first- and second-order axioms that characterizes
+$ \mathbb{Q} $ uniquely because of the following two reasons:
+
+Up to isomorphism, 
+$ \mathbb{Q} $ is the only field with characteristic $ 0 $ 
+that contains no proper subfield.
+
+If $ \mathbb{F} \ncong \mathbb{Q} $ is 
+a field with characteristic $ 0 $, 
+then $ \mathbb{F} $ does not model this set of axioms. 
+Otherwise, interpreting “$ P(x) $” as 
+“$ x \in \mathbb{Q}_{\mathbb{F}} $” yields a contradiction, 
+where $ \mathbb{Q}_{\mathbb{F}} $ is the copy of $ \mathbb{Q} $ 
+sitting inside 
+$ \mathbb{F} $.''~\cite{stackexchange:Rational_axioms}.
+
+
+See also \cite{physics_insights:Rationals}.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{$\mathbb{Q}$ as a subset of $\mathbb{R}$}
+\label{sec:Q_subset_of_R}
+
+Alternative 'axiomatic' characterization
+might be possible by starting from axiomatic definition of
+$\mathbb{R}$ and defining $\mathbb{Q}$ as a certain subset.
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Equivalence classes of integer pairs}
+\label{sec:Equivalence_classes_of_integer_pairs}
+
+Pair space (fractions) is $\mathbb{Z} \times \mathbb{N}_{+}$.
+
+Equivalence relation is 
+%$(a,b) \, =_{\mathbb{Q}} \, (c,d) \; \Leftrightarrow \; ad = bc$.
+$(a,b) \, \overset{\mathbb{Q}}{=} \, (c,d) 
+\; \Leftrightarrow \; 
+ad \overset{\mathbb{N}}{=} bc$.
+
+Then 
+$\mathbb{Q} = 
+(\mathbb{Z} \times \mathbb{N}_{+}) 
+\, / 
+\overset{\mathbb{Q}}{=}$.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Real numbers}
-\label{sec:Real-numbers}
+\levelstay{B-adic numbers}
+\label{Sec:b_adic_numbers}
 
-The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
-can be defined in a number of ways. 
-Qualitatively, \glssymbol{RealNumbers} is the completion of
-\glssymbol{RationalNumbers}, in the sense it provides a limiting value for every
-convergent sequence in \glssymbol{RationalNumbers}.
+Generalized floating point.
 
-What algebraic structure if extended with $\pm\infty$?
-'Not even a semigroup' wikipedia.
-$\infty - \infty$, etc. \textit{undefined} values $\Rightarrow$
-\texttt{NaN}.
-Something like a field with an extra $\text{undefined}$
-element --- operations obey field constraints unless value is
-$\text{undefined}$.
+Subset of $\mathbb{Q}$:
+$\{t \ast b^n$; $b\,\in\,\mathbb{N};\; t,n\,\in\,\mathbb{Z}\}$.
 
-Can this be fixed by changing $=$ to handle $\text{undefined}$
-appropriately?
+Most often $b=2$; 
+next most often, $b=10$;
+also see $b=2^k$, where $k=8,16,32,64,\ldots$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{IEEE 754 floating point}
 
 What algebraic structure?
@@ -173,15 +362,15 @@ Not associative.
 Similar to extended real numbers, but also distinguish $\pm 0$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{\texttt{float}, \texttt[double]}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{\texttt{float}, \texttt{double}}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{\texttt{DoubleDouble}}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Extending floating point to be a field}
 
 Fix associativity by carrying accumulator bank,
@@ -193,7 +382,7 @@ no additive or multiplicative inverse.
 Change behavior of $0 / 0$, etc.?
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Floating point numbers as an algebraic structure}
 
 Two non-associative commutative operations on a finite,
@@ -205,7 +394,7 @@ clojure/java code showing how different results can be\ldots
 \end{example}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{'Exact' floating point arithmetic}
 \cite{Higham2002ASNA,Muller-et-al-2010,Zhu:2010:A9O:1824801.1824815}
 
@@ -226,6 +415,36 @@ accurate finite values?
 to support exact floating operations generated from
 $+$ and $*$ within a function, by incorporating an error
 accumulator?
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{\texttt{BigFraction}}
+\label{sec:BigFraction}
+
+Performance comparisons.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Real numbers}
+\label{sec:Real-numbers}
+
+The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
+can be defined in a number of ways. 
+Qualitatively, \glssymbol{RealNumbers} is the completion of
+\glssymbol{RationalNumbers}, 
+in the sense it provides a limiting value for every
+convergent sequence in \glssymbol{RationalNumbers}.
+
+What algebraic structure if extended with $\pm\infty$?
+'Not even a semigroup' wikipedia.
+$\infty - \infty$, etc. \textit{undefined} values $\Rightarrow$
+\texttt{NaN}.
+Something like a field with an extra $\text{undefined}$
+element --- operations obey field constraints unless value is
+$\text{undefined}$.
+
+Can this be fixed by changing $=$ to handle $\text{undefined}$
+appropriately?
+
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
@@ -275,6 +494,17 @@ for the positive (negative) values, with
 $\glssymbol{GenericSpace}_{> 0}$, $\glssymbol{GenericSpace}_{\geq 0}$ 
 when I feel the need to be clear about, eg, non-negative versus
 strictly positive.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Baire space}
+\label{sec:Baire-space}
+
+Homeomorphic to irrational numbers
+via interpretation as 
+continued 
+fraction?\cite{wiki:Baire_space_set_theory,
+wiki:Baire_category_theorem,wiki:Baire_space}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
@@ -418,3 +648,4 @@ which will generate compile-time warnings
 Clojure adds rational numbers, which turn out to rarely be useful.\\
 \lstinline|clojure.lang.Ratio| rational numbers
 \lstinline|clojure.lang.BigInt|~\cite[p.~428]{Emerick2012ClojureProgramming}
+

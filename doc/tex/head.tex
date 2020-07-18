@@ -138,12 +138,12 @@ BoldItalicFont = *08-Italic ]
 \usepackage{mathtools}
 %-----------------------------------------------------------------
 \usepackage{amsthm}
-% \newtheorem{theorem}{Theorem}
-% \newtheorem{definition}{Definition}
-% \newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
 %-----------------------------------------------------------------
-
-\usepackage{thmtools}
+% 2019-12-22 thmtools broken by change to kvsetkeys
+% \usepackage{thmtools}
 
 % https://tex.stackexchange.com/questions/249963/remove-repeated-theorem-in-the-list-of-theorems
 \usepackage{etoolbox}
@@ -173,22 +173,22 @@ BoldItalicFont = *08-Italic ]
 %\DeclareRobustCommand{\rvspace}[1]{\vspace{#1}}
 % \theoremstyle{break}
 %---------------------------------------------------------
-\declaretheoremstyle[
-% TODO: should be relative to parskip, or something like that
-spaceabove=16pt,
-spacebelow=12pt,
-headfont=\normalfont\mdseries,
-headpunct={\vspace{\topsep}\newline\vspace{\topsep}\vspace{\topsep}},
-%notefont=\sffamily\bfseries,
-notefont=\sffamily,
-notebraces={\hspace{1em}}{},
-shaded={bgcolor=GhostWhite},
-bodyfont=\normalfont,
-postheadspace=1em,
-]{mythmstyle}
-\declaretheorem[style=mythmstyle,title=Theorem,name={Theorem}]{theorem}
-\declaretheorem[style=mythmstyle,title=Definition,name={Definition}]{definition}
-\declaretheorem[style=mythmstyle,title=Example,name={Example}]{example}
+% \declaretheoremstyle[
+% % TODO: should be relative to parskip, or something like that
+% spaceabove=16pt,
+% spacebelow=12pt,
+% headfont=\normalfont\mdseries,
+% headpunct={\vspace{\topsep}\newline\vspace{\topsep}\vspace{\topsep}},
+% %notefont=\sffamily\bfseries,
+% notefont=\sffamily,
+% notebraces={\hspace{1em}}{},
+% shaded={bgcolor=GhostWhite},
+% bodyfont=\normalfont,
+% postheadspace=1em,
+% ]{mythmstyle}
+% \declaretheorem[style=mythmstyle,title=Theorem,name={Theorem}]{theorem}
+% \declaretheorem[style=mythmstyle,title=Definition,name={Definition}]{definition}
+% \declaretheorem[style=mythmstyle,title=Example,name={Example}]{example}
 %\renewcommand{\thmtformatoptarg}[1]{#1}%
 %-----------------------------------------------------------------
 % \numberwithin{theorem}{chapter}
@@ -271,33 +271,47 @@ keywordstyle={\ttfamily}}
 \usepackage{titling}
 %\newfontfamily\titlefont[Scale=MatchUppercase]{Gill Sans MT}
 %\renewcommand{\maketitlehooka}{\titlefont}
-\pretitle{\begin{flushright}\Huge\sffamily\bfseries}
+%\pretitle{\begin{flushright}\Huge\sffamily\bfseries}
+\pretitle{\begin{flushright}\Huge\scshape\bfseries}
 \posttitle{\par\end{flushright}\vskip 0.25em}
-\preauthor{\begin{flushright}\sffamily\scshape\mdseries}
+%\preauthor{\begin{flushright}\sffamily\scshape\mdseries}
+\preauthor{\begin{flushright}\scshape\mdseries}
 \postauthor{\par\end{flushright}}
-\predate{\begin{flushright}\sffamily\scshape\mdseries}
+%\predate{\begin{flushright}\sffamily\scshape\mdseries}
+\predate{\begin{flushright}\scshape\mdseries}
 \postdate{\par\end{flushright}}
 \setlength{\droptitle}{-80pt}
 %-------------------------------------------------------------------------------
 \usepackage{enumitem}
-\setlist[description]{font=\small\sffamily\mdseries,style=unboxed,leftmargin=0cm}
+%\setlist[description]{font=\small\sffamily\mdseries,style=unboxed,leftmargin=0cm}
+%\setlist[description]{font=\sffamily\mdseries}
+\setlist[description]{font=\scshape\bfseries}
 \setlist[itemize]{style=unboxed,itemindent=0cm}
 \setlist[enumerate]{style=unboxed,itemindent=0cm}
-%-------------------------------------------------------------------------------
-\usepackage[sf,small,compact]{titlesec}
+%-----------------------------------------------------------------
+%\usepackage[sf,small,compact]{titlesec}
+\usepackage[small,compact]{titlesec}
 %\newfontfamily\headingfont[]{New Yorker}
 %\newfontfamily\headingfont[Scale=MatchUppercase]{Libre Caslon Display}
 %\newfontfamily\headingfont[]{Perpetua Titling MT}
 %\newfontfamily\headingfont[Scale=MatchUppercase]{Gill Sans MT}
 %\newfontfamily\headingfont[Scale=MatchUppercase]{Gillius ADF}
 
-\titleformat{\part}{\huge\sffamily\bfseries}{\thepart}{0.5em}{}
-\titleformat{\chapter}{\LARGE\sffamily\bfseries}{\thechapter}{0.5em}{}
-\titleformat{\section}{\Large\sffamily\bfseries}{\thesection}{0.5em}{}
-\titleformat{\subsection}{\large\sffamily\bfseries}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}{\large\sffamily\mdseries}{\thesubsubsection}{0.5em}{}
-\titleformat{\paragraph}[runin]{\normalsize\sffamily\mdseries}{\theparagraph}{0.5em}{}[\hspace{1em}]
-\titleformat{\subparagraph}[runin]{\normalsize\sffamily\mdseries}{\thesubparagraph}{0.5em}{}[\hspace{1em}]
+% \titleformat{\part}{\huge\sffamily\bfseries}{\thepart}{0.5em}{}
+% \titleformat{\chapter}{\LARGE\sffamily\bfseries}{\thechapter}{0.5em}{}
+% \titleformat{\section}{\Large\sffamily\bfseries}{\thesection}{0.5em}{}
+% \titleformat{\subsection}{\large\sffamily\bfseries}{\thesubsection}{0.5em}{}
+% \titleformat{\subsubsection}{\large\sffamily\mdseries}{\thesubsubsection}{0.5em}{}
+% \titleformat{\paragraph}[runin]{\normalsize\sffamily\mdseries}{\theparagraph}{0.5em}{}[\hspace{1em}]
+% \titleformat{\subparagraph}[runin]{\normalsize\sffamily\mdseries}{\thesubparagraph}{0.5em}{}[\hspace{1em}]
+
+\titleformat{\part}{\huge\scshape\bfseries}{\thepart}{0.5em}{}
+\titleformat{\chapter}{\LARGE\scshape\bfseries}{\thechapter}{0.5em}{}
+\titleformat{\section}{\Large\scshape\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\large\scshape\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\large\scshape\mdseries}{\thesubsubsection}{0.5em}{}
+\titleformat{\paragraph}[runin]{\normalsize\scshape\mdseries}{\theparagraph}{0.5em}{}[\hspace{1em}]
+\titleformat{\subparagraph}[runin]{\normalsize\scshape\mdseries}{\thesubparagraph}{0.5em}{}[\hspace{1em}]
 
 \titlespacing\section{0pt}{12pt plus 12pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\subsection{0pt}{11pt plus 11pt minus 2pt}{5pt plus 5pt minus 2pt}
@@ -305,12 +319,20 @@ keywordstyle={\ttfamily}}
 
 \setcounter{secnumdepth}{7}
 %-------------------------------------------------------------------------------
+% \makeatletter
+% \let\oldl@chapter\l@chapter
+% \def\l@chapter#1#2{\oldl@chapter{#1}{\textsf{#2}}}
+% \let\old@dottedcontentsline\@dottedtocline
+% \def\@dottedtocline#1#2#3#4#5{%
+% \old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textsf{#5}}}}
+% \makeatother
+
 \makeatletter
 \let\oldl@chapter\l@chapter
-\def\l@chapter#1#2{\oldl@chapter{#1}{\textsf{#2}}}
+\def\l@chapter#1#2{\oldl@chapter{#1}{\textrm{#2}}}
 \let\old@dottedcontentsline\@dottedtocline
 \def\@dottedtocline#1#2#3#4#5{%
-\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textsf{#5}}}}
+\old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
 \makeatother
 %-------------------------------------------------------------------------------
 % \usepackage{tocloft}
@@ -321,12 +343,6 @@ keywordstyle={\ttfamily}}
 % \renewcommand{\cftsubsubsecfont}{\sffamily}
 % \renewcommand{\cftparafont}{\sffamily}
 % \renewcommand{\cftsubparafont}{\sffamily}
-%-------------------------------------------------------------------------------
-\usepackage{enumitem}
-%\setlist[description]{font=\small\sffamily\mdseries,style=unboxed,leftmargin=0cm}
-\setlist[description]{font=\sffamily\mdseries}
-% \setlist[itemize]{style=unboxed,itemindent=0cm}
-% \setlist[enumerate]{style=unboxed,itemindent=0cm}
 %-------------------------------------------------------------------------------
 %https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{makeidx}
@@ -362,9 +378,18 @@ timezeros=true,
 %-------------------------------------------------------------------------------
 %\usepackage[titletoc]{appendix}
 %-------------------------------------------------------------------------------
-\usepackage[unicode=true,pdfusetitle,
- bookmarks=true,bookmarksnumbered=false,bookmarksopen=true,bookmarksopenlevel=1,
- breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=true]{hyperref}
+\usepackage[unicode=true,
+pdfusetitle,
+bookmarks=true,
+bookmarksnumbered=false,
+bookmarksopen=true,
+bookmarksopenlevel=1,
+breaklinks=false,
+pdfborder={0 0 0},
+pdftoolbar=false,
+pdffitwindow=true,
+backref=false,
+colorlinks=true]{hyperref}
 % these renewcommands don't seem to work
 % \renewcommand{\chapterautorefname}{\S}
 % \renewcommand{\sectionautorefname}{\S}
