@@ -4,7 +4,7 @@
 %input path
 %-------------------------------------------------------------------------------
 \makeatletter
-\def\input@path{{../figs/}{../tex/}{../rawtex/}{../}}
+\def\input@path{{../bib/}{../shared/}{../figs/}{../tex/}{../rawtex/}{../}}
 \makeatother
 %-------------------------------------------------------------------------------
 % TODO: try these
@@ -137,7 +137,9 @@ BoldItalicFont = *08-Italic ]
 %-----------------------------------------------------------------
 \usepackage{mathtools}
 %-----------------------------------------------------------------
-\usepackage{amsthm}
+%\usepackage{amsthm}
+\usepackage[amsthm,amsmath]{ntheorem}
+\usepackage{thmtools}
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
