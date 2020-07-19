@@ -19,28 +19,27 @@
 % arara: clean: { files: [ le-book.synctex.gz] }
 %-------------------------------------------------------------------------------
 \documentclass[11pt,openany]{book}
-\input{../tex/head}
-\input{../tex/symbols}
-
-%\input{../tex/kindle-paperwhite}
-\input{../tex/landscape-2col-8x17}
-%input{../landscape-2col-9x16}
-%\input{../tex/landscape-2col-a4}
-%\input{../tex/landscape-2col-letter}
-%\input{../tex/landscape-2col-legal}
-%\input{../tex/portrait-1col}
-\input{../tex/clj-listings}
-\input{glossary}
-\addbibresource{../bib/algebra.bib}
-\addbibresource{../bib/cactus.bib}
-\addbibresource{../bib/proglang.bib}
-\addbibresource{../bib/halmos.bib}
-\addbibresource{../bib/interpolation.bib}
-\addbibresource{../bib/ieeestd.bib}
-\addbibresource{../bib/mcdonald.bib}
-\addbibresource{../bib/mop.bib}
-\addbibresource{../bib/tex.bib}
-\addbibresource{../bib/fparith.bib}
+\usepackage{import}
+\def \texFolder {../tex/}
+\def \bibFolder {../bib/}
+\def \sharedFolder {../shared/}
+\import{\texFolder}{head}
+\import{\texFolder}{landscape-2col-8x17}
+\import{\texFolder}{clj-listings}
+\import{\sharedFolder}{glossary}
+\addbibresource{{\bibFolder}algebra.bib}
+\addbibresource{{\bibFolder}arithmetic.bib}
+\addbibresource{{\bibFolder}cactus.bib}
+\addbibresource{{\bibFolder}proglang.bib}
+\addbibresource{{\bibFolder}halmos.bib}
+\addbibresource{{\bibFolder}interpolation.bib}
+\addbibresource{{\bibFolder}logic.bib}
+\addbibresource{{\bibFolder}mop.bib}
+\addbibresource{{\bibFolder}numbers.bib}
+\addbibresource{{\bibFolder}sets.bib}
+\addbibresource{{\bibFolder}tex.bib}
+%\addbibresource{{\bibFolder}ieeestd.bib}
+%\addbibresource{{\bibFolder}fparith.bib}
 %-----------------------------------------------------------------
 \title{Elements of mathematics and their implementation (working title)}
 \author{\textsc{John Alan McDonald}}
@@ -68,19 +67,19 @@
 \setcounter{baseSectionLevel}{6}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{writing}
+\import{\sharedFolder}{writing}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{computation}
+\import{\sharedFolder}{computation}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{mathematics}
+\import{\sharedFolder}{mathematics}
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelup{Curves and Surfaces}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{interpolation}
+\import{\sharedFolder}{interpolation}
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelup{Smoothness}
@@ -88,19 +87,19 @@
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Polylines}
-%\input{curves}
+%\import{\sharedFolder}{curves}
 %\cleardoublepage
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Triangular Meshes}
-%\input{faces}
-%\input{edges}
-%\input{vertices}
+%\import{\sharedFolder}{faces}
+%\import{\sharedFolder}{edges}
+%\import{\sharedFolder}{vertices}
 %\cleardoublepage
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Subdivision Surfaces}
-%\input{subdivision}
+%\import{\sharedFolder}{subdivision}
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelup{Fitting}
@@ -108,22 +107,22 @@
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Data Fitting}
-%\input{data-fitting}
+%\import{\sharedFolder}{data-fitting}
 %\cleardoublepage
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Image Fitting}
-%\input{image-fitting}
+%\import{\sharedFolder}{image-fitting}
 %\cleardoublepage
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Registration}
-%\input{registration}
+%\import{\sharedFolder}{registration}
 %\cleardoublepage
 %-----------------------------------------------------------------
 %\setcounter{currentlevel}{\value{baseSectionLevel}}
 %\levelstay{Averaging}
-%\input{averaging}
+%\import{\sharedFolder}{averaging}
 
 \glsaddallunused
 \appendix
@@ -131,15 +130,15 @@
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelup{Appendices}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../tex/typesetting}
+\import{\texFolder}{typesetting}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{annoyances}
+\import{\sharedFolder}{annoyances}
 %-----------------------------------------------------------------
 \backmatter
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelup{Backmatter}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{tail}
+\import{\texFolder}{tail}
 %-----------------------------------------------------------------
 \end{document}

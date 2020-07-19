@@ -3,9 +3,9 @@
 %-------------------------------------------------------------------------------
 %input path
 %-------------------------------------------------------------------------------
-\makeatletter
-\def\input@path{{../bib/}{../shared/}{../figs/}{../tex/}{../rawtex/}{../}}
-\makeatother
+%\makeatletter
+%\def\input@path{{../bib/}{../shared/}{../figs/}{../tex/}{../rawtex/}{../}}
+%\makeatother
 %-------------------------------------------------------------------------------
 % TODO: try these
 % \usepackage{amsmath,amsfonts,amssymb,mathrsfs,theorem}
@@ -44,9 +44,9 @@
 %-------------------------------------------------------------------------------
 \usepackage{url}
 %-------------------------------------------------------------------------------
-\usepackage[english]{babel}
+\usepackage{csquotes}
 %-------------------------------------------------------------------------------
-%\usepackage{csquotes}
+\usepackage[english]{babel}
 %-------------------------------------------------------------------------------
 \usepackage{epigraph}
 \setlength{\epigraphwidth}{0.8\linewidth}
@@ -363,6 +363,7 @@ maxnames=1000,
 maxitems=1000,
 block=nbpar,
 abbreviate=false,
+seconds=true,
 date=iso,
 alldates=iso,
 datezeros=true,
@@ -409,3 +410,6 @@ citecolor=OliveGreen}
 % %\usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
 % \usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
 %-------------------------------------------------------------------------------
+\input{symbols}
+
+

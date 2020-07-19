@@ -18,29 +18,29 @@
 % arara: clean: { files: [arithmetic-notes.toc,arithmetic-notes.xdy] }
 % arara: clean: { files: [arithmetic-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[10pt,openany]{book}
-\input{../tex/head}
-\input{../tex/symbols}
-%-----------------------------------------------------------------
-%\input{../kindle-paperwhite}
-%\input{../tex/landscape-2col-letter}
-\input{../tex/landscape-2col-8x17}
-%\input{../portrait-1col}
-\input{../tex/clj-listings}
-\input{../glossary}
-\addbibresource{../bib/algebra.bib}
-\addbibresource{../bib/arithmetic.bib}
-\addbibresource{../bib/cactus.bib}
-\addbibresource{../bib/proglang.bib}
-\addbibresource{../bib/halmos.bib}
-\addbibresource{../bib/interpolation.bib}
-\addbibresource{../bib/logic.bib}
-\addbibresource{../bib/mop.bib}
-\addbibresource{../bib/numbers.bib}
-%\addbibresource{../bib/ieeestd.bib}
-\addbibresource{../bib/sets.bib}
-\addbibresource{../bib/tex.bib}
-%\addbibresource{../bib/fparith.bib}
+\documentclass[11pt,openany]{book}
+\usepackage{import}
+\def \texFolder {../../tex/}
+\def \bibFolder {../../bib/}
+\def \sharedFolder {../../shared/}
+\import{\texFolder}{head}
+\import{\texFolder}{landscape-2col-8x17}
+\import{\texFolder}{clj-listings}
+\import{\sharedFolder}{glossary}
+\addbibresource{{\bibFolder}algebra.bib}
+\addbibresource{{\bibFolder}arithmetic.bib}
+\addbibresource{{\bibFolder}cactus.bib}
+\addbibresource{{\bibFolder}proglang.bib}
+\addbibresource{{\bibFolder}halmos.bib}
+\addbibresource{{\bibFolder}interpolation.bib}
+\addbibresource{{\bibFolder}logic.bib}
+\addbibresource{{\bibFolder}mcdonald.bib}
+\addbibresource{{\bibFolder}mop.bib}
+\addbibresource{{\bibFolder}numbers.bib}
+\addbibresource{{\bibFolder}sets.bib}
+\addbibresource{{\bibFolder}tex.bib}
+%\addbibresource{{\bibFolder}ieeestd.bib}
+%\addbibresource{{\bibFolder}fparith.bib}
 %-----------------------------------------------------------------
 \title{Notes on arithmetic}
 \author{\textsc{John Alan McDonald}}
@@ -123,27 +123,27 @@ than computer programs.}%
 {Thurston, \textit{On proof and progress in mathematics}~\cite{thurston1994proof}}
 
 
-% \setcounter{currentlevel}{\value{baseSectionLevel}}
-%\input{../mathematics}
+ \setcounter{currentlevel}{\value{baseSectionLevel}}
+\import{\sharedFolder}{mathematics}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../logic}
+\import{\sharedFolder}{logic}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../sets}
+\import{\sharedFolder}{sets}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../functions}
+\import{\sharedFolder}{functions}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../algebra}
+\import{\sharedFolder}{algebra}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../numbers}
+\import{\sharedFolder}{numbers}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../arithmetic}
+\import{\sharedFolder}{arithmetic}
 
 %-----------------------------------------------------------------
 %\pagebreak
 %\appendix
 %\part{Appendices}
-%\input{../tex/typesetting}
+%\import{\texFolder}{typesetting}
 %-----------------------------------------------------------------
 \backmatter
 
@@ -151,7 +151,7 @@ than computer programs.}%
 %\part{Backmatter}
 % un-comment \input and comment \printbibiliography
 % to get index, glossary, list of theorems, etc.
-%\input{../tex/tail}
+%\import{\texFolder}{tail}
 \printbibliography[heading=bibintoc, title={References}]
 %-----------------------------------------------------------------
 \end{document}
