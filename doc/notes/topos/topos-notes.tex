@@ -1,0 +1,240 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: [--halt-on-error] } 
+% arara: biber
+% arara: makeglossaries
+% arara: makeindex
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
+% arara: clean: { files: [topos-notes.bcf,topos-notes.blg] }
+% arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
+% arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
+% arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
+% arara: clean: { files: [topos-notes.ind,topos-notes.loe] }
+% arara: clean: { files: [topos-notes.lof,topos-notes.log] }
+% arara: clean: { files: [topos-notes.log,topos-notes.lol] }
+% arara: clean: { files: [topos-notes.out,topos-notes.thm] }
+% arara: clean: { files: [topos-notes.run.xml] }
+% arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
+% arara: clean: { files: [topos-notes.synctex.gz] }
+%-------------------------------------------------------------------------------
+\documentclass[11pt,openany]{article}
+\usepackage{import}
+\def \texFolder {../../tex/}
+\def \bibFolder {../../bib/}
+\def \sharedFolder {../../shared/}
+\import{\texFolder}{head}
+\import{\texFolder}{landscape-2col-8x17}
+\import{\texFolder}{clj-listings}
+\import{\sharedFolder}{glossary}
+\addbibresource{{\bibFolder}algebra.bib}
+\addbibresource{{\bibFolder}arithmetic.bib}
+\addbibresource{{\bibFolder}cactus.bib}
+\addbibresource{{\bibFolder}proglang.bib}
+\addbibresource{{\bibFolder}halmos.bib}
+\addbibresource{{\bibFolder}interpolation.bib}
+\addbibresource{{\bibFolder}logic.bib}
+\addbibresource{{\bibFolder}mcdonald.bib}
+\addbibresource{{\bibFolder}mop.bib}
+\addbibresource{{\bibFolder}numbers.bib}
+\addbibresource{{\bibFolder}sets.bib}
+\addbibresource{{\bibFolder}tex.bib}
+%\addbibresource{{\bibFolder}ieeestd.bib}
+\addbibresource{{\bibFolder}fparith.bib}
+\addbibresource{{\bibFolder}topos.bib}
+%-----------------------------------------------------------------
+\title{Notes on category and topos theory}
+\author{\textsc{John Alan McDonald}}
+%\email{mcdonald.john.alan at gmail.com}
+\date{draft of \today}
+%-----------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------
+% 7 for part level
+% 6 for chapter level
+% 5 for section level
+% 4 for subsection level
+% 3 for subsubsection level
+% 2 for paragraph level
+% 1 for subparagraph level
+\setcounter{baseSectionLevel}{5}
+%-----------------------------------------------------------------
+
+%\frontmatter
+
+% \begingroup
+% \let\onecolumn\twocolumn
+% \sffamily
+% \tableofcontents
+% \rmfamily
+% \endgroup
+% 
+%-----------------------------------------------------------------
+\epigraph{
+\textsl{das Wesen der Mathematik liegt gerade in ihrer Freiheit.}
+\par
+(The essence of mathematics lies precisely in its freedom.)}%
+{Cantor~\cite{Cantor1883},
+as quoted in~\cite{ferreiros2007labyrinth}.}
+
+\epigraph{
+Mathematics is not the rigid and rigidity-producing schema 
+that the layman thinks it is; 
+rather, in it we find ourselves at that meeting point 
+of constraint and freedom 
+that is the very essence of human nature.}%
+{Hermann Weyl ?}
+
+
+motivation from empirical problems; 
+see eg~\cite{maclane1981mathModels}.
+goal ``breadth, clarity, and depth''.
+
+adjoint functors?
+
+axioms on composition of functions as alternative to set theory
+as foundation of mathematics
+
+Cantorian set theory: platonic sets with $2$nd order axioms.
+
+my point of view: 
+mathematics (notation) and programming languages
+as \textit{written} languages,
+used to formulate real world problems,
+and construct their solutions.
+
+express an idea in at most a couple pages of text.
+
+say enough and not too much, especially not irrelevant things.
+abstract just enough; 
+concrete details of model/representation/implementation.
+
+key issue: is the solution correct?
+mathematics evaluated by consensus;
+software by testing.
+
+\epigraph{Mathematics as we practice it is much more formally 
+complete and precise than
+other sciences, but it is much less formally complete and precise 
+for its content
+than computer programs.}%
+{Thurston, 
+\textit{On proof and progress in mathematics
+}~\cite{thurston1994proof}}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Preface 2020-07}
+\label{sec:Preface-2020-07}
+
+Capture state of ignorance as of 2020-07,
+to record what's confusing to the novice.
+
+For the past $20+$ years, I have, every year or so,
+ encountered claims that
+category is the ``right way to do \textit{blah}''.
+Pick up some recent 
+introduction~\cite{asperti-longo-1991,awodey-2010,
+barr-wells-2020,fong-spivakd-2018-seven-sketches,
+geroch-1985,lawvere-schanuel-2009,
+leinster-2016-basic-category-theory,
+maclane-1998-working-mathematician,nLab-2020,
+spivakd-2013,spivakd-2014} 
+get about halfway and give up.
+
+Recent context: optimization software leads to
+exact arithmetic leads to computable reals,
+leads to contructive analysis and intuitionistic logic,
+leads to history and foundations of math 
+leads to topos theory.
+
+Current hypothesis: some thing is wrong.
+Directed multigraph perhaps isn't the 'right' way
+expose and use commonalities across mathematics.
+
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Why?}
+\label{sec:Why?}
+
+
+An alternative to first order logic, sets, 
+and functions as a foundation for all
+mathematics~\cite{feferman-1977-FEFCFA},  
+particularly topos theory.
+
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Naming}
+\label{sec:Naming}
+
+Particularly bad in category theory, eg, 
+what's ``commuting'' is a commuting diagram.
+
+Prefer self-explanatory names, even if a bit longer:
+eg, ``left (right) cancelable'' rather than ``mono(epi)morphism'',
+``structure-preserving function'' over ``homomorphism''.
+
+``Morphism'' etymology.
+ 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Graphical language}
+\label{sec:Graphical-language}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Bottom up}
+\label{sec:Bottom-up}
+
+Start from directed (multi)graph.
+
+Not really a foundation, due to 
+dependence on \textit{collections} of objects and arrows
+and \textit{functions} between these collection. 
+
+Categorical constructs are pretty much impossible to motivate
+ in this context.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Top down}
+\label{sec:Top-down}
+ 
+Topos definition, then define what it depends on, \ldots.
+ 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Abstraction}
+\label{sec:Abstraction}
+
+Start from all of conventional mathematics,
+remove unnecessary details freom definitions, theorems, proofs.
+Express what remains in graphical category language.
+Look for ``graphs'' that match, unifying disparate parts of math.
+
+Problem: you need to learn a lot of conventional math before
+you can really start on category theory.
+
+ 
+%-----------------------------------------------------------------
+\pagebreak
+\appendix
+%\part{Appendices}
+\import{\texFolder}{typesetting}
+%-----------------------------------------------------------------
+%\backmatter
+
+
+%\part{Backmatter}
+% un-comment \input and comment \printbibiliography
+% to get index, glossary, list of theorems, etc.
+%\input{../tex/tail}
+\printbibliography[heading=bibintoc, title={References}]
+%-----------------------------------------------------------------
+\end{document}

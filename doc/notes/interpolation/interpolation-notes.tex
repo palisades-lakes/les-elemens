@@ -18,30 +18,29 @@
 % arara: clean: { files: [ interpolation-notes.toc, interpolation-notes.xdy] }
 % arara: clean: { files: [ interpolation-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-%\documentclass[10pt,openany]{book}
-\documentclass[11pt,openany]{article}
-\input{../tex/head}
-\input{../tex/symbols}
-
-%\input{../tex/kindle-paperwhite}
-\input{../tex/landscape-2col-8x17}
-%input{../landscape-2col-9x16}
-%\input{../tex/landscape-2col-a4}
-%\input{../tex/landscape-2col-letter}
-%\input{../tex/landscape-2col-legal}
-%\input{../tex/portrait-1col}
-\input{../tex/clj-listings}
-\input{../glossary}
-\addbibresource{../bib/algebra.bib}
-\addbibresource{../bib/cactus.bib}
-\addbibresource{../bib/proglang.bib}
-\addbibresource{../bib/halmos.bib}
-\addbibresource{../bib/interpolation.bib}
-%\addbibresource{../bib/ieeestd.bib}
-\addbibresource{../bib/mcdonald.bib}
-\addbibresource{../bib/mop.bib}
-\addbibresource{../bib/tex.bib}
-\addbibresource{../bib/fparith.bib}
+\documentclass[10pt,openany]{article}
+\usepackage{import}
+\def \texFolder {../../tex/}
+\def \bibFolder {../../bib/}
+\def \sharedFolder {../../shared/}
+\import{\texFolder}{head}
+\import{\texFolder}{landscape-2col-8x17}
+\import{\texFolder}{clj-listings}
+\import{\sharedFolder}{glossary}
+\addbibresource{{\bibFolder}algebra.bib}
+\addbibresource{{\bibFolder}arithmetic.bib}
+\addbibresource{{\bibFolder}cactus.bib}
+\addbibresource{{\bibFolder}proglang.bib}
+\addbibresource{{\bibFolder}halmos.bib}
+\addbibresource{{\bibFolder}interpolation.bib}
+\addbibresource{{\bibFolder}logic.bib}
+\addbibresource{{\bibFolder}mcdonald.bib}
+\addbibresource{{\bibFolder}mop.bib}
+\addbibresource{{\bibFolder}numbers.bib}
+\addbibresource{{\bibFolder}sets.bib}
+\addbibresource{{\bibFolder}tex.bib}
+%\addbibresource{{\bibFolder}ieeestd.bib}
+\addbibresource{{\bibFolder}fparith.bib}
 %-----------------------------------------------------------------
 \title{Notes on interpolation}
 \author{\textsc{John Alan McDonald}}
@@ -67,42 +66,20 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
-\input{../interpolation}
+\import{\sharedFolder}{interpolation}
 
+%-----------------------------------------------------------------
 %\glsaddallunused
 %-----------------------------------------------------------------
-\pagebreak
 \appendix
-%\part{Appendices}
-%7 for part level
-% 6 for chapter level
-% 5 for section level
-% 4 for subsection level
-% 3 for subsubsection level
-% 2 for paragraph level
-% 1 for subparagraph level
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../sets}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../functions}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../algebra}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../numbers}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../spaces}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../derivatives}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../polynomial}
 \pagebreak
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../tex/typesetting}
+\import{\texFolder}{typesetting}
 %-----------------------------------------------------------------
 %\backmatter
 %\part{Backmatter}
 \pagebreak
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\input{../tex/tail}
+\import{\texFolder}{tail}
 %-------------------------------------------------------------------------------
 \end{document}
