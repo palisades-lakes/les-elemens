@@ -88,34 +88,6 @@ of constraint and freedom
 that is the very essence of human nature.}%
 {Hermann Weyl ?}
 
-
-motivation from empirical problems; 
-see eg~\cite{maclane1981mathModels}.
-goal ``breadth, clarity, and depth''.
-
-adjoint functors?
-
-axioms on composition of functions as alternative to set theory
-as foundation of mathematics
-
-Cantorian set theory: platonic sets with $2$nd order axioms.
-
-my point of view: 
-mathematics (notation) and programming languages
-as \textit{written} languages,
-used to formulate real world problems,
-and construct their solutions.
-
-express an idea in at most a couple pages of text.
-
-say enough and not too much, especially not irrelevant things.
-abstract just enough; 
-concrete details of model/representation/implementation.
-
-key issue: is the solution correct?
-mathematics evaluated by consensus;
-software by testing.
-
 \epigraph{Mathematics as we practice it is much more formally 
 complete and precise than
 other sciences, but it is much less formally complete and precise 
@@ -124,6 +96,32 @@ than computer programs.}%
 {Thurston, 
 \textit{On proof and progress in mathematics
 }~\cite{thurston1994proof}}
+
+\epigraph{On the most fundamental level, the foundations of mathematics are much shakier
+than the mathematics that we do. Most mathematicians adhere to foundational
+principles that are known to be polite fictions. For example, it is a theorem that
+there does not exist any way to ever actually construct or even define a well-ordering
+of the real numbers. There is considerable evidence (but no proof) that we can get
+away with these polite fictions without being caught out, but that doesn’t make
+them right. Set theorists construct many alternate and mutually contradictory
+“mathematical universes” such that if one is consistent, the others are too. This
+leaves very little confidence that one or the other is the right choice or the natural
+choice. G¨odel’s incompleteness theorem implies that there can be no formal system
+that is consistent, yet powerful enough to serve as a basis for all of the mathematics
+that we do.}%
+{Thurston, \textit{On proof and progress in mathematics}~\cite{thurston1994proof}}
+
+\epigraph{
+\textsl{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
+\par
+(What will the forbearing reader say at the end? That the author, in a squandering of indescribable
+work, has happily managed to surround the clearest ideas in a disturbing obscurity!
+)}%
+{Dedekind to Klein, April 1888, 
+from~\cite{dugac1976DedekindFondements},
+as quoted in~\cite{ferreiros2007labyrinth}.}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
@@ -137,11 +135,13 @@ For the past $20+$ years, I have, every year or so,
  encountered claims that
 category is the ``right way to do \textit{blah}''.
 Pick up some recent 
-introduction~\cite{asperti-longo-1991,awodey-2010,
+introduction~\cite{adamek-herrlich-strecker-1990,
+asperti-longo-1991,awodey-2010,
 barr-wells-2020,fong-spivakd-2018-seven-sketches,
 geroch-1985,lawvere-schanuel-2009,
 leinster-2016-basic-category-theory,
 maclane-1998-working-mathematician,nLab-2020,
+riehl-2017,
 spivakd-2013,spivakd-2014} 
 get about halfway and give up.
 
@@ -151,16 +151,243 @@ leads to contructive analysis and intuitionistic logic,
 leads to history and foundations of math 
 leads to topos theory.
 
-Current hypothesis: some thing is wrong.
-Directed multigraph perhaps isn't the 'right' way
+
+Current hypothesis: something is wrong.
+Maybe it's me, or maybe \ldots
+Directed multigraph perhaps isn't the 'right' language to
 expose and use commonalities across mathematics.
 
+\textbf{TODO:} is there a reasonable way to measure 
+the complextity of a topic/definition/theorem/textbook,
+something perhaps like the depth and branching of the
+dependency tree?
+
+Guess: right foundation should be self defining
+(like any decent programming language).
+
+motivation from empirical problems; 
+see eg~\cite{maclane1981mathModels}.
+goal ``breadth, clarity, and depth''.
+
+my point of view: 
+mathematics (notation) and programming languages
+as \textit{written} languages,
+used to formulate real world problems,
+and construct their solutions.
+express an idea in at most a couple pages of text.
+say enough and not too much, especially not irrelevant things.
+abstract just enough; 
+concrete details of model/representation/implementation.
+
+key issue: is the solution correct?
+mathematics evaluated by consensus;
+software by testing.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Why?}
 \label{sec:Why?}
 
+\setlength{\epigraphwidth}{0.95\linewidth}
+
+\epigraph{Category theory provides a language to describe precisely many similar phenomena that
+occur in different mathematical fields. For example,
+\begin{enumerate}
+  \item  Each finite dimensional vector space is isomorphic to its dual and hence also to its
+second dual. The second correspondence is considered “natural”, but the first is
+not. Category theory allows one to precisely make the distinction via the notion
+of natural isomorphism.
+\item Topological spaces can be defined in many different ways, e.g., via open sets, via
+closed sets, via neighborhoods, via convergent filters, and via closure operations.
+Why do these definitions describe “essentially the same” objects? Category theory
+provides an answer via the notion of concrete isomorphism.
+\item Initial structures, final structures, and factorization structures occur in many different
+situations. Category theory allows one to formulate and investigate such
+concepts with an appropriate degree of generality.
+\end{enumerate}
+\leavevmode }
+{Ad\'{a}mek, Herrlich, Strecker, 
+\textit{Abstract and Concrete Categories:
+The Joy of Cats}~\cite{adamek-herrlich-strecker-1990}}
+
+\pagebreak
+
+\epigraph{In addition to its direct relevance to theoretical knowledge and current applications, category theory
+is often used as an (implicit) mathematical jargon rather than for its explicit notions and results.
+Indeed, category theory may prove useful in construction of a sound, unifying mathematical
+environment, one of the purposes of theoretical investigation. As we have all probably experienced, it
+is good to know in which “category” one is working, i.e., which are the acceptable morphisms and
+constructions, and the language of categories may provide a powerful standardization of methods and
+language. In other words, many different formalisms and structures may be proposed for what is
+essentially the same concept; the categorical language and approach may simplify through abstraction,
+display the generality of concepts, and help to formulate uniform definitions. This has been the case,
+for example, in the early applications of category theory to algebraic geometry.}
+{Asperi and Longo, \textit{Categories, Types, and Structures: 
+an introduction to Category Theory for the working computer scientist}~\cite{asperti-longo-1991}}
+
+%\pagebreak
+
+\epigraph{Categories originally arose in mathematics out of the need of a formalism to
+describe the passage from one type of mathematical structure to another. A
+category in this way represents a kind of mathematics, and may be described
+as category as mathematical workspace.
+A category is also a mathematical structure. As such, it is a common
+generalization of both ordered sets and monoids (the latter are a simple
+type of algebraic structure that include transition systems as examples),
+and questions motivated by those topics often have interesting answers for
+categories. This is category as mathematical structure.
+A third point of view is emphasized in this book. A category can be seen
+as a structure that formalizes a mathematician's description of a type of
+structure. This is the role of category as theory. Formal descriptions in
+mathematical logic are traditionally given as formal languages with rules for
+forming terms, axioms and equations. Algebraists long ago invented a formalism
+based on tuples, the method of signatures and equations, to describe
+algebraic structures. In this book, we advocate categories in their role as formal
+theories as being in many ways superior to the others just mentioned.
+Continuing along the same path, we advocate sketches as definite specifcations
+for the theories.}
+{Barr and Wells, \textit{Category theory for computing science}~\cite{barr-wells-2020}}
+
+\pagebreak
+
+\epigraph{Category theory is becoming a central hub for all of pure mathematics. It is unmatched
+in its ability to organize and layer abstractions, to find commonalities between structures
+of all sorts, and to facilitate communication between different mathematical
+communities.}
+{Fong and Spivak, \textit{Seven Sketches in Compositionality: 
+An Invitation to Applied Category Theory}~\cite{fong-spivakd-2018-seven-sketches}}
+
+%\pagebreak
+
+\epigraph{In each area of mathematics 
+(e.g. groups, topological spaces) 
+there are available many definitions and constructions.
+It turns out, however, that there are a number of notions
+(e.g. that of a product) that occur naturally 
+in various areas of mathematics, with only slight changes from
+one area to another.
+It is convenient to take advantage of this observation.
+Category theory can be described as that branch of mathematics
+in which one studies certain definitions in a broader context---without
+reference to the particular area 
+in which the definition might be applied.
+It is the ``mathematics of mathematics''.}
+{Geroch, \textit{Mathematical Physics}~\cite{geroch-1985}}
+
+%\pagebreak
+\epigraph{Since its first introduction over 60 years ago, the concept of category has been
+increasingly employed in all branches of mathematics, especially in studies where the
+relationship between different branches is of importance. The categorical ideas arose
+originally from the study of a relationship between geometry and algebra; the
+fundamental simplicity of these ideas soon made possible their broader application.
+\par
+The categorical concepts are latent in elementary mathematics; making them more
+explicit helps us to go beyond elementary algebra into more advanced mathematical
+sciences.}
+{Lawvere and Schanuel, 
+\textit{Conceptual Mathematics: 
+A First Introduction to Categories}~\cite{lawvere-schanuel-2009}}
+
+\pagebreak
+\epigraph{Category theory takes a bird’s eye view of mathematics. From high in the sky,
+details become invisible, but we can spot patterns that were impossible to detect
+from ground level. How is the lowest common multiple of two numbers
+like the direct sum of two vector spaces? What do discrete topological spaces,
+free groups, and fields of fractions have in common?We will discover answers
+to these and many similar questions, seeing patterns in mathematics that you
+may never have seen before.
+\par
+The most important concept in this book is that of universal property. The
+further you go in mathematics, especially pure mathematics, the more universal
+properties you will meet. We will spend most of our time studying different
+manifestations of this concept.
+\par
+Like all branches of mathematics, category theory has its own special vocabulary,
+which we will meet as we go along. But since the idea of universal
+property is so important, I will use this introduction to explain it with no jargon
+at all, by means of examples.}
+{Leinster, \textit{Basic Category Theory}~\cite{leinster-2016-basic-category-theory}}
+
+%\pagebreak
+\epigraph{\ldots One the first level, categories provide
+a convenient conceptual language, based on notions of category, 
+functor, natural transformation, contravariance, and
+functor category.
+\ldots Next comes the fundamental idea of an adjoint pair of functors.
+This appears in many equivalent forms: that of universal construction,
+that of direct and inverse limit, 
+and that of a pair of functors with a natural isomorphism between
+corresponding sets of arrows. \ldots
+The slogan is ``Adjoint functions arise everywhere.''
+\par
+Alternatively, the fundamental notion of categopry theory is that
+of a monoid---a set with a binary operation of multiplcation
+that is associative and that has a unit;
+a category itself can be regarded as a sort of generalized monoid.
+\ldots
+\par
+Since a category consists of arrows, our subject could be 
+described as learning how to live without elements, using arrows
+instead.
+}
+{MacLane, \textit{Categories for the working
+mathematician}~\cite{maclane-1998-working-mathematician}}
+
+\pagebreak
+\epigraph{Atiyah described mathematics as the
+“science of analogy.” In this vein, the purview
+of category theory is mathematical analogy. 
+Category theory provides a cross-disciplinary
+language for mathematics designed to delineate general phenomena,
+ which enables the
+transfer of ideas from one area of study to another. 
+The category-theoretic perspective can
+function as a simplifying1 abstraction, isolating propositions 
+that hold for formal reasons
+from those whose proofs require techniques particular 
+to a given mathematical discipline.}
+{Riehl, 
+\textit{Category Theory in Context, Preface
+}~\cite{riehl-2017}}
+
+\pagebreak
+\epigraph{This course is an attempt to extol the virtues of a new branch of mathematics,
+called category theory, which was invented for powerful communication of ideas between
+different fields and subfields within mathematics. By powerful communication of ideas I
+actually mean something precise. Different branches of mathematics can be formalized
+into categories. These categories can then be connected together by functors. And the
+sense in which these functors provide powerful communication of ideas is that facts and
+theorems proven in one category can be transferred through a connecting functor to
+yield proofs of analogous theorems in another category. A functor is like a conductor of
+mathematical truth.
+\par
+I believe that the language and toolset of category theory can be useful throughout
+science. We build scientific understanding by developing models, and category theory is
+the study of basic conceptual building blocks and how they cleanly fit together to make
+such models. Certain structures and conceptual frameworks show up again and again in
+our understanding of reality. No one would dispute that vector spaces are ubiquitous.
+But so are hierarchies, symmetries, actions of agents on objects, data models, global
+behavior emerging as the aggregate of local behavior, self-similarity, and the effect of
+methodological context.
+\par
+Some ideas are so common that our use of them goes virtually undetected, such as settheoretic
+intersections. For example, when we speak of a material that is both lightweight
+and ductile, we are intersecting two sets. But what is the use of even mentioning this
+set-theoretic fact? The answer is that when we formalize our ideas, our understanding
+is almost always clarified. Our ability to communicate with others is enhanced, and the
+possibility for developing new insights expands. And if we are ever to get to the point
+that we can input our ideas into computers, we will need to be able to formalize these
+ideas first.
+\par
+It is my hope that this course will offer scientists a new vocabulary in which to think
+and communicate, and a new pipeline to the vast array of theorems that exist and are
+considered immensely powerful within mathematics. These theorems have not made their
+way out into the world of science, but they are directly applicable there. Hierarchies are
+partial orders, symmetries are group elements, data models are categories, agent actions
+are monoid actions, local-to-global principles are sheaves, self-similarity is modeled by
+operads, context can be modeled by monads.}
+{D. Spivak, \textit{Category Theory for Scientists 
+(old version)}~\cite{spivakd-2013}}
 
 An alternative to first order logic, sets, 
 and functions as a foundation for all
@@ -174,7 +401,7 @@ particularly topos theory.
 \label{sec:Naming}
 
 Particularly bad in category theory, eg, 
-what's ``commuting'' is a commuting diagram.
+what's ``commuting'' in a commuting diagram.
 
 Prefer self-explanatory names, even if a bit longer:
 eg, ``left (right) cancelable'' rather than ``mono(epi)morphism'',
@@ -203,8 +430,8 @@ Categorical constructs are pretty much impossible to motivate
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Top down}
-\label{sec:Top-down}
+\levelstay{Topos down}
+\label{sec:Topos-down}
  
 Topos definition, then define what it depends on, \ldots.
  
@@ -213,7 +440,21 @@ Topos definition, then define what it depends on, \ldots.
 \levelstay{Abstraction}
 \label{sec:Abstraction}
 
-Start from all of conventional mathematics,
+\epigraph{Throughout these courses the infusion of a geometrical
+point of view is of paramount importance. A vector
+is geometrical; it is an element of a vector space, defined
+by suitable axioms—whether the scalars be real numbers or
+elements of a general field. A vector is not an n-tuple of
+numbers until a coordinate system has been chosen. Any
+teacher and any text book which starts with the idea that vectors
+are n-tuples is committing a crime for which the proper
+punishment is ridicule. The n-tuple idea is not ‘easier,’ it is
+harder; it is not clearer, it is more misleading. By the same
+token, linear transformations are basic and matrices are their
+representations\ldots}
+{MacLane, \textit{Of course and courses}~\cite{MacLane:1954}}
+
+Start from (all of) conventional mathematics,
 remove unnecessary details freom definitions, theorems, proofs.
 Express what remains in graphical category language.
 Look for ``graphs'' that match, unifying disparate parts of math.
