@@ -227,6 +227,24 @@ for example, in the early applications of category theory to algebraic geometry.
 an introduction to Category Theory for the working computer scientist}~\cite{asperti-longo-1991}}
 
 %\pagebreak
+\epigraph{Okay, you wanna know what a topos is? 
+First I'll give you a hand-wavy vague explanation, 
+then an actual definition, 
+then a few consequences of this definition, 
+and then some examples.
+\par
+I'll warn you: 
+it takes a lot of work to learn enough topos theory 
+to really use it to solve problems. 
+Thus, when you're getting started the main reason to learn 
+about it should not be to quickly solve some specific problems, 
+but to broaden your horizons and break out of the box 
+that traditional mathematics, based on set theory, 
+imposes on your thinking.}
+{Baez, \textit{Topos theory in a 
+nutshell}~\cite{baez-2017-topos-theory-nutshell}}
+
+\pagebreak
 
 \epigraph{Categories originally arose in mathematics out of the need of a formalism to
 describe the passage from one type of mathematical structure to another. A
@@ -249,8 +267,7 @@ Continuing along the same path, we advocate sketches as definite specifcations
 for the theories.}
 {Barr and Wells, \textit{Category theory for computing science}~\cite{barr-wells-2020}}
 
-\pagebreak
-
+%\pagebreak
 \epigraph{Category theory is becoming a central hub for all of pure mathematics. It is unmatched
 in its ability to organize and layer abstractions, to find commonalities between structures
 of all sorts, and to facilitate communication between different mathematical
@@ -258,8 +275,7 @@ communities.}
 {Fong and Spivak, \textit{Seven Sketches in Compositionality: 
 An Invitation to Applied Category Theory}~\cite{fong-spivakd-2018-seven-sketches}}
 
-%\pagebreak
-
+\pagebreak
 \epigraph{In each area of mathematics 
 (e.g. groups, topological spaces) 
 there are available many definitions and constructions.
@@ -390,6 +406,7 @@ operads, context can be modeled by monads.}
 {D. Spivak, \textit{Category Theory for Scientists 
 (old version)}~\cite{spivakd-2013}}
 
+\pagebreak
 An alternative to first order logic, sets, 
 and functions as a foundation for all
 mathematics~\cite{feferman-1977-FEFCFA},  
@@ -398,8 +415,59 @@ particularly topos theory.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Issues}
+\label{sec:Issues}
+
+Possible problems with category theory that should be examined.
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Complexity}
+\label{sec:Complexity}
+
+A problem for novices is depth of definition and theorem
+(and, worse, concept) dependence.
+
+The constructs do not feel natural, in themselves, 
+to the uninitiated.
+Examples: product/sum, epi/monomorphisms, ...
+
+The general feel is like a student who manages to solve a problem
+by quasi-random search over possible next steps,
+stumbling their way to the desired result,
+without any coherent overview or intuition.
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Astraction losses}
+\label{sec:Abstraction-losses}
+
+Category theory abstracts functions between sets to
+arrows (maps, morphisms) between objects,
+with the co/domain objects part of the identity of the arrow.
+However, there's a fair amount of arbitrariness 
+to the domain and codomain of a function.
+Given a (procedural) function,
+we can choose any superset of the range as the codomain.
+We can also restrict a function to any subset of the domain,
+and it may be important to know that one function is a simple 
+restriction another --- is there a reasonable way to do this
+for arrows?
+In addition, we can expand the domain, by considering partial
+functions. 
+Partial functions may be necessary in a computable context,
+since we don't in general know if a given function will
+halt for all elements of the domain.
+The closer we get to real computation, the more we may need to
+handle exceptional return values, ie, replace the natural
+codomain by its union with a set of error/exception objects.
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Naming}
 \label{sec:Naming}
+
+Is category theory a good language?
+
+Generally, mathematicians aren't good at naming:
+eg, what's round about a ring?
 
 Particularly bad in category theory, eg, 
 what's ``commuting'' in a commuting diagram.
