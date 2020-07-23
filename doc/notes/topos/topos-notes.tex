@@ -34,6 +34,7 @@
 \addbibresource{{\bibFolder}halmos.bib}
 \addbibresource{{\bibFolder}interpolation.bib}
 \addbibresource{{\bibFolder}logic.bib}
+\addbibresource{{\bibFolder}math.bib}
 \addbibresource{{\bibFolder}mcdonald.bib}
 \addbibresource{{\bibFolder}mop.bib}
 \addbibresource{{\bibFolder}numbers.bib}
@@ -75,54 +76,28 @@
 % 
 %-----------------------------------------------------------------
 \epigraph{
-\textsl{das Wesen der Mathematik liegt gerade in ihrer Freiheit.}
+das Wesen der Mathematik liegt gerade in ihrer Freiheit.
 \par
 (The essence of mathematics lies precisely in its freedom.)}%
 {Cantor~\cite{Cantor1883},
 as quoted in~\cite{ferreiros2007labyrinth}.}
 
 \epigraph{
-Mathematics is not the rigid and rigidity-producing schema 
-that the layman thinks it is; 
-rather, in it we find ourselves at that meeting point 
-of constraint and freedom 
-that is the very essence of human nature.}%
-{Hermann Weyl ?}
+Mathematics is not the rigid and petrifying schema, 
+as the layman so much likes to view it; with it,
+ we rather stand precisely at the point of intersection 
+ of restraint and freedom that makes up the essence of man itself.}
+{Hermann Weyl, 
+\textit{Die heutige Erkenntnislage in der Mathematik}~\cite{weyl1926heutige};
+translation from Mancosu~\cite{mancosu1998brouwer}.}
 
 \epigraph{Mathematics as we practice it is much more formally 
 complete and precise than
 other sciences, but it is much less formally complete and precise 
-for its content
-than computer programs.}%
+for its content than computer programs.}%
 {Thurston, 
 \textit{On proof and progress in mathematics
 }~\cite{thurston1994proof}}
-
-\epigraph{On the most fundamental level, the foundations of mathematics are much shakier
-than the mathematics that we do. Most mathematicians adhere to foundational
-principles that are known to be polite fictions. For example, it is a theorem that
-there does not exist any way to ever actually construct or even define a well-ordering
-of the real numbers. There is considerable evidence (but no proof) that we can get
-away with these polite fictions without being caught out, but that doesn’t make
-them right. Set theorists construct many alternate and mutually contradictory
-“mathematical universes” such that if one is consistent, the others are too. This
-leaves very little confidence that one or the other is the right choice or the natural
-choice. G¨odel’s incompleteness theorem implies that there can be no formal system
-that is consistent, yet powerful enough to serve as a basis for all of the mathematics
-that we do.}%
-{Thurston, \textit{On proof and progress in mathematics}~\cite{thurston1994proof}}
-
-\epigraph{
-\textsl{Und was wird der geduldige Leser am
-Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
-erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
-\par
-(What will the forbearing reader say at the end? That the author, in a squandering of indescribable
-work, has happily managed to surround the clearest ideas in a disturbing obscurity!
-)}%
-{Dedekind to Klein, April 1888, 
-from~\cite{dugac1976DedekindFondements},
-as quoted in~\cite{ferreiros2007labyrinth}.}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
@@ -421,8 +396,66 @@ particularly topos theory.
 Possible problems with category theory that should be examined.
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Hype}
+\label{sec:Hype}
+
+Much of what's written about category theory feels like marketing.
+I read many pretty vague claims about its value
+(or perhaps I just don't understand the more specific claims).
+Then I pick up some introductory text,
+and after $\sim 500$ pages of progressively less and less 
+intuitive definitions, and unconvincing examples in category Sets,
+or maybe category Monoids,
+but still no actual evidence of anything that wouldn't have been
+easier and simpler in the original context.
+
+It feels similar to introductions to the related subject of
+'functional' programming languages,
+where the rightness of (statically typed) functional programming 
+is taken as
+an article of religous faith that doesn't need to be justified
+(for an exception, see SICP \cite{Abelson1996}).
+Many introductions to functional programming spend their
+effort demonstrating how, with a lot of effort, you can do
+something trivial is most other languages
+via a contorted jesuitical lip service to the religious tenets.
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Shaky foundations}
+\label{sec:Shaky-foundations}
+
+\epigraph{On the most fundamental level, the foundations of mathematics are much shakier
+than the mathematics that we do. Most mathematicians adhere to foundational
+principles that are known to be polite fictions. For example, it is a theorem that
+there does not exist any way to ever actually construct or even define a well-ordering
+of the real numbers. There is considerable evidence (but no proof) that we can get
+away with these polite fictions without being caught out, but that doesn’t make
+them right. Set theorists construct many alternate and mutually contradictory
+“mathematical universes” such that if one is consistent, the others are too. This
+leaves very little confidence that one or the other is the right choice or the natural
+choice. G\"{o}del’s incompleteness theorem implies that there can be no formal system
+that is consistent, yet powerful enough to serve as a basis for all of the mathematics
+that we do.}%
+{Thurston, \textit{On proof and progress in mathematics}~\cite{thurston1994proof}}
+
+
+
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Complexity}
 \label{sec:Complexity}
+
+\epigraph{
+\textsl{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
+\par
+(What will the forbearing reader say at the end? That the author, in a squandering of indescribable
+work, has happily managed to surround the clearest ideas in a disturbing obscurity!
+)}%
+{Dedekind to Klein, April 1888, 
+from~\cite{dugac1976DedekindFondements},
+as quoted in~\cite{ferreiros2007labyrinth}.}
 
 A problem for novices is depth of definition and theorem
 (and, worse, concept) dependence.
@@ -436,6 +469,10 @@ by quasi-random search over possible next steps,
 stumbling their way to the desired result,
 without any coherent overview or intuition.
 
+Is part of the attraction due to the (unnecessary?)
+complexity providing opportunities for lots of
+least-publishable-unit theorem-credits?
+
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Astraction losses}
 \label{sec:Abstraction-losses}
@@ -443,7 +480,8 @@ without any coherent overview or intuition.
 Category theory abstracts functions between sets to
 arrows (maps, morphisms) between objects,
 with the co/domain objects part of the identity of the arrow.
-However, there's a fair amount of arbitrariness 
+
+There's a fair amount of arbitrariness 
 to the domain and codomain of a function.
 Given a (procedural) function,
 we can choose any superset of the range as the codomain.
@@ -451,7 +489,15 @@ We can also restrict a function to any subset of the domain,
 and it may be important to know that one function is a simple 
 restriction another --- is there a reasonable way to do this
 for arrows?
-In addition, we can expand the domain, by considering partial
+
+Any function that takes elements of a set $\Set{X}$
+and returns elements of a set $\Set{Y}$
+is, or is intimately connected to, 
+a function that takes subsets of $\Set{X}$ and returns
+subsets of $\Set{Y}$.
+
+
+For any function, we can expand the domain, by considering partial
 functions. 
 Partial functions may be necessary in a computable context,
 since we don't in general know if a given function will
@@ -459,6 +505,10 @@ halt for all elements of the domain.
 The closer we get to real computation, the more we may need to
 handle exceptional return values, ie, replace the natural
 codomain by its union with a set of error/exception objects.
+
+Is part of the attraction due to being able to publish
+new proofs of old results?
+Are claims of additional insight justified?
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Naming}
@@ -477,12 +527,20 @@ eg, ``left (right) cancelable'' rather than ``mono(epi)morphism'',
 ``structure-preserving function'' over ``homomorphism''.
 
 ``Morphism'' etymology.
+
+Is part of the attraction the sense of being to utter magic 
+incantations only understood by the initated?
+
  
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Graphical language}
 \label{sec:Graphical-language}
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Key ideas}
+\label{sec:Key-ideas}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Bottom up}
