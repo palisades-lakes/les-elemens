@@ -45,7 +45,7 @@
 %\addbibresource{{\bibFolder}ieeestd.bib}
 \addbibresource{{\bibFolder}fparith.bib}
 %-----------------------------------------------------------------
-\title{Notes on category and topos theory}
+\title{Notes on category \\ and topos theory}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
 \date{draft of \today}
@@ -197,6 +197,85 @@ concrete details of model/representation/implementation.
 key issue: is the solution correct?
 mathematics evaluated by consensus;
 software by testing.
+
+My background: physics undergraduate, statistics PhD.
+A moderate amount of analysis; 
+a bit of geometry, both
+differential in the context of gravitation, and
+discrete/computational in the context of fitting surfaces to
+$3+$ data, and geospatial data analysis;
+and a tiny amount of algebra, mostly group representations
+for physics.
+
+Three formative experiences:
+\begin{enumerate}
+  \item First day of my $4$-year high school (September $1967$):
+  \par
+  Our pre-calculus (?) math teacher, who was working on Math PhD,
+  spent the first hour on a (probably Boubakian inspired) tour 
+  of algebraic structures, groups, rings, fields, \ldots
+  I remember being fascinated, but distracted for much of the hour, 
+  trying to figure out what was 'round' about rings.
+  Despite my distraction, and almost total ignorance, 
+  I remember it seeming like a natural exploration of the obvious
+  possibilities from a simple starting point: a set of something,
+  one or two binary operations, and likely properties those
+  operations might have.
+ 
+  \item First semester freshman ($1$st) year of college,
+  (fall $1971$):
+  \par
+  Freshman math classes came in two versions: general audience
+  vs intended math and physics majors. Fall semester was linear 
+  algebra. Despite being in the math/physics version of the course,
+  our text book was an introduction to matric algebra of the type
+  normally given to engineers, ie, unmotivated, complicated,
+  arbitrary-seeming operations on rectangular arrays of numbers.
+  I was lost. I remeber being particulary put off by the 
+  discussion of minors and determinants, a mysterious, 
+  out-of-the-blue calculation used to solving systems in linear
+  equations.
+  \par
+  Fortunately, our instructor recommended Halmos,
+  \textsf{Finite dimensional vector spaces}~\cite{Halmos1958Finite}. 
+  
+  \item Junior ($3$rd) year of college 
+  (fall $1973$ -- spring $1974$):
+  \par
+  As physics majors, we took year-long courses in 
+  electricity and magnitism, and quantum mechanics.
+  Physics majors would also typically take math classes in
+  ordinary differential equations, partial differential equations,
+  real analyisis, etc. We also mostly took a joint math/physics
+  class called something like ``methods of modern mathematical 
+  physics''~\cite{ReedSimon1972Functional}, 
+  which, as taught, was essentially a high-speed,
+  more-or-less from scratch functional analysis course.
+  Within the first month or so, we basically dispensed with all
+  all the other courses we were taking a special cases of 
+  eigenanalysis of differential operators on function spaces.
+  (E+M maxwell equations special case of Stoke's thm 
+  from freshman Spivak Calculus on Manifolds.).
+  
+\end{enumerate}
+The common theme: the right abstraction reduces 
+the amount of stuff you need to remember by orders of magnitude,
+organizes that stuff to make it easier to remember,
+easier to see what you can do with it,
+and where to go next.
+
+Not clear to me (yet) whether category theory is this kind of
+``right abstraction''. 
+
+Certainly, all the introductions I've seen so far have much more
+the feel of explaining determinants a a mysterious,
+out-of-the-blue (and numerically unstable) algorithm,
+that just happens to play a part in ``inverting'' a matrix,
+where the concept of ``inversion'' itself is not 
+function inverse, or group element inverse,
+but rather a csomplicated construction of a matrix that
+just happens to give diagonal ones when multiplied with 
+the original.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
@@ -622,8 +701,18 @@ dependence on \textit{collections} of objects and arrows
 and \textit{functions} between these collection. 
 
 Categorical constructs are pretty much impossible to motivate
- in this context.
+in this context.
 
+\begin{tikzcd}
+T
+\arrow[drr, bend left, "x"]
+\arrow[ddr, bend right, "y"]
+\arrow[dr, dotted, "{(x,y)}" description] & & \\
+& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
+& X \arrow[d, "f"] \\
+& Y \arrow[r, "g"]
+& Z
+\end{tikzcd}
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Topos down}
