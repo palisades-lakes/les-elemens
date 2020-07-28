@@ -268,7 +268,7 @@ Not clear to me (yet) whether category theory is this kind of
 ``right abstraction''. 
 
 Certainly, all the introductions I've seen so far have much more
-the feel of explaining determinants a a mysterious,
+the feel of explaining determinants as a mysterious,
 out-of-the-blue (and numerically unstable) algorithm,
 that just happens to play a part in ``inverting'' a matrix,
 where the concept of ``inversion'' itself is not 
@@ -595,6 +595,13 @@ by quasi-random search over possible next steps,
 stumbling their way to the desired result,
 without any coherent overview or intuition.
 
+A telltale symptom of bad math is when the premise of a theorem
+(or the necessary definition) is so complicated and arbitrary,
+and difficult to verify in any practical setting,
+that it seems more reasonable to just assume the conclusion,
+and skip the intervening nonsense.
+(eg many central limit theorems are like this).
+
 Is part of the attraction due to the (unnecessary?)
 complexity providing opportunities for lots of
 least-publishable-unit theorem-credits?
@@ -622,7 +629,6 @@ is, or is intimately connected to,
 a function that takes subsets of $\Set{X}$ and returns
 subsets of $\Set{Y}$.
 
-
 For any function, we can expand the domain, by considering partial
 functions. 
 Partial functions may be necessary in a computable context,
@@ -635,6 +641,22 @@ codomain by its union with a set of error/exception objects.
 Is part of the attraction due to being able to publish
 new proofs of old results?
 Are claims of additional insight justified?
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Right abstraction?}
+\label{sec:Right-abstraction}
+
+Is category theory a good language?
+
+Are there any significant categories 
+that don't reduce to something like sets and functions?
+``Significant'' meaning not just the completion of an arbitrary
+directed multigraph.
+
+Is there something more limke ``sets and functions'' where
+the standard constructs make sense?
+
+Is this questionn related to concrete categories?~\cite{wiki:concrete-categroy-2020}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Naming}
