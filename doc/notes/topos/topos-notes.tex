@@ -607,12 +607,31 @@ complexity providing opportunities for lots of
 least-publishable-unit theorem-credits?
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Astraction losses}
-\label{sec:Abstraction-losses}
+\levelstay{Is an arrow more general than a function?}
+\label{sec:arrow-more-general}
 
-Category theory abstracts functions between sets to
-arrows (maps, morphisms) between objects,
-with the co/domain objects part of the identity of the arrow.
+\epigraph{\ldots the whole concept of a category is essentially 
+an auxiliary
+one; our basic concepts are essentially those of a functor and of
+a natural transformation {\ldots}. 
+The idea of a category is required
+only by the precept that every function should have a definite
+class as domain and a definite class as range, for the categories
+are provided as the domains and ranges of functors. Thus one
+could drop the category concept altogether and adopt an even
+more intuitive standpoint, in which a functor such as ‘Hom’ is
+not defined over the category of ‘all’ groups, 
+but for each particular
+pair of groups which may be given. The standpoint would
+suffice for the applications, inasmuch as none of our developments
+will involve elaborate constructions on the categories
+themselves.}
+{Eilenberg and 
+MacLane~\cite[p~247]{eilenberg-maclane-1945-general},
+quoted in Landry and 
+Marquis~\cite[p~3]{landry-marquis-2005-cat-theory-context)}}
+
+Do functors really need definite (co)domains?
 
 There's a fair amount of arbitrariness 
 to the domain and codomain of a function.
@@ -638,15 +657,19 @@ The closer we get to real computation, the more we may need to
 handle exceptional return values, ie, replace the natural
 codomain by its union with a set of error/exception objects.
 
-Is part of the attraction due to being able to publish
-new proofs of old results?
-Are claims of additional insight justified?
+Category theory abstracts functions between sets to
+arrows (maps, morphisms) between objects,
+with the co/domain objects part of the identity of the arrow.
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Right abstraction?}
 \label{sec:Right-abstraction}
 
 Is category theory a good language?
+
+Is part of the attraction due to being able to publish
+new proofs of old results?
+Are claims of additional insight justified?
 
 Are there any significant categories 
 that don't reduce to something like sets and functions?
@@ -656,7 +679,7 @@ directed multigraph.
 Is there something more limke ``sets and functions'' where
 the standard constructs make sense?
 
-Is this questionn related to concrete categories?~\cite{wiki:concrete-categroy-2020}
+Is this question related to concrete categories?~\cite{wiki:concrete-categroy-2020}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Naming}
