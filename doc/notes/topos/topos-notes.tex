@@ -502,7 +502,7 @@ operads, context can be modeled by monads.}
 \pagebreak
 An alternative to first order logic, sets, 
 and functions as a foundation for all
-mathematics~\cite{feferman-1977-FEFCFA},  
+mathematics~\cite{feferman1977Categorical},  
 particularly topos theory.
 
 
@@ -608,6 +608,8 @@ are identified with their graphs.}
 {Feferman,
 \textit{Categorical Foundations and Foundations of Category 
 Theory}~\cite{feferman1977Categorical}}
+
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Complexity}
 \label{sec:Complexity}
@@ -646,6 +648,12 @@ and skip the intervening nonsense.
 Is part of the attraction due to the (unnecessary?)
 complexity providing opportunities for lots of
 least-publishable-unit theorem-credits?
+
+\textbf{Question:} Are there reasonable quantitative measures
+of the complexity of a theory/subject/textbook?
+For example, something computed from the DAG of
+definition/theorem dependencies?
+Anything in software complextity measures that would apply?
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Is an arrow more general than a function?}
@@ -706,7 +714,6 @@ with the co/domain objects part of the identity of the arrow.
 \levelstay{Right abstraction?}
 \label{sec:Right-abstraction}
 
-
 Is category theory a good language?
 
 Is part of the attraction due to being able to publish
@@ -747,10 +754,126 @@ incantations only understood by the initated?
 
  
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Graphical language}
-\label{sec:Graphical-language}
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Graphical languages}
+\label{sec:Graphical-languages}
 
+Idea that won't die. 
+Not completely without value, 
+but very limited in terms of the complexity of ideas that can be
+expressed.
+
+Another problem is that graphical languages don't lend themselves
+to ``computation''
+in the same way that text-based languages do,
+particularly math notation .~\cite{dutilh_novaes_2012}.
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Foundation Sketch}
+\label{sec:Foundation-Sketch}
+
+In this section, I am going to lay out a basis for
+the discussions of category and topos theory to follow. 
+I will be intentionally vague, at least in parts;
+I have ideas about what I want in a foundation 
+for math and computing, but they are incomplete, at best,
+if not actually contradictory.
+
+In my training, to the extent that anything 
+foundational was encountered,
+it was what I believe people refer to as ``standard'' or
+``classical'' foundations,
+in more-or-less the tradition of Cantor, Russell, Hilbert, etc.
+Probably more naive set theory~\cite{Halmos1960Naive} 
+than any formal axiomatic approach.
+
+More recently, I've done enough reading in 
+computable reals and constructive 
+analysis~\cite{henle:2012:numbers,Bridger:2019}
+to doubt the necessity of more-than-countable infinity,
+axiom of choice, non-measureable sets, {\ldots},
+at least for ``scientifically applicable'' 
+mathematics.~\cite{feferman1989CantorNecessary,
+feferman1992LongWay}
+
+At this point, I recognize terms like
+``constructivist'', ``intuitionistic'', ``predicative'', 
+``finitary'', ``formalist'', ``platonist'', ``realist'', {\ldots},
+though I couldn't say with confidence exactly what any of them
+mean. 
+I suspect no $2$ people working in these areas would define these
+terms in exactly the same way.
+My exploration of computable reals left me very confused,
+which was only partially relieved when I realized there are 
+something like a dozen schools of intuitionist/constructive
+mathematics, sometimes using different words to mean the
+same thing, sometimes the same words to mean different things.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{What would a good foundatimon look like?}
+\label{sec:good-foundation}
+
+\begin{enumerate}
+  \item Support all ``scientifically applicable mathematics''.
+  (Really, support the mathemamtics I want to use.)
+  \textbf{TODO:} starrt listing problems of interest,
+  and what kinds of math are needed to pose and solve them.
+  \item Self-defining: expressed in a formal language
+  without meta-language. Any decent programming language
+  is/can be implemented in itself and allows you to define 
+  procedures that call themselves. I know that this
+  contradicts (what I believe to be) the Tarskian consensus about
+  the impossibility of defining ``truth'' without a metalanguage
+  in which to define it. It also contradicts the various 
+  mechanisms introduced into variations of set theory intended to
+  prevent the self-referential and counting (too large sets) 
+  paradoxes that caused the 
+  ``crisis in the foundation of mathematics'' of the first few
+  decades of the $1900$s.
+  I speculate that an alternative approach is to view these
+  ``antinomies'' as corresponding to procedures that never halt,
+  an unavoidable reality.
+  \item Start from a model for computation/procedures, ie, something 
+  equivalent to
+  Turing machines or lambda calculus, but probably more convenient,
+  closer to actual programming languages.
+  \item Nothing more than countable infinity, or finite but unbounded,
+  if possible.
+  I think this may be implied any computation model where
+  procedures are executed in discrete steps, unless you allow
+  the datga to includes completed infinities.
+\end{enumerate}
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Sets}
+\label{sec:Sets}
+
+\epigraph{A pack of wolves, a bunch of grapes, or a flock of
+pigeons are all examples of sets of things.
+The mathematical concept of a set can be used as the foundation
+for all known mathematics.
+The purpose of this little book is to develop the basic properties
+of sets.\\
+\ldots \\
+One thing that this development will not include is a definition
+of sets.
+The situation is analogous to the familiar axiomatic approach to
+elementary geometry.
+That approach does not offer a definition of points and lines;
+instead it describes what it is that one can do with those
+objects.
+The semi-axiomatic point of view adopted here assumes that the
+reader has the ordinary, human, intuitive (and frequently
+erroneous) understanding of what sets are; the purpose of the
+exposition is to delineate some of the things one can correctly do
+with them.}%
+{Halmos, \textit{Naive Set Theory}\cite{Halmos1960Naive}}
+
+
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Key ideas}
