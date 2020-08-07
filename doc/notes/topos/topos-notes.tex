@@ -814,45 +814,6 @@ something like a dozen schools of intuitionistic/constructive
 mathematics, sometimes using different words to mean the
 same thing, sometimes the same words to mean different things.
 
-An incomplete try at a foundation:
-\begin{description}
-\item[Universe] A ``set'' of identifiable, distinguishable
-things,
-and some notion of a reference to a thing, distinct from the thing
-itself.
-A primitive of this approach is the ability, given $2$ references,
-to determine if they refer to the same thing.
-(Is this right? What do I mean when I write $x=y$?
-Seems like usual case is we know something about what $x$ and $y$
-refer to, but not the specific things.)
-\textsf{true} and \textsf{false} as things?
-% Many of these things contain references to other things.
-% Some of these things are sets,
-% some are atoms (aka ``ur-elements''~\cite{wiki:Urelement}). \\
-% Many versions of set theory do without 
-% atoms~\cite{wiki:Constructible_universe,wiki:Von_Neumann_universe},
-% starting from the empty set, implementing $\mathcal{N}$
-% (and everything else of interest) via various sets of sets that
-% bottom out with $\emptyset$.
-\item[Language] Some formal language that allows us 
-to construct references to things in the universe, 
-follow chains of references, and compute and infer facts 
-about things and their references. 
-For me, a good language should self-describing, without the
-language, metalanguage, first order, second order, higher order 
-distinctions in standard formal logic.
-\item[Structure] A structure is collection of references with
-some mechanism for getting at the (eg a path language).
-\item[Set] Direct sets or indirect via references?
-Set identity via elements?
-Bounded finite, unbounded finite, countable, \ldots ?
-\item[Tuple, cartesian products]
-\item[Functions as procedures]
-In contrast to function as graph relation.
-Arbitrariness of (co)domains. Partial functions. Failure to halt.
-error return independent of (co)domains)?.
-\end{description}
-
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{What would a good foundation look like?}
@@ -888,6 +849,51 @@ error return independent of (co)domains)?.
   procedures are executed in discrete steps, unless you allow
   the data to include completed infinities.
 \end{enumerate}
+
+An incomplete try at a foundation:
+\begin{description}
+\item[Universe] A ``set'' of identifiable, distinguishable
+things,
+and some notion of a reference to a thing, distinct from the thing
+itself.
+A primitive of this approach is the ability, given $2$ references,
+to determine if they refer to the same thing.
+(Is this right? What do I mean when I write $x=y$?
+Seems like usual case is we know something about what $x$ and $y$
+refer to, but not the specific things.)
+\par
+API. 
+\par
+\textsf{true} and \textsf{false} as things?
+% Many of these things contain references to other things.
+% Some of these things are sets,
+% some are atoms (aka ``ur-elements''~\cite{wiki:Urelement}). \\
+% Many versions of set theory do without 
+% atoms~\cite{wiki:Constructible_universe,wiki:Von_Neumann_universe},
+% starting from the empty set, implementing $\mathcal{N}$
+% (and everything else of interest) via various sets of sets that
+% bottom out with $\emptyset$.
+\item[Language] Some formal language that allows us 
+to construct references to things in the universe, 
+follow chains of references, and compute and infer facts 
+about things and their references. 
+For me, a good language should self-describing, without the
+language, metalanguage, first order, second order, higher order 
+distinctions in standard formal logic.
+\par
+Every thing in the language an element of the universe.
+\item[Structure] A structure is collection of references with
+some mechanism for getting at the (eg a path language).
+\item[Set] Direct sets or indirect via references?
+Set identity via elements?
+Bounded finite, unbounded finite, countable, \ldots ?
+\item[Tuple, cartesian products]
+\item[Functions as procedures]
+In contrast to function as graph relation.
+Arbitrariness of (co)domains. Partial functions. Failure to halt.
+error return independent of (co)domains)?.
+\item[Functions as relations]
+\end{description}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Sets}
