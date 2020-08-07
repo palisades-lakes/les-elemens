@@ -5,7 +5,7 @@
 % arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
+%%       arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
 % arara: clean: { files: [topos-notes.bcf,topos-notes.blg] }
 % arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
 % arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
@@ -261,6 +261,21 @@ Three formative experiences:
   from freshman Spivak Calculus on Manifolds.).
   
 \end{enumerate}
+
+\epigraph{Throughout these courses the infusion of a geometrical
+point of view is of paramount importance. A vector
+is geometrical; it is an element of a vector space, defined
+by suitable axioms—whether the scalars be real numbers or
+elements of a general field. A vector is not an n-tuple of
+numbers until a coordinate system has been chosen. Any
+teacher and any text book which starts with the idea that vectors
+are n-tuples is committing a crime for which the proper
+punishment is ridicule. The n-tuple idea is not ‘easier,’ it is
+harder; it is not clearer, it is more misleading. By the same
+token, linear transformations are basic and matrices are their
+representations\ldots}
+{MacLane, \textit{Of course and courses}~\cite{MacLane:1954}}
+
 The common theme: the right abstraction reduces 
 the amount of stuff you need to remember by orders of magnitude,
 organizes that stuff to make it easier to remember,
@@ -516,7 +531,6 @@ particularly topos theory.
 
 Possible problems with category theory that should be examined.
 
-\cite{wiki:Abstract-nonsense-2020}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Hype}
@@ -717,10 +731,12 @@ with the co/domain objects part of the identity of the arrow.
 \levelstay{Right abstraction?}
 \label{sec:Right-abstraction}
 
-Is category theory a good language?
+Is category theory a good language?~\cite{wiki:Abstract-nonsense-2020}
+
 
 Is part of the attraction due to being able to publish
 new proofs of old results?
+
 Are claims of additional insight justified?
 
 Are there any significant categories 
@@ -738,7 +754,7 @@ categories?~\cite{wiki:concrete-category-2020}
 \levelstay{Naming}
 \label{sec:Naming}
 
-Is category theory a good language?
+Is category theory a good language?~\cite{wiki:Abstract-nonsense-2020}
 
 Generally, mathematicians aren't good at naming:
 eg, what's round about a ring?
@@ -850,6 +866,11 @@ same thing, sometimes the same words to mean different things.
   the data to include completed infinities.
 \end{enumerate}
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{A sketch}
+\label{sec:sketch}
+
 An incomplete try at a foundation:
 \begin{description}
 \item[Universe] A ``set'' of identifiable, distinguishable
@@ -895,36 +916,11 @@ error return independent of (co)domains)?.
 \item[Functions as relations]
 \end{description}
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Sets}
-\label{sec:Sets}
-
-\epigraph{A pack of wolves, a bunch of grapes, or a flock of
-pigeons are all examples of sets of things.
-The mathematical concept of a set can be used as the foundation
-for all known mathematics.
-The purpose of this little book is to develop the basic properties
-of sets.\\
-\ldots \\
-One thing that this development will not include is a definition
-of sets.
-The situation is analogous to the familiar axiomatic approach to
-elementary geometry.
-That approach does not offer a definition of points and lines;
-instead it describes what it is that one can do with those
-objects.
-The semi-axiomatic point of view adopted here assumes that the
-reader has the ordinary, human, intuitive (and frequently
-erroneous) understanding of what sets are; the purpose of the
-exposition is to delineate some of the things one can correctly do
-with them.}%
-{Halmos, \textit{Naive Set Theory}\cite{Halmos1960Naive}}
-
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Key ideas}
+\levelstay{Key ideas in category/topos theory}
 \label{sec:Key-ideas}
 
 Things various authors claim are important or valuable;
@@ -984,20 +980,6 @@ Topos definition, then define what it depends on, \ldots.
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Fusion}
 \label{sec:Fusion}
-
-\epigraph{Throughout these courses the infusion of a geometrical
-point of view is of paramount importance. A vector
-is geometrical; it is an element of a vector space, defined
-by suitable axioms—whether the scalars be real numbers or
-elements of a general field. A vector is not an n-tuple of
-numbers until a coordinate system has been chosen. Any
-teacher and any text book which starts with the idea that vectors
-are n-tuples is committing a crime for which the proper
-punishment is ridicule. The n-tuple idea is not ‘easier,’ it is
-harder; it is not clearer, it is more misleading. By the same
-token, linear transformations are basic and matrices are their
-representations\ldots}
-{MacLane, \textit{Of course and courses}~\cite{MacLane:1954}}
 
 Start from (all of) conventional mathematics,
 remove unnecessary details from definitions, theorems, proofs.
