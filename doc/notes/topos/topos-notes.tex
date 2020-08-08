@@ -835,11 +835,38 @@ same thing, sometimes the same words to mean different things.
 \levelstay{What would a good foundation look like?}
 \label{sec:good-foundation}
 
+My goals in (attempting) to define a foundation are fundamentally
+different from 
+
+Goals:
 \begin{enumerate}
   \item Support all ``scientifically applicable mathematics''.
   (Really, support the mathematics I want to use.)
   \textbf{TODO:} start listing problems of interest,
   and what kinds of math are needed to pose and solve them.
+  
+  \item No dangling definitions, no dependence on informal metalanguage.
+   \par
+  Category theory starts with sets of objects and arrows, 
+  and functions on them. Almost all the introductions I've seen 
+  take these notions for granted, hand waving over issues arising
+  from sets that are ``too big'', eg, the set of all sets needed
+  for the objects in category Sets.
+  \par
+  Conventional set theory is defined using first order logic,
+  which depends on a formal language, which is defined with
+  reference to an ``alphabet'' (or ``vocabulary''), 
+  a set of symbols, and and a set of
+  operations (functions) used to combine symbols into legal 
+  expressions, and a set of inference rules (functions) that map
+  expressions to expressions. I haven't found anywhere that
+  addresses this circularity in the foundation of set theory,
+  except for occasional hand-waving about first order logic
+  being a formal language whose metalanguage is informal.
+  \par
+  Likely result is circular (non-predicative) definitions:
+  eg, sets defined using sets.
+  
   \item Self-defining: expressed in a formal language
   without meta-language. Any decent programming language
   is/can be implemented in itself and allows you to define 
@@ -855,10 +882,12 @@ same thing, sometimes the same words to mean different things.
   I speculate that an alternative approach is to view these
   ``antinomies'' as corresponding to procedures that never halt,
   an unavoidable reality.
+  
   \item Start from a model for computation/procedures, ie, something 
   equivalent to
   Turing machines or lambda calculus, but probably more convenient,
   closer to actual programming languages.
+  
   \item Nothing more than countable infinity, or finite but unbounded,
   if possible.
   I think this may be implied any computation model where

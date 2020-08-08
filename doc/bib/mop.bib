@@ -1,16 +1,3 @@
-@string{a="jam 2004-08-31"}
-
-@string{a="
-Ben-Israel, A. and Greville, T. N. E. Generalized Inverses: Theory and Applications. New York: Wiley, 1977.
-
-Campbell, S. L. and Meyer, C. D. Jr. Generalized Inverses of Linear Transformations. New York: Dover, 1991.
-
-Lawson, C. and Hanson, R. Solving Least Squares Problems. Englewood Cliffs, NJ: Prentice-Hall, 1974.
-
-Penrose, R. A Generalized Inverse for Matrices. Proc. Cambridge Phil. Soc. 51, 406-413, 1955.
-
-Rao, C. R. and Mitra, S. K. Generalized Inverse of Matrices and Its Applications. New York: Wiley, 1971.
-"}
 
 @book{golub-vanloan-2012,
  author = {Gene H. Golub and Charles F. {Van Loan}},
@@ -28,19 +15,25 @@ Rao, C. R. and Mitra, S. K. Generalized Inverse of Matrices and Its Applications
  
  
 @inbook{henk-richter-gebet-ziegler-hdcg-16-2004,
-  author =      "Martin Henk and {J\"urgen} {Richter-Gebert} and {G\"unter} M. Ziegler",
-  title =       "Basic properties of convex polytopes",
-  year =        "2004",
-  chapter = "16",
-  pages = "355--382",
+author = {Henk, Martin and Richter-Gebert, J\"{u}rgen and Ziegler, G\"{u}nter M.},
+title = {Basic Properties of Convex Polytopes},
+year = {1997},
+publisher = {CRC Press},
+booktitle = {Handbook of Discrete and Computational Geometry},
+pages = {243–270},
+numpages = {28}
 }
 
+
+
 @inbook{lee-hdcg-17-2004,
-  author =      "Carl W. Lee",
-  title =       "Subdivisions and triangulations of polytopes",
-  year =        "2004",
-  chapter = "17",
-  pages = "383--406",
+author = {Lee, Carl W.},
+title = {Subdivisions and Triangulations of Polytopes},
+year = {1997},
+publisher = {CRC Press},
+booktitle = {Handbook of Discrete and Computational Geometry},
+pages = {271–290},
+numpages = {20}
 }
 
 @book{goodman-orourke-hdcg-2004,
@@ -81,7 +74,29 @@ Rao, C. R. and Mitra, S. K. Generalized Inverse of Matrices and Its Applications
   publisher =   "Addison-Wesley"
 }
 
-@article{warren-schaefer-hirani-desbrun-2003,
+@techreport{warren-schaefer-hirani-desbrun-2003,
+  author =      "Joe Warren and Scott Schaeffer and Anil N. Hirani and Mathieu Desbrun",
+  title =       "Barycentric coordinates for convex sets",
+  year =        "2003",
+  institution = "Rice University",
+  annote =
+"An extension of barycentric coordinates first to convex polytopes
+and then to general convex sets. In the general, convex set, version
+the barycentric coordinates of a point is a measure over the boundary
+of the convex set. The measure is a density over smooth parts of the
+boundary, with density increasing with increasing Gaussian curvature,
+resulting in point masses (dirac delta functions) at isolated extrema.
+The boundary of a convex polytope has zero Gaussian curvature except
+at the extrema, so it's barycentric coordinates reduce to a finite sum.
+Very neat.
+\par
+However, this requires the polytope to be strictly convex --
+it won't work as a way to interpolate over degenerate polytopes,
+for example, the terminal bins of a decision tree.
+"
+}
+
+@article{warren-schaefer-hirani-desbrun-2002,
   author =      "Joe Warren and Scott Schaeffer and Anil N. Hirani and Mathieu Desbrun",
   title =       "A smooth subdivision scheme for hexahedral meshes",
   year =        "2002",
@@ -122,28 +137,6 @@ Doesn't solve problem in n-d."
                  University of California, Davis",
   annote =
 "An extension of Catmull-Clark surfaces to 3d solid hexahedral meshes."
-}
-
-@techreport{warren-schaefer-hirani-desbrun-2003,
-  author =      "Joe Warren and Scott Schaeffer and Anil N. Hirani and Mathieu Desbrun",
-  title =       "Barycentric coordinates for convex sets",
-  year =        "2003",
-  institution = "Rice University",
-  annote =
-"An extension of barycentric coordinates first to convex polytopes
-and then to general convex sets. In the general, convex set, version
-the barycentric coordinates of a point is a measure over the boundary
-of the convex set. The measure is a density over smooth parts of the
-boundary, with density increasing with increasing Gaussian curvature,
-resulting in point masses (dirac delta functions) at isolated extrema.
-The boundary of a convex polytope has zero Gaussian curvature except
-at the extrema, so it's barycentric coordinates reduce to a finite sum.
-Very neat.
-\par
-However, this requires the polytope to be strictly convex --
-it won't work as a way to interpolate over degenerate polytopes,
-for example, the terminal bins of a decision tree.
-"
 }
 
 @article{warren-schaefer-2003,
@@ -350,18 +343,6 @@ publisher = {Addison-Wesley},
   volume =      "11",
   number =      "3",
   pages =       "47--55"
-}
-
-@article{plst83,
-  title =       "Curve-fitting with Piecewise Parametric Cubics",
-  author =      "Michael Plass and Maureen Stone",
-  journal =     "Computer Graphics",
-  month =       "July",
-  year =        "1983",
-  volume =      "17",
-  number =      "3",
-  pages =       "229--239",
-  month =       "July"
 }
 
 @article{pratt87,
@@ -682,18 +663,6 @@ publisher = "Cambridge University Press"}
   pages =       "303--310",
 )
 
-@Article{mura91,
-  author =      "Shigeru Muraki",
-  title =       "Volumetric shape description of range data using ``Blobby
-                Model''",
-  journal =     "Computer Graphics (SIGGRAPH '91 Proceedings)",
-  pages =       "227--235",
-  volume =      "25",
-  number =      "4",
-  year =        "1991",
-  month =       "July",
-}
-
 @Article(brin85,
   author =      "Brinkley, James F.",
   title =       "Knowledge-Driven Ultrasonic Three-Dimensional Organ Modeling",
@@ -706,16 +675,6 @@ publisher = "Cambridge University Press"}
   annote =      "relaxation problem with mesh of spherical topology and
                 fixed connectivity",
 )
-
-@article{vemu86,
-  title =       "Curvature-Based Representation of Objects from Range Data",
-  author =      "B. C. Vemuri and A. Mitiche and J. K. Aggarwal",
-  journal =     "Image and Vision Computing",
-  year =        "1986",
-  volume =      "4",
-  number =      "2",
-  pages =       "107--114",
-}
 
 @phdthesis{vemu87,
   author =      "B. C. Vemuri",
@@ -737,7 +696,6 @@ publisher = "Cambridge University Press"}
   conference =  "held in Calgary, Alberta; 3-7 June 1991",
   keywords =    "surface reconstruction, tiling, meshes, surface fitting,
                 branching surfaces",
-  annote =      ""
 }
 
 @InProceedings(merriam92,
@@ -1093,14 +1051,6 @@ publisher = "Cambridge University Press"}
   year =        "1991",
 )
 
-@Unpublished(ronfard93aa,
-  author =      "Remi Ronfard and Gabriel Taubin",
-  title =       "Implicit simplicial models for adaptive curve and surface
-                reconstruction",
-  month =       "November",
-  year =        "1993",
-)
-
 @article{besl88,
 author =        "P. J. Besl",
 title =         "Active, optical range imaging sensors",
@@ -1163,18 +1113,6 @@ school = "Computer Science and Engineering, U. of Washington"}
   pages="1115--1138"
 }
 
-@article{mura91,
-  author =      "S. Muraki",
-  title =       "Volumetric shape description of range data using ``Blobby
-                Model''",
-  journal =     "Computer Graphics",
-  pages =       "227--235",
-  volume =      "25",
-  number =      "4",
-  year =        "1991",
-  month =       "July",
-}
-
 @inproceedings{moor91,
   author = "D. Moore and J. Warren",
   year = "1991",
@@ -1195,16 +1133,6 @@ school = "Computer Science and Engineering, U. of Washington"}
   pages="502-516"
 }
 
-
-@article{vemu86,
-  title="Curvature-Based Representation of Objects from Range Data",
-  author="B.C. Vemuri and A. Mitiche and J.K. Aggarwal",
-  journal="Image and Vision Computing",
-  year = "1986",
-  volume="4",
-  number = "2",
-  pages="107--114"
-}
 
 @inproceedings{fang92,
   author = "L. Fang and D.C. Gossard",
