@@ -835,16 +835,28 @@ same thing, sometimes the same words to mean different things.
 \levelstay{What would a good foundation look like?}
 \label{sec:good-foundation}
 
-My goals in (attempting) to define a foundation are fundamentally
-different from 
-
 Goals:
 \begin{enumerate}
   \item Support all ``scientifically applicable mathematics''.
-  (Really, support the mathematics I want to use.)
+  (Really, support the mathematics I want to use.) \par
   \textbf{TODO:} start listing problems of interest,
   and what kinds of math are needed to pose and solve them.
   
+  \item Appropriately ``high level''. \par
+  My goals in (attempting) to define a foundation are fundamentally
+different from classical approaches,
+many of which try to ``implement'' all of mathematics starting from
+something primitive, like a hierarchy of pure sets.
+This is loosely analogous, in the context of software,
+to implementing everything binary.
+I'm looking for a foundation that is more convenient (for me),
+in the same sense that a modern programming language is more
+convenient than assembly language (for most problems).
+Note that high level programming languages are also more general
+than the instruction set of a particular machine.
+A good foundation ought to be similar in the sense of being
+``implementable'' in a variety of primitive bases.
+
   \item No dangling definitions, no dependence on informal metalanguage.
    \par
   Category theory starts with sets of objects and arrows, 
@@ -868,9 +880,11 @@ Goals:
   eg, sets defined using sets.
   
   \item Self-defining: expressed in a formal language
-  without meta-language. Any decent programming language
+  without meta-language. \par
+  Any decent programming language
   is/can be implemented in itself and allows you to define 
-  procedures that call themselves. I know that this
+  procedures that call themselves. \par
+  I know that this
   contradicts (what I believe to be) the Tarskian consensus about
   the impossibility of defining ``truth'' without a metalanguage
   in which to define it. It also contradicts the various 
@@ -902,6 +916,7 @@ Goals:
 
 An incomplete try at a foundation:
 \begin{description}
+
 \item[Universe] A ``set'' of identifiable, distinguishable
 things,
 and some notion of a reference to a thing, distinct from the thing
@@ -915,6 +930,8 @@ refer to, but not the specific things.)
 API. 
 \par
 \textsf{true} and \textsf{false} as things?
+\par
+Every thing mentioned below is a first class thing in the universe.
 % Many of these things contain references to other things.
 % Some of these things are sets,
 % some are atoms (aka ``ur-elements''~\cite{wiki:Urelement}). \\
@@ -923,6 +940,7 @@ API.
 % starting from the empty set, implementing $\mathcal{N}$
 % (and everything else of interest) via various sets of sets that
 % bottom out with $\emptyset$.
+
 \item[Language] Some formal language that allows us 
 to construct references to things in the universe, 
 follow chains of references, and compute and infer facts 
@@ -932,16 +950,21 @@ language, metalanguage, first order, second order, higher order
 distinctions in standard formal logic.
 \par
 Every thing in the language an element of the universe.
+
 \item[Structure] A structure is collection of references with
 some mechanism for getting at the (eg a path language).
+
 \item[Set] Direct sets or indirect via references?
 Set identity via elements?
 Bounded finite, unbounded finite, countable, \ldots ?
+
 \item[Tuple, cartesian products]
+
 \item[Functions as procedures]
 In contrast to function as graph relation.
 Arbitrariness of (co)domains. Partial functions. Failure to halt.
 error return independent of (co)domains)?.
+
 \item[Functions as relations]
 \end{description}
 
