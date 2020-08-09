@@ -1001,15 +1001,51 @@ and ought to be presentable in a natural, intuitive way.
 \levelstay{Bottom up}
 \label{sec:Bottom-up}
 
-Start from directed (multi)graph.
-
-
-Not really a foundation, due to 
-dependence on \textit{collections} of objects and arrows
-and \textit{functions} between these collection. 
-
+Start from directed (multi)graph~\cite{wiki:Directed_graph}.
 Categorical constructs are pretty much impossible to motivate
 in this context.
+
+In this section, I'm going to use graph terminology,
+eg, ``vertex'' and ''edge'', rather than ``object'' and ``arrow'',
+but I will follow the category theory convention of
+upper case letters for vertices/objects and lower case for
+edges/arrows.
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Directed graph}
+\label{sec:Directed_graph}
+
+Directed graph: 
+an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
+where $\Set{V}$ is a set of \textit{vertices}, 
+$\Set{E}$ a set of \textit{edges}, ordered pairs of vertices.
+$A$ is the \textit{tail} and $B$ the \textit{head}
+of $\left(A,B\right)$.
+
+The vertices can in principle be any set of distinguishable things.
+In application, it is often best to keep them abstract,
+as pure bits of identity with no other properties or behavior.
+Then functions can be used to map abstract vertices and
+edges to more concrete entities related to the application at hand.
+
+(\textbf{Question:} does ``ordered pair'' imply uniqueness?
+In other words, can we have multiple distinct copies of
+ $\left(A,B\right)$, pairing the same elements $A$ and $B$?
+ If we use one of the primitive set theory ``implementations'',
+ then there is only one $\left(A,B\right)$ 
+ for given $A$ and $B$.)
+
+It's common to assume ($1$) that the vertices in an edge must be 
+distinct (no loop edges) and ($2$) there is at most one edge
+in a graph connecting any $2$ vertices.
+In a context where loops are allowed,
+a graph with no loops may be called \textit{simple}.
+A graph may be called a \textit{multigraph} when ($2$) is
+not assumed.
+(Special case of (oriented) simplicial complex.)
+
+A \textit{path} is a sequence of edges where the head of each
+edge matches the tail of the following edge, if there is one.
 
 \begin{tikzcd}
 T
@@ -1021,6 +1057,22 @@ T
 & Y \arrow[r, "g"]
 & Z
 \end{tikzcd}
+
+\begin{tikzcd}
+T
+\arrow[drr, bend left, "x"]
+\arrow[ddr, bend right, "y"]
+\arrow[dr, dotted, "{(x,y)}" description] & & \\
+& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
+& X \arrow[d, "f"] \\
+& Y \arrow[r, "g"]
+& Z
+\end{tikzcd}
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Category}
+\label{sec:Directed_graph_category}
+
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Topos down}
