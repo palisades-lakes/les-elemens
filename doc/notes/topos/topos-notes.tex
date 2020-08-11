@@ -968,6 +968,10 @@ error return independent of (co)domains)?.
 \item[Functions as relations]
 \end{description}
 
+Mathematical structures: sets plus functions with constraints/assertions.
+
+Issue: finite/countable computation vs inference that determine
+something for uncountable entities.
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -977,8 +981,7 @@ error return independent of (co)domains)?.
 
 Things various authors claim are important or valuable;
 things that ought to be understood,
-and ought to be presentable in a natural, intuitive way.
-
+and ought to be presentable in a natural, intuitive way:
 \begin{itemize}
   \item Topos, elementary topos: 
   category ``essentially the same as \textbf{Set}''
@@ -1015,64 +1018,100 @@ edges/arrows.
 \levelstay{Directed graph}
 \label{sec:Directed_graph}
 
-Directed graph: 
+(\textbf{Question:} any value is thinking about undirected graphs?)
+
+\textit{Directed graph} (aka digraph): 
 an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
 where $\Set{V}$ is a set of \textit{vertices}, 
 $\Set{E}$ a set of \textit{edges}, ordered pairs of vertices.
 $A$ is the \textit{tail} and $B$ the \textit{head}
 of $\left(A,B\right)$.
 
-The vertices can in principle be any set of distinguishable things.
-In application, it is often best to keep them abstract,
-as pure bits of identity with no other properties or behavior.
-Then functions can be used to map abstract vertices and
-edges to more concrete entities related to the application at hand.
+In (computational) applications, $\Set{V}$ and $\Set{E}$ 
+are finite, perhaps unbounded finite,
+but, in general, they need not be.
 
+It's common to assume 
+\begin{enumerate}
+\item there is at most one edge
+in a graph connecting any $2$ vertices.\par
 (\textbf{Question:} does ``ordered pair'' imply uniqueness?
 In other words, can we have multiple distinct copies of
  $\left(A,B\right)$, pairing the same elements $A$ and $B$?
  If we use one of the primitive set theory ``implementations'',
  then there is only one $\left(A,B\right)$ 
  for given $A$ and $B$.)
+\item the vertices in an edge must be 
+distinct (no loop edges).
+\end{enumerate}
 
-It's common to assume ($1$) that the vertices in an edge must be 
-distinct (no loop edges) and ($2$) there is at most one edge
-in a graph connecting any $2$ vertices.
+A graph may be called a \textit{multigraph} when $1$ is
+not assumed.
 In a context where loops are allowed,
 a graph with no loops may be called \textit{simple}.
-A graph may be called a \textit{multigraph} when ($2$) is
-not assumed.
-(Special case of (oriented) simplicial complex.)
+
+(\textbf{Question:} 
+Digraph special case of (oriented) simplicial complex.
+What's the difference between a simplicial complex 
+and a hypergraph?)
 
 A \textit{path} is a sequence of edges where the head of each
 edge matches the tail of the following edge, if there is one.
+An \textit{directed acyclic graph} (aka DAG) has no paths
+connecting a vertex to itself.
+A directed graph is \textit{(strongly) connected} if there is a path
+from any vertex to any other (weakly if there is path
+ignoring direction.)
 
-\begin{tikzcd}
-T
-\arrow[drr, bend left, "x"]
-\arrow[ddr, bend right, "y"]
-\arrow[dr, dotted, "{(x,y)}" description] & & \\
-& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
-& X \arrow[d, "f"] \\
-& Y \arrow[r, "g"]
-& Z
-\end{tikzcd}
+A \textit{root} vertex (aka source) has no entering edges.
+A \textit{leaf} vertex (aka sink) has no departing edges.
 
+A \textit{tree} is a directed graph with one root, 
+where all vertices have at most entering edge.
+
+An example:
+\begin{center}
 \begin{tikzcd}
-T
-\arrow[drr, bend left, "x"]
-\arrow[ddr, bend right, "y"]
-\arrow[dr, dotted, "{(x,y)}" description] & & \\
-& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
-& X \arrow[d, "f"] \\
-& Y \arrow[r, "g"]
-& Z
+V_0
+\arrow[drr, bend left, "e_{02}"]
+\arrow[ddr, bend right, "e_{03}"]
+\arrow[dr, "{e_{01}}" ] & & \\
+& V_1 \arrow[r, "e_{12}"] \arrow[d, "e_{13}"]
+& V_2 \arrow[d, "e_{24}"] \\
+& V_3 \arrow[r, "e_{34}"]
+& V_4
 \end{tikzcd}
+\end{center}
+$V_0$ is the only root; $V_4$ is the only leaf;
+the graph is simple, connected, and acyclic.
+
+Applications of directed graphs:~\cite{clrs-2009}
+\begin{itemize}
+  \item Transportation networks
+  \item Shortest path
+  \item Predict travel time
+  \item Maximum flow
+  \item network design/optimization
+  \item connected components
+  \item spanning trees
+\end{itemize}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Category}
-\label{sec:Directed_graph_category}
+\label{sec:Category_from_digraph}
 
+\begin{tikzcd}
+T
+\arrow[drr, bend left, "x"]
+\arrow[ddr, bend right, "y"]
+\arrow[dr, dotted, "{(x,y)}" description] & & \\
+& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
+& X \arrow[d, "f"] \\
+& Y \arrow[r, "g"]
+& Z
+\end{tikzcd}
+
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Topos down}
@@ -1080,6 +1119,7 @@ T
  
 Topos definition, then define what it depends on, \ldots.
  
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Fusion}
@@ -1094,6 +1134,7 @@ Problem: you need to learn a lot of conventional math before
 you can really start on category theory.
 
  
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \pagebreak
 \appendix
