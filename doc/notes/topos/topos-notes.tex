@@ -923,7 +923,9 @@ and some notion of a reference to a thing, distinct from the thing
 itself.
 A primitive of this approach is the ability, given $2$ references,
 to determine if they refer to the same thing.
-(Is this right? What do I mean when I write $x=y$?
+\par
+(\textbf{Question:}
+Is this right? What do I mean when I write $x=y$?
 Seems like usual case is we know something about what $x$ and $y$
 refer to, but not the specific things.)
 \par
@@ -941,6 +943,8 @@ Every thing mentioned below is a first class thing in the universe.
 % (and everything else of interest) via various sets of sets that
 % bottom out with $\emptyset$.
 
+\item[Values vs references to values]
+
 \item[Language] Some formal language that allows us 
 to construct references to things in the universe, 
 follow chains of references, and compute and infer facts 
@@ -951,7 +955,8 @@ distinctions in standard formal logic.
 \par
 Every thing in the language an element of the universe.
 
-\item[Structure] A structure is collection of references with
+\item[(Data) Structure] (need as better name)
+A structure is collection of references with
 some mechanism for getting at the (eg a path language).
 
 \item[Set] Direct sets or indirect via references?
@@ -966,12 +971,30 @@ Arbitrariness of (co)domains. Partial functions. Failure to halt.
 error return independent of (co)domains)?.
 
 \item[Functions as relations]
+
+\item[Mathematical structures]
+sets plus functions with constraints/assertions.
+\par
+Standard structures defined with ``natural'' (subjectively, to me)
+properties of the functions. 
+\par
+For example, a group is commutative or not, depending on whether
+the group operation function is symmetric: $f(x,y) = f(y,x)$.
+\par
+Distributive properties are similarly fairly obvious (again, to me)
+simplifying assumptions that might or might not be true of
+a structure's functions: 
+$\otimes (a,\oplus (x,y)) = \oplus (\otimes (a,x), \otimes (a,y))$
+(infix version: 
+$a \otimes (x \oplus y) = (a \otimes x) \oplus (a \otimes y)$).
+
 \end{description}
 
-Mathematical structures: sets plus functions with constraints/assertions.
-
-Issue: finite/countable computation vs inference that determine
+Issues: 
+\begin{itemize}
+  \item finite/countable computation vs inference that determine
 something for uncountable entities.
+  \end{itemize}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1018,7 +1041,9 @@ edges/arrows.
 \levelstay{Directed graph}
 \label{sec:Directed_graph}
 
-(\textbf{Question:} any value is thinking about undirected graphs?)
+(\textbf{Question:}
+ any value is thinking about undirected graphs?
+ Simplicial complexes?)
 
 \textit{Directed graph} (aka digraph): 
 an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
@@ -1069,6 +1094,13 @@ A \textit{leaf} vertex (aka sink) has no departing edges.
 A \textit{tree} is a directed graph with one root, 
 where all vertices have at most entering edge.
 
+(Mesh) \textit{dual} of a graph interchanges the roles of edges 
+and vertices, resulting in a hypergraph where every dual vertex
+has exactly $2$ edges. 
+(\textbf{Question:} orientation/direction of dual edges?~\cite{rusnak2012oriented})
+(Other notion of dual of planar graph interchanges vertices and ``faces'',
+orientation from $90^{\circ}$ turn of primal edge.~\cite{wiki:Dual_graph})
+
 An example:
 \begin{center}
 \begin{tikzcd}
@@ -1094,7 +1126,11 @@ Applications of directed graphs:~\cite{clrs-2009}
   \item network design/optimization
   \item connected components
   \item spanning trees
+  \item dependencies among modules, tasks, definitions/theorems
+  \item finite state machines, state-transition diagrams
+  \item continuation-passing code (no automatic return to caller)
 \end{itemize}
+
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Category}
