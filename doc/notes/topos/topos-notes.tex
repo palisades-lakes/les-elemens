@@ -548,11 +548,10 @@ easier and simpler in the original context.
 
 A possible symptom that's something wrong:
 Category theory, which originated in $1940$--$1950$s,
-is still being described in terms like:
+is still, in $2013$, $60+$ years, later being described in terms like:
 ``This course is an attempt to extol the virtues of a new branch of mathematics,
 called category theory, which was invented for powerful communication of ideas between
-different fields and subfields within mathematics.''
-in 2013, $60+$ years later~\cite{spivakd-2013}.
+different fields and subfields within mathematics.''~\cite{spivakd-2013}.
 It doesn't seem like such assertions would be necessary,
 if it really were the 'right' way to unify 
 and illuminate all of mathematics.
@@ -562,7 +561,8 @@ It feels similar to introductions to the related subject of
 where the rightness of (statically typed) functional programming 
 is taken as
 an article of religious faith that doesn't need to be justified
-(for an exception, see SICP \cite{Abelson1996}).
+(for an exception, which lacks elaborate type systems,
+see SICP~\cite{Abelson1996}).
 Many introductions to functional programming spend their
 effort demonstrating how, with a lot of effort, you can do
 something trivial is most other languages
@@ -609,7 +609,7 @@ It follows that a theory whose objects are supposed to be highly
 structured and which does not explicitly reveal assumptions about
 operations and collections cannot claim to constitute a foundation for
 mathematics, simply because those assumptions are unexamined. It is
-eVidently begging the question to treat collections (and operations
+evidently begging the question to treat collections (and operations
 between them) as a category which is supposed to be one of the objects
 of the universe of the theory to be formulated.
 \par
@@ -733,8 +733,8 @@ with the co/domain objects part of the identity of the arrow.
 
 Is category theory a good language?~\cite{wiki:Abstract-nonsense-2020}
 
-
-Is part of the attraction due to being able to publish
+Is part of the attraction due to being able accumulate
+theorem-credits by publishing
 new proofs of old results?
 
 Are claims of additional insight justified?
@@ -743,6 +743,8 @@ Are there any significant categories
 that don't reduce to something like sets and functions?
 ``Significant'' meaning not just the completion of an arbitrary
 directed multigraph.
+
+For example, 
 
 Is there something more like ``sets and functions'' where
 the standard constructs make sense?
@@ -1022,6 +1024,41 @@ and ought to be presentable in a natural, intuitive way:
   \item universal (mapping) property
   \item adjointness
 \end{itemize}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Example categories}
+\label{sec:Example-categories}
+
+One question to be examined here is: are there any meaningful
+categories that aren't some version of a collection of sets
+and a collection of functions between? 
+By ``meaningful'', I mean that the key ideas 
+in section~\ref{sec:Key-ideas} apply.
+And, in any of the cases, 
+does categorical language help or hurt?
+
+\begin{itemize}
+  \item Sets of sets and sets of functions between them.
+Sometimes relations rather than functions.
+
+  \item Monoids, groups, etc. \par
+  Each monoid category has a single object which can be taken as
+  corresponding to the set of elements. The arrows correspond to 
+  individual elements, or to the functions obtained from partial
+  evaluation of the monoid operation: 
+  $f_a(\_)= \circ (a,\_) = a \circ \_$.\par
+  One obvious problem with this is that it excludes about half of
+  the group-like, one set, one operation structures~\cite{wiki:Magma}: 
+  the ones without identity. \par
+  Also, seems clear that many of the key categorical constructs
+  don't apply, raising even more questions about whether there's
+  any value.
+  
+  \item Pre-ordered sets, partially ordered sets.
+\end{itemize}
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \levelstay{Bottom up}
