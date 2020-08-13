@@ -152,12 +152,12 @@ category theory is the ``right way to do \textit{blah}''.
 I would then pick up some recent 
 introduction~\cite{adamek-herrlich-strecker-1990,
 asperti-longo-1991,awodey-2010,
-barr-wells-2020,fong-spivakd-2018-seven-sketches,
-geroch-1985,lawvere-schanuel-2009,
+barr-wells-2020,
+geroch-1985,hillman2001primer,lawvere-schanuel-2009,
 leinster-2016-basic-category-theory,
 maclane-1998-working-mathematician,nLab-2020,
 riehl-2017,
-spivakd-2013,spivakd-2014} 
+spivakd2013,spivakd2014} 
 get about halfway and give up.
 
 Recent context: 
@@ -384,7 +384,7 @@ in its ability to organize and layer abstractions, to find commonalities between
 of all sorts, and to facilitate communication between different mathematical
 communities.}
 {Fong and Spivak, \textit{Seven Sketches in Compositionality: 
-An Invitation to Applied Category Theory}~\cite{fong-spivakd-2018-seven-sketches}}
+An Invitation to Applied Category Theory}~\cite{fong-spivakd2018-seven-sketches}}
 
 \pagebreak
 \epigraph{In each area of mathematics 
@@ -515,7 +515,7 @@ partial orders, symmetries are group elements, data models are categories, agent
 are monoid actions, local-to-global principles are sheaves, self-similarity is modeled by
 operads, context can be modeled by monads.}
 {D. Spivak, \textit{Category Theory for Scientists 
-(old version)}~\cite{spivakd-2013}}
+(old version)}~\cite{spivakd2013}}
 
 \pagebreak
 An alternative to first order logic, sets, 
@@ -551,7 +551,7 @@ Category theory, which originated in $1940$--$1950$s,
 is still, in $2013$, $60+$ years, later being described in terms like:
 ``This course is an attempt to extol the virtues of a new branch of mathematics,
 called category theory, which was invented for powerful communication of ideas between
-different fields and subfields within mathematics.''~\cite{spivakd-2013}.
+different fields and subfields within mathematics.''~\cite{spivakd2013}.
 It doesn't seem like such assertions would be necessary,
 if it really were the 'right' way to unify 
 and illuminate all of mathematics.
@@ -1035,7 +1035,8 @@ One question to be examined here is: are there any meaningful
 categories that aren't some version of a collection of sets
 and a collection of functions between? 
 By ``meaningful'', I mean that the key ideas 
-in section~\ref{sec:Key-ideas} apply.
+in section~\ref{sec:Key-ideas} apply
+and are useful in some way.
 And, in any of the cases, 
 does categorical language help or hurt?
 
@@ -1048,15 +1049,37 @@ Sometimes relations rather than functions.
   corresponding to the set of elements. The arrows correspond to 
   individual elements, or to the functions obtained from partial
   evaluation of the monoid operation: 
-  $f_a(\_)= \circ (a,\_) = a \circ \_$.\par
+  $f_A(\_)= \circ (A,\_) = A \circ \_$.\par
   One obvious problem with this is that it excludes about half of
   the group-like, one set, one operation structures~\cite{wiki:Magma}: 
-  the ones without identity. \par
+  the ones without identity. 
+  An example where identity arrows are a problem. \par
   Also, seems clear that many of the key categorical constructs
   don't apply, raising even more questions about whether there's
   any value.
   
-  \item Pre-ordered sets, partially ordered sets.
+  \item Pre-ordered sets, partially ordered sets, including
+  inclusion ordering in topology.
+  
+  
+  \item ``Discrete'' categories. Object are elements of a set; 
+  only arrows are identities, one per element. 
+  (Another example where identity arrows are problematic.)
+  Almost surely of no value.
+  
+  \item Completion of arbitrary directed graph; 
+  almost surely of no value, at least on its own.
+  This includes things commonly represented as directed graphs,
+  without any additional categorical structure, like ontologies~\cite{spivakd:2013},
+  state transition diagrams, dependency graphs, etc.
+  Do categorical completion and constructs help with anything?
+  
+  \item Types signatures in ``functional'' programming.
+  
+  \item Categories of arrows, categories, functors, etc.
+  Is there anything here beyond certain sets and functions between
+  them?
+  
 \end{itemize}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
