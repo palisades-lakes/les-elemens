@@ -1162,7 +1162,8 @@ has exactly $2$ edges.
 orientation from $90^{\circ}$ turn of primal edge.~\cite{wiki:Dual_graph})
 
 An example:
-\begin{center}
+\begin{figure}
+\centering
 \begin{tikzcd}
 V_0
 \arrow[drr, bend left, "e_{02}"]
@@ -1173,7 +1174,12 @@ V_0
 & V_3 \arrow[r, "e_{34}"]
 & V_4
 \end{tikzcd}
-\end{center}
+
+\caption{A directed graph}
+\label{fig:a-digraph}
+
+\end{figure}
+
 $V_0$ is the only root; $V_4$ is the only leaf;
 the graph is simple, connected, and acyclic.
 
@@ -1196,6 +1202,54 @@ Applications of directed graphs:~\cite{clrs-2009}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
 
+A \textit{category} is a directed (multi) graph 
+together with $2$ functions that satisfy certain constraints:
+\begin{description}
+\item[Composition]\mbox{}
+\begin{description}
+\item[Binary]
+The usual way this is posed is for pairs of connected edges:
+Whenever $\mathsf{tail}(e0) = \mathsf{head}(e_1)$,
+then
+$\mathsf{compose}(e_0,e_1) = e_{10}$ is defined
+for some $e_{10}$ among the edges of the graph,
+with $\mathsf{tail}(e_{10}) = \mathsf{tail}(e_1)$
+and $\mathsf{head}(e_{10}) = \mathsf{head}(e_0)$.
+\par
+(Note the potential for confusion 
+in the ordering of the arguments to $\mathsf{compose}$;
+general idea is that $e_1$ is traversed/applied first,
+then $e_0$.)
+\item[General paths]
+An alternative is define the domain of $\mathsf{compose}$
+to be the graph's paths. 
+Then, for all paths $p$ in the graph,
+there exists some edge $e$ in the graph
+with $\mathsf{compose}(p) = e$ such that 
+$p$ and $e$ have the same head and tail.
+\end{description}
+\par
+Either way we define $\mathsf{compose}$ (no reason not to do both
+simultaneously), it is clearly (to me) not a natural construct
+for directed graphs: for every path, there is a single edge
+directly connecting its tail to its head.
+I don't know of any non-categorical applications of directed graphs
+that have this property.
+\par
+It's tempting to think that we could dispense with $\mathsf{compose}$
+and just work directly with paths, but that's not simple, and
+the reason will be clear soon, when we talk about commuting diagrams.
+Commuting diagrams make assertions about the equivalence of certain
+paths, and they make those by asserting that applying $\mathsf{compose}$
+to each path returns the same edge.
+\par
+(\textbf{Question:} is there an alternative way to express this
+equivalence without adding extra edges to the graph?)
+
+\item[Identity] \mbox{}
+
+\end{description}
+\begin{center}
 \begin{tikzcd}
 T
 \arrow[drr, bend left, "x"]
@@ -1206,6 +1260,7 @@ T
 & Y \arrow[r, "g"]
 & Z
 \end{tikzcd}
+\end{center}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
