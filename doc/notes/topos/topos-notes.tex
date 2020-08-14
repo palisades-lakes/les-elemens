@@ -1043,6 +1043,8 @@ does categorical language help or hurt?
 \begin{itemize}
   \item Sets of sets and sets of functions between them.
 Sometimes relations rather than functions.
+More specifically, mathematical structures of a given ``type'' and
+structure-preserving functions between them.
 
   \item Monoids, groups, etc. \par
   Each monoid category has a single object which can be taken as
@@ -1195,6 +1197,7 @@ Applications of directed graphs:~\cite{clrs-2009}
   \item dependencies among modules, tasks, definitions/theorems
   \item finite state machines, state-transition diagrams
   \item continuation-passing code (no automatic return to caller)
+  \item graph layout (mapping vertices to $2$d points).
 \end{itemize}
 
 
@@ -1243,8 +1246,31 @@ Commuting diagrams make assertions about the equivalence of certain
 paths, and they make those by asserting that applying $\mathsf{compose}$
 to each path returns the same edge.
 \par
-(\textbf{Question:} is there an alternative way to express this
-equivalence without adding extra edges to the graph?)
+(\textbf{Question:} are $\mathsf{compose}$ and the resulting edges
+used for anything other than defining path equivalence?)
+\par
+\textbf{Alternative:} replace $\mathsf{compose}$ with 
+either an equivalence function on path pairs,
+or a path ``evaluation'' function $\mathsf{value}$
+(\textnf{TODO:} need a better name for this),
+with path equivalence classes
+being the level sets of $\mathsf{value}$.
+That's essentially the same as $\mathsf{compose}$,
+except we no longer assume the values are also edges in the graph.
+Offhand, this seems a lot more intuitive than $\mathsf{compose}$,
+adding all these additional, apparently unnecessary, edges to
+the graph.
+\par
+For sets and functions categories, the natural equivalence relation
+is that the composed functions corresponding to the paths 
+have the same graph relation (map each given domain element to the 
+same codomain element. The $\mathsf{value}$ function maps each path
+to its equivalence class.
+\par
+For transportation graphs, and similar, the $\mathsf{value}$ 
+function could return a tuple of all path properties relevant to
+the problem being solved, eg,  expected travel time, likely fuel 
+cost, etc.
 
 \item[Identity] \mbox{}
 
