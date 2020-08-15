@@ -919,7 +919,8 @@ A good foundation ought to be similar in the sense of being
 An incomplete try at a foundation:
 \begin{description}
 
-\item[Universe] A ``set'' of identifiable, distinguishable
+\item[Universe]\mbox{}\\
+A ``set'' of identifiable, distinguishable
 things,
 and some notion of a reference to a thing, distinct from the thing
 itself.
@@ -945,9 +946,10 @@ Every thing mentioned below is a first class thing in the universe.
 % (and everything else of interest) via various sets of sets that
 % bottom out with $\emptyset$.
 
-\item[Values vs references to values]
+\item[Values vs references to values]\mbox{}\\
 
-\item[Language] Some formal language that allows us 
+\item[Language]\mbox{}\\
+Some formal language that allows us 
 to construct references to things in the universe, 
 follow chains of references, and compute and infer facts 
 about things and their references. 
@@ -957,24 +959,26 @@ distinctions in standard formal logic.
 \par
 Every thing in the language an element of the universe.
 
-\item[(Data) Structure] (need as better name)
+\item[(Data) Structure]\mbox{}\\
+(need as better name)
 A structure is collection of references with
 some mechanism for getting at the (eg a path language).
 
-\item[Set] Direct sets or indirect via references?
+\item[Set]  \mbox{}\\
+Direct sets or indirect via references?
 Set identity via elements?
 Bounded finite, unbounded finite, countable, \ldots ?
 
-\item[Tuple, Cartesian products]
+\item[Tuple, Cartesian products]\mbox{}\\
 
-\item[Functions as procedures]
+\item[Functions as procedures]\mbox{}\\
 In contrast to function as graph relation.
 Arbitrariness of (co)domains. Partial functions. Failure to halt.
 error return independent of (co)domains)?.
 
-\item[Functions as relations]
+\item[Functions as relations]\mbox{}\\
 
-\item[Mathematical structures]
+\item[Mathematical structures]\mbox{}\\
 sets plus functions with constraints/assertions.
 \par
 Standard structures defined with ``natural'' (subjectively, to me)
@@ -990,6 +994,29 @@ $\otimes (a,\oplus (x,y)) = \oplus (\otimes (a,x), \otimes (a,y))$
 (infix version: 
 $a \otimes (x \oplus y) = (a \otimes x) \oplus (a \otimes y)$).
 
+\item[Structure-preserving functions]\mbox{}\\
+Function needs to be defined on the (disjoint) union of the 
+structure's sets.
+And needs to ``commute'' with the structure functions.
+For example, linear spaces and functions: 
+Suppose $f : \Space{X} \rightarrow \Space{Y}$
+is effectively $2$ functions:
+$f : \mathsf{scalars}(\Space{X}) \rightarrow \mathsf{scalars}(\Space{Y})$ and
+$f : \mathsf{vectors}(\Space{X}) \rightarrow \mathsf{vectors}(\Space{Y})$.
+ 
+A linear function preserves the linear structure:
+\begin{equation}
+f \big( (a_0 \, *_{\scriptscriptstyle\Space{X}} \, \Vector{x}_0) 
+\: +_{\scriptscriptstyle\Space{X}} \: 
+(a_1 \, *_{\scriptscriptstyle\Space{X}} \, \Vector{x}_1) \big)
+\; = \; 
+\big( f(a_0) \, *_{\scriptscriptstyle\Space{Y}} \, f(\Vector{x}_0) \big) 
+\: +_{\scriptscriptstyle\Space{Y}} \: 
+\big( f(a_1) \, *_{\scriptscriptstyle\Space{Y}} \, f(\Vector{x}_1) \big)
+\end{equation}
+where $*_{\scriptscriptstyle\Space{X}}, +_{\scriptscriptstyle\Space{X}}, 
+*_{\scriptscriptstyle\Space{Y}}, +_{\scriptscriptstyle\Space{Y}},$
+are the scalar multiplication and addition operations on the $2$ spaces.
 \end{description}
 
 Issues: 
@@ -1176,10 +1203,8 @@ V_0
 & V_3 \arrow[r, "e_{34}"]
 & V_4
 \end{tikzcd}
-
 \caption{A directed graph}
 \label{fig:a-digraph}
-
 \end{figure}
 
 $V_0$ is the only root; $V_4$ is the only leaf;
@@ -1208,43 +1233,58 @@ Applications of directed graphs:~\cite{clrs-2009}
 A \textit{category} is a directed (multi) graph 
 together with $2$ functions that satisfy certain constraints:
 \begin{description}
-\item[Composition]\mbox{}
+\item[Composition]\mbox{}\\
+At least $2$ ways to think about this. 
+More common way first, better (?) way second.
 \begin{description}
-\item[Binary]
+\item[Binary]\mbox{}\\
 The usual way this is posed is for pairs of connected edges:
 Whenever $\mathsf{tail}(e0) = \mathsf{head}(e_1)$,
 then
-$\mathsf{compose}(e_0,e_1) = e_{10}$ is defined
+\[ \mathsf{compose}(e_0,e_1) = e_{10} \]
+is defined
 for some $e_{10}$ among the edges of the graph,
 with $\mathsf{tail}(e_{10}) = \mathsf{tail}(e_1)$
 and $\mathsf{head}(e_{10}) = \mathsf{head}(e_0)$.
-\par
 (Note the potential for confusion 
 in the ordering of the arguments to $\mathsf{compose}$;
 general idea is that $e_1$ is traversed/applied first,
 then $e_0$.)
-\item[General paths]
+\par
+In addition, $\mathsf{compose}$ is required to be associative:
+\[
+\mathsf{compose}(\mathsf{compose}(e_0,e_1),e_2) 
+= \mathsf{compose}(e_0,\mathsf{compose}(e_1,e_2)
+\]
+
+\item[General paths]\mbox{}\\
 An alternative is define the domain of $\mathsf{compose}$
 to be the graph's paths. 
 Then, for all paths $p$ in the graph,
 there exists some edge $e$ in the graph
-with $\mathsf{compose}(p) = e$ such that 
+with 
+\[ \mathsf{compose}(p) = e \]
+such that 
 $p$ and $e$ have the same head and tail.
+Associativity here means that if we partially reduce a path
+by applying $\mathsf{compose}$ to a sub-path,
+and then $\mathsf{compose}$ the partially reduced path,
+we get the same edge as composing the whole path.
 \end{description}
 \par
 Either way we define $\mathsf{compose}$ (no reason not to do both
 simultaneously), it is clearly (to me) not a natural construct
-for directed graphs: for every path, there is a single edge
-directly connecting its tail to its head.
+for directed graphs: for every path, there is also 
+a single edge directly connecting its tail to its head.
+And associativity imposes strong constraints on which of the possibly
+many such single edges can be chosen as the value of $\mathsf{compose}$.
 I don't know of any non-categorical applications of directed graphs
-that have this property.
+for which this makes sense.
+Moreover, it's not clear that any of this is really necessary.
 \par
-It's tempting to think that we could dispense with $\mathsf{compose}$
-and just work directly with paths, but that's not simple, and
-the reason will be clear soon, when we talk about commuting diagrams.
-Commuting diagrams make assertions about the equivalence of certain
-paths, and they make those by asserting that applying $\mathsf{compose}$
-to each path returns the same edge.
+$\mathsf{compose}$ is used primarily, if not exclusively,
+to define whether $2$ paths are equivalent, by asserting they 
+compose to the same edge.
 \par
 (\textbf{Question:} are $\mathsf{compose}$ and the resulting edges
 used for anything other than defining path equivalence?)
@@ -1252,7 +1292,7 @@ used for anything other than defining path equivalence?)
 \textbf{Alternative:} replace $\mathsf{compose}$ with 
 either an equivalence function on path pairs,
 or a path ``evaluation'' function $\mathsf{value}$
-(\textnf{TODO:} need a better name for this),
+(\textbf{TODO:} need a better name for this),
 with path equivalence classes
 being the level sets of $\mathsf{value}$.
 That's essentially the same as $\mathsf{compose}$,
@@ -1271,22 +1311,56 @@ For transportation graphs, and similar, the $\mathsf{value}$
 function could return a tuple of all path properties relevant to
 the problem being solved, eg,  expected travel time, likely fuel 
 cost, etc.
+\par
+(\textbf{Question:} is associativity actually necessary,
+even with usual interpretation of $\mathsf{compose}$?
+Doesn't really make sense in the context of path evaluation/classification.)
 
-\item[Identity] \mbox{}
-
+\item[Identity]\mbox{}\\
+For every vertex $v$, there is a self-loop edge 
+$\mathsf{identity}(v)$ whose head and tail
+are both $v$.
+$\mathsf{compose}$ and $\mathsf{identity}$
+must be defined so that  $\mathsf{identity}(v)$ 
+``disappears" in any composition with edges 
+entering or leaving $v$:
+\[ \mathsf{compose}(\mathsf{identity}(v),e_0) = e_0 \]
+and
+\[ \mathsf{compose}(e_1,\mathsf{identity}(v)) = e_1 \]
+\par
+Again, a lot of room for doubt that this extra structure is really necessary.
+\par
+\textbf{Alternative:} 
+extend $\mathsf{compose}$ to take vertices as well as edges,
+and return both edges and vertices.
+Edge-vertex composition just returns the edge (assuming head/tail match).
+Composition of ``inverse'' edges is allowed to return the common vertex,
+rather than an artificially added self-loop edge.
+\par
+If we want to work with paths, either for composition
+or more straightforward equivalence definition,
+we can change the definition of a path to include the vertices,
+so that a single vertex is a path. 
+Then $2$ edges can be considered as ``inverses'' if both
+$2$-edge paths are path-equivalent to the common vertex.
 \end{description}
-\begin{center}
+
+\begin{figure}
+\centering
 \begin{tikzcd}
-T
-\arrow[drr, bend left, "x"]
-\arrow[ddr, bend right, "y"]
-\arrow[dr, dotted, "{(x,y)}" description] & & \\
-& X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
-& X \arrow[d, "f"] \\
-& Y \arrow[r, "g"]
-& Z
+V_0
+\arrow[drr, bend left, "e_{02}"]
+\arrow[ddr, bend right, "e_{03}"]
+\arrow[dr, "{e_{01}}" ] & & \\
+& V_1 \arrow[r, "e_{12}"] \arrow[d, "e_{13}"]
+& V_2 \arrow[d, "e_{24}"] \\
+& V_3 \arrow[r, "e_{34}"]
+& V_4
 \end{tikzcd}
-\end{center}
+\\caption{A directed graph completed to a category}
+\label{fig:a-completed-digraph}
+
+\end{figure}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
