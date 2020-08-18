@@ -1193,19 +1193,49 @@ orientation from $90^{\circ}$ turn of primal edge.~\cite{wiki:Dual_graph})
 An example:
 \begin{figure}
 \centering
-\begin{tikzcd}
+\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
 V_0
-\arrow[drr, bend left, "e_{02}"]
-\arrow[ddr, bend right, "e_{03}"]
-\arrow[dr, "{e_{01}}" ] & & \\
-& V_1 \arrow[r, "e_{12}"] \arrow[d, "e_{13}"]
-& V_2 \arrow[d, "e_{24}"] \\
-& V_3 \arrow[r, "e_{34}"]
+\arrow[drr, bend left=40, "e_{02}" near start]
+\arrow[ddr, bend right=40, "e_{03}"' near start]
+\arrow[dr, "{e_{01}}" ] 
+& & 
+\\
+& V_1 
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+& V_2 
+\arrow[d, "e_{24}"] 
+\\
+& V_3 
+\arrow[r, "e_{34}"']
 & V_4
 \end{tikzcd}
+
 \caption{A directed graph}
 \label{fig:a-digraph}
 \end{figure}
+% \begin{figure}
+% \centering
+% \begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.4cm]
+% V_0
+% \arrow[drr, bend left, "e_{02}"]
+% \arrow[ddr, bend right, "e_{03}"]
+% \arrow[dr, "{e_{01}}" ] 
+% & & 
+% \\
+% & V_1 
+% \arrow[r, "e_{12}"] 
+% \arrow[d, "e_{13}"]
+% & V_2 
+% \arrow[d, "e_{24}"]
+% \\
+% & V_3 
+% \arrow[r, "e_{34}"]
+% & V_4
+% \end{tikzcd}
+% \caption{A directed graph}
+% \label{fig:a-digraph}
+% \end{figure}
 
 $V_0$ is the only root; $V_4$ is the only leaf;
 the graph is simple, connected, and acyclic.
@@ -1229,6 +1259,47 @@ Applications of directed graphs:~\cite{clrs-2009}
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
+
+\begin{figure}
+\centering
+\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
+V_0
+\arrow[loop above, blue, crossing over]
+\arrow[drr, bend left=40, "e_{02}" near start]
+\arrow[ddr, bend right=40, "e_{03}"' near start]
+\arrow[dr, "{e_{01}}" ] 
+\arrow[drr, "e_{12} \circ e_{01}", bend left=10, dashed, red]
+\arrow[ddr, "e_{13} \circ e_{01}", bend right=10, dashed, red]
+& & 
+\\
+& V_1 
+\arrow[loop above, blue,crossing over]
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\arrow[dr, bend left, "e_{24} \circ e_{12}", dashed, red]
+\arrow[dr, bend right, "e_{34} \circ e_{13}"' red, dashed, red]
+& V_2 
+\arrow[loop right, crossing over, blue]
+\arrow[d, "e_{24}"] 
+\\
+& V_3 
+\arrow[loop below, blue,crossing over]
+\arrow[r, "e_{34}"']
+& V_4
+\arrow[loop right, blue, crossing over]
+\arrow["e_{24} \circ e_{02}" {near end},
+from=1-1,to=3-3, red, dashed, bend left=100,]
+\arrow["e_{34} \circ e_{03}"' {near end},
+from=1-1,to=3-3, red, dashed, bend right=100,]
+\arrow["e_{24} \circ e_{12} \circ e_{01}" {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
+\arrow["e_{34} \circ e_{13} \circ e_{01}"' {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
+\end{tikzcd}
+\caption{Completion of fig.~\ref{fig:a-digraph}
+to a category}
+\label{fig:a-completed-digraph}
+\end{figure}
 
 A \textit{category} is a directed (multi) graph 
 together with $2$ functions that satisfy certain constraints:
@@ -1345,22 +1416,6 @@ Then $2$ edges can be considered as ``inverses'' if both
 $2$-edge paths are path-equivalent to the common vertex.
 \end{description}
 
-\begin{figure}
-\centering
-\begin{tikzcd}
-V_0
-\arrow[drr, bend left, "e_{02}"]
-\arrow[ddr, bend right, "e_{03}"]
-\arrow[dr, "{e_{01}}" ] & & \\
-& V_1 \arrow[r, "e_{12}"] \arrow[d, "e_{13}"]
-& V_2 \arrow[d, "e_{24}"] \\
-& V_3 \arrow[r, "e_{34}"]
-& V_4
-\end{tikzcd}
-\\caption{A directed graph completed to a category}
-\label{fig:a-completed-digraph}
-
-\end{figure}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
