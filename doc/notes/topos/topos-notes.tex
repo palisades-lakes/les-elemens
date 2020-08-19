@@ -156,7 +156,7 @@ barr-wells-2020,
 geroch-1985,hillman2001primer,lawvere-schanuel-2009,
 leinster-2016-basic-category-theory,
 maclane-1998-working-mathematician,nLab-2020,
-riehl-2017,
+riehl2017,
 spivakd2013,spivakd2014} 
 get about halfway and give up.
 
@@ -476,7 +476,7 @@ from those whose proofs require techniques particular
 to a given mathematical discipline.}
 {Riehl, 
 \textit{Category Theory in Context, Preface
-}~\cite{riehl-2017}}
+}~\cite{riehl2017}}
 
 \pagebreak
 \epigraph{This course is an attempt to extol the virtues of a new branch of mathematics,
@@ -1255,7 +1255,7 @@ Applications of directed graphs:~\cite{clrs-2009}
   \item graph layout (mapping vertices to $2$d points).
 \end{itemize}
 
-
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
@@ -1325,7 +1325,8 @@ then $e_0$.)
 In addition, $\mathsf{compose}$ is required to be associative:
 \[
 \mathsf{compose}(\mathsf{compose}(e_0,e_1),e_2) 
-= \mathsf{compose}(e_0,\mathsf{compose}(e_1,e_2)
+= \mathsf{compose}(e_0,\mathsf{compose}(e_1,e_2))
+= \mathsf{compose}(e_0,e_1,e_2)
 \]
 
 \item[General paths]\mbox{}\\
@@ -1416,6 +1417,115 @@ Then $2$ edges can be considered as ``inverses'' if both
 $2$-edge paths are path-equivalent to the common vertex.
 \end{description}
 
+Figure~\ref{fig:a-completed-digraph} shows the additional
+edges needed to make the graph in figure~\ref{fig:a-digraph}
+into a category: the identity loops are in blue, first order
+compositions red, and second order green.
+Any of the pair of edges with the same head and tail might be
+taken to be the same edge, and still satisfy the definition of a
+category. 
+If all such ``redundant'' pairs are reduced to single edges,
+then the diagram is said to \textit{commute}.
+Commutative diagrams are in some sense the heart of category
+theory,
+but both ``commutative'' and ``diagram'' are problematic.
+
+I have been unable to find an explanation for the use of
+the word ``commute'' to mean ``all displayed paths
+with the same head and tail are equivalent''.
+This is one of the early symptoms that there's something wrong:
+The fact that a key term is used for, as far as I can tell, 
+an unrelated concept
+from closely related areas of mathematics (eg commutative groups)
+is at best, evidence of flawed exposition, if not confused thinking.
+To use ``commute'' in the context of the binary $\mathsf{compose}$
+operation to mean anything other than $e_0 \circ e_1 = e_1 \circ e_0$
+adds pointlessly to the cognitive load of someone new to the subject.
+
+The convention in category theory is to leave out identity loops
+and composition edges when drawing diagrams,
+which is a symptom that perhaps the identities and compositions
+ought not be there.
+
+It worth noting that ``diagram'' is rarely defined in introductory
+texts, at least, 
+not until long after diagrams have been in use.
+And the standard definition---functor from indexing category
+to ambient category
+(eg \cite[][Definition 1.6.4]{riehl2017})---doesn't reflect how
+diagrams are actually drawn and used.
+
+What's drawn is a subgraph, not a category (unless we use
+a path-equivalence/identity-free definition of categories).
+The functor is essentially irrelevant.
+The displayed subgraph is a device for 
+reducing the cognitive burden of certain (mental) computations
+(like a chess board and pieces);
+what's drawn is (should be) the minimum necessary 
+to get to the desired result.~\cite{dutilh_novaes_2012}
+
+(\textbf{Question:} is diagram chasing the same thing as proving
+a diagram commutes?)
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Mono, epi, iso}
+\label{sec:mono_epi_iso}
+
+Two edges are \textit{parallel} is they have the same head and tail.
+
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[r, bend left, "f"]
+\arrow[r, bend right, "g"']
+& V_1 
+\arrow[r, "e"]
+& V_2 
+\arrow[r,Rightarrow,"\mathrm{ if commutes}"]
+& V_0 
+\arrow[r, "f", "g"']
+& V_1 
+\end{tikzcd}
+\caption{Mono edge $e$}
+\label{fig:mono}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 \arrow[r, "e"]
+& V_1 
+\arrow[r, bend left, "f"]
+\arrow[r, bend right, "g"']
+& V_2 
+\arrow[r,Rightarrow,"\mathrm{ if commutes}"]
+& V_1 
+\arrow[r, "f", "g"']
+& V_2 
+\end{tikzcd}
+\caption{Epi edge $e$}
+\label{fig:epi}
+\end{figure}
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Standard definition}
+
+An edge $e$ is \textit{mono} (aka a monomorphism)
+if, for any parallel edges $f,g$ entering $\mathsf{head}(e)$:
+\[
+\left( e \circ f = e \circ g \right) \Rightarrow (f = g)
+\]
+
+An edge $e$ is \textit{mono} (aka a monomorphism)
+if, for any parallel edges $f,g$ departing $\mathsf{head}(e)$:
+\[
+\left( f \circ e = g \circ e \right) \Rightarrow (f = g)
+\]
+
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Alternate (composition-less) definition}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
