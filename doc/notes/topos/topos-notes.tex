@@ -727,6 +727,44 @@ Category theory abstracts functions between sets to
 arrows (maps, morphisms) between objects,
 with the co/domain objects part of the identity of the arrow.
 
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Modularity breaking}
+\label{sec:Modularity_breaking}
+
+Modularity a key design principle, whether for
+a physical system, software, or formal theory.
+
+I am beginning to think one of the issues with category theory
+is a tendency to break the modularity of the constructs it's
+``abstracting''.
+
+One example is, again, functions vs arrows.
+As mentioned in section~\ref{sec:arrow-more-general},
+the association of a function and its domain, and, particularly,
+codomain is ,in practice, pretty loose.
+Modifying a function by restricting, extending , or otherwise
+modifying the domain and/or codomain is common.
+ALthough it's not usually clearly stated, 
+I think most operate as though there is a common entity
+that's shared by all these essentially trivial variations on the
+same function.
+As far as I know, category theory does not provide anything similar:
+no way to construct a new arrow by modifying the domain
+and codomain of the original, while maintaining other properties.
+
+More generally, I think I am beginning to see a pattern where
+constructs that are modular in a sets and functions context,
+in the sense that they only depend on an individual function or
+set, or perhaps a few such, require global information about
+the whole category.
+For example, whether a function is one-to-one or onto
+can be determined from the function in isolation,
+or, at most, using the (co)domain.
+Determining whether an arrow is mono or epi requires
+considering all other arrows that share the (co)domain,
+and what the $c\mathsf{compose}$ operation does in those cases.
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Right abstraction?}
 \label{sec:Right-abstraction}
@@ -752,6 +790,7 @@ the standard constructs make sense?
 Is this question related to concrete 
 categories?~\cite{wiki:concrete-category-2020}
 
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Naming}
 \label{sec:Naming}
@@ -1212,7 +1251,7 @@ V_0
 \end{tikzcd}
 
 \caption{A directed graph}
-\label{fig:a-digraph}
+\label{fig:a_digraph}
 \end{figure}
 % \begin{figure}
 % \centering
@@ -1234,7 +1273,7 @@ V_0
 % & V_4
 % \end{tikzcd}
 % \caption{A directed graph}
-% \label{fig:a-digraph}
+% \label{fig:a_digraph}
 % \end{figure}
 
 $V_0$ is the only root; $V_4$ is the only leaf;
@@ -1296,9 +1335,9 @@ from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
 \arrow["e_{34} \circ e_{13} \circ e_{01}"' {near start},
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
 \end{tikzcd}
-\caption{Completion of fig.~\ref{fig:a-digraph}
+\caption{Completion of fig.~\ref{fig:a_digraph}
 to a category}
-\label{fig:a-completed-digraph}
+\label{fig:a_completed_digraph}
 \end{figure}
 
 A \textit{category} is a directed (multi) graph 
@@ -1417,8 +1456,8 @@ Then $2$ edges can be considered as ``inverses'' if both
 $2$-edge paths are path-equivalent to the common vertex.
 \end{description}
 
-Figure~\ref{fig:a-completed-digraph} shows the additional
-edges needed to make the graph in figure~\ref{fig:a-digraph}
+Figure~\ref{fig:a_completed_digraph} shows the additional
+edges needed to make the graph in figure~\ref{fig:a_digraph}
 into a category: the identity loops are in blue, first order
 compositions red, and second order green.
 Any of the pair of edges with the same head and tail might be
@@ -1426,6 +1465,45 @@ taken to be the same edge, and still satisfy the definition of a
 category. 
 If all such ``redundant'' pairs are reduced to single edges,
 then the diagram is said to \textit{commute}.
+
+\begin{figure}
+\centering
+\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
+V_0
+\arrow[loop above, blue, crossing over]
+\arrow[dr, "{e_{01}}" ] 
+\arrow[drr, "e_{12} \circ e_{01}", "e_{02}"  {near start},
+bend left=10]
+\arrow[ddr, "e_{13} \circ e_{01}"', "e_{03}"' {near start},
+bend right=10]
+& & 
+\\
+& V_1 
+\arrow[loop above, blue,crossing over]
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\arrow[dr, "e_{24} \circ e_{12}", "e_{34} \circ e_{13}"',
+dashed, red]
+& V_2 
+\arrow[loop right, crossing over, blue]
+\arrow[d, "e_{24}"] 
+\\
+& V_3 
+\arrow[loop below, blue,crossing over]
+\arrow[r, "e_{34}"']
+& V_4
+\arrow[loop right, blue, crossing over]
+\arrow[
+"e_{24} \circ e_{02}",
+"e_{34} \circ e_{03}" {near end},
+"e_{24} \circ e_{12} \circ e_{01}" {near start},
+"e_{34} \circ e_{13} \circ e_{01}"' {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=100,]
+\end{tikzcd}
+\caption{Commuting version of fig.~\ref{fig:a_completed_digraph}}
+\label{fig:a_commuting_diagram}
+\end{figure}
+
 Commutative diagrams are in some sense the heart of category
 theory,
 but both ``commutative'' and ``diagram'' are problematic.
@@ -1483,8 +1561,10 @@ V_0
 & V_1 
 \arrow[r, "e"]
 & V_2 
-\arrow[r,Rightarrow,"\mathrm{ if commutes}"]
-& V_0 
+\end{tikzcd}
+if commuting, implies:
+\begin{tikzcd}
+V_0 
 \arrow[r, "f", "g"']
 & V_1 
 \end{tikzcd}
@@ -1500,14 +1580,38 @@ V_0 \arrow[r, "e"]
 \arrow[r, bend left, "f"]
 \arrow[r, bend right, "g"']
 & V_2 
-\arrow[r,Rightarrow,"\mathrm{ if commutes}"]
-& V_1 
+\end{tikzcd}
+if commuting, implies:
+\begin{tikzcd}
+V_1 
 \arrow[r, "f", "g"']
 & V_2 
 \end{tikzcd}
 \caption{Epi edge $e$}
 \label{fig:epi}
 \end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[loop left, blue, "I_{V_0}"]
+\arrow[r, "e", bend left]
+\arrow[r, "e^{-1}"', leftarrow, bend right]
+& 
+V_1 
+\arrow[loop right, blue, "I_{V_1}"]
+\end{tikzcd}
+\caption{Iso edge $e$, if diagram commutes.}
+\label{fig:iso}
+\end{figure}
+
+Abstracted from one-to-one, onto, and invertible functions.
+Note that while a function that is one-to-one and onto is
+therefore invertible, and all iso edges are both mono and epi,
+an edge that is both mono and epi need not be iso.
+
+(\textbf{Question:} is this actually desirable?)
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Standard definition}
@@ -1518,10 +1622,20 @@ if, for any parallel edges $f,g$ entering $\mathsf{head}(e)$:
 \left( e \circ f = e \circ g \right) \Rightarrow (f = g)
 \]
 
-An edge $e$ is \textit{mono} (aka a monomorphism)
+An edge $e$ is \textit{epi} (aka na epimorphism)
 if, for any parallel edges $f,g$ departing $\mathsf{head}(e)$:
 \[
 \left( f \circ e = g \circ e \right) \Rightarrow (f = g)
+\]
+
+An edge $e$ is \textit{iso} (aka an isomorphism)
+if there exists an edge $e^{-1}$ such that
+\[
+e^{-1} \circ e = \mathsf{identity}(\mathsf{tail}(e))
+\]
+and
+\[
+e \circ e^{-1} = \mathsf{identity}(\mathsf{head}(e))
 \]
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
