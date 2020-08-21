@@ -1606,13 +1606,6 @@ V_1
 \label{fig:iso}
 \end{figure}
 
-Abstracted from one-to-one, onto, and invertible functions.
-Note that while a function that is one-to-one and onto is
-therefore invertible, and all iso edges are both mono and epi,
-an edge that is both mono and epi need not be iso.
-
-(\textbf{Question:} is this actually desirable?)
-
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Standard definition}
 
@@ -1637,6 +1630,39 @@ and
 \[
 e \circ e^{-1} = \mathsf{identity}(\mathsf{head}(e))
 \]
+
+Mono, epi, and iso are ``abstracted'' 
+from one-to-one, onto, and invertible functions.
+At this point, it is, at best, not clear that we have gained
+anything and we definitely have lost something.
+I put quotes around ``abstracted'' because the new concepts are
+not simplifications of the originals.
+First of all, 
+we've broken the modularity of the original concepts:
+one-to-one, onto, and invertible can be determined from
+the function alone, and the fact that the domain and codomain
+somewhat slippery can be handled directly.
+(\textbf{TODO:} find the right way to say this.)
+Mon, epi, and, particularly, iso depend other edges in the category, 
+and details of how $\mathsf{compose}$ is defined.
+Specifically, note that,
+a function that is one-to-one and onto is
+therefore invertible, and vice versa.
+On the other hand, all iso edges are both mono and epi,
+but an edge that is both mono and epi need not be iso.
+For an edge to be iso, it requires the existence of an ``inverse''
+edge, that cancels when composed with the original edge 
+in either order.
+
+Also, note here another example of needlessly obscure naming.
+``one-to-one'' could be ``left invertible'';
+``onto'' could be ``right invertible''.
+You sometimes see ``left/right cancelable" instead of ``mono/epi'',
+but ``cancelable'' wouldn't be the same as ``iso''.
+
+
+
+(\textbf{Question:} is this actually desirable?)
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Alternate (composition-less) definition}
