@@ -152,7 +152,7 @@ category theory is the ``right way to do \textit{blah}''.
 I would then pick up some recent 
 introduction~\cite{adamek-herrlich-strecker-1990,
 asperti-longo-1991,awodey-2010,
-barr-wells-2020,
+barr_wells_2020,
 geroch-1985,hillman2001primer,lawvere-schanuel-2009,
 leinster-2016-basic-category-theory,
 maclane-1998-working-mathematician,nLab-2020,
@@ -376,7 +376,7 @@ algebraic structures. In this book, we advocate categories in their role as form
 theories as being in many ways superior to the others just mentioned.
 Continuing along the same path, we advocate sketches as definite specifications
 for the theories.}
-{Barr and Wells, \textit{Category theory for computing science}~\cite{barr-wells-2020}}
+{Barr and Wells, \textit{Category theory for computing science}~\cite{barr_wells_2020}}
 
 %\pagebreak
 \epigraph{Category theory is becoming a central hub for all of pure mathematics. It is unmatched
@@ -1147,7 +1147,7 @@ structure-preserving functions between them.
   \item Categories of arrows, categories, functors, etc.
   Is there anything here beyond certain sets and functions between
   them?
-  
+  \item Slice categories~\cite[sec~2.6.10]{barr_wells_2020}
 \end{itemize}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1214,7 +1214,11 @@ An \textit{directed acyclic graph} (aka DAG) has no paths
 connecting a vertex to itself.
 A directed graph is \textit{(strongly) connected} if there is a path
 from any vertex to any other (weakly if there is path
-ignoring direction.)
+ignoring direction.
+
+(\textbf:{TODO:} straighten out \textit{path} vs \textit{walk} vs
+\textit{trail}; directed vs undirected; sequence of alternating
+vertices and edges, starting and beginning with a vertex.)
 
 A \textit{root} vertex (aka source) has no entering edges.
 A \textit{leaf} vertex (aka sink) has no departing edges.
@@ -1253,28 +1257,6 @@ V_0
 \caption{A directed graph}
 \label{fig:a_digraph}
 \end{figure}
-% \begin{figure}
-% \centering
-% \begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.4cm]
-% V_0
-% \arrow[drr, bend left, "e_{02}"]
-% \arrow[ddr, bend right, "e_{03}"]
-% \arrow[dr, "{e_{01}}" ] 
-% & & 
-% \\
-% & V_1 
-% \arrow[r, "e_{12}"] 
-% \arrow[d, "e_{13}"]
-% & V_2 
-% \arrow[d, "e_{24}"]
-% \\
-% & V_3 
-% \arrow[r, "e_{34}"]
-% & V_4
-% \end{tikzcd}
-% \caption{A directed graph}
-% \label{fig:a_digraph}
-% \end{figure}
 
 $V_0$ is the only root; $V_4$ is the only leaf;
 the graph is simple, connected, and acyclic.
@@ -1299,9 +1281,18 @@ Applications of directed graphs:~\cite{clrs-2009}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
 
+% Note tkzcd bug: bounding box for diagram includes the control 
+% pts of the curved edges! 
 \begin{figure}
 \centering
-\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
+\fbox{
+\begin{tikzcd}[
+ampersand replacement = \&,
+row sep=1.2cm, 
+column sep=2.5cm,
+ execute at begin picture={
+     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
+    ]
 V_0
 \arrow[loop above, blue, crossing over]
 \arrow[drr, bend left=40, "e_{02}" near start]
@@ -1309,23 +1300,23 @@ V_0
 \arrow[dr, "{e_{01}}" ] 
 \arrow[drr, "e_{12} \circ e_{01}", bend left=10, dashed, red]
 \arrow[ddr, "e_{13} \circ e_{01}", bend right=10, dashed, red]
-& & 
+\arrow[loop right, blue, crossing over]
+\& \& 
 \\
-& V_1 
+\& V_1 
 \arrow[loop above, blue,crossing over]
 \arrow[r, "e_{12}"] 
 \arrow[d, "e_{13}"']
 \arrow[dr, bend left, "e_{24} \circ e_{12}", dashed, red]
 \arrow[dr, bend right, "e_{34} \circ e_{13}"' red, dashed, red]
-& V_2 
+\& V_2 
 \arrow[loop right, crossing over, blue]
 \arrow[d, "e_{24}"] 
 \\
-& V_3 
+\& V_3 
 \arrow[loop below, blue,crossing over]
 \arrow[r, "e_{34}"']
-& V_4
-\arrow[loop right, blue, crossing over]
+\& V_4
 \arrow["e_{24} \circ e_{02}" {near end},
 from=1-1,to=3-3, red, dashed, bend left=100,]
 \arrow["e_{34} \circ e_{03}"' {near end},
@@ -1335,10 +1326,12 @@ from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
 \arrow["e_{34} \circ e_{13} \circ e_{01}"' {near start},
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
 \end{tikzcd}
+}
 \caption{Completion of fig.~\ref{fig:a_digraph}
 to a category}
 \label{fig:a_completed_digraph}
 \end{figure}
+
 
 A \textit{category} is a directed (multi) graph 
 together with $2$ functions that satisfy certain constraints:
@@ -1425,7 +1418,8 @@ cost, etc.
 \par
 (\textbf{Question:} is associativity actually necessary,
 even with usual interpretation of $\mathsf{compose}$?
-Doesn't really make sense in the context of path evaluation/classification.)
+Doesn't really make sense in the context 
+of path evaluation/classification.)
 
 \item[Identity]\mbox{}\\
 For every vertex $v$, there is a self-loop edge 
@@ -1439,7 +1433,8 @@ entering or leaving $v$:
 and
 \[ \mathsf{compose}(e_1,\mathsf{identity}(v)) = e_1 \]
 \par
-Again, a lot of room for doubt that this extra structure is really necessary.
+Again, a lot of room for doubt that this extra structure 
+is really necessary.
 \par
 \textbf{Alternative:} 
 extend $\mathsf{compose}$ to take vertices as well as edges,
@@ -1460,7 +1455,29 @@ Figure~\ref{fig:a_completed_digraph} shows the additional
 edges needed to make the graph in figure~\ref{fig:a_digraph}
 into a category: the identity loops are in blue, first order
 compositions red, and second order green.
-Any of the pair of edges with the same head and tail might be
+
+Complete categories like this are rarely drawn,
+which seems to follow a propaganda-ish pattern 
+I've observed in other graphical languages:
+It seems to be common to only draw partial graphs,
+where what's omitted is arguably as or more important 
+than what's drawn.
+I think this is usually an unconscious choice,
+but, even so, it has the effect of hiding and distracting 
+from the parts of the graphical representation that would
+be most open fo questions and doubt.
+An example is probabilistic graphical models/bayesian networks
+in machine learning, where the key and highly questionable
+independence assumptions correspond to the edges that 
+\textsl{are not} drawn.
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Commuting diagrams}
+\label{sec:Commuting_diagrams}
+
+In Figure~\ref{fig:a_completed_digraph}, 
+any of the pair of edges with the same head and tail might be
 taken to be the same edge, and still satisfy the definition of a
 category. 
 If all such ``redundant'' pairs are reduced to single edges,
