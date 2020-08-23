@@ -764,6 +764,58 @@ or, at most, using the (co)domain.
 Determining whether an arrow is mono or epi requires
 considering all other arrows that share the (co)domain,
 and what the $c\mathsf{compose}$ operation does in those cases.
+
+I imagine a counter-argument along the lines of:
+moving only the necessary, minimal semantics out of the ``atomic''
+inner component entities, 
+into the surrounding structure (the category) allows the same 
+outer structure to be used
+with other atomic entities, and hopefully, significant results
+can then be obtained, independent of the inner components.
+(I'm almost surely not doing real justice to this kind of argument.)
+In any case, I think it's wrong.
+
+I suspect there's a useful analogy to data structure design.
+
+At one end of a spectrum, code is built out of conceptually 
+``large'' objects, encapsulating considerable state and
+behavior. In any particular context, only a limited interface
+is used, depending on a small subset of the state and behavior,
+with the code otherwise independent of the hidden functionality.
+When objects like this are held in collections, those collections
+tend to be simple, eg lists, with almost no assumptions
+about what the elements of the list are.
+This kind of code is more common in languages developed 
+after $1990$.
+
+At the other end of the spectrum are systems where the semantics
+are diffused from the elements into the surrounding collection.
+In such systems, the elements are typically restricted 
+to a few primitive types (eg integers, floats, strings).
+Such systems go back to the $1960$s, 
+and, although still in wide use,
+plague those who must deal with them (as I can attest from personal
+experience).
+Such systems result in bug-ridden, inefficient, 
+inflexible, brittle code.
+
+(\textbf{TODO:} More complete examples? 
+How much detail is actually useful to anybody?)
+
+One example is Fortran. The only data structure is the array.
+The meaning of any array can only be determined examining every
+place in the code where that array might be touched.
+
+Another is relational databases. The semantics is determined
+by which tables are joined to which on what columns.
+It is piratically impossible to add functionality to a system
+built on relational databases without starting from scratch.
+
+R, Matlab (array/relation languages with some modern features
+patched on) vs Python.
+
+
+
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Right abstraction?}
@@ -1236,24 +1288,35 @@ orientation from $90^{\circ}$ turn of primal edge.~\cite{wiki:Dual_graph})
 An example:
 \begin{figure}
 \centering
-\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
+\fbox{
+\begin{tikzcd}[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+%execute at begin picture={
+%     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
+    ]
 V_0
-\arrow[drr, bend left=40, "e_{02}" near start]
-\arrow[ddr, bend right=40, "e_{03}"' near start]
-\arrow[dr, "{e_{01}}" ] 
-& & 
+\arrow[drr, "e_{02}", bend left]
+\arrow[ddr, "e_{03}"', bend right]
+\arrow[dr, "{e_{01}}"] 
+\& 
+\& 
 \\
-& V_1 
+\& 
+V_1 
 \arrow[r, "e_{12}"] 
 \arrow[d, "e_{13}"']
-& V_2 
+\& 
+V_2 
 \arrow[d, "e_{24}"] 
 \\
-& V_3 
+\& 
+V_3 
 \arrow[r, "e_{34}"']
-& V_4
+\& V_4
 \end{tikzcd}
-
+}
 \caption{A directed graph}
 \label{fig:a_digraph}
 \end{figure}
@@ -1281,56 +1344,6 @@ Applications of directed graphs:~\cite{clrs-2009}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
 
-% Note tkzcd bug: bounding box for diagram includes the control 
-% pts of the curved edges! 
-\begin{figure}
-\centering
-\fbox{
-\begin{tikzcd}[
-ampersand replacement = \&,
-row sep=1.2cm, 
-column sep=2.5cm,
- execute at begin picture={
-     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
-    ]
-V_0
-\arrow[loop above, blue, crossing over]
-\arrow[drr, bend left=40, "e_{02}" near start]
-\arrow[ddr, bend right=40, "e_{03}"' near start]
-\arrow[dr, "{e_{01}}" ] 
-\arrow[drr, "e_{12} \circ e_{01}", bend left=10, dashed, red]
-\arrow[ddr, "e_{13} \circ e_{01}", bend right=10, dashed, red]
-\arrow[loop right, blue, crossing over]
-\& \& 
-\\
-\& V_1 
-\arrow[loop above, blue,crossing over]
-\arrow[r, "e_{12}"] 
-\arrow[d, "e_{13}"']
-\arrow[dr, bend left, "e_{24} \circ e_{12}", dashed, red]
-\arrow[dr, bend right, "e_{34} \circ e_{13}"' red, dashed, red]
-\& V_2 
-\arrow[loop right, crossing over, blue]
-\arrow[d, "e_{24}"] 
-\\
-\& V_3 
-\arrow[loop below, blue,crossing over]
-\arrow[r, "e_{34}"']
-\& V_4
-\arrow["e_{24} \circ e_{02}" {near end},
-from=1-1,to=3-3, red, dashed, bend left=100,]
-\arrow["e_{34} \circ e_{03}"' {near end},
-from=1-1,to=3-3, red, dashed, bend right=100,]
-\arrow["e_{24} \circ e_{12} \circ e_{01}" {near start},
-from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
-\arrow["e_{34} \circ e_{13} \circ e_{01}"' {near start},
-from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
-\end{tikzcd}
-}
-\caption{Completion of fig.~\ref{fig:a_digraph}
-to a category}
-\label{fig:a_completed_digraph}
-\end{figure}
 
 
 A \textit{category} is a directed (multi) graph 
@@ -1355,11 +1368,14 @@ general idea is that $e_1$ is traversed/applied first,
 then $e_0$.)
 \par
 In addition, $\mathsf{compose}$ is required to be associative:
-\[
+\begin{align*}
 \mathsf{compose}(\mathsf{compose}(e_0,e_1),e_2) 
+&
 = \mathsf{compose}(e_0,\mathsf{compose}(e_1,e_2))
+\\
+&
 = \mathsf{compose}(e_0,e_1,e_2)
-\]
+\end{align*}
 
 \item[General paths]\mbox{}\\
 An alternative is define the domain of $\mathsf{compose}$
@@ -1367,7 +1383,9 @@ to be the graph's paths.
 Then, for all paths $p$ in the graph,
 there exists some edge $e$ in the graph
 with 
-\[ \mathsf{compose}(p) = e \]
+\begin{equation*}
+\mathsf{compose}(p) = e
+\end{equation*} 
 such that 
 $p$ and $e$ have the same head and tail.
 Associativity here means that if we partially reduce a path
@@ -1429,7 +1447,8 @@ $\mathsf{compose}$ and $\mathsf{identity}$
 must be defined so that  $\mathsf{identity}(v)$ 
 ``disappears" in any composition with edges 
 entering or leaving $v$:
-\[ \mathsf{compose}(\mathsf{identity}(v),e_0) = e_0 \]
+\[ 
+\mathsf{compose}(\mathsf{identity}(v),e_0) = e_0 \]
 and
 \[ \mathsf{compose}(e_1,\mathsf{identity}(v)) = e_1 \]
 \par
@@ -1456,6 +1475,66 @@ edges needed to make the graph in figure~\ref{fig:a_digraph}
 into a category: the identity loops are in blue, first order
 compositions red, and second order green.
 
+% Note tkzcd bug: bounding box for diagram includes the control 
+% pts of the curved edges! 
+\begin{figure}
+\centering
+\fbox{
+\begin{tikzcd}[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+execute at begin picture={
+     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
+    ]
+V_0
+\arrow[loop above, blue, crossing over]
+%\arrow[drr, bend left=40, "e_{02}" near start]
+%\arrow[ddr, bend right=40, "e_{03}"' near start]
+\arrow[drr, bend left, "e_{02}" near start]
+\arrow[ddr, bend right, "e_{03}"' near start]
+\arrow[dr, "{e_{01}}" ] 
+\arrow[drr, "e_{12} \circ e_{01}", bend left=10, dashed, red]
+\arrow[ddr, "e_{13} \circ e_{01}", bend right=10, dashed, red]
+\arrow[loop right, blue, crossing over]
+\& 
+\& 
+\\
+\& 
+V_1 
+\arrow[loop above, blue,crossing over]
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\arrow[dr, bend left, "e_{24} \circ e_{12}", dashed, red]
+\arrow[dr, bend right, "e_{34} \circ e_{13}"' red, dashed, red]
+\& 
+V_2 
+\arrow[loop right, crossing over, blue]
+\arrow[d, "e_{24}"] 
+\\
+\& 
+V_3 
+\arrow[loop below, blue,crossing over]
+\arrow[r, "e_{34}"']
+\&
+V_4
+\arrow[loop below, blue,crossing over]
+\arrow["e_{24} \circ e_{02}" {near end},
+from=1-1,to=3-3, red, dashed, bend left=100,]
+\arrow["e_{34} \circ e_{03}"' {near end},
+from=1-1,to=3-3, red, dashed, bend right=100,]
+\arrow["e_{24} \circ e_{12} \circ e_{01}" {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
+\arrow["e_{34} \circ e_{13} \circ e_{01}"' {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
+\end{tikzcd}
+}
+\caption{Completion of fig.~\ref{fig:a_digraph}
+to a category}
+\label{fig:a_completed_digraph}
+\end{figure}
+
+
 Complete categories like this are rarely drawn,
 which seems to follow a propaganda-ish pattern 
 I've observed in other graphical languages:
@@ -1476,39 +1555,45 @@ independence assumptions correspond to the edges that
 \levelstay{Commuting diagrams}
 \label{sec:Commuting_diagrams}
 
-In Figure~\ref{fig:a_completed_digraph}, 
-any of the pair of edges with the same head and tail might be
-taken to be the same edge, and still satisfy the definition of a
-category. 
-If all such ``redundant'' pairs are reduced to single edges,
-then the diagram is said to \textit{commute}.
-
 \begin{figure}
 \centering
-\begin{tikzcd}[cramped,row sep=1.2cm, column sep=2.5cm]
+\fbox{
+\begin{tikzcd}
+[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+execute at begin picture={
+     \useasboundingbox (-3.3,-2.5) rectangle (4.25,3.4); }
+    ]
 V_0
 \arrow[loop above, blue, crossing over]
 \arrow[dr, "{e_{01}}" ] 
-\arrow[drr, "e_{12} \circ e_{01}", "e_{02}"  {near start},
-bend left=10]
-\arrow[ddr, "e_{13} \circ e_{01}"', "e_{03}"' {near start},
-bend right=10]
-& & 
+\arrow[drr, "e_{12} \circ e_{01}"', "e_{02}"  {near start},
+bend left]
+\arrow[ddr, "e_{13} \circ e_{01}", "e_{03}"' {near start},
+bend right]
+\& 
+\& 
 \\
-& V_1 
+\&
+V_1 
 \arrow[loop above, blue,crossing over]
 \arrow[r, "e_{12}"] 
 \arrow[d, "e_{13}"']
 \arrow[dr, "e_{24} \circ e_{12}", "e_{34} \circ e_{13}"',
 dashed, red]
-& V_2 
+\& 
+V_2 
 \arrow[loop right, crossing over, blue]
 \arrow[d, "e_{24}"] 
 \\
-& V_3 
+\& 
+V_3 
 \arrow[loop below, blue,crossing over]
 \arrow[r, "e_{34}"']
-& V_4
+\& 
+V_4
 \arrow[loop right, blue, crossing over]
 \arrow[
 "e_{24} \circ e_{02}",
@@ -1517,9 +1602,18 @@ dashed, red]
 "e_{34} \circ e_{13} \circ e_{01}"' {near start},
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=100,]
 \end{tikzcd}
+}
 \caption{Commuting version of fig.~\ref{fig:a_completed_digraph}}
 \label{fig:a_commuting_diagram}
 \end{figure}
+
+In Figure~\ref{fig:a_completed_digraph}, 
+any of the pair of edges with the same head and tail might be
+taken to be the same edge, and still satisfy the definition of a
+category. 
+If all such ``redundant'' pairs are reduced to single edges,
+then the diagram is said to \textit{commute}.
+This is shown in figure~\ref{fig:a_commuting_diagram}
 
 Commutative diagrams are in some sense the heart of category
 theory,
