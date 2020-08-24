@@ -1662,6 +1662,7 @@ a diagram commutes?)
 \label{sec:mono_epi_iso}
 
 Two edges are \textit{parallel} is they have the same head and tail.
+Same for paths.
 
 \begin{figure}
 \centering
@@ -1673,13 +1674,7 @@ V_0
 \arrow[r, "e"]
 & V_2 
 \end{tikzcd}
-if commuting, implies:
-\begin{tikzcd}
-V_0 
-\arrow[r, "f", "g"']
-& V_1 
-\end{tikzcd}
-\caption{Mono edge $e$}
+\caption{Mono edge $e$ if diagram commutes.}
 \label{fig:mono}
 \end{figure}
 
@@ -1692,13 +1687,7 @@ V_0 \arrow[r, "e"]
 \arrow[r, bend right, "g"']
 & V_2 
 \end{tikzcd}
-if commuting, implies:
-\begin{tikzcd}
-V_1 
-\arrow[r, "f", "g"']
-& V_2 
-\end{tikzcd}
-\caption{Epi edge $e$}
+\caption{Epi edge $e$ if diagram commutes.}
 \label{fig:epi}
 \end{figure}
 
@@ -1718,7 +1707,9 @@ V_1
 \end{figure}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Standard definition}
+\levelstay{Standard definition~\cite{perrone2019notes}}
+
+(\textbf{TODO:} mono vs monic, epi vs epic)
 
 An edge $e$ is \textit{mono} (aka a monomorphism)
 if, for any parallel edges $f,g$ entering $\mathsf{head}(e)$:
@@ -1732,7 +1723,33 @@ if, for any parallel edges $f,g$ departing $\mathsf{head}(e)$:
 \left( f \circ e = g \circ e \right) \Rightarrow (f = g)
 \]
 
-An edge $e$ is \textit{iso} (aka an isomorphism)
+Mono and epi definitions are equivalent to one with the parallel
+edges replaced by parallel paths. (Is a proof needed here?)
+
+(\textbf{Question:} 
+what is an edge/path that is both epic and monic?
+Seems like ``epic-monic'' is best options=.)
+
+An edge $e$ is \textit{split mono} (aka has a left inverse)
+if there exists an $e^{-\text{left}}$, the \textit{retraction},
+such that
+\[
+e^{-left} \circ e = \mathsf{identity}(\mathsf{tail}(e))
+\]
+Every split mono edge is mono.
+
+An edge $e$ is \textit{split epi} (aka has a right inverse)
+if there exists an $e^{-\text{right}}$, the \textit{splitting} 
+such that
+\[
+e \circ e^{-\text{right}} = \mathsf{identity}(\mathsf{head}(e))
+\]
+Every split epi edge is epi.
+
+(\textbf{Question:} do split mono/epi definitions work if we replace
+edge $e$ by path $p$?)
+
+An edge $e$ is \textit{iso} (aka an isomorphism, invertible)
 if there exists an edge $e^{-1}$ such that
 \[
 e^{-1} \circ e = \mathsf{identity}(\mathsf{tail}(e))
@@ -1741,6 +1758,19 @@ and
 \[
 e \circ e^{-1} = \mathsf{identity}(\mathsf{head}(e))
 \]
+In other words, $e$ is both split mono and split epi,
+and the retraction and splitting edges are the same.
+(Note that this seems much simpler in left/right invertible language.)
+
+(\textbf{Question:} can we define isomorphisms via paths?)
+
+(\textbf{Note:} in a topos mono$+$epi $\Rightarrow$ iso.
+Is that because all mono/epi are split?)
+
+(\textbf{TODO:} describe these ideas in the context of
+structures and structure-preserving functions vs
+set and all functions, to distinguish epi/mono from split versions.
+eg non-surjective epimorphisms, noon-injective monomorphism.)
 
 Mono, epi, and iso are ``abstracted'' 
 from one-to-one, onto, and invertible functions.
@@ -1764,16 +1794,6 @@ but an edge that is both mono and epi need not be iso.
 For an edge to be iso, it requires the existence of an ``inverse''
 edge, that cancels when composed with the original edge 
 in either order.
-
-Also, note here another example of needlessly obscure naming.
-``one-to-one'' could be ``left invertible'';
-``onto'' could be ``right invertible''.
-You sometimes see ``left/right cancelable" instead of ``mono/epi'',
-but ``cancelable'' wouldn't be the same as ``iso''.
-
-
-
-(\textbf{Question:} is this actually desirable?)
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
 \levelstay{Alternate (composition-less) definition}
