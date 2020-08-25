@@ -45,7 +45,7 @@
 %-------------------------------------------------------------------------------
 % category thgeory
 \usepackage{tikz-cd}
-\usepackage{tikz-network}
+%\usepackage{tikz-network}
 %-------------------------------------------------------------------------------
 \usepackage{url}
 %-------------------------------------------------------------------------------
@@ -170,7 +170,7 @@ BoldItalicFont = *08-Italic ]
   \@ifnextchar\thmtformatoptarg\@secondoftwo{#1}%
 }
 \makeatother
-%---------------------------------------------------------
+%-----------------------------------------------------------------
 % \newtheoremstyle{break}%
 % {}{}%
 % {}{}%
@@ -182,7 +182,7 @@ BoldItalicFont = *08-Italic ]
 % \newtheorem{fact}{\textsf{Fact}}[section]
 %\DeclareRobustCommand{\rvspace}[1]{\vspace{#1}}
 % \theoremstyle{break}
-%---------------------------------------------------------
+%-----------------------------------------------------------------
 % \declaretheoremstyle[
 % % TODO: should be relative to parskip, or something like that
 % spaceabove=16pt,
@@ -251,18 +251,18 @@ keywordstyle={\ttfamily}}
 %     \orig@item[\usebox0]%
 % }
 % \makeatother
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{algpseudocode,algorithm,algorithmicx}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{datetime}
 \renewcommand{\dateseparator}{-}
 \renewcommand{\today}{
 \the\year \dateseparator \twodigit\month \dateseparator \twodigit\day}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \setlength{\parskip}{5pt}
 \setlength{\parindent}{0pt}
 \usepackage[parfill]{parskip}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \usepackage{fancyhdr}
 % \pagestyle{fancy}
 % \setlength{\headwidth}{\textheight}
@@ -277,7 +277,7 @@ keywordstyle={\ttfamily}}
 % \renewcommand{\headrulewidth}{0.0pt}
 % \renewcommand{\footrulewidth}{0.1pt}}
 % \pagestyle{plain}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{titling}
 %\newfontfamily\titlefont[Scale=MatchUppercase]{Gill Sans MT}
 %\renewcommand{\maketitlehooka}{\titlefont}
@@ -291,7 +291,7 @@ keywordstyle={\ttfamily}}
 \predate{\begin{flushright}\scshape\mdseries}
 \postdate{\par\end{flushright}}
 \setlength{\droptitle}{-80pt}
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 \usepackage{enumitem}
 %\setlist[description]{font=\small\sffamily\mdseries,style=unboxed,leftmargin=0cm}
 %\setlist[description]{font=\sffamily\mdseries}
@@ -328,7 +328,7 @@ keywordstyle={\ttfamily}}
 \titlespacing\subsubsection{0pt}{10pt plus 10pt minus 2pt}{5pt plus 5pt minus 2pt}
 
 \setcounter{secnumdepth}{7}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \makeatletter
 % \let\oldl@chapter\l@chapter
 % \def\l@chapter#1#2{\oldl@chapter{#1}{\textsf{#2}}}
@@ -344,7 +344,7 @@ keywordstyle={\ttfamily}}
 \def\@dottedtocline#1#2#3#4#5{%
 \old@dottedcontentsline{#1}{#2}{#3}{#4}{{\textrm{#5}}}}
 \makeatother
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \usepackage{tocloft}
 % \renewcommand{\cftpartfont}{\sffamily}
 % \renewcommand{\cftchapfont}{\sffamily}
@@ -353,12 +353,12 @@ keywordstyle={\ttfamily}}
 % \renewcommand{\cftsubsubsecfont}{\sffamily}
 % \renewcommand{\cftparafont}{\sffamily}
 % \renewcommand{\cftsubparafont}{\sffamily}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 %https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{makeidx}
 \makeindex
 \usepackage[totoc]{idxlayout}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage[
 backend=biber, 
 citestyle=numeric-comp, 
@@ -378,7 +378,7 @@ datezeros=true,
 timezeros=true,
 ]{biblatex} 
 \renewcommand\mkbibnamefamily[1]{\textsc{#1}}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \usepackage[chapter]{tocbibind}
 % \renewcommand{\listfigurename}{Figures}
 % \setlofname{Figures}
@@ -386,9 +386,9 @@ timezeros=true,
 % \tocchapter
 % \tocfile{\listfigurename}{lof}
 % \endgroup}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 %\usepackage[titletoc]{appendix}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage[unicode=true,
 pdfusetitle,
 bookmarks=true,
@@ -401,11 +401,6 @@ pdftoolbar=false,
 pdffitwindow=true,
 backref=false,
 colorlinks=true]{hyperref}
-% these renewcommands don't seem to work
-% \renewcommand{\chapterautorefname}{\S}
-% \renewcommand{\sectionautorefname}{\S}
-% \renewcommand{\subsectionautorefname}{\S}
-% \renewcommand{\subsubsectionautorefname}{\S}
 \hypersetup{unicode=true,
 colorlinks=true,
 pdfpagemode=UseOutlines,
@@ -414,10 +409,14 @@ pdfstartview=Fit,
 linkcolor=MidnightBlue,
 urlcolor=Mahogany,
 citecolor=OliveGreen}
-%-------------------------------------------------------------------------------
-% %\usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
+\usepackage{bookmark}
+%-----------------------------------------------------------------
 % \usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+% doesn't do much for XeTeX
+%\usepackage{microtype}
+%-----------------------------------------------------------------
 \input{symbols}
+%-----------------------------------------------------------------
 
 
