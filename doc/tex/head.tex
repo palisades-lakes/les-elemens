@@ -148,28 +148,31 @@ BoldItalicFont = *08-Italic ]
 %\usepackage{amsthm}
 \usepackage[amsthm,amsmath]{ntheorem}
 \usepackage{thmtools}
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
-\newtheorem{example}{Example}
+\theoremstyle{definition}
+\newtheorem{theorem}{\textsc{Theorem}}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{\textsc{Definition}}[section]
+\theoremstyle{definition}
+\newtheorem{example}{\textsc{Example}}[section]
 %-----------------------------------------------------------------
 % 2019-12-22 thmtools broken by change to kvsetkeys
 % \usepackage{thmtools}
 
 % https://tex.stackexchange.com/questions/249963/remove-repeated-theorem-in-the-list-of-theorems
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\thmt@mklistcmd
-  {\thmt@thmname}
-  {\check@optarg{\thmt@thmname}}
-  {}{}
-\patchcmd\thmt@mklistcmd
-  {\thmt@thmname\ifx}
-  {\check@optarg{\thmt@thmname}\ifx}
-  {}{}
-\protected\def\check@optarg#1{%
-  \@ifnextchar\thmtformatoptarg\@secondoftwo{#1}%
-}
-\makeatother
+% \usepackage{etoolbox}
+% \makeatletter
+% \patchcmd\thmt@mklistcmd
+%   {\thmt@thmname}
+%   {\check@optarg{\thmt@thmname}}
+%   {}{}
+% \patchcmd\thmt@mklistcmd
+%   {\thmt@thmname\ifx}
+%   {\check@optarg{\thmt@thmname}\ifx}
+%   {}{}
+% \protected\def\check@optarg#1{%
+%   \@ifnextchar\thmtformatoptarg\@secondoftwo{#1}%
+% }
+% \makeatother
 %-----------------------------------------------------------------
 % \newtheoremstyle{break}%
 % {}{}%

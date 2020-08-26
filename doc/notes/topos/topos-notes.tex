@@ -1328,7 +1328,7 @@ V_3
 \& V_4
 \end{tikzcd}
 }
-\caption{A directed graph}
+\caption{A directed (acyclic) graph}
 \label{fig:a_digraph}
 \end{figure}
 
@@ -1355,17 +1355,15 @@ Applications of directed graphs:~\cite{clrs_2009}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
 
-
-
+\begin{definition}{\textbf{Category} (standard)}\mbox{}\\
 A \textit{category} is a directed (multi) graph 
 together with two functions that impose constraints
 on the graph:
 \begin{description}
-\item[Composition]\mbox{}\\
+\item[$\mathsf{compose}$]\mbox{}\\
 At least $2$ ways to think about this. 
 More common way first, better (?) way second.
-\begin{description}
-\item[Binary]\mbox{}\\
+
 The usual way this is posed is for pairs of connected edges:
 Whenever $\mathsf{tail}(e0) = \mathsf{head}(e_1)$,
 then
@@ -1389,7 +1387,6 @@ In addition, $\mathsf{compose}$ is required to be associative:
 = \mathsf{compose}(e_0,e_1,e_2)
 \end{align*}
 
-\item[General paths]\mbox{}\\
 An alternative is define the domain of $\mathsf{compose}$
 to be the graph's paths. 
 Then, for all paths $p$ in the graph,
@@ -1404,8 +1401,7 @@ Associativity here means that if we partially reduce a path
 by applying $\mathsf{compose}$ to a sub-path,
 and then $\mathsf{compose}$ the partially reduced path,
 we get the same edge as composing the whole path.
-\end{description}
-\par
+
 Either way we define $\mathsf{compose}$ (no reason not to do both
 simultaneously), it is clearly (to me) not a natural construct
 for directed graphs: for every path, there is also 
@@ -1415,43 +1411,8 @@ many such single edges can be chosen as the value of $\mathsf{compose}$.
 I don't know of any non-categorical applications of directed graphs
 for which this makes sense.
 Moreover, it's not clear that any of this is really necessary.
-\par
-$\mathsf{compose}$ is used primarily, if not exclusively,
-to define whether $2$ paths are equivalent, by asserting they 
-compose to the same edge.
-\par
-(\textbf{Question:} are $\mathsf{compose}$ and the resulting edges
-used for anything other than defining path equivalence?)
-\par
-\textbf{Alternative:} replace $\mathsf{compose}$ with 
-either an equivalence function on path pairs,
-or a path ``evaluation'' function $\mathsf{value}$
-(\textbf{TODO:} need a better name for this),
-with path equivalence classes
-being the level sets of $\mathsf{value}$.
-That's essentially the same as $\mathsf{compose}$,
-except we no longer assume the values are also edges in the graph.
-Offhand, this seems a lot more intuitive than $\mathsf{compose}$,
-adding all these additional, apparently unnecessary, edges to
-the graph.
-\par
-For sets and functions categories, the natural equivalence relation
-is that the composed functions corresponding to the paths 
-have the same graph relation (map each given domain element to the 
-same codomain element. The $\mathsf{value}$ function maps each path
-to its equivalence class.
-\par
-For transportation graphs, and similar, the $\mathsf{value}$ 
-function could return a tuple of all path properties relevant to
-the problem being solved, eg,  expected travel time, likely fuel 
-cost, etc.
-\par
-(\textbf{Question:} is associativity actually necessary,
-even with usual interpretation of $\mathsf{compose}$?
-Doesn't really make sense in the context 
-of path evaluation/classification.)
 
-\item[Identity]\mbox{}\\
+\item[$\mathsf{identity}$]\mbox{}\\
 For every vertex $v$, there is a self-loop edge 
 $\mathsf{identity}(v)$ whose head and tail
 are both $v$.
@@ -1467,20 +1428,14 @@ and
 Again, a lot of room for doubt that this extra structure 
 is really necessary.
 \par
-\textbf{Alternative:} 
-extend $\mathsf{compose}$ to take vertices as well as edges,
+For example, we could extend $\mathsf{compose}$ 
+to take vertices as well as edges,
 and return both edges and vertices.
 Edge-vertex composition just returns the edge (assuming head/tail match).
 Composition of ``inverse'' edges is allowed to return the common vertex,
 rather than an artificially added self-loop edge.
-\par
-If we want to work with paths, either for composition
-or more straightforward equivalence definition,
-we can change the definition of a path to include the vertices,
-so that a single vertex is a path. 
-Then $2$ edges can be considered as ``inverses'' if both
-$2$-edge paths are path-equivalent to the common vertex.
 \end{description}
+\end{definition}
 
 Figure~\ref{fig:a_completed_digraph} shows the additional
 edges needed to make the graph in figure~\ref{fig:a_digraph}
@@ -1546,7 +1501,6 @@ to a category}
 \label{fig:a_completed_digraph}
 \end{figure}
 
-
 Complete categories like this are rarely drawn,
 which seems to follow a propaganda-ish pattern 
 I've observed in other graphical languages:
@@ -1561,6 +1515,58 @@ An example is probabilistic graphical models/bayesian networks
 in machine learning, where the key and highly questionable
 independence assumptions correspond to the edges that 
 \textsl{are not} drawn.
+
+$\mathsf{compose}$ is used primarily, if not exclusively,
+to define whether $2$ paths are equivalent, by asserting they 
+compose to the same edge.
+(\textbf{Question:} Is this absolutely true?
+Are $\mathsf{compose}$ and the resulting edges
+used for anything other than defining path equivalence?)
+This suggests replacing $\mathsf{compose}$ with 
+either an equivalence relation on path pairs,
+or a path ``evaluation'' function $\mathsf{value}$
+(\textbf{TODO:} need a better name for this),
+with path equivalence classes
+being the level sets of $\mathsf{value}$.
+That's essentially the same as $\mathsf{compose}$,
+except we no longer assume the values are also edges in the graph.
+Offhand, this seems a lot more intuitive than $\mathsf{compose}$,
+adding all these additional, apparently unnecessary, edges to
+the graph.
+
+For sets and functions categories, the natural equivalence relation
+is that the composed functions corresponding to the paths 
+have the same graph relation (map each given domain element to the 
+same codomain element. 
+In this case, the $\mathsf{value}$ function maps each path
+to its graph relation.
+
+For transportation graphs, and similar, the $\mathsf{value}$ 
+function could return a tuple of all path properties relevant to
+the problem being solved, eg,  expected travel time, likely fuel 
+cost, etc.
+
+If we define a path as a sequence alternating vertices and edges,
+then we can have paths consisting of single vertices,
+and the need for $\mathsf{identity}$ is eliminated.
+
+(\textbf{Question:} is associativity actually necessary,
+even with usual interpretation of $\mathsf{compose}$?
+Doesn't really make sense in the context 
+of path evaluation/classification.)
+
+\begin{definition}{\textbf{Kategory}
+ (explicit path-equivalence)}\mbox{}\\
+(Until I think of a better name\ldots)\\
+A \textit{kategory} is a directed (multi) graph together with
+a path evaluation function: $\left[G, \mathsf{value}()\right]$.
+In this context, a \textit{path} is taken to be a sequence of
+alternating, connected vertices and edges, beginning and ending 
+with vertices. 
+Two paths are \textit{equivalent} if they have the same 
+$\mathsf{value}$.
+
+\end{definition}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
