@@ -1546,28 +1546,58 @@ function could return a tuple of all path properties relevant to
 the problem being solved, eg,  expected travel time, likely fuel 
 cost, etc.
 
-If we define a path as a sequence alternating vertices and edges,
-then we can have paths consisting of single vertices,
-and the need for $\mathsf{identity}$ is eliminated.
-
-(\textbf{Question:} is associativity actually necessary,
-even with usual interpretation of $\mathsf{compose}$?
-Doesn't really make sense in the context 
-of path evaluation/classification.)
+\begin{definition}{\textbf{Paths}}\mbox{}\\
+In this context, a \textit{path} is taken to be a sequence of
+alternating vertices and edges, beginning and ending 
+with vertices. 
+Note that this allows us to have a path consisting 
+of a single vertex.
+I will often omit the vertices when writing the sequence,
+whenever convenient.
+The main operation on paths is $\mathsf{concatenate}$
+(infix operator: $\diamond$).
+With paths $p_0,p_1,p_2$,
+assuming $\mathsf{head}(p_0) = \mathsf{tail}(p_1)$: 
+\begin{align*}
+p_2 & = \mathsf{concatenate}(p_0,p_1) = p_0 \diamond p_1
+\end{align*}
+\textbf{Note:} $\mathsf{concatenate}$ reverses the arguments
+of $\mathsf{compose}$. 
+We start at $\mathsf{tail}(p_0)$ and end at 
+$\mathsf{head}(p_1)$.
+(I personally find this less confusing.)
+In more detail, with edges $e_{ij}$,
+omitting vertices, 
+and assuming all heads and tails match as needed:
+\begin{align*}
+\left[ e_{00} e_{01} \ldots e_{0m}
+e_{10} e_{11} \ldots e_{1n} \right]
+& = 
+\left[ e_{00} e_{01} \ldots e_{0m} \right]
+\diamond
+\left[ e_{10} e_{11} \ldots e_{1n} \right]
+\end{align*}
+\end{definition}
 
 \begin{definition}{\textbf{Kategory}
  (explicit path-equivalence)}\mbox{}\\
 (Until I think of a better name\ldots)\\
 A \textit{kategory} is a directed (multi) graph together with
-a path evaluation function: $\left[G, \mathsf{value}()\right]$.
-In this context, a \textit{path} is taken to be a sequence of
-alternating, connected vertices and edges, beginning and ending 
-with vertices. 
+a path evaluation function: $\left[G, \mathsf{value}\right]$.
 Two paths are \textit{equivalent} if they have the same 
 $\mathsf{value}$.
-
 \end{definition}
 
+Figure~\ref{fig:a_digraph} is the graph part of a kategory.
+No additional edges, either compositions or identities, are
+needed. 
+The $\mathsf{value}$  function is not shown,
+but that matches typical
+use of diagrams, which omit the implied
+composition and identity edges.
+Note that $\mathsf{identity}$ is not needed at all;
+the constraints between $\mathsf{identity}$ and $\mathsf{compose}$
+are dropped; and $\mathsf{concatenate}$ is associative by definition.
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Commuting diagrams}
