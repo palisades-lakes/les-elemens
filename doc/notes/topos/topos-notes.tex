@@ -1236,12 +1236,14 @@ edges/arrows.
  any value is thinking about undirected graphs?
  Simplicial complexes?)
 
-\textit{Directed graph} (aka digraph): 
+\begin{definition}[Directed graph]
+A \textit{directed (multi)graph} (aka digraph) is
 an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
 where $\Set{V}$ is a set of \textit{vertices}, 
 $\Set{E}$ a set of \textit{edges}, ordered pairs of vertices.
-$A$ is the \textit{tail} and $B$ the \textit{head}
-of $\left(A,B\right)$.
+$V_0 = \mathsf{tail}(e)$ and $V_1 = \mathsf{head}(e)$
+for edge $e = \left[ V_0, V_1 \right]$.
+\end{definition}
 
 In (computational) applications, $\Set{V}$ and $\Set{E}$ 
 are finite, perhaps unbounded finite,
@@ -1251,15 +1253,16 @@ It's common to assume
 \begin{enumerate}
 \item there is at most one edge
 in a graph connecting any $2$ vertices.\par
+\item the vertices in an edge must be 
+distinct (no loop edges).
+\end{enumerate}
 (\textbf{Question:} does ``ordered pair'' imply uniqueness?
 In other words, can we have multiple distinct copies of
  $\left(A,B\right)$, pairing the same elements $A$ and $B$?
  If we use one of the primitive set theory ``implementations'',
  then there is only one $\left(A,B\right)$ 
  for given $A$ and $B$.)
-\item the vertices in an edge must be 
-distinct (no loop edges).
-\end{enumerate}
+
 
 A graph may be called a \textit{multigraph} when $1$ is
 not assumed.
@@ -1355,15 +1358,14 @@ Applications of directed graphs:~\cite{clrs_2009}
 \levelstay{Category}
 \label{sec:Category_from_digraph}
 
-\begin{definition}{\textbf{Category} (standard)}\mbox{}\\
+\begin{definition}[Category (standard)]
 A \textit{category} is a directed (multi) graph 
 together with two functions that impose constraints
 on the graph:
 \begin{description}
-\item[$\mathsf{compose}$]\mbox{}\\
+\item[$\mathsf{compose}$ \textrm{(infix operator: $\circ$)}]\mbox{}\\
 At least $2$ ways to think about this. 
-More common way first, better (?) way second.
-
+More common way first, better (?) way second.\\
 The usual way this is posed is for pairs of connected edges:
 Whenever $\mathsf{tail}(e0) = \mathsf{head}(e_1)$,
 then
@@ -1375,8 +1377,7 @@ and $\mathsf{head}(e_{10}) = \mathsf{head}(e_0)$.
 (Note the potential for confusion 
 in the ordering of the arguments to $\mathsf{compose}$;
 general idea is that $e_1$ is traversed/applied first,
-then $e_0$.)
-\par
+then $e_0$.) \\
 In addition, $\mathsf{compose}$ is required to be associative:
 \begin{align*}
 \mathsf{compose}(\mathsf{compose}(e_0,e_1),e_2) 
@@ -1386,7 +1387,7 @@ In addition, $\mathsf{compose}$ is required to be associative:
 &
 = \mathsf{compose}(e_0,e_1,e_2)
 \end{align*}
-
+\\
 An alternative is define the domain of $\mathsf{compose}$
 to be the graph's paths. 
 Then, for all paths $p$ in the graph,
@@ -1401,7 +1402,7 @@ Associativity here means that if we partially reduce a path
 by applying $\mathsf{compose}$ to a sub-path,
 and then $\mathsf{compose}$ the partially reduced path,
 we get the same edge as composing the whole path.
-
+\\
 Either way we define $\mathsf{compose}$ (no reason not to do both
 simultaneously), it is clearly (to me) not a natural construct
 for directed graphs: for every path, there is also 
@@ -1411,7 +1412,7 @@ many such single edges can be chosen as the value of $\mathsf{compose}$.
 I don't know of any non-categorical applications of directed graphs
 for which this makes sense.
 Moreover, it's not clear that any of this is really necessary.
-
+\\
 \item[$\mathsf{identity}$]\mbox{}\\
 For every vertex $v$, there is a self-loop edge 
 $\mathsf{identity}(v)$ whose head and tail
@@ -1424,10 +1425,10 @@ entering or leaving $v$:
 \mathsf{compose}(\mathsf{identity}(v),e_0) = e_0 \]
 and
 \[ \mathsf{compose}(e_1,\mathsf{identity}(v)) = e_1 \]
-\par
+\\
 Again, a lot of room for doubt that this extra structure 
 is really necessary.
-\par
+\\
 For example, we could extend $\mathsf{compose}$ 
 to take vertices as well as edges,
 and return both edges and vertices.
@@ -1546,7 +1547,7 @@ function could return a tuple of all path properties relevant to
 the problem being solved, eg,  expected travel time, likely fuel 
 cost, etc.
 
-\begin{definition}{\textbf{Paths}}\mbox{}\\
+\begin{definition}[Paths]
 In this context, a \textit{path} is taken to be a sequence of
 alternating vertices and edges, beginning and ending 
 with vertices. 
@@ -1579,8 +1580,7 @@ e_{10} e_{11} \ldots e_{1n} \right]
 \end{align*}
 \end{definition}
 
-\begin{definition}{\textbf{Kategory}
- (explicit path-equivalence)}\mbox{}\\
+\begin{definition}[Kategory (explicit path-equivalence)]
 (Until I think of a better name\ldots)\\
 A \textit{kategory} is a directed (multi) graph together with
 a path evaluation function: $\left[G, \mathsf{value}\right]$.
