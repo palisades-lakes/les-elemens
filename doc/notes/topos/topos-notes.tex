@@ -1916,13 +1916,17 @@ Same for paths.
 \centering
 \begin{tikzcd}
 V_0 
-\arrow[r, bend left, "f"]
-\arrow[r, bend right, "g"']
+\arrow[r, bend left=50, "f_0"]
+\arrow[r, "f_1"]
+\arrow[r, bend right=50, "f_2"]
 & V_1 
 \arrow[r, "e"]
 & V_2 
 \end{tikzcd}
-\caption{Monic edge $e$: diagram commutes \implies $f=g$.}
+\caption{Monic edge $e$: 
+$\left( f_i \neq f_j \right) 
+\implies 
+\left( e \comop f_i \, \neq \, e \comop f_i \right)$.}
 \label{fig:monic}
 \end{figure}
 
@@ -1935,7 +1939,10 @@ V_0 \arrow[r, "e"]
 \arrow[r, bend right, "g"']
 & V_2 
 \end{tikzcd}
-\caption{Epic edge $e$: diagram commutes \implies $f=g$.}
+\caption{Epic edge $e$: 
+$\left( f \neq g \right)
+ \implies 
+ \left( f \comop e \, \neq \, g \comop e \right)$.}
 \label{fig:epic}
 \end{figure}
 
@@ -1950,16 +1957,18 @@ V_0
 V_1 
 \arrow[loop right, blue, "I_{V_1}"]
 \end{tikzcd}
-\caption{Isic edge $e$, if diagram commutes.}
+\caption{Isic edge $e$, if both paths $V_0 \rightarrow V_0$
+are equivalent (compose to the identity loop) and the 
+same for both paths $V_1 \rightarrow V_1$.}
 \label{fig:isic}
 \end{figure}
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Category definitions}
+\levelstay{Category}
 
 See, for example, \cite{perrone_2019_cath_notes}.
 
-An edge $e$ is \textit{monic} (aka a monomorphism)
+An edge $e$ is \textit{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f,g$:
 \begin{align*}
 \left( e \comop f = e \comop g \right) 
@@ -1973,7 +1982,7 @@ if, for any matching parallel edges $f,g$:
 \left( e \comop f \neq e \comop g \right) 
 \end{align*}
 
-An edge $e$ is \textit{epic} (aka epimorphism)
+An edge $e$ is \textit{epic} (aka epimorphism, right-cancelable)
 if, for any matching parallel edges $f,g$:
 \begin{align*}
 \left( f \comop e = g \comop e \right) 
@@ -1989,6 +1998,9 @@ if, for any matching parallel edges $f,g$:
 (\textbf{Question:} 
 what is an edge/path that is both epic and monic?
 Clumsy ``epic-monic'' may be only option.)
+
+First duality: reverse all edges gives monic $\,\leftrightarrow\,$ epic.
+
 
 An edge $e$ is \textit{split monic} (aka has a left inverse)
 if there exists an $e^{-\text{left}}$, the \textit{retraction},
@@ -2018,13 +2030,35 @@ and
 \[
 e \comop e^{-1} = \identity(\head(e))
 \]
-$e$ is isic \iff it is both split monic and split epic,
-and the retraction and splitting edges are the same.
+$e$ is isic \liff it is both split monic and split epic.\\
+Proof (belabored, probably unnecessary).
+We need to show that $e^{-\text{left}} = e^{-\text{right}}$:
+\begin{align*}
+e \comop e^{-\text{right}} 
+& = 
+\identity(\head(e)) 
+\\
+e^{-\text{left}} \comop \left( e \comop e^{-\text{right}} \right)
+& = 
+e^{-\text{left}} \comop \identity(\head(e)) 
+\\
+\left( e^{-\text{left}} \comop e \right) \comop e^{-\text{right}} 
+& = 
+e^{-\text{left}}
+\\
+\identity(\head(e)) \comop e^{-\text{right}} 
+& = 
+e^{-\text{left}} 
+\\
+e^{-\text{right}} 
+& = 
+e^{-\text{left}} 
+\end{align*}
 (Note that this seems much simpler in left/right invertible language.)
 
 (\textbf{Question:} can we define isomorphisms via paths?)
 
-(\textbf{Note:} in a topos monic$\wedge$epic $\implies$ isic.
+(\textbf{Note:} in a topos monic$\,\wedge\,$epic \implies isic.
 Is that because all monic/epic are split?)
 
 (\textbf{TODO:} describe these ideas in the context of
@@ -2055,11 +2089,37 @@ For an edge to be isic, it requires the existence of an ``inverse''
 edge, that cancels when composed with the original edge 
 in either order.
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Kategory definition}
-Monic and epic definitions are equivalent to one with the parallel
-edges replaced by parallel paths. (Is a proof needed here?)
+Difference between split monic/epic and simple monic/epic
+is that inverse edges need not exist in simple case.
+In a general sets-and-functions context, split and simple versions
+are the same.
+In a structures-and-structure-preserving-functions context,
+this is no longer true, because, although the inverse functions
+will exist, they may not be structure-preserving.
+Is this any clearer in category language vs sets-and-functions?
+I don't think so.
 
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Kategory}
+
+Definitions equivalent to ones with the parallel
+edges replaced by parallel paths and equality/identity 
+by equivalence? 
+
+An path $p$ is \textit{left-cancelable} (aka a monomorphism, monic)
+if, for any matching parallel paths $q_0,q_1$:
+\begin{align*}
+\left( q_0 \conop p \peq q_1 \comop p \right) 
+& 
+\implies 
+\left( q_0 \peq q_1 \right) 
+\\
+\left( q_0 \not\peq q_1 \right) 
+&
+\implies 
+\left( q_0 \conop p \not\peq q_1 \conop p \right) 
+\end{align*}
+Should it be ``right-cancelable'' in path language?
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
