@@ -1606,7 +1606,7 @@ V_1
 \arrow[r, "e_{12}"] 
 \arrow[d, "e_{13}"']
 \arrow[dr, bend left, "e_{24} \comop e_{12}", dashed, red]
-\arrow[dr, bend right, "e_{34} \comop e_{13}"' red, dashed, red]
+\arrow[dr, bend right, "e_{34} \comop e_{13}"' , dashed, red]
 \& 
 V_2 
 \arrow[loop right, crossing over, blue]
@@ -1906,29 +1906,47 @@ a diagram commutes?)
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Monic, epic, isic}
+\levelstay{Monic, epic, isic (Monepisic?) edges}
 \label{sec:monic_epic_isic}
 
 Two edges are \textit{parallel} is they have the same head and tail.
 Same for paths.
 
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Category}
+
+See, for example, \cite{perrone_2019_cath_notes}.
+
 \begin{figure}
 \centering
 \begin{tikzcd}
 V_0 
-\arrow[r, bend left=50, "f_0"]
-\arrow[r, "f_1"]
-\arrow[r, bend right=50, "f_2"]
+\arrow[r, bend left, "f"]
+\arrow[r, bend right, swap, "g"]
 & V_1 
 \arrow[r, "e"]
 & V_2 
 \end{tikzcd}
 \caption{Monic edge $e$: 
-$\left( f_i \neq f_j \right) 
+$\left( f \neq g \right) 
 \implies 
-\left( e \comop f_i \, \neq \, e \comop f_i \right)$.}
+\left( e \comop f \, \neq \, e \comop g \right)$.}
 \label{fig:monic}
 \end{figure}
+
+An edge $e$ is \textit{monic} (aka a monomorphism, left-cancelable)
+if, for any matching parallel edges $f,g$:
+\begin{align*}
+\left( e \comop f = e \comop g \right) 
+& 
+\implies 
+\left( f = g \right) 
+\\
+\left( f \neq g \right) 
+&
+\implies 
+\left( e \comop f \neq e \comop g \right) 
+\end{align*}
 
 \begin{figure}
 \centering
@@ -1945,42 +1963,6 @@ $\left( f \neq g \right)
  \left( f \comop e \, \neq \, g \comop e \right)$.}
 \label{fig:epic}
 \end{figure}
-
-\begin{figure}
-\centering
-\begin{tikzcd}
-V_0 
-\arrow[loop left, blue, "I_{V_0}"]
-\arrow[r, "e", bend left]
-\arrow[r, "e^{-1}"', leftarrow, bend right]
-& 
-V_1 
-\arrow[loop right, blue, "I_{V_1}"]
-\end{tikzcd}
-\caption{Isic edge $e$, if both paths $V_0 \rightarrow V_0$
-are equivalent (compose to the identity loop) and the 
-same for both paths $V_1 \rightarrow V_1$.}
-\label{fig:isic}
-\end{figure}
-
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Category}
-
-See, for example, \cite{perrone_2019_cath_notes}.
-
-An edge $e$ is \textit{monic} (aka a monomorphism, left-cancelable)
-if, for any matching parallel edges $f,g$:
-\begin{align*}
-\left( e \comop f = e \comop g \right) 
-& 
-\implies 
-\left( f = g \right) 
-\\
-\left( f \neq g \right) 
-&
-\implies 
-\left( e \comop f \neq e \comop g \right) 
-\end{align*}
 
 An edge $e$ is \textit{epic} (aka epimorphism, right-cancelable)
 if, for any matching parallel edges $f,g$:
@@ -2001,6 +1983,21 @@ Clumsy ``epic-monic'' may be only option.)
 
 First duality: reverse all edges gives monic $\,\leftrightarrow\,$ epic.
 
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[loop left, blue, "I_{V_0}"]
+\arrow[r, "e", bend left]
+\arrow[r, "e^{-left}"', leftarrow, bend right]
+& 
+V_1 
+\end{tikzcd}
+\caption{Split monic edge $e$, if the two edge path
+$V_0 \longrightarrow V_0$
+composes to the identity loop.}
+\label{fig:split_monic}
+\end{figure}
 
 An edge $e$ is \textit{split monic} (aka has a left inverse)
 if there exists an $e^{-\text{left}}$, the \textit{retraction},
@@ -2010,6 +2007,22 @@ e^{-\text{left}} \comop e = \identity(\tail(e))
 \]
 Every split monic edge is monic.
 
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[r, "e", bend left]
+\arrow[r, "e^{-right}"', leftarrow, bend right]
+& 
+V_1 
+\arrow[loop right, blue, "I_{V_1}"]
+\end{tikzcd}
+\caption{Split epic edge $e$, if the two edge path
+$V_1 \longrightarrow V_1$
+composes to the identity loop.}
+\label{fig:split_monic}
+\end{figure}
+
 An edge $e$ is \textit{split epic} (aka has a right inverse)
 if there exists an $e^{-\text{right}}$, the \textit{splitting}, 
 such that
@@ -2018,8 +2031,22 @@ e \comop e^{-\text{right}} = \identity(\head(e))
 \]
 Every split epic edge is epic.
 
-(\textbf{Question:} do split monic/epic definitions work if we replace
-edge $e$ by path $p$?)
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[loop left, blue, "I_{V_0}"]
+\arrow[r, "e", bend left]
+\arrow[r, "e^{-1}"', leftarrow, bend right]
+& 
+V_1 
+\arrow[loop right, blue, "I_{V_1}"]
+\end{tikzcd}
+\caption{Isic edge $e$, if both paths $V_0 \longrightarrow V_0$
+are equivalent (compose to the identity loop) and the 
+same for both paths $V_1 \longrightarrow V_1$.}
+\label{fig:split_epic}
+\end{figure}
 
 An edge $e$ is \textit{isic} (aka an isomorphism, invertible)
 if there exists an edge $e^{-1}$ such that
@@ -2055,8 +2082,6 @@ e^{-\text{right}}
 e^{-\text{left}} 
 \end{align*}
 (Note that this seems much simpler in left/right invertible language.)
-
-(\textbf{Question:} can we define isomorphisms via paths?)
 
 (\textbf{Note:} in a topos monic$\,\wedge\,$epic \implies isic.
 Is that because all monic/epic are split?)
@@ -2099,8 +2124,115 @@ will exist, they may not be structure-preserving.
 Is this any clearer in category language vs sets-and-functions?
 I don't think so.
 
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Kategory}
+\levelstay{Misleading (?) diagrams}
+
+Standard definitions refer to pairs of edges $f, g$,
+which may lead the less careful to unconsciously assume
+the condition is defined as 
+``there exists some pair $f,g$ such that \ldots'',
+rather than
+``for all such pairs $f,g$ \ldots''.
+
+A realistic diagram of the monic case 
+is in figure~\ref{fig:monic_diagram}.
+Even this is idealized, since common categories (eg Sets)
+would have an uncountable number of such edges.
+
+\begin{figure}
+\centering
+\begin{tikzcd}
+V_0 
+\arrow[r, bend left=90, "f_0"]
+\arrow[r, bend left=30, "f_1","{\vdots}"' inner sep=0.0ex]
+%\arrow[r, bend right=30, swap, "f_{n-1}"]
+%\arrow[r, bend right=100, swap, "f_{n}"]
+& V_1 
+\arrow[r, "e"]
+& V_2 
+\arrow["e \comop f_0",
+from=1-1,to=1-3, red, dashed, bend right=30,]
+\arrow["e \comop f_1",
+from=1-1,to=1-3, red, dashed, bend right=60,
+"{\vdots}"' inner sep=0.0ex]
+\end{tikzcd}
+\caption{More realistic monic diagram.}
+\label{fig:monic_diagram}
+\end{figure}
+
+An edge $e$ is \textit{monic} (aka a monomorphism, left-cancelable)
+if, for any matching parallel edges $f_i,f_j$:
+\begin{align*}
+\left( e \comop f_i = e \comop f_j \right) 
+& 
+\implies 
+\left( f_i = f_j \right) 
+\\
+\left( f_i \neq f_j \right) 
+&
+\implies 
+\left( e \comop f_i \neq e \comop f_j \right) 
+\end{align*}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Do monepisic paths make sense?}
+
+Questions:
+\begin{enumerate}
+  \item What happens if we replace the edges $f_0,f_1$
+  by paths $q_0,q_1$ in the monic/epic definitions?
+  
+  Then $e$ is monic if for all parallel paths $q_0,q_1$:
+  \[
+  \left( \compose(q_0) \neq \compose(q_1) \right) 
+  \implies 
+  \left( e \comop \compose(q_0) \neq e \comop \compose(q_1) \right)
+  \]
+  (for the monic case).
+  
+  In kategory language:
+  \[
+  \left( q_0 \not\peq q_1 \right) 
+  \implies 
+  \left( q_0 \conop e \not\peq q_1 \conop e \right)
+  \]
+
+  \item What happens if we replace the edge $e$ by a path $p$?
+  
+  A path $p$ would be epic if the edge $\compose(p)$ was.
+  
+  In kategory language:
+  \begin{equation*}
+  \left( f_0 \not\peq f_1 \right) 
+  \implies 
+  \left( f_0 \conop p \not\peq f_1 \conop p \right)
+  \end{equation*}
+  
+  \item What happens if we replace $e,f,g$ by paths?
+  
+  \begin{align*}
+  \compose(q_0) & \neq \compose(q_1) \\
+  & \Downarrow \\
+  \compose(p) \comop \compose(q_0) 
+  & \neq \compose(p) \comop \compose(q_1) 
+  \end{align*}
+  
+  In kategory language:
+  \[
+  \left( q_0 \not\peq q_1 \right) 
+  \implies 
+  \left( q_0 \conop p \not\peq q_1 \conop p \right)
+  \]
+
+  \item Do split monic/epic and isic definitions work if we replace
+edge $e$ by a path $p$?
+\end{enumerate}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{Kategory version}
 
 Definitions equivalent to ones with the parallel
 edges replaced by parallel paths and equality/identity 
