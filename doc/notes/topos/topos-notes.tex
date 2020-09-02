@@ -1,14 +1,14 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [--halt-on-error] } 
 % arara: biber
-%%   arara: makeglossaries
-%%   arara: makeindex
+%   arara: makeglossaries
+%   arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 %%       arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
 % arara: clean: { files: [topos-notes.bcf,topos-notes.blg] }
-%%   arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
-%%   arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
+%   arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
+%   arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
 % arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
 % arara: clean: { files: [topos-notes.ind,topos-notes.loe] }
 % arara: clean: { files: [topos-notes.lof,topos-notes.log] }
@@ -18,7 +18,7 @@
 % arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
 % arara: clean: { files: [topos-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[11pt]{article}
+\documentclass[11pt]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
 \def \bibFolder {../../bib/}
@@ -26,7 +26,8 @@
 \import{\texFolder}{head}
 \import{\texFolder}{landscape-2col-8x17}
 \import{\texFolder}{clj-listings}
-%\import{\sharedFolder}{glossary}
+\import{\sharedFolder}{glossary}
+
 \addbibresource{{\bibFolder}algebra.bib}
 \addbibresource{{\bibFolder}arithmetic.bib}
 \addbibresource{{\bibFolder}cactus.bib}
@@ -62,18 +63,19 @@
 % 3 for subsubsection level
 % 2 for paragraph level
 % 1 for subparagraph level
-\setcounter{baseSectionLevel}{5}
+%\setcounter{baseSectionLevel}{5}
+\setcounter{baseSectionLevel}{6}
 %-----------------------------------------------------------------
 
-%\frontmatter
+\frontmatter
 
-% \begingroup
-% \let\onecolumn\twocolumn
-% \sffamily
-% \tableofcontents
-% \rmfamily
-% \endgroup
-% 
+\begingroup
+\let\onecolumn\twocolumn
+\sffamily
+\tableofcontents
+\rmfamily
+\endgroup
+
 %-----------------------------------------------------------------
 \epigraph{
 das Wesen der Mathematik liegt gerade in ihrer Freiheit.
@@ -2193,22 +2195,30 @@ Questions:
   (for the monic case).
   
   In kategory language:
-  \[
+  \begin{align*}
   \left( q_0 \not\peq q_1 \right) 
-  \implies 
+  & \implies 
   \left( q_0 \conop e \not\peq q_1 \conop e \right)
-  \]
+  \\
+  \left( q_0 \conop e \peq q_1 \conop e \right)
+  & \implies 
+  \left( q_0 \peq q_1 \right) 
+  \end{align*}
 
   \item What happens if we replace the edge $e$ by a path $p$?
   
   A path $p$ would be epic if the edge $\compose(p)$ was.
   
   In kategory language:
-  \begin{equation*}
+  \begin{align*}
   \left( f_0 \not\peq f_1 \right) 
-  \implies 
+  & \implies 
   \left( f_0 \conop p \not\peq f_1 \conop p \right)
-  \end{equation*}
+  \\
+  \left( f_0 \conop p \peq f_1 \conop p \right)
+  & \implies 
+  \left( f_0 \peq f_1 \right) 
+  \end{align*}
   
   \item What happens if we replace $e,f,g$ by paths?
   
@@ -2220,12 +2230,16 @@ Questions:
   \end{align*}
   
   In kategory language:
-  \[
+  \begin{align*}
   \left( q_0 \not\peq q_1 \right) 
-  \implies 
+  & \implies 
   \left( q_0 \conop p \not\peq q_1 \conop p \right)
-  \]
-
+  \\
+  \left( q_0 \conop p \peq q_1 \conop p \right)
+  & \implies 
+  \left( q_0 \peq q_1 \right) 
+  \end{align*}
+  
   \item Do split monic/epic and isic definitions work if we replace
 edge $e$ by a path $p$?
 \end{enumerate}
@@ -2247,11 +2261,32 @@ if, for any matching parallel paths $q_0,q_1$:
 \left( q_0 \peq q_1 \right) 
 \\
 \left( q_0 \not\peq q_1 \right) 
-&
-\implies 
+& \implies 
 \left( q_0 \conop p \not\peq q_1 \conop p \right) 
 \end{align*}
 Should it be ``right-cancelable'' in path language?
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-2}
+\levelstay{What is the meaning of this?}
+
+Are there any intuitive interpretations in the direct graph,
+category, or kategory contexts? As opposed to 
+structures and structure-preserving functions.
+
+Does it help to think about factoring edges/paths
+as a step in solving for something?
+For example, if we have $2$ equivalent paths 
+and we can factor both into a prefix and a common monic
+suffix, then we can infer that the prefixes are equivalent:
+\begin{align*}
+& r_0 \peq r_1 \\
+& r_0 = q_0 \conop p \\
+& r_1 = q_1 \conop p \\
+& p \text{ monic } \\
+& \Downarrow \\
+& q_0 \peq q_1
+\end{align*}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -2283,19 +2318,18 @@ you can really start on category theory.
 %\part{Appendices}
 \import{\texFolder}{typesetting}
 %-----------------------------------------------------------------
-%\backmatter
+%un-comment \input and comment \printbibiliography
+%to get index, glossary, list of theorems, etc.
 
+\backmatter
+\part{Backmatter}
+{\texFolder}{tail}
 
-%\part{Backmatter}
-% un-comment \input and comment \printbibiliography
-% to get index, glossary, list of theorems, etc.
-%\input{../tex/tail}
-\begingroup
-\setlength{\emergencystretch}{6em}
-\setcounter{biburllcpenalty}{7000}
-\setcounter{biburlucpenalty}{8000}
-
-\printbibliography[heading=bibintoc, title={References}]
-\endgroup
+% \begingroup
+% \setlength{\emergencystretch}{6em}
+% \setcounter{biburllcpenalty}{7000}
+% \setcounter{biburlucpenalty}{8000}
+% \printbibliography[heading=bibintoc, title={References}]
+% \endgroup
 %-----------------------------------------------------------------
 \end{document}
