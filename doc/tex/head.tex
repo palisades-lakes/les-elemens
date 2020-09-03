@@ -23,7 +23,7 @@
 %-------------------------------------------------------------------------------
 \usepackage{url}
 %-------------------------------------------------------------------------------
-\usepackage{csquotes}
+%\usepackage{csquotes}
 %-------------------------------------------------------------------------------
 \usepackage[english]{babel}
 %-------------------------------------------------------------------------------
@@ -113,7 +113,7 @@ BoldItalicFont = *08-Italic ]
 %-----------------------------------------------------------------
 %\usepackage[amsthm,amsmath]{ntheorem}
 \usepackage{amsthm}
-%\usepackage{thmtools}
+\usepackage{thmtools}
 %-----------------------------------------------------------------
 \newtheoremstyle{break}%
 {3pt}{3pt}%
@@ -308,5 +308,61 @@ citecolor=OliveGreen}
 %-----------------------------------------------------------------
 \input{symbols}
 %-----------------------------------------------------------------
+% multipage quotes in boxes
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage[utf8x]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage{chngcntr}
+\usetikzlibrary{calc}
 
+\newlength\CapHt
+\newlength\CapDp
 
+\newtcolorbox{boxquote}[0]{%
+spartan,
+breakable,
+enhanced,
+freelance,
+%frame code = {},
+colframe=white,
+% frame code={
+%   \draw[line width=0pt]
+%     ([yshift=1pt]interior.north west-|frame.north west) --
+%     ([yshift=1pt]interior.north east-|frame.north east) --
+%     (frame.south east) --
+%     (frame.south west) --
+%     cycle;
+%   },
+colback=GhostWhite,
+top=4mm,
+arc=0pt,
+outer arc=0pt,
+pad at break=2mm,
+fontupper=\normalsize,
+notitle,
+fontlower=\normalfont\small,
+overlay middle={%
+  \node[
+    inner xsep=0pt,
+    anchor=north east,
+    font=\footnotesize\color{DarkGray}]
+  at (frame.south east) {cont.};
+  },
+overlay first={%
+  \node[
+    inner xsep=0pt,
+    anchor=north east,
+    font=\footnotesize\color{DarkGray}]
+  at (frame.south east) {cont.};
+  },
+% enlarge top by=\topskip,
+% enlarge top at break by=0pt,
+% enlarge bottom at break by=\baselineskip,
+% attach boxed title to bottom left={yshift=2pt},
+%   boxed title style={
+%     enhanced,
+%     arc=0pt,
+%     outer arc=0pt,
+%   },
+%   boxed title style={size=small,colback=Cornsilk}
+}
