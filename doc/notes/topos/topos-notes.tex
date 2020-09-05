@@ -18,13 +18,14 @@
 % arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
 % arara: clean: { files: [topos-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[11pt]{book}
+\documentclass[12pt]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
 \def \bibFolder {../../bib/}
 \def \sharedFolder {../../shared/}
 \import{\texFolder}{head}
-\import{\texFolder}{landscape-2col-8x17}
+%\import{\texFolder}{landscape-2col-8x17}
+\import{\texFolder}{portrait-1col-a4}
 \import{\texFolder}{clj-listings}
 \import{\sharedFolder}{glossary}
 
@@ -439,8 +440,6 @@ It is the ``mathematics of mathematics''.
 {Geroch, \textit{Mathematical Physics}~\cite{geroch_1985}}
 \end{boxquote}
 
-
-%\pagebreak
 \begin{boxquote}
 Since its first introduction over $60$ years ago, the concept of category has been
 increasingly employed in all branches of mathematics, especially in studies where the
@@ -1300,68 +1299,59 @@ something for uncountable entities.
 \levelstay{Key ideas in category/topos theory}
 \label{sec:Key-ideas}
 
-Things various authors claim are important or valuable;
-things that ought to be understood,
-and ought to be presentable in a natural, intuitive way:
-\begin{enumerate}
-  \item Topos, elementary topos: 
-  category ``essentially the same as \textbf{Set}''
-  \item subobject (classifier)
-  \item Cartesian closed category
-  \item initial, terminal object
-  \item product, sum/coproduct, exponential, meet, join
-  \item monic/epic morphism
-  \item split/retraction,/isomorphism
-  \item duality/opposite
-  \item equalizers
-  \item limits
-  \item pullback/pushout
-  \item completeness
-  \item universal (mapping) property
-  \item adjointness
-\end{enumerate}
-
 Orderings:
-
-Goldblatt:~\cite{goldblatt_1984_topoi}
-\begin{enumerate}
-  \item category
-  \item composition
-  \item monepisic arrows
-  \item initial/terminal objects
-  \item duality
-  \item (co)products
-  \item (co)equalizers
-  \item (co)limits
-  \item pullback/pushout
-  \item completeness
-  \item exponentiation
-  \item subobjects
-  \item classifiers
-  \item topos
-  \item bundles/sheaves
-  \item monoid action
-  \item power object
-  \item \ldots more on topoi and logic 
-\end{enumerate}
 
 Ad\'{a}mek et al:~\cite{adamek_herrlich_strecker_1990}
 \begin{enumerate}
-  \item category and functor
+  \item category 
+  \item functor
   \item duality
   \item monepisic
-  \item categories of categories, small category, quasicategory
+  \item categories of categories 
+  \item small category
+  \item quasicategory
   \item subcategory
-  \item concrete category and functor
+  \item concrete category
+  \item functor
   \item natural transformation
-  \item injective objects
-  \item sources and sinks
-  \item (co)limits
+  \item injective object
+  \item source/sink
+  \item (co)limit
   \item (co)completeness
   \item pullback/pushout
-  \item adjoint functors
-  \item monads
+  \item adjoint functor
+  \item monad
   \item cartesian closed category
+\end{enumerate}
+
+Asperti and Longo:~\cite{asperti_longo_1991}
+\begin{enumerate}
+  \item category
+  \item diagram
+  \item monepisic
+  \item subobject
+  \item initial/terminal object
+  \item (co)product
+  \item exponential
+  \item equalizer
+  \item pullback
+  \item partial morphism
+  \item complete object
+  \item subobject classifier
+  \item topos
+  \item functor
+  \item natural transformation
+  \item cartesian closed category
+  \item Yoneda
+  \item presheaf
+  \item monoidal closed category
+  \item monad
+  \item linear logic
+  \item universal arrow
+  \item adjunction
+  \item monad
+  \item (co)limit
+  \item indexed category
 \end{enumerate}
 
 Awodey:~\cite{awodey_2010}
@@ -1412,6 +1402,39 @@ Barr-Wells:~\cite{barr_wells_2020}
   \item topos
   \item (pre)sheave
   \item monoidal category
+\end{enumerate}
+
+Geroch:\cite{geroch_1985}
+\begin{enumerate}
+  \item category
+  \item monepisic
+  \item commuting diagram
+  \item (co)product
+  \item functor
+  \item free construction
+  \item homology functor
+\end{enumerate}
+
+Goldblatt:~\cite{goldblatt_1984_topoi}
+\begin{enumerate}
+  \item category
+  \item composition
+  \item monepisic arrows
+  \item initial/terminal objects
+  \item duality
+  \item (co)products
+  \item (co)equalizers
+  \item (co)limits
+  \item pullback/pushout
+  \item completeness
+  \item exponentiation
+  \item subobjects
+  \item classifiers
+  \item topos
+  \item bundles/sheaves
+  \item monoid action
+  \item power object
+  \item \ldots more on topoi and logic 
 \end{enumerate}
 
 Hillman:~\cite{hillman_2001_cat_primer}
@@ -1586,6 +1609,28 @@ vanOosten:\cite{vanoosten_2002}
   \item monad
   \item cartesian closed category
   
+Things various authors claim are important or valuable;
+things that ought to be understood,
+and ought to be presentable in a natural, intuitive way.
+Ordered by mean rank of preceeding authors:
+\begin{enumerate}
+  \item Topos, elementary topos: 
+  category ``essentially the same as \textbf{Set}''
+  \item subobject (classifier)
+  \item Cartesian closed category
+  \item initial, terminal object
+  \item product, sum/coproduct, exponential, meet, join
+  \item monic/epic morphism
+  \item split/retraction,/isomorphism
+  \item duality/opposite
+  \item equalizers
+  \item limits
+  \item pullback/pushout
+  \item completeness
+  \item universal (mapping) property
+  \item adjointness
+\end{enumerate}
+
   
   
   
