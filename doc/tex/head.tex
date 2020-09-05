@@ -23,6 +23,7 @@
 %-------------------------------------------------------------------------------
 \usepackage{url}
 %-------------------------------------------------------------------------------
+\usepackage[utf8x]{inputenc}
 \usepackage{csquotes}
 %-------------------------------------------------------------------------------
 \usepackage[english]{babel}
@@ -198,7 +199,7 @@ keywordstyle={\ttfamily}}
 \predate{\begin{flushright}\scshape\mdseries}
 \postdate{\par\end{flushright}}
 \setlength{\droptitle}{-80pt}
-%------------------------------------------------------------------
+%-----------------------------------------------------------------
 \usepackage{enumitem}
 %\setlist[description]{font=\small\sffamily\mdseries,style=unboxed,leftmargin=0cm}
 %\setlist[description]{font=\sffamily\mdseries}
@@ -207,7 +208,7 @@ keywordstyle={\ttfamily}}
 \setlist[enumerate]{style=unboxed,itemindent=0cm}
 %-----------------------------------------------------------------
 %\usepackage[sf,small,compact]{titlesec}
-\usepackage[small,compact]{titlesec}
+\usepackage[pagestyles,small,compact,sc,rigidchapters]{titlesec}
 %\newfontfamily\headingfont[]{New Yorker}
 %\newfontfamily\headingfont[Scale=MatchUppercase]{Libre Caslon Display}
 %\newfontfamily\headingfont[]{Perpetua Titling MT}
@@ -229,12 +230,19 @@ keywordstyle={\ttfamily}}
 \titleformat{\subsubsection}{\large\scshape\mdseries}{\thesubsubsection}{0.5em}{}
 \titleformat{\paragraph}[runin]{\normalsize\scshape\mdseries}{\theparagraph}{0.5em}{}[\hspace{1em}]
 \titleformat{\subparagraph}[runin]{\normalsize\scshape\mdseries}{\thesubparagraph}{0.5em}{}[\hspace{1em}]
-
+%\titlespacing\chapter{0pt}{12pt plus 12pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\section{0pt}{12pt plus 12pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\subsection{0pt}{11pt plus 11pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\subsubsection{0pt}{10pt plus 10pt minus 2pt}{5pt plus 5pt minus 2pt}
-
+\newcommand{\chapterbreak}{\vfill\pagebreak}
 \setcounter{secnumdepth}{7}
+%-----------------------------------------------------------------
+\newpagestyle{main}{
+\sethead[\thepage][\scshape\chaptertitle][\thesection] % even
+{\thesection} {\scshape\chaptertitle} % odd-center
+{\thepage} % odd-right
+}
+\pagestyle{main}
 %-----------------------------------------------------------------
 \makeatletter
 \let\oldl@chapter\l@chapter
@@ -310,7 +318,6 @@ citecolor=OliveGreen}
 %-----------------------------------------------------------------
 % multipage quotes in boxes
 %\usepackage[framemethod=tikz]{mdframed}
-\usepackage[utf8x]{inputenc}
 \usepackage[most]{tcolorbox}
 \usepackage{chngcntr}
 \usetikzlibrary{calc}

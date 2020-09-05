@@ -18,7 +18,7 @@
 % arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
 % arara: clean: { files: [topos-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[12pt]{book}
+\documentclass[12pt,openany]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
 \def \bibFolder {../../bib/}
@@ -47,15 +47,13 @@
 %\addbibresource{{\bibFolder}ieeestd.bib}
 %\addbibresource{{\bibFolder}fp.bib}
 %-----------------------------------------------------------------
-\title{Notes on category \\ and topos theory}
+\title{\textsc{Notes on category \\ and topos theory}}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
-\date{draft of \today}
+\date{\textsc{draft of \today}}
 %-----------------------------------------------------------------
 \begin{document}
-
 \maketitle
-
 %-----------------------------------------------------------------
 % 7 for part level
 % 6 for chapter level
@@ -874,16 +872,10 @@ quoted in Landry and
 Marquis~\cite[p~3]{landry_marquis_2005_cat_th_in_context}}
 \end{boxquote}
 
-Do functors really need definite (co)domains?
+Do functions/functors really need definite (co)domains?
 
 There's a fair amount of arbitrariness 
 to the domain and codomain of a function.
-Given a (procedural) function,
-we can choose any superset of the range as the codomain.
-We can also restrict a function to any subset of the domain,
-and it may be important to know that one function is a simple 
-restriction another --- is there a reasonable way to do this
-for arrows?
 
 Any function that takes elements of a set $\Set{X}$
 and returns elements of a set $\Set{Y}$
@@ -904,12 +896,19 @@ Category theory abstracts functions between sets to
 arrows (maps, morphisms) between objects,
 with the co/domain objects part of the identity of the arrow.
 
+Given a (procedural) function,
+we can choose any superset of the range as the codomain.
+We can also restrict a function to any subset of the domain,
+and it may be important to know that one function is a simple 
+restriction of another---is there a reasonable way to do this
+for arrows?
+
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Modularity breaking}
 \label{sec:Modularity_breaking}
 
-Modularity a key design principle for any system, physical, 
+Modularity a key design principle for any system: physical, 
 software, or formal.
 
 One of the issues I have with category theory
@@ -990,8 +989,6 @@ built on relational databases without starting from scratch.
 
 R, Matlab (array/relation languages with some modern features
 patched on) vs Python.
-
-
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
@@ -1953,7 +1950,7 @@ execute at begin picture={
      \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
     ]
 V_0
-\arrow[loop above, blue, crossing over]
+\arrow[loop left, blue, crossing over]
 %\arrow[drr, bend left=40, "e_{02}" near start]
 %\arrow[ddr, bend right=40, "e_{03}"' near start]
 \arrow[drr, bend left, "e_{02}" near start]
@@ -1961,7 +1958,6 @@ V_0
 \arrow[dr, "{e_{01}}" ] 
 \arrow[drr, "e_{12} \comop e_{01}", bend left=10, dashed, red]
 \arrow[ddr, "e_{13} \comop e_{01}", bend right=10, dashed, red]
-\arrow[loop right, blue, crossing over]
 \& 
 \& 
 \\
@@ -1983,7 +1979,7 @@ V_3
 \arrow[r, "e_{34}"']
 \&
 V_4
-\arrow[loop below, blue,crossing over]
+\arrow[loop right, blue,crossing over]
 \arrow["e_{24} \comop e_{02}" {near end},
 from=1-1,to=3-3, red, dashed, bend left=100,]
 \arrow["e_{34} \comop e_{03}"' {near end},
@@ -2059,14 +2055,14 @@ Note that this allows us to have a path consisting
 of a single vertex.
 I will often omit the vertices when writing the sequence,
 whenever convenient.
-The main operation on paths is $\concatenate$
-(infix operator: $\diamond$).
+The main operation on paths is \concatenate
+(infix operator: \conop).
 With paths $p_0,p_1,p_2$,
 assuming $\head(p_0) = \tail(p_1)$: 
 \begin{align*}
 p_2 & = \concatenate(p_0,p_1) = p_0 \diamond p_1
 \end{align*}
-\textbf{Note:} $\concatenate$ reverses the arguments
+\textbf{Note:} \concatenate reverses the arguments
 of \compose. 
 We start at $\tail(p_0)$ and end at 
 $\head(p_1)$.
@@ -2114,7 +2110,7 @@ use of diagrams, which omit the implied
 composition and identity edges.
 Note that \identity is not needed at all;
 the constraints between \identity and \compose
-are dropped; and $\concatenate$ is associative by definition.
+are dropped; and \concatenate is associative by definition.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
@@ -2390,7 +2386,7 @@ V_1
 \caption{Split epic edge $e$, if the two edge path
 $V_1 \longrightarrow V_1$
 composes to the identity loop.}
-\label{fig:split_monic}
+\label{fig:split_epic}
 \end{figure}
 
 An edge $e$ is \textit{split epic} (aka has a right inverse)
