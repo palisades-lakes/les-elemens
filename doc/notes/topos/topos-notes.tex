@@ -18,14 +18,14 @@
 % arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
 % arara: clean: { files: [topos-notes.synctex.gz] }
 %-------------------------------------------------------------------------------
-\documentclass[12pt,openany]{book}
+\documentclass[11pt,openany]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
 \def \bibFolder {../../bib/}
 \def \sharedFolder {../../shared/}
 \import{\texFolder}{head}
-%\import{\texFolder}{landscape-2col-8x17}
-\import{\texFolder}{portrait-1col-a4}
+\import{\texFolder}{landscape-2col-8x17}
+%\import{\texFolder}{portrait-1col-a4}
 \import{\texFolder}{clj-listings}
 \import{\sharedFolder}{glossary}
 
@@ -66,6 +66,7 @@
 \setcounter{baseSectionLevel}{6}
 %-----------------------------------------------------------------
 \frontmatter
+\pagestyle{front}
 \begingroup
 \let\onecolumn\twocolumn
 \scshape
@@ -74,8 +75,20 @@
 \upshape
 %\rmfamily
 \endgroup
-\mainmatter
+\clearpage
 %-----------------------------------------------------------------
+\mainmatter
+\pagestyle{plain}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}}
+\levelstay{Preface}
+\label{sec:Preface}
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{2020-08}
+\label{sec:2020-08}
+
 \begin{boxquote}
 \textsl{das Wesen der Mathematik liegt gerade in ihrer Freiheit}.
 \par
@@ -152,11 +165,6 @@ the abstraction process until the abstract concept emerges naturally.
 \tcblower
 {Goldblatt, \textit{Topoi, Preface}~\cite{goldblatt_1984_topoi}}
 \end{boxquote}
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Preface 2020-08}
-\label{sec:Preface-2020-08}
-
 Capture state of my ignorance as of 2020-08,
 to record what's confusing to the novice.
 
@@ -676,7 +684,6 @@ Quanta and WIRED
 magazines~\cite{hartnett_2019_lurie,quanta_2019_lurie}:}
 \end{boxquote}
 
-
 Much of what's written about category theory feels like marketing.
 I read many vague claims about its value
 (or perhaps I just don't understand the more specific claims).
@@ -686,6 +693,13 @@ intuitive definitions, and unconvincing examples in category Sets,
 or maybe category Monoids,
 but still no actual evidence of anything that wouldn't have been
 easier and simpler in the original context.
+
+When people try to give examples of applications outside the
+math-structures-and-structure-preserving-functions context,
+it seems appears that that  they are really just using directed
+(multi)graphs, if not just relations (eg Cheng~\cite{cheng_2020_about}).
+I haven't yet found any use of the relatively obscure category 
+constructs.
 
 A possible symptom that's something wrong:
 Category theory, which originated in $1940$s,
@@ -803,7 +817,7 @@ the litmus test for arguments for and against category-theoretic
 Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
 erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
 \par
-(What will the forbearing reader say at the end? That the author,
+What will the forbearing reader say at the end? That the author,
  in a squandering of indescribable work, 
  has happily managed to surround 
 the clearest ideas in a disturbing obscurity!
@@ -858,7 +872,7 @@ only by the precept that every function should have a definite
 class as domain and a definite class as range, for the categories
 are provided as the domains and ranges of functors. Thus one
 could drop the category concept altogether and adopt an even
-more intuitive standpoint, in which a functor such as ‘Hom’ is
+more intuitive standpoint, in which a functor such as ‘hom’ is
 not defined over the category of ‘all’ groups, 
 but for each particular
 pair of groups which may be given. The standpoint would
@@ -1297,8 +1311,9 @@ something for uncountable entities.
 \label{sec:Key-ideas}
 
 Orderings:
-
-Ad\'{a}mek et al:~\cite{adamek_herrlich_strecker_1990}
+\begin{itemize}
+ 
+\item Ad\'{a}mek et al:~\cite{adamek_herrlich_strecker_1990}
 \begin{enumerate}
   \item category 
   \item functor
@@ -1321,7 +1336,7 @@ Ad\'{a}mek et al:~\cite{adamek_herrlich_strecker_1990}
   \item cartesian closed category
 \end{enumerate}
 
-Asperti and Longo:~\cite{asperti_longo_1991}
+\item Asperti and Longo:~\cite{asperti_longo_1991}
 \begin{enumerate}
   \item category
   \item diagram
@@ -1351,7 +1366,7 @@ Asperti and Longo:~\cite{asperti_longo_1991}
   \item indexed category
 \end{enumerate}
 
-Awodey:~\cite{awodey_2010}
+\item Awodey:~\cite{awodey_2010}
 \begin{enumerate}
 \item category
 \item isomorphism
@@ -1360,7 +1375,7 @@ Awodey:~\cite{awodey_2010}
 \item initial/terminal objects
 \item generalized elements
 \item products
-\item Hom-sets
+\item hom-sets
 \item finitely presented category
 \item subobject
 \item pullback
@@ -1377,7 +1392,7 @@ Awodey:~\cite{awodey_2010}
 \item monad
 \end{enumerate}
 
-Barr-Wells:~\cite{barr_wells_2020}
+\item Barr-Wells:~\cite{barr_wells_2020}
 \begin{enumerate}
   \item category
   \item monepisic
@@ -1401,7 +1416,7 @@ Barr-Wells:~\cite{barr_wells_2020}
   \item monoidal category
 \end{enumerate}
 
-Geroch:\cite{geroch_1985}
+\item Geroch:\cite{geroch_1985}
 \begin{enumerate}
   \item category
   \item monepisic
@@ -1412,7 +1427,7 @@ Geroch:\cite{geroch_1985}
   \item homology functor
 \end{enumerate}
 
-Goldblatt:~\cite{goldblatt_1984_topoi}
+\item Goldblatt:~\cite{goldblatt_1984_topoi}
 \begin{enumerate}
   \item category
   \item composition
@@ -1431,10 +1446,9 @@ Goldblatt:~\cite{goldblatt_1984_topoi}
   \item bundles/sheaves
   \item monoid action
   \item power object
-  \item \ldots more on topoi and logic 
 \end{enumerate}
 
-Hillman:~\cite{hillman_2001_cat_primer}
+\item Hillman:~\cite{hillman_2001_cat_primer}
 \begin{enumerate}
   \item category
   \item diagram, commute
@@ -1458,18 +1472,18 @@ Hillman:~\cite{hillman_2001_cat_primer}
   \item adjoint
   \item exponential
   \item topos
-  
 \end{enumerate}
 
-Lawvere and Schanuel:~\cite{lawvere_schanuel_2009_conceptual_math}
+\item Lawvere and Schanuel:~\cite{lawvere_schanuel_2009_conceptual_math}
 \begin{enumerate}
   \item category
   \item functor
   \item subcategory
-  \item monepisic, idempotent
+  \item monepisic
+  \item idempotent
   \item universal mapping property
   \item terminal/ initial object
-  \item (co)products/sums
+  \item (co)products
   \item points of an object
   \item distributive and linear category
   \item universal construction
@@ -1483,7 +1497,7 @@ Lawvere and Schanuel:~\cite{lawvere_schanuel_2009_conceptual_math}
   
 \end{enumerate}
 
-Leinster:~\cite{leinster_2016_basic_category_theory}
+\item Leinster:~\cite{leinster_2016_basic_category_theory}
 \begin{enumerate}
   \item category
   \item duality
@@ -1507,7 +1521,7 @@ Leinster:~\cite{leinster_2016_basic_category_theory}
   \item cartesian closed category
 \end{enumerate}
 
-MacLane:~\cite{maclane_1998_cat_for_working_mathematician}
+\item MacLane:~\cite{maclane_1998_cat_for_working_mathematician}
 \begin{enumerate}
   \item category
   \item functor
@@ -1540,7 +1554,7 @@ MacLane:~\cite{maclane_1998_cat_for_working_mathematician}
   \item bicategory
 \end{enumerate}
 
-Perrone:~\cite{perrone_2019_cath_notes}
+\item Perrone:~\cite{perrone_2019_cath_notes}
 \begin{enumerate}
   \item category
   \item monepisic
@@ -1556,7 +1570,7 @@ Perrone:~\cite{perrone_2019_cath_notes}
   \item (co)monad
 \end{enumerate}
 
-Riehl:~\cite{riehl_2017_cath_in_context}
+\item Riehl:~\cite{riehl_2017_cath_in_context}
 \begin{enumerate}
   \item category
   \item functor
@@ -1570,8 +1584,9 @@ Riehl:~\cite{riehl_2017_cath_in_context}
   \item Kan extension
 \end{enumerate}
 
-D. Spivak:~\cite{spivakd_2013_cath_for_scientists}
+\item D. Spivak:~\cite{spivakd_2013_cath_for_scientists}
 \begin{enumerate}
+  \item category
   \item diagram
   \item olog
   \item (co)product
@@ -1584,13 +1599,13 @@ D. Spivak:~\cite{spivakd_2013_cath_for_scientists}
   \item operad
 \end{enumerate}
 
-vanOosten:\cite{vanoosten_2002}
+\item vanOosten:\cite{vanoosten_2002}
 \begin{enumerate}
   \item category
   \item functor
   \item monepisic
   \item initial/terminal object
-  \item Natural transformation
+  \item natural transformation
   \item Yoneda
   \item category equivalence
   \item (co)cone
@@ -1605,6 +1620,8 @@ vanOosten:\cite{vanoosten_2002}
   \item (co)completeness
   \item monad
   \item cartesian closed category
+ \end{enumerate}
+\end{itemize}
   
 Things various authors claim are important or valuable;
 things that ought to be understood,
@@ -1628,11 +1645,6 @@ Ordered by mean rank of preceeding authors:
   \item adjointness
 \end{enumerate}
 
-  
-  
-  
-  
-\end{enumerate}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
@@ -2411,7 +2423,7 @@ V_1
 \caption{Isic edge $e$, if both paths $V_0 \longrightarrow V_0$
 are equivalent (compose to the identity loop) and the 
 same for both paths $V_1 \longrightarrow V_1$.}
-\label{fig:split_epic}
+\label{fig:isic}
 \end{figure}
 
 An edge $e$ is \textit{isic} (aka an isomorphism, invertible)
@@ -2673,28 +2685,21 @@ Look for ``graphs'' that match, unifying disparate parts of math.
 
 Problem: you need to learn a lot of conventional math before
 you can really start on category theory.
-
+\vfill
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 %un-comment \input and comment \printbibiliography
 %to get index, glossary, list of theorems, etc.
 %-----------------------------------------------------------------
-\pagebreak
 \glsaddallunused
 \appendix
 \setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Appendices}
-\setcounter{currentlevel}{\value{baseSectionLevel}}
+\import{\texFolder}{typesetting}
 %-----------------------------------------------------------------
-\backmatter
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelup{Backmatter}
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \import{\texFolder}{tail}
 %-----------------------------------------------------------------
-%\appendix
-%\import{\texFolder}{typesetting}
 % \begingroup
 % \setlength{\emergencystretch}{6em}
 % \setcounter{biburllcpenalty}{7000}

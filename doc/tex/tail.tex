@@ -4,7 +4,9 @@
 %   \renewcommand{\listtheoremname}{List of definitions}
 %   \textsf{\listoftheorems[ignoreall, show={definition}]}
 % \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+\renewcommand{\thechapter}{}
+\pagestyle{back}
 \pagebreak
 \renewcommand{\listfigurename}{\scshape Figures}
 \addcontentsline{toc}{chapter}{\listfigurename}
@@ -13,6 +15,7 @@
 \scshape
 %\sffamily
 \listoffigures
+\vfill
 \upshape
 %\rmfamily
 \endgroup
@@ -25,6 +28,7 @@
 \scshape
 %\sffamily
 \lstlistoflistings
+\vfill
 \upshape
 %\rmfamily
 \endgroup
@@ -37,6 +41,7 @@
 \scshape
 %\sffamily
 \listoftheorems[ignoreall,show={definition}]
+\vfill
 \upshape
 %\rmfamily
 \endgroup
@@ -50,6 +55,7 @@
 %\sffamily
 \listoftheorems[ignoreall,show={theorem}]
 \upshape
+\vfill
 %\rmfamily
 \endgroup
 %-------------------------------------------------------------------------------
@@ -61,6 +67,7 @@
 \scshape
 %\sffamily
 \listoftheorems[ignoreall,show={example}]
+\vfill
 \upshape
 %\rmfamily
 \endgroup
@@ -73,6 +80,7 @@
 % }
 \pagebreak
 \printglossary[title=Glossary,toctitle=Glossary]
+\vfill
 %-------------------------------------------------------------------------------
 \pagebreak
 \printbibliography[heading=bibintoc, title={References}]

@@ -234,15 +234,32 @@ keywordstyle={\ttfamily}}
 \titlespacing\section{0pt}{12pt plus 12pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\subsection{0pt}{11pt plus 11pt minus 2pt}{5pt plus 5pt minus 2pt}
 \titlespacing\subsubsection{0pt}{10pt plus 10pt minus 2pt}{5pt plus 5pt minus 2pt}
-\newcommand{\chapterbreak}{\vfill\pagebreak}
+\newcommand{\chapterbreak}{\vfill\clearpage}
 \setcounter{secnumdepth}{7}
 %-----------------------------------------------------------------
-\newpagestyle{main}{
-\sethead[\thepage][\scshape\chaptertitle][\thesection] % even
-{\thesection} {\scshape\chaptertitle} % odd-center
-{\thepage} % odd-right
+\renewpagestyle{plain}{
+\sethead[][\scshape\chaptertitle][] % even
+{} {\scshape\chaptertitle} {} % odd
+\setfoot[][\thepage][] % even
+{}{\thepage}{} % odd
 }
-\pagestyle{main}
+\newpagestyle{front}{
+\sethead[][\scshape\chaptertitle][] % even
+{} {\scshape\chaptertitle} {} % odd
+\setfoot[][\thepage][] % even
+{}{\thepage}{} % odd
+}
+\newpagestyle{back}{
+\sethead[][\scshape\chaptertitle][] % even
+{} {\scshape\chaptertitle}{} % odd
+\setfoot[][\thepage][] % even
+{}{\thepage}{} % odd
+}
+\renewpagestyle{empty}{
+\sethead[][][] % even
+{} {} {}% odd
+}
+\pagestyle{empty}
 %-----------------------------------------------------------------
 \makeatletter
 \let\oldl@chapter\l@chapter
