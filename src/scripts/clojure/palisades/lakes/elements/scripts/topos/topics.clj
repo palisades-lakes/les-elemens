@@ -14,115 +14,120 @@
 ;;----------------------------------------------------------------
 ;; topic and list of rank in various cat theory intros:
 
-(def topics 
-  {:Adámek_et_al 
+(def -topics-
+  {:Adámek-et-al
    [:category
     :functor
     :duality
     :monepisic
-    :categories_of_categories
-    :small_category
+    :categories-of-categories
+    :small-category
     :quasicategory
     :subcategory
-    :concrete_category
+    :concrete-category
     :functor
-    :natural_transformation
-    :injective_object
-    :source_sink
-    :co_limit
-    :co_completeness
-    :pullback_pushout
-    :adjoint_functor
+    :natural-transformation
+    :injective-object
+    :source-sink
+    :co-limit
+    :co-completeness
+    :pullback-pushout
+    :adjoint-functor
     :monad
-    :cartesian_closed_category]
-   :Asperti_and_Longo 
+    :cartesian-closed-category]
+   :Asperti-and-Longo
    [:category
     :diagram
     :monepisic
     :subobject
-    :initial_terminal_object
-    :co_product
+    :initial-terminal-object
+    :co-product
     :exponential
     :equalizer
-    :pullback
-    :partial_morphism
-    :complete_object
-    :subobject_classifier
+    :pullback-pushout
+    :partial-morphism
+    :complete-object
+    :subobject-classifier
     :topos
     :functor
-    :natural_transformation
-    :cartesian_closed_category
+    :natural-transformation
+    :cartesian-closed-category
     :yoneda
     :presheaf
-    :monoidal_closed_category
+    :monoidal-closed-category
     :monad
-    :linear_logic
-    :universal_arrow
+    :linear-logic
+    :universal-arrow
     :adjunction
     :monad
-    :co_limit
-    :indexed_category]
-   :Awodey 
+    :co-limit
+    :indexed-category]
+   :Awodey
    [:category
-    :isomorphism
-    :free_category
+    :functor
+    :free-category
     :monepisic
-    :initial_terminal_object
-    :generalized_element
-    :co_product
-    :hom_set
-    :finitely_presented_category
+    :initial-terminal-object
+    :generalized-element
+    :co-product
+    :hom-set
+    :finitely-presented-category
     :subobject
-    :pullback
-    :co_limit
+    :pullback-pushout
+    :co-limit
     :exponential
-    :cartesian_closed_category
-    :natural_transformation
-    :monoidal_category
+    :cartesian-closed-category
+    :natural-transformation
+    :monoidal-category
     :equivalence
     :yoneda
     :topos
     :adjoint
     :monad]
-   :Barr_Wells 
+   :Barr-Wells
+   [:category
+    :monepisic
+    :functor
+    :action
+    :equivalence
+    :quotient-category
+    :diagram
+    :natural-transformation
+    :yoneda
+    :linear-sketch
+    :2-category
+    :product-sum
+    :cartesian-closed-category
+    :co-limit
+    :equalizer
+    :pullback-pushout
+    :co-cone
+    :fibration
+    :wreath-product
+    :adjoint
+    :scott-domain
+    :topos
+    :presheaf
+    :monoidal-category]
+   :Geroch
    [:category
     :monepisic
     :diagram
-    :natural_transformation
-    :yoneda
-    :linear_sketch
-    :2_category
-    :product_sum
-    :cartesian_closed_category
-    :co_limit
-    :equalizer
-    :pullback
-    :co_cone
-    :fibration
-    :wreath_product
-    :adjoint
-    :scott_domain
-    :topos
-    :presheaf
-    :monoidal_category]
-   :Geroch 
-   [:category
-    :monepisic
-    :commuting_diagram
-    :co_product
+    :commute
+    :co-product
     :functor
-    :free_construction
-    :homology_functor]
-   :Goldblatt 
+    :free-construction
+    :homology-functor]
+   :Goldblatt
    [:category
     :composition
     :monepisic
-    :initial_terminal_object
+    :initial-terminal-object
     :duality
-    :co_product
-    :co_equalizer
-    :co_limit
-    :pullback_pushout
+    :co-product
+    :co-equalizer
+    :co-limit
+    :pullback-pushout
     :completeness
     :exponential
     :subobject
@@ -130,9 +135,12 @@
     :topos
     :bundle
     :sheaf
-    :monoid_action
-    :power_object]
-   :Hillman 
+    :monoid-action
+    :power-object
+    :functor
+    :natural-transformation
+    :adjunction]
+   :Hillman
    [:category
     :diagram
     :commute
@@ -141,156 +149,175 @@
     :monepisic
     :duality
     :subobject
-    :initial_terminal_object
+    :initial-terminal-object
     :element
-    :co_product
-    :universal_property
-    :co_equalizer
-    :pullback_pushout
-    :co_cone
-    :co_limit
+    :co-product
+    :universal-property
+    :co-equalizer
+    :pullback-pushout
+    :co-cone
+    :co-limit
     :functor
-    :natural_transformation
-    :slice_category
+    :natural-transformation
+    :slice-category
     :yoneda
     :adjoint
     :exponential
     :topos]
-   :Lawvere_and_Schanuel 
+   :Lawvere-and-Schanuel
    [:category
     :functor
     :subcategory
     :monepisic
     :idempotent
-    :universal_property
-    :initial_terminal_object
-    :co_product
-    :points_of_an_object
-    :distributive_and_linear_category
-    :universal_construction
-    :arrow_object
+    :universal-property
+    :initial-terminal-object
+    :co-product
+    :points-of-an-object
+    :distributive-and-linear-category
+    :universal-construction
+    :arrow-object
     :exponential
-    :contravariant_parts_functor
+    :contravariant-parts-functor
     :subobject
     :topos
-    :co_discrete_object
+    :co-discrete-object
     :monoid]
-   :Leinster 
+   :Leinster
    [:category
     :duality
-    :contra_co_variant_functor
+    :functor
     :presheaf
-    :faithful_functor
+    :faithful-functor
     :subcategory
-    :natural_transformation
+    :natural-transformation
     :isomorphism
     :equivalence
     :adjoint
-    :initial_terminal_object
-    :co_unit
+    :initial-terminal-object
+    :co-unit
     :representable
-    :co_limit
-    :co_product
-    :pullback_pushout
+    :co-limit
+    :co-product
+    :pullback-pushout
     :equalizer
     :diagram
-    :co_cone
+    :co-cone
     :monepisic
-    :cartesian_closed_category]
+    :cartesian-closed-category]
    :MacLane
    [:category
     :functor
-    :natural_transformation
+    :natural-transformation
     :monepisic
     :zero
-    :hom_set
+    :hom-set
     :duality
     :contravariance
-    :comma_category
-    :free_category
-    :universal_arrow
+    :comma-category
+    :free-category
+    :universal-arrow
     :yoneda
-    :co_product
-    :co_limit
-    :representable_functor
+    :co-product
+    :co-limit
+    :representable-functor
     :adjoint
-    :adjoint_functor
-    :cartesian_closed_category
+    :adjoint-functor
+    :cartesian-closed-category
     :monad
-    :split_co_equalizer
-    :monoidal_category
+    :split-co-equalizer
+    :monoidal-category
     :action
-    :loop_and_suspension
-    :co_kernel
-    :additive_category
-    :abelian_category
-    :co_end
-    :kan_extension
+    :loop-and-suspension
+    :co-kernel
+    :additive-category
+    :abelian-category
+    :co-end
+    :kan-extension
     :nerve
     :bicategory]
-   :Perrone 
+   :Perrone
    [:category
     :monepisic
     :functor
-    :natural_transformation
-    :universal_property
+    :natural-transformation
+    :universal-property
     :yoneda
-    :co_limit
+    :co-limit
     :adjunction
-    :co_unit
-    :universal_arrow
-    :adjoint_functor
-    :co_monad]
-   :Riehl 
+    :co-unit
+    :universal-arrow
+    :adjoint-functor
+    :co-monad]
+   :Riehl
    [:category
     :functor
-    :natural_transformation
-    :universal_property
+    :natural-transformation
+    :universal-property
     :representable
     :yoneda
-    :co_limit
+    :co-limit
     :adjunction
     :monad
-    :kan_extension]
-   :DSpivak 
+    :kan-extension]
+   :DSpivak
    [:category
     :diagram
     :olog
-    :co_product
-    :co_limit
-    :category
+    :co-product
+    :co-limit
     :functor
-    :natural_transformation
-    :adjoint_functor
+    :natural-transformation
+    :adjoint-functor
     :monad
     :operad]
-   :vanOosten 
+   :vanOosten
    [:category
     :functor
     :monepisic
-    :initial_terminal_object
-    :natural_transformation
+    :initial-terminal-object
+    :natural-transformation
     :yoneda
-    :category_equivalence
-    :co_cone
-    :co_limit
+    :category-equivalence
+    :co-cone
+    :co-limit
     :equalizer
-    :pullback_pushout
-    :co_product
-    :regular_category
+    :pullback-pushout
+    :co-product
+    :regular-category
     :subobject
     :adjunction
-    :adjoint_functor
-    :co_completeness
+    :adjoint-functor
+    :co-completeness
     :monad
-    :cartesian_closed_category]})
+    :cartesian-closed-category]})
 ;;----------------------------------------------------------------
-(defn summary []
+(defn- inner [sums [topic weight]]
+  (assoc! 
+    sums 
+    topic 
+    (+ (double weight) (double (get sums topic 0.0)))))
+(defn- outer [sums [source topics]] 
+  (let [n (count topics)]
+    (reduce 
+      inner 
+      sums 
+      (zipmap topics (map #(/ (double %) (double n)) (range n 0 -1))))))
+(defn importance [all-topics]
+  (reverse
+    (sort-by 
+      (fn ranker [[topic weight]] weight) 
+      (persistent!
+        (reduce outer (transient {}) all-topics)))))
+;;----------------------------------------------------------------
+(defn summary [topics]
   (println "authors: " (count topics))
-  (let [onion 
-        (sort (reduce into #{} (vals topics)))]
+  (let [onion (sort (reduce into #{} (vals topics)))
+        ranks (importance topics)]
     (println "topics: " (count onion))
-    (pp/pprint onion)))
+    (println "topics: " (count ranks))
+    ;;(pp/pprint onion)
+    (pp/pprint ranks)))
 ;;----------------------------------------------------------------
-(summary)
+(summary -topics-)
 ;;----------------------------------------------------------------

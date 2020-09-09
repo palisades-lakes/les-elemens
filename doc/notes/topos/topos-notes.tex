@@ -2169,12 +2169,14 @@ This follows from the associativity of \compose:
  
 (\textbf{Question:} should this be required of all kategories?
 If so, kategories may be no more intuitive than categories.)
- 
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Commuting diagrams}
-\label{sec:Commuting_diagrams}
+\levelstay{Diagram}
+\label{sec:Diagram}
+
+\begin{definition}[Diagram (category)]
+\end{definition}
 
 \begin{figure}
 \centering
@@ -2281,6 +2283,59 @@ a diagram commutes?)
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Functor}
 \label{sec:functor}
+
+For all the fuss, there doesn't seem to be much to functors:
+A \textit{functor} is simply a structure-preserving function
+between categories (or kategories), in the usual sense:
+it can be applied any entity 
+making up the structure,
+and it ``commutes'' or ``distributes'' appropriately
+over the structure functions.
+
+\begin{definition}[Structure-preserving function between directed
+graphs (aka directed graph homomorphism)]
+$f:G_0 \rightarrow G_1$ is a structure-preserving function
+between directed graphs, if and only if:
+\begin{align*}
+  & f(\vertices(G_0)) \, \subseteq \, \vertices(G_1) \\
+  & f(\edges(G_0)) \, \subseteq \, \edges(G_1) \\
+  & \forall e \in \edges(G_0) 
+  \begin{cases}
+  & f(\head(e)) = \head(f(e)) \\
+  & f(\tail(e)) = \tail(f(e))
+  \end{cases}
+\end{align*}
+We apply $f$ to paths in the obvious way.
+\end{definition}
+
+\begin{definition}[Functor (category)]
+A \textit{functor} $F:C_0 \rightarrow C_1$ is 
+a structure-preserving function
+between categories, which requires that is a structure-preserving 
+function between directed graphs, and:
+\begin{align*}
+  F(\compose_{C_0}(e_0,e_1)) & = \compose_{C_1}(F(e_0),F(e_1))\\
+  F(\identity_{C_0}(V_0)) & = \identity_{C_1}(F(V_0)
+\end{align*}
+  (Subscripts on \compose and \identity 
+  are usually dropped, but we might 
+  encounter two categories that have the same vertices and edges,
+  but differ in the definition of the two functions.)
+\end{definition}
+
+\begin{definition}[Phunctor (kategory)]
+(Very unlikely to stick with this name.)
+
+A \textit{phunctor} $P:K_0 \rightarrow K_1$ is 
+a structure-preserving function
+between kategories, which requires that is a structure-preserving 
+function between graphs, and:
+\begin{align*}
+  \left( \pvalue_{K_0}(p_0) = \pvalue_{K_0}(p_1) \right)
+  \; \Leftrightarrow \; 
+  \left( \pvalue_{K_1}(P(p_0)) = \pvalue_{K_1}(P(p_1)) \right)
+\end{align*}
+\end{definition}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
