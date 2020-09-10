@@ -1796,9 +1796,12 @@ where all vertices have at most entering edge.
 (Mesh) \textit{dual} of a graph interchanges the roles of edges 
 and vertices, resulting in a hypergraph where every dual vertex
 has exactly $2$ edges. 
-(\textbf{Question:} orientation/direction of dual edges?~\cite{rusnak2012oriented})
-(Other notion of dual of planar graph interchanges vertices and ``faces'',
-orientation from $90^{\comop}$ turn of primal edge.~\cite{wiki_2020_dual_graph})
+(\textbf{Question:} orientation/direction 
+of dual edges?~\cite{rusnak2012oriented})
+(Other notion of dual of planar graph interchanges 
+vertices and ``faces'',
+orientation from $90^{\comop}$ 
+turn of primal edge.~\cite{wiki_2020_dual_graph})
 
 \begin{figure}
 \centering
@@ -2172,11 +2175,137 @@ If so, kategories may be no more intuitive than categories.)
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Functor}
+\label{sec:functor}
+
+For all the fuss, there doesn't seem to be much to functors:
+A \textit{functor} is simply a structure-preserving function
+between categories (or kategories), in the usual sense:
+it can be applied any entity 
+making up the structure,
+and it ``commutes'' or ``distributes'' appropriately
+over the structure functions.
+
+\begin{definition}[Structure-preserving function between directed
+graphs (aka directed graph homomorphism)]
+$f:G_0 \rightarrow G_1$ is a structure-preserving function
+between directed graphs, if and only if:
+\begin{align*}
+  & f(\vertices(G_0)) \, \subseteq \, \vertices(G_1) \\
+  & f(\edges(G_0)) \, \subseteq \, \edges(G_1) \\
+  & \forall e \in \edges(G_0) 
+  \begin{cases}
+  & f(\head(e)) = \head(f(e)) \\
+  & f(\tail(e)) = \tail(f(e))
+  \end{cases}
+\end{align*}
+We apply $f$ to paths in the obvious way.
+\end{definition}
+
+\begin{definition}[Functor (category)]
+A \textit{functor} $F:C_0 \rightarrow C_1$ is 
+a structure-preserving function
+between categories, which requires that is a structure-preserving 
+function between directed graphs, and:
+\begin{align*}
+  F(\compose_{C_0}(e_0,e_1)) & = \compose_{C_1}(F(e_0),F(e_1))\\
+  F(\identity_{C_0}(V_0)) & = \identity_{C_1}(F(V_0)
+\end{align*}
+  (Subscripts on \compose and \identity 
+  are usually dropped, but we might 
+  encounter two categories that have the same vertices and edges,
+  but differ in the definition of the two functions.)
+\end{definition}
+
+\begin{definition}[Phunctor (kategory)]
+(Very unlikely to stick with this name.)
+
+A \textit{phunctor} $P:K_0 \rightarrow K_1$ is 
+a structure-preserving function
+between kategories, which requires that is a structure-preserving 
+function between graphs, and:
+\begin{align*}
+  \left( \pvalue_{K_0}(p_0) = \pvalue_{K_0}(p_1) \right)
+  \; \Leftrightarrow \; 
+  \left( \pvalue_{K_1}(P(p_0)) = \pvalue_{K_1}(P(p_1)) \right)
+\end{align*}
+\end{definition}
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
 \levelstay{Diagram}
 \label{sec:Diagram}
 
-\begin{definition}[Diagram (category)]
+\begin{definition}[Diagram (pictorial)
+\textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
+hillman_2001_cat_primer}}]
+By \textit{diagram} we mean any collection of objects
+along with a collection of morphisms between various of those
+objects. (E.g., a diagram is what is pictured.) \\
+THis is wrong, because it doesn't deal with the common
+case of multiple vertices and edges with the same labels.
 \end{definition}
+
+\begin{definition}[Diagram (graph to graph) 
+\textmd{\textcite{barr_wells_2020}}]
+Let $I$ and $G$ be {[directed) graphs]}. 
+A \textit{diagram} in $G$ of shape $I$
+is a graph homomorphism $D : I \rightarrow G$ of graphs. 
+\end{definition}
+
+\begin{definition}[Diagram (map graph to category) 
+\textmd{\textcite{asperti_longo_1991}}]
+Let $I$ be a directed graphs and $C$ be a category. 
+A \textit{diagram} in $G$ of shape $I$
+is a graph homomorphism $D : I \rightarrow C$ of graphs. 
+\end{definition}
+
+\begin{definition}[Diagram (category to category) \textmd{(broken)}]
+Let $I$ and $A$ be categories. 
+A \textit{diagram} is a functor $D : I \rightarrow A$.
+$I$ is the \textit{shape} (aka \textit{scheme},
+\textit{index category}) of the diagram $D$.\\
+Sometimes $I$ is required to a small category
+(sets vs classes crap).\\
+This is often introduced in the context of limits,
+after $100$s of pages
+with multiple diagrams on each:
+\begin{itemize}
+\item \textcite[p$193/524$]{adamek_herrlich_strecker_1990}
+\item \textcite[p$101/311$]{awodey_2010}
+\item \textcite[p$118/183$]{leinster_2016_basic_category_theory} 
+(commutative diagrams introduced on p$11$!)
+\item \textcite[p$38/240$]{riehl_2017_cath_in_context}
+ (earlier than most),
+\item \textcite[p$180/267$]{spivakd_2013_cath_for_scientists}
+\item \textcite[p$16/86$]{vanoosten_2002} (also relatively early)
+\end{itemize}
+These definitions are clearly \textbf{wrong}.
+What's drawn is not a category.
+\end{definition}
+
+\textcite[p$18/181$]{perrone_2019_cath_notes} gives
+``an informal (but consistent) definition'' 
+early,
+followed by the incorrect functor takes (small) category to
+category definition, still relatively 
+early~\cite[p$53/181$]{perrone_2019_cath_notes}.
+The informal definition explicitly acknowledges some of
+what is \textit{not} drawn; the later formal definition does not.
+
+(\textcite[p$200/390$]{lawvere_schanuel_2009_conceptual_math} 
+doesn't quite fit, due to vagueness; roughly
+map from directed graph to category, 
+not specifying structure-preserving.)
+
+
+Undefined in: 
+\textcite[MacLane]{maclane_1998_cat_for_working_mathematician},
+
+%-----------------------------------------------------------------
+\setcounter{currentlevel}{\value{baseSectionLevel}-1}
+\levelstay{Commuting Diagram}
+\label{sec:Commuting_Diagram}
 
 \begin{figure}
 \centering
@@ -2278,64 +2407,6 @@ to get to the desired result.~\cite{dutilh_novaes_2012}
 
 (\textbf{Question:} is diagram chasing the same thing as proving
 a diagram commutes?)
-
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Functor}
-\label{sec:functor}
-
-For all the fuss, there doesn't seem to be much to functors:
-A \textit{functor} is simply a structure-preserving function
-between categories (or kategories), in the usual sense:
-it can be applied any entity 
-making up the structure,
-and it ``commutes'' or ``distributes'' appropriately
-over the structure functions.
-
-\begin{definition}[Structure-preserving function between directed
-graphs (aka directed graph homomorphism)]
-$f:G_0 \rightarrow G_1$ is a structure-preserving function
-between directed graphs, if and only if:
-\begin{align*}
-  & f(\vertices(G_0)) \, \subseteq \, \vertices(G_1) \\
-  & f(\edges(G_0)) \, \subseteq \, \edges(G_1) \\
-  & \forall e \in \edges(G_0) 
-  \begin{cases}
-  & f(\head(e)) = \head(f(e)) \\
-  & f(\tail(e)) = \tail(f(e))
-  \end{cases}
-\end{align*}
-We apply $f$ to paths in the obvious way.
-\end{definition}
-
-\begin{definition}[Functor (category)]
-A \textit{functor} $F:C_0 \rightarrow C_1$ is 
-a structure-preserving function
-between categories, which requires that is a structure-preserving 
-function between directed graphs, and:
-\begin{align*}
-  F(\compose_{C_0}(e_0,e_1)) & = \compose_{C_1}(F(e_0),F(e_1))\\
-  F(\identity_{C_0}(V_0)) & = \identity_{C_1}(F(V_0)
-\end{align*}
-  (Subscripts on \compose and \identity 
-  are usually dropped, but we might 
-  encounter two categories that have the same vertices and edges,
-  but differ in the definition of the two functions.)
-\end{definition}
-
-\begin{definition}[Phunctor (kategory)]
-(Very unlikely to stick with this name.)
-
-A \textit{phunctor} $P:K_0 \rightarrow K_1$ is 
-a structure-preserving function
-between kategories, which requires that is a structure-preserving 
-function between graphs, and:
-\begin{align*}
-  \left( \pvalue_{K_0}(p_0) = \pvalue_{K_0}(p_1) \right)
-  \; \Leftrightarrow \; 
-  \left( \pvalue_{K_1}(P(p_0)) = \pvalue_{K_1}(P(p_1)) \right)
-\end{align*}
-\end{definition}
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}
