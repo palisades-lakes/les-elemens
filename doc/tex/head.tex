@@ -390,3 +390,22 @@ overlay first={%
 %   },
 %   boxed title style={size=small,colback=Cornsilk}
 }
+% \makeatletter
+% % add tcblistings to \jobname.lol (list of listings)
+% \tcbset{
+%   addtolol/.style={list entry={\kvtcb@title},add to list={lol}{section}},
+%   }
+% \makeatother
+
+\newtcbtheorem[number within=section,
+list inside={tcbdef}]{tcbdefinition}
+{Definition}%
+{spartan,
+breakable,
+enhanced,
+freelance,
+colback=GhostWhite,
+colframe=GhostWhite,
+coltitle=black,
+fonttitle=\scshape\bfseries}{th}
+%

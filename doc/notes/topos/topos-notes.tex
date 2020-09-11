@@ -2236,15 +2236,31 @@ function between graphs, and:
 \levelstay{Diagram}
 \label{sec:Diagram}
 
+Diagrams are in some sense the real core of category theory;
+they are, however, defined ambiguously, incorrectly, or not at all.
+
 \begin{definition}[Diagram (pictorial)
 \textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
 hillman_2001_cat_primer}}]
-By \textit{diagram} we mean any collection of objects
+``By \textit{diagram} we mean any collection of objects
 along with a collection of morphisms between various of those
-objects. (E.g., a diagram is what is pictured.) \\
-THis is wrong, because it doesn't deal with the common
+objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} \\
+This is wrong, because it doesn't deal with the common
 case of multiple vertices and edges with the same labels.
 \end{definition}
+
+\begin{tcbdefinition}
+{Diagram (pictorial)
+\textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
+hillman_2001_cat_primer}}}
+{diagram_pictorial}
+``By \textit{diagram} we mean any collection of objects
+along with a collection of morphisms between various of those
+objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} 
+\par
+This is wrong, because it doesn't deal with the common
+case of multiple vertices and edges with the same labels.
+\end{tcbdefinition}
 
 \begin{definition}[Diagram (graph to graph) 
 \textmd{\textcite{barr_wells_2020}}]
@@ -2253,14 +2269,16 @@ A \textit{diagram} in $G$ of shape $I$
 is a graph homomorphism $D : I \rightarrow G$ of graphs. 
 \end{definition}
 
-\begin{definition}[Diagram (map graph to category) 
+\begin{definition}[Diagram (graph to category) 
 \textmd{\textcite{asperti_longo_1991}}]
-Let $I$ be a directed graphs and $C$ be a category. 
+Let $I$ be a directed graph
+ and $C$ be a category. 
 A \textit{diagram} in $G$ of shape $I$
 is a graph homomorphism $D : I \rightarrow C$ of graphs. 
 \end{definition}
 
 \begin{definition}[Diagram (category to category) \textmd{(broken)}]
+\label{def:diagram_cat_to_cat}
 Let $I$ and $A$ be categories. 
 A \textit{diagram} is a functor $D : I \rightarrow A$.
 $I$ is the \textit{shape} (aka \textit{scheme},
@@ -2282,25 +2300,85 @@ with multiple diagrams on each:
 \end{itemize}
 These definitions are clearly \textbf{wrong}.
 What's drawn is not a category.
+Drawing a category would make impossible the primary use of diagrams,
+that is to aid in reasoning 
+about the equivalences of path in the diagram (``commuting''). 
 \end{definition}
 
-\textcite[p$18/181$]{perrone_2019_cath_notes} gives
-``an informal (but consistent) definition'' 
-early,
-followed by the incorrect functor takes (small) category to
-category definition, still relatively 
-early~\cite[p$53/181$]{perrone_2019_cath_notes}.
-The informal definition explicitly acknowledges some of
-what is \textit{not} drawn; the later formal definition does not.
+\textcite[p$18/181$]{perrone_2019_cath_notes}
+gives ``an informal (but consistent) definition'' early,
+followed by the incorrect category to
+category definition \ref{def:diagram_cat_to_cat}, still relatively 
+early~\cite[p$53/181$]{perrone_2019_cath_notes}:
+\begin{definition}[Diagram (informal but 
+consistent)~\textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})]
+``A diagram in a category $C$ is a directed (multi-)graph formed 
+out of objects and arrows of $C$ such that:
+\begin{itemize}
+\item Each object and morphism 
+may appear more than once in the diagram;
+\item Between any two objects 
+there may be also more than one morphism;
+\item For each object X in the diagram, 
+the identity is implicitly present in the diagram (but generally
+not drawn);
+\item For each {[pair of]} composable edges 
+(arrows) $f : X \rightarrow Y$ and $g : Y \rightarrow Z$
+which are appearing head-to-tail
+in the diagram, the composite $g\comop f : X \rightarrow Z$
+ is implicitly present in the diagram (but generally
+not drawn).
+\end{itemize}
+Since objects and morphisms may appear 
+more than once in the diagram, as different vertices
+and edges, we will refer to vertices and edges to avoid ambiguity.''
+\end{definition}
+
+\begin{tcbdefinition}{Diagram (informal but 
+consistent)~\textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})}
+{diagram_perrone}
+``A diagram in a category $C$ is a directed (multi-)graph formed 
+out of objects and arrows of $C$ such that:
+\begin{itemize}
+\item Each object and morphism 
+may appear more than once in the diagram;
+\item Between any two objects 
+there may be also more than one morphism;
+\item For each object X in the diagram, 
+the identity is implicitly present in the diagram (but generally
+not drawn);
+\item For each {[pair of]} composable edges 
+(arrows) $f : X \rightarrow Y$ and $g : Y \rightarrow Z$
+which are appearing head-to-tail
+in the diagram, the composite $g\comop f : X \rightarrow Z$
+ is implicitly present in the diagram (but generally
+not drawn).
+\end{itemize}
+Since objects and morphisms may appear 
+more than once in the diagram, as different vertices
+and edges, we will refer to vertices and edges to avoid ambiguity.''
+\end{tcbdefinition}
+
+The informal definition is the only one I've seen which
+explicitly acknowledges some of
+what is \textit{not} drawn. 
+The later formal definition does not,
+and is therefore obviously wrong (as a definition of how diagrams
+are drawn and used).
+
+\begin{definition}[Diagram (this time for 
+real)~\textmd{{\textcite[Definition 1.4.20]{perrone_2019_cath_notes}}})]
+``Let $C$ be a category, and $I$ be a small category. A diagram in
+$C$ of shape $I$ is a functor $I \rightarrow C$.''
+\end{definition}
 
 (\textcite[p$200/390$]{lawvere_schanuel_2009_conceptual_math} 
 doesn't quite fit, due to vagueness; roughly
 map from directed graph to category, 
 not specifying structure-preserving.)
 
-
-Undefined in: 
-\textcite[MacLane]{maclane_1998_cat_for_working_mathematician},
+Undefined in:
+\textcite{maclane_1998_cat_for_working_mathematician}.
 
 %-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}-1}

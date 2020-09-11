@@ -1,4 +1,4 @@
-%------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \begingroup  % Temporarily disable \clearpage to show both lists on one page
 %   %\let\clearpage\relax    % http://tex.stackexchange.com/a/14511/104449
 %   \renewcommand{\listtheoremname}{List of definitions}
@@ -19,7 +19,7 @@
 \upshape
 %\rmfamily
 \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \pagebreak
 \renewcommand{\lstlistlistingname}{\scshape Code samples}
 \addcontentsline{toc}{chapter}{\lstlistlistingname}
@@ -32,7 +32,7 @@
 \upshape
 %\rmfamily
 \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \pagebreak
 \renewcommand*{\listtheoremname}{\scshape Definitions}
 \addcontentsline{toc}{chapter}{\listtheoremname}
@@ -45,7 +45,20 @@
 \upshape
 %\rmfamily
 \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+\pagebreak
+\renewcommand*{\listtheoremname}{\scshape Definitions}
+\addcontentsline{toc}{chapter}{\listtheoremname}
+\begingroup
+\let\onecolumn\twocolumn
+\scshape
+%\sffamily
+\tcblistof[\section*]{tcbdef}{\scshape Definitions}
+\vfill
+\upshape
+%\rmfamily
+\endgroup
+%-----------------------------------------------------------------
 \pagebreak
 \renewcommand{\listtheoremname}{\scshape Theorems}
 \addcontentsline{toc}{chapter}{\listtheoremname}
@@ -58,7 +71,7 @@
 \vfill
 %\rmfamily
 \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \pagebreak
 \renewcommand{\listtheoremname}{\scshape Examples}
 \addcontentsline{toc}{chapter}{\listtheoremname}
@@ -71,7 +84,7 @@
 \upshape
 %\rmfamily
 \endgroup
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % \newglossarystyle{mystyle}{%
 %  \glossarystyle{altlist}%
 %  \renewcommand*{\glossaryentryfield}[5]{%
@@ -81,9 +94,9 @@
 \pagebreak
 \printglossary[title=Glossary,toctitle=Glossary]
 \vfill
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \pagebreak
 \printbibliography[heading=bibintoc, title={References}]
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \printindex
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
