@@ -65,6 +65,12 @@
 %\addbibresource{ieeestd.bib}
 %\addbibresource{fp.bib}
 %-----------------------------------------------------------------
+\let\oldfigure\figure% Store old figure environment start
+\let\endoldfigure\endfigure% Store old figure environment end
+\renewenvironment{figure}[1][htbp]% Redefine figure
+  {\oldfigure[#1]\mdframed[backgroundcolor=GhostWhite,linecolor=GHostWhite]}
+  {\endmdframed\endoldfigure}
+%-----------------------------------------------------------------
 \title{\textsc{Notes on category \\ and topos theory}}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
@@ -1822,8 +1828,8 @@ orientation from $90^{\comop}$
 turn of primal edge.~\cite{wiki_2020_dual_graph})
 
 \begin{figure}
+\begin{mdframed}[backgroundcolor=GhostWhite,linecolor=GhostWhite]
 \centering
-\colorbox{GhostWhite}{
 \begin{tikzcd}[
 row sep=1.2cm, 
 column sep=2.5cm,
@@ -1851,9 +1857,9 @@ V_3
 \arrow[r, "e_{34}"']
 \& V_4
 \end{tikzcd}
-}
 \caption{A directed (acyclic) graph}
 \label{fig:a_digraph}
+\end{mdframed}
 \end{figure}
 
 An example in figure~\ref{fig:a_digraph}:
