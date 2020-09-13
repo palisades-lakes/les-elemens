@@ -1,6 +1,6 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [--halt-on-error] } 
-% arara: biber
+% arara: biber: {options: [--input-directory=../../bib] }
 %   arara: makeglossaries
 %   arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
@@ -21,7 +21,7 @@
 \documentclass[11pt,openany]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
-\def \bibFolder {../../bib/}
+%\def \bibFolder {../../bib/}
 \def \sharedFolder {../../shared/}
 \import{\texFolder}{head}
 \import{\texFolder}{landscape-2col-8x17}
@@ -29,23 +29,41 @@
 \import{\texFolder}{clj-listings}
 \import{\sharedFolder}{glossary}
 
-\addbibresource{{\bibFolder}algebra.bib}
-\addbibresource{{\bibFolder}arithmetic.bib}
-\addbibresource{{\bibFolder}cactus.bib}
-\addbibresource{{\bibFolder}proglang.bib}
-\addbibresource{{\bibFolder}halmos.bib}
-\addbibresource{{\bibFolder}interpolation.bib}
-\addbibresource{{\bibFolder}logic.bib}
-\addbibresource{{\bibFolder}math.bib}
-\addbibresource{{\bibFolder}mcdonald.bib}
-\addbibresource{{\bibFolder}mop.bib}
-\addbibresource{{\bibFolder}numbers.bib}
-\addbibresource{{\bibFolder}sets.bib}
-\addbibresource{{\bibFolder}tex.bib}
-\addbibresource{{\bibFolder}topos.bib}
-\addbibresource{{\bibFolder}feferman.bib}
-%\addbibresource{{\bibFolder}ieeestd.bib}
-%\addbibresource{{\bibFolder}fp.bib}
+% \addbibresource{{\bibFolder}algebra.bib}
+% \addbibresource{{\bibFolder}arithmetic.bib}
+% \addbibresource{{\bibFolder}cactus.bib}
+% \addbibresource{{\bibFolder}proglang.bib}
+% \addbibresource{{\bibFolder}halmos.bib}
+% \addbibresource{{\bibFolder}interpolation.bib}
+% \addbibresource{{\bibFolder}logic.bib}
+% \addbibresource{{\bibFolder}math.bib}
+% \addbibresource{{\bibFolder}mcdonald.bib}
+% \addbibresource{{\bibFolder}mop.bib}
+% \addbibresource{{\bibFolder}numbers.bib}
+% \addbibresource{{\bibFolder}sets.bib}
+% \addbibresource{{\bibFolder}tex.bib}
+% \addbibresource{{\bibFolder}topos.bib}
+% \addbibresource{{\bibFolder}feferman.bib}
+% %\addbibresource{{\bibFolder}ieeestd.bib}
+% %\addbibresource{{\bibFolder}fp.bib}
+
+\addbibresource{algebra.bib}
+\addbibresource{arithmetic.bib}
+\addbibresource{cactus.bib}
+\addbibresource{proglang.bib}
+\addbibresource{halmos.bib}
+\addbibresource{interpolation.bib}
+\addbibresource{logic.bib}
+\addbibresource{math.bib}
+\addbibresource{mcdonald.bib}
+\addbibresource{mop.bib}
+\addbibresource{numbers.bib}
+\addbibresource{sets.bib}
+\addbibresource{tex.bib}
+\addbibresource{topos.bib}
+\addbibresource{feferman.bib}
+%\addbibresource{ieeestd.bib}
+%\addbibresource{fp.bib}
 %-----------------------------------------------------------------
 \title{\textsc{Notes on category \\ and topos theory}}
 \author{\textsc{John Alan McDonald}}
@@ -1805,7 +1823,7 @@ turn of primal edge.~\cite{wiki_2020_dual_graph})
 
 \begin{figure}
 \centering
-\fbox{
+\colorbox{GhostWhite}{
 \begin{tikzcd}[
 row sep=1.2cm, 
 column sep=2.5cm,
@@ -2239,18 +2257,18 @@ function between graphs, and:
 Diagrams are in some sense the real core of category theory;
 they are, however, defined ambiguously, incorrectly, or not at all.
 
-\begin{definition}[Diagram (pictorial)
-\textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
-hillman_2001_cat_primer}}]
-``By \textit{diagram} we mean any collection of objects
-along with a collection of morphisms between various of those
-objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} \\
-This is wrong, because it doesn't deal with the common
-case of multiple vertices and edges with the same labels.
-\end{definition}
+% \begin{definition}[Diagram (pictorial)
+% \textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
+% hillman_2001_cat_primer}}]
+% ``By \textit{diagram} we mean any collection of objects
+% along with a collection of morphisms between various of those
+% objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} \\
+% This is wrong, because it doesn't deal with the common
+% case of multiple vertices and edges with the same labels.
+% \end{definition}
 
 \begin{tcbdefinition}
-{Diagram (pictorial)
+{Diagram (pictorial)\\
 \textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
 hillman_2001_cat_primer}}}
 {diagram_pictorial}
@@ -2262,80 +2280,80 @@ This is wrong, because it doesn't deal with the common
 case of multiple vertices and edges with the same labels.
 \end{tcbdefinition}
 
-\begin{definition}[Diagram (graph to graph) 
-\textmd{\textcite{barr_wells_2020}}]
-Let $I$ and $G$ be {[directed) graphs]}. 
-A \textit{diagram} in $G$ of shape $I$
-is a graph homomorphism $D : I \rightarrow G$ of graphs. 
-\end{definition}
+% \begin{definition}[Diagram (graph to graph) 
+% \textmd{\textcite{barr_wells_2020}}]
+% Let $I$ and $G$ be {[directed) graphs]}. 
+% A \textit{diagram} in $G$ of shape $I$
+% is a graph homomorphism $D : I \rightarrow G$ of graphs. 
+% \end{definition}
 
-\begin{definition}[Diagram (graph to category) 
-\textmd{\textcite{asperti_longo_1991}}]
-Let $I$ be a directed graph
- and $C$ be a category. 
-A \textit{diagram} in $G$ of shape $I$
-is a graph homomorphism $D : I \rightarrow C$ of graphs. 
-\end{definition}
-
-\begin{definition}[Diagram (category to category) \textmd{(broken)}]
-\label{def:diagram_cat_to_cat}
-Let $I$ and $A$ be categories. 
-A \textit{diagram} is a functor $D : I \rightarrow A$.
-$I$ is the \textit{shape} (aka \textit{scheme},
-\textit{index category}) of the diagram $D$.\\
-Sometimes $I$ is required to a small category
-(sets vs classes crap).\\
-This is often introduced in the context of limits,
-after $100$s of pages
-with multiple diagrams on each:
-\begin{itemize}
-\item \textcite[p$193/524$]{adamek_herrlich_strecker_1990}
-\item \textcite[p$101/311$]{awodey_2010}
-\item \textcite[p$118/183$]{leinster_2016_basic_category_theory} 
-(commutative diagrams introduced on p$11$!)
-\item \textcite[p$38/240$]{riehl_2017_cath_in_context}
- (earlier than most),
-\item \textcite[p$180/267$]{spivakd_2013_cath_for_scientists}
-\item \textcite[p$16/86$]{vanoosten_2002} (also relatively early)
-\end{itemize}
-These definitions are clearly \textbf{wrong}.
-What's drawn is not a category.
-Drawing a category would make impossible the primary use of diagrams,
-that is to aid in reasoning 
-about the equivalences of path in the diagram (``commuting''). 
-\end{definition}
+% \begin{definition}[Diagram (graph to category) 
+% \textmd{\textcite{asperti_longo_1991}}]
+% Let $I$ be a directed graph
+%  and $C$ be a category. 
+% A \textit{diagram} in $G$ of shape $I$
+% is a graph homomorphism $D : I \rightarrow C$ of graphs. 
+% \end{definition}
+% 
+% \begin{definition}[Diagram (category to category) \textmd{(broken)}]
+% \label{def:diagram_cat_to_cat}
+% Let $I$ and $A$ be categories. 
+% A \textit{diagram} is a functor $D : I \rightarrow A$.
+% $I$ is the \textit{shape} (aka \textit{scheme},
+% \textit{index category}) of the diagram $D$.\\
+% Sometimes $I$ is required to a small category
+% (sets vs classes crap).\\
+% This is often introduced in the context of limits,
+% after $100$s of pages
+% with multiple diagrams on each:
+% \begin{itemize}
+% \item \textcite[p$193/524$]{adamek_herrlich_strecker_1990}
+% \item \textcite[p$101/311$]{awodey_2010}
+% \item \textcite[p$118/183$]{leinster_2016_basic_category_theory} 
+% (commutative diagrams introduced on p$11$!)
+% \item \textcite[p$38/240$]{riehl_2017_cath_in_context}
+%  (earlier than most),
+% \item \textcite[p$180/267$]{spivakd_2013_cath_for_scientists}
+% \item \textcite[p$16/86$]{vanoosten_2002} (also relatively early)
+% \end{itemize}
+% These definitions are clearly \textbf{wrong}.
+% What's drawn is not a category.
+% Drawing a category would make impossible the primary use of diagrams,
+% that is to aid in reasoning 
+% about the equivalences of path in the diagram (``commuting''). 
+% \end{definition}
 
 \textcite[p$18/181$]{perrone_2019_cath_notes}
 gives ``an informal (but consistent) definition'' early,
 followed by the incorrect category to
 category definition \ref{def:diagram_cat_to_cat}, still relatively 
 early~\cite[p$53/181$]{perrone_2019_cath_notes}:
-\begin{definition}[Diagram (informal but 
-consistent)~\textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})]
-``A diagram in a category $C$ is a directed (multi-)graph formed 
-out of objects and arrows of $C$ such that:
-\begin{itemize}
-\item Each object and morphism 
-may appear more than once in the diagram;
-\item Between any two objects 
-there may be also more than one morphism;
-\item For each object X in the diagram, 
-the identity is implicitly present in the diagram (but generally
-not drawn);
-\item For each {[pair of]} composable edges 
-(arrows) $f : X \rightarrow Y$ and $g : Y \rightarrow Z$
-which are appearing head-to-tail
-in the diagram, the composite $g\comop f : X \rightarrow Z$
- is implicitly present in the diagram (but generally
-not drawn).
-\end{itemize}
-Since objects and morphisms may appear 
-more than once in the diagram, as different vertices
-and edges, we will refer to vertices and edges to avoid ambiguity.''
-\end{definition}
+% \begin{definition}[Diagram (informal but 
+% consistent)~\textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})]
+% ``A diagram in a category $C$ is a directed (multi-)graph formed 
+% out of objects and arrows of $C$ such that:
+% \begin{itemize}
+% \item Each object and morphism 
+% may appear more than once in the diagram;
+% \item Between any two objects 
+% there may be also more than one morphism;
+% \item For each object X in the diagram, 
+% the identity is implicitly present in the diagram (but generally
+% not drawn);
+% \item For each {[pair of]} composable edges 
+% (arrows) $f : X \rightarrow Y$ and $g : Y \rightarrow Z$
+% which are appearing head-to-tail
+% in the diagram, the composite $g\comop f : X \rightarrow Z$
+%  is implicitly present in the diagram (but generally
+% not drawn).
+% \end{itemize}
+% Since objects and morphisms may appear 
+% more than once in the diagram, as different vertices
+% and edges, we will refer to vertices and edges to avoid ambiguity.''
+% \end{definition}
 
-\begin{tcbdefinition}{Diagram (informal but 
-consistent)~\textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})}
+\begin{tcbdefinition}{Diagram (informal but consistent)\\
+ \textmd{{\textcite[Definition 1.1.33]{perrone_2019_cath_notes}}})}
 {diagram_perrone}
 ``A diagram in a category $C$ is a directed (multi-)graph formed 
 out of objects and arrows of $C$ such that:
@@ -2889,14 +2907,18 @@ Look for ``graphs'' that match, unifying disparate parts of math.
 
 Problem: you need to learn a lot of conventional math before
 you can really start on category theory.
-\vfill
+
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 %un-comment \input and comment \printbibiliography
 %to get index, glossary, list of theorems, etc.
 %-----------------------------------------------------------------
+\backmatter
+\pagestyle{back}
 \glsaddallunused
-\appendix
+%\appendix
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
 \setcounter{currentlevel}{\value{baseSectionLevel}}
 \import{\texFolder}{typesetting}
 %-----------------------------------------------------------------

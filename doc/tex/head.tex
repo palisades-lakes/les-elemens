@@ -225,6 +225,7 @@ keywordstyle={\ttfamily}}
 
 \titleformat{\part}{\huge\scshape\bfseries}{\thepart}{0.5em}{}
 \titleformat{\chapter}{\LARGE\scshape\bfseries}{\thechapter}{0.5em}{}
+%\titleformat{name=\chapter*,numberless}{\LARGE\scshape\bfseries}{\thechapter}{0.5em}{}
 \titleformat{\section}{\Large\scshape\bfseries}{\thesection}{0.5em}{}
 \titleformat{\subsection}{\large\scshape\bfseries}{\thesubsection}{0.5em}{}
 \titleformat{\subsubsection}{\large\scshape\mdseries}{\thesubsubsection}{0.5em}{}
@@ -348,7 +349,7 @@ breakable,
 enhanced,
 freelance,
 %frame code = {},
-colframe=white,
+colframe=GhostWhite,
 % frame code={
 %   \draw[line width=0pt]
 %     ([yshift=1pt]interior.north west-|frame.north west) --
@@ -397,8 +398,10 @@ overlay first={%
 %   }
 % \makeatother
 
-\newtcbtheorem[number within=section,
-list inside={tcbdef}]{tcbdefinition}
+\newtcbtheorem[
+number within=section,
+list inside={tcbdef}]
+{tcbdefinition}
 {Definition}%
 {spartan,
 breakable,
@@ -407,5 +410,6 @@ freelance,
 colback=GhostWhite,
 colframe=GhostWhite,
 coltitle=black,
-fonttitle=\scshape\bfseries}{th}
+fonttitle=\scshape\bfseries}
+{def}
 %

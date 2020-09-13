@@ -5,9 +5,8 @@
 %   \textsf{\listoftheorems[ignoreall, show={definition}]}
 % \endgroup
 %-----------------------------------------------------------------
-\renewcommand{\thechapter}{}
-\pagestyle{back}
-\pagebreak
+%\renewcommand{\thechapter}{}
+\clearpage
 \renewcommand{\listfigurename}{\scshape Figures}
 \addcontentsline{toc}{chapter}{\listfigurename}
 \begingroup
@@ -20,70 +19,70 @@
 %\rmfamily
 \endgroup
 %-----------------------------------------------------------------
-\pagebreak
-\renewcommand{\lstlistlistingname}{\scshape Code samples}
-\addcontentsline{toc}{chapter}{\lstlistlistingname}
+% \pagebreak
+% \renewcommand{\lstlistlistingname}{\scshape Code samples}
+% \addcontentsline{toc}{chapter}{\lstlistlistingname}
+% \begingroup
+% \let\onecolumn\twocolumn
+% \scshape
+% %\sffamily
+% \lstlistoflistings
+% \vfill
+% \upshape
+% %\rmfamily
+% \endgroup
+%-----------------------------------------------------------------
+% \pagebreak
+% \renewcommand*{\listtheoremname}{\scshape Definitions}
+% \addcontentsline{toc}{chapter}{\listtheoremname}
+% \begingroup
+% \let\onecolumn\twocolumn
+% \scshape
+% %\sffamily
+% \listoftheorems[ignoreall,show={definition}]
+% \vfill
+% \upshape
+% %\rmfamily
+% \endgroup
+%-----------------------------------------------------------------
+% \pagebreak
+% \renewcommand*{\listtheoremname}{\scshape Definitions}
+% \addcontentsline{toc}{chapter}{\listtheoremname}
 \begingroup
 \let\onecolumn\twocolumn
 \scshape
 %\sffamily
-\lstlistoflistings
+\tcblistof[\chapter]{tcbdef}{\scshape Definitions}
 \vfill
 \upshape
 %\rmfamily
 \endgroup
 %-----------------------------------------------------------------
-\pagebreak
-\renewcommand*{\listtheoremname}{\scshape Definitions}
-\addcontentsline{toc}{chapter}{\listtheoremname}
-\begingroup
-\let\onecolumn\twocolumn
-\scshape
-%\sffamily
-\listoftheorems[ignoreall,show={definition}]
-\vfill
-\upshape
-%\rmfamily
-\endgroup
+% \pagebreak
+% \renewcommand{\listtheoremname}{\scshape Theorems}
+% \addcontentsline{toc}{chapter}{\listtheoremname}
+% \begingroup
+% \let\onecolumn\twocolumn
+% \scshape
+% %\sffamily
+% \listoftheorems[ignoreall,show={theorem}]
+% \upshape
+% \vfill
+% %\rmfamily
+% \endgroup
 %-----------------------------------------------------------------
-\pagebreak
-\renewcommand*{\listtheoremname}{\scshape Definitions}
-\addcontentsline{toc}{chapter}{\listtheoremname}
-\begingroup
-\let\onecolumn\twocolumn
-\scshape
-%\sffamily
-\tcblistof[\section*]{tcbdef}{\scshape Definitions}
-\vfill
-\upshape
-%\rmfamily
-\endgroup
-%-----------------------------------------------------------------
-\pagebreak
-\renewcommand{\listtheoremname}{\scshape Theorems}
-\addcontentsline{toc}{chapter}{\listtheoremname}
-\begingroup
-\let\onecolumn\twocolumn
-\scshape
-%\sffamily
-\listoftheorems[ignoreall,show={theorem}]
-\upshape
-\vfill
-%\rmfamily
-\endgroup
-%-----------------------------------------------------------------
-\pagebreak
-\renewcommand{\listtheoremname}{\scshape Examples}
-\addcontentsline{toc}{chapter}{\listtheoremname}
-\begingroup
-\let\onecolumn\twocolumn
-\scshape
-%\sffamily
-\listoftheorems[ignoreall,show={example}]
-\vfill
-\upshape
-%\rmfamily
-\endgroup
+% \pagebreak
+% \renewcommand{\listtheoremname}{\scshape Examples}
+% \addcontentsline{toc}{chapter}{\listtheoremname}
+% \begingroup
+% \let\onecolumn\twocolumn
+% \scshape
+% %\sffamily
+% \listoftheorems[ignoreall,show={example}]
+% \vfill
+% \upshape
+% %\rmfamily
+% \endgroup
 %-----------------------------------------------------------------
 % \newglossarystyle{mystyle}{%
 %  \glossarystyle{altlist}%
