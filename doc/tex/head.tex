@@ -32,10 +32,14 @@
 \setlength{\epigraphwidth}{0.9\linewidth}
 \renewcommand{\epigraphflush}{center}
 \renewcommand{\sourceflush}{flushleft}
-
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+% fonts
+%-----------------------------------------------------------------
 \usepackage{fontspec}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+% main font
+%-----------------------------------------------------------------
 %\setmainfont{Baskerville Old Face}
 %\setmainfont{Libre Caslon Text}[Scale=0.85]
 %\setmainfont{Centaur}
@@ -77,18 +81,51 @@ BoldItalicFont = *08-Italic ]
 %\setmainfont{Palatino Linotype}
 %\setmainfont{Perpetua}[Scale=1.1]
 %\setmainfont{Times New Roman}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+% sans font
+%-----------------------------------------------------------------
 % https://www.microsoft.com/typography/fonts/family.aspx?FID=155
 \setsansfont{Gill Sans MT} 
 
 % http://arkandis.tuxfamily.org/adffonts.html
 % \setsansfont{Gillius ADF}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+% cjk fonts
+%-----------------------------------------------------------------
 % \usepackage{xeCJK}
 % \setCJKmainfont{SimHei}
 % \setCJKsansfont{SimHei}
 % \setCJKmonofont{Lucida Sans Typewriter}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
+% math fonts
+%-----------------------------------------------------------------
+% conflicts with amssymb
+%\usepackage{xfrac,unicode-math}
+%\defaultfontfeatures{Scale=MatchLowercase}
+
+% \setmathfont{Latin Modern Math}[version=lm]
+% \setmathfont{XITS Math}[version=xits]
+% \setmathfont{Stix Math}[version=stix]
+% \setmathfont{Stix Two Math}[version=stix2]  % https://github.com/stipub/stixfonts/
+% \setmathfont{Stix Two Math}[StylisticSet={1,2,8}, version=stix2_128] 
+% \setmathfont{TeX Gyre Termes Math}[version=termes]
+
+% with Windows 10
+%\setmathfont{Cambria Math}[version=cambria]
+
+% \setmathfont{TeX Gyre Pagella Math}[version=pagella]
+
+% https://www.ctan.org/tex-archive/fonts/Asana-Math/
+% loading fails with many metafont errors
+% conflicts with amsfonts
+% \setmathfont{Asana Math}[version=asana]
+
+% \setmathfont{Libertinus Math}[version=libertinus]
+% \setmathfont{TeX Gyre DejaVu Math}[version=dejavu]
+
+%-----------------------------------------------------------------
+% math packages
+%-----------------------------------------------------------------
 \usepackage{amsmath}
 \usepackage{amssymb}
 \DeclareMathOperator*{\argmin}{argmin}
