@@ -1,0 +1,72 @@
+\makeatletter
+% Section
+\@namedef{section@name@1}{section}
+\expandafter\newlength\csname section@indent@1\endcsname\expandafter\setlength\csname section@indent@1\endcsname{\z@}
+\expandafter\newlength\csname section@beforeskip@1\endcsname\expandafter\setlength\csname section@beforeskip@1\endcsname{-3.5ex \@plus -1ex \@minus -.2ex}
+\expandafter\newlength\csname section@afterskip@1\endcsname\expandafter\setlength\csname section@afterskip@1\endcsname{2.3ex \@plus.2ex}
+\@namedef{section@style@1}{\normalfont\Large\bfseries}
+% Subsection
+\@namedef{section@name@2}{subsection}
+\expandafter\newlength\csname section@indent@2\endcsname\expandafter\setlength\csname section@indent@2\endcsname{\z@}
+\expandafter\newlength\csname section@beforeskip@2\endcsname\expandafter\setlength\csname section@beforeskip@2\endcsname{-3.25ex\@plus -1ex \@minus -.2ex}
+\expandafter\newlength\csname section@afterskip@2\endcsname\expandafter\setlength\csname section@afterskip@2\endcsname{1.5ex \@plus .2ex}
+\@namedef{section@style@2}{\normalfont\large\bfseries}
+% Subsubsection
+\@namedef{section@name@3}{subsubsection}
+\expandafter\newlength\csname section@indent@3\endcsname\expandafter\setlength\csname section@indent@3\endcsname{\z@}
+\expandafter\newlength\csname section@beforeskip@3\endcsname\expandafter\setlength\csname section@beforeskip@3\endcsname{-3.25ex\@plus -1ex \@minus -.2ex}
+\expandafter\newlength\csname section@afterskip@3\endcsname\expandafter\setlength\csname section@afterskip@3\endcsname{1.5ex \@plus .2ex}
+\@namedef{section@style@3}{\normalfont\normalsize\bfseries}
+% Paragraph
+\@namedef{section@name@4}{subsubsection}
+\expandafter\newlength\csname section@indent@4\endcsname\expandafter\setlength\csname section@indent@4\endcsname{\z@}
+\expandafter\newlength\csname section@beforeskip@4\endcsname\expandafter\setlength\csname section@beforeskip@4\endcsname{3.25ex \@plus1ex \@minus.2ex}
+\expandafter\newlength\csname section@afterskip@4\endcsname\expandafter\setlength\csname section@afterskip@4\endcsname{-1em}
+\@namedef{section@style@4}{\normalfont\normalsize\bfseries}
+% Subparagraph
+\@namedef{section@name@5}{subsubsection}
+\expandafter\newlength\csname section@indent@5\endcsname\expandafter\setlength\csname section@indent@5\endcsname{\parindent}
+\expandafter\newlength\csname section@beforeskip@5\endcsname\expandafter\setlength\csname section@beforeskip@5\endcsname{3.25ex \@plus1ex \@minus .2ex}
+\expandafter\newlength\csname section@afterskip@5\endcsname\expandafter\setlength\csname section@afterskip@5\endcsname{-1em}
+\@namedef{section@style@5}{\normalfont\normalsize\bfseries}
+
+\newcounter{section@level}
+\newcommand{\unstepcounter}[1]{\addtocounter{#1}{-1}}
+\newenvironment{mysection}
+  {\stepcounter{section@level}%
+   \@startsection{\@nameuse{section@name@\thesection@level}}
+     {\thesection@level}
+     {\@nameuse{section@indent@\thesection@level}}
+     {\@nameuse{section@beforeskip@\thesection@level}}
+     {\@nameuse{section@afterskip@\thesection@level}}
+     {\@nameuse{section@style@\thesection@level}}}
+  {\unstepcounter{section@level}}
+
+\setcounter{secnumdepth}{5}
+\makeatother
+\begin{document}
+\begin{mysection}{A section}
+  Some text.
+  \begin{mysection}{A subsection}
+    Some text.
+    \begin{mysection}{A subsubsection}
+      Some text.
+    \end{mysection}
+    \begin{mysection}{A subsubsection}
+      Some text.
+      \begin{mysection}{A paragraph}
+        Some text.
+      \end{mysection}
+      \begin{mysection}{A paragraph}
+        Some text.
+        \begin{mysection}{A subparagraph}
+          Some text.
+        \end{mysection}
+      \end{mysection}
+    \end{mysection}
+  \end{mysection}
+  \begin{mysection}{A subsection}
+    Some text.
+  \end{mysection}
+\end{mysection}
+\end{document}
