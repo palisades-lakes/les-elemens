@@ -13,7 +13,7 @@
 %-------------------------------------------------------------------------------
 \usepackage{graphics}
 \usepackage{epsfig}
-\usepackage{graphicx}
+\usepackage{graphicx,,grffile}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 %-------------------------------------------------------------------------------
@@ -244,6 +244,11 @@ keywordstyle={\ttfamily}}
 \setlist[itemize]{style=unboxed,itemindent=0cm}
 \setlist[enumerate]{style=unboxed,itemindent=0cm}
 %-----------------------------------------------------------------
+% section chapter title fonta for Koma-script
+% \addtokomafont{section}{\rmfamily\bfseries}
+% \addtokomafont{minisec}{\rmfamily\bfseries\scshape}
+%-----------------------------------------------------------------
+
 %\usepackage[sf,small,compact]{titlesec}
 \usepackage[pagestyles,small,compact,sc,rigidchapters]{titlesec}
 %\newfontfamily\headingfont[]{New Yorker}
