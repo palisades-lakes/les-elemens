@@ -154,20 +154,22 @@ BoldItalicFont = *08-Italic ]
 \usepackage{thmtools}
 %-----------------------------------------------------------------
 \newtheoremstyle{break}%
-{3pt}{3pt}%
-{}{}%
-{\bfseries}%
+{3pt}%
+{3pt}%
+{\normalfont}%
+{}%
+{\scshape}%
 {}% % Note that final punctuation is omitted.
 {\newline}%
-{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+{\thmname{#1}\thmnumber{ #2}:\bfseries\thmnote{ #3}}
 
 \theoremstyle{break}
-\newtheorem{definition}{\textsc{Definition}}[section]
+\newtheorem{definition}{Definition}[section]
 
 \theoremstyle{definition}
-\newtheorem{theorem}{\textsc{Theorem}}[section]
+\newtheorem{theorem}{Theorem}[section]
 \theoremstyle{definition}
-\newtheorem{example}{\textsc{Example}}[section]
+\newtheorem{example}{Example}[section]
 
 %-----------------------------------------------------------------
 % \numberwithin{theorem}{chapter}
@@ -315,7 +317,11 @@ keywordstyle={\ttfamily}}
 %https://en.wikibooks.org/wiki/LaTeX/Indexing
 \usepackage{makeidx}
 \makeindex
-\usepackage[totoc]{idxlayout}
+\newcommand*{\ding}[2][\dingentry]{%
+\def\dingentry{#2}%
+\emph{#2}%
+\index{#1}%
+}\usepackage[totoc]{idxlayout}
 %-----------------------------------------------------------------
 \usepackage[
 backend=biber, 

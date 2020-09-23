@@ -1,14 +1,15 @@
 % !TEX TS-program = arara
+% arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
 % arara: xelatex: { synctex: on, options: [--halt-on-error] } 
 % arara: biber: {options: [--input-directory=../../bib] }
-%   arara: makeglossaries
-%   arara: makeindex
+% arara: makeglossaries
+% arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-%%       arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
+% arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
 % arara: clean: { files: [topos-notes.bcf,topos-notes.blg] }
-%   arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
-%   arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
+% arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
+% arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
 % arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
 % arara: clean: { files: [topos-notes.ind,topos-notes.loe] }
 % arara: clean: { files: [topos-notes.lof,topos-notes.log] }
@@ -394,7 +395,7 @@ essentially the same concept; the categorical language and approach may simplify
 display the generality of concepts, and help to formulate uniform definitions. This has been the case,
 for example, in the early applications of category theory to algebraic geometry.
 \tcblower
-{Asperi and Longo, \emph{Categories, Types, and Structures: 
+{Asperti and Longo, \emph{Categories, Types, and Structures: 
 an introduction to Category Theory for the working computer scientist}~\cite{asperti_longo_1991}}
 \end{boxquote}
 
@@ -1650,7 +1651,7 @@ Orderings:
 Things various authors claim are important or valuable;
 things that ought to be understood,
 and ought to be presentable in a natural, intuitive way.
-Ordered by mean rank of preceeding authors:
+Ordered by mean rank of preceding authors:
 \begin{enumerate}
   \item Topos, elementary topos: 
   category ``essentially the same as \textbf{Set}''
@@ -1759,10 +1760,10 @@ edges/arrows.
  Simplicial complexes?)
 
 \begin{definition}[Directed graph]
-A \emph{directed (multi)graph} (aka digraph) is
+A \ding{directed (multi)graph} (aka \ding{digraph}) is
 an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
-where $\Set{V}$ is a set of \emph{vertices}, 
-$\Set{E}$ a set of \emph{edges}, ordered pairs of vertices.
+where $\Set{V}$ is a set of \ding[vertex]{vertices}, 
+$\Set{E}$ a set of \ding[edge]{edges}, ordered pairs of vertices.
 $V_0 = \tail(e)$ and $V_1 = \head(e)$
 for edge $e = \left[ V_0, V_1 \right]$.
 \end{definition}
@@ -1785,39 +1786,42 @@ In other words, can we have multiple distinct copies of
  then there is only one $\left(A,B\right)$ 
  for given $A$ and $B$.)
 
-A graph may be called a \emph{multigraph} when $1$ is
+A graph may be called a \ding{multigraph} when $1$ is
 not assumed.
 
 In a context where loops are allowed,
-a graph with no loops may be called \emph{simple}.
+a graph with no loops may be called 
+\ding[simple graph]{simple}.
 
 (\textbf{Question:} 
 Digraph special case of (oriented) simplicial complex.
 What's the difference between a simplicial complex 
 and a hypergraph?)
 
-A \emph{path} is a sequence of edges where the head of each
+A \ding{path} is a sequence of edges where the head of each
 edge matches the tail of the following edge, if there is one.
 
-An \emph{directed acyclic graph} (aka DAG) has no paths
+An \ding{directed acyclic graph} (aka DAG) has no paths
 connecting a vertex to itself.
 
-A directed graph is \emph{(strongly) connected} if there is a path
+A directed graph is 
+\ding[connected graph]{(strongly) connected} 
+if there is a path
 from any vertex to any other (weakly if there is path
 ignoring direction.
 
-(\textbf:{TODO:} straighten out \emph{path} vs \emph{walk} vs
-\emph{trail}; directed vs undirected; sequence of alternating
+(\textbf:{TODO:} straighten out \ding{path} vs \ding{walk} vs
+\ding{trail}; directed vs undirected; sequence of alternating
 vertices and edges, starting and beginning with a vertex.)
 
-A \emph{root} vertex (aka source) has no entering edges.
+A \ding{root} vertex (aka source) has no entering edges.
 
-A \emph{leaf} vertex (aka sink) has no departing edges.
+A \ding{leaf} vertex (aka sink) has no departing edges.
 
-A \emph{tree} is a directed graph with one root, 
+A \ding{tree} is a directed graph with one root, 
 where all vertices have at most entering edge.
 
-(Mesh) \emph{dual} of a graph interchanges the roles of edges 
+(Mesh) \ding[dual graph]{dual} of a graph interchanges the roles of edges 
 and vertices, resulting in a hypergraph where every dual vertex
 has exactly $2$ edges. 
 (\textbf{Question:} orientation/direction 
@@ -1891,7 +1895,7 @@ Applications of directed graphs:~\cite{clrs_2009}
 \levelstay{Category (standard)}
 
 \begin{definition}[Category (standard)]
-A \emph{category} is a directed (multi) graph 
+A \ding{category} is a directed (multi) graph 
 together with two functions that impose constraints
 on the graph:
 \begin{description}
@@ -2087,7 +2091,7 @@ the problem being solved, eg,  expected travel time, likely fuel
 cost, etc.
 
 \begin{definition}[Paths]
-In this context, a \emph{path} is taken to be a sequence of
+In this context, a \ding{path} is taken to be a sequence of
 alternating vertices and edges, beginning and ending 
 with vertices. 
 Note that this allows us to have a path consisting 
@@ -2122,9 +2126,9 @@ e_{10} e_{11} \ldots e_{1n}
 
 \begin{definition}[Kategory (explicit path-equivalence)]
 (Until I think of a better name\ldots)\\
-A \emph{kategory} is a directed (multi) graph together with
+A \ding{kategory} is a directed (multi) graph together with
 a path evaluation function: $\left[G, \pvalue\right]$.
-Two paths are \emph{equivalent} ($\simeq$) 
+Two paths are \ding[path equivalence]{equivalent} ($\simeq$) 
 if they have the same 
 $\head$, $\tail$, and $\pvalue$:
 \[
@@ -2203,7 +2207,7 @@ If so, kategories may be no more intuitive than categories.)
 \label{sec:functor}
 
 For all the fuss, there doesn't seem to be much to functors:
-A \emph{functor} is simply a structure-preserving function
+A \ding{functor} is simply a structure-preserving function
 between categories (or kategories), in the usual sense:
 it can be applied any entity 
 making up the structure,
@@ -2211,7 +2215,7 @@ and it ``commutes'' or ``distributes'' appropriately
 over the structure functions.
 
 \begin{definition}[Structure-preserving function between directed
-graphs (aka directed graph homomorphism)]
+graphs\\ (aka directed graph homomorphism)]
 $f:G_0 \rightarrow G_1$ is a structure-preserving function
 between directed graphs, if and only if:
 \begin{align*}
@@ -2227,7 +2231,7 @@ We apply $f$ to paths in the obvious way.
 \end{definition}
 
 \begin{definition}[Functor (category)]
-A \emph{functor} $F:C_0 \rightarrow C_1$ is 
+A \ding{functor} $F:C_0 \rightarrow C_1$ is 
 a structure-preserving function
 between categories, which requires that is a structure-preserving 
 function between directed graphs, and:
@@ -2244,7 +2248,7 @@ function between directed graphs, and:
 \begin{definition}[Phunctor (kategory)]
 (Very unlikely to stick with this name.)
 
-A \emph{phunctor} $P:K_0 \rightarrow K_1$ is 
+A \ding{phunctor} $P:K_0 \rightarrow K_1$ is 
 a structure-preserving function
 between kategories, which requires that is a structure-preserving 
 function between graphs, and:
@@ -2266,7 +2270,7 @@ they are, however, defined ambiguously, incorrectly, or not at all.
 % \begin{definition}[Diagram (pictorial)
 % \textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
 % hillman_2001_cat_primer}}]
-% ``By \emph{diagram} we mean any collection of objects
+% ``By \ding{diagram} we mean any collection of objects
 % along with a collection of morphisms between various of those
 % objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} \\
 % This is wrong, because it doesn't deal with the common
@@ -2278,7 +2282,7 @@ they are, however, defined ambiguously, incorrectly, or not at all.
 \textmd{\textcite{geroch_1985,goldblatt_1984_topoi,
 hillman_2001_cat_primer}}}
 {diagram_pictorial}
-``By \emph{diagram} we mean any collection of objects
+``By \ding{diagram} we mean any collection of objects
 along with a collection of morphisms between various of those
 objects. (E.g., a diagram is what is pictured.)''~\cite{geroch_1985} 
 \par
@@ -2289,7 +2293,7 @@ case of multiple vertices and edges with the same labels.
 % \begin{definition}[Diagram (graph to graph) 
 % \textmd{\textcite{barr_wells_2020}}]
 % Let $I$ and $G$ be {[directed) graphs]}. 
-% A \emph{diagram} in $G$ of shape $I$
+% A \ding{diagram} in $G$ of shape $I$
 % is a graph homomorphism $D : I \rightarrow G$ of graphs. 
 % \end{definition}
 
@@ -2297,16 +2301,16 @@ case of multiple vertices and edges with the same labels.
 % \textmd{\textcite{asperti_longo_1991}}]
 % Let $I$ be a directed graph
 %  and $C$ be a category. 
-% A \emph{diagram} in $G$ of shape $I$
+% A \ding{diagram} in $G$ of shape $I$
 % is a graph homomorphism $D : I \rightarrow C$ of graphs. 
 % \end{definition}
 % 
 % \begin{definition}[Diagram (category to category) \textmd{(broken)}]
 % \label{def:diagram_cat_to_cat}
 % Let $I$ and $A$ be categories. 
-% A \emph{diagram} is a functor $D : I \rightarrow A$.
-% $I$ is the \emph{shape} (aka \emph{scheme},
-% \emph{index category}) of the diagram $D$.\\
+% A \ding{diagram} is a functor $D : I \rightarrow A$.
+% $I$ is the \ding{shape} (aka \ding{scheme},
+% \ding{index category}) of the diagram $D$.\\
 % Sometimes $I$ is required to a small category
 % (sets vs classes crap).\\
 % This is often introduced in the context of limits,
@@ -2466,7 +2470,7 @@ any of the pair of edges with the same head and tail might be
 taken to be the same edge, and still satisfy the definition of a
 category. 
 If all such ``redundant'' pairs are reduced to single edges,
-then the diagram is said to \emph{commute}.
+then the diagram is said to \ding{commute}.
 This is shown in figure~\ref{fig:a_commuting_diagram}
 
 Commutative diagrams are in some sense the heart of category
@@ -2515,7 +2519,8 @@ a diagram commutes?)
 \levelstay{Monic, epic, isic (Monepisic?) edges}
 \label{sec:monic_epic_isic}
 
-Two edges are \emph{parallel} is they have the same head and tail.
+Two edges are \ding[parallel edges]{parallel} 
+if they have the same head and tail.
 Same for paths.
 
 \setcounter{currentlevel}{\value{baseSectionLevel}-2}
@@ -2540,7 +2545,7 @@ $\left( f \neq g \right)
 \label{fig:monic}
 \end{figure}
 
-An edge $e$ is \emph{monic} (aka a monomorphism, left-cancelable)
+An edge $e$ is \ding{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f,g$:
 \begin{align*}
 \left( e \comop f = e \comop g \right) 
@@ -2570,7 +2575,7 @@ $\left( f \neq g \right)
 \label{fig:epic}
 \end{figure}
 
-An edge $e$ is \emph{epic} (aka epimorphism, right-cancelable)
+An edge $e$ is \ding{epic} (aka epimorphism, right-cancelable)
 if, for any matching parallel edges $f,g$:
 \begin{align*}
 \left( f \comop e = g \comop e \right) 
@@ -2605,8 +2610,8 @@ composes to the identity loop.}
 \label{fig:split_monic}
 \end{figure}
 
-An edge $e$ is \emph{split monic} (aka has a left inverse)
-if there exists an $e^{-\text{left}}$, the \emph{retraction},
+An edge $e$ is \ding{split monic} (aka has a left inverse)
+if there exists an $e^{-\text{left}}$, the \ding{retraction},
 such that
 \[
 e^{-\text{left}} \comop e = \identity(\tail(e))
@@ -2629,8 +2634,8 @@ composes to the identity loop.}
 \label{fig:split_epic}
 \end{figure}
 
-An edge $e$ is \emph{split epic} (aka has a right inverse)
-if there exists an $e^{-\text{right}}$, the \emph{splitting}, 
+An edge $e$ is \ding{split epic} (aka has a right inverse)
+if there exists an $e^{-\text{right}}$, the \ding{splitting}, 
 such that
 \[
 e \comop e^{-\text{right}} = \identity(\head(e))
@@ -2654,7 +2659,7 @@ same for both paths $V_1 \longrightarrow V_1$.}
 \label{fig:isic}
 \end{figure}
 
-An edge $e$ is \emph{isic} (aka an isomorphism, invertible)
+An edge $e$ is \ding{isic} (aka an isomorphism, invertible)
 if there exists an edge $e^{-1}$ such that
 \[
 e^{-1} \comop e = \identity(\tail(e))
@@ -2767,7 +2772,7 @@ from=1-1,to=1-3, red, dashed, bend right=60,
 \label{fig:monic_diagram}
 \end{figure}
 
-An edge $e$ is \emph{monic} (aka a monomorphism, left-cancelable)
+An edge $e$ is \ding{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f_i,f_j$:
 \begin{align*}
 \left( e \comop f_i = e \comop f_j \right) 
@@ -2856,7 +2861,7 @@ Definitions equivalent to ones with the parallel
 edges replaced by parallel paths and equality/identity 
 by equivalence? 
 
-An path $p$ is \emph{left-cancelable} (aka a monomorphism, monic)
+An path $p$ is \ding{left-cancelable} (aka a monomorphism, monic)
 if, for any matching parallel paths $q_0,q_1$:
 \begin{align*}
 \left( q_0 \conop p \peq q_1 \comop p \right) 
