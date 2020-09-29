@@ -1,6 +1,6 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: biber
+% arara: biber: {options: [--input-directory=../bib] }
 % arara: makeglossaries
 % arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
@@ -21,28 +21,36 @@
 \documentclass[11pt,openany]{book}
 \usepackage{import}
 \def \texFolder {../tex/}
-\def \bibFolder {../bib/}
 \def \sharedFolder {../shared/}
 \import{\texFolder}{head}
 \import{\texFolder}{landscape-2col-8x17}
 %\import{\texFolder}{portrait-1col-a4}
 \import{\texFolder}{clj-listings}
 \import{\sharedFolder}{glossary}
-\addbibresource{{\bibFolder}algebra.bib}
-\addbibresource{{\bibFolder}arithmetic.bib}
-\addbibresource{{\bibFolder}cactus.bib}
-\addbibresource{{\bibFolder}proglang.bib}
-\addbibresource{{\bibFolder}halmos.bib}
-\addbibresource{{\bibFolder}interpolation.bib}
-\addbibresource{{\bibFolder}logic.bib}
-\addbibresource{{\bibFolder}mop.bib}
-\addbibresource{{\bibFolder}numbers.bib}
-\addbibresource{{\bibFolder}sets.bib}
-\addbibresource{{\bibFolder}tex.bib}
-\addbibresource{{\bibFolder}topos.bib}
-\addbibresource{{\bibFolder}feferman.bib}
-%\addbibresource{{\bibFolder}ieeestd.bib}
-%\addbibresource{{\bibFolder}fparith.bib}
+
+\addbibresource{algebra.bib}
+\addbibresource{arithmetic.bib}
+\addbibresource{cactus.bib}
+\addbibresource{proglang.bib}
+\addbibresource{halmos.bib}
+\addbibresource{interpolation.bib}
+\addbibresource{logic.bib}
+\addbibresource{math.bib}
+\addbibresource{mcdonald.bib}
+\addbibresource{mop.bib}
+\addbibresource{numbers.bib}
+\addbibresource{sets.bib}
+\addbibresource{tex.bib}
+\addbibresource{topos.bib}
+\addbibresource{feferman.bib}
+%\addbibresource{ieeestd.bib}
+%\addbibresource{fp.bib}
+%-----------------------------------------------------------------
+\let\oldfigure\figure% Store old figure environment start
+\let\endoldfigure\endfigure% Store old figure environment end
+\renewenvironment{figure}[1][htbp]% Redefine figure
+  {\oldfigure[#1]\mdframed[backgroundcolor=GhostWhite,linecolor=GhostWhite]}
+  {\endmdframed\endoldfigure}
 %-----------------------------------------------------------------
 \title{\textsc{Elements of math and computation (working title)}}
 \author{\textsc{John Alan McDonald}}
