@@ -1,0 +1,70 @@
+% XeLaTex
+\documentclass{article}
+\input{head}
+\input{landscape-2col}
+
+\begin{document}
+\input{symbols}
+
+\title{Functions of Triangular Meshes}
+\author{ \sc John Alan McDonald }
+\date{\today}
+\maketitle
+
+% \input{abstract}
+\cleardoublepage
+
+\tableofcontents
+\listoffigures
+
+%\part{Preliminaries}
+\cleardoublepage
+
+\section{Introduction}
+\input{introduction}
+%\cleardoublepage
+
+\section{Notation and general results}
+\input{general}
+
+%\part{Smoothness}
+%\cleardoublepage
+
+\section{Polylines}
+\input{curves}
+%\cleardoublepage
+
+\section{Triangular Meshes}
+\input{faces}
+\input{edges}
+\input{vertices}
+%\cleardoublepage
+
+\section{Subdivision Surfaces}
+\input{subdivision}
+
+%\part{Fitting}
+%\cleardoublepage
+
+\section{Data Fitting}
+\input{data-fitting}
+%\cleardoublepage
+
+\section{Image Fitting}
+\input{image-fitting}
+%\cleardoublepage
+
+\section{Registration}
+\input{registration}
+%\cleardoublepage
+
+\section{Averaging}
+\input{averaging}
+
+\newpage
+{\small
+\bibliographystyle{plain}
+\bibliography{mesh}
+}
+
+\end{document}
