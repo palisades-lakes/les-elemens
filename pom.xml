@@ -8,11 +8,11 @@
  <groupId>palisades-lakes</groupId>
  <artifactId>les-elemens</artifactId>
  <description>-description-</description>
- <version>0.0.10-SNAPSHOT</version>
+ <version>0.0.11-SNAPSHOT</version>
  <parent>
   <groupId>palisades-lakes</groupId>
   <artifactId>palisades-lakes-parent</artifactId>
-  <version>0.0.10-SNAPSHOT</version>
+  <version>0.0.11-SNAPSHOT</version>
  </parent>
  <build>
   <plugins>
@@ -171,11 +171,13 @@
    <artifactId>jcurand</artifactId>
    <version>${jcuda-version}</version>
   </dependency>
+  <!-- deprecated as of CUDA 11: https://github.com/jcuda/jcuda-main
   <dependency>
    <groupId>org.jcuda</groupId>
    <artifactId>jnvgraph</artifactId>
    <version>${jcuda-version}</version>
   </dependency>
+   -->
   <dependency>
    <groupId>org.jcuda</groupId>
    <artifactId>jcudnn</artifactId>
