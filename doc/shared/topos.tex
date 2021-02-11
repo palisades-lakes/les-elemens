@@ -1,3 +1,220 @@
+% This is currently a set of notes not intended to be shared.
+% Needs quite a bit of editing to separate parts appropriate for 
+% exposition to general audiences from personal notes.
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Preface}
+\label{sec:Preface}
+Describe my experiences as they happen\ldots
+%-----------------------------------------------------------------
+\begin{plSection}{2020-08}
+\label{sec:2020-08}
+
+\begin{plQuote}
+{\citeAuthorYearTitle[Preface]{Goldblatt:1984:Topoi}}
+{}
+No doubt there are as many reasons for writing books as there are people
+who write them. One function served by this particular work has been the
+edification of its author. Translations can sometimes create a sense of
+explanation, and this seemed to me particularly true of the alternative
+account of mathematical constructions being produced by category
+theory. Writing the book gave me a framework within which to confirm
+that impression and to work through its ramifications in some detail. At
+the end I knew a great deal more than when I began, so that the result is
+as much a recording as a reconstruction of the progress of my own
+understanding. And at the end it seemed to me that much that I had
+dwelt on had finally fallen into place.
+\par
+As to the more public functions of the book---I hope that it provides
+others with the prospect of a similar experience. 
+% Less presumptuously, I
+% have tried to write an exposition that will be accessible to the widest
+% possible audience of logicians - the philosophically motivated as well as
+% the mathematical. This, in part, accounts for the style that I have adopted.
+$\;\cdots\;$ 
+There is a tendency in much contemporary literature to present material
+in a highly systematised fashion, in which an abstract definition will
+typically come before the list of examples that reveals the original
+motivation for that definition. Paedogogically, a disadvantage of this
+approach is that the student is not actually shown the genesis of 
+concepts---how and why they evolved---and 
+is thereby taught nothing about the
+mechanisms of creative thinking. Apart from lending the topic an often
+illusory impression of completedness, the method also has the drawback
+of inflating prerequisites to understanding.
+\par
+All of this seems to me particularly dangerous in the case of category
+theory, a discipline that has more than once been referred to as ``abstract
+nonsense''. In my experience, that reaction is the result of features that
+are not intrinsic to the subject itself, but are due merely to the style of
+some of its expositors. The approach I have taken here is to try to move
+always from the particular to the general, following through the steps of
+the abstraction process until the abstract concept emerges naturally. 
+% The
+% starting points are elementary (in the ``first principles'' sense), and at the
+% finish it would be quite appropriate for the reader to feel that (s)he had
+% just arrived at the subject, rather than reached the end of the story.
+
+\end{plQuote}
+
+Capture state of my ignorance as of 2020-08,
+to record what's confusing to the novice.
+
+For the past $20+$ years, I have, every year or so,
+encountered claims that
+category theory is the ``right way to do \emph{blah}''.
+I would then pick up some recent 
+introduction~\cite{AdamekHerrlichStrecker:1990,
+AspertiLongo:1991,Awodey:2010,
+BarrWells:2020,
+Geroch:1985:MathPhysics,Hillman:2001:CatPrimer,LawvereSchanuel:2009:ConceptualMath,
+Leinster:2016:BasicCategoryTheory,
+MacLane:1998:CategoriesWorking2,nLab:2020,
+Riehl:2017:CatTheory,
+Spivak:2013:CatTheoryForScientists,Spivak:2014:CatTheoryForSciences} 
+get about halfway and give up.
+
+Recent context: 
+writing optimization software 
+leads to a desire for exact arithmetic 
+leads to computable reals,
+leads to constructive analysis and intuitionistic logic,
+leads to history and foundations of math 
+leads to topos theory.
+
+Current hypothesis: something is wrong.
+Maybe it's me, or maybe \ldots\ . 
+Directed multigraph with elaborate constraints 
+perhaps isn't the 'right' language to
+expose and use commonalities across mathematics.
+
+\textbf{TODO:} is there a reasonable way to measure 
+the complexity of a topic/definition/theorem/textbook,
+something perhaps like the depth and branching of the
+dependency tree? Are software complexity metrics a place to start?
+
+motivation from empirical problems; 
+see eg~\cite{MacLane:1981:MathModels}.
+goal ``breadth, clarity, and depth''.
+
+my point of view: 
+mathematics (notation) and programming languages
+as \emph{written} languages,
+used to formulate real world problems,
+and construct their solutions.
+express an idea in at most a couple pages of text.
+say enough and not too much, especially not irrelevant things.
+abstract just enough; 
+concrete details of model/representation/implementation.
+
+What is abstraction? Why is it a good thing? 
+
+key issue: is the solution correct?
+mathematics evaluated by consensus;
+software by testing.
+
+My background: physics undergraduate, statistics PhD.
+A moderate amount of analysis; 
+a bit of geometry, both
+differential in the context of gravitation, and
+discrete/computational in the context of fitting surfaces to
+$3+$ data, and geospatial data analysis;
+and a tiny amount of algebra, mostly group representations
+for physics.
+
+\begin{plQuote}
+{\citeAuthorYearTitle{MacLane:1954:Courses}}
+{maclane:vector:space}
+Throughout these courses the infusion of a geometrical
+point of view is of paramount importance. A vector
+is geometrical; it is an element of a vector space, defined
+by suitable axioms—whether the scalars be real numbers or
+elements of a general field. A vector is not an n-tuple of
+numbers until a coordinate system has been chosen. Any
+teacher and any text book which starts with the idea that vectors
+are n-tuples is committing a crime for which the proper
+punishment is ridicule. The n-tuple idea is not ``easier'', it is
+harder; it is not clearer, it is more misleading. By the same
+token, linear transformations are basic and matrices are their
+representations {\ldots}.
+\end{plQuote}
+
+Three formative experiences:
+\begin{enumerate}
+  \item First day of my $4$-year high school (September $1967$):
+  \par
+  Our pre-calculus (?) math teacher, who was working on Math PhD,
+  spent the first class on a (probably Bourbakian inspired) tour 
+  of algebraic structures, groups, rings, fields, etc.
+  I remember being fascinated, but distracted for much of the hour, 
+  trying to figure out what was 'round' about rings.
+  Despite my distraction, and almost total ignorance, 
+  I remember it seeming like a natural exploration of the obvious
+  possibilities from a simple starting point: a set of something,
+  one or two binary operations, and likely properties those
+  operations might or might not have.
+ 
+  \item First semester freshman ($1$st) year of college,
+  (Fall $1971$):
+  \par
+  Freshman math classes came in two versions: 
+  general (primarily pre-med and engineering) audience
+  vs intended math and physics majors. Fall semester was linear 
+  algebra. Despite being in the math/physics version of the course,
+  our text book was an introduction to matrix algebra of the type
+  normally given to engineers, ie, unmotivated, complicated,
+  arbitrary-seeming operations on rectangular arrays of numbers.
+  I was lost. I remember being particularly put off by the 
+  discussion of minors and determinants, a mysterious, 
+  out-of-the-blue calculation used in solving systems in linear
+  equations.
+  \par
+  Fortunately, our instructor recommended 
+  Halmos \emph{Finite dimensional vector 
+  spaces}~\cite{Halmos:1958:Finite}. 
+  
+  \item Junior ($3$rd) year of college 
+  (fall $1973$ -- spring $1974$):
+  \par
+  As physics majors, we took year-long courses in 
+  electricity and magnetism, and quantum mechanics.
+  Physics majors would also typically take math classes in
+  ordinary differential equations, partial differential equations,
+  real analysis, etc. We also mostly took a joint math/physics
+  class called something like ``methods of modern mathematical 
+  physics''~\cite{Reed:Simon:1972:FunctionalAnalysis}, 
+  which, as taught, was essentially a high-speed,
+  more-or-less from scratch functional analysis course.
+  Within the first month or so, we basically dispensed with all
+  all the other courses we were taking special cases of 
+  eigenanalysis of differential operators on function spaces.
+  (also E+M Maxwell equations special case of Stokes theorem 
+  from freshman Spivak Calculus on Manifolds.).
+  
+\end{enumerate}
+
+The common theme: the right abstraction reduces 
+the amount of stuff you need to remember by orders of magnitude,
+organizes that stuff to make it easier to remember,
+easier to see what you can do with it,
+and where to go next.
+
+Not clear to me (yet) whether category theory is this kind of
+``right abstraction''. 
+
+Certainly, all the introductions I've seen so far have much more
+the feel of explaining determinants as a mysterious,
+out-of-the-blue (and numerically unstable) algorithm,
+that just happens to play a part in ``inverting'' a matrix,
+where the concept of ``inversion'' itself is not 
+function inverse, or group element inverse,
+but rather a complicated construction of a matrix that
+just happens to give a unit diagonal matrix when multiplied with 
+the original.
+
+\end{plSection}%{2020-08}
+%-----------------------------------------------------------------
+\end{plSection}%{Preface}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{plSection}{Why?}
@@ -377,10 +594,39 @@ It doesn't seem like such assertions would be necessary,
 if it really were the 'right' way to unify 
 and illuminate all of mathematics.
 
+It feels similar to introductions to the related subject of
+'functional' programming languages,
+where the rightness of (statically typed) functional programming 
+is taken as
+an article of religious faith that doesn't need to be justified
+(for an exception, which lacks elaborate type systems,
+see SICP~\cite{AbelsonSussman:1996:SICP}).
+Many introductions to functional programming spend their
+effort demonstrating how, with a lot of effort, you can do
+something trivial is most other languages,
+never explaining what the benefits are.
+
 \end{plSection}%{Hype}
 %-----------------------------------------------------------------
 \begin{plSection}{Shaky foundations}
 \label{sec:Shaky-foundations}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{Thurston:1994:Proof}}
+{}
+On the most fundamental level, the foundations of mathematics are much shakier
+than the mathematics that we do. Most mathematicians adhere to foundational
+principles that are known to be polite fictions. For example, it is a theorem that
+there does not exist any way to ever actually construct or even define a well-ordering
+of the real numbers. There is considerable evidence (but no proof) that we can get
+away with these polite fictions without being caught out, but that doesn’t make
+them right. Set theorists construct many alternate and mutually contradictory
+``mathematical universes'' such that if one is consistent, the others are too. This
+leaves very little confidence that one or the other is the right choice or the natural
+choice. {\Godel}’s incompleteness theorem implies that there can be no formal system
+that is consistent, yet powerful enough to serve as a basis for all of the mathematics
+that we do.
+\end{plQuote}
 
 \begin{plQuote}
 {\citeAuthorYearTitle{Feferman:1977:CategoricalFoundations}}
@@ -447,8 +693,26 @@ the litmus test for arguments for and against category-theoretic
 \begin{plSection}{Complexity}
 \label{sec:Complexity}
 
+\begin{plQuote}
+{Dedekind to Klein, April 1888, 
+from \\
+\citeAuthorYearTitle{Dugac:1976:DedekindFondements},\\
+as quoted in \\
+\citeAuthorYearTitle{Ferreiros:2007:Labyrinth}.}
+{}
+{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
+\par
+What will the forbearing reader say at the end? That the author,
+ in a squandering of indescribable work, 
+ has happily managed to surround 
+the clearest ideas in a disturbing obscurity!
+\end{plQuote}
+
 A problem for novices is depth of definition, theorem,
 and concept dependence.
+
 
 The constructs do not feel natural, in themselves, 
 to the uninitiated.
@@ -625,6 +889,52 @@ patched on) vs Python.
 
 \end{plSection}%{Modularity breaking}
 %-----------------------------------------------------------------
+\begin{plSection}{Right abstraction?}
+\label{sec:Right-abstraction}
+
+Is category theory a good language?~\cite{wiki:AbstractNonsense}
+
+Is part of the attraction due to being able accumulate
+theorem-credits by publishing
+new proofs of old results?
+
+Are claims of additional insight justified?
+
+Are there any significant categories 
+that don't reduce to something like mathematical structures
+and structure-preserving functions?
+``Significant'' meaning not just the completion of an arbitrary
+directed multigraph.
+
+
+Is this question related to concrete 
+categories?~\cite{wiki:ConcreteCategory}
+
+\end{plSection}%{Right abstraction?}
+%-----------------------------------------------------------------
+\begin{plSection}{Naming}
+\label{sec:Naming}
+
+Is category theory a good language?~\cite{wiki:AbstractNonsense}
+
+Generally, mathematicians aren't good at naming:
+eg, what's round about a ring?
+
+Particularly bad in category theory, eg, 
+what's ``commuting'' in a commuting diagram.
+
+Prefer self-explanatory names, even if a bit longer:
+eg, ``left-cancelable'' rather than ``monic-morphism'',
+``structure-preserving function'' over ``homomorphism''.
+
+``Morphism'' etymology.
+
+Is part of the attraction the sense of being able to utter magic 
+incantations only understood by the initiated?
+
+ 
+\end{plSection}%{Naming}
+%-----------------------------------------------------------------
 \begin{plSection}{Graphical languages}
 \label{sec:Graphical-languages}
 
@@ -643,34 +953,567 @@ particularly math notation.~\cite{DutilhNovaes:2012:FormalLanguages}
 \end{plSection}%{Doubts}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\begin{plSection}{Foundational Sketch}
+\label{sec:Foundational-Sketch}
+
+In this section, I am going to lay out a basis for
+the discussions of category and topos theory to follow. 
+I will be intentionally vague, at least in parts;
+I have ideas about what I want in a foundation 
+for math and computing, but they are incomplete, at best,
+if not actually contradictory.
+
+In my training, to the extent that anything 
+foundational was encountered,
+it was what I believe people refer to as ``standard'' or
+``classical'' foundations,
+in more-or-less the tradition of Cantor, Russell, Hilbert, etc.
+Probably more naive set theory~\cite{Halmos:1960:NaiveSetTheory} 
+than any formal axiomatic approach.
+
+More recently, I've done enough reading in 
+computable reals and constructive 
+analysis~\cite{Henle:2012:RealNumbers,Bridger:2019}
+to doubt the necessity of more-than-countable infinity,
+axiom of choice, non-measurable sets, {\ldots},
+at least for ``scientifically applicable'' 
+mathematics.~\cite{Feferman:1989:IsCantorNecessary,
+Feferman:1992:ALittleBit}
+
+At this point, I recognize terms like
+``constructivist'', ``intuitionistic'', ``predicative'', 
+``finitary'', ``formalist'', ``platonist'', ``realist'', etc,
+though I couldn't say with confidence exactly what any of them
+mean. 
+I suspect no $2$ people working in these areas would define these
+terms in exactly the same way.
+My exploration of computable reals left me very confused,
+which was only partially relieved when I realized there are 
+something like a dozen schools of intuitionistic/constructive
+mathematics, sometimes using different words to mean the
+same thing, sometimes the same words to mean different things.
+
+%-----------------------------------------------------------------
+\begin{plSection}{What would a good foundation look like?}
+\label{sec:good-foundation}
+
+Goals:
+\begin{enumerate}
+  \item Support all ``scientifically applicable mathematics''.
+  (Really, support the mathematics I want to use.) \par
+  \textbf{TODO:} start listing problems of interest,
+  and what kinds of math are needed to pose and solve them.
+  
+  \item Appropriately ``high level''. \par
+  My goals in (attempting) to define a foundation are fundamentally
+different from classical approaches,
+many of which try to ``implement'' all of mathematics starting from
+something primitive, like a hierarchy of pure sets.
+This is loosely analogous, in the context of software,
+to implementing everything in binary.
+I'm looking for a foundation that is more convenient (for me),
+in the same sense that a modern programming language is more
+convenient than assembly language (for most problems).
+Note that high level programming languages are also more general
+than the instruction set of a particular machine.
+A good foundation ought to be similar in the sense of being
+``implementable'' in a variety of primitive bases.
+
+  \item No dangling definitions, no dependence on informal metalanguage.
+   \par
+  Category theory starts with sets of objects and arrows, 
+  and functions on them. Almost all the introductions I've seen 
+  take these notions for granted, hand waving over issues arising
+  from sets that are ``too big'', eg, the set of all sets needed
+  for the objects in category Sets.
+  \par
+  Conventional set theory is defined using first order logic,
+  which depends on a formal language, which is defined with
+  reference to an ``alphabet'' (or ``vocabulary''), 
+  a set of symbols, and and a set of
+  operations (functions) used to combine symbols into legal 
+  expressions, and a set of inference rules (functions) that map
+  expressions to expressions. I haven't found anywhere that
+  addresses this circularity in the foundation of set theory,
+  except for occasional hand-waving about first order logic
+  being a formal language whose metalanguage is informal.
+  
+  \item Self-defining: expressed in a formal language
+  without meta-language. \par
+  Any decent programming language
+  is/can be implemented in itself and allows you to define 
+  procedures that call themselves. \par
+  I know that this
+  contradicts (what I believe to be) the Tarskian consensus about
+  the impossibility of defining ``truth'' without a metalanguage
+  in which to define it. It also contradicts the various 
+  mechanisms introduced into variations of set theory intended to
+  prevent the self-referential and counting (too large sets) 
+  paradoxes that caused the 
+  ``crisis in the foundation of mathematics'' of the first few
+  decades of the $1900$s.
+  I speculate that an alternative approach is to view these
+  ``antinomies'' as corresponding to procedures that never halt,
+  an unavoidable reality.
+  
+  \item Start from a model for computation/procedures, ie, something 
+  equivalent to
+  Turing machines or lambda calculus, but probably more convenient,
+  closer to actual programming languages.
+  
+  \item Nothing more than countable infinity, or finite but unbounded,
+  if possible.
+  I think this may be implied any computation model where
+  procedures are executed in discrete steps, unless you allow
+  the data to include completed infinities.
+\end{enumerate}
+
+\end{plSection}%{What would a good foundation look like?}
+%-----------------------------------------------------------------
+\begin{plSection}{A sketch}
+\label{sec:sketch}
+
+An incomplete try at a foundation:
+\begin{description}
+
+\item[Universe]\mbox{}\\
+A ``set'' of identifiable, distinguishable
+things,
+and some notion of a reference to a thing, distinct from the thing
+itself.
+A primitive of this approach is the ability, given $2$ references,
+to determine if they refer to the same thing.
+\par
+(\textbf{Question:}
+Is this right? What do I mean when I write $x=y$?
+Seems like usual case is we know something about what $x$ and $y$
+refer to, but not the specific things.)
+\par
+API. 
+\par
+\textsf{true} and \textsf{false} as things?
+\par
+Every thing mentioned below is a first class thing in the universe.
+% Many of these things contain references to other things.
+% Some of these things are sets,
+% some are atoms (aka ``ur-elements''~\cite{wiki:Urelement}). \\
+% Many versions of set theory do without 
+% atoms~\cite{wiki:ConstructibleUniverse,wiki:VonNeumannUniverse},
+% starting from the empty set, implementing $\mathcal{N}$
+% (and everything else of interest) via various sets of sets that
+% bottom out with $\emptyset$.
+
+\item[Values vs references to values]%\mbox{}\\
+
+\item[Language]\mbox{}\\
+Some formal language that allows us 
+to construct references to things in the universe, 
+follow chains of references, and compute and infer facts 
+about things and their references. 
+For me, a good language should self-describing, without the
+language, metalanguage, first order, second order, higher order 
+distinctions in standard formal logic.
+\par
+Every thing in the language an element of the universe.
+
+\item[(Data) Structure]\mbox{}\\
+(need as better name)
+A structure is collection of references with
+some mechanism for getting at the references and their values
+(eg a path language).
+
+\item[Set]  \mbox{}\\
+Direct sets or indirect via references?
+Set identity via elements?
+Bounded finite, unbounded finite, countable, \ldots ?
+
+\item[Tuple, Cartesian products]%\mbox{}\\
+
+\item[Functions as procedures]\mbox{}\\
+In contrast to function as graph relation.
+Arbitrariness of (co)domains. Partial functions. Failure to halt.
+error return independent of (co)domains)?.
+
+\item[Functions as relations]%\mbox{}\\
+
+\item[Mathematical structures]\mbox{}\\
+sets plus functions with constraints/assertions.
+\par
+Standard structures defined with ``natural'' (subjectively, to me)
+properties of the functions. 
+\par
+For example, a group is commutative or not, depending on whether
+the group operation function is symmetric: $f(x,y) = f(y,x)$.
+\par
+Distributive properties are similarly fairly obvious
+(again, to me)
+simplifying assumptions that might, or might not, be true of
+a structure's functions: 
+\[
+\otimes (a,\oplus (x,y)) = \oplus (\otimes (a,x), \otimes (a,y))
+\]
+infix version: 
+\[
+a \otimes (x \oplus y) = (a \otimes x) \oplus (a \otimes y)
+\].
+
+\item[Structure-preserving functions]\mbox{}\\
+Function needs to be defined on the (disjoint) union of the 
+structure's sets.
+And needs to ``commute'' with the structure functions.
+For example, linear spaces and functions: 
+Suppose $f : \Space{X} \rightarrow \Space{Y}$
+is effectively $2$ functions:
+$f : \scalars(\Space{X}) \rightarrow \scalars(\Space{Y})$ and
+$f : \vectors(\Space{X}) \rightarrow \vectors(\Space{Y})$.
+ 
+A linear function preserves the linear structure:
+\begin{equation*}
+f \big( (a_0 \, *_{\scriptscriptstyle\Space{X}} \, \Vector{x}_0) 
+\: +_{\scriptscriptstyle\Space{X}} \: 
+(a_1 \, *_{\scriptscriptstyle\Space{X}} \, \Vector{x}_1) \big)
+\; = \; 
+\big( f(a_0) \, *_{\scriptscriptstyle\Space{Y}} \, f(\Vector{x}_0) \big) 
+\: +_{\scriptscriptstyle\Space{Y}} \: 
+\big( f(a_1) \, *_{\scriptscriptstyle\Space{Y}} \, f(\Vector{x}_1) \big)
+\end{equation*}
+where $*_{\scriptscriptstyle\Space{X}}, +_{\scriptscriptstyle\Space{X}}, 
+*_{\scriptscriptstyle\Space{Y}}, +_{\scriptscriptstyle\Space{Y}},$
+are the scalar multiplication and vector addition operations.
+\end{description}
+
+Issues: 
+\begin{itemize}
+  \item finite/countable computation vs inference that determine
+something for uncountable entities.
+  \end{itemize}
+
+\end{plSection}%{A sketch}
+%-----------------------------------------------------------------
+\end{plSection}%{Foundational Sketch}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
 \begin{plSection}{Key ideas in category/topos theory}
 \label{sec:Key-ideas}
 
-Some references:
+Orderings:
 \begin{itemize}
-\item \citeAuthorYearTitle{AdamekHerrlichStrecker:1990}
-\item \citeAuthorYearTitle{AspertiLongo:1991}
-\item \citeAuthorYearTitle{Awodey:2010}
-\item \citeAuthorYearTitle{BarrWells:2020}
-\item \citeAuthorYearTitle{Geroch:1985:MathPhysics}
-\item \citeAuthorYearTitle{Goldblatt:1984:Topoi}
-\item \citeAuthorYearTitle{Hillman:2001:CatPrimer}
-\item \citeAuthorYearTitle{LawvereSchanuel:2009:ConceptualMath}
-\item \citeAuthorYearTitle{Leinster:2016:BasicCategoryTheory}
-\item \citeAuthorYearTitle{MacLane:1998:CategoriesWorking2}
-\item \citeAuthorYearTitle{Perrone:2019:CatTheory}
-\item \citeAuthorYearTitle{Riehl:2017:CatTheory}
-\item \citeAuthorYearTitle{Spivak:2013:CatTheoryForScientists}
-\item \citeAuthorYearTitle{VanOosten:2002:CatTheory}
-\end{itemize}
+ 
+\item Ad\'{a}mek et al:~\cite{AdamekHerrlichStrecker:1990}
+\begin{enumerate}
+  \item category 
+  \item functor
+  \item duality
+  \item monepisic
+  \item categories of categories 
+  \item small category
+  \item quasicategory
+  \item subcategory
+  \item concrete category
+  \item functor
+  \item natural transformation
+  \item injective object
+  \item source/sink
+  \item (co)limit
+  \item (co)completeness
+  \item pullback/pushout
+  \item adjoint functor
+  \item monad
+  \item cartesian closed category
+\end{enumerate}
 
-Things above authors claim are important or valuable;
+\item Asperti and Longo:~\cite{AspertiLongo:1991}
+\begin{enumerate}
+  \item category
+  \item diagram
+  \item monepisic
+  \item subobject
+  \item initial/terminal object
+  \item (co)product
+  \item exponential
+  \item equalizer
+  \item pullback
+  \item partial morphism
+  \item complete object
+  \item subobject classifier
+  \item topos
+  \item functor
+  \item natural transformation
+  \item cartesian closed category
+  \item Yoneda
+  \item presheaf
+  \item monoidal closed category
+  \item monad
+  \item linear logic
+  \item universal arrow
+  \item adjunction
+  \item monad
+  \item (co)limit
+  \item indexed category
+\end{enumerate}
+
+\item Awodey:~\cite{Awodey:2010}
+\begin{enumerate}
+\item category
+\item isomorphism
+\item free category
+\item monepisic
+\item initial/terminal objects
+\item generalized elements
+\item products
+\item hom-sets
+\item finitely presented category
+\item subobject
+\item pullback
+\item (co)limit
+\item exponential
+\item cartesian closed
+\item Category category
+\item natural transformation
+\item monoidal category
+\item equivalence
+\item Yoneda
+\item topos
+\item adjoint
+\item monad
+\end{enumerate}
+
+\item Barr-Wells:~\cite{BarrWells:2020}
+\begin{enumerate}
+  \item category
+  \item monepisic
+  \item diagram
+  \item natural transformation
+  \item Yoneda
+  \item (linear) sketch
+  \item $2$-category
+  \item product/sum
+  \item cartesian closed category
+  \item (co)limit
+  \item equalizer
+  \item pullback
+  \item (co)cone
+  \item fibration
+  \item wreath product
+  \item adjoint
+  \item Scott domain
+  \item topos
+  \item (pre)sheave
+  \item monoidal category
+\end{enumerate}
+
+\item Geroch:\cite{Geroch:1985:MathPhysics}
+\begin{enumerate}
+  \item category
+  \item monepisic
+  \item commuting diagram
+  \item (co)product
+  \item functor
+  \item free construction
+  \item homology functor
+\end{enumerate}
+
+\item Goldblatt:~\cite{Goldblatt:1984:Topoi}
+\begin{enumerate}
+  \item category
+  \item composition
+  \item monepisic arrows
+  \item initial/terminal objects
+  \item duality
+  \item (co)products
+  \item (co)equalizers
+  \item (co)limits
+  \item pullback/pushout
+  \item completeness
+  \item exponentiation
+  \item subobjects
+  \item classifiers
+  \item topos
+  \item bundles/sheaves
+  \item monoid action
+  \item power object
+\end{enumerate}
+
+\item Hillman:~\cite{Hillman:2001:CatPrimer}
+\begin{enumerate}
+  \item category
+  \item diagram, commute
+  \item subcategory
+  \item skeleton
+  \item monepisic
+  \item duality
+  \item subobject
+  \item initial/final object
+  \item element
+  \item (co)product
+  \item universal mapping property
+  \item (co)equalizer
+  \item pullback/pushout
+  \item (co)cone
+  \item (co)limit
+  \item functor
+  \item natural transformation
+  \item slice category
+  \item Yoneda
+  \item adjoint
+  \item exponential
+  \item topos
+\end{enumerate}
+
+\item Lawvere and Schanuel:~\cite{LawvereSchanuel:2009:ConceptualMath}
+\begin{enumerate}
+  \item category
+  \item functor
+  \item subcategory
+  \item monepisic
+  \item idempotent
+  \item universal mapping property
+  \item terminal/ initial object
+  \item (co)products
+  \item points of an object
+  \item distributive and linear category
+  \item universal construction
+  \item map/arrow object
+  \item exponentiation
+  \item contravariant parts functor
+  \item subobject
+  \item topos
+  \item (co)discrete object
+  \item monoid
+  
+\end{enumerate}
+
+\item Leinster:~\cite{Leinster:2016:BasicCategoryTheory}
+\begin{enumerate}
+  \item category
+  \item duality
+  \item (contra/co-variant) functor
+  \item presheaf
+  \item faithful functor
+  \item subcategory
+  \item natural transformation, isomorphism
+  \item equivalence
+  \item adjoint
+  \item initial/terminal object
+  \item (co)unit
+  \item representable
+  \item (co)limit
+  \item (co)product
+  \item pullback/pushout
+  \item equalizer
+  \item diagram
+  \item (co)cone
+  \item monepisic
+  \item cartesian closed category
+\end{enumerate}
+
+\item MacLane:~\cite{MacLane:1998:CategoriesWorking2}
+\begin{enumerate}
+  \item category
+  \item functor
+  \item natural transformation
+  \item monepisic
+  \item zero
+  \item hom-set
+  \item duality
+  \item contravariance
+  \item comma category
+  \item free category
+  \item universal arrow
+  \item Yoneda
+  \item (co)product
+  \item (co)limit
+  \item representable functor
+  \item adjoint, adjoint functor
+  \item cartesian closed category
+  \item monad
+  \item split (co)equalizer
+  \item monoidal category
+  \item action
+  \item loop and suspension
+  \item (co)kernel
+  \item additive category
+  \item abelian category
+  \item (co)end
+  \item Kan extension
+  \item nerve
+  \item bicategory
+\end{enumerate}
+
+\item Perrone:~\cite{Perrone:2019:CatTheory}
+\begin{enumerate}
+  \item category
+  \item monepisic
+  \item functor
+  \item natural transformation
+  \item universal property
+  \item Yoneda
+  \item (co)limit
+  \item adjunction
+  \item (co)unit
+  \item universal arrow
+  \item adjoint functor
+  \item (co)monad
+\end{enumerate}
+
+\item Riehl:~\cite{Riehl:2017:CatTheory}
+\begin{enumerate}
+  \item category
+  \item functor
+  \item natural transformation
+  \item universal property
+  \item representability
+  \item Yoneda
+  \item (co)limit
+  \item adjunction
+  \item monad
+  \item Kan extension
+\end{enumerate}
+
+\item D. Spivak:~\cite{Spivak:2013:CatTheoryForScientists}
+\begin{enumerate}
+  \item category
+  \item diagram
+  \item olog
+  \item (co)product
+  \item (co)limit
+  \item category
+  \item functor
+  \item natural transformation
+  \item adjoint functor
+  \item monad
+  \item operad
+\end{enumerate}
+
+\item vanOosten:\cite{VanOosten:2002:CatTheory}
+\begin{enumerate}
+  \item category
+  \item functor
+  \item monepisic
+  \item initial/terminal object
+  \item natural transformation
+  \item Yoneda
+  \item category equivalence
+  \item (co)cone
+  \item (co)limit
+  \item equalizer
+  \item pullback/pushout
+  \item (co)product
+  \item regular category
+  \item subobject
+  \item adjunction
+  \item adjoint functor
+  \item (co)completeness
+  \item monad
+  \item cartesian closed category
+ \end{enumerate}
+\end{itemize}
+  
+Things various authors claim are important or valuable;
 things that ought to be understood,
 and ought to be presentable in a natural, intuitive way.
-Ordered by approximately mean rank in the references:
-
+Ordered by mean rank of preceding authors:
 \begin{enumerate}
-  
   \item Topos, elementary topos: 
   category ``essentially the same as \textbf{Set}''
   \item subobject (classifier)
@@ -754,7 +1597,7 @@ structure-preserving functions between them.
 \label{sec:Bottom-up}
 
 Start from directed (multi)graph~\cite{wiki:DirectedGraph},
-define key categorical ideas (\cref{sec:Key-ideas}) 
+define key categorical ideas (section~\ref{sec:Key-ideas}) 
 in those terms.
 
 Claim: categorical constructs are 
@@ -1067,6 +1910,153 @@ independence assumptions correspond to edges that
 are \textsl{not} drawn.
 \end{plSection}
 %-----------------------------------------------------------------
+\begin{plSection}{Kategory}
+\label{sec:Kategory_from_digraph}
+
+(Until I think of a better name\ldots)
+
+\compose is used primarily, if not exclusively,
+to define whether $2$ paths are equivalent, by asserting they 
+compose to the same edge.
+(\textbf{Question:} Is this absolutely true?
+Are \compose and the resulting edges
+used for anything other than defining path equivalence?)
+This suggests replacing \compose with 
+either an equivalence relation on path pairs,
+or a path ``evaluation'' function $\pvalue$
+(\textbf{TODO:} need a better name for this),
+with path equivalence classes
+being the level sets of $\pvalue$.
+That's essentially the same as \compose,
+except we no longer assume the values are also edges in the graph.
+Offhand, this seems a lot more intuitive than \compose,
+adding all these additional, apparently unnecessary, edges to
+the graph.
+
+For sets and functions categories, the natural equivalence relation
+is that the composed functions corresponding to the paths 
+have the same graph relation (map each given domain element to the 
+same codomain element. 
+In this case, the $\pvalue$ function maps each path
+to its graph relation.
+
+For transportation graphs, and similar, the $\pvalue$ 
+function could return a tuple of all path properties relevant to
+the problem being solved, eg,  expected travel time, likely fuel 
+cost, etc.
+
+\begin{plDefinition}{Paths}{}
+In this context, a \ding{path} is taken to be a sequence of
+alternating vertices and edges, beginning and ending 
+with vertices. 
+Note that this allows us to have a path consisting 
+of a single vertex.
+I will often omit the vertices when writing the sequence,
+whenever convenient.
+The main operation on paths is \concatenate
+(infix operator: \conop).
+With paths $p_0,p_1,p_2$,
+assuming $\head(p_0) = \tail(p_1)$: 
+\begin{align*}
+p_2 & = \concatenate(p_0,p_1) = p_0 \diamond p_1
+\end{align*}
+\textbf{Note:} \concatenate reverses the arguments
+of \compose. 
+We start at $\tail(p_0)$ and end at 
+$\head(p_1)$.
+(I personally find this less confusing.)
+In more detail, with edges $e_{ij}$,
+omitting vertices, 
+and assuming all heads and tails match as needed:
+\begin{align*}
+\left[ e_{00} e_{01} \ldots e_{0m}
+e_{10} e_{11} \ldots e_{1n}
+ \right]
+& = 
+\left[ e_{00} e_{01} \ldots e_{0m} \right]
+\diamond
+\left[ e_{10} e_{11} \ldots e_{1n} \right]
+\end{align*}
+\end{plDefinition}
+
+\begin{plDefinition}{Kategory (explicit path-equivalence)}{}
+(Until I think of a better name\ldots)\\
+A \ding{kategory} is a directed (multi) graph together with
+a path evaluation function: $\left[G, \pvalue\right]$.
+Two paths are \ding[path equivalence]{equivalent} ($\simeq$) 
+if they have the same 
+$\head$, $\tail$, and $\pvalue$:
+\[
+\left[ p_0 \simeq p_1 \right]
+\;  \Leftrightarrow \;
+\left[
+\left( \head(p_0) = \head(p_1) \right)
+\wedge
+\left( \tail(p_0) = \tail(p_1) \right)
+\wedge
+\left( \pvalue(p_0) = \pvalue(p_1) \right)
+\right]
+\]
+\end{plDefinition}
+
+\Cref{diagram:digraph} is the graph part of a kategory.
+No additional edges, either compositions or identities, are
+needed. 
+The $\pvalue$  function is not shown,
+but that matches typical
+use of diagrams, which omit the implied
+composition and identity edges.
+Note that \identity is not needed at all;
+the constraints between \identity and \compose
+are dropped; and \concatenate is associative by definition.
+\end{plSection}
+
+%-----------------------------------------------------------------
+\begin{plSection}{Kategory from category}
+\label{sec:Kategory_from_category}
+
+To go from category to kategory, we need to define the 
+path $\pvalue$ function.
+It is \compose for general paths, and, 
+for single edge identity loop paths,
+it returns the 
+path consisting of the single 
+$\head$/$\tail$ vertex of the loop.
+
+For kategories derived from categories
+\begin{equation*}
+\left[ \left( p_0 \simeq q_0 \right) \wedge 
+ \left( p_1 \simeq q_1  \right) \right]
+\; \implies \; 
+\left[
+\left( p_0 \diamond p_1 \right)
+\simeq
+\left( q_0 \diamond q_1 \right)
+\right]
+\end{equation*}
+where $p_0$, $p_1$, $q_0$, $q_1$ are paths 
+whose ends match appropriately.
+This follows from the associativity of \compose:
+\begin{align*}
+\compose(p_0 \diamond p_1) 
+& = 
+\compose \left( 
+\compose(p_1),
+\compose(p_0) \right)
+\\
+& = 
+\compose \left( 
+\compose(q_1),
+\compose(q_0) \right)
+\\
+& = 
+\compose(q_0 \diamond q_1) 
+\end{align*}
+ 
+(\textbf{Question:} should this be required of all kategories?
+If so, kategories may be no more intuitive than categories.)
+\end{plSection}
+%-----------------------------------------------------------------
 \end{plSection}
 %-----------------------------------------------------------------
 \begin{plSection}{Functor}
@@ -1096,7 +2086,7 @@ between directed graphs, if and only if:
 We apply $f$ to paths in the obvious way.
 \end{plDefinition}
 
-\begin{plDefinition}{Functor}{}
+\begin{plDefinition}{Functor (category)}{}
 A \ding{functor} $F:C_0 \rightarrow C_1$ is 
 a structure-preserving function
 between categories, which requires that is a structure-preserving 
@@ -1111,6 +2101,19 @@ function between directed graphs, and:
   but differ in the definition of the two functions.)
 \end{plDefinition}
 
+\begin{plDefinition}{Phunctor (kategory)}{}
+(Very unlikely to stick with this name.)
+
+A \ding{phunctor} $P:K_0 \rightarrow K_1$ is 
+a structure-preserving function
+between kategories, which requires that is a structure-preserving 
+function between graphs, and:
+\begin{align*}
+  \left( \pvalue_{K_0}(p_0) = \pvalue_{K_0}(p_1) \right)
+  \; \Leftrightarrow \; 
+  \left( \pvalue_{K_1}(P(p_0)) = \pvalue_{K_1}(P(p_1)) \right)
+\end{align*}
+\end{plDefinition}
 \end{plSection}
 %-----------------------------------------------------------------
 \begin{plSection}{Diagram}
@@ -1246,7 +2249,7 @@ Undefined in:
 {Commuting version of \cref{diagram:aCompletedDigraph}}
 {aCommutingDiagram}
 \centering
-%\fbox{
+\fbox{
 \begin{tikzcd}
 [
 row sep=1.2cm, 
@@ -1291,7 +2294,7 @@ V_4
 "e_{34} \comop e_{13} \comop e_{01}"' {near start},
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=100,]
 \end{tikzcd}
-%}
+}
 \end{plDiagram}
 
 In \cref{diagram:aCompletedDigraph}, 
@@ -1599,7 +2602,7 @@ from=1-1,to=1-3, red, dashed, bend right=60,
 \end{tikzcd}
 \end{plDiagram}
 
-An edge $e$ i \ding{monic} (aka a monomorphism, left-cancelable)
+An edge $e$ is \ding{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f_i,f_j$:
 \begin{align*}
 \left( e \comop f_i = e \comop f_j \right) 
@@ -1612,10 +2615,142 @@ if, for any matching parallel edges $f_i,f_j$:
 \implies 
 \left( e \comop f_i \neq e \comop f_j \right) 
 \end{align*}
-\end{plSection}%{Misleading (?) diagrams}
+\end{plSection}
+
 %-----------------------------------------------------------------
-\end{plSection}%{Bottom up}
+\begin{plSection}{Do monepisic paths make sense?}
+
+Questions:
+\begin{enumerate}
+  \item What happens if we replace the edges $f_0,f_1$
+  by paths $q_0,q_1$ in the monic/epic definitions?
+  
+  Then $e$ is monic if for all parallel paths $q_0,q_1$:
+  \[
+  \left( \compose(q_0) \neq \compose(q_1) \right) 
+  \implies 
+  \left( e \comop \compose(q_0) \neq e \comop \compose(q_1) \right)
+  \]
+  (for the monic case).
+  
+  In kategory language:
+  \begin{align*}
+  \left( q_0 \not\peq q_1 \right) 
+  & \implies 
+  \left( q_0 \conop e \not\peq q_1 \conop e \right)
+  \\
+  \left( q_0 \conop e \peq q_1 \conop e \right)
+  & \implies 
+  \left( q_0 \peq q_1 \right) 
+  \end{align*}
+
+  \item What happens if we replace the edge $e$ by a path $p$?
+  
+  A path $p$ would be epic if the edge $\compose(p)$ was.
+  
+  In kategory language:
+  \begin{align*}
+  \left( f_0 \not\peq f_1 \right) 
+  & \implies 
+  \left( f_0 \conop p \not\peq f_1 \conop p \right)
+  \\
+  \left( f_0 \conop p \peq f_1 \conop p \right)
+  & \implies 
+  \left( f_0 \peq f_1 \right) 
+  \end{align*}
+  
+  \item What happens if we replace $e,f,g$ by paths?
+  
+  \begin{align*}
+  \compose(q_0) & \neq \compose(q_1) \\
+  & \Downarrow \\
+  \compose(p) \comop \compose(q_0) 
+  & \neq \compose(p) \comop \compose(q_1) 
+  \end{align*}
+  
+  In kategory language:
+  \begin{align*}
+  \left( q_0 \not\peq q_1 \right) 
+  & \implies 
+  \left( q_0 \conop p \not\peq q_1 \conop p \right)
+  \\
+  \left( q_0 \conop p \peq q_1 \conop p \right)
+  & \implies 
+  \left( q_0 \peq q_1 \right) 
+  \end{align*}
+  
+  \item Do split monic/epic and isic definitions work if we replace
+edge $e$ by a path $p$?
+\end{enumerate}
+\end{plSection}
+
+%-----------------------------------------------------------------
+\begin{plSection}{Kategory version}
+
+Definitions equivalent to ones with the parallel
+edges replaced by parallel paths and equality/identity 
+by equivalence? 
+
+An path $p$ is \ding{left-cancelable} (aka a monomorphism, monic)
+if, for any matching parallel paths $q_0,q_1$:
+\begin{align*}
+\left( q_0 \conop p \peq q_1 \comop p \right) 
+& 
+\implies 
+\left( q_0 \peq q_1 \right) 
+\\
+\left( q_0 \not\peq q_1 \right) 
+& \implies 
+\left( q_0 \conop p \not\peq q_1 \conop p \right) 
+\end{align*}
+Should it be ``right-cancelable'' in path language?
+
+\end{plSection}
+%-----------------------------------------------------------------
+\begin{plSection}{What is the meaning of this?}
+
+Are there any intuitive interpretations in the direct graph,
+category, or kategory contexts? As opposed to 
+structures and structure-preserving functions.
+
+Does it help to think about factoring edges/paths
+as a step in solving for something?
+For example, if we have $2$ equivalent paths 
+and we can factor both into a prefix and a common monic
+suffix, then we can infer that the prefixes are equivalent:
+\begin{align*}
+& r_0 \peq r_1 \\
+& r_0 = q_0 \conop p \\
+& r_1 = q_1 \conop p \\
+& p \text{ monic } \\
+& \Downarrow \\
+& q_0 \peq q_1
+\end{align*}
+\end{plSection}%{What is the meaning of this?}
+\end{plSection}
 %-----------------------------------------------------------------
 \end{plSection}%{Category and Topos}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Topos down}
+\label{sec:Topos-down}
+ 
+Topos definition, then define what it depends on, \ldots.
+ 
+\end{plSection}%{Topos down}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Fusion}
+\label{sec:Fusion}
+
+Start from (all of) conventional mathematics,
+remove unnecessary details from definitions, theorems, proofs.
+Express what remains in graphical category language.
+Look for ``graphs'' that match, unifying disparate parts of math.
+
+Problem: you need to learn a lot of conventional math before
+you can really start on category theory.
+
+\end{plSection}%{Fusion}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
