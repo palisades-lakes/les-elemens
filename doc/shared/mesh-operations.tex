@@ -1,0 +1,57 @@
+\begin{plSection}{Mesh Operations}
+\label{sec:mesh-operations}
+
+\begin{plSection}{Split}
+
+Splitting a simplex produces a refined complex by adding a new vertex
+and subdivided some of the simplices.
+
+
+Suppose $\Simplex{s}$ is a $d$-simplex
+in the pure $n$-dimensional simplicial complex $\SimplicialComplex{K}_0$.
+Let $\Vertex{n}$ be a vertex not in $\SimplicialComplex{K}_0$.
+{\it Splitting $\Simplex{s}$ around $\Vertex{n}$}
+produces a refined pure $n$-dimensional simplicial complex, $\SimplicialComplex{K}_1$:
+
+$\SimplicialComplex{K}_1$ contains all the  $n$-simplexes of $\SimplicialComplex{K}_0$
+that do not contain $\Simplex{s}$.
+
+The simplexes that do contain $\Simplex{s}$ are split:
+Let $\Simplex{t}$ be an $n$-simplex that contains $\Simplex{s}$.
+Let $\Simplex{r}$ be the $(n-d-1)$-simplex opposite $\Simplex{s}$
+in $\Simplex{t}$.
+(If $\Simplex{t} = \Simplex{s}$, then $\Simplex{r}$ is the empty set.)
+Let $\{ \Facet{f}_0 \ldots \Facet{f}_d \}$ be the
+d $(d-1)$-simplex facets of $\Simplex{s}$.
+$\SimplicialComplex{K}_1$ has
+$d$ $n$-simplices formed from
+$\Vertex{n}$, $\Simplex{r}$, and
+$\Facet{f}_i$ where $i=0 \ldots d$.
+
+This is also known as "placing a vertex" 
+(See Lee~\cite[sec.~17.2]{Lee:2004:Subdivisions}).
+
+\end{plSection}%{Split}
+
+\begin{plSection}{Collapse}
+
+Collapsing a simplex produces a reduced complex by mergng
+the vertices of the simplex into a single new one.
+
+Suppose $\Simplex{s}$ is a $d$-simplex
+in the pure $n$-dimensional simplicial complex $\SimplicialComplex{K}_0$.
+Let $\Vertex{n}$ be a vertex not in $\SimplicialComplex{K}_0$.
+{\it Collapsing $\Simplex{s}$ to $\Vertex{n}$}
+produces a reduced pure $n$-dimensional simplicial complex, $\SimplicialComplex{K}_1$:
+
+$\SimplicialComplex{K}_1$ contains all the
+$n$-simplices of $\SimplicialComplex{K}_0$ that share no vertices with $\Simplex{s}$.
+Any $n$-simplex in $\SimplicialComplex{K}_0$ sharing more than one vertex
+with $\Simplex{s}$ is ignored.
+For every $n$-simplex in $\SimplicialComplex{K}_0$ sharing one vertex with $\Simplex{s}$,
+$\SimplicialComplex{K}_1$ gets an $n$-simplex with $\Vertex{n}$ replacing the
+shared vertex.
+
+\end{plSection}%{Collapse}
+
+\end{plSection}%{Mesh Operations}

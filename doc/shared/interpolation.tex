@@ -1,7 +1,6 @@
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Polynomial Interpolation}
+\begin{plSection}{Polynomial Interpolation}
 
-\cite{wiki:Interpolation,wiki:Polynomial-interpolation}
+\cite{wiki:Interpolation,wiki:PolynomialInterpolation}
 
 TODO:
 \begin{itemize}
@@ -91,8 +90,7 @@ Extrapolation often results when using the \texttt{argmin}.
 Relationship between \texttt{argmin} and inverse interpolation.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Monomial basis}
+\begin{plSection}{Monomial basis}
 \label{sec:Monomial-basis}
 
 The most common basis is the monomial:
@@ -144,8 +142,7 @@ y_0 \\ d_0 \\ y_1 \\ d_1
 \end{equation}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Differentiation and \texttt{argmin}}
+\begin{plSection}{Differentiation and \texttt{argmin}}
 
 Degree $k$ polynomial:
 \begin{align}
@@ -167,9 +164,9 @@ on the parameters of the polynomial representation,
 and on the inputs to interpolation that determine those 
 parameters.
 
+\end{plSection}%{Differentiation and \texttt{argmin}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Constant Monomial}
+\begin{plSection}{Constant Monomial}
 
 \begin{equation}
 \mu(x) = \mu_0
@@ -182,9 +179,9 @@ minima.
 The only possibility is to 'interpolate' $(x_0,y_0)$ with
 $\mu_0 = y_0$ (and $\mu_i = 0$ for other $i$). 
 
+\end{plSection}%{Constant Monomial}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Affine Monomial}
+\begin{plSection}{Affine Monomial}
 
 \begin{equation}
 \mu(x) = \mu_0 + \mu_1 x
@@ -198,8 +195,7 @@ points, $(x_0,y_0)$ and $(x_1,y_1)$, or or matching the value and slope at
 $(x_0,y_0,d_0)$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0),(x_1,y_1)$}
+\begin{plSection}{Input: $(x_0,y_0),(x_1,y_1)$}
 
 \begin{align}
   y_0 & = \mu_0+\mu_1 x_0  \\
@@ -216,9 +212,9 @@ $(x_0,y_0,d_0)$.
 {x_0 - x_1} 
 \end{align}
 
+\end{plSection}%{Input: $(x_0,y_0),(x_1,y_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0,d_0)$}
+\begin{plSection}{Input: $(x_0,y_0,d_0)$}
 
 \begin{align}
   y_0 & = \mu_0+\mu_1 x_0  \\
@@ -231,9 +227,11 @@ $(x_0,y_0,d_0)$.
    \mu_1 & = d_1  
 \end{align}
 
+\end{plSection}%{Input: $(x_0,y_0,d_0)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Quadratic Monomial}
+\end{plSection}%{Affine Monomial}
+%-----------------------------------------------------------------
+\begin{plSection}{Quadratic Monomial}
 
 \begin{equation}
 \mu(x) = \mu_0 + \mu_1 x + \mu_2 x^2
@@ -270,8 +268,7 @@ and reverting to a lower degree polynomial when that is all that
 can be accurately fit.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0), (x_1,y_1), (x_2,y_2)$}
+\begin{plSection}{Input: $(x_0,y_0), (x_1,y_1), (x_2,y_2)$}
 \label{sec:monomial-yyy}
 
 Constraints:
@@ -420,10 +417,9 @@ y_0 x_{21} + y_1 x_{02} + y_2 x_{10}
 \right)
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,y_0), (x_1,y_1), (x_2,y_2)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: 
-\texorpdfstring{$(x_0,y_0),(x_1,y_1,d_1)$}{(x0,y0),(x1,y1,d1)}}
+\begin{plSection}{Input:\texorpdfstring{$(x_0,y_0),(x_1,y_1,d_1)$}{(x0,y0),(x1,y1,d1)}}
 \label{sec:monomial-yyd}
 
 This not one of the standard interpolation problems.
@@ -527,9 +523,9 @@ Note $\hat{x} \to \pm \infty$ if $y_{10} \to x_{10} d_1$,
 in other words, if the constraints are consistent with an
 affine interpolant.
 
+\end{plSection}%{Input:\texorpdfstring{$(x_0,y_0),(x_1,y_1,d_1)$}{(x0,y0),(x1,y1,d1)}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
+\begin{plSection}{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
 \label{sec:monomial-dyd}
 
 Like section~\ref{sec:monomial-yyd},
@@ -605,9 +601,11 @@ in other words,
 if the affine interpolant of the slopes is constant,
 either no zero or all zero.
 
+\end{plSection}%{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Cubic Monomial}
+\end{plSection}%{Quadratic Monomial}
+%-----------------------------------------------------------------
+\begin{plSection}{Cubic Monomial}
 
 \begin{equation}
 \mu(x) = \mu_0 + \mu_1 x + \mu_2 x^2 + \mu_3 x^3
@@ -658,8 +656,7 @@ Dependence on monomial coeficients:
 \end{equation}
 
 %-----------------------------------------------------------------
-% \setcounter{currentlevel}{\value{baseSectionLevel}-3}
-% \levelstay{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
+% \begin{plSection}{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
 % \label{sec:monomial-yyyy}
 % 
 % Constraints:
@@ -880,9 +877,9 @@ Dependence on monomial coeficients:
 % }
 % \end{aligned}
 % \end{equation}
-
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0,d_0),(x_1,y_1,d_1)$}
+% \end{plSection}%{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
+%-----------------------------------------------------------------
+\begin{plSection}{Input: $(x_0,y_0,d_0),(x_1,y_1,d_1)$}
 \label{sec:Monomial-cubic-hermite}
 
 Standard cubic hermite interpolation.
@@ -1058,12 +1055,16 @@ x_{01}-6 y_{01}\right) x_{01} d_0+
 \end{equation}
 
 \restoregeometry
+\end{plSection}%{Input: $(x_0,y_0,d_0),(x_1,y_1,d_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Lagrange basis}
+\end{plSection}%{Cubic Monomial}
+%-----------------------------------------------------------------
+\end{plSection}%{Monomial basis}
+%-----------------------------------------------------------------
+\begin{plSection}{Lagrange basis}
 \label{sec:Lagrange-basis}
 
-The standard Lagrange\cite{wiki:Lagrange-polynomial}
+The standard Lagrange\cite{wiki:LagrangePolynomial}
 form of a polynomial  is
 \begin{equation}
 f(x) = \sum_{i} y_i \prod_{j \neq i} \frac{x - x_j}{x_i -x_j}
@@ -1102,16 +1103,13 @@ requires solving a dense system of equations.
 No advantage for small changes to constraints.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Differentiation and \texttt{argmin}}
+\begin{plSection}{Differentiation and \texttt{argmin}}
+\end{plSection}%{Differentiation and \texttt{argmin}}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Affine Lagrange}
-
+\begin{plSection}{Affine Lagrange}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0),(x_1,y_1)$}
+\begin{plSection}{Input: $(x_0,y_0),(x_1,y_1)$}
 
 It's easy enough to see that:
 \begin{align}
@@ -1126,9 +1124,9 @@ satisfies
 \lambda^{\text{yy}}_1(x_1) & = 1 \nonumber 
 \end{align}
 
+\end{plSection}%{Input: $(x_0,y_0),(x_1,y_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0,d_0)$}
+\begin{plSection}{Input: $(x_0,y_0,d_0)$}
 
 Constraints:
 \begin{equation}
@@ -1156,13 +1154,13 @@ with $l_0 = y_0$ and $l_1 = d_0$.
 
 The argmin $\hat{x}$ is $-\sign(d_0)\infty$.
 
+\end{plSection}%{Input: $(x_0,y_0,d_0)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Quadratic Lagrange}
-
+\end{plSection}%{Affine Lagrange}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2)$}
+\begin{plSection}{Quadratic Lagrange}
+%-----------------------------------------------------------------
+\begin{plSection}{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2)$}
 
 This is the standard case, and the basis functions are,
 for example:
@@ -1205,9 +1203,9 @@ x_{01} x_{02} x_{12} y_{12}
 \end{pmatrix}
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0),(x_1,y_1,d_1)$}
+\begin{plSection}{Input: $(x_0,y_0),(x_1,y_1,d_1)$}
 \label{sec:lagrange-yyd}
 
 This is again the 'semi-hermite' problem (section~\ref{sec:monomial-yyd}).
@@ -1258,9 +1256,9 @@ $\partial{f}(x_2) = (x_2 - x_0) + (x_2 - x_1)$:
 {(x_2 - x_0) + (x_2 - x_1)}
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,y_0),(x_1,y_1,d_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
+\begin{plSection}{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
 \label{sec:lagrange-dyd}
 
 This is an elaboration of the secant step 
@@ -1307,13 +1305,13 @@ and, by symmetry,
 {2 (x_2 - x_1)}
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,d_0),(x_1,y_1,d_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Cubic Lagrange}
- 
+\end{plSection}%{Quadratic Lagrange}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
+\begin{plSection}{Cubic Lagrange}
+%-----------------------------------------------------------------
+\begin{plSection}{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
 \label{sec:lagrange-yyyy}
 
 For example:
@@ -1324,13 +1322,13 @@ For example:
 {(x_0 - x_1) (x_0 - x_2) (x_0 - x_3)}
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,y_0),(x_1,y_1),(x_2,y_2),(x_3,y_3)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-3}
-\levelstay{Input: $(x_0,y_0,d_0), (x_1,y_1,d_1)$}
+\begin{plSection}{Input: $(x_0,y_0,d_0), (x_1,y_1,d_1)$}
 \label{sec:Lagrange-cubic-hermite}
 
 Hermite interpolation as in section~\ref{sec:Monomial-cubic-hermite}
-\cite{wiki:Cubic-hermite-spline}.
+\cite{wiki:CubicHermiteSpline}.
 
 In Lagrange value interpolation, we choose basis
 functions that are $1$ at one of contraint locations (knots)
@@ -1406,9 +1404,13 @@ Then normalizing and simplifying gives:
 \end{aligned}
 \end{equation}
 
+\end{plSection}%{Input: $(x_0,y_0,d_0), (x_1,y_1,d_1)$}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Newton basis}
+\end{plSection}%{Cubic Lagrange}
+%-----------------------------------------------------------------
+\end{plSection}%{Lagrange basis}
+%-----------------------------------------------------------------
+\begin{plSection}{Newton basis}
 
 One advantage of the Lagrange basis 
 (section~\ref{sec:Lagrange-basis})
@@ -1424,7 +1426,7 @@ or slopes.
 However, it doesn't help if we want add and remove knots,
 as is the case in one-dimensional search applications.
 
-The Newton basis~\cite{wiki:Newton-polynomial}
+The Newton basis~\cite{wiki:NewtonPolynomial}
 supports adding knots, increasing the degree
 of the interpolating polynomial with each added constraint.
 So it, too, is of limited value for our driving application.
@@ -1461,8 +1463,7 @@ on the order in which constraints are specified, not just
 how many of each kind there are.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Quadratic: $(x_0,y_0),(x_1,y_1,d_1)$}
+\begin{plSection}{Quadratic: \texorpdfstring{\( (x_0,y_0),(x_1,y_1,d_1) \)}{(x0,y0),(x1,y1,d1)}}
 
 Quadratic case where value is specified at $x_0$ and $x_1$,
 and slope is also specified at $x_1$.
@@ -1494,11 +1495,11 @@ This is a global minimum if
 $\nu_2 = \frac{y_{01} - d_1 x_{01}}{x_{01}^2}$
 is positive.
 
+\end{plSection}%{Quadratic: \texorpdfstring{\( (x_0,y_0),(x_1,y_1,d_1) \)}{(x0,y0),(x1,y1,d1)}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Cubic: $(x_0,y_0,d_0),(x_1,y_1,d_1)$}
+\begin{plSection}{Cubic: \texorpdfstring{$(x_0,y_0,d_0),(x_1,y_1,d_1)$}{(x0,y0,d0),(x1,y1,d1))}}
 
-Cubic (Hermite~\cite{wiki:Cubic-hermite-spline}) 
+Cubic (Hermite~\cite{wiki:CubicHermiteSpline}) 
 case where value and slope are specified at $x_0$ and $x_1$.
 General cubic function in terms of Newton basis at
 $x_0, x_1$:
@@ -1580,10 +1581,13 @@ One of these is a local minimum when the $2$nd derivative is positive:
 
 \newpage
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Divided differences}
+\end{plSection}%{Cubic: \texorpdfstring{$(x_0,y_0,d_0),(x_1,y_1,d_1)$}{(x0,y0,d0),(x1,y1,d1))}}
+%-----------------------------------------------------------------
+\end{plSection}%{Newton basis}
+%-----------------------------------------------------------------
+\begin{plSection}{Divided differences}
 \label{sec:Divided-differences}
-\cite{wiki:Divided-differences}
+\cite{wiki:DividedDifferences}
 Given $k+1$ pairs 
 $\left( x_0, y_0 \right) \ldots \left( x_k, y_k \right) $:
 
@@ -1675,3 +1679,6 @@ x_{30}
 } 
 \nonumber
 \end{align}
+\end{plSection}%{Divided differences}
+%-----------------------------------------------------------------
+\end{plSection}%{Polynomial Interpolation}

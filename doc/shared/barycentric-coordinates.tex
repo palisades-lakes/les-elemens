@@ -1,0 +1,51 @@
+\begin{plSection}{Barycentric coordinates}
+\label{sec:barycentric-coordinates}
+
+In this section, I describe how to compute
+the barycentric coordinates of a point $\Point{q}$
+with respect to a $n$-simplex in
+a finite dimensional inner product space $\Space{V}$
+(with $\dimension (\Space{V} ) = m \ge n$) ---
+and the derivatives with respect to the vertex positions.
+
+Let $\Simplex{S}$ be the geometric $n$-simplex
+with vertex positions $\{\Point{p}_0 , \ldots , \Point{p}_n\}$;
+in $\Space{V}$.
+
+The {\it span} of $\Simplex{S}$, $\affinespan ( S )$,
+is the affine span of its vertex positions
+$\affinespan \{\Point{p}_0 , \ldots , \Point{p}_n\}$,
+that is, the set of points $\Point{q}$ such that
+$\Point{q} = \sum_{j=n}^{m} b_j \Point{p}_j $ 
+where $1 = \sum_{j=0}^{n} b_j $.
+$b_j$ are {\it barycentric coordinates} of $\Point{q}$ 
+with respect to $S$.
+Barycentric coordinates of an arbitrary point 
+$\Point{q} \in \Space{V}$,
+are barycentric coordinates of the closest point in $\affinespan(S)$.
+If $S$ is non-degenerate (the dimension of its span is $m$),
+then the barycentric coordinates of any point are unique.
+
+Assume in what follows that $S$ is non-degenerate.
+When faced with for a degenerate simplex, there are several options.
+One can use the minimum norm $\Vector{b}$.
+It is often possible to use the barycentric coordinates
+with respect to the 'largest' non-degenerate face instead.
+We may also want to choose $\Vector{b}$ to be as close to convex,
+$0 \le b_j \le 1$, as possible. {\it (How?)}
+
+and let $Vector{V} =
+ \sum_{j=0}^{n-1} ( \Vector{v}_j \otimes \Vector{e}_j^{\Reals^n} )$,
+the linear map from $\Reals^n \mapsto \Space{V}$,
+whose 'columns' are the $\Vector{v}_j$.
+Let $\Vector{b} = \left( b_0 \ldots b_{n-1} \right) \in \Reals^n$
+be the unconstrained vector of the first $n$ barycentric coordinates.
+For $\Point{q} \in \affinespan ( S )$, 
+$\Point{q} = Vector{V} \Vector{b} + \Point{p}_m$
+and $\Vector{b} = 
+Vector{V}^{-1} \left ( \Point{q} - \Point{p}_m \right)$.
+For arbitrary $\Point{q} \in \Space{V}$,
+$\Vector{b} = Vector{V}^{-} (\Point{q} - \Point{p}_m)$
+(see \cref{sec:Inverses-and-pseudo-inverses}).
+
+\end{plSection}%{Barycentric coordinates}

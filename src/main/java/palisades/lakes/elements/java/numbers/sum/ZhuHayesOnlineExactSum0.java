@@ -15,7 +15,7 @@ import palisades.lakes.elements.java.numbers.sum.ZhuHayesOnlineExactSum0;
  * <a href="http://dl.acm.org/citation.cfm?id=1824815" >
  * Yong Kang Zhu and Wayne B. Hayes,
  * "Algorithm 908: Online Exact Summation of Floating-Point Streams",
- * ACM TOMS Volume 37 Issue 3, September 2010</a>
+ * {ACM} TOMS Volume 37 Issue 3, September 2010</a>
  * <p>
  * Also see:
  * <p>
@@ -26,7 +26,7 @@ import palisades.lakes.elements.java.numbers.sum.ZhuHayesOnlineExactSum0;
  * <a href="http://epubs.siam.org/doi/abs/10.1137/070710020?journalCode=sjoce3" >
  * Yong Kang Zhu and Wayne B. Hayes,
  * "Correct Rounding and a Hybrid Approach to Exact Floating-Point Summation,"
- * SIAM J. Sci. Comput.,  31(4), p 2981–3001, Jun 2009. (21 pages)</a>
+ * {SIAM} J. Sci. Comput.,  31(4), p 2981–3001, Jun 2009. (21 pages)</a>
  * <p>
  * This implementation based on the code with TOMS 908 and:
  * <p>

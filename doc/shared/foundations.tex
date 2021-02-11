@@ -1,0 +1,890 @@
+%-----------------------------------------------------------------
+\begin{plSection}{Foundations of mathematics}
+\label{sec:Foundations_of_mathematics}
+
+%-----------------------------------------------------------------
+\begin{plSection}{Crisis 1870--1930}
+\label{sec:Crisis-1870--1930}
+%-----------------------------------------------------------------
+\begin{plSection}{Ferreir\'{o}s Crisis}
+\label{sec:Ferreiros_Crisis}
+
+Quote and paraphrase from 
+\citeauthortitleyear{Ferreiros:2008:Crisis}.
+
+G\"{o}ttingen/modern 
+(Gauss, Dirichlet, Riemann, Dedekind, Cantor, Hilbert)
+vs
+Berlin, Paris (Kronecker, Weierstrauss)
+
+Dissents from modern approach by Cantor and Riemann.
+
+'Modern' approach:
+\begin{itemize}
+\item Dirichelet's 'arbitrary' functions
+\item infinite sets and higher infinities
+\item ``thoughts in place of calculations'' (Dirichelet)
+\item structures characterized axiomatically.
+\item purely existential methods of proof.
+\end{itemize}
+
+Early example: Dedekind (1871) Algebraic Number Theory,
+Number Fields. Ideals.
+ (``An ideal I in a ring R is a subset 
+ such that the sum and difference of any two elements of I 
+ and the product of any element of I with any element of R 
+ are also in I.~\cite{sep:DedekindFoundations})
+Existential proof of unique prime factorization for
+ideals in any ring jof algebraic integers.
+Kronecker complains about ability to \textsl{calculate}
+(or \textsl{construct})
+either ideals of their factors.
+Dedekind: concrete problems require 
+'more delicate computational techniques'~\cite{Ferreiros:2008:Crisis},
+but conceptual theory is important.
+Note similarity to Riemann's treatment of $\Space{C}$.
+1867--1872
+
+Wierestrauss: analytic functions via explicit power series;
+Riemann: analytic functions satisfy differentiability condition.
+$\Rightarrow$ Weierstrauss examples of nowhere differentiable
+continuous functions.
+
+Weierstrauss: function as analytical expression 
+(how close is this to function as procedure?);
+Riemann, Dedekind, Direchelet: function as single-valued relatio.
+'Right framework'' for continuity and integration.
+Called the \textit{conceptual approach} in 1800s math.
+
+Kronecker disbelief in Bolzano-Weierstrauss thm.
+(every infinite bounded set in $\Space{R}$ 
+has an accumulation point);
+accumulation pt can't be constructed from $\Space{Q}$.
+
+Cantor's proofs in set theory ``quintessential examples
+of modern methodology of existential proof''; 
+attacks on Kronecker 1883.
+Kronecker 1887 paper on foundational views.
+
+Hilbert: axiomatic method in geometry 1899.
+
+Cantor, Russell, Zermelo: circa 1900, paradoxes:
+\begin{itemize}
+  \item set theoretic: assumption of existence of certain sets
+  leads to contradiction.
+  \item semantic: truth and definability
+\end{itemize}
+
+\end{plSection}%{Ferreir\'{o}s Crisis}
+%-----------------------------------------------------------------
+\end{plSection}%{Crisis 1870--1930}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Feferman}
+\label{sec:Feferman}
+\citeauthortitleyear{Feferman:1998:LightOfLogic,Feferman:2000:ConstructivePredicativeClassicalAnalysis}
+
+%-----------------------------------------------------------------
+\begin{plSection}{In the light of logic}
+\label{sec:In_the_light_of_logic}
+
+Fourteen collected essays about logic and foundations of 
+math.~\cite{Feferman:1998:LightOfLogic}
+Not strictly about constructivism, but many references to it.
+Probably more focused on finitism.
+
+%-----------------------------------------------------------------
+\begin{plSection}{Deciding the undecidable}
+\label{sec:Deciding_the_undecidable}
+
+\cite[ch.~1 ``Deciding the undecidable'']{Feferman:1998:LightOfLogic}
+
+Target general audience.
+
+Background on $3$ of Hilbert's problems
+and effect of G\"{o}del incompleteness theorems.
+
+Some discussion of constructive approaches, 
+predicative/impredicative, finitary/infinitary.
+
+Metamathematical proof theory as result.
+
+Question of (non)existence 
+'genuine absolutely undecidable problems'.
+
+Conclusion mentions recent progress
+in purely finitary approaches~\cite[ch.~10]{Feferman:1998:LightOfLogic}
+and 
+use of 'proof-theoretically very weak systems'
+as basis for 'an enormous amount of scientifically applicable
+mathematics.'~\cite[ch.~14]{Feferman:1998:LightOfLogic}
+(!! what I'm looking for !!, ie, 
+what's the 'minimal' mathematical structure needed to
+solve the real world problems I'm interested in?)
+
+\end{plSection}%{Deciding the undecidable}
+%-----------------------------------------------------------------
+\begin{plSection}{Is Cantor Necessary?}
+\label{sec:Is_Cantor_Necessary}
+
+\cite{Feferman:1989:IsCantorNecessary}
+\cite[ch.~2 ``Is Cantor necessary?'']{Feferman:1998:LightOfLogic}
+
+Cantor diagonal argument:
+\hfill\break
+$\OneToOne$ map between binary sequences ($2^{\Space{N}}$)
+and $[0,1]\subset\Space{R}$
+Does that need a proof?
+What about finite sequences vs trailing $1$s? 
+\hfill\break
+Then assume existence of a $\OneToOne$  
+map between $2^{\Space{N}}$s 
+and $\Space{N}$,
+without any explicit construction.
+Construct an explicit missing sequence 
+for any candidate $\OneToOne$ map,
+by flipping the $i$th bit in the $i$th sequence,
+thus a contradiction?
+So $\mathfrak{c} = \card(2^{\Space{N}}) 
+= \card(\Space{R})$ must be greater than 
+$\aleph_0 = \card(\Space{N})$. 
+\hfill\break
+Claim this can be extended to any set $\Set{S}$,
+proving 
+$\card(\Set{S}) < \card(2^{\Set{S}})$,
+including 
+$\card(\Space{R}) < \card(2^{\Space{R}})$?
+Doesn't seem obvious.
+\hfill\break
+How does all this play with 
+the Hilbert hotel paradox?~\cite{wiki:HilbertHotel}
+(Problem with Hilbert hotel is 
+always space for new customer, if everybody moves one room up,
+but infinite time required to make that space.)
+
+Question $1$ for Cantor:
+\hfill\break
+Are there any cardinals other than 
+$\card(\Space{N})$ and 
+$\card(\Space{R})$?
+
+Question $2$ for Cantor (Continuum hypothesis aka CH):
+\hfill\break
+Are there any cardinals between
+$\card(\Space{N})$ and 
+$\card(\Space{R})$?
+
+Implicit of axiom of choice (AOC) used to 'prove' 
+well ordering (WO) of cardinals.
+('Cardinals' not clearly defined.
+Should it be equivalence classes of sets where
+equivalence means 'there exists'/'we can construct'
+a $\OneToOne$ mapping.)
+\hfill\break
+Well ordering used to show 'scale' of infinite cardinals
+$\aleph_0, \aleph_1, \ldots$. (Is this countable?)
+\hfill\break
+Continuum hypothesis: 
+$\mathfrak{c} = \card(2^{\Space{N}}) 
+> \card(\Space{R}) = \aleph_1$
+(and there are no cardinalities in between).
+
+Zermelo axioms of set theory, including AC.
+Start from axioms defining initial universe:
+empty set and $\Space{N}$.
+Then set operations including predicated subsets,
+'finessing' the contradiction of the
+cardinality of the set of all cardinalities,
+set of all sets,
+sets of all sets not containing themselves, 
+\ldots.
+\hfill\break
+'\ldots more fuel for criticism \ldots.'
+Weyl and Skolem improvements by basing it on 1st order logic.
+(But doesn't a first order language require sets,
+eg, a set of atomic symbols?)
+
+P.~$60$ $2$nd paragraph (Skolem's paradox):
+\hfill\break
+What's the difference between $\Set{A} \sim \PowerSet{\Set{A}}$ 
+($\card(\Set{A})=\card(\Set{\PowerSet{\Set{A}}})$
+ 'externally' vs 'internally'?
+
+\textsf{G\"{o}del's incompleteness theorems:}
+don't follow completely.
+
+\textsf{Postscript on second-order logic:}
+``second-order logic cannot be axiomatized effectively.''
+Don't follow much of argument.
+
+\textsf{Elimination of the law of the excluded middle:}
+\hfill\break
+LEM implies (for Hilbert) completed infinity (?).
+\hfill\break
+Heyting arithmetic (HA) excludes LEM;
+any true statement in PA (Peano arithmetic) 
+(and many other arithmetic systems)
+can be translated into
+a true statement in HA.
+\hfill\break
+This (somehow) implies that a finite consistency proof
+of PA would not eliminate completed infinity.
+
+\textsf{The elusiveness of Canotr's continuum problem:}
+\hfill\break
+Hilbert's program can't solve the continuum problem.
+
+
+\textsf{New axioms?}
+\hfill\break
+Dubiousness of large cardinals.
+\hfill\break
+Freiling axiom of 
+symmetry (AX)~\cite{Freiling:1986:Symmetry,wiki:FreilingsAxiomOfSymmetry}
+'disproves' CH.
+
+\end{plSection}%{Is Cantor Necessary?}
+%-----------------------------------------------------------------
+\begin{plSection}{The logic of mathematical discovery 
+versus the logical structure of mathematics}
+\label{sec:logic_of_mathematical_discovery}
+
+\cite[ch.~3 ``The logic of mathematical discovery versus
+the logical structure of mathematics'']{Feferman:1998:LightOfLogic}
+
+Reviews work of Lakatos~\cite{Lakatos:1976:Proofs,Lakatos:1978:MSE},
+a fairly dubious 'theory' of how mathematics research is done,
+neither empirical (no significant evidence, just anecdotes),
+nor mathematically/logically rigorous.
+
+Brief comparison to 
+P\'{o}lya~\cite[ch~3,sec~7]{Feferman:1998:LightOfLogic},
+which sounds much more useful.~\cite{Polya:1957:SolveIt,
+Polya:1965:MathDiscovery,Polya:1968:PlausibleReasoning}
+``\ldots P\'{o}lya \ldots concentrates on tactics and methods
+for \textit{finding solutions} to problems and, 
+to a lesser extent,
+on \textit{finding proofs} of theorems.''
+\hfill\break
+``\ldots professional mathematicians might want \ldots
+a continuation \ldots which concentrated on \ldots
+finding difficult proofs.''
+
+Neither Lakatos or P\'{o}lya ``\ldots attempted to deal with 
+\ldots
+finding the technical but general concepts that 
+help organize masses of material and make difficult 
+proofs understandable.''
+
+\end{plSection}%{The logic of mathematical discovery versus the logical structure of mathematics}
+%-----------------------------------------------------------------
+\begin{plSection}{Foundational ways}
+\label{sec:Foundational_ways}
+
+\cite[ch~4 ``Foundational ways'']{Feferman:1998:LightOfLogic}
+
+$20$th century crisis in mathematics and grand solutions 
+(``logicism, formalism, platonism, and constructivism \ldots
+are all rather tired looking now, if not suffering from
+senescence and still more basic ills. \ldots
+most mathematicians have given up worrying \dots .
+If asked, say they are formalists, or that
+Zermelo-Fraenkel meets their needs, or whatever.''
+
+Argument against category theory as alternative 
+foundation in \cite{Feferman:1977:CategoricalFoundations}.
+
+Critics of logical foundations argue ``that mathematics
+is more reliable than any of the \ldots schemes which have been
+[proposed] to 'secure' it.''
+
+\cite[ch~4, p~99]{Feferman:1998:LightOfLogic} has
+Scott models for (self-referential) lambda 
+calculus.~\cite{Scott:1972:ContinuousLattices,
+Scott:1976:DataTypesAsLattices}
+
+Survey of models for self-referential theories in 
+\cite{Feferman:1984:TypeFreeTheoriesI}.
+
+\end{plSection}%{Foundational ways}
+%-----------------------------------------------------------------
+\begin{plSection}{Working foundations 1991}
+\label{sec:Working_foundations_1991}
+
+\cite[ch~5 ``Working foundations 1991'']{Feferman:1998:LightOfLogic}
+
+Rougher version of \cite[ch~4]{Feferman:1998:LightOfLogic},
+see notes in \cref{sec:Foundational_ways}.
+
+Reference to MacLane~\cite{Maclane:1981:MathModels},
+which has some relevance to motivating
+parts of mathematics (and foundations)
+from applications.
+
+\end{plSection}%{Working foundations 1991}
+%-----------------------------------------------------------------
+\begin{plSection}{(7) Reflective expansion of concepts and principles}
+
+Mentions, but does not explain, the difference 
+in constructive mathematics between
+``the idea of a function as given by a \textit{rule}
+\ldots [and] \ldots the idea of a set as given by a 
+\textit{defining property}.~\cite{Feferman:1979:ConstructiveFunctionsClasses}
+
+\end{plSection}%{(7) Reflective expansion of concepts and principles}
+%-----------------------------------------------------------------
+\begin{plSection}{G\"{o}del's life and work}
+\label{sec:Godels_life_and_work}
+
+\cite[ch~6 ``G\"{o}del's life and work'']{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{G\"{o}del's life and work}
+%-----------------------------------------------------------------
+\begin{plSection}{Kurt G\"{o}del: conviction and caution}
+\label{sec:Kurt_Godel_conviction_and_caution}
+
+Examines admittedly limited and contradictory evidence
+of G\"{o}del's platonist/realist/objectivist view of
+mathematics: abstract mathematical entities exist outside 
+of anybody's thinking about them;
+undecidable propositions are in fact true or false, we just don't
+know (?).
+Also considers whether G\"{o}del concealed these views and 
+why.~\cite[ch~7 ``Kurt G\"{o}del: conviction and caution'']{Feferman:1998:LightOfLogic}
+
+Incompleteness theorem uses self-referential statement
+equivalent to [this statement cannot be 
+proved].~\cite[p~156]{Feferman:1998:LightOfLogic}
+
+Self-referential paradoxes 'resolved' by 
+``\ldots 'false statement in [language] B' cannot be expressed in
+B, and so [is a] \ldots statement \ldots in some other 
+language''.~\cite[p~157]{Feferman:1998:LightOfLogic}
+
+G\"{o}del refers to 
+Tarski~\cite{Tarski1944:SemanticTruth,Tarski:1983:LogicEtc} 
+for justification in 1965 version 
+of this work.~\cite{Godel:1986:CollectedWorksI}
+ 
+(Can we construct a language that can express 
+or evaluate the truth of 
+its own statements? 
+Is non-halting evaluation a way out of paradoxes?)
+
+``Thus if truth of number theory \textit{were}
+definable within itself, one could find a precise version of the
+Liar statement, giving a contradiction.
+It follows that truth is not so definable.
+But provability in the system \textit{is} definable,
+so the notions of provability and truth must be distinct.
+In particular, if all provable sentences are true,
+there must be true non-provable sentences.
+The self-referential construction applied to provability
+(which \textit{is} definable) instead of truth then 
+leads to a specific example of an undecidable 
+sentence.''~\cite[p~159]{Feferman:1998:LightOfLogic}
+
+(Is 'provability' the same as non-halting truth evaluation?)
+
+\end{plSection}%{Kurt G\"{o}del: conviction and caution}
+%-----------------------------------------------------------------
+\begin{plSection}{Introductory note to Kurt G\"{o}del's 1933 lecture}
+\label{sec:Introductory_note_Godel_1933}
+
+\cite[ch~8 ``Introductory note to Kurt G\"{o}del's 1933 lecture'']{Feferman:1998:LightOfLogic}
+
+See also~\cite{Godel:1995:CollectedWorksIII}.
+
+\end{plSection}%{Introductory note to Kurt G\"{o}del's 1933 lecture}
+%-----------------------------------------------------------------
+\begin{plSection}{What does logic have to tell us about mathematical proofs?}
+\label{sec:What_does_logic_tell_us_about_proofs}
+
+\cite[ch~9 ``What does logic have to tell us about mathematical proofs?'']{Feferman:1998:LightOfLogic}
+
+``One part of the analogy with physics is not so apt.
+The experimental method provides highly sophisticated, refined
+means to test physical theories {\ldots}.
+We have no such tests of logical theories.
+Rather it is primarily a matter of individual judgment
+how well these square with ordinary
+experience."~\cite[p~178]{Feferman:1998:LightOfLogic}
+
+``\ldots the process of \textit{explicit definition,} which allows
+us to expand our basic vocabulary systematically,
+is necessary to keep formal representations of informal concepts
+down to a manageable size. \ldots\ 
+If everything were written out in terms of primitive notions,
+mathematics would be 
+unlearnable.''~\cite[p~180]{Feferman:1998:LightOfLogic}
+
+Bishop's work can be formalized 
+in Feferman's $T_0$~\cite{Feferman:1975:ExplicitMathematics}
+(a subsystem of Myhill's CST~\cite{Myhill:1975:ConstSetTheory} (?)).
+
+\end{plSection}%{What does logic have to tell us about mathematical proofs?}
+%-----------------------------------------------------------------
+\begin{plSection}{What rests on what? The proof-theoretic analysis of mathematics}
+\label{sec:What_rests_on_what}
+
+\cite[ch~10 ``What rests on what? 
+The proof-theoretic analysis of mathematics'']{Feferman:1998:LightOfLogic}
+
+``G\"{o}del \ldots\ showed that PA [Peano arithmetic]
+could be translated into the intuitionistic system HA of
+Heyting's arithmetic,
+which differs from PA on in omitting the 
+Law of the Excluded Middle{\ldots}.''~\cite[190]{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{What rests on what? The proof-theoretic analysis of mathematics}
+%-----------------------------------------------------------------
+\begin{plSection}{G\"{o}del's \textit{Dialectica} interpretation and its two-way-stretch}
+\label{sec:Godels_Dialectica_interpretation}
+
+\cite[ch~11 ``G\"{o}del's \textit{Dialectica} interpretation and its
+two-way-stretch'']{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{G\"{o}del's \textit{Dialectica} interpretation and its two-way-stretch}
+%-----------------------------------------------------------------
+\begin{plSection}{Infinity in mathematics: is Cantor necessary? (conclusion)}
+\label{sec:Cantor_necessary_conclusion}
+
+\cite[ch~12 ``Infinity in mathematics: is Cantor necessary? (conclusion)'']
+{Feferman:1998:LightOfLogic}
+
+Classes of statements and formulas:
+\begin{description}
+\item[$\Pi^0_1$] statements of the form
+$\forall x (F(n) = 0)$ where $F$ is primitive recursive.
+\item[$\Sigma^0_1$] statements of the form
+$\exists x (F(n) \neq 0)$ (negations of statement in $\Pi^0_1$).
+\item[$\Pi^0_k$] sequence of $k$ alternating quantifiers,
+starting with $\forall x$.
+\textsf{(Why alternating?)}
+\item[$\Sigma^0_k$] sequence of $k$ alternating quantifiers,
+starting with $\exists x$.
+\textsf{(Why alternating?)}
+\item[$\Delta^0_k$] statements that are in both $\Pi^0_k$
+and $\Sigma^0_k$. 
+\textsf{(How is that possible?)}
+\end{description}
+Superscript $0$ is above classes refers to the fact that
+quantified variables range over $x,y,\ldots \in \Space{N}$.
+\textsf{(first order logic/arithmetic?)}
+When we add variables $X,Y,\ldots \subseteq \Space{N}$,
+then the classes are $\Pi^1_k, \Sigma^1_k, \Delta^1_k$.
+
+Collecting all arities into a single class:
+\begin{itemize}
+  \item $\Pi^i_{\infty} \, = \, \bigcup_k \Pi^i_k$
+  \item $\Sigma^i_{\infty} \, = \, \bigcup_k \Sigma^i_k$
+  \item $\Delta^i_{\infty} \, = \, \bigcup_k \Delta^i_k$
+\end{itemize}
+
+\textit{Comprehension axiom schema:}
+\begin{equation}
+\tag{$\mathcal{F}{-}\text{CA}$}
+\exists X \forall n \left[ (n \in X) \Leftrightarrow P(n) \right]
+\end{equation}
+where $\mathcal{F}$ is a class of formulas 
+\textsf{(meaning $\Pi^0_k$ or $\Sigma^0_k$?)}
+and $P \in \mathcal{F}$.
+
+For formulas in $\mathcal{F}$ and its complement,
+\begin{equation}
+\tag{$\Delta_{\mathcal{F}}{-}\text{CA}$}
+\forall n \left[ P(n) \Leftrightarrow Q(n) \right]
+\Rightarrow 
+\exists X \forall n \left[ (n \in X) \Leftrightarrow P(n) \right]
+\end{equation}
+where $P \in \mathcal{F}$ and $\sim Q \in \mathcal(F)$.
+\textsf{
+(Is ``$\sim Q$'' the same as ``$\lnot Q$'', ie, 
+``$(\text{not}\, Q)$''?)}
+
+\end{plSection}%{Infinity in mathematics: is Cantor necessary? (conclusion)}
+%-----------------------------------------------------------------
+\begin{plSection}{Weyl vindicated: \textit{Das Kontinuum} seventy years later}
+\label{sec:Weyl_vindicated}
+
+Moderate number of typos in this 
+chapter.~\cite[ch~13 ``Weyl vindicated: \textit{Das Kontinuum} seventy years later'']{Feferman:1998:LightOfLogic}
+
+Goal is to fix Weyl's program 
+using 'finite', 'definitionist/predicative', 'intuitionist' ideas
+to create a basis for scientifically applicable mathematics
+(without uncountable infinities?).
+
+Work on foundations of math~\cite{Weyl:1910:Definitionen}.
+\textit{Das Kontinuum}~\cite{Weyl:1918:Kontinuum,Weyl:1987:Continuum}.
+
+``Weyl's way out'' of Richard paradox/diagonal 
+argument.~\cite[p 262]{Feferman:1998:LightOfLogic} 
+
+Theory W (a conservative extension of PA),
+with 'variable/flexible' finite types,
+claims to formalize substantial parts of
+classical and modern 
+analysis.~\cite[ch~13 sec~8]{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{Weyl vindicated: \textit{Das Kontinuum} seventy years later}
+%-----------------------------------------------------------------
+\begin{plSection}{Why a little bit goes a long way:
+logical foundations of scientifically applicable mathematics}
+\label{sec:Why_a_little_bit_goes_a_long_way}
+
+\cite[ch~14 ``Why a little bit goes a long way:
+logical foundations of scientifically applicable mathematics'']{Feferman:1998:LightOfLogic}
+
+Quite a bit of overlap (system W) 
+with~\cite[ch 13]{Feferman:1998:LightOfLogic}.
+Not much additional detail about what, exactly,
+is the range of ``scientifically applicable mathematics''
+or how system W fulfills that.
+
+\end{plSection}%{Why a little bit goes a long way: logical foundations of scientifically applicable mathematics}
+%-----------------------------------------------------------------
+\end{plSection}%{In the light of logic}
+%-----------------------------------------------------------------
+\end{plSection}%{Feferman}
+%-----------------------------------------------------------------
+\begin{plSection}{Constructivism}
+\label{sec:Constructivism}
+%-----------------------------------------------------------------
+\begin{plSection}{SEP}
+\label{sec:Constructivism_SEP}
+\cite{sep:ConstructiveMathematics}
+
+Multiple references to ``the informal, though rigorous, 
+style of the practicing analyst, algebraist, topologist, \ldots''
+???
+
+Section 1 has problems:
+
+Discussion of
+$ \forall x \in \Space{R} (x = 0 \vee x \ne 0)$.
+
+``However, because the computer can handle real numbers 
+only by means of finite rational approximations, 
+we have the problem of underflow, 
+in which a sufficiently small positive number can be misread as 0 
+by the computer;\ldots''
+
+\ldots which is nonsense;
+real issue is non-termination of test for $x=0$.
+
+Section 2:
+
+BHK interpretation~\cite{wiki:BrouwerHeytingKolmogorovInterpretation}:
+\begin{itemize}
+  \item A proof of $P\wedge Q$ 
+  is a pair $(a,b)$ where $a$ is a proof of $P$ 
+  and $b$ is a proof of $Q$.
+\item A proof of $P\vee Q$ is a pair $(a,b)$ 
+where $a$ is $0$ and 
+$b$ is a proof of $P$, 
+or $a$ is $1$ 
+and $b$ is a proof of $Q$.
+\item A proof of $P\Rightarrow Q$ is 
+a function $f$ that converts 
+a proof of $P$ into a proof of $Q$.
+\item A proof of $\exists x\in S:\varphi (x)$ is 
+a pair $(a,b)$ where 
+$a$ is an element of $S$, 
+and $b$ is a proof of $\varphi (a)$.
+\item A proof of $\forall x\in S:\varphi (x)$ is 
+a function $f$ that converts 
+an element (any element?) $a$ of $S$ into a proof of $\varphi (a)$.
+\item The formula $\neg P$ is defined as $P\Rightarrow \bot$, 
+so a proof of it is a function $f$ that converts 
+a proof of $P$ into a proof of $\bot$.
+\item There is no proof of $\bot$
+(the absurdity, or bottom type 
+(non-termination in some programming languages)).
+\end{itemize}
+What is a 'function' here? 
+Other sources use 'algorithm', also without definition.
+
+Analysis examples too detailed and lacking motivation 
+to make point clear, feel cut-and-pasted from the middle
+of a more coherent presentation:
+
+Bishop: constructive $\Space{R}$ 
+from Cauchy sequences 
+in $\Space{Q}$~\cite{BishopBridges:1985:ConstructiveAnalysis}.
+
+Bridges and Vita: constructive $\Space{R}$ from sequences
+of intervals in $\Space{Q}$~\cite{Bridger:2019}.
+
+Intermediate value theorem C: 
+``If $f$ is a continuous real-valued mapping 
+on the closed interval $[0,1]$ such that $f(0)⋅f(1)<0$, 
+then there exists $x$ such that $0<x<1$ and $f(x)=0$.
+
+Proof requirement: 
+An algorithm which, applied to the function $f$, 
+a modulus of continuity for $f$, and the values $f(0)$ and $f(1)$,
+computes an object $x$ and shows that $x$ is a real number 
+between $0$ and $1$; and
+shows that $f(x)=0$.''~\cite{sep:ConstructiveMathematics}
+
+Not constructive because it requires
+``lesser limited principle of omniscience (LLPO)''.
+
+Intermediate value theorem D:
+``If $f$ is a continuous real-valued mapping 
+on the closed interval $[0,1]$ 
+such that $f(0)⋅f(1)<0$, 
+then for each $\epsilon>0$ 
+there exists $x$ such that $0<x<1$ and $|f(x)|<\epsilon$.
+Proof requirement: 
+An algorithm which, applied to the function $f$, 
+a modulus of continuity for $f$, the values $f(0)$ and $f(1)$, 
+and a positive number $\epsilon$,
+computes an object $x$ 
+and shows that $x$ is a real number between $0$ and $1$; and
+shows that $|f(x)|<\epsilon$.''~\cite{sep:ConstructiveMathematics}
+
+Can be proved constructively.
+
+Stronger intermediate value theorem:
+``Let $f$ be a continuous real-valued mapping 
+on the closed interval $[0,1]$ 
+such that $f(0)⋅f(1)<0$. 
+Suppose also that $f$ is locally nonzero, 
+in the sense that for each $x \in [0,1]$
+and each $r>0$, 
+there exists $y$ such that $|x−y|<r$ and $f(y) \neq 0$. 
+Then there exists $x$ such that $0<x<1$ and $f(x)=0$.''
+
+Section 3: Varieties
+
+Section 3.1: Intuitionist (Brouwer)
+
+``Brouwer was not the clearest expositor of his ideas, 
+as is shown by the following quotation:
+
+Mathematics arises when the subject of two-ness, 
+which results from the passage of time, 
+is abstracted from all special occurrences. 
+The remaining empty form [the relation of n to n+1] 
+of the common content of all these two-nesses 
+becomes the original intuition of mathematics 
+and repeated unlimitedly creates new mathematical subjects. 
+(quoted in Kline [1972], 1199–2000)''
+
+(Nederlands to Deutsch to English?)
+
+``According to [Brouwer’s] view and reading of history, 
+classical logic was abstracted 
+from the mathematics of finite sets and their subsets. \ldots 
+Forgetful of this limited origin, 
+one afterwards mistook that logic 
+for something above and prior to all mathematics, 
+and finally applied it, without justification, 
+to the mathematics of infinite sets. 
+This is the Fall and original sin of set theory, 
+for which it is justly punished by the antimonies. 
+It is not that such contradictions showed up that is surprising,
+ but that they showed up at such a late stage of the game. 
+ (Weyl [1946])''
+ 
+Weyl may have worked out a description of
+$\Space{R}$ without (uncountable) infinity or
+axiom of choice?
+
+\end{plSection}%{SEP}
+%-----------------------------------------------------------------
+\begin{plSection}{IEP}
+\label{sec:Constructivism_IEP}
+\cite{iep:ConstructiveMathematics}
+
+``An implication ($A \Rightarrow B$) is not equivalent 
+to a disjunction ($\lnot A \vee B$), 
+and neither are equivalent to a negated conjunction 
+($\not (A \wedge \lnot B$)). 
+In practice, constructive mathematics may be viewed 
+as mathematics done using intuitionistic 
+logic.''\cite{iep:ConstructiveMathematics}
+
+Hilbert vs Brouwer circa 1900: 
+non-constructive existence theorems via contradiction.
+
+Usual example: Prove $\exists a,b \notin \Space{Q}$
+such that $a^b \in \Space{Q}$. \hfill\break
+Non-constructive: Use law of excluded middle.
+If $\sqrt{2}^{\sqrt{2}} \in \Space{Q}$, done.
+If not, consider ${\sqrt{2}^{\sqrt{2}}}^{\sqrt{2}}$.
+\hfill\break
+Constructive: consider $a=\sqrt{2}$ and $b=\log_2(9)$.
+
+BHK interpretation of intuitionistic 
+logic\cite{wiki:BrouwerHeytingKolmogorovInterpretation}.
+
+\end{plSection}%{IEP}
+%-----------------------------------------------------------------
+\begin{plSection}{Martin-L\"{o}f}
+\label{sec:Martin_Lof_IEP}
+
+``However he soon revisited foundations in a different way, 
+which harks back to Russell's type theory, 
+albeit using a more constructive and less logicist approach. 
+The basic idea of Martin-Löf's theory of types (Martin-Löf, 1975) 
+is
+that mathematical objects all come as types, 
+and are always given in terms of a
+type (for example, one such type is that of functions 
+from natural numbers to
+natural numbers), due to an intuitive understanding 
+that we have of the notion
+of the given type.
+
+The central distinction Martin-Löf makes is that 
+between proof and derivation.
+Derivations convince us of the truth of a statement, 
+whereas a proof contains the data necessary for computational
+(that is, mechanical) verification of a proposition. 
+Thus what one finds in standard mathematical textbooks are
+derivations; 
+a proof is a kind of realizability (c.f. Kleene, 1945) and links
+mathematics to implementation (at least implicitly).
+
+The theory is very reminiscent of a kind of cumulative hierarchy. 
+Propositions can be represented as types 
+(a proposition's type is the type of its proofs),
+and to each type one may associate a proposition 
+(that the associated type is not empty). 
+One then builds further types by construction on already existing
+types.''
+
+\end{plSection}%{Martin-L\"{o}f}
+%-----------------------------------------------------------------
+\begin{plSection}{Constructivism (Wikipedia)}
+\label{sec:Constructivism_Wikipedia}
+
+\cite{wiki:ConstructivismPhilosophyOfMathematics}
+
+Usually drop law of excluded middle 
+($P \vee \lnot P$).\cite{wiki:LawOfExcludedMiddle}
+It is possible that both $P$ and $\lnot P$ are not provable,
+so $P \vee \lnot P$ is not provable.
+
+But keep law of non-contradiction
+($\lnot ( P \wedge (\lnot P))$).~\cite{wiki:LawOfNoncontradiction}
+In other words, it is impossible to prove both.
+
+Witnesses: Proving $\exists _{x\in \Set{X}}P(x)$ requires
+constructing a specific $a \in \Set{X}$ such that $P(a)$ is true; 
+$a$ is a \textit{witness} for $\exists _{x\in \Set{X}}P(x)$.
+
+People\cite{wiki:ConstructivismPhilosophyOfMathematics}:
+\begin{description}
+\item[Leopold Kronecker] old constructivism, semi-intuitionism.
+\item[Luitzen Egbertus Jan (Bertus) Brouwer] forefather of intuitionism.
+\item[Andrey Andreyevich Markov, Jr. ] forefather of Russian school of constructivism.
+\item[Arend Heyting] formalized intuitionistic logic and theories.
+\item[Per Martin-Löf] founder of constructive type theories.
+\item[Errett Bishop] promoted a version of constructivism 
+claimed to be consistent with classical mathematics.
+\item[Paul Lorenzen] developed constructive analysis.
+\end{description}
+
+\end{plSection}%{Constructivism (Wikipedia)}
+%-----------------------------------------------------------------
+\begin{plSection}{Constructive analysis}
+\label{Constructive analysis}
+
+In constructive 
+analysis~\cite{wiki:ConstructiveAnalysis,
+Bridger:2019,Henle:2012:RealNumbers},
+varieties of constructionism are divided by
+what sort of countable $\rightarrow$ countable functions can be 
+constructed?~\cite{wiki:ConstructivismPhilosophyOfMathematics}
+\begin{description}
+\item[Free choice sequences] 
+\cref{sec:Choice_sequences}\cite{wiki:ChoiceSequence}.
+\item[Algorithms/Computable functions] 
+\cref{sec:Computable_function}~\cite{wiki:ComputableFunction}
+ results in computable numbers (reals?).
+\end{description}
+
+\end{plSection}%{Constructive analysis}
+%-----------------------------------------------------------------
+\begin{plSection}{Choice sequences}
+\label{sec:Choice_sequences}
+
+\begin{description}
+\item[Law-like] determined completely (somehow?),
+eg, $\Space{N}$ or functions $\Space{N} \mapsto \Space{N}$,
+functions from the first $k$ elements of the sequence to 
+$\Space{N}$.
+(How is this different from a computable function?)
+\item[Lawless] only a finite prefix determined at any point.
+Example is rolls of a die. (Very dubious\ldots.)
+\end{description}
+
+Axioms 
+(Are these only for lawless sequences?
+They don't seem 'constructive' to me\ldots):
+\begin{description}
+\item[open data] Let $\alpha \in n$ mean that the first items
+in the choice sequence $\alpha$ match the finite sequence $n$.
+Then for any predicate $A$,
+$A(\alpha )$ implies  $\exists n$ such that
+$\alpha \in n$ and $\forall \beta \in n$ we have $A(\beta )$.
+In other words, the truth of any predicate on a sequence can be
+determined from a finite prefix.
+\item[density] $\forall n\,\exists \alpha [\alpha \in n]$.
+There exists some sequence that has any given finite prefix.
+\end{description}
+
+\end{plSection}%{Choice sequences}
+%-----------------------------------------------------------------
+\begin{plSection}{Computable function}
+\label{sec:Computable_function}
+\cite{wiki:ComputableFunction}
+
+\end{plSection}%{Computable function}
+%-----------------------------------------------------------------
+\begin{plSection}{Cardinality of \texorpdfstring{$\Space{R}$}{R}}
+\label{sec:Cardinality_of_R}
+
+Issues with Cantor's diagonal 
+argument~\cite{wiki:CantorsDiagonalArgument}.
+
+(Starts with a given enumeration of (say) binary expansions of 
+elements of $\Space{R}$, then \textit{constructs} a missing
+element. But where does the enumeration come from?
+Seems like a proof by contradiction\ldots?)
+
+\end{plSection}%{Cardinality of $\Space{R}$}
+%-----------------------------------------------------------------
+\begin{plSection}{Axiom of choice}
+\label{sec:AxiomOfchoice}
+
+One interpretation of 'constructive' is
+'provable in $\textsf{ZF}$ set theory without the axiom of 
+choice.'~\cite{iep:SetTheory,wiki:AxiomOfChoice}
+(See \cref{sec:Zermelo-Fraenkel-set-theory} for \textsf{ZF}.)
+But \textsf{ZF} may be considered 'not constructive'
+itself.
+
+In some set theories, the axiom of choice implies
+the law of excluded middle; in others it doesn't.
+When it does, constructionists use weaker versions
+that don't imply $P \, \wedge \, \lnot P$.
+So some constructionists restrict themselves
+
+\end{plSection}%{Axiom of choice}
+%-----------------------------------------------------------------
+\begin{plSection}{Measure theory}
+\label{sec:Measure_theory}
+
+\citeauthortitleyear{Bishop:1967:Foundations,BishopCheng:1972:ConstructiveMeasureTHeory,BishopBridges:1985:ConstructiveAnalysis}
+
+\end{plSection}%{Measure theory}
+%-----------------------------------------------------------------
+\end{plSection}%{Constructivism}
+%-----------------------------------------------------------------
+\end{plSection}%{Foundations of mathematics}
+ 

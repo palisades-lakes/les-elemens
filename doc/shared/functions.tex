@@ -1,6 +1,5 @@
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Functions and relations}
+\begin{plSection}{Functions and relations}
 \label{sec:Functions-and-relations}
 
 In mathematics literature, \textit{function} is usually defined as
@@ -17,8 +16,7 @@ Because we need the notion of ``relation'' anyway, I'm going to
 provide both definitions.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Relations}
+\begin{plSection}{Relations}
 \label{sec:Relations}
 
 A \textit{relation}, 
@@ -65,9 +63,9 @@ These properties determine 2 important classes of relations:
 Transitive, reflexive, and antisymmetric.
 \end{description}
 
+\end{plSection}%{Relations}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Functions}
+\begin{plSection}{Functions}
 \label{sec:Functions}
 
 A \textit{functional} binary relation, $\Set{F}$ on $\Set{X}
@@ -116,11 +114,9 @@ $\Set{E}_f = \SetSpec{[x_0 \, x_1]}{f(x_0) = f(x_1)}$
 $\Set{F}\left( \Set{D}, \Set{C} \right)$ is the set of all 
 functions with domain $\Set{D}$ and codomain $\Set{C}.$
 
-
-
+\end{plSection}%{Functions}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Equivalence classes and quotient sets}
+\begin{plSection}{Equivalence classes and quotient sets}
 
 If $\Set{E}$ is an equivalence relation on $\Set{S}^2$, then we
 can define the \textit{equivalence class} of $s_0$, $E(s_0) = \{
@@ -143,10 +139,9 @@ $[\text{numerator} \, \text{denominator}]$, but the actual
 rational numbers are the equivalence classes defined by 
 $\SetSpec{ [[p_0 \, q_0] \, [p_1 \, q_1]]}{p_0*q_1 = p_1*q_0 }$,
 that is, $[1 \, 2]$ and $[2 \, 4]$ represent the same rational.
-
+\end{plSection}%{Equivalence classes and quotient sets}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Inverses and pseudo-inverses}
+\begin{plSection}{Inverses and pseudo-inverses}
 \label{sec:Inverses-and-pseudo-inverses}
 
 Given a function $f : \Set{D} \mapsto \Set{C}$,
@@ -172,14 +167,14 @@ inverse is not a set containing a single point.
 $\PowerSet{\Set{D}}  \mapsto \PowerSet{\Set{C}}$
 derivable from a function $\Set{D} \mapsto \Set{C}$?
 
-Inverse function theorem~\cite[Theorem~2-1]{spivak-1965}
+Inverse function theorem~\cite[Theorem~2-1]{Spivak:1965:CalculusOnManifolds}
 for $\Space{R}^n$. 
 
-Generalizations?~\cite{wiki:Inverse-function-theorem}
+Generalizations?~\cite{wiki:InverseFunctionTheorem}
 
+\end{plSection}%{Inverses and pseudo-inverses}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Level sets and implicit functions}
+\begin{plSection}{Level sets and implicit functions}
 \label{sec:Implicit-functions}
 
 Suppose 
@@ -202,15 +197,15 @@ $\| c - f\left( d_0, d_1 \right) \|^2$ over $d_0$,
 and check that the minimum value is close enough to $0$.
 
 \textbf{TODO:} When does a level set correspond to a function?
-Implicit function theorem~\cite[Theorem~2-2]{spivak-1965}
+Implicit function theorem~\cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}
 for $\Space{R}^n$. 
 
-Generalizations?~\cite{wiki:Implicit-function-theorem,
-wiki:Inverse-function-theorem}
+Generalizations?~\cite{wiki:ImplicitFunctionTheorem,
+wiki:InverseFunctionTheorem}
 
+\end{plSection}%{Level sets and implicit functions}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Multiple arguments}
+\begin{plSection}{Multiple arguments}
 \label{sec:Multiple-arguments}
 
 Often useful to consider 
@@ -258,15 +253,16 @@ or, in pseudo-lisp,
 $\left( f \, x_0 \, x_1 \right) = \left( \left( f \, x_0 \right) x_1 \right) \Rightarrow y$
 \end{description}
 
+\end{plSection}%{Multiple arguments}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-%\levelstay{Computable functions}
-
+\begin{plSection}{Computable functions}
+\end{plSection}%{Computable functions}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-%\levelstay{implementation}
-
+\begin{plSection}{implementation}
+\end{plSection}%{implementation}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-%\levelstay{examples}
+\begin{plSection}{examples}
+\end{plSection}%{examples}
+%-----------------------------------------------------------------
+\end{plSection}%{Functions and relations}
 

@@ -1,0 +1,32 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: biber
+%% arara: makeglossaries
+% arara: makeindex
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
+% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+% arara: clean: { extensions: [ bbl, bcf, blg, ] }
+%% arara: clean: { extensions: [ glg, glo, gls, ] }
+% arara: clean: { extensions: [ idx, ilg, ind, ] }
+%% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+%% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+%-----------------------------------------------------------------
+\documentclass{PalisadesLakesReport}
+\input{begin}
+%\geomLegal
+%\geomLedger
+\geomHDTV
+\geomLandscape
+%-----------------------------------------------------------------
+\title{Report test}
+\author{John Alan McDonald 
+(palisades dot lakes at gmail dot com)}
+\date{draft of \today}
+%-----------------------------------------------------------------
+\begin{document}
+\maketitle
+\PalisadesLakesTableOfContents
+\input{body}
+\end{document}
+%-----------------------------------------------------------------

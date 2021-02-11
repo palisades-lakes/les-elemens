@@ -29,24 +29,24 @@ import java.io.Serializable;
  * </pre>
  * and ulp(y) means "unit in the last place of y".
  * The basic arithmetic operations are implemented using
- * convenient properties of IEEE-754 floating-point arithmetic.
+ * convenient properties of {IEEE}-754 floating-point arithmetic.
  * <p>
- * The range of values which can be represented is the same as in IEEE-754.
+ * The range of values which can be represented is the same as in {IEEE}-754.
  * The precision of the representable numbers
- * is twice as great as IEEE-754 double precision.
+ * is twice as great as {IEEE}-754 double precision.
  * <p>
  * The correctness of the arithmetic algorithms relies on operations
- * being performed with standard IEEE-754 double precision and rounding.
+ * being performed with standard {IEEE}-754 double precision and rounding.
  * This is the Java standard arithmetic model, but for performance reasons
  * Java implementations are not
  * constrained to using this standard by default.
  * Some processors (notably the Intel Pentium architecture) perform
- * floating point operations in (non-IEEE-754-standard) extended-precision.
+ * floating point operations in (non-{IEEE}-754-standard) extended-precision.
  * A JVM implementation may choose to use the non-standard extended-precision
  * as its default arithmetic mode.
  * To prevent this from happening, this code uses the
  * Java <tt>strictfp</tt> modifier,
- * which forces all operations to take place in the standard IEEE-754 rounding model.
+ * which forces all operations to take place in the standard {IEEE}-754 rounding model.
  * <p>
  * The API provides both a set of value-oriented operations
  * and a set of mutating operations.
@@ -82,7 +82,7 @@ import java.io.Serializable;
  * <ul>
  * <li>Priest, D., <i>Algorithms for Arbitrary Precision Floating Point Arithmetic</i>,
  * in P. Kornerup and D. Matula, Eds., Proc. 10th Symposium on Computer Arithmetic,
- * IEEE Computer Society Press, Los Alamitos, Calif., 1991.
+ * {IEEE} Computer Society Press, Los Alamitos, Calif., 1991.
  * <li>Yozo Hida, Xiaoye S. Li and David H. Bailey,
  * <i>Quad-Double Arithmetic: Algorithms, Implementation, and Application</i>,
  * manuscript, Oct 2000; Lawrence Berkeley National Laboratory Report BNL-46996.
@@ -166,7 +166,7 @@ implements Serializable, Comparable, Cloneable
   /**
    * The value to split a double-precision value on during multiplication
    */
-  private static final double SPLIT = 134217729.0D; // 2^27+1, for IEEE double
+  private static final double SPLIT = 134217729.0D; // 2^27+1, for {IEEE} double
 
   /**
    * The high-order component of the double-double precision value.

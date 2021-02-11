@@ -1,0 +1,37 @@
+% jam 2004-08-28
+
+\begin{plSection}{Simplex Volume}
+\label{sec:simplex_volume}
+
+\nocite{Heckbert:1974:GraphicsGems4}
+\nocite{GoodmanORourke:2004:HDCG2}
+
+This section describes how to compute
+the volume of a $m$-simplex in $\Reals^n$ (with $m \le n$)
+and its derivatives with respect to the vertex positions.
+In what follows, let $\Simplex{S}$ be the geometric $m$-simplex
+spanned by the $m+1$ points $\{\Point{p}_0 , \ldots , \Point{p}_m\}$,
+where $\Point{p}_i \in \Reals^n$.
+As in \cref{sec:barycentric-coordinates},
+let $\Vector{v}_i = (\Point{p}_i - \Point{p}_m); i = 0 \ldots (m-1)$
+and ${\mathbf V} = \sum_{i=0}^{m-1} \Vector{v}_i \otimes \Vector{e}_i$
+(which can be represented by a matrix whose columns are the $\Vector{v}_i$).
+
+To simplify the discussion, I will describe computing the
+value of the volume form: 
+$\rho(\Simplex{S}) = m! \volume(\Simplex{S})$,
+which is the volume of the parallelpiped with sides $\Vector{v}_i$.
+
+Most discussions of simplex volume consider
+only the case of a $n$-simplex in $\Reals^n$.
+In that case, the $\rho(\Simplex{S}) = \det({\mathbf V)}$
+\cite{HenkRichterGebertZiegler:2004:ConvexPolytopes}.
+
+When $m < n$, ${\mathbf V}$ is no longer square,
+so $\det({\mathbf V})$ doesn't work.
+Hanson \cite{Hanson:1994:NdGraphics} suggests:
+\begin{equation}
+\rho(S)^2 = \det({\mathbf V}^{\dagger} {\mathbf V})
+\end{equation}
+
+\end{plSection}%{Simplex Volume}

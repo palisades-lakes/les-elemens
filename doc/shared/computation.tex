@@ -1,5 +1,9 @@
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\epigraph{These things which are new are wont in the beginning to 
+\begin{plSection}{A model for computation}   
+
+\begin{plQuote}
+{\citeauthortitle{Hadden:1994:ShouldersOfMerchants}.}
+{Hadden:1994:ShouldersOfMerchants}
+{These things which are new are wont in the beginning to 
 be set 
 forth rudely and formlessly and must then be polished and 
 perfected in succeeding centuries. Behold, the art which I present 
@@ -8,13 +12,12 @@ barbarians, that I considered it necessary, in order to introduce
 an entirely new form into it, to think out and publish a new 
 vocabulary, having gotten rid of all its pseudo-technical 
 terms~\ldots}
-{Hadden, On the Shoulders of Merchants: 
-Exchange and the Mathematical Conception of Nature in Early 
-Modern Europe~\cite{hadden1994shoulders}.}
-\levelstay{A model for computation}   
+\end{plQuote}
+
 Transformation of data structures.
+
 %-----------------------------------------------------------------
-\leveldown{Data Structures}
+\begin{plSection}{Data Structures}
 A \textit{data structure} is a collection of \textit{places}
 that hold values. 
 Using Clojure/Java for specificity.
@@ -22,26 +25,27 @@ A value might be primitive
 (\texttt{int}, \texttt{double}, \ldots)
 or a references to an 'independent' data structure.
 
-\begin{example}[Java array]
+\begin{plExample}{Java array}{}
 Places correspond to \texttt{int}s from 0 to length minus 1.
 Values restricted to instances of array's type.
-\end{example}  
+\end{plExample}  
 
-\begin{example}[Instance of Java class]
+\begin{plExample}{Instance of Java class}{}
 Places correspond to the class's fields.
 Values restricted to each field's type.
-\end{example}  
+\end{plExample}  
 
-\begin{example}[EDN data]
+\begin{plExample}{EDN data}{}
 Nested sequences and hashmaps. Similar to JSON.
 Places correspond to the class's fields.
 Values restricted to each field's type.
-\end{example}  
+\end{plExample}  
 
 %-----------------------------------------------------------------
-\leveldown{Mutability}
+\begin{plSection}{Mutability}
+\end{plSection}
 %-----------------------------------------------------------------
-\levelstay{Random access}
+\begin{plSection}{Random access}
 
 Means different things. 
 Constant time to any place.
@@ -49,8 +53,9 @@ Absolute origin, rather than relative references.
 Places known/easily enumerable, rather than requiring traversal
 to find out what places there are.
 No general guarantee that you can visit everything, once.
+\end{plSection}
 %-----------------------------------------------------------------
-\levelstay{An unsolved problem}
+\begin{plSection}{An unsolved problem}
 
 Where's the boundary of a thing? 
 Is a reference part of a path, or
@@ -58,8 +63,10 @@ an encapsulated value?
 No language I know does this well.
 
 Deep copy vs shallow copy.
+\end{plSection}
 %-----------------------------------------------------------------
-\levelup{Code and data}
+\end{plSection}
+\begin{plSection}{Code and data}
 
 Data is just bits. 
 Meaning determined by the code that manipulates it. 
@@ -70,20 +77,26 @@ Correctness difficulty increases
 with 'distance' between code and data. 
 
 Multiple implementations of meaning really bad.
-Data standards (eg IEEE 754 \cite{Higham2002ASNA, 
+Data standards (eg {IEEE} 754 \cite{Higham:2002:ASNA, 
 IEEE:1985:P754, IEEE:2008:P754, IEEE:2019:P754, IEEE:2020:60559,
-Muller_et_al_2010_handbook_fp}) 
-major undertaking even for
+MullerEtal:2010:FPHandbook}) major undertaking even for
 small simple unchanging data semantics.
 
 Services bad; shared libraries good.
 Crossing programming language boundaries bad; 
-monolingual environments \cite{Heering:1985:TMP:3318.3321} good.
+monolingual environments \cite{HeeringKlint:1985:Monlingual} good.
+\end{plSection}
 %-----------------------------------------------------------------
-\levelstay{Types and prototypes}
+\begin{plSection}{Types and prototypes}
 The ``he or she'' problem: forced to specify irrelevant details.
+\end{plSection}
 %-----------------------------------------------------------------
-\levelstay{Java}
+\begin{plSection}{Java}
+What does this model look like in Java?
+\end{plSection}
 %-----------------------------------------------------------------
-\levelstay{Clojure}
+\begin{plSection}{Clojure}
+What does this model look like in Java?
+\end{plSection}
 %-----------------------------------------------------------------
+\end{plSection}

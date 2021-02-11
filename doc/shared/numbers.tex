@@ -1,10 +1,15 @@
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Numbers}
+\begin{plSection}{Numbers}
 \label{sec:Numbers}
 
-\epigraph{
-\textsl{Aber die so gegebenen Definitionen dieser Grundoperationen
+
+\begin{plQuote}
+{\citeauthortitle{Dedekind:1854:NewFunctions},\\
+translation from \citeauthortitle{Ewald2005KantToHilbert},
+as quoted in \citeauthortitle{Ferreiros:2007:Labyrinth}.}
+{Dedekind:1854:NewFunctions}
+{
+{Aber die so gegebenen Definitionen dieser Grundoperationen
 geniigen der weitern Entwicklung der Arithmetik nicht mehr, 
 und zwar aus dem Grunde, weil sic
 die Zahlen, mit denen sic operieren lehrt, auf ein sehr kleines 
@@ -35,22 +40,20 @@ makes it necessary to create new classes of
 numbers, since with the original sequence 
 of the absolute integers that requirement cannot be
 satisfied.)}%
-{Dedekind~\cite{Dedekind1854}, 
-translation from~\cite{Ewald2005KantToHilbert},
-as quoted in~\cite{ferreiros2007labyrinth}.}
+\end{plQuote}
 
-\epigraph{
-\textsl{Und was wird der geduldige Leser am
+\begin{plQuote}
+{Dedekind to Klein, April 1888,\\ 
+from \citeauthortitle{Dugac:1976:DedekindFondements},\\
+as quoted in \citeauthortitle{Ferreiros:2007:Labyrinth}.}
+{dedekind:klein}
+{Und was wird der geduldige Leser am
 Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
 erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
 \par
 (What will the forbearing reader say at the end? That the author, in a squandering of indescribable
-work, has happily managed to surround the clearest ideas in a disturbing obscurity!
-)}%
-{Dedekind to Klein, April 1888, 
-from~\cite{dugac_1976_dedekind_fondements},
-as quoted in~\cite{ferreiros2007labyrinth}.}
-
+work, has happily managed to surround the clearest ideas in a disturbing obscurity!)%
+\end{plQuote}
 
 % In this chapter, I'm listing a number of things I'm taken as 
 % \emph{given,} in
@@ -74,8 +77,7 @@ as quoted in~\cite{ferreiros2007labyrinth}.}
 \lstset{language=Clojure}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Natural numbers}
+\begin{plSection}{Natural numbers}
 \label{sec:Natural-numbers}
 
 The \textit{\gls{NaturalNumbers}} 
@@ -87,7 +89,7 @@ Some
 equate \gls{NaturalNumbers} with \glssymbol{PositiveIntegers} 
 or $\glssymbol{NaturalNumbers}^{+}$ and use
 $\glssymbol{NaturalNumbers}^{0}$ for the non-negative integers. 
-See~\autoref{sec:math-sets} if the set specification
+See~\cref{sec:math-sets} if the set specification
 notation is new to you.}
 
 The \textit{strictly positive integers}: 
@@ -110,11 +112,8 @@ $+_{\glssymbol{NaturalNumbers}}$
  $\Rightarrow$
 commutative semiring 
 (sec~\ref{sec:Semiring}).
-
-
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Cyclic natural numbers}
+\begin{plSection}{Cyclic natural numbers}
 
 ${\glssymbol{NaturalNumbers}}_{k} = 
 \left[ \left\{ 0, 1, \ldots, k-1 \right\},
@@ -127,9 +126,9 @@ $a +_{\glssymbol{NaturalNumbers}_{k}} b =
 
 Also a commutative semiring.
 
+\end{plSection}%{Cyclic natural numbers}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{unsigned int}}
+\begin{plSection}{\texttt{unsigned int}}
 \label{sec:unsigned-int}
 
 Most C family languages provide \texttt{unsigned} integers
@@ -141,9 +140,11 @@ of various lengths, typically:
 Implementations of $\glssymbol{NaturalNumbers}_{k}$,
 for $k = 2^{16}, 2^{32}, 2^{64}$.
 
+\end{plSection}%{\texttt{unsigned int}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Integers}
+\end{plSection}%{Natural numbers}
+%-----------------------------------------------------------------
+\begin{plSection}{Integers}
 \label{sec:Integers}
 
 Given $a,b,c \in \glssymbol{NaturalNumbers}$,
@@ -154,10 +155,8 @@ The \textit{\gls{Integers}}:
 $\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 
 A ring (sec~\ref{sec:Ring}).
-
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Cyclic integers}
+\begin{plSection}{Cyclic integers}
 \label{sec:Cyclic-integers}
 
 $\Space{Z}_{k} = \left[ \Set{Z}_{k}, +_k, *_k, 0, 1 \right]$
@@ -168,46 +167,46 @@ is a ring (?):
   \item $ a *_k b = \left( a * b \right) \text{mod} k$
 \end{itemize}
 
+\end{plSection}%{Cyclic integers}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{byte}, \texttt{short}, \texttt{int},
+\begin{plSection}{\texttt{byte}, \texttt{short}, \texttt{int},
  \texttt{long}}
 \label{sec:int}
 
 Clojure favors \texttt{long} --- why?
 
+\end{plSection}%{\texttt{byte}, \texttt{short}, \texttt{int},\texttt{long}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{BigInteger}}
+\begin{plSection}{\texttt{BigInteger}}
 \label{sec:BigInteger}
-
+\end{plSection}%{\texttt{BigInteger}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Rational numbers}
+\end{plSection}%{Integers}
+%-----------------------------------------------------------------
+\begin{plSection}{Rational numbers}
 \label{sec:Rational-numbers}
 
 The \textit{\gls{RationalNumbers}}: 
 $\glssymbol{RationalNumbers} = \glsdesc{RationalNumbers}$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Axiomatic definition of $\mathbb{Q}$}
+\begin{plSection}{Axiomatic definition of \texorpdfstring{$\Space{Q}$}{Q}}
 \label{sec:Axiomatic_definition_of_Q}
 
 ``The rational numbers are the prime field of characteristic 
-0."~\cite{quora:Rational_axioms}.
+0."~\cite{quora:RationalAxioms}.
 
 Prime field: has no proper subfields.
 
-Characteristic~\cite{wiki:Field_mathematics}: 
-Field $\mathbb{F}$ with additive identity $0_{\mathbb{F}}$
-and multiplicative identity $1_{\mathbb{F}}$.
-Define $n \ast f$, for $n \in \mathbb{N}$ and $f \in \mathbb{F}$
-as $f +_{\mathbb{F}} f +_{\mathbb{F}} \ldots +_{\mathbb{F}} f$, 
+Characteristic~\cite{wiki:FieldMathematics}: 
+Field $\Space{F}$ with additive identity $0_{\Space{F}}$
+and multiplicative identity $1_{\Space{F}}$.
+Define $n \ast f$, for $n \in \Space{N}$ and $f \in \Space{F}$
+as $f +_{\Space{F}} f +_{\Space{F}} \ldots +_{\Space{F}} f$, 
 with $n$ $f$'s added.
-The \textit{characteristic} of $\mathbb{F}$
+The \textit{characteristic} of $\Space{F}$
 is the smallest $n$ such that 
-$n \ast 1_{\mathbb{F}} \,=\, 0_{\mathbb{F}}$.
+$n \ast 1_{\Space{F}} \,=\, 0_{\Space{F}}$.
 If there is no such $n$, then the characteristic is 
 $0$.
 
@@ -217,29 +216,29 @@ $ \mathcal{L}_{\text{Field}} $.
 Requires a second order language:
 
 
-``1. There Exists No First-Order Characterization of $ \mathbb{Q} $
+``1. There Exists No First-Order Characterization of $ \Space{Q} $
 
 The answer is ‘no’, if one is seeking a first-order 
-characterization of $ \mathbb{Q} $. 
+characterization of $ \Space{Q} $. 
 This follows from the Upward Löwenheim-Skolem Theorem, 
 which is a classical tool in logic and model theory.
 
-Observe that $ \mathbb{Q} $ is an infinite 
+Observe that $ \Space{Q} $ is an infinite 
 $ \mathcal{L}_{\text{Field}} $-structure 
 of cardinality $ \aleph_{0} $. 
 The Upward L\"{o}wenheim-Skolem Theorem then says that 
 there exists an $ \mathcal{L}_{\text{Field}} $-structure 
-(i.e., a field) $ \mathbb{F} $ of cardinality $ \aleph_{1} $ 
-that is an elementary extension of $ \mathbb{Q} $. 
-By definition, this means that $ \mathbb{Q} $ and $ \mathbb{F} $ 
+(i.e., a field) $ \Space{F} $ of cardinality $ \aleph_{1} $ 
+that is an elementary extension of $ \Space{Q} $. 
+By definition, this means that $ \Space{Q} $ and $ \Space{F} $ 
 satisfy the same set of $ \mathcal{L}_{\text{Field}} $-sentences, 
-so we cannot use first-order logic to distinguish $ \mathbb{Q} $ 
-and $ \mathbb{F} $. In other words, as far as first-order logic 
+so we cannot use first-order logic to distinguish $ \Space{Q} $ 
+and $ \Space{F} $. In other words, as far as first-order logic 
 can tell, these two fields are identical
 (an analogy may be found in point-set topology,
 where two distinct points of a non-$ T_{0} $ topological space 
 can be topologically indistinguishable). 
-However, $ \mathbb{Q} $ and $ \mathbb{F} $ have different 
+However, $ \Space{Q} $ and $ \Space{F} $ have different 
 cardinalities, so they are not isomorphic. 
 This phenomenon is ultimately due to the fact 
 that the notion of cardinality cannot be formalized
@@ -247,7 +246,7 @@ that the notion of cardinality cannot be formalized
  Therefore, any difference between the two fields 
  can only be seen externally, outside of first-order logic.
 
-2. Finding a Second-Order Characterization of $ \mathbb{Q} $
+2. Finding a Second-Order Characterization of $ \Space{Q} $
 
 This part is inspired by lhf's answer below, 
 which I believe deserves more credit. 
@@ -290,68 +289,70 @@ $ \{ \text{First-order field axioms} \}
 \Phi^{P}_{4} ~ \land ~ 
 \Phi^{P}_{5} ~ \land ~ \Phi^{P}_{6}) \} $
 is a set of first- and second-order axioms that characterizes
-$ \mathbb{Q} $ uniquely because of the following two reasons:
+$ \Space{Q} $ uniquely because of the following two reasons:
 
 Up to isomorphism, 
-$ \mathbb{Q} $ is the only field with characteristic $ 0 $ 
+$ \Space{Q} $ is the only field with characteristic $ 0 $ 
 that contains no proper subfield.
 
-If $ \mathbb{F} \ncong \mathbb{Q} $ is 
+If $ \Space{F} \ncong \Space{Q} $ is 
 a field with characteristic $ 0 $, 
-then $ \mathbb{F} $ does not model this set of axioms. 
+then $ \Space{F} $ does not model this set of axioms. 
 Otherwise, interpreting “$ P(x) $” as 
-“$ x \in \mathbb{Q}_{\mathbb{F}} $” yields a contradiction, 
-where $ \mathbb{Q}_{\mathbb{F}} $ is the copy of $ \mathbb{Q} $ 
+“$ x \in \Space{Q}_{\Space{F}} $” yields a contradiction, 
+where $ \Space{Q}_{\Space{F}} $ is the copy of $ \Space{Q} $ 
 sitting inside 
-$ \mathbb{F} $.''~\cite{stackexchange:Rational_axioms}.
+$ \Space{F} $.''~\cite{HaskellCurry:2012:RationalAxioms}.
 
+See also \cite{Lawrence:2017:Rationals}.
 
-See also \cite{physics_insights:Rationals}.
-
+\end{plSection}%{Axiomatic definition of \texorpdfstring{$\Space{Q}$}{Q}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{$\mathbb{Q}$ as a subset of $\mathbb{R}$}
+\begin{plSection}{\texorpdfstring{$\Space{Q}$}{Q}
+as a subset of 
+\texorpdfstring{$\Space{R}$}{R}}
 \label{sec:Q_subset_of_R}
 
 Alternative 'axiomatic' characterization
 might be possible by starting from axiomatic definition of
-$\mathbb{R}$ and defining $\mathbb{Q}$ as a certain subset.
+$\Space{R}$ and defining $\Space{Q}$ as a certain subset.
+\end{plSection}{\texorpdfstring{$\Space{Q}$}{Q} as a subset of \texorpdfstring{$\Space{R}$}{R}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Equivalence classes of integer pairs}
+\begin{plSection}{Equivalence classes of integer pairs}
 \label{sec:Equivalence_classes_of_integer_pairs}
 
-Pair space (fractions) is $\mathbb{Z} \times \mathbb{N}_{+}$.
+Pair space (fractions) is $\Space{Z} \times \Space{N}_{+}$.
 
 Equivalence relation is 
-%$(a,b) \, =_{\mathbb{Q}} \, (c,d) \; \Leftrightarrow \; ad = bc$.
-$(a,b) \, \overset{\mathbb{Q}}{=} \, (c,d) 
+%$(a,b) \, =_{\Space{Q}} \, (c,d) \; \Leftrightarrow \; ad = bc$.
+$(a,b) \, \overset{\Space{Q}}{=} \, (c,d) 
 \; \Leftrightarrow \; 
-ad \overset{\mathbb{N}}{=} bc$.
+ad \overset{\Space{N}}{=} bc$.
 
 Then 
-$\mathbb{Q} = 
-(\mathbb{Z} \times \mathbb{N}_{+}) 
+$\Space{Q} = 
+(\Space{Z} \times \Space{N}_{+}) 
 \, / 
-\overset{\mathbb{Q}}{=}$.
+\overset{\Space{Q}}{=}$.
 
+\end{plSection}%{Equivalence classes of integer pairs}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{B-adic numbers}
+\end{plSection}%{Rational numbers}
+%-----------------------------------------------------------------
+\begin{plSection}{B-adic numbers}
 \label{Sec:b_adic_numbers}
 
 Generalized floating point.
 
-Subset of $\mathbb{Q}$:
-$\{t \ast b^n$; $b\,\in\,\mathbb{N};\; t,n\,\in\,\mathbb{Z}\}$.
+Subset of $\Space{Q}$:
+$\{t \ast b^n$; $b\,\in\,\Space{N};\; t,n\,\in\,\Space{Z}\}$.
 
 Most often $b=2$; 
 next most often, $b=10$;
 also see $b=2^k$, where $k=8,16,32,64,\ldots$.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{IEEE 754 floating point}
+\begin{plSection}{{IEEE} 754 floating point}
 
 What algebraic structure?
 
@@ -361,17 +362,17 @@ Not associative.
 
 Similar to extended real numbers, but also distinguish $\pm 0$.
 
+\end{plSection}%{{IEEE} 754 floating point}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{float}, \texttt{double}}
+\begin{plSection}{\texttt{float}, \texttt{double}}
 
+\end{plSection}%{\texttt{float}, \texttt{double}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{DoubleDouble}}
+\begin{plSection}{\texttt{DoubleDouble}}
 
+\end{plSection}%{\texttt{DoubleDouble}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Extending floating point to be a field}
+\begin{plSection}{Extending floating point to be a field}
 
 Fix associativity by carrying accumulator bank,
 as in exact sum.
@@ -381,22 +382,22 @@ no additive or multiplicative inverse.
 
 Change behavior of $0 / 0$, etc.?
 
+\end{plSection}%{Extending floating point to be a field}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Floating point numbers as an algebraic structure}
+\begin{plSection}{Floating point numbers as an algebraic structure}
 
 Two non-associative commutative operations on a finite,
 almost ordered set.
-\begin{example}[Floating point arithmetic is not associative]
+\begin{plExample}{Floating point arithmetic is not associative}{}
 
 clojure/java code showing how different results can be\ldots
  
-\end{example}
+\end{plExample}
 
+\end{plSection}%{Floating point numbers as an algebraic structure}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{'Exact' floating point arithmetic}
-\cite{Higham2002ASNA,Muller_et_al_2010_handbook_fp,Zhu:2010:A9O:1824801.1824815}
+\begin{plSection}{'Exact' floating point arithmetic}
+\cite{Higham:2002:ASNA,MullerEtal:2010:FPHandbook,ZhuHayes:2010:ExactSummation}
 
 \textbf{TODO:} do TwoPlus and TwoMutliply 
 suggest any way to get associative operations?
@@ -415,16 +416,18 @@ accurate finite values?
 to support exact floating operations generated from
 $+$ and $*$ within a function, by incorporating an error
 accumulator?
+\end{plSection}%{'Exact' floating point arithmetic}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{\texttt{BigFraction}}
+\begin{plSection}{\texttt{BigFraction}}
 \label{sec:BigFraction}
 
 Performance comparisons.
 
+\end{plSection}%{\texttt{BigFraction}}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Real numbers}
+\end{plSection}%{B-adic numbers}
+%-----------------------------------------------------------------
+\begin{plSection}{Real numbers}
 \label{sec:Real-numbers}
 
 The \textit{\gls{RealNumbers}}, \glssymbol{RealNumbers},
@@ -445,10 +448,9 @@ $\text{undefined}$.
 Can this be fixed by changing $=$ to handle $\text{undefined}$
 appropriately?
 
-
+\end{plSection}%{Real numbers}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Others}
+\begin{plSection}{Others}
 (Other number sets:
 $\text{Constructible numbers} = \glssymbol{RationalNumbers}
 + \text{square roots}$
@@ -495,23 +497,23 @@ $\glssymbol{GenericSpace}_{> 0}$, $\glssymbol{GenericSpace}_{\geq 0}$
 when I feel the need to be clear about, eg, non-negative versus
 strictly positive.
 
+\end{plSection}%{Others}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Baire space}
+\begin{plSection}{Baire space}
 \label{sec:Baire-space}
 
 Homeomorphic to irrational numbers
 via interpretation as 
 continued 
-fraction?\cite{wiki:Baire_space_set_theory,
-wiki:Baire_category_theorem,wiki:Baire_space}
+fraction?\cite{wiki:BaireSpaceSetTheory,
+wiki:BaireCategoryTheorem,wiki:BaireSpace}
 
+\end{plSection}%{Baire space}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Generating spaces by 'closure'}
+\begin{plSection}{Generating spaces by 'closure'}
 
 Generating these 'spaces' by closure under arithmetic operations
-\cite{pickert-gorke-real-numbers-1974}.
+\cite{PickertGorke:1974:RealNumbers}.
 
 A common pattern: a problem defined in terms of an existing mathematical
 structure. Some combination of convenience, simplicity, computational
@@ -528,14 +530,10 @@ a + b = c
 where $a,b,c\in \glssymbol{NaturalNumbers}$ and we know $b$ and $c$,
 but not $a$.
 
-%\begin{minipage}{\linewidth}
-\begin{lstlisting}[
-caption={[Re-inventing subtraction]Reinventing subtraction},
-captionpos=b,
-label=reinvent-subtraction,
-mathescape=true,
-%escapeinside={<*}{*>}
-] 
+\begin{plListing}
+{Reinventing subtraction}
+{reinventSubtraction}
+\begin{lstlisting}
 (when (<= $b$ $c$)
   (loop [$a$ 0]
     (cond 
@@ -543,7 +541,7 @@ mathescape=true,
       (< $c$ (+ $a$ $b$)) :no-solution
       :else (recur (+ 1 $a$)))))
 \end{lstlisting}
-%\end{minipage}
+\end{plListing}
 
 Rationals: 
 \begin{math}
@@ -559,9 +557,9 @@ Insert example sequence that converges to $\sqrt{2}$ or $\pi$
 with quick arg or ref to why it converges, but not to a rational
 number.
 
+\end{plSection}%{Generating spaces by 'closure'}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Intervals}
+\begin{plSection}{Intervals}
 
 Open and closed intervals, half open, etc.:
 $[a,b] \subset \glssymbol{GenericSpace} = 
@@ -575,19 +573,17 @@ $[a,b) \subset \glssymbol{GenericSpace} =
 {a \leq s < b}$;
 and so on.
 
+\end{plSection}%{Intervals}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Java}
+\begin{plSection}{Implementation}
+%-----------------------------------------------------------------
+\begin{plSection}{Java}
 \lstset{language=Java}
-
 %-----------------------------------------------------------------
+\begin{plSection}{Primitives}
+\end{plSection}%{Primitives}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Primitives}
-
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Integers}
+\begin{plSection}{Integers}
 Finite subsets of \glssymbol{Integers} are exactly
 represented by the primitive integer types using two's complement arithmetic, 
 covering $[−2^{n−1}, 2^{n−1} − 1]$ where $n$ is the number of bits used:
@@ -610,24 +606,18 @@ $\pm 1.7976931348623157 x 10^{308}$, with special values for $\pm\infty$;
 smallest non-zero value $4.9406564584124654 x 10^{-324}$.
 \end{description}
 
+\end{plSection}%{Integers}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Objects}
-
-\begin{figure}[htbp]
-\centering
-%\includegraphics[scale=0.5]{figs/arara.png}
-\caption{Java \texttt{Number} classes.}
-\label{fig:java-number-classes}
-\end{figure}
+\begin{plSection}{Objects}
 
 Boxed vs primitive arithmetic benchmark; 
 int vs long vs float vs double vs Integer \ldots vs BigDecimal.
 
-
+\end{plSection}%{Objects}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Clojure}
+\end{plSection}%{Java}
+%-----------------------------------------------------------------
+\begin{plSection}{Clojure}
 \lstset{language=Clojure}
 
 Clojure provides the primitive and boxed object numbers from Java,
@@ -638,14 +628,16 @@ except:
   \item Idiomatic Clojure obscures whether primitive or boxed values will be
   used in any particular chunk of code (even more than recent versions  Java)
   Because of this, it is good practice to begin every namespace with
-\begin{lstlisting}[
-caption={[Boxed arithmetic warnings]}, label=unchecked-math,]  
-(set! *unchecked-math* :warn-on-boxed)
-\end{lstlisting}
+  \lstinline|(set! *unchecked-math* :warn-on-boxed)|
 which will generate compile-time warnings
 \end{itemize}
 
 Clojure adds rational numbers, which turn out to rarely be useful.\\
 \lstinline|clojure.lang.Ratio| rational numbers
-\lstinline|clojure.lang.BigInt|~\cite[p.~428]{Emerick2012ClojureProgramming}
+\lstinline|clojure.lang.BigInt|~\cite[p.~428]{EmerickCarperGrand:2012:ClojureProgramming}
 
+\end{plSection}%{Clojure}
+%-----------------------------------------------------------------
+\end{plSection}%{Implementation}
+%-----------------------------------------------------------------
+\end{plSection}%{Numbers}

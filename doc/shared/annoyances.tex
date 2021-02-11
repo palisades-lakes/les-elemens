@@ -1,10 +1,10 @@
-\chapter{Annoyances}
+\begin{plSection}{Annoyances}
 
-\section{mathematics}
+\begin{plSection}{mathematics}
+\end{plSection}
 
-\section{computation}
-
-\subsection{Java}
+\begin{plSection}{computation}
+\begin{plSection}{Java}
 \lstset{language=Java}
 
 Generics
@@ -15,7 +15,9 @@ Sorted collections can't handle partial ordering.
 
 BigDecimal.valueOf(x).doubleValue() != x.
 
-\subsection{Clojure}
+\end{plSection}
+
+\begin{plSection}{Clojure}
 \lstset{language=Clojure}
 
 Standard math notation: 
@@ -43,3 +45,7 @@ Transducers compose in the reverse direction from functions:
 
 \lstinline|((comp (partial reduce r) (partial map m) (partial filter f)) s)| 
 $\rightarrow$ \lstinline|(reduce r (map m (filter f s)))|.
+
+\end{plSection}%clojure
+\end{plSection}%computation
+\end{plSection}%annoynamces

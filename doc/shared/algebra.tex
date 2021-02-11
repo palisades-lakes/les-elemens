@@ -1,6 +1,5 @@
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Algebraic structures}
+\begin{plSection}{Algebraic structures}
 \label{sec:Algebraic-structures}
 
 \textbf{TODO:} redo as Universal Algebras?
@@ -9,12 +8,12 @@ Implies more operations, typically binary, unary, and nullary
 
 An algebraic 
 structure~\cite{
-wiki:Algebraic-structure,
-wiki:Mathematical-structure,
-wiki:Outline-of-algebraic-structures,
-BWilliams:Algebraic-structure-and-protocols,
-BWilliams:Algebra-of-predicates-and-sorting-functions,
-BWilliams:Semirings-and-predicates}
+wiki:AlgebraicStructure,
+wiki:MathematicalStructure,
+wiki:OutlineOfAlgebraicStructures,
+BWilliams:AlgebraicAtructureAndProtocols,
+BWilliams:AlgebraOfPredicatesAndSortingFunctions,
+BWilliams:SemiringsAndPredicates}
 consists of:
 \begin{itemize}
   \item A primary set --- the \textit{elements} of the structure.
@@ -32,13 +31,12 @@ Unfortunately, the names for algebraic structures
 are, as a rule, not very informative.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{One set, one operation}
+\begin{plSection}{One set, one operation}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Monoid}
+\begin{plSection}{Monoid}
 \label{sec:Monoid}
 
+\begin{plDefinition}{Monoid}{Monoid}
 Set $\Set{S}$ and operation $\diamond$ such that,
 if $a, b, c \in \Set{S}$, then
 \begin{description}
@@ -47,22 +45,26 @@ if $a, b, c \in \Set{S}$, then
 \item[Associative] $a \diamond b \diamond c =
  \left( a \diamond b \right) \diamond c =  
  a \diamond \left( b \diamond c \right) $
- \item[Identity] There is an $i \in \Set{S}$ such that 
+\item[Identity] There is an $i \in \Set{S}$ such that 
  $i \diamond a = a \; \forall a \in \Set{S}$.
- Exercise: show that $i$ is unique.
- \end{description}
+\end{description}
+\end{plDefinition}%{Monoid}
 
-Example: 
+\begin{plExercise}{Monoid identity is unique.}{MonoidIdentity}
+Show that $i$ is unique.
+\end{plExercise}%{Monoid identity is unique.}
 
+\begin{plExample}{Function composition monoid}{FunctionCompositionMonoid}
 $\Set{S}$ the functions from some domain $\Set{X}$ to itself. 
 Operation $\diamond$ is function composition:
 $\left( f \diamond g \right) (x) = 
 f \left( g \left( x \right) \right)$.
+\end{plExample}%{Function composition monoid}
 
+\end{plSection}%{Monoid}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Group}
+\begin{plSection}{Group}
 
 Monoid $\left[ \Set{S}, \diamond \right]$ such that
 \begin{description}
@@ -71,9 +73,9 @@ Monoid $\left[ \Set{S}, \diamond \right]$ such that
  Exercise: show that this implies that $a \diamond a^{-1} = i$ .
 \end{description}
 
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Commutative group}
+\begin{plSection}{Commutative group}
 
 (aka abelian group.)
 
@@ -85,12 +87,12 @@ A group $\left[ \Set{S}, \diamond \right]$ where
 Example: 
 $\left[ \glssymbol{Integers}, *_{\glssymbol{Integers}} \right]$
 
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{One set, two operations}
+\end{plSection}
+\begin{plSection}{One set, two operations}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Semiring}
+\begin{plSection}{Semiring}
 \label{sec:Semiring}
 
 A set and $2$ operations: $\left[ \Set{S}, +, * \right]$
@@ -115,11 +117,11 @@ The \textit{\gls{NaturalNumbers}}:
 $\glssymbol{NaturalNumbers} = \glsdesc{NaturalNumbers}$.
 (sec~\ref{sec:Natural-numbers}).
 
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Ring}
+\begin{plSection}{Ring}
 \label{sec:Ring}
-\cite{wiki:Ring-mathematics}
+\cite{wiki:RingMathematics}
 
 A set and $2$ operations: $\left[ \Set{S}, +, * \right]$
 where
@@ -139,11 +141,11 @@ Example:
 The \textit{\gls{Integers}}: 
 $\glssymbol{Integers} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$.
 
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Field}
+\begin{plSection}{Field}
 \label{sec:Field}
-\cite{wiki:Field_mathematics}
+\cite{wiki:FieldMathematics}
 
 A ring $\left[ \Set{S}, +, * \right]$ where
 $*$ is commutative and the nonzero elements of $\Set{S}$
@@ -183,12 +185,13 @@ where
 Examples: 
 \glssymbol{RationalNumbers}, \glssymbol{RealNumbers}.
 
+\end{plSection}
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Two sets, one operation}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Category}
+\begin{plSection}{Two sets, one operation}
+%-----------------------------------------------------------------
+\begin{plSection}{Category}
 
 A base set, $\Set{O}$, 
 whose elements are ususally refered to as \textit{objects}.
@@ -210,10 +213,13 @@ $1_x \circ f = f$ (when $x = \text{target(f)}$) and
 $f \circ 1_x = f$ (when $x = \text{source(f)}$).
 \end{description}
 
- \begin{example}[The Set category]
+ \begin{plExample}{The Set category}{}
  $\Set{O} = $ some collection of sets;
  $\Set{M} = $ the functions between those sets;
  $\circ = $ function composition.  
- \end{example}
+ \end{plExample}
+\end{plSection}
+\end{plSection}
+\end{plSection}
 %-----------------------------------------------------------------
  

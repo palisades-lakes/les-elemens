@@ -70,10 +70,10 @@ Then $\Lmap$ can be expressed as
 \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} L_{ij} ( \e_i^{\Wspace} \otimes \e_j^{\Vspace} )
 \end{equation}
 $(L_{ij})$ is the matrix representation of $\Lmap$ with respect to
-the two bases\cite{halmos1958finite}.
+the two bases\cite{Halmos:1958:Finite}.
 
 It is important to note that there are many usful
-representations for linear maps other than matrices \cite{mcdonald-1989b}.
+representations for linear maps other than matrices \cite{McDonald:1989:OOPSLA}.
 Sometimes other representations are used for convenience,
 or to enforce some constraint like symmetry.
 In some cases, a non-matrix representation must be used,
@@ -155,7 +155,7 @@ An orthonormal basis for $\linear_span\{ \v_0 \ldots \v_{m-1} \}$
 can be computed using the QR decomposition
 of the map $\Vmap = \sum_{i=0}^{m-1} \v_i \otimes \e_i$,
 (the $n \times m$ matrix whose columns are the $\v_i$).
-See Golub and Van Loan~\cite[sec.~5.2]{golub-vanloan-1996}.
+See Golub and Van Loan~\cite[sec.~5.2]{GolubVanLoan:1996}.
 
 The {\it affine span} of a set of $m+1$ vectors in $\Vspace$
 is the set of affine combinations of those vectors:
@@ -222,7 +222,7 @@ such that $\Lmap(\hat{\v}) = \hat{\w}$.
 
 The pseudo-inverse of a linear map can be characterized
 by the four Moore-Penrose conditions
-(see Golub and Van Loan\cite[sec.~5.5.4]{golub-vanloan-1996}):
+(see Golub and Van Loan\cite[sec.~5.5.4]{GolubVanLoan:1996}):
 \begin{enumerate}
 \item $\Lmap \Lmap^{-} \Lmap = \Lmap$
 \item $\Lmap^{-} \Lmap \Lmap^{-} = \Lmap^{-}$
@@ -241,10 +241,10 @@ then a useful identity is:
 
 The pseudoinverse can be computed
 using standard matrix decompositions such as
-the QR and SVD \cite{golub-vanloan-1996}.
+the QR and SVD \cite{GolubVanLoan:1996}.
 The pseudoinverse is an example of a linear transformation
 which should {\em not} be represented by a matrix
-\cite{mcdonald-1989b}.
+\cite{McDonald:1989:OOPSLA}.
 
 If $\Amap$ is affine,
 let $\Amap = \Lmap + \t$,

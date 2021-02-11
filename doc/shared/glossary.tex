@@ -1,9 +1,8 @@
-%-------------------------------------------------------------------------------
-%\usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
-\usepackage[xindy,toc,style=alttreehypergroup,nolong,nosuper]{glossaries}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 % The alttree type of glossary styles need to know the
  % widest entry name for each level
+ \iftoggle{printglossary}
+ {
 \glssetwidest{Rational numbers} % level 0 widest name
 \glssetwidest[1]{Homogeneous space}      % level 1 widest name
 \makeglossaries
@@ -37,14 +36,16 @@
      % before being passed to \cite.
      \glsletentryfield{\thiscite}{##1}{useri}%
      (See \expandafter\cite\expandafter{\thiscite})}{}%
-    \space ##2}%
+    \space ##2}}
 }
+{}
 %-----------------------------------------------------------------
 \newglossaryentry{Sets}{
   name={Sets},
   text={Sets},
   description={\nopostdesc},
-  user1=halmos_1960_naive_seth}
+  %user1=Halmos:1960:NaiveSetTheory
+  }
 
 \newglossaryentry{Spaces}{
   name={Spaces},
@@ -118,13 +119,13 @@
   name={doubles},
   text={doubles},
   symbol={\Space{D}},
-  description={the IEEE 754 64 bit floating point numbers}}
+  description={the {IEEE} 754 64 bit floating point numbers}}
 
 \newglossaryentry{SinglePrecisionFloat}{
   name={floats},
   text={floats},
   symbol={\Space{F}},
-  description={the IEEE 754 32 bit floating point numbers}}
+  description={the {IEEE} 754 32 bit floating point numbers}}
 
 \newglossaryentry{GenericSpace}{
   name={a generic space},
