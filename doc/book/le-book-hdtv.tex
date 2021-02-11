@@ -1,42 +1,21 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-%% arara: biber: {options: [--input-directory=../bib] }
 % arara: biber
 % arara: makeglossaries
 % arara: makeindex
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
-% arara: clean: { files: [ book-test.aux ] }
-% arara: clean: { files: [ book-test.bbl ] }
-% arara: clean: { files: [ book-test.bcf ] }
-% arara: clean: { files: [ book-test.blg] }
-% arara: clean: { files: [ book-test.glg ] }
-% arara: clean: { files: [ book-test.glo] }
-% arara: clean: { files: [ book-test.gls] }
-% arara: clean: { files: [ book-test.idx ] }
-% arara: clean: { files: [ book-test.ilg] }
-% arara: clean: { files: [ book-test.ind ] }
-%% arara: clean: { files: [ book-test.log ] }
-% arara: clean: { files: [ book-test.run.xml] }
-% arara: clean: { files: [ book-test.toc] }
-% arara: clean: { files: [ book-test.plCode] }
-% arara: clean: { files: [ book-test.plData] }
-% arara: clean: { files: [ book-test.plMath] }
-%% arara: clean: { files: [ book-test.plExercise] }
-%% arara: clean: { files: [ book-test.plNote] }
-%% arara: clean: { files: [ book-test.plQuote] }
-% arara: clean: { files: [ book-test.xdy ] }
-% arara: clean: { files: [ book-test.mw ] }
-% arara: clean: { files: [ book-test.synctex.gz] }
+% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+% arara: clean: { extensions: [ bbl, bcf, blg, ] }
+% arara: clean: { extensions: [ glg, glo, gls, ] }
+% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
 \documentclass{PalisadesLakesBook}
-
-%\geomLegal
-%\geomLedger
 \geomHDTV
 \geomLandscape
 %-----------------------------------------------------------------
-\title{Book test}
+\title{Elements of math and computation (working title)}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
 \date{draft of \today}
@@ -44,5 +23,8 @@
 \begin{document}
 \maketitle
 \PalisadesLakesTableOfContents
+%-----------------------------------------------------------------
 \input{body}
+%-----------------------------------------------------------------
 \end{document}
+%-----------------------------------------------------------------
