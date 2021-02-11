@@ -1,132 +1,18 @@
-% !TEX TS-program = arara
-% arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
-% arara: xelatex: { synctex: on, options: [--halt-on-error] } 
-% arara: biber: {options: [--input-directory=../../bib] }
-% arara: makeglossaries
-% arara: makeindex
-% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: clean: { files: [topos-notes.aux,topos-notes.bbl] }
-% arara: clean: { files: [topos-notes.bcf,topos-notes.blg] }
-% arara: clean: { files: [topos-notes.glg,topos-notes.glo] }
-% arara: clean: { files: [topos-notes.gls,topos-notes.gls] }
-% arara: clean: { files: [topos-notes.idx,topos-notes.ilg] }
-% arara: clean: { files: [topos-notes.ind,topos-notes.loe] }
-% arara: clean: { files: [topos-notes.lof,topos-notes.log] }
-% arara: clean: { files: [topos-notes.log,topos-notes.lol] }
-% arara: clean: { files: [topos-notes.out,topos-notes.thm] }
-% arara: clean: { files: [topos-notes.run.xml] }
-% arara: clean: { files: [topos-notes.toc,topos-notes.xdy] }
-% arara: clean: { files: [topos-notes.synctex.gz] }
-%-------------------------------------------------------------------------------
-\documentclass[11pt,openany]{book}
-\usepackage{import}
-\def \texFolder {../../tex/}
-\def \sharedFolder {../../shared/}
-\import{\texFolder}{head}
-\import{\texFolder}{landscape-2col-8x17}
-%\import{\texFolder}{portrait-1col-a4}
-\import{\texFolder}{clj-listings}
-\import{\sharedFolder}{glossary}
-
-\addbibresource{algebra.bib}
-\addbibresource{arithmetic.bib}
-\addbibresource{cactus.bib}
-\addbibresource{proglang.bib}
-\addbibresource{halmos.bib}
-\addbibresource{interpolation.bib}
-\addbibresource{logic.bib}
-\addbibresource{math.bib}
-\addbibresource{mcdonald.bib}
-\addbibresource{mop.bib}
-\addbibresource{numbers.bib}
-\addbibresource{sets.bib}
-\addbibresource{tex.bib}
-\addbibresource{topos.bib}
-\addbibresource{feferman.bib}
-%\addbibresource{ieeestd.bib}
-%\addbibresource{fp.bib}
-%-----------------------------------------------------------------
-\let\oldfigure\figure% Store old figure environment start
-\let\endoldfigure\endfigure% Store old figure environment end
-\renewenvironment{figure}[1][htbp]% Redefine figure
-  {\oldfigure[#1]\mdframed[backgroundcolor=GhostWhite,linecolor=GhostWhite]}
-  {\endmdframed\endoldfigure}
-%-----------------------------------------------------------------
-\title{\textsc{Notes on category \\ and topos theory}}
-\author{\textsc{John Alan McDonald}}
-%\email{mcdonald.john.alan at gmail.com}
-\date{\textsc{draft of \today}}
-%-----------------------------------------------------------------
-\begin{document}
-\maketitle
-%-----------------------------------------------------------------
-% 7 for part level
-% 6 for chapter level
-% 5 for section level
-% 4 for subsection level
-% 3 for subsubsection level
-% 2 for paragraph level
-% 1 for subparagraph level
-%\setcounter{baseSectionLevel}{5}
-\setcounter{baseSectionLevel}{6}
-%-----------------------------------------------------------------
-\frontmatter
-\pagestyle{front}
-\begingroup
-\let\onecolumn\twocolumn
-\scshape
-%\sffamily
-\tableofcontents
-\upshape
-%\rmfamily
-\endgroup
-\clearpage
-%-----------------------------------------------------------------
-\mainmatter
-\pagestyle{plain}
+% This is currently a set of notes not intended to be shared.
+% Needs quite a bit of editing to separate parts appropriate for 
+% exposition to general audiences from personal notes.
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Preface}
+\begin{plSection}{Preface}
 \label{sec:Preface}
+Describe my experiences as they happen\ldots
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{2020-08}
+\begin{plSection}{2020-08}
 \label{sec:2020-08}
 
-\begin{boxquote}
-\textsl{das Wesen der Mathematik liegt gerade in ihrer Freiheit}.
-\par
-(The essence of mathematics lies precisely in its freedom.)
-\tcblower
-{Cantor~\cite{Cantor:1883:ManifoldInfinity},
-as quoted in~\cite{Ferreiros:2007:Labyrinth}.}
-\end{boxquote}
-
-\begin{boxquote}
-Mathematics is not the rigid and petrifying schema, 
-as the layman so much likes to view it; with it,
- we rather stand precisely at the point of intersection 
- of restraint and freedom that makes up the essence of man itself.
-\tcblower
-{Weyl, 
-\emph{Die heutige Erkenntnislage in der Mathematik}~\cite{Weyl:1926:Heutige};
-translation from Mancosu~\cite{Mancosu:1998:BrouwerHilbert}.}
-\end{boxquote}
-
-\begin{boxquote}
-Mathematics as we practice it is much more formally 
-complete and precise than
-other sciences, but it is much less formally complete and precise 
-for its content than computer programs.
-\tcblower
-{Thurston, 
-\emph{On proof and progress in mathematics
-}~\cite{Thurston:1994:Proof}}
-\end{boxquote}
-
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle[Preface]{Goldblatt:1984:Topoi}}
+{}
 No doubt there are as many reasons for writing books as there are people
 who write them. One function served by this particular work has been the
 edification of its author. Translations can sometimes create a sense of
@@ -168,9 +54,9 @@ the abstraction process until the abstract concept emerges naturally.
 % starting points are elementary (in the ``first principles'' sense), and at the
 % finish it would be quite appropriate for the reader to feel that (s)he had
 % just arrived at the subject, rather than reached the end of the story.
-\tcblower
-{Goldblatt, \emph{Topoi, Preface}~\cite{Goldblatt:1984:Topoi}}
-\end{boxquote}
+
+\end{plQuote}
+
 Capture state of my ignorance as of 2020-08,
 to record what's confusing to the novice.
 
@@ -236,7 +122,9 @@ $3+$ data, and geospatial data analysis;
 and a tiny amount of algebra, mostly group representations
 for physics.
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{MacLane:1954:Courses}}
+{maclane:vector:space}
 Throughout these courses the infusion of a geometrical
 point of view is of paramount importance. A vector
 is geometrical; it is an element of a vector space, defined
@@ -249,9 +137,7 @@ punishment is ridicule. The n-tuple idea is not ``easier'', it is
 harder; it is not clearer, it is more misleading. By the same
 token, linear transformations are basic and matrices are their
 representations {\ldots}.
-\tcblower
-{MacLane, \emph{Of course and courses}~\cite{MacLane:1954:Courses}}
-\end{boxquote}
+\end{plQuote}
 
 Three formative experiences:
 \begin{enumerate}
@@ -326,14 +212,17 @@ but rather a complicated construction of a matrix that
 just happens to give a unit diagonal matrix when multiplied with 
 the original.
 
+\end{plSection}%{2020-08}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Why?}
+\end{plSection}%{Preface}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Why?}
 \label{sec:Why?}
 
-\setlength{\epigraphwidth}{0.95\linewidth}
-
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{AdamekHerrlichStrecker:1990}}
+{}
 Category theory provides a language 
 to describe precisely many similar phenomena that
 occur in different mathematical fields. For example,
@@ -358,13 +247,12 @@ situations. Category theory allows one to formulate
 and investigate such
 concepts with an appropriate degree of generality.
 \end{enumerate}
-\tcblower
-{Ad\'{a}mek, Herrlich, Strecker, 
-\emph{Abstract and Concrete Categories:
-The Joy of Cats}~\cite{AdamekHerrlichStrecker:1990}}
-\end{boxquote}
 
-\begin{boxquote}
+\end{plQuote}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{AspertiLongo:1991}}
+{}
 In addition to its direct relevance to theoretical knowledge and current applications, category theory
 is often used as an (implicit) mathematical jargon rather than for its explicit notions and results.
 Indeed, category theory may prove useful in construction of a sound, unifying mathematical
@@ -375,12 +263,12 @@ language. In other words, many different formalisms and structures may be propos
 essentially the same concept; the categorical language and approach may simplify through abstraction,
 display the generality of concepts, and help to formulate uniform definitions. This has been the case,
 for example, in the early applications of category theory to algebraic geometry.
-\tcblower
-{Asperti and Longo, \emph{Categories, Types, and Structures: 
-an introduction to Category Theory for the working computer scientist}~\cite{AspertiLongo:1991}}
-\end{boxquote}
 
-\begin{boxquote}
+\end{plQuote}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{Baez:2017:ToposNutshell}}
+{}
 Okay, you wanna know what a topos is? 
 First I'll give you a hand-wavy vague explanation, 
 then an actual definition, 
@@ -395,12 +283,12 @@ about it should not be to quickly solve some specific problems,
 but to broaden your horizons and break out of the box 
 that traditional mathematics, based on set theory, 
 imposes on your thinking.
-\tcblower
-{Baez, \emph{Topos theory in a 
-nutshell}~\cite{Baez:2017:ToposNutshell}}
-\end{boxquote}
 
-\begin{boxquote}
+\end{plQuote}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{BarrWells:2020}}
+{}
 Categories originally arose in mathematics out of the need of a formalism to
 describe the passage from one type of mathematical structure to another. A
 category in this way represents a kind of mathematics, and may be described
@@ -420,21 +308,21 @@ algebraic structures. In this book, we advocate categories in their role as form
 theories as being in many ways superior to the others just mentioned.
 Continuing along the same path, we advocate sketches as definite specifications
 for the theories.
-\tcblower
-{Barr and Wells, \emph{Category theory for computing science}~\cite{BarrWells:2020}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{FongSpivak:2018:SevenSketches}}
+{}
 Category theory is becoming a central hub for all of pure mathematics. It is unmatched
 in its ability to organize and layer abstractions, to find commonalities between structures
 of all sorts, and to facilitate communication between different mathematical
 communities.
-\tcblower
-{Fong and Spivak, \emph{Seven Sketches in Compositionality: 
-An Invitation to Applied Category Theory}~\cite{FongSpivak:2018:SevenSketches}}
-\end{boxquote}
 
-\begin{boxquote}
+\end{plQuote}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{Geroch:1985:MathPhysics}}
+{}
 In each area of mathematics 
 (e.g. groups, topological spaces) 
 there are available many definitions and constructions.
@@ -448,11 +336,11 @@ in which one studies certain definitions in a broader context---without
 reference to the particular area 
 in which the definition might be applied.
 It is the ``mathematics of mathematics''.
-\tcblower
-{Geroch, \emph{Mathematical Physics}~\cite{Geroch:1985:MathPhysics}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{LawvereSchanuel:2009:ConceptualMath}}
+{}
 Since its first introduction over $60$ years ago, the concept of category has been
 increasingly employed in all branches of mathematics, especially in studies where the
 relationship between different branches is of importance. The categorical ideas arose
@@ -462,13 +350,11 @@ fundamental simplicity of these ideas soon made possible their broader applicati
 The categorical concepts are latent in elementary mathematics; making them more
 explicit helps us to go beyond elementary algebra into more advanced mathematical
 sciences.
-\tcblower
-{Lawvere and Schanuel, 
-\emph{Conceptual Mathematics: 
-A First Introduction to Categories}~\cite{LawvereSchanuel:2009:ConceptualMath}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Leinster:2016:BasicCategoryTheory}}
+{}
 Category theory takes a bird’s eye view of mathematics. From high in the sky,
 details become invisible, but we can spot patterns that were impossible to detect
 from ground level. How is the lowest common multiple of two numbers
@@ -486,11 +372,11 @@ Like all branches of mathematics, category theory has its own special vocabulary
 which we will meet as we go along. But since the idea of universal
 property is so important, I will use this introduction to explain it with no jargon
 at all, by means of examples.
-\tcblower
-{Leinster, \emph{Basic Category Theory}~\cite{Leinster:2016:BasicCategoryTheory}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{MacLane:1998:CategoriesWorking2}}
+{}
 \ldots On the first level, categories provide
 a convenient conceptual language, based on notions of category, 
 functor, natural transformation, contravariance, and
@@ -511,12 +397,11 @@ a category itself can be regarded as a sort of generalized monoid.
 Since a category consists of arrows, our subject could be 
 described as learning how to live without elements, using arrows
 instead.
-\tcblower
-{MacLane, \emph{Categories for the working
-mathematician}~\cite{MacLane:1998:CategoriesWorking2}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Riehl:2017:CatTheory}}
+{}
 Atiyah described mathematics as the
 ``science of analogy.'' In this vein, the purview
 of category theory is mathematical analogy. 
@@ -529,13 +414,11 @@ function as a simplifying abstraction, isolating propositions
 that hold for formal reasons
 from those whose proofs require techniques particular 
 to a given mathematical discipline.
-\tcblower
-{Riehl, 
-\emph{Category Theory in Context, Preface
-}~\cite{Riehl:2017:CatTheory}}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Spivak:2013:CatTheoryForScientists}}
+{}
 This course is an attempt to extol the virtues of a new branch of mathematics,
 called category theory, which was invented for powerful communication of ideas between
 different fields and subfields within mathematics. By powerful communication of ideas I
@@ -572,30 +455,28 @@ way out into the world of science, but they are directly applicable there. Hiera
 partial orders, symmetries are group elements, data models are categories, agent actions
 are monoid actions, local-to-global principles are sheaves, self-similarity is modeled by
 operads, context can be modeled by monads.
-\tcblower
-{D. Spivak, \emph{Category Theory for Scientists 
-(old version)}~\cite{Spivak:2013:CatTheoryForScientists}}
-\end{boxquote}
+\end{plQuote}
 
 An alternative to first order logic, sets, 
 and functions as a foundation for all
 mathematics~\cite{Feferman:1977:CategoricalFoundations},  
 particularly topos theory.
 
+\end{plSection}%{Why?}
 %-----------------------------------------------------------------
-
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Doubts}
+%-----------------------------------------------------------------
+\begin{plSection}{Doubts}
 \label{sec:Doubts}
 
 Possible problems with category theory that should be examined.
 
-
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Hype}
+%-----------------------------------------------------------------
+\begin{plSection}{Hype}
 \label{sec:Hype}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Cheng:2020:Latest}.}
+{}
 Why are men in charge? 
 After years in the male-dominated field of mathematics 
 and in the female-dominated field of art, 
@@ -618,13 +499,13 @@ with how we examine them.
 % If we want real change, 
 % we need to transform the contexts in which we all exist, 
 % and not simply who we think we are.
-\tcblower
-{Eugenia Cheng, \textbf{x + y:
-A Mathematician’s Manifesto for Rethinking 
-Gender}~\cite{Cheng:2020:Latest}.}
-\end{boxquote}
+\end{plQuote}
 
-\begin{boxquote}
+\begin{plQuote}
+{Somewhat confused anonymous article in
+Quanta and WIRED 
+magazines~\cite{Hartnett:2019:Lurie,Quanta:2019:Lurie}:}
+{}
 The most prominent figure in this community is Jacob Lurie. 
 \\
 $\cdots$
@@ -684,11 +565,7 @@ That’s not a reference, it’s an appeal to authority.''
 % into day-to-day law. 
 % In doing so, they are building a future for mathematics founded 
 % not on equality, but on equivalence.
-\tcblower
-{Somewhat confused anonymous article in
-Quanta and WIRED 
-magazines~\cite{Hartnett:2019:Lurie,Quanta:2019:Lurie}:}
-\end{boxquote}
+\end{plQuote}
 
 Much of what's written about category theory feels like marketing.
 I read many vague claims about its value
@@ -729,11 +606,14 @@ effort demonstrating how, with a lot of effort, you can do
 something trivial is most other languages,
 never explaining what the benefits are.
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Shaky foundations}
+\end{plSection}%{Hype}
+%-----------------------------------------------------------------
+\begin{plSection}{Shaky foundations}
 \label{sec:Shaky-foundations}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Thurston:1994:Proof}}
+{}
 On the most fundamental level, the foundations of mathematics are much shakier
 than the mathematics that we do. Most mathematicians adhere to foundational
 principles that are known to be polite fictions. For example, it is a theorem that
@@ -746,12 +626,11 @@ leaves very little confidence that one or the other is the right choice or the n
 choice. {\Godel}’s incompleteness theorem implies that there can be no formal system
 that is consistent, yet powerful enough to serve as a basis for all of the mathematics
 that we do.
-\tcblower
-{Thurston, \emph{On proof and progress in mathematics}~\cite{Thurston:1994:Proof}}
-\end{boxquote}
+\end{plQuote}
 
-
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Feferman:1977:CategoricalFoundations}}
+{}
 The point is simply that when explaining the general notion of
 structure and of particular kinds of structures such as groups, rings,
 categories, etc. we implicitly presume as understood the ideas of
@@ -786,16 +665,14 @@ taking as basis the conception of sets in the cumulative hierarchy. It is
 distinctive of this approach that it is extensional, i.e., collections are
 considered independent of any means of definition. Further, operations
 are identified with their graphs.
-\tcblower
-{Feferman,
-\emph{Categorical Foundations and Foundations of Category 
-Theory}~\cite{Feferman:1977:CategoricalFoundations}}
-\end{boxquote}
+\end{plQuote}
 
 Note: Feferman's critique still considered valid, unanswered,
 $45+$ years later:
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle{Landry:2013:FefermanResponse}}
+{}
 Feferman’s 1977 paper, ``Categorical Foundations and Foundations
 of Category Theory'', has been appealed to often to argue 
 that category theory cannot stand
@@ -809,17 +686,21 @@ claiming that Feferman misses his mark
 In any case, Feferman (1977), had become, and remains still, 
 the litmus test for arguments for and against category-theoretic
  structuralist foundations.
-\tcblower
-{Landry, 2013~\cite{Landry:2013:FefermanResponse}}
-\end{boxquote}
+\end{plQuote}
 
+\end{plSection}%{Shaky foundations}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Complexity}
+\begin{plSection}{Complexity}
 \label{sec:Complexity}
 
-\begin{boxquote}
-\textsl{Und was wird der geduldige Leser am
+\begin{plQuote}
+{Dedekind to Klein, April 1888, 
+from \\
+\citeAuthorYearTitle{Dugac:1976:DedekindFondements},\\
+as quoted in \\
+\citeAuthorYearTitle{Ferreiros:2007:Labyrinth}.}
+{}
+{Und was wird der geduldige Leser am
 Schlusse sagen? Dass der Verfasser mit einem Aufwande von uns/iglicher Arbeit es gliicklich
 erreicht hat, die klarsten Vorstellungen in ein unheimliches Dunkel zu hiillen!}
 \par
@@ -827,11 +708,7 @@ What will the forbearing reader say at the end? That the author,
  in a squandering of indescribable work, 
  has happily managed to surround 
 the clearest ideas in a disturbing obscurity!
-\tcblower
-{Dedekind to Klein, April 1888, 
-from~\cite{Dugac:1976:DedekindFondements},
-as quoted in~\cite{Ferreiros:2007:Labyrinth}.}
-\end{boxquote}
+\end{plQuote}
 
 A problem for novices is depth of definition, theorem,
 and concept dependence.
@@ -864,11 +741,16 @@ For example, something computed from the DAG of
 definition/theorem dependencies?
 Anything in software complexity measures that would apply?
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Is an arrow more general than a function?}
+\end{plSection}%{Complexity}
+%-----------------------------------------------------------------
+\begin{plSection}{Is an arrow more general than a function?}
 \label{sec:arrow-more-general}
 
-\begin{boxquote}
+\begin{plQuote}
+{\citeAuthorYearTitle[p~247]{EilenberMacLane:1945:Equivalences},\\
+quoted in \\
+\citeAuthorYearTitle[p~3]{LandryMarquis:2005:CatTheoryContext}}
+{}
 \ldots the whole concept of a category is essentially 
 an auxiliary
 one; our basic concepts are essentially those of a functor and of
@@ -885,12 +767,7 @@ pair of groups which may be given. The standpoint would
 suffice for the applications, inasmuch as none of our developments
 will involve elaborate constructions on the categories
 themselves.
-\tcblower
-{Eilenberg and 
-MacLane~\cite[p~247]{EilenberMacLane:1945:Equivalences},
-quoted in Landry and 
-Marquis~\cite[p~3]{LandryMarquis:2005:CatTheoryContext}}
-\end{boxquote}
+\end{plQuote}
 
 Do functions/functors really need definite (co)domains?
 
@@ -923,9 +800,9 @@ and it may be important to know that one function is a simple
 restriction of another---is there a reasonable way to do this
 for arrows?
 
+\end{plSection}%{Is an arrow more general than a function?}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Modularity breaking}
+\begin{plSection}{Modularity breaking}
 \label{sec:Modularity_breaking}
 
 Modularity a key design principle for any system: physical, 
@@ -1010,9 +887,9 @@ built on relational databases without starting from scratch.
 R, Matlab (array/relation languages with some modern features
 patched on) vs Python.
 
+\end{plSection}%{Modularity breaking}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Right abstraction?}
+\begin{plSection}{Right abstraction?}
 \label{sec:Right-abstraction}
 
 Is category theory a good language?~\cite{wiki:AbstractNonsense}
@@ -1033,9 +910,9 @@ directed multigraph.
 Is this question related to concrete 
 categories?~\cite{wiki:ConcreteCategory}
 
+\end{plSection}%{Right abstraction?}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Naming}
+\begin{plSection}{Naming}
 \label{sec:Naming}
 
 Is category theory a good language?~\cite{wiki:AbstractNonsense}
@@ -1056,9 +933,9 @@ Is part of the attraction the sense of being able to utter magic
 incantations only understood by the initiated?
 
  
+\end{plSection}%{Naming}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Graphical languages}
+\begin{plSection}{Graphical languages}
 \label{sec:Graphical-languages}
 
 Idea that won't die. 
@@ -1071,10 +948,12 @@ to ``computation''
 in the same way that text-based languages do,
 particularly math notation.~\cite{DutilhNovaes:2012:FormalLanguages}
 
+\end{plSection}%{Graphical languages}
+%-----------------------------------------------------------------
+\end{plSection}%{Doubts}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Foundational Sketch}
+\begin{plSection}{Foundational Sketch}
 \label{sec:Foundational-Sketch}
 
 In this section, I am going to lay out a basis for
@@ -1115,8 +994,7 @@ mathematics, sometimes using different words to mean the
 same thing, sometimes the same words to mean different things.
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{What would a good foundation look like?}
+\begin{plSection}{What would a good foundation look like?}
 \label{sec:good-foundation}
 
 Goals:
@@ -1190,9 +1068,9 @@ A good foundation ought to be similar in the sense of being
   the data to include completed infinities.
 \end{enumerate}
 
+\end{plSection}%{What would a good foundation look like?}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{A sketch}
+\begin{plSection}{A sketch}
 \label{sec:sketch}
 
 An incomplete try at a foundation:
@@ -1310,10 +1188,12 @@ Issues:
 something for uncountable entities.
   \end{itemize}
 
+\end{plSection}%{A sketch}
+%-----------------------------------------------------------------
+\end{plSection}%{Foundational Sketch}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Key ideas in category/topos theory}
+\begin{plSection}{Key ideas in category/topos theory}
 \label{sec:Key-ideas}
 
 Orderings:
@@ -1651,10 +1531,10 @@ Ordered by mean rank of preceding authors:
   \item adjointness
 \end{enumerate}
 
+\end{plSection}%{Key ideas in category/topos theory}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Example categories}
+\begin{plSection}{Example categories}
 \label{sec:Example-categories}
 
 One question to be examined here is: are there any meaningful
@@ -1710,10 +1590,10 @@ structure-preserving functions between them.
   them?
   \item Slice categories~\cite[sec~2.6.10]{BarrWells:2020}
 \end{itemize}
+\end{plSection}%{Example categories}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Bottom up}
+\begin{plSection}{Bottom up}
 \label{sec:Bottom-up}
 
 Start from directed (multi)graph~\cite{wiki:DirectedGraph},
@@ -1732,22 +1612,22 @@ but I will follow the category theory convention of
 upper case letters for vertices/objects and lower case for
 edges/arrows.
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Directed graph}
+%-----------------------------------------------------------------
+\begin{plSection}{Directed graph}
 \label{sec:Directed_graph}
 
 (\textbf{Question:}
  any value is thinking about undirected graphs?
  Simplicial complexes?)
 
-\begin{definition}[Directed graph]
+\begin{plDefinition}{Directed graph}{}
 A \ding{directed (multi)graph} (aka \ding{digraph}) is
 an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
 where $\Set{V}$ is a set of \ding[vertex]{vertices}, 
 $\Set{E}$ a set of \ding[edge]{edges}, ordered pairs of vertices.
 $V_0 = \tail(e)$ and $V_1 = \head(e)$
 for edge $e = \left[ V_0, V_1 \right]$.
-\end{definition}
+\end{plDefinition}
 
 In (computational) applications, $\Set{V}$ and $\Set{E}$ 
 are finite, perhaps unbounded finite,
@@ -1812,8 +1692,9 @@ vertices and ``faces'',
 orientation from $90^{\comop}$ 
 turn of primal edge.~\cite{wiki:DualGraph})
 
-\begin{figure}
-\begin{mdframed}[backgroundcolor=GhostWhite,linecolor=GhostWhite]
+\begin{plDiagram}[nofloat]
+{A directed (acyclic) graph}
+{digraph}
 \centering
 \begin{tikzcd}[
 row sep=1.2cm, 
@@ -1842,12 +1723,9 @@ V_3
 \arrow[r, "e_{34}"']
 \& V_4
 \end{tikzcd}
-\caption{A directed (acyclic) graph}
-\label{fig:a_digraph}
-\end{mdframed}
-\end{figure}
+\end{plDiagram}
 
-An example in figure~\ref{fig:a_digraph}:
+An example in \cref{diagram:digraph}:
 $V_0$ is the only root; $V_4$ is the only leaf;
 the graph is simple, connected, and acyclic.
 
@@ -1865,17 +1743,15 @@ Applications of directed graphs:~\cite{CormenLeisersonRivestStein:2009:Algorithm
   \item continuation-passing code (no automatic return to caller)
   \item graph layout (mapping vertices to $2$d points).
 \end{itemize}
-
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Category}
+\begin{plSection}{Category}
 \label{sec:Category_from_digraph}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Category (standard)}
+\begin{plSection}{Category (standard)}
 
-\begin{definition}[Category (standard)]
+\begin{plDefinition}{Category (standard)}{}
 A \ding{category} is a directed (multi) graph 
 together with two functions that impose constraints
 on the graph:
@@ -1954,18 +1830,20 @@ Edge-vertex composition just returns the edge (assuming head/tail match).
 Composition of ``inverse'' edges is allowed to return the common vertex,
 rather than an artificially added self-loop edge.
 \end{description}
-\end{definition}
+\end{plDefinition}
 
-Figure~\ref{fig:a_completed_digraph} shows the additional
-edges needed to make the graph in figure~\ref{fig:a_digraph}
+\Cref{diagram:aCompletedDigraph} shows the additional
+edges needed to make the graph in \cref{diagram:digraph}
 into a category: the identity loops are in blue, first order
 compositions red, and second order green.
 
 % Note tkzcd bug: bounding box for diagram includes the control 
 % pts of the curved edges! 
-\begin{figure}
+\begin{plDiagram}
+{Completion of \cref{diagram:digraph} to a category}
+{aCompletedDigraph}
 \centering
-\fbox{
+%\fbox{
 \begin{tikzcd}[
 row sep=1.2cm, 
 column sep=2.5cm,
@@ -2013,11 +1891,8 @@ from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
 \arrow["e_{34} \comop e_{13} \comop e_{01}"' {near start},
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
 \end{tikzcd}
-}
-\caption{Completion of fig.~\ref{fig:a_digraph}
-to a category}
-\label{fig:a_completed_digraph}
-\end{figure}
+%}
+\end{plDiagram}
 
 Complete categories like this are rarely drawn,
 which seems to follow a propaganda-ish pattern 
@@ -2033,10 +1908,9 @@ An example is probabilistic graphical models/bayesian networks
 in machine learning, where highly questionable
 independence assumptions correspond to edges that 
 are \textsl{not} drawn.
-
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Kategory}
+\begin{plSection}{Kategory}
 \label{sec:Kategory_from_digraph}
 
 (Until I think of a better name\ldots)
@@ -2071,7 +1945,7 @@ function could return a tuple of all path properties relevant to
 the problem being solved, eg,  expected travel time, likely fuel 
 cost, etc.
 
-\begin{definition}[Paths]
+\begin{plDefinition}{Paths}{}
 In this context, a \ding{path} is taken to be a sequence of
 alternating vertices and edges, beginning and ending 
 with vertices. 
@@ -2103,9 +1977,9 @@ e_{10} e_{11} \ldots e_{1n}
 \diamond
 \left[ e_{10} e_{11} \ldots e_{1n} \right]
 \end{align*}
-\end{definition}
+\end{plDefinition}
 
-\begin{definition}[Kategory (explicit path-equivalence)]
+\begin{plDefinition}{Kategory (explicit path-equivalence)}{}
 (Until I think of a better name\ldots)\\
 A \ding{kategory} is a directed (multi) graph together with
 a path evaluation function: $\left[G, \pvalue\right]$.
@@ -2123,9 +1997,9 @@ $\head$, $\tail$, and $\pvalue$:
 \left( \pvalue(p_0) = \pvalue(p_1) \right)
 \right]
 \]
-\end{definition}
+\end{plDefinition}
 
-Figure~\ref{fig:a_digraph} is the graph part of a kategory.
+\Cref{diagram:digraph} is the graph part of a kategory.
 No additional edges, either compositions or identities, are
 needed. 
 The $\pvalue$  function is not shown,
@@ -2135,10 +2009,10 @@ composition and identity edges.
 Note that \identity is not needed at all;
 the constraints between \identity and \compose
 are dropped; and \concatenate is associative by definition.
+\end{plSection}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Kategory from category}
+\begin{plSection}{Kategory from category}
 \label{sec:Kategory_from_category}
 
 To go from category to kategory, we need to define the 
@@ -2181,10 +2055,11 @@ This follows from the associativity of \compose:
  
 (\textbf{Question:} should this be required of all kategories?
 If so, kategories may be no more intuitive than categories.)
-
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Functor}
+\end{plSection}
+%-----------------------------------------------------------------
+\begin{plSection}{Functor}
 \label{sec:functor}
 
 For all the fuss, there doesn't seem to be much to functors:
@@ -2195,8 +2070,8 @@ making up the structure,
 and it ``commutes'' or ``distributes'' appropriately
 over the structure functions.
 
-\begin{definition}[Structure-preserving function between directed
-graphs\\ (aka directed graph homomorphism)]
+\begin{plDefinition}{Structure-preserving function between directed
+graphs\\ (aka directed graph homomorphism)}{}
 $f:G_0 \rightarrow G_1$ is a structure-preserving function
 between directed graphs, if and only if:
 \begin{align*}
@@ -2209,9 +2084,9 @@ between directed graphs, if and only if:
   \end{cases}
 \end{align*}
 We apply $f$ to paths in the obvious way.
-\end{definition}
+\end{plDefinition}
 
-\begin{definition}[Functor (category)]
+\begin{plDefinition}{Functor (category)}{}
 A \ding{functor} $F:C_0 \rightarrow C_1$ is 
 a structure-preserving function
 between categories, which requires that is a structure-preserving 
@@ -2224,9 +2099,9 @@ function between directed graphs, and:
   are usually dropped, but we might 
   encounter two categories that have the same vertices and edges,
   but differ in the definition of the two functions.)
-\end{definition}
+\end{plDefinition}
 
-\begin{definition}[Phunctor (kategory)]
+\begin{plDefinition}{Phunctor (kategory)}{}
 (Very unlikely to stick with this name.)
 
 A \ding{phunctor} $P:K_0 \rightarrow K_1$ is 
@@ -2238,30 +2113,22 @@ function between graphs, and:
   \; \Leftrightarrow \; 
   \left( \pvalue_{K_1}(P(p_0)) = \pvalue_{K_1}(P(p_1)) \right)
 \end{align*}
-\end{definition}
-
+\end{plDefinition}
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Diagram}
+\begin{plSection}{Diagram}
 \label{sec:Diagram}
 
-Diagrams are in some sense the real core of category theory;
-they are, however, defined ambiguously, incorrectly, or not at all.
+Diagrams are in some sense the core of category theory;
+they are, however, defined ambiguously, incorrectly, 
+or not at all, in the references I've seen:
 
-% \begin{definition}[Diagram (pictorial)
-% \textmd{\textcite{Geroch:1985:MathPhysics,Goldblatt:1984:Topoi,
-% Hillman:2001:CatPrimer}}]
-% ``By \ding{diagram} we mean any collection of objects
-% along with a collection of morphisms between various of those
-% objects. (E.g., a diagram is what is pictured.)''~\cite{Geroch:1985:MathPhysics} \\
-% This is wrong, because it doesn't deal with the common
-% case of multiple vertices and edges with the same labels.
-% \end{definition}
-
-\begin{tcbdefinition}
+\begin{plDefinition}
 {Diagram (pictorial)\\
-\textmd{\textcite{Geroch:1985:MathPhysics,Goldblatt:1984:Topoi,
-Hillman:2001:CatPrimer}}}
+\textmd{
+\citeAuthorYear{Geroch:1985:MathPhysics,Goldblatt:1984:Topoi,
+Hillman:2001:CatPrimer}
+}}
 {diagram_pictorial}
 ``By \ding{diagram} we mean any collection of objects
 along with a collection of morphisms between various of those
@@ -2269,82 +2136,66 @@ objects. (E.g., a diagram is what is pictured.)''~\cite{Geroch:1985:MathPhysics}
 \par
 This is wrong, because it doesn't deal with the common
 case of multiple vertices and edges with the same labels.
-\end{tcbdefinition}
+\end{plDefinition}
 
-% \begin{definition}[Diagram (graph to graph) 
-% \textmd{\textcite{BarrWells:2020}}]
-% Let $I$ and $G$ be {[directed) graphs]}. 
-% A \ding{diagram} in $G$ of shape $I$
-% is a graph homomorphism $D : I \rightarrow G$ of graphs. 
-% \end{definition}
+\begin{plDefinition}{Diagram (graph to graph)
+\textmd{
+\citeAuthorYear{BarrWells:2020}
+}}
+{}
+Let $I$ and $G$ be {[directed) graphs]}.
+A \ding{diagram} in $G$ of shape $I$
+is a graph homomorphism $D : I \rightarrow G$ of graphs.
+\end{plDefinition}
 
-% \begin{definition}[Diagram (graph to category) 
-% \textmd{\textcite{AspertiLongo:1991}}]
-% Let $I$ be a directed graph
-%  and $C$ be a category. 
-% A \ding{diagram} in $G$ of shape $I$
-% is a graph homomorphism $D : I \rightarrow C$ of graphs. 
-% \end{definition}
-% 
-% \begin{definition}[Diagram (category to category) \textmd{(broken)}]
-% \label{def:diagram_cat_to_cat}
-% Let $I$ and $A$ be categories. 
-% A \ding{diagram} is a functor $D : I \rightarrow A$.
-% $I$ is the \ding{shape} (aka \ding{scheme},
-% \ding{index category}) of the diagram $D$.\\
-% Sometimes $I$ is required to a small category
-% (sets vs classes crap).\\
-% This is often introduced in the context of limits,
-% after $100$s of pages
-% with multiple diagrams on each:
-% \begin{itemize}
-% \item \textcite[p$193/524$]{AdamekHerrlichStrecker:1990}
-% \item \textcite[p$101/311$]{Awodey:2010}
-% \item \textcite[p$118/183$]{Leinster:2016:BasicCategoryTheory} 
-% (commutative diagrams introduced on p$11$!)
-% \item \textcite[p$38/240$]{Riehl:2017:CatTheory}
-%  (earlier than most),
-% \item \textcite[p$180/267$]{Spivak:2013:CatTheoryForScientists}
-% \item \textcite[p$16/86$]{VanOosten:2002:CatTheory} (also relatively early)
-% \end{itemize}
-% These definitions are clearly \textbf{wrong}.
-% What's drawn is not a category.
-% Drawing a category would make impossible the primary use of diagrams,
-% that is to aid in reasoning 
-% about the equivalences of path in the diagram (``commuting''). 
-% \end{definition}
+\begin{plDefinition}{Diagram (graph to category)
+\textmd{
+\citeAuthorYear{AspertiLongo:1991}
+}}
+{}
+Let $I$ be a directed graph
+ and $C$ be a category.
+A \ding{diagram} in $G$ of shape $I$
+is a graph homomorphism $D : I \rightarrow C$ of graphs.
+\end{plDefinition}
 
-\textcite[p$18/181$]{Perrone:2019:CatTheory}
+\begin{plDefinition}{Diagram (category to category)
+ \textmd{(broken)}}
+{}
+\label{def:diagram_cat_to_cat}
+Let $I$ and $A$ be categories.
+A \ding{diagram} is a functor $D : I \rightarrow A$.
+$I$ is the \ding{shape} (aka \ding{scheme},
+\ding{index category}) of the diagram $D$.\\
+Sometimes $I$ is required to a small category
+(sets vs classes crap).\\
+This is often introduced in the context of limits,
+after $100$s of pages
+with multiple diagrams on each:
+\begin{itemize}
+\item \citeAuthorYear[p$193/524$]{AdamekHerrlichStrecker:1990}
+\item \citeAuthorYear[p$101/311$]{Awodey:2010}
+\item \citeAuthorYear[p$118/183$]{Leinster:2016:BasicCategoryTheory}
+(commutative diagrams introduced on p$11$!)
+\item \citeAuthorYear[p$38/240$]{Riehl:2017:CatTheory}
+ (earlier than most),
+\item \citeAuthorYear[p$180/267$]{Spivak:2013:CatTheoryForScientists}
+\item \citeAuthorYear[p$16/86$]{VanOosten:2002:CatTheory} (also relatively early)
+\end{itemize}
+These definitions are clearly \textbf{wrong}.
+What's drawn is not a category.
+Drawing a category would make impossible the primary use of diagrams,
+that is to aid in reasoning
+about the equivalences of path in the diagram (``commuting'').
+\end{plDefinition}
+
+\citeAuthorYear[p$18/181$]{Perrone:2019:CatTheory}
 gives ``an informal (but consistent) definition'' early,
 followed by the incorrect category to
 category definition \ref{def:diagram_cat_to_cat}, still relatively 
 early~\cite[p$53/181$]{Perrone:2019:CatTheory}:
-% \begin{definition}[Diagram (informal but 
-% consistent)~\textmd{{\textcite[Definition 1.1.33]{Perrone:2019:CatTheory}}})]
-% ``A diagram in a category $C$ is a directed (multi-)graph formed 
-% out of objects and arrows of $C$ such that:
-% \begin{itemize}
-% \item Each object and morphism 
-% may appear more than once in the diagram;
-% \item Between any two objects 
-% there may be also more than one morphism;
-% \item For each object X in the diagram, 
-% the identity is implicitly present in the diagram (but generally
-% not drawn);
-% \item For each {[pair of]} composable edges 
-% (arrows) $f : X \rightarrow Y$ and $g : Y \rightarrow Z$
-% which are appearing head-to-tail
-% in the diagram, the composite $g\comop f : X \rightarrow Z$
-%  is implicitly present in the diagram (but generally
-% not drawn).
-% \end{itemize}
-% Since objects and morphisms may appear 
-% more than once in the diagram, as different vertices
-% and edges, we will refer to vertices and edges to avoid ambiguity.''
-% \end{definition}
-
-\begin{tcbdefinition}{Diagram (informal but consistent)\\
- \textmd{{\textcite[Definition 1.1.33]{Perrone:2019:CatTheory}}})}
+\begin{plDefinition}{Diagram (informal but consistent)\\
+ \textmd{{\citeAuthorYear[Definition 1.1.33]{Perrone:2019:CatTheory}}})}
 {diagram_perrone}
 ``A diagram in a category $C$ is a directed (multi-)graph formed 
 out of objects and arrows of $C$ such that:
@@ -2366,7 +2217,7 @@ not drawn).
 Since objects and morphisms may appear 
 more than once in the diagram, as different vertices
 and edges, we will refer to vertices and edges to avoid ambiguity.''
-\end{tcbdefinition}
+\end{plDefinition}
 
 The informal definition is the only one I've seen which
 explicitly acknowledges some of
@@ -2375,26 +2226,28 @@ The later formal definition does not,
 and is therefore obviously wrong (as a definition of how diagrams
 are drawn and used).
 
-\begin{definition}[Diagram (this time for 
-real)~\textmd{{\textcite[Definition 1.4.20]{Perrone:2019:CatTheory}}})]
+\begin{plDefinition}{Diagram (this time for 
+real) \textmd{{\citeAuthorYear[Definition 1.4.20]{Perrone:2019:CatTheory}}})}
+{}
 ``Let $C$ be a category, and $I$ be a small category. A diagram in
 $C$ of shape $I$ is a functor $I \rightarrow C$.''
-\end{definition}
+\end{plDefinition}
 
-(\textcite[p$200/390$]{LawvereSchanuel:2009:ConceptualMath} 
+(\citeAuthorYear[p$200/390$]{LawvereSchanuel:2009:ConceptualMath} 
 doesn't quite fit, due to vagueness; roughly
 map from directed graph to category, 
 not specifying structure-preserving.)
 
 Undefined in:
-\textcite{MacLane:1998:CategoriesWorking2}.
-
+\citeAuthorYear{MacLane:1998:CategoriesWorking2}.
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Commuting Diagram}
+\begin{plSection}{Commuting Diagram}
 \label{sec:Commuting_Diagram}
 
-\begin{figure}
+\begin{plDiagram}
+{Commuting version of \cref{diagram:aCompletedDigraph}}
+{aCommutingDiagram}
 \centering
 \fbox{
 \begin{tikzcd}
@@ -2442,17 +2295,15 @@ V_4
 from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=100,]
 \end{tikzcd}
 }
-\caption{Commuting version of fig.~\ref{fig:a_completed_digraph}}
-\label{fig:a_commuting_diagram}
-\end{figure}
+\end{plDiagram}
 
-In Figure~\ref{fig:a_completed_digraph}, 
+In \cref{diagram:aCompletedDigraph}, 
 any of the pair of edges with the same head and tail might be
 taken to be the same edge, and still satisfy the definition of a
 category. 
 If all such ``redundant'' pairs are reduced to single edges,
 then the diagram is said to \ding{commute}.
-This is shown in figure~\ref{fig:a_commuting_diagram}
+This is shown in \cref{diagram:aCommutingDiagram}
 
 Commutative diagrams are in some sense the heart of category
 theory,
@@ -2494,22 +2345,26 @@ to get to the desired result.~\cite{DutilhNovaes:2012:FormalLanguages}
 
 (\textbf{Question:} is diagram chasing the same thing as proving
 a diagram commutes?)
+\end{plSection}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-1}
-\levelstay{Monic, epic, isic (Monepisic?) edges}
+\begin{plSection}{Monic, epic, isic (Monepisic?) edges}
 \label{sec:monic_epic_isic}
 
 Two edges are \ding[parallel edges]{parallel} 
 if they have the same head and tail.
 Same for paths.
 
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Category}
+\begin{plSection}{Category}
 
 See, for example, \cite{Perrone:2019:CatTheory}.
 
-\begin{figure}
+\begin{plDiagram}
+{Monic edge $e$: 
+$\left( f \neq g \right) 
+\implies 
+\left( e \comop f \, \neq \, e \comop g \right)$.}
+{monic}
 \centering
 \begin{tikzcd}
 V_0 
@@ -2519,12 +2374,7 @@ V_0
 \arrow[r, "e"]
 & V_2 
 \end{tikzcd}
-\caption{Monic edge $e$: 
-$\left( f \neq g \right) 
-\implies 
-\left( e \comop f \, \neq \, e \comop g \right)$.}
-\label{fig:monic}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f,g$:
@@ -2540,7 +2390,12 @@ if, for any matching parallel edges $f,g$:
 \left( e \comop f \neq e \comop g \right) 
 \end{align*}
 
-\begin{figure}
+\begin{plDiagram}
+{Epic edge $e$: 
+$\left( f \neq g \right)
+ \implies 
+ \left( f \comop e \, \neq \, g \comop e \right)$.}
+{epic}
 \centering
 \begin{tikzcd}
 V_0 \arrow[r, "e"]
@@ -2549,12 +2404,7 @@ V_0 \arrow[r, "e"]
 \arrow[r, bend right, "g"']
 & V_2 
 \end{tikzcd}
-\caption{Epic edge $e$: 
-$\left( f \neq g \right)
- \implies 
- \left( f \comop e \, \neq \, g \comop e \right)$.}
-\label{fig:epic}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{epic} (aka epimorphism, right-cancelable)
 if, for any matching parallel edges $f,g$:
@@ -2575,7 +2425,11 @@ Clumsy ``epic-monic'' may be only option.)
 
 First duality: reverse all edges gives monic $\,\leftrightarrow\,$ epic.
 
-\begin{figure}
+\begin{plDiagram}
+{Split monic edge $e$, if the two edge path
+$V_0 \longrightarrow V_0$
+composes to the identity loop.}
+{splitMonic}
 \centering
 \begin{tikzcd}
 V_0 
@@ -2585,11 +2439,7 @@ V_0
 & 
 V_1 
 \end{tikzcd}
-\caption{Split monic edge $e$, if the two edge path
-$V_0 \longrightarrow V_0$
-composes to the identity loop.}
-\label{fig:split_monic}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{split monic} (aka has a left inverse)
 if there exists an $e^{-\text{left}}$, the \ding{retraction},
@@ -2599,7 +2449,11 @@ e^{-\text{left}} \comop e = \identity(\tail(e))
 \]
 Every split monic edge is monic.
 
-\begin{figure}
+\begin{plDiagram}
+{Split epic edge $e$, if the two edge path
+$V_1 \longrightarrow V_1$
+composes to the identity loop.}
+{splitEpic}
 \centering
 \begin{tikzcd}
 V_0 
@@ -2609,11 +2463,7 @@ V_0
 V_1 
 \arrow[loop right, blue, "I_{V_1}"]
 \end{tikzcd}
-\caption{Split epic edge $e$, if the two edge path
-$V_1 \longrightarrow V_1$
-composes to the identity loop.}
-\label{fig:split_epic}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{split epic} (aka has a right inverse)
 if there exists an $e^{-\text{right}}$, the \ding{splitting}, 
@@ -2623,7 +2473,11 @@ e \comop e^{-\text{right}} = \identity(\head(e))
 \]
 Every split epic edge is epic.
 
-\begin{figure}
+\begin{plDiagram}
+{Isic edge $e$, if both paths $V_0 \longrightarrow V_0$
+are equivalent (compose to the identity loop) and the 
+same for both paths $V_1 \longrightarrow V_1$.}
+{isic}
 \centering
 \begin{tikzcd}
 V_0 
@@ -2634,11 +2488,7 @@ V_0
 V_1 
 \arrow[loop right, blue, "I_{V_1}"]
 \end{tikzcd}
-\caption{Isic edge $e$, if both paths $V_0 \longrightarrow V_0$
-are equivalent (compose to the identity loop) and the 
-same for both paths $V_1 \longrightarrow V_1$.}
-\label{fig:isic}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{isic} (aka an isomorphism, invertible)
 if there exists an edge $e^{-1}$ such that
@@ -2675,7 +2525,7 @@ e^{-\text{left}}
 \end{align*}
 (Note that this seems much simpler in left/right invertible language.)
 
-(\textbf{Note:} in a topos monic$\,\wedge\,$epic \implies isic.
+(\textbf{Note:} in a topos monic$\,\wedge\,$epic $\implies$ isic.
 Is that because all monic/epic are split?)
 
 (\textbf{TODO:} describe these ideas in the context of
@@ -2715,10 +2565,9 @@ this is no longer true, because, although the inverse functions
 will exist, they may not be structure-preserving.
 Is this any clearer in category language vs sets-and-functions?
 I don't think so.
-
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Misleading (?) diagrams}
+\begin{plSection}{Misleading (?) diagrams}
 
 Standard definitions refer to pairs of edges $f, g$,
 which may lead the less careful to unconsciously assume
@@ -2728,11 +2577,13 @@ rather than
 ``for all such pairs $f,g$ \ldots''.
 
 A realistic diagram of the monic case 
-is in figure~\ref{fig:monic_diagram}.
+is in \cref{diagram:monicDiagram}.
 Even this is idealized, since common categories (eg Sets)
 would have an uncountable number of such edges.
 
-\begin{figure}
+\begin{plDiagram}
+{More realistic monic diagram.}
+{monicDiagram}
 \centering
 \begin{tikzcd}
 V_0 
@@ -2749,9 +2600,7 @@ from=1-1,to=1-3, red, dashed, bend right=30,]
 from=1-1,to=1-3, red, dashed, bend right=60,
 "{\vdots}"' inner sep=0.0ex]
 \end{tikzcd}
-\caption{More realistic monic diagram.}
-\label{fig:monic_diagram}
-\end{figure}
+\end{plDiagram}
 
 An edge $e$ is \ding{monic} (aka a monomorphism, left-cancelable)
 if, for any matching parallel edges $f_i,f_j$:
@@ -2766,10 +2615,10 @@ if, for any matching parallel edges $f_i,f_j$:
 \implies 
 \left( e \comop f_i \neq e \comop f_j \right) 
 \end{align*}
+\end{plSection}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Do monepisic paths make sense?}
+\begin{plSection}{Do monepisic paths make sense?}
 
 Questions:
 \begin{enumerate}
@@ -2833,10 +2682,10 @@ Questions:
   \item Do split monic/epic and isic definitions work if we replace
 edge $e$ by a path $p$?
 \end{enumerate}
+\end{plSection}
 
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{Kategory version}
+\begin{plSection}{Kategory version}
 
 Definitions equivalent to ones with the parallel
 edges replaced by parallel paths and equality/identity 
@@ -2856,9 +2705,9 @@ if, for any matching parallel paths $q_0,q_1$:
 \end{align*}
 Should it be ``right-cancelable'' in path language?
 
+\end{plSection}
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}-2}
-\levelstay{What is the meaning of this?}
+\begin{plSection}{What is the meaning of this?}
 
 Are there any intuitive interpretations in the direct graph,
 category, or kategory contexts? As opposed to 
@@ -2877,19 +2726,21 @@ suffix, then we can infer that the prefixes are equivalent:
 & \Downarrow \\
 & q_0 \peq q_1
 \end{align*}
-
+\end{plSection}%{What is the meaning of this?}
+\end{plSection}
+%-----------------------------------------------------------------
+\end{plSection}%{Category and Topos}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Topos down}
+\begin{plSection}{Topos down}
 \label{sec:Topos-down}
  
 Topos definition, then define what it depends on, \ldots.
  
+\end{plSection}%{Topos down}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\levelstay{Fusion}
+\begin{plSection}{Fusion}
 \label{sec:Fusion}
 
 Start from (all of) conventional mathematics,
@@ -2900,29 +2751,6 @@ Look for ``graphs'' that match, unifying disparate parts of math.
 Problem: you need to learn a lot of conventional math before
 you can really start on category theory.
 
+\end{plSection}%{Fusion}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-%un-comment \input and comment \printbibiliography
-%to get index, glossary, list of theorems, etc.
-%-----------------------------------------------------------------
-\backmatter
-\pagestyle{back}
-\glsaddallunused
-%\appendix
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\import{\texFolder}{typesetting}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\setcounter{currentlevel}{\value{baseSectionLevel}}
-\import{\texFolder}{tail}
-%-----------------------------------------------------------------
-% \begingroup
-% \setlength{\emergencystretch}{6em}
-% \setcounter{biburllcpenalty}{7000}
-% \setcounter{biburlucpenalty}{8000}
-% \printbibliography[heading=bibintoc, title={References}]
-% \endgroup
-%-----------------------------------------------------------------
-\end{document}
