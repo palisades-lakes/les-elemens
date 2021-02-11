@@ -1,0 +1,646 @@
+% !TEX TS-program = arara
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: biber: {options: [--input-directory=../bib] }
+% % arara: makeglossaries
+% % arara: makeindex
+% arara: xelatex: { synctex: on, options: [-halt-on-error] }
+% arara: xelatex: { synctex: on, options: [-halt-on-error]  }
+% arara: clean: { files: [ test-plNewChunk.aux ] }
+% arara: clean: { files: [ test-plNewChunk.bbl ] }
+% arara: clean: { files: [ test-plNewChunk.bcf ] }
+% arara: clean: { files: [ test-plNewChunk.blg ] }
+% arara: clean: { files: [ test-plNewChunk.glo ] }
+% arara: clean: { files: [ test-plNewChunk.idx ] }
+% arara: clean: { files: [ test-plNewChunk.ilq ] }
+% arara: clean: { files: [ test-plNewChunk.ind ] }
+% % arara: clean: { files: [ test-plNewChunk.log ] }
+% arara: clean: { files: [ test-plNewChunk.run.xml ] }
+% arara: clean: { files: [ test-plNewChunk.synctex.gz] }
+% arara: clean: { files: [ test-plNewChunk.plCode] }
+% arara: clean: { files: [ test-plNewChunk.plData] }
+% arara: clean: { files: [ test-plNewChunk.plMath] }
+% arara: clean: { files: [ test-plNewChunk.plExercise] }
+% arara: clean: { files: [ test-plNewChunk.plNote] }
+% arara: clean: { files: [ test-plNewChunk.plQuote] }
+% arara: clean: { files: [ test-plNewChunk.xdy ] }
+% arara: clean: { files: [ test-plNewChunk.mw ] }
+%----------------------------------------------------------------
+\documentclass{PalisadesLakesArticle}
+\input{begin}
+%\geomLegal
+%\geomLedger
+\geomHDTV
+\geomLandscape
+%-----------------------------------------------------------------
+\begin{document}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Tests}
+
+\begin{plSection}{Colors}
+
+\begin{plPlot}{}{}{}
+\end{plPlot}
+\begin{plTable}{}{}{}
+\end{plTable}
+\begin{plQuote}{}{}{}
+\end{plQuote}
+\begin{plAlgorithm}{}{}{}
+\end{plAlgorithm}
+\begin{plListing}{}{}{}
+\end{plListing}
+
+\begin{plNote}{}{}{}
+\end{plNote}
+\begin{plExercise}{}{}{}
+\end{plExercise}
+
+\begin{plDiagram}{}{}{}
+\end{plDiagram}
+\begin{plDefinition}{}{}{}
+\end{plDefinition}
+\begin{plExample}{}{}{}
+\end{plExample}
+\begin{plAxiom}{}{}{}
+\end{plAxiom}
+\begin{plAxiomSchema}{}{}{}
+\end{plAxiomSchema}
+\begin{plLemma}{}{}{}
+\end{plLemma}
+\begin{plTheorem}{}{}{}
+\end{plTheorem}
+\begin{plCorollary}{}{}{}
+\end{plCorollary}
+
+\end{plSection}%{Colors}
+
+\begin{plSection}{The man called X}
+\begin{plQuote}
+{\citeAuthorYearTitle{Thurston:1994:Proof}}%
+{thurston0}%
+{Mathematics as we practice it is much more formally
+complete and precise than
+other sciences, but it is much less formally complete and precise
+for its content than computer programs.
+}
+\end{plQuote}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{Thurston:1994:Proof}}
+{thurston1}
+{On the most fundamental level, the foundations of mathematics 
+are much shakier than the mathematics that we do. 
+Most mathematicians adhere to foundational principles 
+that are known to be polite fictions. 
+For example, it is a theorem that there does not exist any way 
+to ever actually construct or even define a well-ordering
+of the real numbers. 
+There is considerable evidence (but no proof) that we can get
+away with these polite fictions without being caught out, 
+but that doesn’t make them right. 
+Set theorists construct many alternate and mutually contradictory
+“mathematical universes” such that if one is consistent, 
+the others are too. 
+This leaves very little confidence that one or the other is 
+the right choice or the natural choice. 
+G\"odel’s incompleteness theorem implies 
+that there can be no formal system that is consistent, 
+yet powerful enough to serve as a basis 
+for all of the mathematics that we do.}%
+\end{plQuote}
+
+See \cref{quote:thurston0} and \Cref{quote:thurston1}.
+
+\end{plSection}%{Thurston}
+
+\begin{plTable}{Random Table}{randomTable}
+  \begin{tabular}{r|c|l}
+  One   & Two    & Three \\\hline\hline
+  Men   & Mice   & Lions \\\hline
+  Upper & Middle & Lower
+  \end{tabular}
+  \end{plTable}
+
+%-----------------------------------------------------------------
+\begin{plSection}{Axiom of power set}
+\label{sec:Axiom-of-power-set}
+
+\begin{plDefinition}{Subset}{Subset}
+The set $\Set{A}$ is a \textsl{subset} of $\Set{B}$:
+$
+(\Set{A} \subseteq \Set{B}) \;
+ \Leftrightarrow \;
+ (\forall q (q \in \Set{A} \, \Rightarrow \, q \in \Set{B})).
+$.
+\end{plDefinition}
+ 
+\begin{plDefinition}{Power Set}{PowerSet}
+The \emph{power set}, $\PowerSet{\Set{S}}$,
+ is the set of all subsets of $\Set{S}$.
+\end{plDefinition}
+
+\begin{plAxiom}{Power Set Existence}{PowerSetExistence}
+The \textsl{power set} axiom says the the power set
+always exists.~\cite{wiki:AxiomOfPowerSet}
+\end{plAxiom}
+
+\begin{plNote}{}{PowerSetAxiom}
+\Cref{axiom:PowerSetExistence} is controversial for infinite sets. 
+Leads to paradoxes concerning sets that are ``too big'',
+based on the idea that 
+\begin{equation}
+ \mathsf{cardinality}\left(\PowerSet{\Set{S}}\right)
+ = 2^{\text{cardinality}(\Set{S})}
+\end{equation}
+Alternatively, one might think that $\mathsf{cardinality}$ of
+infinite sets is the problem.
+\end{plNote}
+
+\end{plSection}%{Axiom of power set}
+%-----------------------------------------------------------------
+\begin{plSection}{Axiom schema of replacement}
+\label{sec:Axiom-schema-of-replacement}
+
+\begin{plAxiomSchema}{Replacement, version 1}{replacement1}
+The image of a definable (?) function applied to a set
+is contained in some set.\cite{wiki:AxiomSchemaOfReplacement}
+(``image of set under function'' is usually defined as a set.)
+aka axiom schema of collection.
+\end{plAxiomSchema}%{Replacement, version 1}{replacement1}
+
+\begin{plAxiomSchema}{Replacement, version 2}{replacement2}
+The image of any set under a definable mapping is a set.
+
+Suppose $P$ is a definable (?) relation such that for every
+set $X$ there is a unique set $Y$ such that $P(X,Y)$.
+$P$ may be a proper class\cite{wiki:ClassSetTheory}, 
+ie, not a \textit{set}, of ordered pairs. 
+(Leads to some hackiness about relations that are not sets,
+for unconvincing reasons\cite{wiki:BinaryRelation}.)
+Definable (class) function: $F_P(X)\,=\,Y \iff P(X,Y)$.
+Collection $\Set{B}$ (may be a proper class)
+defined so that for all $y\in\Set{B}$ there exist $x \in \Set{A}$
+such that $y=F_P(x)$.
+(Something backwards about this.)
+
+$\Set{B}\,=\,F_p(\Set{A}) \,=\, \{F_p(x) : x \in \Set{A}\}$ 
+is the \textsl{image} of $\Set{A}$ under $F_p$.
+
+Principle of smallness: if $\Set{A}$ is 
+``small enough'' to be a set,
+then so is $F(\Set{A})$.
+\end{plAxiomSchema}%{Replacement, version 2}{replacement2}
+
+\Cref{axiomSchema:replacement1} 
+and \cref{axiomSchema:replacement2} implied by stronger
+axiom of limitation of 
+size\cite{wiki:AxiomOfLimitationOfSize}:
+a class that is a member of a class is a set (???!!!).
+
+\nameref{sec:Axiom-schema-of-replacement} not needed for most math;
+not present in \textsf{Z};
+``drastically increases the strength of \textsf{ZF}''.
+
+Used in proving theorems about ordinals.
+
+Axiom schema of collection: some superclass of 
+the image of relation is a set.
+Stronger than replacement
+in some axiom systems, weaker in others.
+See also axiom schema of boundedness.
+
+With axiom of empty set, replacement implies specification.,
+using law of excluded middle.
+
+Replacement is main thing distinguishing \textsf{Z}
+from \textsf{ZF}.
+
+Skoelem's 1st order version vs Fraenkel's $2$nd order?
+
+\end{plSection}%{Axiom schema of replacement}
+%-----------------------------------------------------------------
+\begin{plSection}{Group}
+
+\begin{plDefinition}{Group}{group}
+Monoid $\left[ \Set{S}, \diamond \right]$ such that
+\begin{description}
+ \item[Inverse] For every $a \in \Set{S}$ there exists an
+ $a^{-1}$ such that $a^{-1} \diamond a = i$.
+\end{description}
+\end{plDefinition}
+
+\begin{plExercise}{}{Left inverse implies right inverse.}
+Show that this implies that $a \diamond a^{-1} = i$ .
+\end{plExercise} 
+
+\end{plSection}%{Group}
+%-----------------------------------------------------------------
+\begin{plSection}{Generating spaces by 'closure'}
+
+Generating these 'spaces' by closure under arithmetic operations
+\cite{PickertGorke:1974:RealNumbers}.
+
+A common pattern: 
+a problem defined in terms of an existing mathematical
+structure. 
+Some combination of convenience, simplicity, computational
+efficiency, and/or simplicity leads us to define a new structure, 
+often a larger enclosing one.
+
+We can use the number 'spaces' as an example.
+Imagine, for the moment, that you only know the 
+the natural numbers, $\Space{N}$, 
+with a single operation: $+$.
+Suppose we have a problem to solve:
+\begin{math}
+a + b = c
+\end{math}
+where $a,b,c\in \Space{N}$ 
+and we know $b$ and $c$,
+but not $a$.
+
+\begin{plListing}
+[breakable=false]
+{Reinventing subtraction}
+{reinventSubtraction}
+\begin{lstlisting}
+(when (<= $b$ $c$)
+  (loop [$a$ 0]
+    (cond 
+      (= $c$ (+ $a$ $b$)) $a$
+      (< $c$ (+ $a$ $b$)) :no-solution
+      :else (recur (+ 1 $a$)))))
+\end{lstlisting}
+\end{plListing}
+
+\end{plSection}%{Generating spaces by 'closure'}
+%-----------------------------------------------------------------
+\begin{plSection}{Linear spaces}
+\label{sec:Linear-spaces}
+
+\begin{plQuote}
+{\citeAuthorYearTitle{MacLane:1954:Courses}}
+{maclane:vspace}
+{Throughout these courses the infusion of a geometrical
+point of view is of paramount importance. A vector
+is geometrical; it is an element of a vector space, defined
+by suitable axioms—--whether the scalars be real numbers or
+elements of a general field. A vector is not an n-tuple of
+numbers until a coordinate system has been chosen. Any
+teacher and any text book which starts with the idea that vectors
+are n-tuples is committing a crime for which the proper
+punishment is ridicule. The n-tuple idea is not ‘easier,’ it is
+harder; it is not clearer, it is more misleading. By the same
+token, linear transformations are basic and matrices are their
+representations\ldots}
+\end{plQuote}
+
+My approach to linear (aka vector) spaces is largely based on
+the texts I used as a college freshman for linear algebra and
+multivariate calculus: \citeAuthorYearTitle{Halmos:1958:Finite}
+and \citeAuthorYearTitle{Spivak:1965:CalculusOnManifolds}.
+
+\begin{plDefinition}{Linear space}{linearSpace}
+A \textit{linear space} 
+$\Space{V} = 
+\left[ \Set{V}, \Space{K}, \linearCombination \right]$
+ is:
+\begin{itemize}
+  \item a set of \textit{vectors} $\Set{V}$,
+  \item a field  of scalars $\Space{K}$,
+  \item a linear combination function: 
+\begin{equation}
+\left( \linearCombination 
+\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
+ \rightarrow \; \Vector{v}_2  \in \Set{V}
+\end{equation}
+for $\Vector{v}_0, \Vector{v}_1 \in \Set{V} $
+and $a_0, a_1 \in \Space{K}$.
+Linear combination is often defined in terms of
+$2$ binary operations:
+scalar multiplication $a * \Vector{v} \in \Set{V}$,
+and vector addition $\Vector{v}_0 + \Vector{v}_1 \in \Set{V}$:
+\begin{equation}
+\left( \linearCombination 
+\, a_0 \, \Vector{v}_0 \, a_1 \, \Vector{v}_1 \right) \; 
+= \; a_0*\Vector{v}_0 + a_1*\Vector{v}_1
+\end{equation}
+\textbf{TODO:} required identities for $+$ and $*$ 
+from Spivak or Halmos.
+\end{itemize}
+\end{plDefinition}
+
+Usually the distinction between $\Set{V}$ and $\Space{V}$ 
+is ignored, and we will say, for example, 
+$\Vector{v} \in \Space{V}$.
+
+\begin{plDefinition}{Linear dependence}{}
+Suppose $\Space{V}$ is a linear space and
+$\Vector{v}_0, \ldots , \Vector{v}_{n-1} \in \Space{V}$.
+If there exists $a_0, \ldots , a_{n-1}$ such that
+$\Vector{0} = \sum a_i \Vector{v}_i$ then the $\{ \Vector{v}_i \}$
+are \textit{linearly dependent}.
+\cite[section~5]{Halmos:1958:Finite}
+
+Otherwise they are \textit{linearly independent}.
+\end{plDefinition}
+
+\begin{plLemma}{The set of non-zero vectors
+ $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
+is a linear combination of the precceeding 
+ones~\cite[Section 6]{Halmos:1958:Finite}.}{linearDependenceLemma}
+\textsc{Proof:}
+Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Consider the smallest $k$ such that 
+$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+By definition,
+there exists non-zero $a_0, \ldots ,a_{k}$ such that
+\begin{equation}
+0 = \sum_0^k a_i \Vector{v}_i
+\end{equation}
+which implies that
+\begin{equation}
+\Vector{v}_k = \sum_0^{k-1} \frac{a_i}{- a_k} \Vector{v}_i
+\end{equation}
+\end{plLemma}
+
+\begin{plTheorem}{The set of non-zero vectors
+ $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
+is a linear combination of the precceeding 
+ones~\cite[Section 6]{Halmos:1958:Finite}.}{linearDependenceTheorem}
+\textsc{Proof:}
+Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Consider the smallest $k$ such that 
+$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+By definition,
+there exists non-zero $a_0, \ldots ,a_{k}$ such that
+\begin{equation}
+0 = \sum_0^k a_i \Vector{v}_i
+\end{equation}
+which implies that
+\begin{equation}
+\Vector{v}_k = \sum_0^{k-1} \frac{a_i}{- a_k} \Vector{v}_i
+\end{equation}
+\end{plTheorem}
+
+\begin{plCorollary}{The set of non-zero vectors
+ $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
+is a linear combination of the precceeding 
+ones~\cite[Section 6]{Halmos:1958:Finite}.}{linearDependenceCorollary}
+\textsc{Proof:}
+Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Consider the smallest $k$ such that 
+$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+By definition,
+there exists non-zero $a_0, \ldots ,a_{k}$ such that
+\begin{equation}
+0 = \sum_0^k a_i \Vector{v}_i
+\end{equation}
+which implies that
+\begin{equation}
+\Vector{v}_k = \sum_0^{k-1} \frac{a_i}{- a_k} \Vector{v}_i
+\end{equation}
+\end{plCorollary}
+%-----------------------------------------------------------------
+\end{plSection}%{Linear spaces}
+%-----------------------------------------------------------------
+\begin{plQuote}
+{Dedekind to Klein, April 1888\\ 
+from\\ \citeAuthorYearTitle{Dugac:1976:DedekindFondements},\\
+as quoted in\\ \citeAuthorYearTitle{Ferreiros:2007:Labyrinth}.}
+{dedekindklein}
+{\fraklines
+\textgoth{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
+uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen 
+in ein unheimliches Dunkel zu hiillen!}
+\par
+\textswab{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
+uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen 
+in ein unheimliches Dunkel zu hiillen!}
+\par
+\textfrak{Und was wird der geduldige Leser am
+Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
+uns/iglicher Arbeit es gliicklich
+erreicht hat, die klarsten Vorstellungen 
+in ein unheimliches Dunkel zu hiillen!}
+\par
+% \textinit{Und was wird der geduldige Leser am
+% Schlusse sagen? Dass der Verfasser mit einem Aufwande von 
+% uns/iglicher Arbeit es gliicklich
+% erreicht hat, die klarsten Vorstellungen 
+% in ein unheimliches Dunkel zu hiillen!}
+% \par
+}
+What will the forbearing reader say at the end? That the author, 
+in a squandering of indescribable
+work, has happily managed to surround the clearest ideas
+ in a disturbing obscurity!
+\end{plQuote}
+
+\begin{plDefinition*}{Directed graph}{digraph}
+A \ding{directed (multi)graph} (aka \ding{digraph}) is
+an ordered pair $G=\left( \Set{V}, \Set{E} \right)$,
+where $\Set{V}$ is a set of \ding[vertex]{vertices}, 
+$\Set{E}$ a set of \ding[edge]{edges}, ordered pairs of vertices.
+$V_0 = \tail(e)$ and $V_1 = \head(e)$
+for edge $e = \left[ V_0, V_1 \right]$.
+\end{plDefinition*}
+
+See \cref{definition:linearSpace} 
+and \Cref{definition:linearSpace}.
+
+%-----------------------------------------------------------------
+\begin{plSection}{Category}
+
+\begin{plDefinition}{Category}{category}
+A \textsl{category} consists of: 
+\begin{itemize}
+\item A base set, $\Set{O}$, 
+whose elements are ususally refered to as \textit{objects}.
+\item A second set, $\Set{M}$, of \textit{morphisms}, 
+each of which depends on an ordered pair 
+$\left( \text{source} , \text{target} \right)$ of elements of 
+$\Set{O}$. 
+\item A \textsl{composition} operation, $\circ$, on 
+the subset of the pairs of morphisms $f , g \in \Set{M}$
+where $\text{source}(f) = \text{target}(g)$, satisfying:
+\begin{description}
+\item[Associativity:] $f \circ g \circ g \defeq 
+\left( f \circ g \right) \circ h 
+= f \circ \left( g \circ h \right)$
+\item[Identity:] For each $x \in \Set{O}$, there exists an element
+$1_x \in \Set{M}$ such that 
+$x = \text{source}(1_x) = \text{target}(1_x)$, and 
+$1_x \circ f = f$ (when $x = \text{target(f)}$) and
+$f \circ 1_x = f$ (when $x = \text{source(f)}$).
+\end{description}
+\end{itemize}
+\end{plDefinition}
+
+ \begin{plExample}{The Set category}{}
+ $\Set{O} = $ some collection of sets;\\
+ $\Set{M} = $ the functions between those sets;\\
+ $\circ = $ function composition.  
+ \end{plExample}
+ 
+\begin{plDiagram}[nofloat]
+{A directed (acyclic) graph}
+{digraph}
+\centering
+\begin{tikzcd}[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+%execute at begin picture={
+%     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
+    ]
+V_0
+\arrow[drr, "e_{02}", bend left]
+\arrow[ddr, "e_{03}"', bend right]
+\arrow[dr, "{e_{01}}"] 
+\& 
+\& 
+\\
+\& 
+V_1 
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\& 
+V_2 
+\arrow[d, "e_{24}"] 
+\\
+\& 
+V_3 
+\arrow[r, "e_{34}"']
+\& V_4
+\end{tikzcd}
+\end{plDiagram}
+
+\Cref{diagram:aCompletedDigraph} shows the additional
+edges needed to make the graph in \cref{diagram:digraph}
+into a category: the identity loops are in blue, first order
+compositions red, and second order green.
+
+% Note tkzcd bug: bounding box for diagram includes the control 
+% pts of the curved edges! 
+\begin{plDiagram}
+{Completion of \cref{diagram:digraph} to a category}
+{aCompletedDigraph}
+\centering
+%\fbox{
+\begin{tikzcd}[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+execute at begin picture={
+     \useasboundingbox (-5.15,-3.35) rectangle (4.25,3.4); }
+    ]
+V_0
+\arrow[loop left, blue, crossing over]
+%\arrow[drr, bend left=40, "e_{02}" near start]
+%\arrow[ddr, bend right=40, "e_{03}"' near start]
+\arrow[drr, bend left, "e_{02}" near start]
+\arrow[ddr, bend right, "e_{03}"' near start]
+\arrow[dr, "{e_{01}}" ] 
+\arrow[drr, "e_{12} \comop e_{01}", bend left=10, dashed, red]
+\arrow[ddr, "e_{13} \comop e_{01}", bend right=10, dashed, red]
+\& 
+\& 
+\\
+\& 
+V_1 
+\arrow[loop above, blue,crossing over]
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\arrow[dr, bend left, "e_{24} \comop e_{12}", dashed, red]
+\arrow[dr, bend right, "e_{34} \comop e_{13}"' , dashed, red]
+\& 
+V_2 
+\arrow[loop right, crossing over, blue]
+\arrow[d, "e_{24}"] 
+\\
+\& 
+V_3 
+\arrow[loop below, blue,crossing over]
+\arrow[r, "e_{34}"']
+\&
+V_4
+\arrow[loop right, blue,crossing over]
+\arrow["e_{24} \comop e_{02}" {near end},
+from=1-1,to=3-3, red, dashed, bend left=100,]
+\arrow["e_{34} \comop e_{03}"' {near end},
+from=1-1,to=3-3, red, dashed, bend right=100,]
+\arrow["e_{24} \comop e_{12} \comop e_{01}" {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=120]
+\arrow["e_{34} \comop e_{13} \comop e_{01}"' {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend right=120]
+\end{tikzcd}
+%}
+\end{plDiagram}
+
+\begin{plDiagram}
+{Commuting version of \cref{diagram:aCompletedDigraph}}
+{aCommutingDiagram}
+\centering
+\fbox{
+\begin{tikzcd}
+[
+row sep=1.2cm, 
+column sep=2.5cm,
+ampersand replacement = \&,
+execute at begin picture={
+     \useasboundingbox (-3.3,-2.5) rectangle (4.25,3.4); }
+    ]
+V_0
+\arrow[loop above, blue, crossing over]
+\arrow[dr, "{e_{01}}" ] 
+\arrow[drr, "e_{12} \comop e_{01}"', "e_{02}"  {near start},
+bend left]
+\arrow[ddr, "e_{13} \comop e_{01}", "e_{03}"' {near start},
+bend right]
+\& 
+\& 
+\\
+\&
+V_1 
+\arrow[loop above, blue,crossing over]
+\arrow[r, "e_{12}"] 
+\arrow[d, "e_{13}"']
+\arrow[dr, "e_{24} \comop e_{12}", "e_{34} \comop e_{13}"',
+dashed, red]
+\& 
+V_2 
+\arrow[loop right, crossing over, blue]
+\arrow[d, "e_{24}"] 
+\\
+\& 
+V_3 
+\arrow[loop below, blue,crossing over]
+\arrow[r, "e_{34}"']
+\& 
+V_4
+\arrow[loop right, blue, crossing over]
+\arrow[
+"e_{24} \comop e_{02}",
+"e_{34} \comop e_{03}" {near end},
+"e_{24} \comop e_{12} \comop e_{01}" {near start},
+"e_{34} \comop e_{13} \comop e_{01}"' {near start},
+from=1-1,to=3-3, draw=DarkGreen, dashed, bend left=100,]
+\end{tikzcd}
+}
+\end{plDiagram}
+ 
+\end{plSection}%{Category}
+%-----------------------------------------------------------------
+\end{plSection}%{Tests}
+%-----------------------------------------------------------------
+\end{document}
+%-----------------------------------------------------------------
+
