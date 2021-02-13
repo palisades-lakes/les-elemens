@@ -4,100 +4,100 @@
 \label{sec:Derivatives}
 
 One way to view the derivative of a function
-$\f:\Vspace \mapsto \Wspace$,
-at a point $\v$,
-is as the linear transformation $\Lmap:\Vspace \mapsto \Wspace$,
-that best approximates the local 'slope' of $\f$ at $\v$.
-(In the following, $\v$, $\u$, and $\t$ are elements of $\Vspace$.)
+$\Vector{f}:\Space{V} \mapsto \Space{W}$,
+at a point $\Vector{v}$,
+is as the linear transformation $\Vector{L}:\Space{V} \mapsto \Space{W}$,
+that best approximates the local 'slope' of $\Vector{f}$ at $\Vector{v}$.
+(In the following, $\Vector{v}$, $\Vector{u}$, and $\Vector{t}$ are elements of $\Space{V}$.)
 To be a little more precise, we want
 \begin{equation}
 \lim_{ \|{\bf \delta}  \| \mapsto 0}
-\frac{ \| \f(\v + {\bf \delta}) - (\f(\v) + \Lmap({\bf\delta})) \|}
+\frac{ \| \Vector{f}(\Vector{v} + {\bf \delta}) - (\Vector{f}(\Vector{v}) + \Vector{L}({\bf\delta})) \|}
 {\|{\bf \delta}  \| }
  = 0
 \end{equation}
-For a concise discussion, see Spivak \cite{spivak-1965}.
+For a concise discussion, see Spivak \cite{Spivak:1965:CalculusOnManifolds}.
 
-Note that for a linear map $\Lmap$,
+Note that for a linear map $\Vector{L}$,
 the derivative is constant over the domain
-and the value is $\Lmap$ itself.
+and the value is $\Vector{L}$ itself.
 
 \begin{itemize}
 
-\item $\Da{\f}$
+\item $\Da{\Vector{f}}$
 
 In its most general form,
-I denote the derivative of $\f$ by $\Da{\f}$.
-Note that this is linear-map-valued function of the domain of $\f$.
+I denote the derivative of $\Vector{f}$ by $\Da{\Vector{f}}$.
+Note that this is linear-map-valued function of the domain of $\Vector{f}$.
 
-\item $\Db{\f}{\u}$
+\item $\Db{\Vector{f}}{\Vector{u}}$
 
-I denote the derivative of $\f$ at $\u$ by $\Db{\f}{\u}$.
-$\Db{\f}{\u}$ is a specific linear transformation from
-the domain of $\f$ to the codomain of $\f$.
+I denote the derivative of $\Vector{f}$ at $\Vector{u}$ by $\Db{\Vector{f}}{\Vector{u}}$.
+$\Db{\Vector{f}}{\Vector{u}}$ is a specific linear transformation from
+the domain of $\Vector{f}$ to the codomain of $\Vector{f}$.
 
-\item $\Dc{\f}{\u}{\t}$
+\item $\Dc{\Vector{f}}{\Vector{u}}{\Vector{t}}$
 
 The derivative is most often represented by the {\it Jacobian},
 the $m \times n$ matrix of partial derivatives
-with respect to some bases for $\Vspace$ and $\Wspace$.
+with respect to some bases for $\Space{V}$ and $\Space{W}$.
 However, it's often easier to express the derivative clearly if we
 explicitly include the argument of the linear transformation.
-In this case, I write $\Dc{\f}{\u}{\t}$
-for the derivative of $f$ at the point $\u$
-applied to the vector $\t$.
+In this case, I write $\Dc{\Vector{f}}{\Vector{u}}{\Vector{t}}$
+for the derivative of $\Vector{f}$ at the point $\Vector{u}$
+applied to the vector $\Vector{t}$.
 
-\item $\Dd{\v_i}{\f}{(\u_0 \ldots \u_{n-1})}{\t_i}$
+\item $\Dd{\Vector{v}_i}{\Vector{f}}{(\Vector{u}_0 \ldots \Vector{u}_{n-1})}{\Vector{t}_i}$
 
 For functions on direct sum spaces,
-$\f(\v_0,\v_1 \ldots \v_{n-1})$, $\v_i \in \Vspace_i$,
+$\Vector{f}(\Vector{v}_0,\Vector{v}_1 \ldots \Vector{v}_{n-1})$, $\Vector{v}_i \in \Space{V}_i$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
-I write $\Dd{\v_i}{\f}{(\u_0 \ldots \u_{n-1})}{\t_0 \ldots \t_{n-1}}$
-for the derivative of $\f$ with respect to $\v_i$,
-at the point $(\u_0 \ldots \u_{n-1}) \in \oplus_{i=0}^{n-1} \Vspace_i$,
-applied to the vector $\t_i \in \Vspace_i$.
+I write $\Dd{\Vector{v}_i}{\Vector{f}}{(\Vector{u}_0 \ldots \Vector{u}_{n-1})}{\Vector{t}_0 \ldots \Vector{t}_{n-1}}$
+for the derivative of $\Vector{f}$ with respect to $\Vector{v}_i$,
+at the point $(\Vector{u}_0 \ldots \Vector{u}_{n-1}) \in \oplus_{i=0}^{n-1} \Space{V}_i$,
+applied to the vector $\Vector{t}_i \in \Space{V}_i$.
 
-\item $\da{j}{\f} = \da{v_j}{\f}$
+\item $\da{j}{\Vector{f}} = \da{v_j}{\Vector{f}}$
 
-The traditional partial derivative of $\f$ is with respect to
+The traditional partial derivative of $\Vector{f}$ is with respect to
 a single coordinate $v_j$ of the domain.
-More formally, this is the directional derivative of $\f$
-in the direction of the $j$-th canonical basis vector $\e_j^{\Vspace}$.
+More formally, this is the directional derivative of $\Vector{f}$
+in the direction of the $j$-th canonical basis vector $\Vector{e}_j^{\Space{V}}$.
 
-$\da{j}{\f}$ is a map from the domain of $\f$ to the co-domain of $\f$.
-$\db{j}{\f}{\u}$ is the value of that map at $\u$.
+$\da{j}{\Vector{f}}$ is a map from the domain of $\Vector{f}$ to the co-domain of $\Vector{f}$.
+$\db{j}{\Vector{f}}{\Vector{u}}$ is the value of that map at $\Vector{u}$.
 The partial derivative is related to the derivative by
 \begin{eqnarray}
 \label{eq:partial-full-dervatives}
-\Db{\f}{\u}
+\Db{\Vector{f}}{\Vector{u}}
 & = &
-\sum_{j=0}^{m-1} \db{j}{\f}{\u} \otimes \e_j^{\Vspace}
+\sum_{j=0}^{m-1} \db{j}{\Vector{f}}{\Vector{u}} \otimes \Vector{e}_j^{\Space{V}}
 \\
-\db{j}{\f}{\u}
+\db{j}{\Vector{f}}{\Vector{u}}
 & = &
-\Db{\f}{\u} \e_j^{\Vspace}
+\Db{\Vector{f}}{\Vector{u}} \Vector{e}_j^{\Space{V}}
 \nonumber
 \end{eqnarray}
 
-\item $\da{j}{\f_i}$
+\item $\da{j}{\Vector{f}_i}$
 
 The Jacobian partial derivatives are the derivatives of
-a particular coordinate of $\f$, $\f_i$, with respect to
+a particular coordinate of $\Vector{f}$, $\Vector{f}_i$, with respect to
 a single coordinate $v_j$ of the domain.
-$\da{j}{\f_i}$ is a real-valued function on the domain of $\f$.
-$\db{j}{\f_i}{\u}$ is the value of that function at $\u$.
+$\da{j}{\Vector{f}_i}$ is a real-valued function on the domain of $\Vector{f}$.
+$\db{j}{\Vector{f}_i}{\Vector{u}}$ is the value of that function at $\Vector{u}$.
 The Jacobian partial derivatives form the 'matrix' representation of the derivative:
 \begin{equation}
-\Db{\f}{\u} =
+\Db{\Vector{f}}{\Vector{u}} =
 \sum_{i=0}^{m-1}
 \sum_{j=0}^{n-1}
-\db{j}{\f_i}{\u} \left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\db{j}{\Vector{f}_i}{\Vector{u}} \left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \end{equation}
 
 \end{itemize}
 
-In minimizing a real-valued function, $f(\v)$, $\v \in \Vspace$,
+In minimizing a real-valued function, $f(\Vector{v})$, $\Vector{v} \in \Space{V}$,
 we frequently need to know both the direction of maximum increase of $f$
 the rate of increase, or slope, of $f$ in that direction.
 
@@ -107,65 +107,65 @@ and the two are often confused.
 Recall that the derivative is a linear transformation
 from the domain of $f$ to its codomain.
 In the case of real-valued functions,
-this means the derivative is a linear function on $\Vspace$,
-an element of the dual space of $\Vspace$, a 'row' vector.
+this means the derivative is a linear function on $\Space{V}$,
+an element of the dual space of $\Space{V}$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
 of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
-(see Spivak \cite[p.~96, ex.~4-18]{spivak-1965}).
+(see Spivak \cite[p.~96, ex.~4-18]{Spivak:1965:CalculusOnManifolds}).
 
-$\Ga{f}$ maps $\Vspace \mapsto \Vspace$.
-$\Gb{f}{\u} \in \Vspace$ is the gradient of $f$ at $\u \in \Vspace$;
+$\Ga{f}$ maps $\Space{V} \mapsto \Space{V}$.
+$\Gb{f}{\Vector{u}} \in \Space{V}$ is the gradient of $f$ at $\Vector{u} \in \Space{V}$;
 it points in the direction of most rapid increase of
-$f$ and its magnitude $\| \Gb{f}{\u} \|$ is the
+$f$ and its magnitude $\| \Gb{f}{\Vector{u}} \|$ is the
 slope of $f$ in that direction.
 
 Notation for the various versions of the gradient
 follows that for derivatives:
-$\Gc{\v_i}{f}{\u}$ is the partial gradient of $f$ with respect to $\v_i$ at
-$\u = \left( \u_0 \ldots \u_{n-1} \right) \in \Vspace = \oplus_{i=0}^{n-1} \Vspace_i$
-$\Gc{\v_i}{f}{\u}$ is an element of $\Vspace_i$.
+$\Gc{\Vector{v}_i}{f}{\Vector{u}}$ is the partial gradient of $f$ with respect to $\Vector{v}_i$ at
+$\Vector{u} = \left( \Vector{u}_0 \ldots \Vector{u}_{n-1} \right) \in \Space{V} = \oplus_{i=0}^{n-1} \Space{V}_i$
+$\Gc{\Vector{v}_i}{f}{\Vector{u}}$ is an element of $\Space{V}_i$.
 
-$(\Gb{f}{\u}) \bullet  \t$
+$(\Gb{f}{\Vector{u}}) \bullet  \Vector{t}$
 and
-$(\Gc{\v_i}{f}{\u}) \bullet \t_i$
+$(\Gc{\Vector{v}_i}{f}{\Vector{u}}) \bullet \Vector{t}_i$
 are the analogs to exressing the derivative as a linear transformation
 with an explicit argument.
-$(\Gb{f}{\u}) \bullet  \t$ is a real number.
-If we take $t$ to be the canonical basis for $\Vspace$
+$(\Gb{f}{\Vector{u}}) \bullet  \Vector{t}$ is a real number.
+If we take $t$ to be the canonical basis for $\Space{V}$
 we get an expression for $\Ga{f}$ in terms of the partial derivatives of $f$:
 \begin{equation}
 \label{eq:gradient-from-partials}
-\Gb{f}{\u} = \sum_{j=0}^{m-1} \left( \db{j}{f}{\u} \right) \e_j^{\Vspace}
+\Gb{f}{\Vector{u}} = \sum_{j=0}^{m-1} \left( \db{j}{f}{\Vector{u}} \right) \Vector{e}_j^{\Space{V}}
 \end{equation}
 
-$\Ga{\f_i}$ is the gradient of a particular (real-valued) coordinate
-of a vector-valued map. It is related to the derivative $\Da{\f}$
-in a way simlilar to the relationship between $\Da{\f}$ and its partials $\da{j}{\f}$.
+$\Ga{\Vector{f}_i}$ is the gradient of a particular (real-valued) coordinate
+of a vector-valued map. It is related to the derivative $\Da{\Vector{f}}$
+in a way simlilar to the relationship between $\Da{\Vector{f}}$ and its partials $\da{j}{\Vector{f}}$.
 \begin{equation}
-\Db{\f}{\u} = \sum_{i=0}^{n-1}  \e_i^{\Wspace} \otimes \Gb{\f_i}{\u}
+\Db{\Vector{f}}{\Vector{u}} = \sum_{i=0}^{n-1}  \Vector{e}_i^{\Space{W}} \otimes \Gb{\Vector{f}_i}{\Vector{u}}
 \end{equation}
 
 The most general identity used in computing derivatives is the {\it chain rule.}
 Suppose
-$\f:\Uspace \mapsto \Vspace$,
-$\g:\Vspace \mapsto \Wspace$,
+$\Vector{f}:\Space{U} \mapsto \Space{V}$,
+$\Vector{g}:\Space{V} \mapsto \Space{W}$,
 and
-$\h = \g \circ \f : \Uspace_0 \mapsto \Wspace$
+$\Vector{h} = \Vector{g} \circ \Vector{f} : \Space{U}_0 \mapsto \Space{W}$
 Then
 \begin{equation}
 \label{eq:chain-rule}
-\Db{\h}{\u}
-=  \Db{(\g \circ \f)}{\v}
-=  \Db{\g}{\f(\v)}  \circ  \Db{\f} {\v}.
+\Db{\Vector{h}}{\Vector{u}}
+=  \Db{(\Vector{g} \circ \Vector{f})}{\Vector{v}}
+=  \Db{\Vector{g}}{\Vector{f}(\Vector{v})}  \circ  \Db{\Vector{f}} {\Vector{v}}.
 \end{equation}
 
 It is sometimes useful to express this in terms of the partial derivatives:
 \begin{equation}
 \label{eq:chain-rule_partials}
-\Db{\h}{\u} =  \sum_{i=0}^{n-1} \db{i}{\g}{\f(\u)} \otimes  \Gb{\f_i}{\u}.
+\Db{\Vector{h}}{\Vector{u}} =  \sum_{i=0}^{n-1} \db{i}{\Vector{g}}{\Vector{f}(\Vector{u})} \otimes  \Gb{\Vector{f}_i}{\Vector{u}}.
 \end{equation}
 
-See Spivak \cite[Theorem~2-2]{spivak-1965}.
+See Spivak \cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}.
 
 
 %-------------------------------------------------------------------------------
@@ -177,22 +177,22 @@ See Spivak \cite[Theorem~2-2]{spivak-1965}.
 \subsubsection{Multilinear maps}
 \label{sec:Multilinear-maps}
 
-A map $\f(\v_0 \ldots \v_k):\Vspace_0 \oplus \ldots \oplus \Vspace_k \mapsto \Wspace$
+A map $\Vector{f}(\Vector{v}_0 \ldots \Vector{v}_k):\Space{V}_0 \oplus \ldots \oplus \Space{V}_k \mapsto \Space{W}$
 is {\it multilinear} if
 \begin{equation}
-\f(a_{00} \v_{00} + a_{01} \v_{01}, \ldots, a_{k0} \v_{k0} + a_{k1} \v_{k1})
- =  \sum_{i_0 \ldots i_k = 0,1} (a_{0i_0} \ldots a_{ki_k}) \f(\v_{0i_0} \ldots \v_{ki_k}).
+\Vector{f}(a_{00} \Vector{v}_{00} + a_{01} \Vector{v}_{01}, \ldots, a_{k0} \Vector{v}_{k0} + a_{k1} \Vector{v}_{k1})
+ =  \sum_{i_0 \ldots i_k = 0,1} (a_{0i_0} \ldots a_{ki_k}) \Vector{f}(\Vector{v}_{0i_0} \ldots \Vector{v}_{ki_k}).
 \end{equation}
 
-The derivative of $\f$
-at the point $(\v_0 \ldots \v_k)$, applied to the vector $(\u_0 \ldots \u_k)$ is
+The derivative of $\Vector{f}$
+at the point $(\Vector{v}_0 \ldots \Vector{v}_k)$, applied to the vector $(\Vector{u}_0 \ldots \Vector{u}_k)$ is
 
 \begin{equation}
-\Dc{\f}{(\v_0 \ldots \v_k)}{\u_0 \ldots \u_k}
- =  \sum_{i=0,k} \f(\v_0 \ldots \v_{i-1},\u_i,\v_{i+1} \ldots \v_k).
+\Dc{\Vector{f}}{(\Vector{v}_0 \ldots \Vector{v}_k)}{\Vector{u}_0 \ldots \Vector{u}_k}
+ =  \sum_{i=0,k} \Vector{f}(\Vector{v}_0 \ldots \Vector{v}_{i-1},\Vector{u}_i,\Vector{v}_{i+1} \ldots \Vector{v}_k).
 \end{equation}
 
-See Spivak \cite[ex.~2-14]{spivak-1965}.
+See Spivak \cite[ex.~2-14]{Spivak:1965:CalculusOnManifolds}.
 
 
 %-------------------------------------------------------------------------------
@@ -202,26 +202,26 @@ See Spivak \cite[ex.~2-14]{spivak-1965}.
 
 Bilinear maps are a useful special case of multilinear maps.
 
-A map $\f(\v,\u):\Vspace_0 \oplus \Vspace_1 \mapsto \Wspace$
+A map $\Vector{f}(\Vector{v},\Vector{u}):\Space{V}_0 \oplus \Space{V}_1 \mapsto \Space{W}$
 is {\it bilinear} if
 \begin{eqnarray}
-\f(a_0 \v_0 + a_1 \v_1, b_0 \u_0 + b_1 \u_1)
-& =  & a_0 b_0 f(\v_0,\u_0)
-+  a_0 b_1 f(\v_0,\u_1)
+\Vector{f}(a_0 \Vector{v}_0 + a_1 \Vector{v}_1, b_0 \Vector{u}_0 + b_1 \Vector{u}_1)
+& =  & a_0 b_0 f(\Vector{v}_0,\Vector{u}_0)
++  a_0 b_1 f(\Vector{v}_0,\Vector{u}_1)
 \\
-& +  & a_1 b_0 f(\v_q,\u_0)
- +  a_1 b_1 f(\v_q,\u_1).
+& +  & a_1 b_0 f(\Vector{v}_q,\Vector{u}_0)
+ +  a_1 b_1 f(\Vector{v}_q,\Vector{u}_1).
 \nonumber
 \end{eqnarray}
 
-The derivative of $\f$
-at the point $(\v_0,\u_0)$, applied to the vector $(\v,\u)$ is
+The derivative of $\Vector{f}$
+at the point $(\Vector{v}_0,\Vector{u}_0)$, applied to the vector $(\Vector{v},\Vector{u})$ is
 \begin{equation}
 \label{eq:bilinear-derivative}
-\Dc{\f}{(\v_0,\u_0)}{\v,\u} = \f(\v_0,\u) + \f(\v,\u_0).
+\Dc{\Vector{f}}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} = \Vector{f}(\Vector{v}_0,\Vector{u}) + \Vector{f}(\Vector{v},\Vector{u}_0).
 \end{equation}
 
-See Spivak \cite[ex.~2-12]{spivak-1965}.
+See \citeAuthorYearTitle[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
 
 
 %-------------------------------------------------------------------------------
@@ -232,21 +232,21 @@ See Spivak \cite[ex.~2-12]{spivak-1965}.
 We can view the 3-dimensional cross product
 $ \times $
 as a bilinear map
-$\times(\v,\u) = \v \times \u : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
+$\times(\Vector{v},\Vector{u}) = \Vector{v} \times \Vector{u} : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
 From equation \ref{eq:bilinear-derivative},
-$\Dc{\times}{(\v_0,\u_0)}{\v,\u} = \v_0 \times \u + \v \times \u_0$.
+$\Dc{\times}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} = \Vector{v}_0 \times \Vector{u} + \Vector{v} \times \Vector{u}_0$.
 
 Suppose
-$\f:\Vspace \mapsto \Reals^3$, and
-$\g:\Vspace \mapsto \Reals^3$.
-The derivative of $\f \times \g$ is:
+$\Vector{f}:\Space{V} \mapsto \Reals^3$, and
+$\Vector{g}:\Space{V} \mapsto \Reals^3$.
+The derivative of $\Vector{f} \times \Vector{g}$ is:
 \begin{eqnarray}
-\Dc{(\f \times \g)}{\v_0}{\v}
+\Dc{(\Vector{f} \times \Vector{g})}{\Vector{v}_0}{\Vector{v}}
 & =
-& \Db{\times}{(\f(\v_0),\g(\v_0))} \circ (\Dc{\f}{\v_0}{\v}, \Dc{\g}{\v_0}{\v})
+& \Db{\times}{(\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))} \circ (\Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}}, \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}})
 \\
 & =
-& \f(\v_0) \times \Dc{\g}{\v_0}{\v} + \Dc{\f}{\v_0}{\v} \times \g(\v_0) \nonumber
+& \Vector{f}(\Vector{v}_0) \times \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}} + \Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}} \times \Vector{g}(\Vector{v}_0) \nonumber
 \end{eqnarray}
 
 %-------------------------------------------------------------------------------
@@ -255,12 +255,12 @@ The derivative of $\f \times \g$ is:
 \label{sec:Derivatives-of-scalar-products}
 
 Suppose
-$f:\Vspace \mapsto \Reals$, and
-$\g:\Vspace \mapsto \Wspace$.
-It follows from the chain rule that the derivative of $\h = f\g$ is:
+$f:\Space{V} \mapsto \Reals$, and
+$\Vector{g}:\Space{V} \mapsto \Space{W}$.
+It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$ is:
 \begin{equation}
 \label{eq:scalar_product_derivative}
-\Db{(f\g)}{\v} =  f(\v) \Db{\g}{\v} + \g(\v) \otimes \Gb{f}{\v}
+\Db{(f\Vector{g})}{\Vector{v}} =  f(\Vector{v}) \Db{\Vector{g}}{\Vector{v}} + \Vector{g}(\Vector{v}) \otimes \Gb{f}{\Vector{v}}
 \end{equation}
 
 
@@ -269,76 +269,77 @@ It follows from the chain rule that the derivative of $\h = f\g$ is:
 \subsubsection{Normalized maps}
 \label{sec:Normalized-maps}
 
-Let $\tilde{\f}$ be the normalized version of $\f$:
-$\tilde{\f}  =  \frac{\f}{\| \f \|}$.
+Let $\tilde{\Vector{f}}$ be the normalized version of $\Vector{f}$:
+$\tilde{\Vector{f}}  =  \frac{\Vector{f}}{\| \Vector{f} \|}$.
 Then, from equations \ref{eq:scalar_product_derivative}
 and \ref{eq:norm_derivative}:
 \begin{eqnarray}
-\Dc{\tilde{\f}}{\v}{\u}
+\Dc{\tilde{\Vector{f}}}{\Vector{v}}{\Vector{u}}
 & = &
-\Dc{\left( \frac{\f}{\| \f \|}\right)}{\v}{\u}
+\Dc{\left( \frac{\Vector{f}}{\| \Vector{f} \|}\right)}{\Vector{v}}{\Vector{u}}
 \\
 & = &
-\frac{\Dc{\f}{\v}{\u}}{ \| \f(\v) \|}
+\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}{ \| \Vector{f}(\Vector{v}) \|}
  +
-\f(\v)  \Dc{ \left( \frac{1}{\| \f \|} \right) }{\v}{\u} \nonumber \\
+\Vector{f}(\Vector{v})  \Dc{ \left( \frac{1}{\| \Vector{f} \|} \right) }{\Vector{v}}{\Vector{u}} \nonumber \\
 & = &
-\frac{\Dc{\f}{\v}{\u}}
-{\| \f(\v) \|}
+\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}
+{\| \Vector{f}(\Vector{v}) \|}
  -
-\f(\v)
-\frac{\Dc{\| \f \|}{\v}{\u}}
-{\|\f(\v)\|^2} \nonumber \\
+\Vector{f}(\Vector{v})
+\frac{\Dc{\| \Vector{f} \|}{\Vector{v}}{\Vector{u}}}
+{\|\Vector{f}(\Vector{v})\|^2} \nonumber \\
 & = &
-\frac{\Dc{\f}{\v}{\u}}{ \| \f(\v) \| }
+\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}{ \| \Vector{f}(\Vector{v}) \| }
  -
-\f(\v) \left( \frac{\f(\v)^\dagger}{\| \f(\v) \|^3}  \Dc{\f}{\v}{\u} \right) \nonumber \\
+\Vector{f}(\Vector{v}) \left( \frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|^3}  \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \right) \nonumber \\
 & = &
 \frac{
-\| \f(\v) \|^2 \Dc{\f}{\v}{\u}
+\| \Vector{f}(\Vector{v}) \|^2 \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}
  -
-\f(\v)\left( \f(\v) \bullet \Dc{\f}{\v}{\u} \right)
+\Vector{f}(\Vector{v})\left( \Vector{f}(\Vector{v}) \bullet \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \right)
 }
-{\| \f(\v) \|^3}  \nonumber \\
+{\| \Vector{f}(\Vector{v}) \|^3}  \nonumber \\
 & = &
-\frac{\| \f(\v) \|^2 \Identity_{\Wspace} - \left( \f(\v) \otimes \f(\v) \right)  }
-{ \| \f(\v) \|^3 }
-\Dc{\f}{\v}{\u} \nonumber \\
+\frac{\| \Vector{f}(\Vector{v}) \|^2 \Identity_{\Space{W}} - \left( \Vector{f}(\Vector{v}) \otimes \Vector{f}(\Vector{v}) \right)  }
+{ \| \Vector{f}(\Vector{v}) \|^3 }
+\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \nonumber \\
 & = &
-\frac{\Identity_{\Wspace} - \left( \tilde{\f}(\v) \otimes \tilde{\f}(\v) \right)  }
-{\| \f(\v) \|}
-\Dc{\f}{\v}{\u} \nonumber
+\frac{\Identity_{\Space{W}} - \left( \tilde{\Vector{f}}(\Vector{v}) \otimes \tilde{\Vector{f}}(\Vector{v}) \right)  }
+{\| \Vector{f}(\Vector{v}) \|}
+\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \nonumber
 \end{eqnarray}
 
 
-We can write the derivative above without reference to the argument $\u$:
+We can write the derivative above without reference to the argument $\Vector{u}$:
 \begin{equation}
 \label{eq:normalized_function_derivative}
-\Db{\tilde{\f}}{\v}
+\Db{\tilde{\Vector{f}}}{\Vector{v}}
  =
-\Db{\left( \frac{\f}{\| \f \|} \right)}{\v}
+\Db{\left( \frac{\Vector{f}}{\| \Vector{f} \|} \right)}{\Vector{v}}
  =
-\frac{\Identity_{\Wspace} - \left( \tilde{\f}(\v) \otimes \tilde{\f}(\v) \right) }
-{ \| \f(\v) \| }
-\Db{\f}{\v}
+\frac{\Identity_{\Space{W}} - \left( \tilde{\Vector{f}}(\Vector{v}) \otimes \tilde{\Vector{f}}(\Vector{v}) \right) }
+{ \| \Vector{f}(\Vector{v}) \| }
+\Db{\Vector{f}}{\Vector{v}}
 \end{equation}
 
 A common, trivial, normalized function is the normalized version of
-a vector: $\tilde{\v} =  \frac{\v}{ \| \v \| }$.
+a vector: 
+$\tilde{\Vector{v}} =  \frac{\Vector{v}}{ \| \Vector{v} \| }$.
 
 From equation \ref{eq:normalized_function_derivative}
 it follows that:
 \begin{equation}
 \label{eq:normalized_vector_derivative}
-\Db{\tilde{\v}}{\u}
+\Db{\tilde{\Vector{v}}}{\Vector{u}}
  =
-\Db{ \left( \frac{\v}{ \| \v \| } \right) }{\u}
+\Db{ \left( \frac{\Vector{v}}{ \| \Vector{v} \| } \right) }{\Vector{u}}
  =
-\frac{\Identity_{\Vspace} - \left( \tilde{\u} \otimes \tilde{\u} \right) }
-{ \| \u \| }
+\frac{\Identity_{\Space{V}} - \left( \tilde{\Vector{u}} \otimes \tilde{\Vector{u}} \right) }
+{ \| \Vector{u} \| }
  =
-\frac{\| \u \|^2 \Identity_{\Vspace} - \left( \u \otimes \u \right) }
-{\| \u \|^3}
+\frac{\| \Vector{u} \|^2 \Identity_{\Space{V}} - \left( \Vector{u} \otimes \Vector{u} \right) }
+{\| \Vector{u} \|^3}
 \end{equation}
 
 %-------------------------------------------------------------------------------
@@ -351,92 +352,100 @@ it follows that:
 \subsubsection{Inner products}
 \label{sec:derivatives-of-inner-products}
 
-We can view the inner product on $\Vspace$, $\v \bullet \u$,
-as a bilinear function $\bullet(\v,\u) : \Vspace \oplus \Vspace \mapsto \Reals$.
+We can view the inner product on 
+$\Space{V}$, $\Vector{v} \bullet \Vector{u}$,
+as a bilinear function $\bullet(\Vector{v},\Vector{u}) : 
+\Space{V} \oplus \Space{V} \mapsto \Reals$.
 Thus
 \begin{equation}
-\Dc{\bullet}{(\v_0,\u_0)}{\v,\u} = \v_0 \bullet \u + \v \bullet \u_0.
+\Dc{\bullet}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} 
+= \Vector{v}_0 \bullet \Vector{u} + \Vector{v} \bullet \Vector{u}_0.
 \end{equation}
 
 Suppose
-$\f:\Vspace \mapsto \Vspace$, and
-$\g:\Vspace \mapsto \Vspace$.
-The derivative of $\f \bullet \g$ is:
+$\Vector{f}:\Space{V} \mapsto \Space{V}$, and
+$\Vector{g}:\Space{V} \mapsto \Space{V}$.
+The derivative of $\Vector{f} \bullet \Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:dot_derivative}
-\Dc{(\f \bullet \g)}{\v_0}{\v}
+\Dc{(\Vector{f} \bullet \Vector{g})}{\Vector{v}_0}{\Vector{v}}
 & =
-& \Db{\bullet}{(\f(\v_0),\g(\v_0))} \circ (\Dc{\f}{\v_0}{\v}, \Dc{\g}{\v_0}{\v})
+& \Db{\bullet}{(\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))} 
+\circ (\Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}}, 
+\Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}})
 \\
 & =
-& \f(\v_0) \bullet \Dc{\g}{\v_0}{\v}  +  \g(\v_0) \bullet \Dc{\f}{\v_0}{\v} \nonumber
+& \Vector{f}(\Vector{v}_0) \bullet
+ \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}}  
+ +  \Vector{g}(\Vector{v}_0) \bullet 
+ \Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}} \nonumber
 \end{eqnarray}
 
-See Spivak \cite[ex.~2-13]{spivak-1965}.
+See Spivak \cite[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
 
 %-------------------------------------------------------------------------------
 
 \subsubsection{Angles}
 \label{sec:derivatives-of-angles}
 
-The angle between 2 vectors $\v_0, \v_1 \in \Vspace$,
+The angle between 2 vectors $\Vector{v}_0, \Vector{v}_1 \in \Space{V}$,
 is the inverse cosine of their normalized inner product:
-$\theta(\v_0,\v_1)
+$\theta(\Vector{v}_0,\Vector{v}_1)
 =
-\cos^{-1} \left( \frac{ \v_0 \bullet \v_1 } {\|\v_0\| \|\v_1\|} \right)$.
+\cos^{-1} \left( \frac{ \Vector{v}_0 \bullet \Vector{v}_1 } {\|\Vector{v}_0\| \|\Vector{v}_1\|} \right)$.
 Recall that the derivative of the $\cos^{-1}$ is
 $\frac{\mathrm d}{\mathrm dx} \cos^{-1}(x) = \frac{-1}{\sqrt{1 - x^2} }$.
 It follows that:
 \begin{eqnarray*}
-\Gc{\v_0}{\theta(\v_0,\v_1)}{\u}
+\Gc{\Vector{v}_0}{\theta(\Vector{v}_0,\Vector{v}_1)}{\Vector{u}}
 & = &
 \frac{-1}
-{ \sqrt{1 - \left( \frac{\u_0 \bullet \u_1}{\| \u_0 \| \| \u_1 \|} \right)^2 }}
-\Gc{\v_0}{\left( \frac{\u_0 \bullet \u_1}{\| \u_0 \| \| \u_1 \|} \right)}{\u}
+{ \sqrt{1 - \left( \frac{\Vector{u}_0 \bullet \Vector{u}_1}{\| \Vector{u}_0 \| \| \Vector{u}_1 \|} \right)^2 }}
+\Gc{\Vector{v}_0}{\left( \frac{\Vector{u}_0 \bullet \Vector{u}_1}{\| \Vector{u}_0 \| \| \Vector{u}_1 \|} \right)}{\Vector{u}}
 \\
 & = &
-\frac{-\|\u_0\|\|\u_1\|}
-{ \sqrt{\|\u_0\|^2\|\u_1\|^2 - \left( \u_0 \bullet \u_1 \right)^2 }}
+\frac{-\|\Vector{u}_0\|\|\Vector{u}_1\|}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \left[
-\frac{\u_1}{\|\u_0\|\|\u_1\|}
+\frac{\Vector{u}_1}{\|\Vector{u}_0\|\|\Vector{u}_1\|}
 +
-\frac{\left( \u_0 \bullet \u_1 \right)}{\| \u1 \|}
-\Gc{\v_0}{\left( \frac{1}{\| \v_0 \|} \right)} {\u}
+\frac{\left( \Vector{u}_0 \bullet \Vector{u}_1 \right)}{\| \Vector{u}_1 \|}
+\Gc{\Vector{v}_0}{\left( \frac{1}{\| \Vector{v}_0 \|} \right)} {\Vector{u}}
 \right]
 \nonumber
 \\
 & = &
-\frac{-\|\u_0\|\|\u_1\|}
-{ \sqrt{\|\u_0\|^2\|\u_1\|^2 - \left( \u_0 \bullet \u_1 \right)^2 }}
+\frac{-\|\Vector{u}_0\|\|\Vector{u}_1\|}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \left[
-\frac{\u_1}{\|\u_0\|\|\u_1\|}
+\frac{\Vector{u}_1}{\|\Vector{u}_0\|\|\Vector{u}_1\|}
 -
-\frac{\left( \u_0 \bullet \u_1 \right) \u0}{\| \u1 \| \|\u_0\|^3}
+\frac{\left( \Vector{u}_0 \bullet \Vector{u}_1 \right) \Vector{u}_0}{\| \Vector{u}_1 \| \|\Vector{u}_0\|^3}
 \right]
 \nonumber
 \\
 & = &
 \frac{-1}
-{ \sqrt{\|\u_0\|^2\|\u_1\|^2 - \left( \u_0 \bullet \u_1 \right)^2 }}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \left[
-\u_1
+\Vector{u}_1
 -
-\frac{\left( \u_0 \bullet \u_1 \right) \u0}{\|\u_0\|^2}
+\frac{\left( \Vector{u}_0 \bullet \Vector{u}_1 \right) \Vector{u}_0}{\|\Vector{u}_0\|^2}
 \right]
 \nonumber
 \end{eqnarray*}
 which results in
 \begin{eqnarray}
 \label{eq:angle_gradient}
-\Gc{\v_0}{\theta(\v_0,\v_1)}{\u}
+\Gc{\Vector{v}_0}{\theta(\Vector{v}_0,\Vector{v}_1)}{\Vector{u}}
 & = &
-\frac{- \u_1 \perp \u_0}
-{ \sqrt{\|\u_0\|^2\|\u_1\|^2 - \left( \u_0 \bullet \u_1 \right)^2 }}
+\frac{- \Vector{u}_1 \perp \Vector{u}_0}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \\
-\Gc{\v_1}{\theta(\v_0,\v_1)}{\u}
+\Gc{\Vector{v}_1}{\theta(\Vector{v}_0,\Vector{v}_1)}{\Vector{u}}
 & = &
-\frac{- \u_0 \perp \u_1}
-{ \sqrt{\|\u_0\|^2\|\u_1\|^2 - \left( \u_0 \bullet \u_1 \right)^2 }}
+\frac{- \Vector{u}_0 \perp \Vector{u}_1}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \nonumber
 \end{eqnarray}
 
@@ -445,33 +454,33 @@ which results in
 \subsubsection{Euclidean norm}
 \label{sec:derivatives-of-euclidean-norm}
 
-Let $l_2(\v) = \| \v  \|: \Vspace \mapsto \Reals$
-be the usual euclidean norm on $\Vspace$.
-Let $l_2^2(\v) = \| \v  \|^2 $
-be its square and $ \| \v  \|^3$ the cube.
+Let $l_2(\Vector{v}) = \| \Vector{v}  \|: \Space{V} \mapsto \Reals$
+be the usual euclidean norm on $\Space{V}$.
+Let $l_2^2(\Vector{v}) = \| \Vector{v}  \|^2 $
+be its square and $ \| \Vector{v}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
-\Gb{l_2}{\v} = \frac{ \v }{ \| \v  \|} &
-\Gb{l_2^2}{\v} =  2\v &
-\Gb{l_2^3}{\v} = 3 \| \v  \| \v \\
-\Db{l_2}{\v} = \frac{ \v^\dagger }{ \| \v  \|} &
-\Db{l_2^2}{\v} = 2\v{^\dagger} &
-\Db{l_2^3}{\v} = 3 \| \v  \| \v^\dagger \nonumber
+\Gb{l_2}{\Vector{v}} = \frac{ \Vector{v} }{ \| \Vector{v}  \|} &
+\Gb{l_2^2}{\Vector{v}} =  2\Vector{v} &
+\Gb{l_2^3}{\Vector{v}} = 3 \| \Vector{v}  \| \Vector{v} \\
+\Db{l_2}{\Vector{v}} = \frac{ \Vector{v}^\dagger }{ \| \Vector{v}  \|} &
+\Db{l_2^2}{\Vector{v}} = 2\Vector{v}{^\dagger} &
+\Db{l_2^3}{\Vector{v}} = 3 \| \Vector{v}  \| \Vector{v}^\dagger \nonumber
 \end{eqnarray}
 
-Let $\f(\v) : \Vspace \mapsto \Wspace$.
+Let $\Vector{f}(\Vector{v}) : \Space{V} \mapsto \Space{W}$.
 By the chain rule:
-$\Db{\| \f \|^2}{\v}  =  2 {\f(\v)}^{\dagger} \Db{\f}{\v} $
+$\Db{\| \Vector{f} \|^2}{\Vector{v}}  =  2 {\Vector{f}(\Vector{v})}^{\dagger} \Db{\Vector{f}}{\Vector{v}} $
 and
-$\Gb{\| \f \|^2}{\v}  =  2 \Db{\f}{\v}^\dagger \circ \f(\v)$.
+$\Gb{\| \Vector{f} \|^2}{\Vector{v}}  =  2 \Db{\Vector{f}}{\Vector{v}}^\dagger \circ \Vector{f}(\Vector{v})$.
 \begin{eqnarray}
 \label{eq:norm_derivative}
-\Db{\| \f \|}{\v}
+\Db{\| \Vector{f} \|}{\Vector{v}}
 & = &
-\frac{\f(\v)^\dagger}{\| \f(\v) \|} \Db{\f}{\v}  \\
-\Gb{\| \f \|}{\v}
+\frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|} \Db{\Vector{f}}{\Vector{v}}  \\
+\Gb{\| \Vector{f} \|}{\Vector{v}}
 & = &
-\left(\Db{\f}{\v}\right)^\dagger \circ  \frac{\f(\v)}{ \| \f(\v)  \|}
+\left(\Db{\Vector{f}}{\Vector{v}}\right)^\dagger \circ  \frac{\Vector{f}(\Vector{v})}{ \| \Vector{f}(\Vector{v})  \|}
 \label{eq:norm_gradient}
 \end{eqnarray}
 
@@ -481,51 +490,51 @@ $\Gb{\| \f \|^2}{\v}  =  2 \Db{\f}{\v}^\dagger \circ \f(\v)$.
 \label{sec:Linear-map-valued-maps}
 
 The set of linear maps between two inner product spaces
-$\{ \Lmap : \Vspace \mapsto \Wspace \}$
-is itself a inner product space $\Lspace(\Vspace,\Wspace)$,
+$\{ \Vector{L} : \Space{V} \mapsto \Space{W} \}$
+is itself a inner product space $\Space{L}(\Space{V},\Space{W})$,
 with the inner product defined by
-$\Lmap \bullet \Mmap = \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} \Lmap_{ij} \Mmap_{ij}$.
+$\Vector{L} \bullet \Vector{M} = \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} \Vector{L}_{ij} \Vector{M}_{ij}$.
 The set of linear maps
-$\Emap_{ij}^{\Lspace(\Vspace,\Wspace)}  = \e_i^{\Wspace} \otimes \e_j^{\Vspace}$
-are the canonical basis vectors for $\Lspace(\Vspace,\Wspace)$.
+$\Vector{E}_{ij}^{\Space{L}(\Space{V},\Space{W})}  = \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}$
+are the canonical basis vectors for $\Space{L}(\Space{V},\Space{W})$.
 
-If $\f$ is a map between spaces of linear maps,
-$\f : \Lspace(\Vspace_0,\Wspace_0) \mapsto \Lspace(\Vspace_1,\Wspace_1)$,
-its derivative, $\Da{\f}$,
+If $\Vector{f}$ is a map between spaces of linear maps,
+$\Vector{f} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto \Space{L}(\Space{V}_1,\Space{W}_1)$,
+its derivative, $\Da{\Vector{f}}$,
 is a map from a space of linear maps
 to a space of linear maps between two
 spaces of linear maps:
-$\Da{\f} : \Lspace(\Vspace_0,\Wspace_0) \mapsto
-\Lspace(\Lspace(\Vspace_0,\Wspace_0), \Lspace(\Vspace_1,\Wspace_1))$.
+$\Da{\Vector{f}} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto
+\Space{L}(\Space{L}(\Space{V}_0,\Space{W}_0), \Space{L}(\Space{V}_1,\Space{W}_1))$.
 This can get a little confusing,
-and it often helps to consider both the partial derivatives of $\f$
-and the gradients of the coordinates of $\f$,
+and it often helps to consider both the partial derivatives of $\Vector{f}$
+and the gradients of the coordinates of $\Vector{f}$,
 which can make it easier to apply the chain rule to
 compositions of maps of maps via equation \ref{eq:chain-rule_partials}.
 
-$\da{ij}{\f}$ is the partial derivative with respect to its $ij$-th matrix coordinate,
-that is, the directional derivative of $\f$ in the direction
-of the $ij$-th canonical basis vector, $\Emap_{ij}^{\Lspace(\Vspace_0,\Wspace_0)}$.
+$\da{ij}{\Vector{f}}$ is the partial derivative with respect to its $ij$-th matrix coordinate,
+that is, the directional derivative of $\Vector{f}$ in the direction
+of the $ij$-th canonical basis vector, $\Vector{E}_{ij}^{\Space{L}(\Space{V}_0,\Space{W}_0)}$.
 As usual the value of the partial derivative at a specific
-$\Lmap_0 \in  \Lspace(\Vspace_0,\Wspace_0)$,
-$\db{ij}{\f}{\Lmap_0}$ is an element of the co-domain of $\f$,
-a linear map in  $\Lspace(\Vspace_1,\Wspace_1)$.
+$\Vector{L}_0 \in  \Space{L}(\Space{V}_0,\Space{W}_0)$,
+$\db{ij}{\Vector{f}}{\Vector{L}_0}$ is an element of the co-domain of $\Vector{f}$,
+a linear map in  $\Space{L}(\Space{V}_1,\Space{W}_1)$.
 
-$\Ga{\f_{kl}}$ is the gradient of the $kl$-th matrix coordinate of the value of $\f$.
-As usual, the value of the gradient at a specific $\Lmap_0$,
-$\Gb{\f_{kl}}{\Lmap_0}$ is an element of the domain of $\f$,
-a linear map in $\Lspace(\Vspace_0,\Wspace_0)$.
+$\Ga{\Vector{f}_{kl}}$ is the gradient of the $kl$-th matrix coordinate of the value of $\Vector{f}$.
+As usual, the value of the gradient at a specific $\Vector{L}_0$,
+$\Gb{\Vector{f}_{kl}}{\Vector{L}_0}$ is an element of the domain of $\Vector{f}$,
+a linear map in $\Space{L}(\Space{V}_0,\Space{W}_0)$.
 
-Note that nether of these are elements of the Jacobian of $\f$,
-which needs 4 indexes: $\da{ij}{\f_{kl}}$.
+Note that nether of these are elements of the Jacobian of $\Vector{f}$,
+which needs 4 indexes: $\da{ij}{\Vector{f}_{kl}}$.
 
 I am particularly interested in computing the derivative of the
-pseudo-inverse: $\Pseudoinverse(\Lmap) \equiv \Lmap^{-}$.
+pseudo-inverse: $\Pseudoinverse(\Vector{L}) \equiv \Vector{L}^{-}$.
 The set of full rank linear maps is an open set,
-and we can define the derivative of $\Pseudoinverse(\Lmap)$ there.
+and we can define the derivative of $\Pseudoinverse(\Vector{L})$ there.
 For full rank map,
 we can use the chain rule and the identity
-$\Lmap^{-} = \left( \Lmap^{\dagger} \Lmap \right)^{-1} \Lmap^{\dagger}$
+$\Vector{L}^{-} = \left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1} \Vector{L}^{\dagger}$
 (equation \ref{eq:full-rank-pseudo-inverse})
 to compute the derivative of the pseudo-inverse
 (\autoref{sec:Derivative-of-pseudo-inverse}).
@@ -534,17 +543,17 @@ To do this I will first establish partial derivatives and gradients of:
 \begin{equation}
 \begin{aligned}
 \label{eq:transpose-derivative}
-&\Transpose(\Lmap) \equiv \Lmap^{\dagger}
-&&\db{ij}{\Transpose}{\Lmap} =  \e_j^{\Vspace} \otimes \e_i^{\Wspace}
-\forall \Lmap
+&\Transpose(\Vector{L}) \equiv \Vector{L}^{\dagger}
+&&\db{ij}{\Transpose}{\Vector{L}} =  \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}}
+\forall \Vector{L}
 \\
-&\h( \Lmap ) = \f ( \Lmap ) \g ( \Lmap )
+&\Vector{h}( \Vector{L} ) = \Vector{f} ( \Vector{L} ) \Vector{g} ( \Vector{L} )
 &&\text{Section \ref{sec:Derivatives-of-function-products} }
 \\
-&\LTL(\Lmap) \equiv \Lmap^{\dagger} \Lmap
+&\LTL(\Vector{L}) \equiv \Vector{L}^{\dagger} \Vector{L}
 &&\text{Section \ref{sec:Derivatives-of-LTL} }
 \\
-&\Inverse(\Lmap) \equiv \Lmap^{-1}
+&\Inverse(\Vector{L}) \equiv \Vector{L}^{-1}
 &&\text{Section \ref{sec:Derivative-of-inverse} }
 \end{aligned}
 \end{equation}
@@ -555,59 +564,59 @@ To do this I will first establish partial derivatives and gradients of:
 \label{sec:Derivatives-of-function-products}
 
 Let
-$\f : \Lspace(\Vspace_0,\Wspace_0) \mapsto \Lspace(\Vspace_1,\Wspace_1)$,
-$\g : \Lspace(\Vspace_0,\Wspace_0) \mapsto \Lspace(\Uspace_1,\Vspace_1)$,
+$\Vector{f} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto \Space{L}(\Space{V}_1,\Space{W}_1)$,
+$\Vector{g} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto \Space{L}(\Space{U}_1,\Space{V}_1)$,
 and
-$\h = \f\g : \Lspace(\Vspace_0,\Wspace_0) \mapsto \Lspace(\Uspace_1,\Wspace_1)$.
+$\Vector{h} = \Vector{f}\Vector{g} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto \Space{L}(\Space{U}_1,\Space{W}_1)$.
 Note that
-$\db{ij}{\f}{\Lmap} \in  \Lspace(\Vspace_1,\Wspace_1)$,
-$\db{ij}{\g}{\Lmap} \in  \Lspace(\Uspace_1,\Vspace_1)$,
+$\db{ij}{\Vector{f}}{\Vector{L}} \in  \Space{L}(\Space{V}_1,\Space{W}_1)$,
+$\db{ij}{\Vector{g}}{\Vector{L}} \in  \Space{L}(\Space{U}_1,\Space{V}_1)$,
 and
-$\db{ij}{\h}{\Lmap} \in  \Lspace(\Uspace_1,\Wspace_1)$.
-Consider the matrix representation of $\db{ij}{\h}{\Lmap}$:
+$\db{ij}{\Vector{h}}{\Vector{L}} \in  \Space{L}(\Space{U}_1,\Space{W}_1)$.
+Consider the matrix representation of $\db{ij}{\Vector{h}}{\Vector{L}}$:
 \begin{eqnarray}
-\left( \db{ij}{\h}{\Lmap} \right)_{kl}
+\left( \db{ij}{\Vector{h}}{\Vector{L}} \right)_{kl}
 & = &
-\db{ij}{\h_{kl}}{\Lmap}
+\db{ij}{\Vector{h}_{kl}}{\Vector{L}}
 \\
 & = &
-\db{ij}{\left( \sum_{m} \f_{km} \g_{ml} \right)}{\Lmap}
+\db{ij}{\left( \sum_{m} \Vector{f}_{km} \Vector{g}_{ml} \right)}{\Vector{L}}
 \nonumber
 \\
 & = &
 \sum_{m}  \left[
-\left( \db{ij}{\f_{km}}{\Lmap} \right) \g_{ml}(\Lmap)
+\left( \db{ij}{\Vector{f}_{km}}{\Vector{L}} \right) \Vector{g}_{ml}(\Vector{L})
 +
-\f_{km}(\Lmap) \left( \db{ij}{\g_{ml}}{\Lmap} \right)
+\Vector{f}_{km}(\Vector{L}) \left( \db{ij}{\Vector{g}_{ml}}{\Vector{L}} \right)
 \right]
 \nonumber
 \\
 & = &
 \left[
-\left( \db{ij}{\f}{\Lmap} \right) \g(\Lmap)
+\left( \db{ij}{\Vector{f}}{\Vector{L}} \right) \Vector{g}(\Vector{L})
 +
-\f(\Lmap) \left( \db{ij}{\g}{\Lmap} \right)
+\Vector{f}(\Vector{L}) \left( \db{ij}{\Vector{g}}{\Vector{L}} \right)
 \right]_{kl}
 \nonumber
 \end{eqnarray}
 Therefore
 \begin{equation}
 \label{eq:map-product-derivative}
-\db{ij}{\h}{\Lmap}
+\db{ij}{\Vector{h}}{\Vector{L}}
  =
-\left( \db{ij}{\f}{\Lmap} \right) \g(\Lmap)
+\left( \db{ij}{\Vector{f}}{\Vector{L}} \right) \Vector{g}(\Vector{L})
 +
-\f(\Lmap) \left( \db{ij}{\g}{\Lmap} \right)
+\Vector{f}(\Vector{L}) \left( \db{ij}{\Vector{g}}{\Vector{L}} \right)
 \end{equation}
 
 %-------------------------------------------------------------------------------
 
-\subsubsection{$\Lmap^{\dagger} \Lmap$}
+\subsubsection{LTL}
 \label{sec:Derivatives-of-LTL}
 
 A common simple map transformation
-is $\LTL(\Lmap) \equiv \Lmap^{\dagger} \Lmap
-: \Lspace(\Vspace,\Wspace) \mapsto \Lspace(\Vspace,\Vspace)$.
+is $\LTL(\Vector{L}) \equiv \Vector{L}^{\dagger} \Vector{L}
+: \Space{L}(\Space{V},\Space{W}) \mapsto \Space{L}(\Space{V},\Space{V})$.
 
 The partial derivative is computed using equations
 \ref{eq:transpose-derivative}
@@ -615,73 +624,73 @@ and
 \ref{eq:map-product-derivative}:
 
 \begin{equation}
-\db{ij}{\LTL}{\Lmap}
+\db{ij}{\LTL}{\Vector{L}}
 =
-\left( \e_j^{\Vspace} \otimes \e_i^{\Wspace} \right) \Lmap
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}} \right) \Vector{L}
 +
-\Lmap^{\dagger} \left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\Vector{L}^{\dagger} \left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 =
-\left( \e_j^{\Vspace} \otimes \r_i^{\Lmap} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{r}_i^{\Vector{L}} \right)
 +
-\left( \r_i^{\Lmap} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{r}_i^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \end{equation}
-where $\r_i^{\Lmap} \in \Vspace$ is the $i$th 'row' of $\Lmap$
-in the representation $\Lmap = \sum_{i=0}^{m-1} \e_i^{\Wspace} \otimes \r_i^{\Lmap}$.
+where $\Vector{r}_i^{\Vector{L}} \in \Space{V}$ is the $i$th 'row' of $\Vector{L}$
+in the representation $\Vector{L} = \sum_{i=0}^{m-1} \Vector{e}_i^{\Space{W}} \otimes \Vector{r}_i^{\Vector{L}}$.
 
 The Jacobian, which has 4 indexes here, is given by:
 \begin{equation}
-\db{ij}{\LTL_{kl}}{\Lmap}
+\db{ij}{\LTL_{kl}}{\Vector{L}}
  =
-\left( \db{ij}{\LTL}{\Lmap} \right)_{kl}
+\left( \db{ij}{\LTL}{\Vector{L}} \right)_{kl}
 =
-\delta_{jl} \Lmap_{ik}
+\delta_{jl} \Vector{L}_{ik}
 +
-\delta_{jk} \Lmap_{il}
+\delta_{jk} \Vector{L}_{il}
 \end{equation}
 where, as usual, $\delta_{ij} = 1$ if $i=j$ and  $0$ if $i \neq j$.
 From the Jacobian, we can compute the gradients of $\LTL_{kl}$
 using equation \ref{eq:gradient-from-partials}
 and the fact that
-$\Emap_{ij}^{\Lspace(\Vspace,\Wspace)}  = \e_i^{\Wspace} \otimes \e_j^{\Vspace}$
-are the canonical basis vectors for $\Lspace(\Vspace,\Wspace)$:
+$\Vector{E}_{ij}^{\Space{L}(\Space{V},\Space{W})}  = \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}$
+are the canonical basis vectors for $\Space{L}(\Space{V},\Space{W})$:
 \begin{eqnarray}
-\Gb{\LTL_{kl}}{\Lmap}
+\Gb{\LTL_{kl}}{\Vector{L}}
 & = &
 \sum_{ij}
-\left( \db{ij}{\LTL_{kl}}{\Lmap} \right)
-\left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\left( \db{ij}{\LTL_{kl}}{\Vector{L}} \right)
+\left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \\
 & = &
 \sum_{ij}
-\left( \delta_{jl} \Lmap_{ik} + \delta_{jk} \Lmap_{il} \right)
-\left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\left( \delta_{jl} \Vector{L}_{ik} + \delta_{jk} \Vector{L}_{il} \right)
+\left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \nonumber
 \\
 & = &
 \sum_{i}
 \left(
-\Lmap_{ik}  \e_i^{\Wspace} \otimes \e_l^{\Vspace}
+\Vector{L}_{ik}  \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_l^{\Space{V}}
 \right)
 +
 \sum_{i}
 \left(
-\Lmap_{il}  \e_i^{\Wspace} \otimes \e_k^{\Vspace}
+\Vector{L}_{il}  \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_k^{\Space{V}}
 \right)
 \nonumber
 \\
 & = &
 \left(
-\c_k^{\Lmap} \otimes \e_l^{\Vspace}
+\Vector{c}_k^{\Vector{L}} \otimes \Vector{e}_l^{\Space{V}}
 \right)
 +
 \left(
-\c_l^{\Lmap} \otimes \e_k^{\Vspace}
+\Vector{c}_l^{\Vector{L}} \otimes \Vector{e}_k^{\Space{V}}
 \right)
 \nonumber
 \end{eqnarray}
-where $\c_j^{\Lmap} \in \Wspace$ is the $j$th 'column' of $\Lmap$
+where $\Vector{c}_j^{\Vector{L}} \in \Space{W}$ is the $j$th 'column' of $\Vector{L}$
 in the representation
-$\Lmap = \sum_{j=0}^{n-1} \c_j^{\Lmap} \otimes \e_j^{\Vspace}$.
+$\Vector{L} = \sum_{j=0}^{n-1} \Vector{c}_j^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}}$.
 
 %-------------------------------------------------------------------------------
 
@@ -689,54 +698,54 @@ $\Lmap = \sum_{j=0}^{n-1} \c_j^{\Lmap} \otimes \e_j^{\Vspace}$.
 \label{sec:Derivative-of-inverse}
 
 $\Inverse()$ here is interpreted in the traditional sense:
-$\Lmap^{-1}(\w) = \v$ if there exists a unique $\v$ such that $\w = \Lmap(\v)$,
+$\Vector{L}^{-1}(\Vector{w}) = \Vector{v}$ if there exists a unique $\Vector{v}$ such that $\Vector{w} = \Vector{L}(\Vector{v})$,
 and is either considered undefined, or assigned an arbitrary
-value, such as $\0$, otherwise.
-A map $\Lmap : \Vspace \mapsto \Wspace$ is {\it invertible}
-if, for all $\w \in \Wspace$, there exists a $\v$ such that
-$\w = \Lmap \v$.
+value, such as $\Vector{0}$, otherwise.
+A map $\Vector{L} : \Space{V} \mapsto \Space{W}$ is {\it invertible}
+if, for all $\Vector{w} \in \Space{W}$, there exists a $\Vector{v}$ such that
+$\Vector{w} = \Vector{L} \Vector{v}$.
 In any reasonable topology,
-the set of invertible linear maps $\Vspace \mapsto \Wspace$
+the set of invertible linear maps $\Space{V} \mapsto \Space{W}$
 is an open subset of the set of all linear maps,
 and $\Inverse()$ is continuous and differentiable there.
 
 The partial derivative is the value of the following, when the limit exists:
 \begin{displaymath}
-\db{ij}{\Inverse()}{\Lmap}
+\db{ij}{\Inverse()}{\Vector{L}}
  =
 \lim_{ h \mapsto 0}
-\frac{ \left( \Lmap + h (\e_i^{\Wspace} \otimes \e_j^{\Vspace}) \right)^{-1} - \Lmap^{-1} }{h}
+\frac{ \left( \Vector{L} + h (\Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}) \right)^{-1} - \Vector{L}^{-1} }{h}
 \end{displaymath}
 Note that
 \begin{displaymath}
-\Lmap + h (\e_i^{\Wspace} \otimes \e_j^{\Vspace})
+\Vector{L} + h (\Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}})
  =
-\left( \Identity^{\Wspace} - ( -h ( \e_i^{\Wspace} \otimes \e_j^{\Vspace} )) \Lmap^{-1} \right) \Lmap
+\left( \Identity^{\Space{W}} - ( -h ( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} )) \Vector{L}^{-1} \right) \Vector{L}
 \end{displaymath}
 and
 \begin{eqnarray*}
-\left( \Lmap + h (\e_i^{\Wspace} \otimes \e_j^{\Vspace}) \right)^{-1}
+\left( \Vector{L} + h (\Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}) \right)^{-1}
 & = &
-\Lmap^{-1} \left( \Identity^{\Wspace} - ( -h )( \e_i^{\Wspace} \otimes \e_j^{\Vspace} ) \Lmap^{-1} \right)^{-1}
+\Vector{L}^{-1} \left( \Identity^{\Space{W}} - ( -h )( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} ) \Vector{L}^{-1} \right)^{-1}
 \\
 & = &
-\Lmap^{-1} \sum_{k=0}^{\infty} \left( -h ( \e_i^{\Wspace} \otimes \e_j^{\Vspace} ) \Lmap^{-1} \right)^{k}
+\Vector{L}^{-1} \sum_{k=0}^{\infty} \left( -h ( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} ) \Vector{L}^{-1} \right)^{k}
 \nonumber
 \end{eqnarray*}
 Therefore
 \begin{displaymath}
-\frac{ \left( \Lmap + h (\e_i^{\Wspace} \otimes \e_j^{\Vspace}) \right)^{-1} - \Lmap^{-1} }{h}
+\frac{ \left( \Vector{L} + h (\Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}) \right)^{-1} - \Vector{L}^{-1} }{h}
  =
-- \Lmap^{-1} ( \e_i^{\Wspace} \otimes \e_j^{\Vspace} )  \Lmap^{-1} + O(h)
+- \Vector{L}^{-1} ( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} )  \Vector{L}^{-1} + O(h)
 \end{displaymath}
 which implies
 \begin{equation}
-\da{ij}{\Lmap^{-1}}
+\da{ij}{\Vector{L}^{-1}}
  =
 - \left[
-\Lmap^{-1}
-\left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
-\Lmap^{-1}
+\Vector{L}^{-1}
+\left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
+\Vector{L}^{-1}
 \right]
 \end{equation}
 
@@ -744,208 +753,208 @@ which implies
 \subsubsection{Pseudo-inverse}
 \label{sec:Derivative-of-pseudo-inverse}
 
-$\Pseudoinverse(\Lmap) \equiv \Lmap^{-}$
+$\Pseudoinverse(\Vector{L}) \equiv \Vector{L}^{-}$
 
-If $\kernel(\Lmap) = \0$, $\Lmap$ is said to have {\it full rank}.
+If $\kernel(\Vector{L}) = \Vector{0}$, $\Vector{L}$ is said to have {\it full rank}.
 The set of full rank linear maps is an open set,
-and we can define the derivative of $\Pseudoinverse(\Lmap)$ there.
+and we can define the derivative of $\Pseudoinverse(\Vector{L})$ there.
 For a full rank map,
-$\Lmap^{-} = \left( \Lmap^{\dagger} \Lmap \right)^{-1} \Lmap^{\dagger}$
+$\Vector{L}^{-} = \left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1} \Vector{L}^{\dagger}$
 (see equation \ref{eq:full-rank-pseudo-inverse}).
 It follows from equation \ref{eq:map-product-derivative} that
 \begin{eqnarray}
-\db{ij}{\Pseudoinverse}{\Lmap}
+\db{ij}{\Pseudoinverse}{\Vector{L}}
 & = &
-\db{ij}{\Inverse(\LTL())\Transpose()}{\Lmap}
+\db{ij}{\Inverse(\LTL())\Transpose()}{\Vector{L}}
 \\
 & = &
 \left[
-\left( \db{ij}{\Inverse(\LTL())}{\Lmap} \right)
-\Lmap^{\dagger}
+\left( \db{ij}{\Inverse(\LTL())}{\Vector{L}} \right)
+\Vector{L}^{\dagger}
 \right]
 +
 \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\db{ij}{\Transpose()}{\Lmap}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\db{ij}{\Transpose()}{\Vector{L}}
 \right]
 \nonumber
 \\
 & = &
 \left[
-\left( \db{ij}{\Inverse(\LTL())}{\Lmap} \right)
-\Lmap^{\dagger}
+\left( \db{ij}{\Inverse(\LTL())}{\Vector{L}} \right)
+\Vector{L}^{\dagger}
 \right]
 +
 \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_j^{\Vspace} \otimes \e_i^{\Wspace} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}} \right)
 \right]
 \nonumber
 \end{eqnarray}
 
 By the chain rule
 \begin{eqnarray}
-\Db{\Inverse(\LTL())}{\Lmap}
+\Db{\Inverse(\LTL())}{\Vector{L}}
 & = &
 \sum_{kl}
-\db{kl}{\Inverse}{\Lmap^{\dagger}\Lmap}
+\db{kl}{\Inverse}{\Vector{L}^{\dagger}\Vector{L}}
 \otimes
-\Gb{\LTL_{kl}}{\Lmap}
+\Gb{\LTL_{kl}}{\Vector{L}}
 \\
 & = &
 \sum_{kl}
 - \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_k^{\Vspace} \otimes \e_l^{\Vspace} \right)
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_k^{\Space{V}} \otimes \Vector{e}_l^{\Space{V}} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \right]
 \otimes
 \left[
-\left( \c_k^{\Lmap} \otimes \e_l^{\Vspace} \right)
+\left( \Vector{c}_k^{\Vector{L}} \otimes \Vector{e}_l^{\Space{V}} \right)
 +
-\left( \c_l^{\Lmap} \otimes \e_k^{\Vspace} \right)
+\left( \Vector{c}_l^{\Vector{L}} \otimes \Vector{e}_k^{\Space{V}} \right)
 \right]
 \nonumber
 \end{eqnarray}
 
 To minimize confusion,
-recall that $\Db{\Inverse(\LTL())}{\Lmap}$ is
-a linear map from $\Lspace(\Vspace,\Wspace) \mapsto \Lspace(\Vspace,\Vspace)$.
+recall that $\Db{\Inverse(\LTL())}{\Vector{L}}$ is
+a linear map from $\Space{L}(\Space{V},\Space{W}) \mapsto \Space{L}(\Space{V},\Space{V})$.
 Note that the central tensor product ($\otimes$) above
 is a product of
 $
 - \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_k^{\Vspace} \otimes \e_l^{\Vspace} \right)
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_k^{\Space{V}} \otimes \Vector{e}_l^{\Space{V}} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \right]
 $,
-an element of $\Lspace(\Vspace,\Vspace)$
+an element of $\Space{L}(\Space{V},\Space{V})$
 and
 $
 \left[
-\left( \c_k^{\Lmap} \otimes \e_l^{\Vspace} \right)
+\left( \Vector{c}_k^{\Vector{L}} \otimes \Vector{e}_l^{\Space{V}} \right)
 +
-\left( \c_l^{\Lmap} \otimes \e_k^{\Vspace} \right)
+\left( \Vector{c}_l^{\Vector{L}} \otimes \Vector{e}_k^{\Space{V}} \right)
 \right]
 $,
-an element of $\Lspace(\Vspace,\Wspace)$.
+an element of $\Space{L}(\Space{V},\Space{W})$.
 
 It follows from equation \ref{eq:partial-full-dervatives} that
 \begin{eqnarray}
-\db{ij}{\Inverse(\LTL())}{\Lmap}
+\db{ij}{\Inverse(\LTL())}{\Vector{L}}
 & = &
-\Db{\Inverse(\LTL())}{\Lmap}
-\left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\Db{\Inverse(\LTL())}{\Vector{L}}
+\left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \\
 & = &
 \sum_{kl}
 - \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_k^{\Vspace} \otimes \e_l^{\Vspace} \right)
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_k^{\Space{V}} \otimes \Vector{e}_l^{\Space{V}} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \right]
 \otimes
 \left[
-\left( \c_k^{\Lmap} \otimes \e_l^{\Vspace} \right)
+\left( \Vector{c}_k^{\Vector{L}} \otimes \Vector{e}_l^{\Space{V}} \right)
 +
-\left( \c_l^{\Lmap} \otimes \e_k^{\Vspace} \right)
+\left( \Vector{c}_l^{\Vector{L}} \otimes \Vector{e}_k^{\Space{V}} \right)
 \right]
-\left( \e_i^{\Wspace} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \nonumber
 \\
 & = &
 \sum_{kl}
 - \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_k^{\Vspace} \otimes \e_l^{\Vspace} \right)
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_k^{\Space{V}} \otimes \Vector{e}_l^{\Space{V}} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \right]
 \left[
 \delta_{jl}
-\Lmap_{ik}
+\Vector{L}_{ik}
 +
 \delta_{jk}
-\Lmap_{il}
+\Vector{L}_{il}
 \right]
 \nonumber
 \\
 & = &
 -
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \left[
 \sum_{k}
-\Lmap_{ik}
+\Vector{L}_{ik}
 \left(
-\left( \e_k^{\Vspace} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{e}_k^{\Space{V}} \otimes \Vector{e}_j^{\Space{V}} \right)
 +
-\left( \e_j^{\Vspace} \otimes \e_k^{\Vspace} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_k^{\Space{V}} \right)
 \right)
 \right]
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \nonumber
 \\
 & = &
 -
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \left[
-\left( \r_i^{\Lmap} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{r}_i^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}} \right)
 +
-\left( \e_j^{\Vspace} \otimes \r_i^{\Lmap} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{r}_i^{\Vector{L}} \right)
 \right]
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \nonumber
 \end{eqnarray}
 
 Putting it all together:
 \begin{eqnarray}
-\db{ij}{\Pseudoinverse}{\Lmap}
+\db{ij}{\Pseudoinverse}{\Vector{L}}
 & = &
 \left[
 -
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \left[
-\left( \r_i^{\Lmap} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{r}_i^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}} \right)
 +
-\left( \e_j^{\Vspace} \otimes \r_i^{\Lmap} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{r}_i^{\Vector{L}} \right)
 \right]
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\Lmap^{\dagger}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\Vector{L}^{\dagger}
 \right]
 +
 \left[
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\left( \e_j^{\Vspace} \otimes \e_i^{\Wspace} \right)
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}} \right)
 \right]
 \nonumber
 \\
 & = &
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \left[
-\left( \e_j^{\Vspace} \otimes \e_i^{\Wspace} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}} \right)
 -
 \left(
 \left[
-\left( \r_i^{\Lmap} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{r}_i^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}} \right)
 +
-\left( \e_j^{\Vspace} \otimes \r_i^{\Lmap} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{r}_i^{\Vector{L}} \right)
 \right]
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
-\Lmap^{\dagger}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
+\Vector{L}^{\dagger}
 \right)
 \right]
 \nonumber
 \\
 & = &
-\left( \Lmap^{\dagger} \Lmap \right)^{-1}
+\left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1}
 \left[
-\left( \e_j^{\Vspace} \otimes \e_i^{\Wspace} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{e}_i^{\Space{W}} \right)
 -
 \left(
-\left( \r_i^{\Lmap} \otimes \e_j^{\Vspace} \right)
+\left( \Vector{r}_i^{\Vector{L}} \otimes \Vector{e}_j^{\Space{V}} \right)
 +
-\left( \e_j^{\Vspace} \otimes \r_i^{\Lmap} \right)
+\left( \Vector{e}_j^{\Space{V}} \otimes \Vector{r}_i^{\Vector{L}} \right)
 \right)
-\Lmap^{-}
+\Vector{L}^{-}
 \right]
 \end{eqnarray}

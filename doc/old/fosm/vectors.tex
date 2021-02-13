@@ -6,81 +6,83 @@
 My approach to vector spaces is largely based on
 the texts I used as a college freshman for linear algebra and
 multivariate calculus: Halmos \cite{Halmos:1958:Finite}
-and Spivak \cite{spivak-1965}.
+and Spivak \cite{Spivak:1965:CalculusOnManifolds}.
 
 Some useful definitions/identities:
 
-Let $\Vspace$ be an $n$-dimensional real inner product space.
-Let $\v, \w \in \Vspace$.
+Let $\Space{V}$ be an $n$-dimensional real inner product space.
+Let $\Vector{v}, \Vector{w} \in \Space{V}$.
 
 \begin{itemize}
 \item The inner (dot) product on $\Reals^n$:
 \begin{equation}
-\v \bullet \w \; \equiv \; \sum_{i=0}^{n-1} v_i w_i
+\Vector{v} \bullet \Vector{w} \; \equiv \; \sum_{i=0}^{n-1} v_i w_i
 \end{equation}
 
 \item The euclidean ($l_2$) norm:
 \begin{equation}
-\| \v \|^2 \; \equiv \; \v \bullet \v
+\| \Vector{v} \|^2 \; \equiv \; \Vector{v} \bullet \Vector{v}
 \end{equation}
 
-\item $\theta(\v,\w)$ is the angle between $\v$ and $\w$
+\item $\theta(\Vector{v},\Vector{w})$ is the angle between $\Vector{v}$ and $\Vector{w}$
 and is defined by:
 \begin{eqnarray}
-\v \bullet \w \; = \; \| \v \| \| \w \| \cos(\theta(\v,\w))
+\Vector{v} \bullet \Vector{w} \; = \; \| \Vector{v} \| \| \Vector{w} \| \cos(\theta(\Vector{v},\Vector{w}))
 \\
-\theta(\v,\w)
+\theta(\Vector{v},\Vector{w})
 \; \equiv \;
-\cos^{-1} \left(\frac{ \v \bullet \w }{\| \v \| \| \w \| } \right)
+\cos^{-1} \left(\frac{ \Vector{v} \bullet \Vector{w} }{\| \Vector{v} \| \| \Vector{w} \| } \right)
 \nonumber
 \end{eqnarray}
 
 \item The tensor (outer) product:
 
-Let $\v, \u \in \Vspace, \w \in \Wspace.$
-$\w \otimes \v$ is a rank 1 linear map
-from $\Vspace$ to $\Wspace$, defined by:
+Let $\Vector{v}, \Vector{u} \in \Space{V}, \Vector{w} \in \Space{W}.$
+$\Vector{w} \otimes \Vector{v}$ is a rank 1 linear map
+from $\Space{V}$ to $\Space{W}$, defined by:
 \begin{equation}
-(\w \otimes \v)(\u) \; \equiv \; \w (\v \bullet \u)
+(\Vector{w} \otimes \Vector{v})(\Vector{u}) \; \equiv \; \Vector{w} (\Vector{v} \bullet \Vector{u})
 \end{equation}
 
 Note: this is an abuse of the usual definition of tensor product $\otimes$.
 This operation, which takes a pair of vectors and returns a linear map,
 is more conventionally referred to as the 'outer product',
-and written $\w \v^{\dagger}$.
+and written $\Vector{w} \Vector{v}^{\dagger}$.
 However, because I am working in spaces other than $\Reals^n$
-(eg. $\Lspace(\Vspace,\Wspace)$, the space of linear maps
+(eg. $\Space{L}space(\Space{V},\Space{W})$, the space of linear maps
 between 2 vector spaces),
 I want to avoid notations that suggest thinking in terms
 of 'row' and 'column' vectors.
 
 The following is a useful identity.
-If $\t \in \Tspace$, $\u, \v \in \Vspace$, and $\w \in \Wspace.$
+If $\Vector{t} \in \Space{T}$, $\Vector{u}, \Vector{v} \in \Space{V}$, 
+and $\Vector{w} \in \Space{W}.$
 then
 \begin{equation}
 \label{eq:tensor-dot}
-(\t \otimes \u) (\v \otimes \w)(\u) = (\u \bullet \v) (\t \otimes \w)
+(\Vector{t} \otimes \Vector{u}) (\Vector{v} \otimes \Vector{w})(\Vector{u}) = 
+(\Vector{u} \bullet \Vector{v}) (\Vector{t} \otimes \Vector{w})
 \end{equation}
 
 
 \item Elementary orthogonal projection:
 \begin{equation}
-\Projection_{\w} \v
+\Projection_{\Vector{w}} \Vector{v}
 \; \equiv \;
-\left( \frac{ \w }{ \| \w \| } \otimes \frac{ \w }{ \| \w \| } \right) \v
+\left( \frac{ \Vector{w} }{ \| \Vector{w} \| } \otimes \frac{ \Vector{w} }{ \| \Vector{w} \| } \right) \Vector{v}
 \; = \;
-\left( \frac{\w }{\|\w\|} \bullet \v \right) \frac{\w}{\|\w\|}
+\left( \frac{\Vector{w} }{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
 \end{equation}
 
 \item Orthogonal complement:
 \begin{equation}
-\perp_{\w} \v
+\perp_{\Vector{w}} \Vector{v}
 \; \equiv \;
-\v \perp \w
+\Vector{v} \perp \Vector{w}
 \; \equiv \;
-\v \; - \; \Projection_{\w} \v
+\Vector{v} \; - \; \Projection_{\Vector{w}} \Vector{v}
 \; = \;
-\v \; - \; \left( \frac{\w}{\|\w\|} \bullet \v \right) \frac{\w}{\|\w\|}
+\Vector{v} \; - \; \left( \frac{\Vector{w}}{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
 \end{equation}
 
 \end{itemize}
