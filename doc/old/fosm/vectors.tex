@@ -1,6 +1,6 @@
 % jam 2004-09-10
 
-\section{Vector spaces}
+\begin{plSection}{Vector spaces}
 \label{sec:vector-spaces}
 
 My approach to vector spaces is largely based on
@@ -10,8 +10,8 @@ and Spivak \cite{Spivak:1965:CalculusOnManifolds}.
 
 Some useful definitions/identities:
 
-Let $\Space{V}$ be an $n$-dimensional real inner product space.
-Let $\Vector{v}, \Vector{w} \in \Space{V}$.
+Let $\vspace$ be an $n$-dimensional real inner product space.
+Let $\Vector{v}, \Vector{w} \in \vspace$.
 
 \begin{itemize}
 \item The inner (dot) product on $\Reals^n$:
@@ -37,9 +37,9 @@ and is defined by:
 
 \item The tensor (outer) product:
 
-Let $\Vector{v}, \Vector{u} \in \Space{V}, \Vector{w} \in \Space{W}.$
+Let $\Vector{v}, \Vector{u} \in \vspace, \Vector{w} \in \Space{W}.$
 $\Vector{w} \otimes \Vector{v}$ is a rank 1 linear map
-from $\Space{V}$ to $\Space{W}$, defined by:
+from $\vspace$ to $\Space{W}$, defined by:
 \begin{equation}
 (\Vector{w} \otimes \Vector{v})(\Vector{u}) \; \equiv \; \Vector{w} (\Vector{v} \bullet \Vector{u})
 \end{equation}
@@ -49,13 +49,13 @@ This operation, which takes a pair of vectors and returns a linear map,
 is more conventionally referred to as the 'outer product',
 and written $\Vector{w} \Vector{v}^{\dagger}$.
 However, because I am working in spaces other than $\Reals^n$
-(eg. $\Space{L}space(\Space{V},\Space{W})$, the space of linear maps
+(eg. $\Space{L}space(\vspace,\Space{W})$, the space of linear maps
 between 2 vector spaces),
 I want to avoid notations that suggest thinking in terms
 of 'row' and 'column' vectors.
 
 The following is a useful identity.
-If $\Vector{t} \in \Space{T}$, $\Vector{u}, \Vector{v} \in \Space{V}$, 
+If $\Vector{t} \in \Space{T}$, $\Vector{u}, \Vector{v} \in \vspace$, 
 and $\Vector{w} \in \Space{W}.$
 then
 \begin{equation}
@@ -87,3 +87,4 @@ then
 
 \end{itemize}
 
+\end{plSection}%{Vector spaces}

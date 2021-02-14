@@ -17,7 +17,7 @@
 \put(0,0){\framebox(#1,#2)[bl]{\special{#3}}}
 \end{picture}}
 
-\newcommand {\myskip} {\hspace{.15em}}
+\newcommand {\myskip} {\Space{h}{.15em}}
 \newcommand {\fb}[1] {\hbox{\small\bf #1}\myskip}
 \newcommand {\xon} {\mbox{$x_1,\ldots,x_n$}}
 \newcommand {\Xon} {\mbox{$X_1,\ldots,X_n$}}
@@ -179,7 +179,7 @@
 
 % inspired from \boxit from tex/tugproc.sty
 \def\hhbox#1{\vbox{%
-  \hrule\hbox{\vrule\hspace{.2mm}#1\hspace{-1.05mm}\vrule}\hrule}}
+  \hrule\hbox{\vrule\Space{h}{.2mm}#1\Space{h}{-1.05mm}\vrule}\hrule}}
 
 \newlength{\twofigdim}
 \setlength{\twofigdim}{2.3in}

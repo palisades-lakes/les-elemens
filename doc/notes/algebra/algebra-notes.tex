@@ -17,7 +17,7 @@
 % arara: clean: { files: [algebra-notes.run.xml] }
 % arara: clean: { files: [algebra-notes.toc,algebra-notes.xdy] }
 % arara: clean: { files: [algebra-notes.synctex.gz] }
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \documentclass[11pt,openany]{book}
 \usepackage{import}
 \def \texFolder {../../tex/}
@@ -37,12 +37,12 @@
 \addbibresource{{\bibFolder}topos.bib}
 \addbibresource{{\bibFolder}feferman.bib}
 \addbibresource{{\bibFolder}fparith.bib}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \title{Notes on algebra}
 \author{\textsc{John Alan McDonald}}
 %\email{mcdonald.john.alan at gmail.com}
 \date{draft of \today}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \begin{document}
 
 \maketitle
@@ -60,15 +60,15 @@
 
 \import{\sharedFolder}{algebra}
 
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \appendix
 %\part{Appendices}
 \import{\texFolder}{typesetting}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \backmatter
 
 
 %\part{Backmatter}
 \import{\texFolder}{tail}
-%-------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 \end{document}

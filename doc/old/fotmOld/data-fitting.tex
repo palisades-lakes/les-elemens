@@ -1,0 +1,214 @@
+\label{sec:data-fitting}
+
+We can fit a triangular mesh, $\M$, to a set of data points, $\{\d_i; i=0 \ldots n-1\}$
+by minimizing the sum of the $l_2$ distances from the points to the mesh:
+\begin{equation}
+f(\M) = \sum_{i=0}^{n-1} \| \d_i - \Pr_\M (\d_i) \|^2 ,
+\end{equation}
+where $\Pr_\M (\d_i)$ is the point on $\M$ closest to $\d_i$,
+that is, the {\em projection} of $\d_i$ on $\M$.
+Note that $f:\Re^{3n} \mapsto \Re$,
+where $n$ is the number of vertices in $\M$.
+
+We compute $\Pr_\M (\d)$ by minimizing  $\| \d - \Pr_\s (\d) \|^2$
+over all simplices $\s \in \M$.
+We need only consider the faces of $\M$,
+those edges not in any face,
+and the vertices not in any edge,
+because the closest point on a face must at least
+as the closest point on any of its edges,
+and similarly for vertices.
+More generally, spatial binning of the simplices and data can greatly
+reduce the number of simplices that need to be examined.
+
+The following sections consider the projection of a single
+data point $\d$ on a mesh $\M$,
+and the gradient of the squared distance,
+as a function of the vertex positions $\p(\v)$.
+
+Unfortunately, derivatives of the distance function are not continuous.
+Second derivative discontinuities occur
+when a data point is on the boundary
+of a 'watershed' region, the set of points
+projecting on a vertex or the interior of an edge or face.
+Gradient discontinuities are encountered
+when a data point is equidistant from 2 distinct closest mesh points.
+
+\subsection{Distance to vertex}
+\label{sec:Distance-to-vertex}
+
+Let $\p = \p(\v)$ be the position of a particular vertex $\v$,
+and $\d$ the 3d data point.
+It follows from equation \ref{eq:l2-gradient} that
+\begin{equation}
+\label{eq:vertex-distance-gradient}
+\Gc{\p}{\| \p - \d \|^2}{\q} = 2 ( \q - \d ).
+\end{equation}
+
+The distance to the nearest vertex in a set of vertices $\V$ is:
+$\min_{\v \in \V} \| \p(\v) - \d \|^2$.
+If $\v^{\mathrm min}$ is the minimizing vertex,
+and
+$\p^{\mathrm min}$ its position,
+then the partial gradient with respect
+to the position of any other vertex is zero,
+and the partial gradient with respect to $\p^{\mathrm min}$
+is given in equation \ref{eq:vertex-distance-gradient}.
+Note that the gradient is only defined and continuous
+while $\d$ is within the interior of the
+Voronoi regions surrounding the vertices.
+
+\subsection{Distance to edge}
+\label{sec:Distance-to-edge}
+
+Let the edge $\e$ have end points $\p = (\p_0, \p_1) \in \Re^6$.
+We can write the projection of a data point $\d$ on $\e$ as:
+\begin{equation}
+\Pr_\p (\d) = b_0(\p) \p_0 + b_1(\p) \p_1
+\end{equation}
+where
+\begin{eqnarray}
+b_0(\p) & = &
+\min\left(0,\max\left(1,
+{{ (\d - \p_1) \bullet (\p_0 - \p_1) }
+\over
+{ \| \p_0 - \p_1 \|^2 }
+}\right) \right) \\
+b_1(\p) & = & 1 - b_0(\p)
+\nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+\label{eq:edge-distance-gradient-derivation}
+\De{\p_0}{ \| \Pr_{\p} (\d) - \d \|^2 }{\q}
+& = &
+2 \left( \Pr_{\q} (\d) - \d \right)^\dagger
+\De{\p_0}{\Pr_{\p} (\d) }{\q}
+\\
+& = &
+2 \left( \Pr_{\q} (\d) - \d \right)^\dagger
+\De{\p_0}{\left[ b_0(\p)\p_0 + b_1(\p)\p_1 \right]}{\q}
+\nonumber \\
+& = &
+2 \left( \Pr_{\q} (\d) - \d \right)^\dagger
+\De{\p_0}{\left[ b_0(\p)\p_0 + (1 - b_0(\p))\p_1 \right]}{\q}
+\nonumber \\
+& = &
+2 \left( \Pr_{\q} (\d) - \d \right)^\dagger
+\De{\p_0}{\left[ b_0(\p)(\p_0 - \p_1) \right]}{\q}
+\nonumber \\
+& = &
+2 \left( \Pr_{\q} (\d) - \d \right)^\dagger
+\left[ b_0(\q) \I + (\q_0 - \q_1) \otimes \Gc{\p_0}{b_0(\p)}{\q} \right]
+\nonumber
+\end{eqnarray}
+Because $\left( \Pr_{\q} (\d) - \d \right)$ is orthogonal to
+$\left( \q_0 - \q_1 \right)$, we get:
+\begin{eqnarray}
+\label{eq:edge-distance-gradient}
+\Gc{\p_0}{ \| \Pr_{\p} (\d) - \d \|^2 }{\q}
+& = & 2 b_0(\q) \left[ \Pr_{\q} (\d) - \d \right]
+\\
+\Gc{\p_1}{ \| \Pr_{\p} (\d) - \d|^2 }{\q}
+& = & 2 b_1(\q) \left[ \Pr_\q (\d) - \d \right]
+\nonumber
+\end{eqnarray}
+
+As in the vertex case,
+the distance to the nearest edge in a set of edges $\E$ is:
+\begin{equation}
+\| \Pr_{\E} (\d) - \d|^2 = \min_{\e \in \E} \| \Pr_{\p(\e)}(\d) - \d \|^2
+\end{equation}
+If $\e^{\min}$ is the minimizing edge,
+$\v_0^{\min}$ and $\v_1^{\min}$ its vertices,
+and $\p_0^{\min}$ and $\p_1^{\min}$
+the corresponding endpoints,
+then the partial gradient with respect to
+the position of any
+other vertex is zero,
+and the partial gradient with respect to $\p_0^{\min}$ and $\p_1^{\min}$
+is given in equation \ref{eq:edge-distance-gradient}.
+
+The total gradient is defined and continuous
+when $\d$ is within the union of the watershed regions
+of $\e^{\min}$ and its vertices.
+It is also continuous where the watershed of one of the vertices
+meets the watershed of any of the edges containing that vertex.
+It is not if $\d$ lies on the boundary of the
+watershed of $\e^{\min}$ and the watershed of an
+edge with which it does not share a vertex.
+
+\subsection{Distance to face}
+\label{sec:Distance-to-face}
+
+Let the face $\f$ have corner points $\p = (\p_0, \p_1, \p_2) \in \Re^9$.
+As in the edge case,
+we can write the projection of a data point $\d$ on $\f$
+in terms of the barycentric coordinates as:
+\begin{equation}
+\Pr_\p (\d) = b_0(\p) \p_0 + b_1(\p) \p_1 + b_2(\p) \p_2,
+\end{equation}
+and, by an argument simlar to that used in
+equation \ref{eq:edge-distance-gradient-derivation},
+we can show that
+\begin{eqnarray}
+\label{eq:face-distance-gradient}
+\Gc{\p_0}{ \| \Pr_{\p} (\d) - \d \|^2 }{\q}
+& = & 2 b_0(\q) \left[ \Pr_{\q} (\d) - \d \right]
+\\
+\Gc{\p_1}{ \| \Pr_{\p} (\d) - \d|^2 }{\q}
+& = & 2 b_1(\q) \left[ \Pr_\q (\d) - \d \right]
+\nonumber
+\\
+\Gc{\p_2}{ \| \Pr_{\p} (\d) - \d|^2 }{\q}
+& = & 2 b_2(\q) \left[ \Pr_\q (\d) - \d \right]
+\nonumber
+\end{eqnarray}
+
+Computing the barycentric coordinates for the projection
+on a face (triangle) is slightly more complicated than
+for an edge (line segment).
+
+First center the problem by letting
+$\v = \p - \p_0$,
+$\v_1 = \p_1 - \p_0$, and $\v_2 = \p_2 - \p_0$.
+Then compute the raw, unbounded barycentric coordinates
+of the projection of $\p$ onto the plane
+spanned by the triangle:
+\begin{eqnarray}
+r_0(\p) & = & 1 - r_1(\p) - r_2(\p)
+\\
+r_1(\p) & = & v \bullet {{\v_1 \perp \v_2} \over {\| \v_1 \perp \v_2 \|^2} }
+\nonumber
+\\
+r_2(\p) & = & v \bullet {{\v_2 \perp \v_1} \over {\| \v_2 \perp \v_1 \|^2} }
+\nonumber
+\end{eqnarray}
+To correctly bound the raw coordinates to numbers between 0 and 1,
+we need to determine whether the projected point is in
+the interior of the triangle, on one of the edges,
+or on one of the vertices.
+
+\begin{description}
+
+\item[Vertex case:]
+If any 2 of the $r_i$ are negative,
+then $\p$ projects on the remaining vertex.
+Set the 2 $b_i$ corresponding to the negative $r_i$
+to 0 and the remaining $b_i$ to 1.
+
+\item[Edge case:]
+If any single 1 of the $r_i$ is negative,
+then $\p$ projects on the opposite edge.
+Set the $b_i$ corresponding to the negative $r_i$
+to 0.
+Go to \autoref{sec:Distance-to-edge} to see
+how to compute the remaining barycentric coordinates
+by projecting on the edge
+
+\item[Interior case:]
+If none of the $r_i$ is negative,
+then $\p$ projects on the interior
+and each $b_i = r_i$
+
+\end{description}

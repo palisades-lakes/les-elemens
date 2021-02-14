@@ -1,0 +1,372 @@
+% jam 2004-08-27
+
+\subsection{Functions of the edges}
+\label{sec:edges}
+
+%-----------------------------------------------------------------
+
+\begin{figure}[!htp]
+\centering
+\begin{verbatim}
+          p1
+          o
+         /|\
+        / | \
+       /  |  \e31
+   e12/   |   \
+     /    |e01 \
+    /     |     \
+p2 o f012 | f031 o p3
+    \     |     /
+     \    |    /
+   e20\   |   /e03
+       \  |  /
+        \ | /
+         \|/
+          o
+          p0
+
+\end{verbatim}
+\caption{Edge face pair labeling.
+\label{fig:edge-faces}}
+\end{figure}
+
+Notation in this section is based on figure \ref{fig:edge-faces}.
+We are discussing functions defined on a neighborhood of edge $e_{01}$.
+
+We assume that, for each edge, an arbitrary order is assigned to
+its two vertices, which are then at the positions $\p_0,\p_1$ in the diagram.
+
+An interior edge has 2 adjacent faces, $f_{012}$ and $f_{031}$.
+We assume that these 2 faces are oriented consistently, with the labels
+taken counterclockwise, so that the normal vectors point out of the page.
+Each face is represented by an ordered triple of vertices,
+but the order is only determined up to a circular permutation;
+for example, $f_{012}$ may be represented by the ordered triples
+$(\p_0,\p_1,\p_2)$, $(\p_2,\p_0,\p_1)$, or $(\p_1,\p_2,\p_0)$,
+but not by
+$(\p_0,\p_2,\p_1)$, $(\p_1,\p_0,\p_2)$, or $(\p_2,\p_1,\p_0)$.
+
+For the given ordering $(\p_0,\p_1)$ of the edge,
+$f_{120}$ is the edge's {\it left face}
+and $f_{031}$ is the {\it right face}.
+
+Note that we cannot assume any consistent ordering of the 4 neighboring edges;
+for example, $e_{12}$ may be represented by either ordered pair
+$(\p_1,\p_2)$ or $(\p_2,\p_1)$.
+
+%-----------------------------------------------------------------
+
+\subsubsection{Edge length}
+\label{sec:edge_length}
+
+The edge tangent vector is $\p_1 - \p_0$.
+
+The gradient of its squared length is:
+\begin{equation}
+\Gc{\p_i}{\| \p_1 - \p_0 \|^2}{\q} = 2 \left( \p_i - \p_{(i+1) \bmod 1} \right)
+\end{equation}
+
+The gradient of the edge length, $\|\p_1 - \p_0\|$ is:
+\begin{equation}
+\Gc{\p_i}{\| \p_1 - \p_0 \|}{\q} =
+\frac{\left( \p_i - \p_{(i+1) \bmod 1} \right)}
+{\|\p_1 - \p_0\|}
+\end{equation}
+
+%-----------------------------------------------------------------
+
+\paragraph{Difference in face normals}
+\label{sec:normal_difference}
+
+One measure of the change in surface normal across an edge
+is simply the vector difference of the two normals:
+
+\begin{equation}
+\label{eq:deltan}
+{\mathbf \dn} (\p_0, \p_1, \p_2, \p_3)
+=
+\n (\p_{012}) - \n (\p_{031})
+\end{equation}
+
+The (total) derivative of the squared distance between adjacent face normals is:
+\begin{eqnarray}
+\Db{\|\dn(\p)\|^2}{\q}
+& =
+2 \ \dn ( \q )^\dagger &
+\left( \Db{ ( \dn ) }{\q} \right)
+\\
+& =
+2 \ \dn(\q)^\dagger &
+\left( \Db{\n(\p_{012})}{\q} - \Db{\n(\p_{031})}{\q} \right)
+\nonumber \\
+& =
+2 \dn(\q)^\dagger &
+\{ \; \left[ \Identity_{\Reals^3} - \left( \n( \q_{012} ) \otimes \n( \q_{012} ) \right)
+\right]
+\ast \Db{\a ( \p_{012} ) }{\q}
+\nonumber \\
+\label{eq:deltan_derivative}
+&
+& - \left[ \Identity_{\Reals^3} - \left( \n( \q_{031} ) \otimes \n ( \q_{031} ) \right)
+\right]
+\ast \Db{\a ( \p_{031} ) }{\q}
+\; \}
+\nonumber
+\end{eqnarray}
+
+The partial derivatives, with respect to one of the vertices,
+like $\Dd{\p_0}{\a ( \p_{012} ) }{\q}{\r_0}$,
+all have a similar form:
+\begin{equation}
+\Dd{\p_0}{\a ( \p_{012} ) }{\q}{\r_0}  = (\q_1 - \q_3) \times \r_0
+\end{equation}
+Using this, equation \ref{eq:deltan_derivative}, equation \ref{eq:dot_cross},
+and the facts that
+$\dn(\q)  \perp  \n(\q_{012}) = - \left( \n(\q_{031})  \perp  \n(\q_{012}) \right)$
+and
+$\dn(\q)  \perp  \n(\q_{031}) = \n(\q_{012})  \perp  \n(\q_{031})$,
+we can write the partial gradients without reference to the
+derivative's argument $\r$:
+\begin{eqnarray}
+\label{eq:normal-difference-gradient}
+\Gc{\p_0}{\|\dn\|^2}{\q}
+& = &
+\left[
+\frac{{ \n(\q_{031})  \perp  \n(\q_{012}) }
+{A(\q_{012})}}
+\times (\q_1 - \q_2)
+\right]
+\; + \;
+\left[
+\frac{{ \n(\q_{012})  \perp  \n(\q_{031}) }
+{A(\q_{031})}}
+\times (\q_3 - \q_1)
+\right]
+\\
+\Gc{\p_1}{\|\dn\|^2}{\q}
+& = &
+\left[
+\frac{{ \n(\q_{031})  \perp  \n(\q_{012}) }
+{A(\q_{012})}}
+\times (\q_2 - \q_0)
+\right]
+\; + \;
+\left[
+\frac{{ \n(\q_{012})  \perp  \n(\q_{031}) }
+{A(\q_{031})}}
+\times (\q_0 - \q_3)
+\right]
+\nonumber
+\\
+\Gc{\p_2}{\|\dn\|^2}{\q}
+& = &
+\left[
+\frac{{ \n(\q_{031})  \perp  \n(\q_{012}) }
+{A(\q_{012})}}
+\times (\q_0 - \q_1)
+\right]
+\nonumber
+\\
+\Gc{\p_3}{\|\dn\|^2}{\q}
+& = &
+\left[
+\frac{{ \n(\q_{012})  \perp  \n(\q_{031}) }
+{A(\q_{031})}}
+\times (\q_1 - \q_0)
+\right]
+\nonumber
+\end{eqnarray}
+
+%-----------------------------------------------------------------
+
+\paragraph{Inner product between face normals}
+\label{sec:normal_dot}
+
+The inner product $\left( \n_{012} \bullet \n_{031} \right)$
+is another important measure of edge curvature.
+It is closely related to the squared distance between adjacent normals:
+\begin{equation}
+\label{eq:normal-distance-dot}
+\| \n_{012} - \n_{031} \|^2
+= \| \n_{012} \|^2
++ \| \n_{031} \|^2
+- 2 \left( \n_{012} \bullet \n_{031} \right)
+= 2 \left[ 1 - \left( \n_{012} \bullet \n_{031} \right) \right]
+\end{equation}
+
+The function $f(\p) = 1 - \left( \n_{012} \bullet \n_{031} \right)$
+achieves its minimum, $0$, on flat face pairs,
+and its maximum, $2$, on face pairs that are folded back on themselves.
+It's a reasonable choice the total bending or curvature of a surface.
+And $\Da{f} = - \Da{\left( \n_{012} \bullet \n_{031} \right)}$.
+
+The derivative of
+$\left( \n_{012} \bullet \n_{031} \right)$
+can be calculated using equations \ref{eq:dot_derivative} and
+\ref{eq:unit_normal_derivative}:
+\begin{eqnarray}
+\label{normal_dot_derivative}
+\Db{\left( \n_{012} \bullet \n_{031} \right)}{\q}
+& = & \n(\q_{031}) \bullet \Db{\n_{012}}{\q} + \n(\q_{012}) \bullet \Db{\n_{031}}{\q}
+\\
+\nonumber \\
+& = &
+\n(\q_{031}) \bullet
+\frac{\Identity - \left(\n(\q_{012}) \otimes \n(\q_{012}) \right)}{\| \a(\q_{012}) \|}
+\; \Db{\a_{012}}{\q}
+\nonumber \\
+& + &
+\n(\q_{012}) \bullet
+\frac{\Identity - \left(\n(\q_{031}) \otimes \n(\q_{031}) \right)}{\| \a(\q_{031}) \|}
+\; \Db{\a_{031}}{\q}
+\nonumber
+\end{eqnarray}
+
+As in \autoref{sec:normal_difference}, we can write the partial gradients
+without reference to an argument:
+\begin{eqnarray}
+\label{eq:normal_dot_gradient}
+\Gc{\p_0}{(\n_{012} \bullet \n_{031})}{\q}
+& = \; &
+\frac{ \n(\q_{031}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{012}) }
+{\| \a (\q_{012}) \| }
+\times (\q_2 - \q_1)
+\\
+& \; + &
+\frac{ \n(\q_{012}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{031})  }
+{\| \a (\q_{031}) \| }
+\times (\q_1 - \q_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_1}{(\n_{012} \bullet \n_{031})}{\q}
+& = \; &
+\frac{ \n(\q_{031}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{012})  }
+{\| \a (\q_{012}) \| }
+\times (\q_0 - \q_2)
+\nonumber \\
+& \; + &
+\frac{ \n(\q_{012}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{031})   }
+{\| \a (\q_{031}) \| }
+\times (\q_3 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_2}{(\n_{012} \bullet \n_{031})}{\q}
+& = \; &
+\frac{ \n(\q_{031}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{012})  }
+{\| \a (\q_{012}) \| }
+\times (\q_1 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_3}{(\n_{012} \bullet \n_{031})}{\q}
+& = \; &
+\frac{ \n(\q_{012}) - \left[ \n(\q_{012}) \bullet \n(\q_{031}) \right] \n(\q_{031}) }
+{\| \a (\q_{031}) \| }
+\times (\q_0 - \q_1)
+\nonumber
+\end{eqnarray}
+
+This can be simplified using the fact that
+\(\n_i \perp \n_j = \n_i - \left[ \n_i \bullet \n_j \right] \n_j\), for unit vectors,
+and the face area \(A(\q) = \frac{1}{2} \| \a(\q) \|\):
+\begin{eqnarray}
+\label{eq:simplified_normal_dot_gradient}
+\Gc{\p_0}{(\n_{012} \bullet \n_{031})}{\q}
+& = \;\;\; &
+\frac{\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]}{2A(\q_{012})}
+\times (\q_2 - \q_1)
+\\
+& \;\;\; + &
+\frac{\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]}{2A(\q_{031})}
+\times (\q_1 - \q_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_1}{(\n_{012} \bullet \n_{031})}{\q}
+& = \;\;\; &
+\frac{\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]}{2A(\q_{012})}
+\times (\q_0 - \q_2)
+\nonumber \\
+& \;\;\; + &
+\frac{\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]}{2A(\q_{031})}
+\times (\q_3 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_2}{(\n_{012} \bullet \n_{031})}{\q}
+& = \;\;\; &
+\frac{\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]}{2A(\q_{012})}
+\times (\q_1 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_3}{(\n_{012} \bullet \n_{031})}{\q}
+& = \;\;\; &
+\frac{\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]}{2A(\q_{031})}
+\times (\q_0 - \q_1)
+\nonumber
+\end{eqnarray}
+
+%-----------------------------------------------------------------
+
+\paragraph{Squared inner product between face normals}
+\label{sec:squared_normal_dot}
+
+We can get a more even distribution of bending by giving
+a higher weight to sharper edge bends.
+A simple way to do that is to square some existing function,
+for example: $\left(1 - \n_{012} \bullet \n_{031}\right)^2$.
+The derivative is simply:
+\begin{equation}
+\Da{\left(1 - \n_{012} \bullet \n_{031}\right)^2}
+= -2 \left( 1 - \n_{012} \bullet \n_{031} \right)
+\Da{(\n_{012} \bullet \n_{031})}
+\end{equation}
+
+It follows from equation \ref{eq:simplified_normal_dot_gradient}
+that the partial gradients are:
+\begin{eqnarray}
+\label{eq:squared_normal_dot_gradient}
+\Gc{\p_0}{\left(1 - \n_{012} \bullet \n_{031}\right)^2}{\q}
+& = \;\;\; &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}
+{A(\q_{012}) }
+\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]
+\times (\q_2 - \q_1)
+\\
+& \;\;\; + &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}{A(\q_{031})}
+\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]
+\times (\q_1 - \q_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_1}{\left(1 - \n_{012} \bullet \n_{031}\right)^2}{\q}
+& = \;\;\; &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}{A(\q_{012})}
+\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]
+\times (\q_0 - \q_2)
+\nonumber \\
+& \;\;\; + &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}{A(\q_{031})}
+\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]
+\times (\q_3 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_2}{\left(1 - \n_{012} \bullet \n_{031}\right)^2}{\q}
+& = \;\;\; &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}{A(\q_{012})}
+\left[ \n(\q_{031}) \perp \n(\q_{012}) \right]
+\times (\q_1 - \q_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\p_3}{\left(1 - \n_{012} \bullet \n_{031}\right)^2}{\q}
+& = \;\;\; &
+\frac{\left( \n(\q_{012}) \bullet \n(\q_{031}) - 1\right)
+}{A(\q_{031})}
+\left[ \n(\q_{012}) \perp \n(\q_{031}) \right]
+\times (\q_0 - \q_1)
+\nonumber
+\end{eqnarray}
+

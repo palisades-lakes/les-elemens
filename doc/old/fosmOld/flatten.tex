@@ -14,7 +14,7 @@ Any set $Z$ of $(m+2)$ points whose convex hull is of dimension $m$
 has exactly two triangulations denoted $T_{Z^+}$ and $T_{Z^-}$.
 \end{Lemma}
 
-See Rambau~\cite[Lemma~1.1.2]{Rambau:1996:PolytopeProjection}.
+See Rambau~\cite[Lemma~1.1.2]{rambau-jorg-1996}.
 
 Let $S=(\p_0, \p_1, \ldots , \p_m)$ be an $m$-simplex in $\Reals^{n}$.
 Let $\pi$ be a projection from $\Reals^{n}$ to $Q$, an $(m-1)$-dimensional
@@ -52,7 +52,7 @@ If we label the vertices so that $\{\pi \p_1, \ldots , \pi \p_m\}$
 are on the boundary, and $\pi \p_0$ is in the interior,
 then the second triangulation results from refining the first
 triangulation {\it pulling}
-\cite{Lee:2004:Subdivisions} the vertex $\pi \p_0$.
+\cite{lee-hdcg-17-2004} the vertex $\pi \p_0$.
 The faces of the triangulation formed by pulling
 are the images of the $m$ $(m-1)$-simplexes
 of $S$ that contain $\p_0$, that is, all the $(m-1)$-simplexes in $S$,
@@ -75,78 +75,78 @@ or the shared $1$-simplex in the second.
 
 \subsection{Implementation}
 
-Let $\Vspace$ be a $d$-dimensional real inner product space.
-Let $\p() : \Integers^{+} \mapsto \Vspace,$
-so that $\p(\Ssimplex)$ is a geometric realization of the $d$-simplex $\Ssimplex$.
-Let $\Projection_{\Aspace}$ be the orthogonal projection onto
-$\Aspace$, a $(d-1)$-dimensional affine subspace of $\Vspace$.
-Assume that the $\affine_span \left( \p(\Ssimplex) \right)$
+Let $\vspace$ be a $d$-dimensional real inner product space.
+Let $\p() : \Integers^{+} \mapsto \vspace,$
+so that $\p(\Simplex{S})$ is a geometric realization of the $d$-simplex $\Simplex{S}$.
+Let $\Projection_{\Space{A}}$ be the orthogonal projection onto
+$\Space{A}$, a $(d-1)$-dimensional affine subspace of $\vspace$.
+Assume that the $\affinespan \left( \p(\Simplex{S}) \right)$
 is $(d-1)$-dimensional.
 
-Let $\Kcomplex_{d-1}$ be an oriented version of the $(d-1)$-skeleton of $\Ssimplex$.
+Let $\SimplicialComplex{K}_{d-1}$ be an oriented version of the $(d-1)$-skeleton of $\Simplex{S}$.
 
 By the results above, the oriented $(d-1)$-simplices,
-$\{ \Ffacet_0 \ldots \Ffacet_d \}$ in $\Kcomplex_{d-1}$
-can be partitioned into two subsets, $\Kcomplex_{d-1}^{+}$
-and $\Kcomplex_{d-1}^{-}$, such that
-$\Projection_{\Aspace} \left( \p ( \Kcomplex_{d-1}^{+} ) \right)$
+$\{ \Ffacet_0 \ldots \Ffacet_d \}$ in $\SimplicialComplex{K}_{d-1}$
+can be partitioned into two subsets, $\SimplicialComplex{K}_{d-1}^{+}$
+and $\SimplicialComplex{K}_{d-1}^{-}$, such that
+$\Projection_{\Space{A}} \left( \p ( \SimplicialComplex{K}_{d-1}^{+} ) \right)$
 and
-$\Projection_{\Aspace} \left( \p ( \Kcomplex_{d-1}^{-} ) \right)$
+$\Projection_{\Space{A}} \left( \p ( \SimplicialComplex{K}_{d-1}^{-} ) \right)$
 are each triangulations of
-$\convex_span \left( \Projection_{\Aspace} \left( \p ( \Ssimplex ) \right) \right)$.
+$\convexspan \left( \Projection_{\Space{A}} \left( \p ( \Simplex{S} ) \right) \right)$.
 The two subsets can be determined by computng the signed
 volumes of the realizations of the oriented facets,
 with the positive volumes forming one triangulation and the negative the other.
 
 What I want to do is to create a mutual refinement of the two subsets,
-$\Kcomplex_{d-1}^{1}$,
+$\SimplicialComplex{K}_{d-1}^{1}$,
 which triangulates
-$\convex_span \left( \Projection_{\Aspace} \left( \p ( \Ssimplex ) \right) \right)$.
-I then want to split and collapse simplices in any complex containing $\Ssimplex$
-so that the $d$-simplex $\Ssimplex$ is replaced by the $(d-1)$-dimensional
-complex $\Kcomplex_{d-1}^{1}$.
+$\convexspan \left( \Projection_{\Space{A}} \left( \p ( \Simplex{S} ) \right) \right)$.
+I then want to split and collapse simplices in any complex containing $\Simplex{S}$
+so that the $d$-simplex $\Simplex{S}$ is replaced by the $(d-1)$-dimensional
+complex $\SimplicialComplex{K}_{d-1}^{1}$.
 
 There are two cases:
 \begin{enumerate}
 
-\item $\convex_span \left( \Projection_{\Aspace} \left( \p ( \Ssimplex ) \right) \right)$
+\item $\convexspan \left( \Projection_{\Space{A}} \left( \p ( \Simplex{S} ) \right) \right)$
 has $d$-corners, which are the projected realizations of $d$
-of the vertices of $\Ssimplex$.
-The remaining vertex, $\Vvertex_0$,
+of the vertices of $\Simplex{S}$.
+The remaining vertex, $\Vertex{V}_0$,
 is such that
-$\Projection_{\Aspace} \left( \p ( \Vvertex_0 ) \right)$,
+$\Projection_{\Space{A}} \left( \p ( \Vertex{V}_0 ) \right)$,
 can be expressed
 as a convex combination of the projected realizations of the corner vertices.
 
-In this case, one of $\Kcomplex_{d-1}^{\pm}$ is a single facet $\Ffacet_d$
+In this case, one of $\SimplicialComplex{K}_{d-1}^{\pm}$ is a single facet $\Ffacet_d$
 and the other contains the remaining $d$ facets $\{\Ffacet_0 \ldots \Ffacet_{d-1} \}$,
-which share $\Vvertex_0$.
-To get the mutual refinement, we split $\Ffacet_d$ around a new vertex $\Vvertex_1$.
-To reduce the split children of $\Ssimplex$ to $\Kcomplex_{d-1}^{1}$,
-we collapse the edge $\{ \Vvertex_0 , \Vvertex_1 \}$.
+which share $\Vertex{V}_0$.
+To get the mutual refinement, we split $\Ffacet_d$ around a new vertex $\Vertex{V}_1$.
+To reduce the split children of $\Simplex{S}$ to $\SimplicialComplex{K}_{d-1}^{1}$,
+we collapse the edge $\{ \Vertex{V}_0 , \Vertex{V}_1 \}$.
 
-Note that the number of vertices in any complex containing $\Ssimplex$
+Note that the number of vertices in any complex containing $\Simplex{S}$
 is unchanged.
 
-\item All the $\Projection_{\Aspace} \left( \p ( \Vvertex_i ) \right) $
+\item All the $\Projection_{\Space{A}} \left( \p ( \Vertex{V}_i ) \right) $
 are corners of
-$\convex_span \left( \Projection_{\Aspace} \left( \p ( \Ssimplex ) \right) \right)$.
+$\convexspan \left( \Projection_{\Space{A}} \left( \p ( \Simplex{S} ) \right) \right)$.
 
-In this case, one of $\Kcomplex_{d-1}^{\pm}$
+In this case, one of $\SimplicialComplex{K}_{d-1}^{\pm}$
 contains two facets, $\Ffacet_{d-1}$ and $\Ffacet_{d}$,
 and the other contains the remaining $(d-1)$ facets, $\{\Ffacet_0 \ldots \Ffacet_{d-2} \}$.
-$\Ffacet_{d-1}$ and $\Ffacet_{d}$ share a common $(d-2)$-simplex, $\Tsimplex$.
+$\Ffacet_{d-1}$ and $\Ffacet_{d}$ share a common $(d-2)$-simplex, $\Simplex{T}$.
 $\{\Ffacet_0 \ldots \Ffacet_{d-2} \}$ share a common edge.
-The common edge connects the vertex $\Vvertex_{d-1}$,
-which is opposite $\Tsimplex$ in $\Ffacet_{d-1}$,
-and the vertex $\Vvertex_{d}$
-which is opposite $\Tsimplex$ in $\Ffacet_{d}$.
-To get the mutual refinement, we split $\Eedge$ around a new vertex $\Vvertex_0$
-and split $\Tsimplex$ around a new vertex $\Vvertex_1$.
-To reduce the split children of $\Ssimplex$ to $\Kcomplex_{d-1}^{1}$,
-we collapse the edge $\{ \Vvertex_0 , \Vvertex_1 \}$.
+The common edge connects the vertex $\Vertex{V}_{d-1}$,
+which is opposite $\Simplex{T}$ in $\Ffacet_{d-1}$,
+and the vertex $\Vertex{V}_{d}$
+which is opposite $\Simplex{T}$ in $\Ffacet_{d}$.
+To get the mutual refinement, we split $\Eedge$ around a new vertex $\Vertex{V}_0$
+and split $\Simplex{T}$ around a new vertex $\Vertex{V}_1$.
+To reduce the split children of $\Simplex{S}$ to $\SimplicialComplex{K}_{d-1}^{1}$,
+we collapse the edge $\{ \Vertex{V}_0 , \Vertex{V}_1 \}$.
 
-Note that the number of vertices in any complex containing $\Ssimplex$
+Note that the number of vertices in any complex containing $\Simplex{S}$
 is increased by 1.
 
 \end{enumerate}

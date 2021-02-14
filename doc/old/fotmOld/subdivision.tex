@@ -1,0 +1,46 @@
+I am only considering subdivision surfaces based on triangles
+\cite{HoppeEtal:1994:SIGGRAPH,Hoppe:1994:Phd}.
+
+\subsection{Approximating meshes}
+\label{sec:Approximating-meshes}
+
+A common approach to the use of subdivision surfaces is
+to approximate the limit surface by the {\it subdivided mesh,} $\M^s$,
+a $k$ times subdivided version of the {\it control mesh,} $\M^c$
+(a typical value for $k$ is 2).
+The positions of the $n^c$ vertices of the control mesh,
+$\p^c = (\p^c_0 \ldots \p^c_{n-1}) \\in \Re^{3n^c},$
+and the $n^s$ vertices of the subdivided mesh,
+$\p^s = (\p^s_0 \ldots \p^s_{n-1}) \in \Re^{3n^s},$
+are related by the {\it subdivision transform}
+$\S : \Re^{n^c} \mapsto \Re^{n^s}$.
+If
+$\x^c = (x^c_0 \ldots x^c_{n-1}) \in \Re^{n^c}$,
+$\y^c = (y^c_0 \ldots y^c_{n-1}) \in \Re^{n^c}$,
+and
+$\z^c = (z^c_0 \ldots z^c_{n-1}) \in \Re^{n^c}$,
+are the $x, y,$ and $z,$ coordinates of $\p^c$,
+and $\x^s, \y^s, \z^s$ are the same coordinates
+of $\p^s$, then
+\begin{eqnarray}
+\x^s & = & \S \x^c
+\\
+\y^s & = & \S \y^c
+\nonumber
+\\
+\z^s & = & \S \z^c
+\nonumber
+\end{eqnarray}
+We can use the above to define $\S_3 : \Re^{3n^c} \mapsto \Re^{3n^s}$,
+so that
+\begin{equation}
+\p^s = \S_3 \p^c.
+\end{equation}
+
+
+If $f(\p^s) = f(\S_3 \p^c)$ is a penalty function applied to the subdivided mesh,
+then the gradient with respect to the positions of
+the vertices of the control mesh is simply:
+\begin{equation}
+\Gc{\p^c}{f(\S_3 \p^c)}{\q^c} = \S_3^{\dagger} \Gc{\p^s}{f(\p^s)}{\q^s = \S_3 \q^c}
+\end{equation}

@@ -10,37 +10,65 @@
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 %% arara: clean: { extensions: [ glg, glo, gls, ] }
 % arara: clean: { extensions: [ idx, ] }
-% arara: clean: { extensions: [ilg, ind, xdy, ] }
+%% arara: clean: { extensions: [ilg, ind, xdy, ] }
 %% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
 \documentclass{PalisadesLakesReport}
 \geomHDTV
 \geomLandscape
 %-----------------------------------------------------------------
-\title{Functions of simplicial meshes}
+\title{Functions of triangular meshes}
 \author{John Alan McDonald (palisades dot lakes at gmail dot com)}
-\date{original circa: 1996; revised/reformatted: \today}
+\date{original circa: 2004-10-18; revised/reformatted: \today}
 %-----------------------------------------------------------------
 \begin{document}
 \maketitle
 \PalisadesLakesTableOfContents
 %-----------------------------------------------------------------
-\def\sharedFolder{../../shared/}
+%\def\sharedFolder{../../shared/}
 
 \input{abstract}
 
-\input{vectors}
-\input{maps}
-\import{\sharedFolder}{derivatives}
+\section{Introduction}
+\input{introduction}
+%\cleardoublepage
 
-\input{simplex}
-\import{\sharedFolder}{simplicial-meshes}
-\import{\sharedFolder}{barycentric-coordinates}
-\import{\sharedFolder}{volume}
-\import{\sharedFolder}{mesh-operations}
-\import{\sharedFolder}{flatten}
-\input{edges}
+\section{Notation and general results}
+\input{general}
+
+%\part{Smoothness}
+%\cleardoublepage
+
+\section{Polylines}
+\input{curves}
+%\cleardoublepage
+
+\section{Triangular Meshes}
 \input{faces}
+\input{edges}
+\input{vertices}
+%\cleardoublepage
+
+\section{Subdivision Surfaces}
+\input{subdivision}
+
+%\part{Fitting}
+%\cleardoublepage
+
+\section{Data Fitting}
+\input{data-fitting}
+%\cleardoublepage
+
+\section{Image Fitting}
+\input{image-fitting}
+%\cleardoublepage
+
+\section{Registration}
+\input{registration}
+%\cleardoublepage
+
+\section{Averaging}
+\input{averaging}
 
 %-----------------------------------------------------------------
 \end{document}
