@@ -1,9 +1,15 @@
-\begin{plSection}{Functions of faces}
+% jam 2004-08-28
+
+\subsection{Functions of faces}
 \label{sec:faces}
 
-\begin{plDiagram}
-{Face labeling.}
-{FaceLabeling}
+
+%-------------------------------------------------------------------------------
+
+\subsubsection{Corner angles}
+\label{sec:corner_angles}
+
+\begin{figure}[!htp]
 \centering
 \begin{verbatim}
 
@@ -16,38 +22,37 @@
        /)g0   g1(\
 V0/p0 o-----------o V1/p1
            E01
+
 \end{verbatim}
-\end{plDiagram}
+\caption{Face labeling.
+\label{fig:face_labeling}}
+\end{figure}
 
-%-----------------------------------------------------------------
-\begin{plSection}{Corner angles}
-\label{sec:corner_angles}
+Suppose face $\F_{012}$ has vertices $\V_0, \V_1, \V_2$,
+at points $\p_0, \p_1, \p_2$,
+and edges $\E_{01}, \E_{12}, \E_{20}$,
+as labeled in figure \ref{fig:face_labeling}.
 
-Suppose face $\Face{f}_{012}$ has vertices $\Vertex{v}_0, \Vertex{v}_1, \Vertex{v}_2$,
-at points $\Point{p}_0, \Point{p}_1, \Point{p}_2$,
-and edges $\Edge{e}_{01}, \Edge{e}_{12}, \Edge{e}_{20}$,
-as labeled in \cref{diagram:FaceLabeling}.
-
-The {\em corner angle} $\gamma_i$ in face $\Face{f}_{012}$ of vertex $\Vertex{v}_i$ is
-the angle between the two edges in $\Face{f}_{012}$ that meet at $\Vertex{v}_i$:
+The {\em corner angle} $\gamma_i$ in face $\F_{012}$ of vertex $\V_i$ is
+the angle between the two edges in $\F_{012}$ that meet at $\V_i$:
 \begin{eqnarray}
 \gamma_i
-& = & \gamma(\Face{f}_{012},\Vertex{v}_i)
+& = & \gamma(\F_{012},\V_i)
 \\
-& = & \gamma(\Point{p}_i,\Point{p}_{(i+1) \% 3},\Point{p}_{(i+2) \% 3})
+& = & \gamma(\p_i,\p_{(i+1) \% 3},\p_{(i+2) \% 3})
 \nonumber
 \\
-& = & \theta(\Point{p}_{(i+1) \% 3} - \Point{p}_i,\Point{p}_{(i+2) \% 3} - \Point{p}_i)
+& = & \theta(\p_{(i+1) \% 3} - \p_i,\p_{(i+2) \% 3} - \p_i)
 \nonumber
 \\
 & = &
 \cos^{-1}
 \left[
-\frac{ \left( \Point{p}_{(i+1) \% 3} - \Point{p}_i \right)
+\frac{ \left( \p_{(i+1) \% 3} - \p_i \right)
   \bullet
-  \left( \Point{p}_{(i+2) \% 3} - \Point{p}_i \right) }
-{ \| \Point{p}_{(i+1) \% 3} - \Point{p}_i \|
-  \| \Point{p}_{(i+2) \% 3} - \Point{p}_i \| }
+  \left( \p_{(i+2) \% 3} - \p_i \right) }
+{ \| \p_{(i+1) \% 3} - \p_i \|
+  \| \p_{(i+2) \% 3} - \p_i \| }
 \right]
 \nonumber
 \end{eqnarray}
@@ -56,255 +61,253 @@ Corner angles vary between $0$ and $\pi$, with both extremes
 corresponding to singular, zero-area faces.
 The sum of corner angles for a given face is always $\pi$.
 
-Using \cref{eq:angle_gradient},
+Using equation \ref{eq:angle_gradient},
 it's easy to see that the partial gradients are:
 \begin{eqnarray}
-\Gc{\Point{p}_0}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gc{\p_0}{\gamma(\p_0,\p_1,\p_2)}{\q}
 & = &
 \frac{
-\left[ (\Point{q}_1 -\Point{q}_0) \perp (\Point{q}_2 - \Point{q}_0) \right]
+\left[ (\q_1 -\q_0) \perp (\q_2 - \q_0) \right]
 +
-\left[ (\Point{q}_2 -\Point{q}_0) \perp (\Point{q}_1 - \Point{q}_0) \right]
+\left[ (\q_2 -\q_0) \perp (\q_1 - \q_0) \right]
 }
-{ \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
-\left( (\Point{q}_1 - \Point{q}_0) \bullet (\Point{q}_2 - \Point{q}_0) \right)^2 }}
+{ \sqrt{\|\q_1 - \q_0\|^2\|\q_2 - \q_0\|^2 -
+\left( (\q_1 - \q_0) \bullet (\q_2 - \q_0) \right)^2 }}
 \\
-\Gc{\Point{p}_1}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gc{\p_1}{\gamma(\p_0,\p_1,\p_2)}{\q}
 & = &
-\frac{-(\Point{q}_1 -\Point{q}_0) \perp (\Point{q}_2 - \Point{q}_0)}
-{ \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
-\left( (\Point{q}_1 - \Point{q}_0) \bullet (\Point{q}_2 - \Point{q}_0) \right)^2 }}
+\frac{-(\q_1 -\q_0) \perp (\q_2 - \q_0)}
+{ \sqrt{\|\q_1 - \q_0\|^2\|\q_2 - \q_0\|^2 -
+\left( (\q_1 - \q_0) \bullet (\q_2 - \q_0) \right)^2 }}
+
 \nonumber
 \\
-\Gc{\Point{p}_2}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gc{\p_2}{\gamma(\p_0,\p_1,\p_2)}{\q}
 & = &
-\frac{-(\Point{q}_2 -\Point{q}_0) \perp (\Point{q}_1 - \Point{q}_0)}
-{ \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
-\left( (\Point{q}_1 - \Point{q}_0) \bullet (\Point{q}_2 - \Point{q}_0) \right)^2 }}
+\frac{-(\q_2 -\q_0) \perp (\q_1 - \q_0)}
+{ \sqrt{\|\q_1 - \q_0\|^2\|\q_2 - \q_0\|^2 -
+\left( (\q_1 - \q_0) \bullet (\q_2 - \q_0) \right)^2 }}
 \nonumber
 \end{eqnarray}
 
-\end{plSection}%{Corner angles}
-%-----------------------------------------------------------------
-\begin{plSection}{Functions of face normals}
+%-------------------------------------------------------------------------------
+
+\subsubsection{Functions of face normals}
 \label{sec:normals}
 
 A number of important functions of triangular meshes,
 such as surface area,
 are based on face normal vectors.
 
-%-----------------------------------------------------------------
-\begin{plSection}{Area-weighted face normal}
+%-------------------------------------------------------------------------------
+
+\paragraph{Area-weighted face normal}
 \label{sec:areanormal}
 
-Suppose we have a face whose 3 vertices are at $\Point{p} = (\Point{p}_0, \Point{p}_1, \Point{p}_2)$,
-where $\Point{p}_i \in \Reals^3; i=0,1,2.$
-(Note that the order of the $\Point{p}_i$ determines the orientation of the face.
-With a face as labeled in \cref{diagram:FaceLabeling},
+Suppose we have a face whose 3 vertices are at $\p = (\p_0, \p_1, \p_2)$,
+where $\p_i \in \Reals^3; i=0,1,2.$
+(Note that the order of the $\p_i$ determines the orientation of the face.
+With a face as labeled in figure \ref{fig:face_labeling},
 the normal points out of the page.)
 
 The {\it area-weighted normal} vector is
-\Normal{n}opagebreak
+\nopagebreak
 \begin{eqnarray}
-\Normal{a} (\Point{p}) & = & (\Point{p}_0 \times \Point{p}_1) \ + \ (\Point{p}_1 \times \Point{p}_2) \ + \ (\Point{p}_2 \times \Point{p}_0) \\
-        & = & (\Point{p}_1 - \Point{p}_0) \ \times \ (\Point{p}_2 - \Point{p}_0) \nonumber \\
-        & = & (\Point{p}_2 - \Point{p}_1) \ \times \ (\Point{p}_0 - \Point{p}_1) \nonumber \\
-        & = & (\Point{p}_0 - \Point{p}_2) \ \times \ (\Point{p}_1 - \Point{p}_2) \nonumber
+\a (\p) & = & (\p_0 \times \p_1) \ + \ (\p_1 \times \p_2) \ + \ (\p_2 \times \p_0) \\
+        & = & (\p_1 - \p_0) \ \times \ (\p_2 - \p_0) \nonumber \\
+        & = & (\p_2 - \p_1) \ \times \ (\p_0 - \p_1) \nonumber \\
+        & = & (\p_0 - \p_2) \ \times \ (\p_1 - \p_2) \nonumber
 \end{eqnarray}
 
 The 'partial' derivatives of the area-weighted normal are:
 \begin{eqnarray}
-\Dd{\Point{p}_0}{\Normal{a}}{\Point{q}}{\Point{r}_0} \
-& = \ (\Point{r}_0 \times \Point{q}_1) \ + \ (\Point{q}_2 \times \Point{r}_0) & = (\Point{q}_2 - \Point{q}_1) \times \Point{r}_0 \\
-\Dd{\Point{p}_1}{\Normal{a}}{\Point{q}}{\Point{r}_1} \
-& = \ (\Point{r}_1 \times \Point{q}_2) \ + \ (\Point{q}_0 \times \Point{r}_1) & = (\Point{q}_0 - \Point{q}_2) \times \Point{r}_1 \nonumber \\
-\Dd{\Point{p}_2}{\Normal{a}}{\Point{q}}{\Point{r}_2} \
-& = \ (\Point{r}_2 \times \Point{q}_0) \ + \ (\Point{q}_1 \times \Point{r}_2) & = (\Point{q}_1 - \Point{q}_0) \times \Point{r}_2 \nonumber
+\Dd{\p_0}{\a}{\q}{r_0} \
+& = \ (\r0 \times \q_1) \ + \ (\q_2 \times \r_0) & = (\q_2 - \q_1) \times \r_0 \\
+\Dd{\p_1}{\a}{\q}{r_1} \
+& = \ (\r1 \times \q_2) \ + \ (\q_0 \times \r_1) & = (\q_0 - \q_2) \times \r_1 \nonumber \\
+\Dd{\p_2}{\a}{\q}{r_2} \
+& = \ (\r2 \times \q_0) \ + \ (\q_1 \times \r_2) & = (\q_1 - \q_0) \times \r_2 \nonumber
 \end{eqnarray}
 
-Note that $\Df{\Point{p}}{\Normal{a}}$ is {\it skew-symmetric}, that is,
-$\Df{\Point{p}}{\Normal{a}}^{\dagger} = -\Df{\Point{p}}{\Normal{a}}.$
+Note that $\Df{\p}{\a}$ is {\it skew-symmetric}, that is,
+$\Df{\p}{\a}^{\dagger} = -\Df{\p}{\a}.$
 
-\end{plSection}%{Area-weighted face normal}
-%-----------------------------------------------------------------
-\begin{plSection}{Face area}
+%-------------------------------------------------------------------------------
+
+\paragraph{Face area}
 \label{sec:facearea}
 
 The area of a face is half the length of the area-weighted normal:
 \begin{eqnarray}
-A(\Point{p})
-& = & \frac{1}{2} \| \ \Normal{a}(\Point{p}) \ \|  \\
-& = & \frac{1}{2} \| \ (\Point{p}_0 \times \Point{p}_1) \ + \ (\Point{p}_1 \times \Point{p}_2) \ + \ (\Point{p}_2 \times \Point{p}_0) \ \|.
+A(\p)
+& = & \frac{1}{2} \| \ \a(\p) \ \|  \\
+& = & \frac{1}{2} \| \ (\p_0 \times \p_1) \ + \ (\p_1 \times \p_2) \ + \ (\p_2 \times \p_0) \ \|.
 \nonumber
 \end{eqnarray}
 
-It follows from \cref{eq:norm_derivative}
+It follows from equation \ref{eq:norm_derivative}
 that the first 'partial' derivative of the face area is:
 \begin{eqnarray}
 \label{eq:area_partial_derivative}
-\Dd{\Point{p}_0}{A}{\Point{q}}{\Point{r}_0}
+\Dd{\p_0}{A}{\q}{\r_0}
 & = &
-\frac{\Normal{a}(\Point{q})^\dagger}{2\|\Normal{a}(\Point{q})\|}
-{\Dd{\Point{p}_0}{\Normal{a}}{\Point{q}}{\Point{r}_0}}  \\
+\frac{\a(\q)^\dagger}{2\|\a(\q)\|}
+{\Dd{\p_0}{\a}{\q}{\r_0}}  \\
 & = &
-\frac{\Normal{a}(\Point{q})}{2\|\Normal{a}(\Point{q})\|}
+\frac{\a(\q)}{2\|\a(\q)\|}
 \bullet
-\left[(\Point{r}_0 \times \Point{q}_1) + (\Point{q}_2 \times \Point{r}_0)\right] \nonumber \\
+\left[(\r_0 \times \q_1) + (\q_2 \times \r_0)\right] \nonumber \\
 & = &
-\frac{\Normal{a}(\Point{q})}{2\|\Normal{a}(\Point{q})\|}
+\frac{\a(\q)}{2\|\a(\q)\|}
 \bullet
-\left[(\Point{q}_2 - \Point{q}_1) \ \times \  \Point{r}_0)\right] \nonumber \\
+\left[(\q_2 - \q_1) \ \times \  \r_0)\right] \nonumber \\
 & = &
-\frac{\Normal{a}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)}{2\|\Normal{a}(\Point{q})\|}
+\frac{\a(\q) \times (\q_2 - \q_1)}{2\|\a(\q)\|}
 \bullet
-\Point{r}_0 \nonumber
+\r_0 \nonumber
 \end{eqnarray}
 
-The last identity follows from \cref{eq:dot_cross}.
+The last identity follows from equation \ref{eq:dot_cross}.
 
 The 'partial' gradients of the face area are then:
 \begin{eqnarray}
-\Gc{\Point{p}_0}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)}{2\|\Normal{a}(\Point{q})\|} \\
-\Gc{\Point{p}_1}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_0 - \Point{q}_2)}{2\|\Normal{a}(\Point{q})\|} \nonumber \\
-\Gc{\Point{p}_2}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_1 - \Point{q}_0)}{2\|\Normal{a}(\Point{q})\|} \nonumber
+\Gc{\p_0}{A}{\q} & = & \frac{\a(\q) \times (\q_2 - \q_1)}{2\|\a(\q)\|} \\
+\Gc{\p_1}{A}{\q} & = & \frac{\a(\q) \times (\q_0 - \q_2)}{2\|\a(\q)\|} \nonumber \\
+\Gc{\p_2}{A}{\q} & = & \frac{\a(\q) \times (\q_1 - \q_0)}{2\|\a(\q)\|} \nonumber
 \end{eqnarray}
 
-More simply, using the face unit normal \( \Normal{n}(\Point{p})  =  \frac{\Normal{a}(\Point{p})}{\| \Normal{a}(\Point{p}) \|} \):
+More simply, using the face unit normal \( \n(\p)  =  \frac{\a(\p)}{\| \a(\p) \|} \):
 \begin{eqnarray}
 \label{eq:area_gradient}
-\Gc{\Point{p}_0}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_2 - \Point{q}_1) \\
-\Gc{\Point{p}_1}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_0 - \Point{q}_2) \nonumber \\
-\Gc{\Point{p}_2}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_1 - \Point{q}_0) \nonumber
+\Gc{\p_0}{A}{\q} & = & \frac{\n(\q)}{2} \times (\q_2 - \q_1) \\
+\Gc{\p_1}{A}{\q} & = & \frac{\n(\q)}{2} \times (\q_0 - \q_2) \nonumber \\
+\Gc{\p_2}{A}{\q} & = & \frac{\n(\q)}{2} \times (\q_1 - \q_0) \nonumber
 \end{eqnarray}
 
-\end{plSection}%{Face area}
-%-----------------------------------------------------------------
-\begin{plSection}{Face unit normal vector}
+%-------------------------------------------------------------------------------
+
+\paragraph{Face unit normal vector}
 \label{sec:facenormal}
 
 The unit vector normal to a face whose vertices are at
-$\Point{p} = (\Point{p}_0,\Point{p}_1,\Point{p}_2)$ is just the area weighted normal (see \cref{sec:areanormal})
+$\p = (\p_0,\p_1,\p_2)$ is just the area weighted normal (see \autoref{sec:areanormal})
 adjusted to length 1:
 \begin{equation}
-\Normal{n}(\Point{p})  =  \frac{\Normal{a}(\Point{p})}{\| \Normal{a}(\Point{p}) \|}
+\n(\p)  =  \frac{\a(\p)}{\| \a(\p) \|}
 \end{equation}
 
-Following \cref{eq:normalized_function_derivative}, the derivative is:
+Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 
 \begin{eqnarray}
 \label{eq:unit_normal_derivative}
-\Dc{\Normal{n}}{\Point{p}}{\Point{q}}
+\Dc{\n}{\p}{\q}
 &  =
-& \frac{ \left( {\| \Normal{a}(\Point{p}) \|^2 \Identity_{\Reals^3}  -  \Normal{a}(\Point{p}) \otimes \Normal{a}(\Point{p}) }
-{\| \Normal{a}(\Point{p}) \|^3} \right) }
-\; \Dc{\Normal{a}}{\Point{p}}{\Point{q}}
+& \frac{ \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) }
+{\| \a(\p) \|^3} \right) }
+\; \Dc{\a}{\p}{\q}
  \\
 & & \nonumber\\
 &  =
-& \frac{ \left( {\| \Normal{a}(\Point{p}) \|^2 \Identity_{\Reals^3}  -  \Normal{a}(\Point{p}) \otimes \Normal{a}(\Point{p}) }
-{\| \Normal{a}(\Point{p}) \|^3} \right)} \ast
+& \frac{ \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) }
+{\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
-\left[ \left( \Point{q}_0 \times \Point{p}_1 \right) + \left( \Point{p}_2 \times \Point{q}_0 \right)
+\left[ \left( \q_0 \times \p_1 \right) + \left( \p_2 \times \q_0 \right)
 +
-\left( \Point{q}_1 \times \Point{p}_2 \right) + \left( \Point{p}_0 \times \Point{q}_1 \right)
+\left( \q_1 \times \p_2 \right) + \left( \p_0 \times \q_1 \right)
 +
-\left( \Point{q}_2 \times \Point{p}_0 \right) + \left( \Point{p}_1 \times \Point{q}_2 \right) \right]
+\left( \q_2 \times \p_0 \right) + \left( \p_1 \times \q_2 \right) \right]
 \nonumber \\
 & & \nonumber\\
 &  =
-& \frac{ \left( {\| \Normal{a}(\Point{p}) \|^2 \Identity_{\Reals^3}  -  \Normal{a}(\Point{p}) \otimes \Normal{a}(\Point{p}) }{\| \Normal{a}(\Point{p}) \|^3} \right)} \ast
+& \frac{ \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) }{\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
-\left[ \left( (\Point{p}_2 - \Point{p}_1) \times \Point{q}_0 \right)
+\left[ \left( (\p_2 - \p_1) \times \q_0 \right)
 +
-\left( (\Point{p}_0 - \Point{p}_2) \times \Point{q}_1 \right)
+\left( (\p_0 - \p_2) \times \q_1 \right)
 +
-\left( (\Point{p}_1 - \Point{p}_0) \times \Point{q}_2 \right) \right]
+\left( (\p_1 - \p_0) \times \q_2 \right) \right]
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\Identity_{\Reals^3}  -  \Normal{n}(\Point{p}) \otimes \Normal{n}(\Point{p}) } \over {\| \Normal{a}(\Point{p}) \|} \right)} \ast \; \Dc{\Normal{a}}{\Point{p}}{\Point{q}}
+& { \left( {\I_{\Reals^3}  -  \n(\p) \otimes \n(\p) } \over {\| \a(\p) \|} \right)} \ast \; \Dc{\a}{\p}{\q}
 \nonumber
 \end{eqnarray}
 
-\end{plSection}%{Face unit normal vector}
-%-----------------------------------------------------------------
-\end{plSection}%{Functions of face normals}
-%-----------------------------------------------------------------
-\begin{plSection}{Aspect Ratio}
+%-------------------------------------------------------------------------------
+
+\subsubsection{Aspect Ratio}
 \label{sec:aspect_ratio}
+
 Minimizing a measure of face aspect ratio can help maintain
 a well-conditioned mesh.
 Maximizing it may help in discovering collapse-able edges.
-%-----------------------------------------------------------------
-\begin{plSection}{Squared edge lengths over area}
+
+%-------------------------------------------------------------------------------
+
+\paragraph{Squared edge lengths over area}
 \label{sec:Squared-edge-lengths-over-area}
 
 One measure of the deviation of a face from equilaterality is:
 \begin{equation}
-{\mathrm L2A}(\Point{p}_0,\Point{p}_1,\Point{p}_2)
+{\mathrm L2A}(\p_0,\p_1,\p_2)
 =
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
-{A(\Point{p})}
+\frac{ \| \p_0 - \p_1 \|^2 + \| \p_1 - \p_2 \|^2 + \| \p_2 - \p_0 \|^2 }
+{A(\p)}
 \end{equation}
 
-Using \cref{eq:area_gradient}, it follows that the
+Using \ref{eq:area_gradient}, it follows that the
 partial gradients of L2A are:
 \begin{eqnarray}
 \label{eq:L2A_gradient}
-\Gc{\Point{p}_0}{L2A}{\Point{q}}
+\Gc{\p_0}{L2A}{\q}
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_0 - \Point{p}_1 \right) + \left( \Point{p}_0 - \Point{p}_2 \right) \right]}
-{A(\Point{q})}
+\frac{2\left[ \left( \p_0 - \p_1 \right) + \left( \p_0 - \p_2 \right) \right]}
+{A(\q)}
 \right)
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
-{2 A^2(\Point{q})}
-\left[ \Normal{n}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)
+\frac{ \| \p_0 - \p_1 \|^2 + \| \p_1 - \p_2 \|^2 + \| \p_2 - \p_0 \|^2 }
+{2 A^2(\q)}
+\left[ \n(\q) \times (\q_2 - \q_1)
 \right]
 \right)
 \nonumber \\
-\Gc{\Point{p}_1}{L2A}{\Point{q}}
+\Gc{\p_1}{L2A}{\q}
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_1 - \Point{p}_2 \right) + \left( \Point{p}_1 - \Point{p}_0 \right) \right]}
-{A(\Point{q})}
+\frac{2\left[ \left( \p_1 - \p_2 \right) + \left( \p_1 - \p_0 \right) \right]}
+{A(\q)}
 \right)
 \nonumber
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
-{2 A^2(\Point{q})}
-\left[ \Normal{n}(\Point{q}) \times (\Point{q}_0 - \Point{q}_2) \right]
+\frac{ \| \p_0 - \p_1 \|^2 + \| \p_1 - \p_2 \|^2 + \| \p_2 - \p_0 \|^2 }
+{2 A^2(\q)}
+\left[ \n(\q) \times (\q_0 - \q_2) \right]
 \right)
 \nonumber
 \\
-\Gc{\Point{p}_2}{L2A}{\Point{q}}
+\Gc{\p_2}{L2A}{\q}
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_2 - \Point{p}_0 \right) + \left( \Point{p}_2 - \Point{p}_1 \right) \right]}
-{A(\Point{q})}
+\frac{2\left[ \left( \p_2 - \p_0 \right) + \left( \p_2 - \p_1 \right) \right]}
+{A(\q)}
 \right)
 \nonumber
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
-{2 A^2(\Point{q})}
-\left[ \Normal{n}(\Point{q}) \times (\Point{q}_1 - \Point{q}_0) \right]
+\frac{ \| \p_0 - \p_1 \|^2 + \| \p_1 - \p_2 \|^2 + \| \p_2 - \p_0 \|^2 }
+{2 A^2(\q)}
+\left[ \n(\q) \times (\q_1 - \q_0) \right]
 \right)
 \nonumber
 \end{eqnarray}
-\end{plSection}%{Squared edge lengths over area}
-%-----------------------------------------------------------------
-\end{plSection}%{Aspect Ratio}
-%-----------------------------------------------------------------
-\end{plSection}%{Functions of faces}

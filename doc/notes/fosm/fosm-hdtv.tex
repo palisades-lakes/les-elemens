@@ -10,34 +10,38 @@
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 %% arara: clean: { extensions: [ glg, glo, gls, ] }
 % arara: clean: { extensions: [ idx, ] }
-%% arara: clean: { extensions: [ilg, ind, xdy, ] }
+% arara: clean: { extensions: [ilg, ind, xdy, ] }
 %% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesArticle}
+\documentclass{PalisadesLakesReport}
 \geomHDTV
 \geomLandscape
 %-----------------------------------------------------------------
 \title{Functions of simplicial meshes}
 \author{John Alan McDonald (palisades dot lakes at gmail dot com)}
-\date{original: 2004-09-10; revised/reformatted: \today}
+\date{original circa: 1996; revised/reformatted: \today}
 %-----------------------------------------------------------------
 \begin{document}
 \maketitle
-%\PalisadesLakesTableOfContents
+\PalisadesLakesTableOfContents
 %-----------------------------------------------------------------
 \def\sharedFolder{../../shared/}
+
 \input{abstract}
+
+\input{vectors}
+\input{maps}
+\import{\sharedFolder}{derivatives}
+
+\input{simplex}
 \import{\sharedFolder}{simplicial-meshes}
 \import{\sharedFolder}{barycentric-coordinates}
 \import{\sharedFolder}{volume}
 \import{\sharedFolder}{mesh-operations}
 \import{\sharedFolder}{flatten}
+\input{edges}
+\input{faces}
 
-\appendix
-
-\input{vectors}
-\input{maps}
-\input{derivatives}
 %-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------

@@ -6,7 +6,7 @@
 \subsection{Identities for real vector operations}
 \label{sec:RX}
 
-See \cite[p.~85, ex.~4-9]{Spivak:1965:CalculusOnManifolds}.
+See \cite[p.~85, ex.~4-9]{spivak-1965}.
 
 Let $\p, \q \in \Re^{n}$.
 Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
@@ -46,7 +46,7 @@ from $\Re^n$ to $\Re^m$, defined by:
 \subsection{Identities for 3-dimensional vector operations}
 \label{sec:R3X}
 
-See \cite[p.~85, ex.~4-9]{Spivak:1965:CalculusOnManifolds}, .
+See \cite[p.~85, ex.~4-9]{spivak-1965}, .
 
 Let $\p, \q, \r \in \Re^3$.
 Let $(p_0,p_1,p_2), (q_0,q_1,q_2), (r_0,r_1,r_2), $ be their coordinates
@@ -83,7 +83,7 @@ The cross product:
 \end{equation}
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsection{Functions on real vector spaces}
 \label{sec:functions}
@@ -132,7 +132,7 @@ $\p = (\x,\y,\z),$
 where $\x =(x_0, \ldots x_{n-1}) \in \Re^n$, are the $x$-coordinates
 of the positions of the vertices, and similarly for $y$ and $z$.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsection{Derivatives}
 \label{sec:derivatives}
@@ -149,7 +149,7 @@ To be a little more precise, we want
   \over  \|{\bf \delta}  \|}
  = 0
 \end{displaymath}
-For a concise and correct discussion, see \cite{Spivak:1965:CalculusOnManifolds}.
+For a concise and correct discussion, see \cite{spivak-1965}.
 
 \begin{itemize}
 
@@ -194,7 +194,7 @@ partial derivatives.
 \end{itemize}
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Gradients of real-valued functions}
 \label{sec:gradients}
@@ -220,7 +220,7 @@ this means the derivative is a linear function on $\Re^n$,
 an element of the dual space of $\Re^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
 of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
-(see \cite[p.~96, ex.~4-18]{Spivak:1965:CalculusOnManifolds}).
+(see \cite[p.~96, ex.~4-18]{spivak-1965}).
 
 Notation for the various versions of the gradient
 follows that for derivatives:
@@ -247,7 +247,7 @@ See above.
 \end{itemize}
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Chain rule}
 \label{sec:chain}
@@ -265,10 +265,10 @@ Then
             \;\; = \;\; \Db{\g}{\f(\p)} \; \circ \; \Db{\f} {\p}.
 \end{equation}
 
-See \cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}.
+See \cite[Theorem~2-2]{spivak-1965}.
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of multilinear functions}
 \label{sec:multilinear}
@@ -288,10 +288,10 @@ at the point $(\p_0,\ldots,\p_k)$, applied to the vector $(\q_0,\ldots,\q_k)$ is
 \; = \; \sum_{i=0,k} \f(\p_0,\ldots,\p_{i-1},\q_i,\p_{i+1},\ldots,\p_k).
 \end{equation}
 
-See \cite[ex.~2-14]{Spivak:1965:CalculusOnManifolds}.
+See \cite[ex.~2-14]{spivak-1965}.
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of bilinear functions}
 \label{sec:bilinear}
@@ -314,9 +314,9 @@ at the point $(\p_0,\q_0)$, applied to the vector $(\p,\q)$ is
 \Dc{\f}{(\p_0,\q_0)}{\p,\q} = \f(\p_0,\q) + \f(\p,\q_0).
 \end{equation}
 
-See \cite[ex. 2-12]{Spivak:1965:CalculusOnManifolds}.
+See \cite[ex. 2-12]{spivak-1965}.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of linear functions}
 \label{sec:Derivatives-of-linear-functions}
@@ -332,7 +332,7 @@ a_0 \f(\p_0) + a_1 \f(\p_1)
 
 The derivative of $\f$ is simply $\f$ itself.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of inner products}
 \label{sec:inner}
@@ -358,10 +358,10 @@ The derivative of $\f \bullet \g$ is:
 & \f(\p_0) \bullet \Dc{\g}{\p_0}{\p} \; + \; \g(\p_0) \bullet \Dc{\f}{\p_0}{\p} \nonumber
 \end{eqnarray}
 
-See \cite[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
+See \cite[ex.~2-13]{spivak-1965}.
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of cross products}
 \label{sec:cross}
@@ -389,7 +389,7 @@ The derivative of $\f \times \g$ is:
 & \f(\p_0) \;\times \;\Dc{\g}{\p_0}{\p} \;+ \;\Dc{\f}{\p_0}{\p} \;\times \;\g(\p_0) \nonumber
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of scalar products}
 \label{sec:scalar}
@@ -406,7 +406,7 @@ It follows from the chain rule that the derivative of $\h = f\g$ is:
 \end{eqnarray}
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of euclidean norms}
 \label{sec:norms}
@@ -446,7 +446,7 @@ $\Db{\| \f \|^2}{\p}  =  2 {\f(\p)}^{\dagger} \Db{\f}{\p} $.
 \label{eq:norm_gradient}
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of normalized functions}
 \label{sec:Derivatives-of-normalized-functions}
@@ -534,7 +534,7 @@ it follows that:
 \nonumber
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Derivatives of angles}
 \label{sec:derivatives-of-angles}

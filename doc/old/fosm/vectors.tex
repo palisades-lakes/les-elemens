@@ -1,90 +1,87 @@
 % jam 2004-09-10
 
-\begin{plSection}{Vector spaces}
+\section{Vector spaces}
 \label{sec:vector-spaces}
 
 My approach to vector spaces is largely based on
 the texts I used as a college freshman for linear algebra and
-multivariate calculus: Halmos \cite{Halmos:1958:Finite}
-and Spivak \cite{Spivak:1965:CalculusOnManifolds}.
+multivariate calculus: Halmos \cite{halmos1958finite}
+and Spivak \cite{spivak-1965}.
 
 Some useful definitions/identities:
 
-Let $\vspace$ be an $n$-dimensional real inner product space.
-Let $\Vector{v}, \Vector{w} \in \vspace$.
+Let $\Vspace$ be an $n$-dimensional real inner product space.
+Let $\v, \w \in \Vspace$.
 
 \begin{itemize}
 \item The inner (dot) product on $\Reals^n$:
 \begin{equation}
-\Vector{v} \bullet \Vector{w} \; \equiv \; \sum_{i=0}^{n-1} v_i w_i
+\v \bullet \w \; \equiv \; \sum_{i=0}^{n-1} v_i w_i
 \end{equation}
 
 \item The euclidean ($l_2$) norm:
 \begin{equation}
-\| \Vector{v} \|^2 \; \equiv \; \Vector{v} \bullet \Vector{v}
+\| \v \|^2 \; \equiv \; \v \bullet \v
 \end{equation}
 
-\item $\theta(\Vector{v},\Vector{w})$ is the angle between $\Vector{v}$ and $\Vector{w}$
+\item $\theta(\v,\w)$ is the angle between $\v$ and $\w$
 and is defined by:
 \begin{eqnarray}
-\Vector{v} \bullet \Vector{w} \; = \; \| \Vector{v} \| \| \Vector{w} \| \cos(\theta(\Vector{v},\Vector{w}))
+\v \bullet \w \; = \; \| \v \| \| \w \| \cos(\theta(\v,\w))
 \\
-\theta(\Vector{v},\Vector{w})
+\theta(\v,\w)
 \; \equiv \;
-\cos^{-1} \left(\frac{ \Vector{v} \bullet \Vector{w} }{\| \Vector{v} \| \| \Vector{w} \| } \right)
+\cos^{-1} \left(\frac{ \v \bullet \w }{\| \v \| \| \w \| } \right)
 \nonumber
 \end{eqnarray}
 
 \item The tensor (outer) product:
 
-Let $\Vector{v}, \Vector{u} \in \vspace, \Vector{w} \in \Space{W}.$
-$\Vector{w} \otimes \Vector{v}$ is a rank 1 linear map
-from $\vspace$ to $\Space{W}$, defined by:
+Let $\v, \u \in \Vspace, \w \in \Wspace.$
+$\w \otimes \v$ is a rank 1 linear map
+from $\Vspace$ to $\Wspace$, defined by:
 \begin{equation}
-(\Vector{w} \otimes \Vector{v})(\Vector{u}) \; \equiv \; \Vector{w} (\Vector{v} \bullet \Vector{u})
+(\w \otimes \v)(\u) \; \equiv \; \w (\v \bullet \u)
 \end{equation}
 
 Note: this is an abuse of the usual definition of tensor product $\otimes$.
 This operation, which takes a pair of vectors and returns a linear map,
 is more conventionally referred to as the 'outer product',
-and written $\Vector{w} \Vector{v}^{\dagger}$.
+and written $\w \v^{\dagger}$.
 However, because I am working in spaces other than $\Reals^n$
-(eg. $\Space{L}space(\vspace,\Space{W})$, the space of linear maps
+(eg. $\Lspace(\Vspace,\Wspace)$, the space of linear maps
 between 2 vector spaces),
 I want to avoid notations that suggest thinking in terms
 of 'row' and 'column' vectors.
 
 The following is a useful identity.
-If $\Vector{t} \in \Space{T}$, $\Vector{u}, \Vector{v} \in \vspace$, 
-and $\Vector{w} \in \Space{W}.$
+If $\t \in \Tspace$, $\u, \v \in \Vspace$, and $\w \in \Wspace.$
 then
 \begin{equation}
 \label{eq:tensor-dot}
-(\Vector{t} \otimes \Vector{u}) (\Vector{v} \otimes \Vector{w})(\Vector{u}) = 
-(\Vector{u} \bullet \Vector{v}) (\Vector{t} \otimes \Vector{w})
+(\t \otimes \u) (\v \otimes \w)(\u) = (\u \bullet \v) (\t \otimes \w)
 \end{equation}
 
 
 \item Elementary orthogonal projection:
 \begin{equation}
-\Projection_{\Vector{w}} \Vector{v}
+\Projection_{\w} \v
 \; \equiv \;
-\left( \frac{ \Vector{w} }{ \| \Vector{w} \| } \otimes \frac{ \Vector{w} }{ \| \Vector{w} \| } \right) \Vector{v}
+\left( \frac{ \w }{ \| \w \| } \otimes \frac{ \w }{ \| \w \| } \right) \v
 \; = \;
-\left( \frac{\Vector{w} }{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
+\left( \frac{\w }{\|\w\|} \bullet \v \right) \frac{\w}{\|\w\|}
 \end{equation}
 
 \item Orthogonal complement:
 \begin{equation}
-\perp_{\Vector{w}} \Vector{v}
+\perp_{\w} \v
 \; \equiv \;
-\Vector{v} \perp \Vector{w}
+\v \perp \w
 \; \equiv \;
-\Vector{v} \; - \; \Projection_{\Vector{w}} \Vector{v}
+\v \; - \; \Projection_{\w} \v
 \; = \;
-\Vector{v} \; - \; \left( \frac{\Vector{w}}{\|\Vector{w}\|} \bullet \Vector{v} \right) \frac{\Vector{w}}{\|\Vector{w}\|}
+\v \; - \; \left( \frac{\w}{\|\w\|} \bullet \v \right) \frac{\w}{\|\w\|}
 \end{equation}
 
 \end{itemize}
 
-\end{plSection}%{Vector spaces}

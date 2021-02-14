@@ -1,0 +1,53 @@
+% jam 2004-03-01
+%
+% smallhead.sty
+%
+\typeout{Document Style 'smallhead'}
+
+\sloppy
+\flushbottom
+\parindent 1em
+
+% from art19.sty
+%\def\section{\@startsection {section}{1}{\z@}{-3.5ex plus -1ex minus
+%    -.2ex}{2.3ex plus .2ex}{\Large\bf}}
+\def\section{\@startsection {section}{1}{\z@}{-1.0ex plus -0.5ex minus
+    -0.1ex}{0.1ex plus 0.05ex}{\large\bf}}
+
+\def\subsection{\@startsection{subsection}{2}{\z@}{-0.50ex plus -0.1ex
+        minus -0.1ex}{0.1ex plus 0.1ex}{\normalsize\bf}}
+%\def\subsection{\@startsection{subsection}{2}{\z@}{-1.00ex plus -0.1ex
+%       minus -0.2ex}{-1.0ex plus 0.1ex minus 0.1ex}{\large\bf}}
+
+
+%\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex plus
+%-1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-0.75ex plus
+-0.1ex minus -0.2ex}{-1.0ex plus 0.1ex}{\normalsize\bf}}
+
+%\def\paragraph{\@startsection
+%     {paragraph}{4}{\z@}{3.25ex plus 1ex minus .2ex}{-1ex}{\normalsize\bf}}
+\def\paragraph{\@startsection{paragraph}{3}{\z@}{-0.75ex plus
+-0.1ex minus -0.2ex}{-1.0ex plus 0.1ex}{\normalsize\bf}}
+
+%\def\@listI{\leftmargin\leftmargini \parsep 4pt plus 2pt minus 1pt%
+%\topsep 8pt plus 2pt minus 4pt%
+%\itexsep 4pt plus 2pt minus 1pt}
+\def\@listI{\leftmargin\leftmargini \parsep 1pt plus 0.5pt%
+\topsep 1pt plus 0.5pt%
+\itemsep 1pt plus 0.5pt}
+\let\@listi\@listI
+\@listi
+
+\def\@listii{\leftmargin\leftmarginii
+\labelwidth\leftmarginii\advance\labelwidth-\labelsep
+\topsep 2pt plus 1pt minus 0.5pt
+\parsep 1pt plus 0.5pt minus 0.25pt
+\itemsep \parsep}
+%\def\@listii{\leftmargin\leftmarginii
+%\labelwidth\leftmarginii\advance\labelwidth-\labelsep
+%\topsep 0pt
+%\parsep 0pt
+%\itemsep 0pt}
+
+

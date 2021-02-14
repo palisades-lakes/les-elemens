@@ -1,0 +1,54 @@
+% jam 2004-09-10
+
+\section{Mesh Operations}
+\label{sec:mesh-operations}
+
+\subsection{Split}
+
+Splitting a simplex produces a refined complex by adding a new vertex
+and subdivided some of the simplices.
+
+
+Suppose $\Ssimplex$ is a $d$-simplex
+in the pure $n$-dimensional simplicial complex $\Kcomplex_0$.
+Let $\Vvertex$ be a vertex not in $\Kcomplex_0$.
+{\it Splitting $\Ssimplex$ around $\Vvertex$}
+produces a refined pure $n$-dimensional simplicial complex, $\Kcomplex_1$:
+
+$\Kcomplex_1$ contains all the  $n$-simplexes of $\Kcomplex_0$
+that do not contain $\Ssimplex$.
+
+The simplexes that do contain $\Ssimplex$ are split:
+Let $\Tsimplex$ be an $n$-simplex that contains $\Ssimplex$.
+Let $\Rsimplex$ be the $(n-d-1)$-simplex opposite $\Ssimplex$
+in $\Tsimplex$.
+(If $\Tsimplex = \Ssimplex$, then $\Rsimplex$ is the empty set.)
+Let $\{ \Ffacet_0 \ldots \Ffacet_d \}$ be the
+d $(d-1)$-simplex facets of $\Ssimplex$.
+$\Kcomplex_1$ has
+$d$ $n$-simplices formed from
+$\Vvertex$, $\Rsimplex$, and
+$\Ffacet_i$ where $i=0 \ldots d$.
+
+This is also known as "placing a vertex" 
+(See Lee~\cite[sec.~17.2]{lee-hdcg-17-2004}).
+
+\subsection{Collapse}
+
+Collapsing a simplex produces a reduced complex by mergng
+the vertices of the simplex into a single new one.
+
+Suppose $\Ssimplex$ is a $d$-simplex
+in the pure $n$-dimensional simplicial complex $\Kcomplex_0$.
+Let $\Vvertex$ be a vertex not in $\Kcomplex_0$.
+{\it Collapsing $\Ssimplex$ to $\Vvertex$}
+produces a reduced pure $n$-dimensional simplicial complex, $\Kcomplex_1$:
+
+$\Kcomplex_1$ contains all the
+$n$-simplices of $\Kcomplex_0$ that share no vertices with $\Ssimplex$.
+Any $n$-simplex in $\Kcomplex_0$ sharing more than one vertex
+with $\Ssimplex$ is ignored.
+For every $n$-simplex in $\Kcomplex_0$ sharing one vertex with $\Ssimplex$,
+$\Kcomplex_1$ gets an $n$-simplex with $\Vvertex$ replacing the
+shared vertex.
+

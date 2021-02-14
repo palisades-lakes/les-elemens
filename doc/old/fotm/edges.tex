@@ -1,7 +1,7 @@
 \subsection{Functions of the edges}
 \label{sec:edges}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \begin{figure}[!htp]
 \centering
@@ -53,7 +53,7 @@ Note that we cannot assume any consistent ordering of the 4 neighboring edges;
 for example, $e_{12}$ may be represented by either ordered pair
 $(\p_1,\p_2)$ or $(\p_2,\p_1)$.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Edge length}
 \label{sec:edge_length}
@@ -72,7 +72,7 @@ The gradient of the edge length, $\|\p_1 - \p_0\|$ is:
 {\|\p_1 - \p_0\|}
 \end{equation}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsubsection{Edge dihedral}
 \label{sec:edge_dihedral}
@@ -101,7 +101,7 @@ $\n_{012} = \n(\p_0,\p_1,\p_2)$
 and
 $\n_{031} = \n(\p_0,\p_3,\p_1)$.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Difference in face normals}
 \label{sec:normal_difference}
@@ -205,7 +205,7 @@ derivative's argument $\r$:
 \nonumber
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Inner product between face normals}
 \label{sec:normal_dot}
@@ -331,7 +331,7 @@ and the face area \(A(\q) = \frac{1}{2} \| \a(\q) \|\):
 \nonumber
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Squared inner product between face normals}
 \label{sec:squared_normal_dot}
@@ -428,7 +428,7 @@ and it is generally more convenient to work
 with the signed normal angle directly,
 so I will not consider the dihedral angle further.
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Unsigned normal angle}
 \label{sec:unsigned_normal_angle}
@@ -463,7 +463,7 @@ As above, we can write the partial gradients without reference to an argument:
 \; \Gc{\p_i}{\left(\n_{012}\bullet\n_{031}\right)}{\q}
 \end{equation}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Signed normal angle}
 \label{sec:signed_normal_angle}
@@ -583,7 +583,7 @@ is proportional to $\sin^4({\theta_n \over 2})$.
 \paragraph{Bent edge neighborhoods}
 \label{sec:Bent-edge-neighborhoods}
 
-In many problems \cite{HoppeEtal:1994:SIGGRAPH,Hoppe:1994:Phd},
+In many problems \cite{hoppe-et-al-94,hoppe-thesis-94},
 it's important to be able to allow the surface to have
 sharp creases and cusps.
 A simple way to achieve this is to mark
@@ -722,7 +722,7 @@ The partial gradients of the weighted measure are:
 \end{eqnarray}
 
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \paragraph{Rate of bending}
 \label{sec:Rate-of-bending}
@@ -834,4 +834,4 @@ and the chain rule, we have:
 \nonumber
 \end{eqnarray}
 
-%-----------------------------------------------------------------
+%-------------------------------------------------------------------------------
