@@ -4,7 +4,7 @@
 In this section, I discuss fitting a polygon to a binary classification
 image, or a monochrome 'probability' image.
 In the first case, the pixel values are either $0$ or $1$,
-indicating assignment to 1 of 2 possible classes.
+indicating assignment to $1$ of $2$ possible classes.
 In the monochrome case, I take the the value ($0--255$) to indicate
 the probability that the pixel belong to class $1$,
 or some other score, such as the fraction of the pixel area that belongs
@@ -15,13 +15,15 @@ to maximize the agreement of the inside-outside pixel classification
 induced by the polygon with the classification, or class score
 given by the image.
 
-\subsection{Inside-Outside}
+\begin{plSection}{Inside-Outside}
 \label{sec:inside-outside}
 
 I use a non-standard definition of polygon inside-outside,
 based on projection:
 
-\begin{figure}[!htp]
+\begin{plDiagram}
+{Convex vertex}
+{ConvexVertex}
 \centering
 \begin{verbatim}
                             .p
@@ -33,11 +35,11 @@ based on projection:
                             \
                              o v2
 \end{verbatim}
-\caption{Convex vertex.
-\label{fig:convex-vertex}}
-\end{figure}
+\end{plDiagram}
 
-\begin{figure}[!htp]
+\begin{plDiagram}
+{Concave vertex}
+{ConcaveVertex}
 \centering
 \begin{verbatim}
                              o v2
@@ -49,45 +51,45 @@ based on projection:
                            .
                             .p
 \end{verbatim}
-\caption{Concave vertex.
-\label{fig:concave-vertex}}
-\end{figure}
+\end{plDiagram}
 
-Suppose we have a polygon, $\M$, consisting of a set of vertices,
-$\{\v_i\}$, and consistently directed edges $\{\e_{i,i+1}:(\v_i,\v_{i+1})\}$.
-To determine whether a point $\p$ is inside or outside,
-find the projection of (the closest point to) $\p$ on the polygon.
-If the projection is on a convex vertex (see \ref{fig:convex-vertex}),
+Suppose we have a polygon, $\Set{P}$, consisting of a set of vertices,
+$\{\Simplex{v}_i\}$, and consistently directed edges $\{\Simplex{e}_{i,i+1}:(\Simplex{v}_i,\Simplex{v}_{i+1})\}$.
+To determine whether a point $\Vector{p}$ is inside or outside,
+find the projection of (the closest point to) $\Vector{p}$ on the polygon.
+If the projection is on a convex vertex (see \ref{diagram:ConvexVertex}),
 then the point is outside.
-If the projection is on a concave vertex (see \ref{fig:concave-vertex}),
+If the projection is on a concave vertex (see \ref{diagram:ConcaveVertex}),
 then the point is inside.
-If the projection is to the interior of edge $\e_{i,i+1}$,
+If the projection is to the interior of edge $\Simplex{e}_{i,i+1}$,
 then the point is outside if the cross product
-$(\v_i-\p) \times (\v_{i+1}-\p) > 0$.
+$(\Simplex{v}_i-\Vector{p}) \times (\Simplex{v}_{i+1}-\Vector{p}) > 0$.
 
-The {\em signed distance,} $\d(\p_i,\M)$, from $\p$ to the polygon $\M$,
-is the distance to the closest point, times $-1$ if $\p$ is inside $\M$.
+The {\em signed distance,} $d(\Vector{p}_i,\Set{P})$, from $\Vector{p}$ to the polygon $\Set{P}$,
+is the distance to the closest point, times $-1$ if $\Vector{p}$ is inside $\Set{P}$.
 I choose this sign so that the positive part of the signed distance
 is the same as the distance to the set corresponding to the polygon interior.
-Correspondingly, I define a classified pixel's sign $\sign(\p)$ to be +1
+Correspondingly, I define a classified pixel's sign $\sign(\Vector{p})$ to be +1
 if the pixel is in class 0 and -1 if the pixel is in class 1,
 because it's most common to consider the interior of the shape
 to be class 1.
 
-
-\subsection{Counting penalties}
+\end{plSection}%{Inside-Outside}
+%-----------------------------------------------------------------
+\begin{plSection}{Counting penalties}
 \label{sec:counting-penalties}
 
-
-\subsection{Signed distance penalties}
+\end{plSection}%{Counting penalties}
+%-----------------------------------------------------------------
+\begin{plSection}{Signed distance penalties}
 \label{sec:signed-distance-penalties}
 
 In this section, I describe a class of penalties the depend on the
 signed distance of a classified pixel to the polygon.
 
-These penalties sum over (a sample of) the pixels ($\p_i$) in the class image:
+These penalties sum over (a sample of) the pixels ($\Vector{p}_i$) in the class image:
 \begin{equation}
-f(\M) = \sum_{\p_i} \phi( \sign(\p_i) \ast \d(\p_i,\M) ) ,
+f(\Set{P}) = \sum_{\Vector{p}_i} \phi( \sign(\Vector{p}_i) \ast d(\Vector{p}_i,\Set{P}) ) ,
 \end{equation}
 
 The function $\phi(x)$ is typically zero for all $x \le 0$,
@@ -106,5 +108,7 @@ Examples are:
 \phi_g(x) & = 1 - e^{ \frac{-x^2}{2\pi r^2} } & x \geq 0 \\
           & = 0                               & x \leq 0 \nonumber
 \end{eqnarray}
+
+\end{plSection}%{Signed distance penalties}
 %-----------------------------------------------------------------
 \end{plSection}%{Image Fitting}
