@@ -8,7 +8,7 @@
 
 See \cite[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
 
-Let $\p, \q \in \Re^{n}$.
+Let $\p, \q \in \Reals^{n}$.
 Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
 
 \begin{itemize}
@@ -32,9 +32,9 @@ Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
 
 \item The tensor product
 
-Let $\p \in \Re^m, \q, \r \in \Re^n.$
+Let $\p \in \Reals^m, \q, \r \in \Reals^n.$
 $\p \otimes \q$ is a rank 1 linear transformation
-from $\Re^n$ to $\Re^m$, defined by:
+from $\Reals^n$ to $\Reals^m$, defined by:
 \begin{equation}
 (\p \otimes \q)(\r) \; \equiv \; \p (\q \bullet \r)
 \end{equation}
@@ -48,7 +48,7 @@ from $\Re^n$ to $\Re^m$, defined by:
 
 See \cite[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
 
-Let $\p, \q, \r \in \Re^3$.
+Let $\p, \q, \r \in \Reals^3$.
 Let $(p_0,p_1,p_2), (q_0,q_1,q_2), (r_0,r_1,r_2), $ be their coordinates
 in some orthonormal basis.
 
@@ -92,44 +92,44 @@ This paper describes functions of triangular meshes.
 
 Interesting functions usually depend, directly or indirectly,
 on the positions of some subset of the vertices.
-I consider the vertex positions to be elements of $\Re^3$,
+I consider the vertex positions to be elements of $\Reals^3$,
 with an (implied) universal origin,
 and thus do not distinguish points and vectors.
 
 In general, the functions discussed here map between real vector spaces:
-$\f:{\Re}^{n} \mapsto \Re^{m}$, where $\Re^n$ is the
-{\it domain} and $\Re^m$ is the {\it codomain}.
-Strictly speaking, the {\it range} of $\f$ is the set $\f(\Re^n)$,
-which may be a proper subset of its codomain $\Re^m$.
+$\f:{\Re}^{n} \mapsto \Reals^{m}$, where $\Reals^n$ is the
+{\it domain} and $\Reals^m$ is the {\it codomain}.
+Strictly speaking, the {\it range} of $\f$ is the set $\f(\Reals^n)$,
+which may be a proper subset of its codomain $\Reals^m$.
 
-I typically use $\p$, $\q$, $\r$, etc., for elements of $\Re^n$
+I typically use $\p$, $\q$, $\r$, etc., for elements of $\Reals^n$
 and
 $\f$, $\g$, $\h$ for vector-valued functions.
 I generally do not distinguish $\Re$, the real numbers,
-and $\Re^1$, the 1-dimensional real vector space.
+and $\Reals^1$, the 1-dimensional real vector space.
 I sometimes use $f$, $g$, $h$ for extra clarity in the special
 case of real-valued functions.
 
 The domains of many interesting functions,
 such as those that depend on vertex positions,
-are direct sums of $\Re^3$.
-The {\it direct sum} $\Re^n \oplus \Re^m$ is the cartesian product
-of $\Re^n$ and $\Re^m$ --- the set of ordered pairs $(\p,\q)$
-where $\p \in \Re^n$ and $\q \in \Re^m$ ---
+are direct sums of $\Reals^3$.
+The {\it direct sum} $\Reals^n \oplus \Reals^m$ is the cartesian product
+of $\Reals^n$ and $\Reals^m$ --- the set of ordered pairs $(\p,\q)$
+where $\p \in \Reals^n$ and $\q \in \Reals^m$ ---
 with the restriction that the inner product is the obvious extension of the
-inner products on $\Re^n$ and $\Re^m$:
+inner products on $\Reals^n$ and $\Reals^m$:
 $(\p_0,\q_0) \bullet (\p_1,\q_1) = (\p_0 \bullet \p_1) + (\q_0 \bullet \q_1).$
 For simplicity, I identify
-$\Re^{3n} = \Re^3 \oplus \Re^3 \oplus \cdots \oplus \Re^3 = \oplus^n \Re^3
-= \Re^n \oplus \Re^n \oplus \Re^n $.
-I will usually write an element of $\oplus^n \Re^3$ as
+$\Reals^{3n} = \Reals^3 \oplus \Reals^3 \oplus \cdots \oplus \Reals^3 = \oplus^n \Reals^3
+= \Reals^n \oplus \Reals^n \oplus \Reals^n $.
+I will usually write an element of $\oplus^n \Reals^3$ as
 $(\p_0,\ldots,\p_{n-1})$
 and use
 $\f(\p_0,\p_1,\ldots,\p_{n-1})$
 for a function that depends on $n$ vertices.
 Sometimes it will be useful to separate the $x,$ $y,$ and $z$ coordinates:
 $\p = (\x,\y,\z),$
-where $\x =(x_0, \ldots x_{n-1}) \in \Re^n$, are the $x$-coordinates
+where $\x =(x_0, \ldots x_{n-1}) \in \Reals^n$, are the $x$-coordinates
 of the positions of the vertices, and similarly for $y$ and $z$.
 
 %-----------------------------------------------------------------
@@ -138,9 +138,9 @@ of the positions of the vertices, and similarly for $y$ and $z$.
 \label{sec:derivatives}
 
 One way to view the derivative of a function
-$\f:{\Re}^{n} \mapsto \Re^{m}$,
+$\f:{\Re}^{n} \mapsto \Reals^{m}$,
 at a point $\p$,
-is as the linear transformation $\L:{\Re}^{n} \mapsto \Re^{m}$,
+is as the linear transformation $\L:{\Re}^{n} \mapsto \Reals^{m}$,
 that best approximates the local 'slope' of $\f$ at $\p$.
 To be a little more precise, we want
 \begin{displaymath}
@@ -170,7 +170,7 @@ the domain of $\f$ to the codomain of $\f$.
 
 The derivative is most often represented by the {\it Jacobian},
 the $m \times n$ matrix of partial derivatives
-with respect to some bases for $\Re^n$ and $\Re^m$.
+with respect to some bases for $\Reals^n$ and $\Reals^m$.
 However, it's often easier to express the derivative clearly if we
 explicitly include the argument of the linear transformation.
 In this case, I write $\Dc{\f}{\p}{\q}$
@@ -180,15 +180,15 @@ applied to the vector $\q$.
 \item $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_i}$
 
 For functions on direct sum spaces,
-$\f(\p_0,\p_1,\ldots,\p_{n-1})$, $\p_i \in \Re^{n_i}$,
+$\f(\p_0,\p_1,\ldots,\p_{n-1})$, $\p_i \in \Reals^{n_i}$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
 I write $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_0,\ldots,\r_{n-1}}$
 for the derivative of $\f$ with respect to $\p_i$,
-at the point $(\q_0,\ldots,\q_{n-1}) \in \oplus_{i=0}^{n-1} \Re^{m_i}$,
-applied to the vector $\r_i \in \Re^{n_i}$.
+at the point $(\q_0,\ldots,\q_{n-1}) \in \oplus_{i=0}^{n-1} \Reals^{m_i}$,
+applied to the vector $\r_i \in \Reals^{n_i}$.
 Note that, if you consider $\f$ to be a function
-of direct sums of $\Re^1$, we have the usual
+of direct sums of $\Reals^1$, we have the usual
 partial derivatives.
 
 \end{itemize}
@@ -203,9 +203,9 @@ partial derivatives.
 
 \item $\Ga{f}$
 
-In minimizing real-valued functions, $f(\p)$, $\p \in \Re^n$,
+In minimizing real-valued functions, $f(\p)$, $\p \in \Reals^n$,
 we frequently need
-the {\it gradient,} $\Ga{f} \in \Re^n$,
+the {\it gradient,} $\Ga{f} \in \Reals^n$,
 the vector pointing in the direction of most rapid increase of $f$,
 whose magnitude is the rate of increase, or slope,
 of $f$ in that direction.
@@ -216,8 +216,8 @@ and the two are often confused.
 Recall that the derivative is a linear transformation
 from the domain of $f$ to its codomain.
 In the case of real-valued functions,
-this means the derivative is a linear function on $\Re^n$,
-an element of the dual space of $\Re^n$, a 'row' vector.
+this means the derivative is a linear function on $\Reals^n$,
+an element of the dual space of $\Reals^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
 of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
 (see \cite[p. 96, ex. 4-18]{Spivak:1965:CalculusOnManifolds}).
@@ -254,10 +254,10 @@ See above.
 
 The most general identity used in computing derivatives is the {\it chain rule.}
 Suppose
-$\f:\Re^{n_0} \mapsto \Re^{n_1}$,
-$\g:\Re^{n_1} \mapsto \Re^{n_2}$,
+$\f:\Reals^{n_0} \mapsto \Reals^{n_1}$,
+$\g:\Reals^{n_1} \mapsto \Reals^{n_2}$,
 and
-$\h = \g \circ \f : \Re^{n_0} \mapsto \Re^{n_2}.$
+$\h = \g \circ \f : \Reals^{n_0} \mapsto \Reals^{n_2}.$
 Then
 \begin{equation}
 \label{eq:chain-rule}
@@ -272,7 +272,7 @@ See \cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}, .
 \subsubsection{Derivatives of multilinear functions}
 \label{sec:multilinear}
 
-A function $\f(\p_0,\ldots,\p_k):\Re^{n_0} \oplus \Re^{n_k} \mapsto \Re^m$
+A function $\f(\p_0,\ldots,\p_k):\Reals^{n_0} \oplus \Reals^{n_k} \mapsto \Reals^m$
 is {\it multilinear} if
 \begin{equation}
 \f(a_{00} \p_{00} + a_{01} \p_{01}, \ldots, a_{k0} \p_{k0} + a_{k1} \p_{k1})
@@ -297,7 +297,7 @@ See \cite[ex.~2-14]{Spivak:1965:CalculusOnManifolds}, .
 
 Bilinear functions are a useful special case of multilinear functions.
 
-A function $\f(\p,\q):\Re^{n_0} \oplus \Re^{n_1} \mapsto \Re^m$
+A function $\f(\p,\q):\Reals^{n_0} \oplus \Reals^{n_1} \mapsto \Reals^m$
 is {\it bilinear} if
 \begin{eqnarray}
 \f(a_0 \p_0 + a_1 \p_1, b_0 \q_0 + b_1 \q_1) & = & a_0 b_0 f(\p_0,\q_0)  \\
@@ -321,7 +321,7 @@ See \cite[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
 \label{sec:Derivatives-of-linear-functions}
 
 Linear functions are another useful special case of multilinear functions.
-A function $\f(\p):\Re^{n} \mapsto \Re^m$
+A function $\f(\p):\Reals^{n} \mapsto \Reals^m$
 is {\it linear} if
 \begin{equation}
 \f(a_0 \p_0 + a_1 \p_1)
@@ -336,16 +336,16 @@ The derivative of $\f$ is simply $\f$ itself.
 \subsubsection{Derivatives of inner products}
 \label{sec:inner}
 
-We can view the inner product on $\Re^m$, $\p \bullet \q$,
-as a bilinear function $d(\p,\q) : \Re^m \oplus \Re^m \mapsto \Re$.
+We can view the inner product on $\Reals^m$, $\p \bullet \q$,
+as a bilinear function $d(\p,\q) : \Reals^m \oplus \Reals^m \mapsto \Re$.
 Thus
 \begin{equation}
 \Dc{d}{(\p_0,\q_0)}{\p,\q} = \p_0 \bullet \q + \p \bullet \q_0.
 \end{equation}
 
 Suppose
-$\f:\Re^{n} \mapsto \Re^{m}$, and
-$\g:\Re^{n} \mapsto \Re^{m}$.
+$\f:\Reals^{n} \mapsto \Reals^{m}$, and
+$\g:\Reals^{n} \mapsto \Reals^{m}$.
 The derivative of $\f \bullet \g$ is:
 \begin{eqnarray}
 \label{eq:dot_derivative}
@@ -368,7 +368,7 @@ See \cite[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
 We can view the 3-dimensional cross product
 $ \times $
 as a bilinear function
-$\c(\p,\q) = \p \times \q : \Re^3 \oplus \Re^3 \mapsto \Re^3$.
+$\c(\p,\q) = \p \times \q : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
 As with the inner product,
 the derivative is
 \begin{equation}
@@ -376,8 +376,8 @@ the derivative is
 \end{equation}
 
 Suppose
-$\f:\Re^{n} \mapsto \Re^3$, and
-$\g:\Re^{n} \mapsto \Re^3$.
+$\f:\Reals^{n} \mapsto \Reals^3$, and
+$\g:\Reals^{n} \mapsto \Reals^3$.
 The derivative of $\f \times \g$ is:
 \begin{eqnarray}
 \Dc{(\f \times \g)}{\p_0}{\p}
@@ -394,8 +394,8 @@ The derivative of $\f \times \g$ is:
 \label{sec:scalar}
 
 Suppose
-$f:\Re^{n} \mapsto \Re$, and
-$\g:\Re^{n} \mapsto \Re^m$.
+$f:\Reals^{n} \mapsto \Re$, and
+$\g:\Reals^{n} \mapsto \Reals^m$.
 It follows from the chain rule that the derivative of $\h = f\g$ is:
 \begin{eqnarray}
 \label{eq:scalar_product_derivative}
@@ -410,7 +410,7 @@ It follows from the chain rule that the derivative of $\h = f\g$ is:
 \subsubsection{Derivatives of euclidean norms}
 \label{sec:norms}
 
-Let $l_2(\p) = \; \| \p  \|: \Re^n \mapsto \Re$ 
+Let $l_2(\p) = \; \| \p  \|: \Reals^n \mapsto \Re$ 
 be the usual euclidean norm on $Re^n$.
 Let $l_2^2(\p) = \; \| \p  \|^2 $
 be its square
@@ -426,7 +426,7 @@ and $ \| \p  \|^3$ the cube.
 \Db{l_2^3}{\p} & = & 3 \| \p  \| \p^\dagger \nonumber
 \end{eqnarray}
 
-Let $\f(\p) : \Re^n \mapsto \Re^m$.
+Let $\f(\p) : \Reals^n \mapsto \Reals^m$.
 By the chain rule:
 $\Db{\| \f \|^2}{\p}  =  2 {\f(\p)}^{\dagger} \Db{\f}{\p} $.
 
@@ -480,11 +480,11 @@ and \ref{eq:norm_derivative}:
 \f(\p)\left( \f(\p) \bullet \Dc{\f}{\p}{\q} \right) }
 \over {\| \f(\p) \|^3}  \nonumber \\
 & = &
-{{\| \f(\p) \|^2 \I_{\Re^3} \;- \;\left( \f(\p) \otimes \f(\p) \right)  }
+{{\| \f(\p) \|^2 \I_{\Reals^3} \;- \;\left( \f(\p) \otimes \f(\p) \right)  }
 \over {\| \f(\p) \|^3} }
 \;\Dc{\f}{\p}{\q} \nonumber \\
 & = &
-{{\I_{\Re^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right)  }
+{{\I_{\Reals^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right)  }
 \over {\| \f(\p) \|} }
 \;\Dc{\f}{\p}{\q} \nonumber
 \end{eqnarray}
@@ -492,8 +492,8 @@ and \ref{eq:norm_derivative}:
 $\otimes$ is the elementary tensor product operation.
 If you are stuck thinking in terms of row and column vectors,
 $\p \otimes \q \;= \;\p\q^\dagger$.
-More generally, if $\p \in \Re^m$ and $\q \in \Re^n$,
-then $\p \otimes \q$ is the rank 1 linear transformation from $\Re^n \mapsto \Re^m$:
+More generally, if $\p \in \Reals^m$ and $\q \in \Reals^n$,
+then $\p \otimes \q$ is the rank 1 linear transformation from $\Reals^n \mapsto \Reals^m$:
 $\left(\p \otimes \q\right) (\r) \;= \;\p \left(\q \bullet \r\right)$.
 
 We can write the derivative above without reference to the argument $\q$:
@@ -503,7 +503,7 @@ We can write the derivative above without reference to the argument $\q$:
 & = &
 \Db{\left({\f \over {\| \f \|}}\right)}{\p}  \\
 & = &
-{{\I_{\Re^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right) }
+{{\I_{\Reals^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right) }
 \over {\| \f(\p) \|} }
 \;\Db{\f}{\p} \nonumber
 \end{eqnarray}
@@ -523,12 +523,12 @@ it follows that:
 \Db{\left({\p \over {\| \p \|}}\right)}{\q}
 \\
 & = &
-{{\I_{\Re^3} \;- \;\left( \tilde{\q} \otimes \tilde{\q} \right) }
+{{\I_{\Reals^3} \;- \;\left( \tilde{\q} \otimes \tilde{\q} \right) }
 \over {\| \q \|} }
 \nonumber
 \\
 & = &
-{{\| \q \|^2 \I_{\Re^3} \;- \;\left( \q \otimes \q \right) }
+{{\| \q \|^2 \I_{\Reals^3} \;- \;\left( \q \otimes \q \right) }
 \over {\| \q \|^3} }
 \nonumber
 \end{eqnarray}
@@ -538,7 +538,7 @@ it follows that:
 \subsubsection{Derivatives of angles}
 \label{sec:derivatives-of-angles}
 
-The angle between 2 vectors $\p_0, \p_1 \in \Re^m$, is the inverse cosine
+The angle between 2 vectors $\p_0, \p_1 \in \Reals^m$, is the inverse cosine
 of their normalized inner product:
 \begin{equation}
 \theta(\p_0,\p_1)

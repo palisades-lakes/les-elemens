@@ -17,13 +17,13 @@ where $\p_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of the aver
 and $\p_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
 
 In {\it catalog fitting} we fit a registered weighted average mesh,
-to a set of data, $\{ \d_k \in \Re^3; k=0 \ldots p-1 \}$
+to a set of data, $\{ \d_k \in \Reals^3; k=0 \ldots p-1 \}$
 by minimizing
 \begin{equation}
 f(\M(\Tr,\w)) = \sum_{k=0}^{p-1} \| \d_k - \Pr_{\M(\Tr,\w)} (\d_k) \|^2 ,
 \end{equation}
 over a family of registration transforms $\{\Tr\}$
-and vectors of weights $\w \in \Re^n$.
+and vectors of weights $\w \in \Reals^n$.
 The vertex positions $\p(\Tr,\w) = (\p_0(\Tr,\w), \ldots , \p_{n-1}(\Tr,\w))$
 of the registered average mesh, $\M(\Tr,\w)$, are given by:
 \begin{equation}
@@ -82,11 +82,11 @@ $\Df{\w}{\p(\w)}
 \bigoplus_{j=0}^{m-1} \Df{\w}{\p_i(\w)}$,
 so we can restrict ourselves to
 $\Df{\w}{\p(\w)}$, where $\p(\w) = \sum_{i=0}^{n-1} w_i \p_i$,
-and $\p, \p_i \in \Re^3$.
+and $\p, \p_i \in \Reals^3$.
 
-Note that $\p(\w)$ is a linear transform from $\Re^n \mapsto \Re^3$,
+Note that $\p(\w)$ is a linear transform from $\Reals^n \mapsto \Reals^3$,
 which can be expressed as $\P = \sum_{i=0}^{n-1} \p_i \otimes \e_i$,
-where $\e_i$ are the canonical basis vectors of $\Re^n$.
+where $\e_i$ are the canonical basis vectors of $\Reals^n$.
 ($\P$ can be written as a matrix whose $i$th column is the vector $\p_i$.)
 Thus it follows that
 \begin{equation}

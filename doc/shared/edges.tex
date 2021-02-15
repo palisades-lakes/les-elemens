@@ -1,0 +1,879 @@
+\begin{plSection}{Functions of the edges}
+\label{sec:edges}
+
+\begin{plDiagram}
+{Edge face pair labeling.}
+{EdgeFaces}
+\centering
+\begin{verbatim}
+          p1
+          o
+         /|\
+        / | \
+       /  |  \e31
+   e12/   |   \
+     /    |e01 \
+    /     |     \
+p2 o f012 | f031 o p3
+    \     |     /
+     \    |    /
+   e20\   |   /e03
+       \  |  /
+        \ | /
+         \|/
+          o
+          p0
+\end{verbatim}
+\end{plDiagram}
+
+Notation in this section is based on \cref{diagram:EdgeFaces}.
+We are discussing functions defined on a neighborhood of edge $e_{01}$.
+
+We assume that, for each edge, an arbitrary order is assigned to
+its two vertices, which are then at the positions $\Point{p}_0,\Point{p}_1$ in the diagram.
+
+An interior edge has 2 adjacent faces, $f_{012}$ and $f_{031}$.
+We assume that these 2 faces are oriented consistently, with the labels
+taken counterclockwise, so that the normal vectors point out of the page.
+Each face is represented by an ordered triple of vertices,
+but the order is only determined up to a circular permutation;
+for example, $f_{012}$ may be represented by the ordered triples
+$(\Point{p}_0,\Point{p}_1,\Point{p}_2)$, 
+$(\Point{p}_2,\Point{p}_0,\Point{p}_1)$, or 
+$(\Point{p}_1,\Point{p}_2,\Point{p}_0)$,
+but not by
+$(\Point{p}_0,\Point{p}_2,\Point{p}_1)$, 
+$(\Point{p}_1,\Point{p}_0,\Point{p}_2)$, or
+ $(\Point{p}_2,\Point{p}_1,\Point{p}_0)$.
+
+For the given ordering $(\Point{p}_0,\Point{p}_1)$ of the edge,
+$f_{120}$ is the edge's {\it left face}
+and $f_{031}$ is the {\it right face}.
+
+Note that we cannot assume any consistent ordering of the 4 neighboring edges;
+for example, $e_{12}$ may be represented by either ordered pair
+$(\Point{p}_1,\Point{p}_2)$ or $(\Point{p}_2,\Point{p}_1)$.
+
+%-----------------------------------------------------------------
+\begin{plSection}{Edge length}
+\label{sec:edge_length}
+
+The edge tangent vector is $\Point{p}_1 - \Point{p}_0$.
+
+The gradient of its squared length is:
+\begin{equation}
+\Gc{\Point{p}_i}{\| \Point{p}_1 - \Point{p}_0 \|^2}{\Point{q}} 
+= 2 \left( \Point{p}_i - \Point{p}_{(i+1) \bmod 1} \right)
+\end{equation}
+
+The gradient of the edge length, $\|\Point{p}_1 - \Point{p}_0\|$ is:
+\begin{equation}
+\Gc{\Point{p}_i}{\| \Point{p}_1 - \Point{p}_0 \|}{\Point{q}} =
+\frac{\left( \Point{p}_i - \Point{p}_{(i+1) \bmod 1} \right)}
+{\|\Point{p}_1 - \Point{p}_0\|}
+\end{equation}
+
+\end{plSection}%{Edge length}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Edge dihedral}
+\label{sec:edge_dihedral}
+
+In smooth surfaces,
+the standard measures of curvature are all measures
+of the rate of change of the surface normal vector.
+For triangular meshes, it is therefore natural to
+consider functions that depend on the change in
+normal vectors between nearby faces.
+
+In this section, we consider functions of the difference
+in normals for 2 faces that share an edge,
+which is equivalent to the {\it dihedral angle} of the edge.
+
+We will consider a number of both real- and $\Reals^3$-valued functions on
+$\Reals^{12} = \Reals^3 \oplus \Reals^3 \oplus \Reals^3 \oplus \Reals^3$.
+We will use 
+$\Point{p} = (\Point{p}_0, \Point{p}_1, \Point{p}_2, \Point{p}_3)$, 
+$\Point{q}=\ldots$, $\Point{r}=\ldots$, etc.,
+to refer to the arguments of these functions, with the meaning
+of the indices determined by \cref{diagram:EdgeFaces}.
+We are also interested in the two 9-dimensional subspaces
+corresponding to the vertics of the two faces:
+$\Point{p}_{012} = 
+(\Point{p}_0,\Point{p}_1,\Point{p}_2), \Point{p}_{031} = 
+(\Point{p}_0,\Point{p}_3,\Point{p}_1)$.
+We abbreviate the two normal vectors:
+$\Normal{n}_{012} = \Normal{n}(\Point{p}_0,\Point{p}_1,\Point{p}_2)$
+and
+$\Normal{n}_{031} = \Normal{n}(\Point{p}_0,\Point{p}_3,\Point{p}_1)$.
+
+\end{plSection}%{Edge dihedral}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Difference in face normals}
+\label{sec:normal_difference}
+
+One measure of the change in surface normal across an edge
+is simply the vector difference of the two normals:
+
+\begin{equation}
+\label{eq:deltan}
+\DNormal{n} (\Point{p}_0, \Point{p}_1, \Point{p}_2, \Point{p}_3)
+=
+\Normal{n} (\Point{p}_{012}) - \Normal{n} (\Point{p}_{031})
+\end{equation}
+
+The (total) derivative of the squared distance 
+between adjacent face normals is:
+\begin{eqnarray}
+\Db{\|\DNormal{n}(\Point{p})\|^2}{\Point{q}}
+& =
+2 \ \DNormal{n} ( \Point{q} )^\dagger &
+\left( \Db{ ( \DNormal{n} ) }{\Point{q}} \right)
+\\
+& =
+2 \ \DNormal{n}(\Point{q})^\dagger &
+\left( \Db{\Normal{n}(\Point{p}_{012})}{\Point{q}} - \Db{\Normal{n}(\Point{p}_{031})}{\Point{q}} \right)
+\nonumber \\
+& =
+2 \DNormal{n}(\Point{q})^\dagger &
+\{ \; \left[ \Identity_{\Reals^3}
+ - \left( \Normal{n}( \Point{q}_{012} ) \otimes \Normal{n}( \Point{q}_{012} ) \right)
+\right]
+\ast \Db{\Vector{a} \left( \Point{p}_{012} \right) }{\Point{q}}
+\nonumber \\
+\label{eq:deltan_derivative}
+&
+& - \left[ \Identity_{\Reals^3} 
+- \left( \Normal{n}( \Point{q}_{031} ) \otimes \Normal{n}
+ ( \Point{q}_{031} ) \right)
+\right]
+\ast \Db{\Vector{a} ( \Point{p}_{031} ) }{\Point{q}}
+\; \}
+\nonumber
+\end{eqnarray}
+
+The partial derivatives, with respect to one of the vertices,
+like $\Dd{\Point{p}_0}{\Vector{a} ( \Point{p}_{012} ) }{\Point{q}}{\Point{r}_0}$,
+all have a similar form:
+\begin{equation}
+\Dd{\Point{p}_0}{\Vector{a} ( \Point{p}_{012} ) }{\Point{q}}{\Point{r}_0} 
+ = (\Point{q}_1 - \Point{q}_3) \times \Point{r}_0
+\end{equation}
+Using this, \cref{eq:deltan_derivative}, \cref{eq:dot_cross},
+and the facts that
+$\DNormal{n}(\Point{q})  \perp  \Normal{n}(\Point{q}_{012}) = 
+- \left( \Normal{n}(\Point{q}_{031})  \perp  \Normal{n}(\Point{q}_{012}) \right)$
+and
+$\DNormal{n}(\Point{q})  \perp  \Normal{n}(\Point{q}_{031}) =
+ \Normal{n}(\Point{q}_{012})  \perp  \Normal{n}(\Point{q}_{031})$,
+we can write the partial gradients without reference to the
+derivative's argument $\Point{r}$:
+\begin{eqnarray}
+\label{eq:normal-difference-gradient}
+\Gc{\Point{p}_0}{\|\DNormal{n}\|^2}{\Point{q}}
+& = &
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{031})  \perp  \Normal{n}(\Point{q}_{012})
+}
+{A(\Point{q}_{012})}
+}
+\times (\Point{q}_1 - \Point{q}_2)
+\right]
+\; + \;
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{012})  \perp  \Normal{n}(\Point{q}_{031})
+}
+{A(\Point{q}_{031})}
+}
+\times (\Point{q}_3 - \Point{q}_1)
+\right]
+\nonumber \\
+\Gc{\Point{p}_1}{\|\DNormal{n}\|^2}{\Point{q}}
+& = &
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{031})  \perp  \Normal{n}(\Point{q}_{012})
+}
+{A(\Point{q}_{012})}
+}
+\times (\Point{q}_2 - \Point{q}_0)
+\right]
+\; + \;
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{012})  \perp  \Normal{n}(\Point{q}_{031})
+}
+{A(\Point{q}_{031})}
+}
+\times (\Point{q}_0 - \Point{q}_3)
+\right]
+\nonumber
+\\
+\Gc{\Point{p}_2}{\|\DNormal{n}\|^2}{\Point{q}}
+& = &
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{031})  \perp  \Normal{n}(\Point{q}_{012})
+}
+{A(\Point{q}_{012})}
+}
+\times (\Point{q}_0 - \Point{q}_1)
+\right]
+\nonumber
+\\
+\Gc{\Point{p}_3}{\|\DNormal{n}\|^2}{\Point{q}}
+& = &
+\left[
+{\frac{
+\Normal{n}(\Point{q}_{012})  \perp  \Normal{n}(\Point{q}_{031})
+}
+{A(\Point{q}_{031})}
+}
+\times (\Point{q}_1 - \Point{q}_0)
+\right]
+\end{eqnarray}
+
+\end{plSection}%{Difference in face normals}
+%-----------------------------------------------------------------
+\begin{plSection}{Inner product between face normals}
+\label{sec:normal_dot}
+
+The inner product $\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
+is another important measure of edge curvature.
+It is closely related to the squared distance between adjacent normals:
+\begin{equation}
+\label{eq:normal-distance-dot}
+\| \Normal{n}_{012} - \Normal{n}_{031} \|^2
+= \| \Normal{n}_{012} \|^2
++ \| \Normal{n}_{031} \|^2
+- 2 \left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)
+= 2 \left[ 1 - \left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right) \right]
+\end{equation}
+
+The function $f(\Point{p}) = 1 - \left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
+achieves its minimum, $0$, on flat face pairs,
+and its maximum, $2$, on face pairs that are folded back on themselves.
+It's a reasonable choice the total bending or curvature of a surface.
+And $\Da{f} = - \Da{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}$.
+
+The derivative of
+$\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
+can be calculated using equations \cref{eq:dot_derivative} and
+\cref{eq:unit_normal_derivative}:
+\begin{eqnarray}
+\label{normal_dot_derivative}
+\Db{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}{\Point{q}}
+& = & \Normal{n}(\Point{q}_{031}) \bullet \Db{\Normal{n}_{012}}{\Point{q}} + \Normal{n}(\Point{q}_{012}) \bullet \Db{\Normal{n}_{031}}{\Point{q}}
+\\
+\nonumber \\
+& = &
+\Normal{n}(\Point{q}_{031}) \bullet
+\frac{\Identity - \left(\Normal{n}(\Point{q}_{012}) \otimes \Normal{n}(\Point{q}_{012}) \right)}{\| \Vector{a}(\Point{q}_{012}) \|}
+\; \Db{\Vector{a}_{012}}{\Point{q}}
+\nonumber \\
+& + &
+\Normal{n}(\Point{q}_{012}) \bullet
+\frac{\Identity - \left(\Normal{n}(\Point{q}_{031}) \otimes \Normal{n}(\Point{q}_{031}) \right)}{\| \Vector{a}(\Point{q}_{031}) \|}
+\; \Db{\Vector{a}_{031}}{\Point{q}}
+\nonumber
+\end{eqnarray}
+
+As in \cref{sec:normal_difference}, we can write the partial gradients
+without reference to an argument:
+\begin{eqnarray}
+\label{eq:normal_dot_gradient}
+\Gc{\Point{p}_0}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \; &
+\frac{ \Normal{n}(\Point{q}_{031}) - 
+\left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] 
+\Normal{n}(\Point{q}_{012}) }
+{\| \Vector{a} (\Point{q}_{012}) \| }
+\times (\Point{q}_2 - \Point{q}_1)
+\\
+& \; + &
+\frac{ \Normal{n}(\Point{q}_{012}) - \left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] \Normal{n}(\Point{q}_{031})  }
+{\| \Vector{a} (\Point{q}_{031}) \| }
+\times (\Point{q}_1 - \Point{q}_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_1}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \; &
+\frac{ \Normal{n}(\Point{q}_{031}) - \left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] \Normal{n}(\Point{q}_{012})  }
+{\| \Vector{a} (\Point{q}_{012}) \| }
+\times (\Point{q}_0 - \Point{q}_2)
+\nonumber \\
+& \; + &
+\frac{ \Normal{n}(\Point{q}_{012}) - \left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] \Normal{n}(\Point{q}_{031})   }
+{\| \Vector{a} (\Point{q}_{031}) \| }
+\times (\Point{q}_3 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_2}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \; &
+\frac{ \Normal{n}(\Point{q}_{031}) - \left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] \Normal{n}(\Point{q}_{012})  }
+{\| \Vector{a} (\Point{q}_{012}) \| }
+\times (\Point{q}_1 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_3}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \; &
+\frac{ \Normal{n}(\Point{q}_{012}) - \left[ \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right] \Normal{n}(\Point{q}_{031}) }
+{\| \Vector{a} (\Point{q}_{031}) \| }
+\times (\Point{q}_0 - \Point{q}_1)
+\nonumber
+\end{eqnarray}
+
+This can be simplified using the fact that
+\(\Normal{n}_i \perp \Normal{n}_j = \Normal{n}_i - \left[ \Normal{n}_i \bullet \Normal{n}_j \right] \Normal{n}_j\), for unit vectors,
+and the face area \(A(\Point{q}) = \frac{1}{2} \| \Vector{a}(\Point{q}) \|\):
+\begin{eqnarray}
+\label{eq:simplified_normal_dot_gradient}
+\Gc{\Point{p}_0}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \;\;\; &
+\frac{\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]}{2A(\Point{q}_{012})}
+\times (\Point{q}_2 - \Point{q}_1)
+\\
+& \;\;\; + &
+\frac{\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]}{2A(\Point{q}_{031})}
+\times (\Point{q}_1 - \Point{q}_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_1}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \;\;\; &
+\frac{\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]}{2A(\Point{q}_{012})}
+\times (\Point{q}_0 - \Point{q}_2)
+\nonumber \\
+& \;\;\; + &
+\frac{\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]}{2A(\Point{q}_{031})}
+\times (\Point{q}_3 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_2}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \;\;\; &
+\frac{\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]}{2A(\Point{q}_{012})}
+\times (\Point{q}_1 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_3}{(\Normal{n}_{012} \bullet \Normal{n}_{031})}{\Point{q}}
+& = \;\;\; &
+\frac{\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]}{2A(\Point{q}_{031})}
+\times (\Point{q}_0 - \Point{q}_1)
+\nonumber
+\end{eqnarray}
+
+\end{plSection}%{Inner product between face normals}
+%-----------------------------------------------------------------
+\begin{plSection}{Squared inner product between face normals}
+\label{sec:squared_normal_dot}
+
+We can get a more even distribution of bending by giving
+a higher weight to sharper edge bends.
+A simple way to do that is to square some existing function,
+for example: $\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2$.
+The derivative is simply:
+\begin{equation}
+\Da{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}
+= -2 \left( 1 - \Normal{n}_{012} \bullet \Normal{n}_{031} \right)
+\Da{(\Normal{n}_{012} \bullet \Normal{n}_{031})}
+\end{equation}
+
+It follows from \cref{eq:simplified_normal_dot_gradient}
+that the partial gradients are:
+\begin{eqnarray}
+\label{eq:squared_normal_dot_gradient}
+\Gc{\Point{p}_0}{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}{\Point{q}}
+& = \;\;\; &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}
+{A(\Point{q}_{012}) }
+\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]
+\times (\Point{q}_2 - \Point{q}_1)
+\\
+& \;\;\; + &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}{A(\Point{q}_{031})}
+\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]
+\times (\Point{q}_1 - \Point{q}_3)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_1}{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}{\Point{q}}
+& = \;\;\; &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}{A(\Point{q}_{012})}
+\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]
+\times (\Point{q}_0 - \Point{q}_2)
+\nonumber \\
+& \;\;\; + &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}{A(\Point{q}_{031})}
+\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]
+\times (\Point{q}_3 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_2}{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}{\Point{q}}
+& = \;\;\; &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}{A(\Point{q}_{012})}
+\left[ \Normal{n}(\Point{q}_{031}) \perp \Normal{n}(\Point{q}_{012}) \right]
+\times (\Point{q}_1 - \Point{q}_0)
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_3}{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}{\Point{q}}
+& = \;\;\; &
+\frac{\left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) - 1\right)
+}{A(\Point{q}_{031})}
+\left[ \Normal{n}(\Point{q}_{012}) \perp \Normal{n}(\Point{q}_{031}) \right]
+\times (\Point{q}_0 - \Point{q}_1)
+\nonumber
+\end{eqnarray}
+
+\end{plSection}%{Squared inner product between face normals}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Dihedral angle}
+\label{sec:Dihedral-angle}
+
+The {\it dihedral angle},
+$\theta_d$,
+ of an edge is the amount
+needed to rotate one face
+through the inside of the surface
+(in the sense of the orientation of the faces)
+onto the other face.
+
+With this definition, the dihedral angle is always
+positive, in fact, between $0$ and $2\pi$.
+An acutely concave edge has a dihedral angle
+of a little less than $2\pi$;
+a concave edge where the faces meet in a right angle
+${3\pi} \over 2$;
+a flat edge is $\pi$;
+a convex right angle $\pi \over 2$;
+and an acutely convex edge has a dihedral angle
+slightly more than $0$.
+
+The dihedral angle is a simple function of the
+signed normal angle, $\theta_n$
+(\autoref{sec:signed_normal_angle}),
+and it is generally more convenient to work
+with the signed normal angle directly,
+so I will not consider the dihedral angle further.
+
+\end{plSection}%{Dihedral angle}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Unsigned normal angle}
+\label{sec:unsigned_normal_angle}
+
+The inner product $\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
+is the cosine of $\theta_u$,
+the (unsigned) angle between the 2 face normals.
+Thus the value of the angle is:
+\begin{equation}
+\theta_u(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)
+= \cos^{-1} \left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)
+\end{equation}
+
+Recall the derivative of the $\cos^{-1}$ is:
+\begin{equation}
+\frac{d}{\mathit dx} \cos^{-1}(x) = { -1 \over \sqrt{1 - x^2} }
+\end{equation}
+
+The derivative of $\theta_u$ can be calculated using the chain rule
+(\cref{eq:chain-rule}) and \cref{eq:normal_dot_gradient}.
+\begin{equation}
+\Db{\theta_u}{\Point{q}}
+ = { -1 \over \sqrt{1 - \left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right)^2} }
+\; \Db{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}{\Point{q}}
+\end{equation}
+
+As above, we can write the partial gradients without reference to an argument:
+\begin{equation}
+\Gc{\Point{p}_i}{\theta_u}{\Point{q}}
+=
+{ -1 \over \sqrt{1 - \left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right)^2} }
+\; \Gc{\Point{p}_i}{\left(\Normal{n}_{012}\bullet\Normal{n}_{031}\right)}{\Point{q}}
+\end{equation}
+
+\end{plSection}%{Unsigned normal angle}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Signed normal angle}
+\label{sec:signed_normal_angle}
+
+The unsigned normal angle
+($\theta_u$, \autoref{sec:unsigned_normal_angle})
+doesn't distinguish concave and convex changes in the normal vector,
+so it can't be a 1-1 function of the dihedral angle.
+More importantly, it's inadequate if we want to construct
+a penalty that treats concave and convex edges differently.
+
+It is common to want to make a surface as flat as possible,
+which means penalizing normal angles different from zero.
+With such 2rd order (curvature minimizing) penalties, 
+it may not necessary to distinguish
+convex and concave bending.
+
+However, there's considerable evidence that
+$3$rd order penalties ---minimizing the {\it variation}
+in surface bending, rather than the bending itself---
+gives better results in many situations.
+To measure bending variation, it's necessary
+to use correctly signed angles.
+
+Another reason to use signed angles is to be able
+to encourage the surface to bend in a certain
+predetermined way at certain edges.
+This is discussed in \autoref{sec:Bent-edge-neighborhoods}
+below.
+
+The {\it signed normal angle,} $\theta_n$,
+is essentially just the
+unsigned normal angle, multiplied by $-1$ if the surface is
+concave at the edge.
+To make this a bit more formal,
+we can define the signed normal angle to be the amount
+of righthanded rotation about the edge tangent ($\Point{p}_1 - \Point{p}_0$)
+needed to bring the right normal ($\Normal{n}_{031}$) to
+the left normal ($\Normal{n}_{012}$).
+We cut our angle measurement at $\pi \sim -\pi$.
+
+With this definition, the signed normal angle
+is between $-\pi$ and $\pi$.
+An acutely concave edge has a signed normal angle
+of a little more than $-\pi$;
+a concave edge where the faces meet in a right angle
+$-{\pi \over 2}$;
+a flat edge is $0$;
+a convex right angle $\pi \over 2$;
+and an acutely convex edge has a signed normal angle
+slightly less than $\pi$.
+
+The dihedral angle can be expressed simply in terms of the
+signed normal angle: $\theta_d = \pi - \theta_n$.
+
+To compute $\theta_n$,
+it's easiest to use the informal definition:
+\begin{equation}
+\theta_n(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)
+= \kappa(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3) \ast \theta_u(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3),
+\end{equation}
+where $\kappa(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$ is
+$+1$ if the edge is convex
+and
+$-1$ if the edge is concave.
+One way to determine convexity/concavity
+is to look at
+$\left(\Point{p}_3 - \Point{p}_2 \right) \bullet \Normal{n}_{031}$
+which is positive if the edge is convex
+and negative if it is concave.
+
+The derivative of $\theta_n$ are simply $\kappa$
+times the derivative of $\theta_u$:
+$\Db{\theta_n}{\Point{q}} = \kappa(\Point{q}) \ast \Db{\theta_u}{\Point{q}}$.
+
+\end{plSection}%{Signed normal angle}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Signed angle and normal distance}
+\label{sec:Signed-angle-and-normal-distance}
+
+We can tie the signed normal angle back 
+to the distance between normal vectors,
+and save the time and complexity
+of computing the $\cos^{-1}$ and its derivatives,
+by considering a simple transform.
+
+First, note that $\sin({\theta_n \over 2})$
+is a monotone function of $\theta_n$,
+ranging from $-1$, when $\theta_n = -\pi$,
+to $1$ when $\theta_n = \pi$.
+Also note that 
+\begin{equation}
+\sin({\theta_n \over 2}) 
+ = 
+\sign(\theta_n) 
+\left[ {1 - \cos(\theta_n)} 
+\over 2 \right]^{1 \over 2}
+ = 
+\sign(\theta_n) 
+\left[ {1 - \left( \Normal{n}_{012}\bullet\Normal{n}_{031} \right)} 
+\over 2 \right]^{1 \over 2},
+\end{equation}
+which means that
+\begin{equation}
+\sin^2({\theta_n \over 2}) 
+= {{1 - \left( \Normal{n}_{012}\bullet\Normal{n}_{031} \right)} \over 2},
+\end{equation}
+which is proportional to the distance between the adjacent normals
+(see \cref{eq:normal-distance-dot}).
+
+Note that the function that promotes evenly 
+distributed bending described in \autoref{sec:squared_normal_dot},
+is proportional to $\sin^4({\theta_n \over 2})$. 
+
+\end{plSection}%{Signed angle and normal distance}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Bent edge neighborhoods}
+\label{sec:Bent-edge-neighborhoods}
+
+In many problems \cite{HoppeEtal:1994:SIGGRAPH,Hoppe:1994:Phd},
+it's important to be able to allow the surface to have
+sharp creases and cusps.
+A simple way to achieve this is to mark
+certain edges as ``sharp'',
+and then not evaluate any bending penalty
+on those edges.
+With this approach, there are then 2 kinds of edges:
+sharp edges, where any bend angle is equally acceptable,
+and smooth edges, 
+where any deviation from zero bending is penalized.
+
+However, it's not often the case that all angles
+are equally desirable for a ``sharp'' edge,
+or that no angle, other than $0$, is acceptable
+for a ``smooth'' edge.
+It's often true that we know that a given crease
+must be, for example, convex ($\theta_n > 0$)
+but with bounded acuteness ($\theta_n < \alpha < \pi$).
+Or we may know that a given edge should be close to
+a convex right angle 
+($\left( {\pi \over 2} - \delta \right) 
+< \theta_n < 
+\left( {\pi \over 2} + \delta \right)$)
+for some small positive angle $\delta$.
+
+Enforcing hard constraints on $\theta_n$
+is relatively difficult,
+but it is easy to convert any function
+of the signed normal angle, $f(\theta_n)$,
+that penalizes non-zero normal angles,
+into one that penalizes angles 
+outside an interval, $\left[\theta_0,\theta_1\right]$,
+of prefered angles.
+($-\pi \leq \theta_0 \leq \theta_1 \leq \pi$.)
+
+For example,
+consider the function of \autoref{sec:squared_normal_dot},
+which is proportional to $\sin^4({\theta_n \over 2})$. 
+Let $s = \sin({\theta_n \over 2})$,
+a monotone function of $\theta_n$ 
+that ranges over $\left[ -1, 1 \right]$.
+
+Then, 
+given an interval $\left[ \theta_0, \theta_1 \right] \subseteq \left[ -\pi, \pi \right]$,
+let the {\it bent} function be:
+\begin{equation}
+f(s)
+= 
+\left\{
+\begin{array}{cr}
+\left[ {  
+\frac{\textstyle
+s^2 - s_0^2}
+{\textstyle
+1 - s_0^2}
+  } \right]^2 
+& -\pi \leq \theta_n \leq \theta_0
+\\
+\\
+0                            
+& \theta_0 \leq \theta_n \leq \theta_1
+\\
+\\
+\left[ {
+  {\textstyle s^2 - s_1^2} 
+  \over 
+  {\textstyle 1 - s_1^2}
+  } \right]^2  
+& \theta_1 \leq \theta_n \leq \pi
+\end{array}
+\right.
+\end{equation}
+The reason for stretching $s^2$ rather than $s$
+is that we get a relatively simple expression
+in $\Normal{n}_{012} \bullet \Normal{n}_{031}$:
+\begin{equation}
+f(s)
+= 
+\left\{
+\begin{array}{cr}
+\left[ {
+  {\textstyle c_0 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right) } 
+  \over 
+  {\textstyle c_0 + 1}
+   } \right]^2
+& -\pi \leq \theta_n \leq \theta_0
+\\
+\\
+0                            
+& \theta_0 \leq \theta_n \leq \theta_1
+\\
+\\
+\left[ {\textstyle {c_1 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)} 
+    \over {\textstyle c_1 + 1}} \right]^2
+& \theta_1 \leq \theta_n \leq \pi
+\end{array}
+\right.
+\end{equation}
+where $c_0 = \cos(\theta_0)$
+and $c_1 = \cos(\theta_1)$.
+Recall that $\cos(\theta_n) = \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)$.
+
+\end{plSection}%{Bent edge neighborhoods}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Weighting bend measures by length}
+\label{sec:length_weighted_bend}
+
+Let $f(\Point{p}) = f(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$ be some measure of the
+bend across the edge connecting $(\Point{p}_0,\Point{p}_1)$.
+It may be useful to weight the bend measure by the edge length:
+$\| \Point{p}_0 - \Point{p}_1 \| \ast f(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$.
+The partial gradients of the weighted measure are:
+\begin{eqnarray}
+\label{eq:length_weighted_bend_gradient}
+\Gc{\Point{p}_0}{\left( \|\Point{p}_0 - \Point{p}_1 \| f(\Point{p}) \right)}{\Point{q}}
+& = &
+\frac{f(\Point{q})}{\|\Point{q}_0 - \Point{q}_1\|} \left( \Point{q}_0 - \Point{q}_1 \right)
++ \| \Point{q}_0 - \Point{q}_1 \| \Gc{\Point{p}_0}{f}{\Point{q}}
+\\
+& & \nonumber \\
+\Gc{\Point{p}_1}{\left( \|\Point{p}_0 - \Point{p}_1 \| f(\Point{p}) \right)}{\Point{q}}
+& = &
+\frac{f(\Point{q})}{\|\Point{q}_0 - \Point{q}_1\|} \left( \Point{q}_1 - \Point{q}_0 \right)
++ \| \Point{q}_0 - \Point{q}_1 \| \Gc{\Point{p}_1}{f}{q}
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_2}{\left( \|\Point{p}_0 - \Point{p}_1 \| f(\Point{p}) \right)}{\Point{q}}
+& = &
+\| \Point{q}_0 - \Point{q}_1 \| \Gc{\Point{p}_2}{f}{q}
+\nonumber \\
+& & \nonumber \\
+\Gc{\Point{p}_3}{\left( \|\Point{p}_0 - \Point{p}_1 \| f(\Point{p}) \right)}{\Point{q}}
+& = &
+\| \Point{q}_0 - \Point{q}_1 \| \Gc{\Point{p}_3}{f}{\Point{q}}
+\nonumber
+\end{eqnarray}
+
+
+\end{plSection}%{Weighting bend measures by length}
+%-----------------------------------------------------------------
+
+\begin{plSection}{Rate of bending}
+\label{sec:Rate-of-bending}
+
+It may be useful to weight edge bends should
+by the length of the edge ---
+a long sharp edge should cost more than a short sharp edge.
+It may also be useful to weight inversely by the
+distance to nearby edges --- two edges close together
+means more curvature than the same two edges farther apart.
+A measure has both these properties, at least approximately,
+is:
+\begin{equation}
+{\mathrm dN2L2A (\Point{p}) }
+=
+\| \Normal{n}(\Point{p}_{012}) - \Normal{n}(\Point{p}_{031}) \|^2
+\| \Point{p}_0 - \Point{p}_1 \|^2
+\left[
+\frac{1}{A(\Point{p}_{012})} +
+\frac{1}{A(\Point{p}_{031})}
+\right]
+\end{equation}
+where $\| \Normal{n}(\Point{p}_{012}) - \Normal{n}(\Point{p}_{031}) \|^2$ is the squared distance between
+adjacent normals, as in \cref{eq:deltan}.
+(Note the similarity of the weighting to the aspect ratio
+measure discussed in \cref{sec:Squared-edge-lengths-over-area}.)
+
+\begin{eqnarray}
+\Gc{\Point{p}}{dN2L2A}{\Point{q}}
+& = &
+\Gc{\Point{p}}{\left(\| \Normal{n}(\Point{p}_{012}) - \Normal{n}(\Point{p}_{031}) \|^2 \right)}{\Point{q}}
+\| \Point{q}_0 - \Point{q}_1 \|^2
+\left[
+\frac{1}{A(\Point{q}_{012})} +
+\frac{1}{A(\Point{q}_{031})}
+\right]
+\\
+& + &
+\| \Normal{n}(\Point{q}_{012}) - \Normal{n}(\Point{q}_{031}) \|^2
+\Gc{\Point{p}}{\left(\| \Point{p}_0 - \Point{p}_1 \|^2\right)}{\Point{q}}
+\left[
+\frac{1}{A(\Point{q}_{012})} +
+\frac{1}{A(\Point{q}_{031})}
+\right]
+\nonumber
+\\
+& + &
+\| \Normal{n}(\Point{q}_{012}) - \Normal{n}(\Point{q}_{012}) \|^2
+\| \Point{q}_0 - \Point{q}_1 \|^2
+\left[
+\Gc{\Point{p}}{\left( \frac{1}{A(\Point{p}_{012})} \right)}{\Point{q}} +
+\Gc{\Point{p}}{\left( \frac{1}{A(\Point{p}_{031})} \right)}{\Point{q}}
+\right]
+\nonumber
+\end{eqnarray}
+
+The partial gradients,
+$\Gc{\Point{p}_i}{\left(\| \Normal{n}(\Point{p}_{012}) - \Normal{n}(\Point{p}_{031}) \|^2 \right)}{\Point{q}}$,
+is given in \cref{eq:normal-difference-gradient}.
+
+$\Gc{\Point{p}_0}{\left(\| \Point{p}_0 - \Point{p}_1 \|^2\right)}{\Point{q}} = 2 \left( \Point{q}_0 - \Point{q}_1 \right)$;
+$\Gc{\Point{p}_1}{\left(\| \Point{p}_0 - \Point{p}_1 \|^2\right)}{\Point{q}} = 2 \left( \Point{q}_1 - \Point{q}_0 \right)$;
+and the other 2 partial gradients are zero.
+
+Using \cref{eq:area_partial_derivative}
+and the chain rule, we have:
+\begin{eqnarray}
+\label{eq:inverse-area-gradient-012}
+\Gc{\Point{p}_0}{\left( \frac{1}{A(\Point{p}_{012})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{012}) \times \left( \Point{q}_1 - \Point{q}_2 \right)}
+\over
+{2 A(\Point{q}_{012})^2 } }
+\\
+\Gc{\Point{p}_1}{\left( \frac{1}{A(\Point{p}_{012})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{012}) \times \left( \Point{q}_2 - \Point{q}_0 \right)}
+\over
+{2 A(\Point{q}_{012})^2 } }
+\nonumber
+\\
+\Gc{\Point{p}_2}{\left( \frac{1}{A(\Point{p}_{012})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{012}) \times \left( \Point{q}_0 - \Point{q}_1 \right)}
+\over
+{2 A(\Point{q}_{012})^2 } }
+\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\label{eq:inverse-area-gradient-031}
+\Gc{\Point{p}_0}{\left( \frac{1}{A(\Point{p}_{031})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{031}) \times \left( \Point{q}_3 - \Point{q}_1 \right)}
+\over
+{2 A(\Point{q}_{031})^2 } }
+\\
+\Gc{\Point{p}_1}{\left( \frac{1}{A(\Point{p}_{031})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{031}) \times \left( \Point{q}_0 - \Point{q}_3 \right)}
+\over
+{2 A(\Point{q}_{031})^2 } }
+\nonumber
+\\
+\Gc{\Point{p}_3}{\left( \frac{1}{A(\Point{p}_{031})} \right)}{\Point{q}}
+& = &
+{{\Normal{n}(\Point{q}_{031}) \times \left( \Point{q}_1 - \Point{q}_0 \right)}
+\over
+{2 A(\Point{q}_{031})^2 } }
+\nonumber
+\end{eqnarray}
+
+\end{plSection}%{Rate of bending}
+%-----------------------------------------------------------------
+\end{plSection}%{Functions of the edges}

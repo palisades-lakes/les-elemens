@@ -2,7 +2,7 @@
 \label{sec:faces}
 
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \subsubsection{Corner angles}
 \label{sec:corner_angles}
@@ -94,7 +94,7 @@ it's easy to see that the partial gradients are:
 \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \subsubsection{Functions of face normals}
 \label{sec:normals}
@@ -103,13 +103,13 @@ A number of important functions of triangular meshes,
 such as surface area,
 are based on face normal vectors.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Area-weighted face normal}
 \label{sec:areanormal}
 
 Suppose we have a face whose 3 vertices are at $\p = (\p_0, \p_1, \p_2)$,
-where $\p_i \in \Re^3; i=0,1,2.$
+where $\p_i \in \Reals^3; i=0,1,2.$
 (Note that the order of the $\p_i$ determines the orientation of the face.
 With a face as labeled in figure \ref{fig:face_labeling},
 the normal points out of the page.)
@@ -136,7 +136,7 @@ The 'partial' derivatives of the area-weighted normal are:
 Note that $\Df{\p}{\a}$ is {\it skew-symmetric}, that is,
 $\Df{\p}{\a}^{\dagger} = -\Df{\p}{\a}.$
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Face area}
 \label{sec:facearea}
@@ -188,7 +188,7 @@ More simply, using the face unit normal \( \n(\p)  =  {{\a(\p)} \over {\| \a(\p)
 \Gc{\p_2}{A}{\q} & = & \frac{\n(\q)}{2} \times (\q_1 - \q_0) \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Face unit normal vector}
 \label{sec:facenormal}
@@ -206,12 +206,12 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \label{eq:unit_normal_derivative}
 \Dc{\n}{\p}{\q}
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right) }
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right) }
 \; \Dc{\a}{\p}{\q}
  \\
 & & \nonumber\\
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
 \left[ \left( \q_0 \times \p_1 \right) + \left( \p_2 \times \q_0 \right)
@@ -222,7 +222,7 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
 \left[ \left( (\p_2 - \p_1) \times \q_0 \right)
@@ -233,11 +233,11 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\I_{\Re^3}  -  \n(\p) \otimes \n(\p) } \over {\| \a(\p) \|} \right)} \ast \; \Dc{\a}{\p}{\q}
+& { \left( {\I_{\Reals^3}  -  \n(\p) \otimes \n(\p) } \over {\| \a(\p) \|} \right)} \ast \; \Dc{\a}{\p}{\q}
 \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \subsubsection{Aspect Ratio}
 \label{sec:aspect_ratio}
@@ -246,7 +246,7 @@ Minimizing a measure of face aspect ratio can help maintain
 a well-conditioned mesh.
 Maximizing it may help in discovering collapse-able edges.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Squared edge lengths over area}
 \label{sec:Squared-edge-lengths-over-area}

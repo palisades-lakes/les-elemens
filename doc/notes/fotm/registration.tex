@@ -7,7 +7,7 @@ or to register a data set to a mesh.
 The general approach is to minimize
 a measure of distance between the {\it docking} mesh and its {\it target},
 over some set of registration transforms,
-for example, the rigid transformations of $\Re^3$.
+for example, the rigid transformations of $\Reals^3$.
 
 We most often compute a registration transform, $\Tr$,
 to minimize a distance between the transformed mesh,
@@ -29,16 +29,16 @@ In this case, we minimize
 \min_{\Tr} d(\M,\Tr\{\x_i\})
 \end{equation}
 
-Both are special cases of choosing a transform on $\Re^{3n}$
+Both are special cases of choosing a transform on $\Reals^{3n}$
 by minimizing:
 \begin{equation}
 \min_{\Tr} f( \Tr \p),
 \end{equation}
 where
-$\p = (\p_0, \ldots , \p_{n-1}) \in \Re^{3n}$,
-$\Tr : \Re^{3n} \mapsto \Re^{3n}$,
+$\p = (\p_0, \ldots , \p_{n-1}) \in \Reals^{3n}$,
+$\Tr : \Reals^{3n} \mapsto \Reals^{3n}$,
 and
-$f : \Re^{3n} \mapsto \Re$.
+$f : \Reals^{3n} \mapsto \Re$.
 
 \subsection{Distance measures}
 \label{sec:Distance-measures}
@@ -75,7 +75,7 @@ d_{\Pr}(\M,\p_1) = \sum_{i=0}^{n-1} \| \Pr_{\M}(\p_{1i}) - \p_{1i} \|^2,
 where the target $\p_1 = (\p_{10}, \ldots \p_{1(n-1)})$
 is either a set of data points,
 or the set of positions of the vertices of a target mesh.
-$\Pr_{\M}(\p)$ is the projection of the point $\p \in \Re^3$
+$\Pr_{\M}(\p)$ is the projection of the point $\p \in \Reals^3$
 on the mesh $\M$.
 This is the same as the general data fitting distance, and
 derivatives with respect to the positions of the vertices
@@ -126,8 +126,8 @@ and \ref{sec:data-fitting}.
 
 In registration problems,we usually want to
 apply the same transform to each vertex or data point.
-Let $\Tr : \Re^3 \mapsto \Re^3$ be an element
-of some family of transformations on $\Re^3$.
+Let $\Tr : \Reals^3 \mapsto \Reals^3$ be an element
+of some family of transformations on $\Reals^3$.
 A simple direct sum transform applies the same 3-dimensional
 transform to each vertex point,
 so the full mesh transform is
@@ -183,14 +183,14 @@ are discussed in chapter \ref{sec:data-fitting}.
 
 In this chapter, I focus on computing
 $\De{\Tr}{\Tr\p}{\Tr_0}$
-for $\Tr : \Re^3 \mapsto \Re^3$
-and $\p \in \Re^3$.
+for $\Tr : \Reals^3 \mapsto \Reals^3$
+and $\p \in \Reals^3$.
 
 \subsubsection{General linear registration}
 \label{sec:General-linear-registration}
 
-Suppose $\Tr = \L$ a linear transform on $\Re^3$.
-We can represent $\L$ as a vector in $\Re^9$:
+Suppose $\Tr = \L$ a linear transform on $\Reals^3$.
+We can represent $\L$ as a vector in $\Reals^9$:
 \begin{equation}
 \label{eq:L-vector}
 \l = \left(\L_{00},\L_{01},\L_{02},
@@ -199,8 +199,8 @@ We can represent $\L$ as a vector in $\Re^9$:
 \end{equation}
 where $\L_{ij}$ is the $ij$-th element of a
 matrix representation of $\L$.
-We can identify a vector $\p \in \Re^3$
-with a linear transform $\Tr_{\p} : \Re^9 \mapsto \Re^3$
+We can identify a vector $\p \in \Reals^3$
+with a linear transform $\Tr_{\p} : \Reals^9 \mapsto \Reals^3$
 by defining $\Tr_{\p}\l = \L\p$.
 In the coordinate system defined by equation \ref{eq:L-vector},
 the matrix for $\Tr_{\p}$ is:
@@ -234,18 +234,18 @@ unconstrained set of linear registration transforms is:
 
 A scaled rotation
 is a linear transform $\Sc = s \R$,
-where $s \in \Re$ and $\R : \Re^n \mapsto \Re^n$
+where $s \in \Re$ and $\R : \Reals^n \mapsto \Reals^n$
 is a rotation.
 
 The quaternions $\Qs$ are a convenient representation
-for the scaled rotations on $\Re^3$.
+for the scaled rotations on $\Reals^3$.
 (See Faugeras~\cite[sec.~5.5.2]{Faugeras:1993:3dVision}.)
 
 A quaternion is a 4-tuple:
 \begin{equation}
 \q = (w, x, y, z) = (w, \v),
 \end{equation}
-where $w, x, y, z \in \Re$ and $\v \in \Re^3$.
+where $w, x, y, z \in \Re$ and $\v \in \Reals^3$.
 The set of quaternions has several operations:
 \begin{itemize}
 \item Quaternion conjugation $\dagger$:
@@ -266,11 +266,11 @@ The set of quaternions has several operations:
 \end{equation}
 \end{itemize}
 
-The quaternion product can be extended to $\Re^3$
-by identifying $\p \in \Re^3$ with
+The quaternion product can be extended to $\Reals^3$
+by identifying $\p \in \Reals^3$ with
 the quaternion $(0,\p)$.
 This allows us to define a linear transform
-on $\Re^3$ for any quaternion:
+on $\Reals^3$ for any quaternion:
 \begin{equation}
 \Sc(\q) \p = \q \diamond \p \diamond \q^\dagger
 \end{equation}
@@ -450,7 +450,7 @@ with respect to $\q$:
 \paragraph{Rotations}
 \label{sec:Rotations}
 
-A common representation for the rotations on $\Re^3$
+A common representation for the rotations on $\Reals^3$
 is the set of {\it unit quaternions},
 that is, the quaternions satisfying $\| \q \|_{\Qs} = 1$.
 However, optimization under a nonlinear constraint
@@ -484,36 +484,36 @@ where $v$ is any of $w$, $x$, $y$, or $z$.
 
 A simple shift, or translation, adds a constant vector
 to its argument: $\Tr \p = \p + \t,$
-for some $\t \in \Re^3$.
+for some $\t \in \Reals^3$.
 The derivative with respect to
 an unconstrained translation vector
 is simply
 $\Df{\t}{(\p + \t)} = \I_3,$
-where $\I_3$ is the identity on $\Re^3$.
+where $\I_3$ is the identity on $\Reals^3$.
 
 \subsubsection{Affine registration}
 \label{sec:affine-registration}
 
-An {\it affine transformation,} $\A : \Re^m \mapsto \Re^n$,
+An {\it affine transformation,} $\A : \Reals^m \mapsto \Reals^n$,
 is a linear transformation plus a translation:
 $\A \p = \L \p + \t$,
-where $\L : \Re^m \mapsto \Re^n$ is a linear transform,
+where $\L : \Reals^m \mapsto \Reals^n$ is a linear transform,
 the {\it linear part} of the affine tranform,
-and $\t \in \Re^n$ is $\A$'s {\it translation}.
+and $\t \in \Reals^n$ is $\A$'s {\it translation}.
 
 Note that, if $\A = (\L,\t)$, then its inverse is
 $\A^{-1} = (\L^{-1}, - \L^{-1}\t)$.
 
 (It is sometimes useful to use a redundant representation:
 $\A \p = \L (\p + \t_0) + \t_1$,
-where $\t_0 \in \Re^m$ and $\t_1 \in \Re^n$,
+where $\t_0 \in \Reals^m$ and $\t_1 \in \Reals^n$,
 but, for simplicity, I'll stick to the minimal one-translation
 representation in this discussion.)
 
 In the context of mesh registration,
-where $\A : \Re^3 \mapsto \Re^3$,
-we can view $\L \in \Re^9$ and
-$\A = (\L, \t) \in \left(\Re^9 \oplus \Re^3 \right)= \Re^{12}$,
+where $\A : \Reals^3 \mapsto \Reals^3$,
+we can view $\L \in \Reals^9$ and
+$\A = (\L, \t) \in \left(\Reals^9 \oplus \Reals^3 \right)= \Reals^{12}$,
 and we can express derivatives with respect to $\A$
 in terms of the independent partial derivatives
 with respect to $\L$ and $\t$.
@@ -538,11 +538,11 @@ that the derivative is formed from the 2
 \label{sec:euclidean-registration}
 
 A {\it euclidean transform} is an affine transform
-$\Eu : \Re^n \mapsto \Re^n$,
+$\Eu : \Reals^n \mapsto \Reals^n$,
 $\Eu \p = \Sc \p + \t $,
 whose linear part is a scaled rotation:
 $\Sc = s \R$,
-where $s \in \Re$ and $\R : \Re^n \mapsto \Re^n$
+where $s \in \Re$ and $\R : \Reals^n \mapsto \Reals^n$
 is a rotation.
 
 Euclidean transforms are easy to invert.

@@ -109,7 +109,7 @@ are based on face normal vectors.
 \label{sec:areanormal}
 
 Suppose we have a face whose 3 vertices are at $\p = (\p_0, \p_1, \p_2)$,
-where $\p_i \in \Re^3; i=0,1,2.$
+where $\p_i \in \Reals^3; i=0,1,2.$
 (Note that the order of the $\p_i$ determines the orientation of the face.
 With a face as labeled in figure \ref{fig:face_labeling},
 the normal points out of the page.)
@@ -206,12 +206,12 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \label{eq:unit_normal_derivative}
 \Dc{\n}{\p}{\q}
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right) }
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right) }
 \; \Dc{\a}{\p}{\q}
  \\
 & & \nonumber\\
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
 \left[ \left( \q_0 \times \p_1 \right) + \left( \p_2 \times \q_0 \right)
@@ -222,7 +222,7 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\| \a(\p) \|^2 \I_{\Re^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
+& { \left( {\| \a(\p) \|^2 \I_{\Reals^3}  -  \a(\p) \otimes \a(\p) } \over {\| \a(\p) \|^3} \right)} \ast
 \nonumber \\
 &    &
 \left[ \left( (\p_2 - \p_1) \times \q_0 \right)
@@ -233,7 +233,7 @@ Following equation \ref{eq:normalized_function_derivative}, the derivative is:
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\I_{\Re^3}  -  \n(\p) \otimes \n(\p) } \over {\| \a(\p) \|} \right)} \ast \; \Dc{\a}{\p}{\q}
+& { \left( {\I_{\Reals^3}  -  \n(\p) \otimes \n(\p) } \over {\| \a(\p) \|} \right)} \ast \; \Dc{\a}{\p}{\q}
 \nonumber
 \end{eqnarray}
 

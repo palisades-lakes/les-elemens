@@ -7,7 +7,7 @@ f(\M) = \sum_{i=0}^{n-1} \| \d_i - \Pr_\M (\d_i) \|^2 ,
 \end{equation}
 where $\Pr_\M (\d_i)$ is the point on $\M$ closest to $\d_i$,
 that is, the {\em projection} of $\d_i$ on $\M$.
-Note that $f:\Re^{3n} \mapsto \Re$,
+Note that $f:\Reals^{3n} \mapsto \Re$,
 where $n$ is the number of vertices in $\M$.
 
 We compute $\Pr_\M (\d)$ by minimizing  $\| \d - \Pr_\s (\d) \|^2$
@@ -61,7 +61,7 @@ Voronoi regions surrounding the vertices.
 \subsection{Distance to edge}
 \label{sec:Distance-to-edge}
 
-Let the edge $\e$ have end points $\p = (\p_0, \p_1) \in \Re^6$.
+Let the edge $\e$ have end points $\p = (\p_0, \p_1) \in \Reals^6$.
 We can write the projection of a data point $\d$ on $\e$ as:
 \begin{equation}
 \Pr_\p (\d) = b_0(\p) \p_0 + b_1(\p) \p_1
@@ -141,7 +141,7 @@ edge with which it does not share a vertex.
 \subsection{Distance to face}
 \label{sec:Distance-to-face}
 
-Let the face $\f$ have corner points $\p = (\p_0, \p_1, \p_2) \in \Re^9$.
+Let the face $\f$ have corner points $\p = (\p_0, \p_1, \p_2) \in \Reals^9$.
 As in the edge case,
 we can write the projection of a data point $\d$ on $\f$
 in terms of the barycentric coordinates as:

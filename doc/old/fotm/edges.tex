@@ -1,7 +1,7 @@
 \subsection{Functions of the edges}
 \label{sec:edges}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \begin{figure}[!htp]
 \centering
@@ -26,10 +26,10 @@ p2 o f012 | f031 o p3
 
 \end{verbatim}
 \caption{Edge face pair labeling.
-\label{fig:edge-faces}}
+\label{diagram:EdgeFaces}}
 \end{figure}
 
-Notation in this section is based on figure \ref{fig:edge-faces}.
+Notation in this section is based on figure \ref{diagram:EdgeFaces}.
 We are discussing functions defined on a neighborhood of edge $e_{01}$.
 
 We assume that, for each edge, an arbitrary order is assigned to
@@ -53,7 +53,7 @@ Note that we cannot assume any consistent ordering of the 4 neighboring edges;
 for example, $e_{12}$ may be represented by either ordered pair
 $(\p_1,\p_2)$ or $(\p_2,\p_1)$.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \subsubsection{Edge length}
 \label{sec:edge_length}
@@ -72,7 +72,7 @@ The gradient of the edge length, $\|\p_1 - \p_0\|$ is:
 {\|\p_1 - \p_0\|}
 \end{equation}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \subsubsection{Edge dihedral}
 \label{sec:edge_dihedral}
@@ -88,11 +88,11 @@ In this section, we consider functions of the difference
 in normals for 2 faces that share an edge,
 which is equivalent to the {\it dihedral angle} of the edge.
 
-We will consider a number of both real- and $\Re^3$-valued functions on
-$\Re^{12} = \Re^3 \oplus \Re^3 \oplus \Re^3 \oplus \Re^3$.
+We will consider a number of both real- and $\Reals^3$-valued functions on
+$\Reals^{12} = \Reals^3 \oplus \Reals^3 \oplus \Reals^3 \oplus \Reals^3$.
 We will use $\p = (\p_0, \p_1, \p_2, \p_3)$, $\q=\ldots$, $\r=\ldots$, etc.,
 to refer to the arguments of these functions, with the meaning
-of the indices determined by figure \ref{fig:edge-faces}.
+of the indices determined by figure \ref{diagram:EdgeFaces}.
 We are also interested in the two 9-dimensional subspaces
 corresponding to the vertics of the two faces:
 $\p_{012} = (\p_0,\p_1,\p_2), \p_{031} = (\p_0,\p_3,\p_1)$.
@@ -101,7 +101,7 @@ $\n_{012} = \n(\p_0,\p_1,\p_2)$
 and
 $\n_{031} = \n(\p_0,\p_3,\p_1)$.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Difference in face normals}
 \label{sec:normal_difference}
@@ -129,13 +129,13 @@ The (total) derivative of the squared distance between adjacent face normals is:
 \nonumber \\
 & =
 2 \dn(\q)^\dagger &
-\{ \; \left[ \I_{\Re^3} - \left( \n( \q_{012} ) \otimes \n( \q_{012} ) \right)
+\{ \; \left[ \I_{\Reals^3} - \left( \n( \q_{012} ) \otimes \n( \q_{012} ) \right)
 \right]
 \ast \Db{\a ( \p_{012} ) }{\q}
 \nonumber \\
 \label{eq:deltan_derivative}
 &
-& - \left[ \I_{\Re^3} - \left( \n( \q_{031} ) \otimes \n ( \q_{031} ) \right)
+& - \left[ \I_{\Reals^3} - \left( \n( \q_{031} ) \otimes \n ( \q_{031} ) \right)
 \right]
 \ast \Db{\a ( \p_{031} ) }{\q}
 \; \}
@@ -205,7 +205,7 @@ derivative's argument $\r$:
 \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Inner product between face normals}
 \label{sec:normal_dot}
@@ -331,7 +331,7 @@ and the face area \(A(\q) = \frac{1}{2} \| \a(\q) \|\):
 \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Squared inner product between face normals}
 \label{sec:squared_normal_dot}
@@ -397,7 +397,7 @@ that the partial gradients are:
 \nonumber
 \end{eqnarray}
 
-%------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 
 \paragraph{Dihedral angle}
 \label{sec:Dihedral-angle}
@@ -428,7 +428,7 @@ and it is generally more convenient to work
 with the signed normal angle directly,
 so I will not consider the dihedral angle further.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Unsigned normal angle}
 \label{sec:unsigned_normal_angle}
@@ -463,7 +463,7 @@ As above, we can write the partial gradients without reference to an argument:
 \; \Gc{\p_i}{\left(\n_{012}\bullet\n_{031}\right)}{\q}
 \end{equation}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Signed normal angle}
 \label{sec:signed_normal_angle}
@@ -539,7 +539,7 @@ The derivative of $\theta_n$ are simply $\kappa$
 times the derivative of $\theta_u$:
 $\Db{\theta_n}{\q} = \kappa(\q) \ast \Db{\theta_u}{\q}$.
 
-%------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 
 \paragraph{Signed angle and normal distance}
 \label{sec:Signed-angle-and-normal-distance}
@@ -578,7 +578,7 @@ Note that the function that promotes evenly
 distributed bending described in \autoref{sec:squared_normal_dot},
 is proportional to $\sin^4({\theta_n \over 2})$. 
 
-%------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 
 \paragraph{Bent edge neighborhoods}
 \label{sec:Bent-edge-neighborhoods}
@@ -686,7 +686,7 @@ where $c_0 = \cos(\theta_0)$
 and $c_1 = \cos(\theta_1)$.
 Recall that $\cos(\theta_n) = \left(\n_{012} \bullet \n_{031}\right)$.
 
-%------------------------------------------------------------------------------
+%-----------------------------------------------------------------
 
 \paragraph{Weighting bend measures by length}
 \label{sec:length_weighted_bend}
@@ -722,7 +722,7 @@ The partial gradients of the weighted measure are:
 \end{eqnarray}
 
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------
 
 \paragraph{Rate of bending}
 \label{sec:Rate-of-bending}
@@ -834,4 +834,4 @@ and the chain rule, we have:
 \nonumber
 \end{eqnarray}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------

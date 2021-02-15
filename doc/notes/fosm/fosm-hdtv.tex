@@ -10,7 +10,8 @@
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 %% arara: clean: { extensions: [ glg, glo, gls, ] }
 % arara: clean: { extensions: [ idx, ] }
-% arara: clean: { extensions: [ilg, ind, xdy, ] }
+% arara: clean: { extensions: [ilg, ind, ] }
+%% arara: clean: { extensions: [ xdy, ] }
 %% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
 \documentclass{PalisadesLakesReport}
@@ -33,14 +34,14 @@
 \input{maps}
 \import{\sharedFolder}{derivatives}
 
-\input{simplex}
+\import{\sharedFolder}{simplex}
 \import{\sharedFolder}{simplicial-meshes}
 \import{\sharedFolder}{barycentric-coordinates}
 \import{\sharedFolder}{volume}
 \import{\sharedFolder}{mesh-operations}
 \import{\sharedFolder}{flatten}
-\input{edges}
-\input{faces}
+\import{\sharedFolder}{edges}
+\import{\sharedFolder}{faces}
 
 %-----------------------------------------------------------------
 \end{document}
