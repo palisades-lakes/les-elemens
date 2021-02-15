@@ -1,9 +1,11 @@
 \begin{plSection}{Polylines}
 %-----------------------------------------------------------------
-\subsection{Vertex Bends}
+\begin{plSection}{Vertex Bends}
 \label{sec:Vertex-Bends}
 
-\begin{figure}[!htp]
+\begin{plDiagram}
+{Polyline vertex neighborhood}
+{PolylineVertexNeighborhood}
 \centering
 \begin{verbatim}
                    e1
@@ -13,70 +15,69 @@
                             \
                              o p2
 \end{verbatim}
-\caption{Polyline vertex neighborhood.
-\label{fig:Polyline-vertex-neighborhood}}
-\end{figure}
+\end{plDiagram}
 
 In this section, I disuss measures of curvature
 based on the bending at each vertex in a polyline.
 
+\end{plSection}%{Vertex Bends}
 %-----------------------------------------------------------------
-
-\subsubsection{Cosine}
+\begin{plSection}{Cosine}
 \label{sec:polyline-vertex-cosine}
 
 Consider the non-boundary vertex
-at point $\p_0 \in \Reals^3$ in figure \ref{fig:Polyline-vertex-neighborhood}.
-$\v$ has degree $2$;
-the incident edges are labeled $\e_1$ and $e_2$;
-and the neighboring vertices are at points $\p_1 \in \Reals^3$
-and $\p_2 \in \Reals^3$.
+at point $\Vector{p}_0 \in \Reals^3$ in \cref{diagram:PolylineVertexNeighborhood}.
+$\Simplex{v}$ has degree $2$;
+the incident edges are labeled $\Simplex{e}_1$ and $Simplex{e}_2$;
+and the neighboring vertices are at points $\Vector{p}_1 \in \Reals^3$
+and $\Vector{p}_2 \in \Reals^3$.
 The shape of the neighborhood is determined by
-$\p = (\p_0, \p_1, \p_2) \in \Reals^9$
-The unsigned angle between edges $\e_1$ and $\e_2$ is $\alpha(\p)$.
+$\Vector{p} = (\Vector{p}_0, \Vector{p}_1, \Vector{p}_2) \in \Reals^9$
+The unsigned angle between edges 
+$\Simplex{e}_1$ and $\Simplex{e}_2$ is $\alpha(\Vector{p})$.
 
 One measure of the amount of bending is the cosine of $\alpha$:
 \begin{equation}
-\cos(\alpha(\p)) =
-{{(\p_1 - \p_0)} \over {\| \p_1 - \p_0 \|} }
+\cos(\alpha(\Vector{p})) =
+{{(\Vector{p}_1 - \Vector{p}_0)} \over {\| \Vector{p}_1 - \Vector{p}_0 \|} }
 \bullet
-{{(\p_2 - \p_0)} \over {\| \p_2 - \p_0 \|} }
+{{(\Vector{p}_2 - \Vector{p}_0)} \over {\| \Vector{p}_2 - \Vector{p}_0 \|} }
 \end{equation}
 
 A little calculus shows that the partial gradients are:
 \begin{eqnarray}
 \label{eq:polyline-vertex-cosine-gradient}
-\Gf{\p_0}{\cos(\alpha(\p))}
+\Gf{\Vector{p}_0}{\cos(\alpha(\Vector{p}))}
 & = &
 -
 \left[
-{{(\p_1 - \p_0) \perp  (\p_2 - \p_0)}
+{{(\Vector{p}_1 - \Vector{p}_0) \perp  (\Vector{p}_2 - \Vector{p}_0)}
 \over
-{\| \p_1 - \p_0 \| \| \p_2 - \p_0 \|} }
+{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 +
-{{(\p_2 - \p_0) \perp  (\p_1 - \p_0)}
+{{(\Vector{p}_2 - \Vector{p}_0) \perp  (\Vector{p}_1 - \Vector{p}_0)}
 \over
-{\| \p_1 - \p_0 \| \| \p_2 - \p_0 \|} }
+{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 \right]
 \\
-\Gf{\p_1}{\cos(\alpha(\p))}
+\Gf{\Vector{p}_1}{\cos(\alpha(\Vector{p}))}
 & = &
-{{(\p_2 - \p_0) \perp  (\p_1 - \p_0)}
+{{(\Vector{p}_2 - \Vector{p}_0) \perp  (\Vector{p}_1 - \Vector{p}_0)}
 \over
-{\| \p_1 - \p_0 \| \| \p_2 - \p_0 \|} }
+{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 \nonumber
 \\
-\Gf{\p_2}{\cos(\alpha(\p))}
+\Gf{\Vector{p}_2}{\cos(\alpha(\Vector{p}))}
 & = &
-{{(\p_1 - \p_0) \perp  (\p_2 - \p_0)}
+{{(\Vector{p}_1 - \Vector{p}_0) \perp  (\Vector{p}_2 - \Vector{p}_0)}
 \over
-{\| \p_1 - \p_0 \| \| \p_2 - \p_0 \|} }
+{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 \nonumber
 \end{eqnarray}
 
+\end{plSection}%{Cosine}
 %-----------------------------------------------------------------
-
-\subsubsection{Squared Cosine}
+\begin{plSection}{Squared Cosine}
 \label{sec:polyline-vertex-squared-cosine}
 
 For any positive measure of bending,
@@ -88,18 +89,18 @@ we use $\left( \frac{1 + \cos(\alpha)}{2} \right)^2$.
 
 The gradient is:
 \begin{equation}
-\Gf{\p}{\left( {{1 + \cos(\alpha(\p))} \over 2} \right)^2}
+\Gf{\Vector{p}}{\left( {{1 + \cos(\alpha(\Vector{p}))} \over 2} \right)^2}
 =
-\left( 1 + \cos(\alpha(\p)) \right)
-\Gf{\p}{\cos\left(\alpha(\p)\right)}
+\left( 1 + \cos(\alpha(\Vector{p})) \right)
+\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\p}{\cos\left(\alpha(\p)\right)}$ is given
-in equation \ref{eq:polyline-vertex-cosine-gradient}.
+$\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}$ is given
+in \cref{eq:polyline-vertex-cosine-gradient}.
 
+\end{plSection}%{Squared Cosine}
 %-----------------------------------------------------------------
-
-\subsubsection{Angle}
+\begin{plSection}{Angle}
 \label{sec:polyline-vertex-angle}
 
 
@@ -107,28 +108,28 @@ The angle $\alpha$ is $\pi$ for a straight polyline,
 and $0$ for a maximally bent vertex.
 Therefore we may choose to minimize the sum of negative angles:
 \begin{equation}
--\alpha(\p) =
+-\alpha(\Vector{p}) =
 -\cos^{-1} \left(
-{{(\p_1 - \p_0)} \over {\| \p_1 - \p_0 \|} }
+{{(\Vector{p}_1 - \Vector{p}_0)} \over {\| \Vector{p}_1 - \Vector{p}_0 \|} }
 \bullet
-{{(\p_2 - \p_0)} \over {\| \p_2 - \p_0 \|} }
+{{(\Vector{p}_2 - \Vector{p}_0)} \over {\| \Vector{p}_2 - \Vector{p}_0 \|} }
 \right)
 \end{equation}
 
 The gradient is:
 \begin{equation}
-\Gf{\p}{-\alpha(\p)}
+\Gf{\Vector{p}}{-\alpha(\Vector{p})}
 =
-{{1} \over {\sqrt{ 1 - \cos(\alpha(\p))^2}}}
-\Gf{\p}{\cos\left(\alpha(\p)\right)}
+{{1} \over {\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
+\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\p}{\cos\left(\alpha(\p)\right)}$ is given
-in equation \ref{eq:polyline-vertex-cosine-gradient}.
+$\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}$ is given
+in \cref{eq:polyline-vertex-cosine-gradient}.
 
+\end{plSection}%{Angle}
 %-----------------------------------------------------------------
-
-\subsubsection{Squared Angle}
+\begin{plSection}{Squared Angle}
 \label{sec:polyline-vertex-squared-angle}
 
 Since $-\alpha$ ranges over $[-\pi,0]$
@@ -136,16 +137,17 @@ we square $\pi - \alpha$.
 
 The gradient is:
 \begin{equation}
-\Gf{\p}{\left( \pi - \alpha(\p) \right)^2}
+\Gf{\Vector{p}}{\left( \pi - \alpha(\Vector{p}) \right)^2}
 =
-{{2 \left( \pi - \alpha(\p) \right)}
+{{2 \left( \pi - \alpha(\Vector{p}) \right)}
 \over
-{\sqrt{ 1 - \cos(\alpha(\p))^2}}}
-\Gf{\p}{\cos\left(\alpha(\p)\right)}
+{\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
+\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\p}{\cos \left( \alpha(\p) \right)}$ is given
-in equation \ref{eq:polyline-vertex-cosine-gradient}.
+$\Gf{\Vector{p}}{\cos \left( \alpha(\Vector{p}) \right)}$ is given
+in \cref{eq:polyline-vertex-cosine-gradient}.
 
+\end{plSection}%{Squared Angle}
 %-----------------------------------------------------------------
 \end{plSection}%{Polylines}
