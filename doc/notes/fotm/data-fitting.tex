@@ -51,8 +51,8 @@ It follows from equation \ref{eq:l2-gradient} that
 \Gc{\Vector{p}}{\| \Vector{p} - \Vector{d} \|^2}{\Vector{q}} = 2 ( \Vector{q} - \Vector{d} ).
 \end{equation}
 
-The distance to the nearest vertex in a set of vertices $\V$ is:
-$\min_{\Simplex{v} \in \V} \| \Vector{p}(\Simplex{v}) - \Vector{d} \|^2$.
+The distance to the nearest vertex in a set of vertices $\Set{V}$ is:
+$\min_{\Simplex{v} \in \Set{V}} \| \Vector{p}(\Simplex{v}) - \Vector{d} \|^2$.
 If $\Simplex{v}^{\mathrm min}$ is the minimizing vertex,
 and
 $\Vector{p}^{\mathrm min}$ its position,
@@ -69,8 +69,8 @@ Voronoi regions surrounding the vertices.
 \begin{plSection}{Distance to edge}
 \label{sec:Distance-to-edge}
 
-Let the edge $\e$ have end points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1) \in \Reals^6$.
-We can write the projection of a data point $\Vector{d}$ on $\e$ as:
+Let the edge $\Simplex{e}$ have end points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1) \in \Reals^6$.
+We can write the projection of a data point $\Vector{d}$ on $\Simplex{e}$ as:
 \begin{equation}
 \Projection_\Vector{p} (\Vector{d}) = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1
 \end{equation}
@@ -107,7 +107,7 @@ b_1(\Vector{p}) & = & 1 - b_0(\Vector{p})
 \nonumber \\
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\left[ b_0(\Vector{q}) \I + (\Vector{q}_0 - \Vector{q}_1) \otimes \Gc{\Vector{p}_0}{b_0(\Vector{p})}{\Vector{q}} \right]
+\left[ b_0(\Vector{q}) \Identity + (\Vector{q}_0 - \Vector{q}_1) \otimes \Gc{\Vector{p}_0}{b_0(\Vector{p})}{\Vector{q}} \right]
 \nonumber
 \end{eqnarray}
 Because $\left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)$ is orthogonal to
@@ -123,11 +123,11 @@ $\left( \Vector{q}_0 - \Vector{q}_1 \right)$, we get:
 \end{eqnarray}
 
 As in the vertex case,
-the distance to the nearest edge in a set of edges $\E$ is:
+the distance to the nearest edge in a set of edges $\Set{E}$ is:
 \begin{equation}
-\| \Projection_{\E} (\Vector{d}) - \Vector{d}|^2 = \min_{\e \in \E} \| \Projection_{\Vector{p}(\e)}(\Vector{d}) - \Vector{d} \|^2
+\| \Projection_{\Set{E}} (\Vector{d}) - \Vector{d}|^2 = \min_{\Simplex{e} \in \Set{E}} \| \Projection_{\Vector{p}(\Simplex{e})}(\Vector{d}) - \Vector{d} \|^2
 \end{equation}
-If $\e^{\min}$ is the minimizing edge,
+If $\Simplex{e}^{\min}$ is the minimizing edge,
 $\Simplex{v}_0^{\min}$ and $\Simplex{v}_1^{\min}$ its vertices,
 and $\Vector{p}_0^{\min}$ and $\Vector{p}_1^{\min}$
 the corresponding endpoints,
@@ -139,11 +139,11 @@ is given in equation \ref{eq:edge-distance-gradient}.
 
 The total gradient is defined and continuous
 when $\Vector{d}$ is within the union of the watershed regions
-of $\e^{\min}$ and its vertices.
+of $\Simplex{e}^{\min}$ and its vertices.
 It is also continuous where the watershed of one of the vertices
 meets the watershed of any of the edges containing that vertex.
 It is not if $\Vector{d}$ lies on the boundary of the
-watershed of $\e^{\min}$ and the watershed of an
+watershed of $\Simplex{e}^{\min}$ and the watershed of an
 edge with which it does not share a vertex.
 
 \end{plSection}%{Distance to edge}
@@ -151,9 +151,9 @@ edge with which it does not share a vertex.
 \begin{plSection}{Distance to face}
 \label{sec:Distance-to-face}
 
-Let the face $\f$ have corner points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1, \Vector{p}_2) \in \Reals^9$.
+Let the face $\Simplex{f}$ have corner points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1, \Vector{p}_2) \in \Reals^9$.
 As in the edge case,
-we can write the projection of a data point $\Vector{d}$ on $\f$
+we can write the projection of a data point $\Vector{d}$ on $\Simplex{f}$
 in terms of the barycentric coordinates as:
 \begin{equation}
 \Projection_\Vector{p} (\Vector{d}) = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1 + b_2(\Vector{p}) \Vector{p}_2,
