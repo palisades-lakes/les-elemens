@@ -1,91 +1,112 @@
+\begin{plSection}{Notation and general results}
 \label{sec:general}
-
-
-%--------------------------------------------------------------------
-
-\subsection{Identities for real vector operations}
+%-----------------------------------------------------------------
+\begin{plSection}{Identities for real vector operations}
 \label{sec:RX}
 
-See \cite[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
+See \citeAuthorYearTitle[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
 
-Let $\p, \q \in \Reals^{n}$.
-Let $\theta(\p,\q)$ be the angle between $\p$ and $\q$.
+Let $\Vector{p}, \Vector{q} \in \Reals^{n}$.
+Let $\theta(\Vector{p},\Vector{q})$ be the angle between $\Vector{p}$ and $\Vector{q}$.
 
 \begin{itemize}
 \item The inner (dot) product:
 \begin{equation}
-\p \bullet \q \; \equiv \; \sum_{i=0}^{n-1} p_i q_i
+\Vector{p} \bullet \Vector{q} \; \equiv \; \sum_{i=0}^{n-1} p_i q_i
 \end{equation}
 
 \item The euclidean ($l_2$) norm:
 \begin{equation}
-\| \p \|^2 \; \equiv \; \p \bullet \p
+\| \Vector{p} \|^2 \; \equiv \; \Vector{p} \bullet \Vector{p}
 \end{equation}
 \begin{equation}
-\p \bullet \q \; = \; \| \p \| \| \q \| \cos(\theta(\p,\q))
+\Vector{p} \bullet \Vector{q} \; = \; \| \Vector{p} \| \| \Vector{q} \| \cos(\theta(\Vector{p},\Vector{q}))
 \end{equation}
 
 \item Orthogonal complement:
 \begin{equation}
-\p \perp \q \; \equiv \; \p \; - \; \left( \p \bullet \frac{\q}{\|\q\|}\right) \frac{\q}{\|\q\|}
+\Vector{p} \perp \Vector{q} 
+\; \equiv \; \Vector{p} \; 
+- \; \left( \Vector{p} \bullet 
+\frac{\Vector{q}}{\|\Vector{q}\|}\right) 
+\frac{\Vector{q}}{\|\Vector{q}\|}
 \end{equation}
 
 \item The tensor product
 
-Let $\p \in \Reals^m, \q, \r \in \Reals^n.$
-$\p \otimes \q$ is a rank 1 linear transformation
+Let $\Vector{p} \in \Reals^m, \Vector{q}, \Vector{r} \in \Reals^n.$
+$\Vector{p} \otimes \Vector{q}$ is a rank 1 linear transformation
 from $\Reals^n$ to $\Reals^m$, defined by:
 \begin{equation}
-(\p \otimes \q)(\r) \; \equiv \; \p (\q \bullet \r)
+(\Vector{p} \otimes \Vector{q})(\Vector{r}) \; \equiv \; \Vector{p} (\Vector{q} \bullet \Vector{r})
 \end{equation}
 
 \end{itemize}
 
-%--------------------------------------------------------------------
-
-\subsection{Identities for 3-dimensional vector operations}
+\end{plSection}%{Identities for real vector operations}
+%-----------------------------------------------------------------
+\begin{plSection}{Identities for 3-dimensional vector operations}
 \label{sec:R3X}
 
-See \cite[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
+See \citeAuthorYearTitle[p. 85, ex. 4-9]{Spivak:1965:CalculusOnManifolds}.
 
-Let $\p, \q, \r \in \Reals^3$.
+Let $\Vector{p}, \Vector{q}, \Vector{r} \in \Reals^3$.
 Let $(p_0,p_1,p_2), (q_0,q_1,q_2), (r_0,r_1,r_2), $ be their coordinates
 in some orthonormal basis.
 
 The cross product:
 \begin{equation}
-\p \times \q  \; \equiv \; (p_1 q_2 - p_2 q_1, \; p_2 q_0 - p_0 q_2, \; p_0 q_1 - p_1 q_0)
+\Vector{p} \times \Vector{q}  
+\; \equiv \; 
+(p_1 q_2 - p_2 q_1, \; p_2 q_0 - p_0 q_2, \; p_0 q_1 - p_1 q_0)
 \end{equation}
 \begin{equation}
-\p \times \q  \; = \; - \; \q \times \p
+\Vector{p} \times \Vector{q}  
+\; = \; - \; 
+\Vector{q} \times \Vector{p}
 \end{equation}
 \begin{equation}
-\| \p \times \q \| \; = \; \| \p \| \; \| \q \| \; \sin(\theta(\p,\q))
+\| \Vector{p} \times \Vector{q} \| \; = \; \| \Vector{p} \| \;
+ \| \Vector{q} \| \; \sin(\theta(\Vector{p},\Vector{q}))
 \end{equation}
 \begin{equation}
-\| \p \times \q \|  \; = \;  \sqrt{\| \p \|^2 \| \q \|^2 \; - \; (\p \bullet \q)^2}
+\| \Vector{p} \times \Vector{q} \|  
+\; = \;  
+\sqrt{\| \Vector{p} \|^2 \| \Vector{q} \|^2
+ \; - \; (\Vector{p} \bullet \Vector{q})^2}
 \end{equation}
 \begin{equation}
-\p \bullet ( \p \times \q ) \; = \; ( \p \times \q ) \bullet \q \; = \; 0
+\Vector{p} \bullet ( \Vector{p} \times \Vector{q} ) 
+\; = \; ( \Vector{p} \times \Vector{q} ) \bullet \Vector{q} \; = \; 0
 \end{equation}
 \begin{equation}
 \label{eq:dot_cross}
-\p \bullet ( \q \times \r ) \; = \; ( \p \times \q ) \bullet \r \; = \; \q \bullet ( \r \times \p )
+\Vector{p} \bullet ( \Vector{q} \times \Vector{r} ) 
+\; = \; ( \Vector{p} \times \Vector{q} ) \bullet \Vector{r} 
+\; = \; \Vector{q} \bullet ( \Vector{r} \times \Vector{p} )
 \end{equation}
 \begin{equation}
-\p \times ( \q \times \r ) \; = \; ( \p \bullet \r ) \q \; - \; (\p \bullet \q) \r
+\Vector{p} \times ( \Vector{q} \times \Vector{r} )
+ \; = \; 
+ ( \Vector{p} \bullet \Vector{r} ) \Vector{q}
+  \; - \; (\Vector{p} \bullet \Vector{q}) \Vector{r}
 \end{equation}
 \begin{equation}
-( \p \times \q ) \times \r \; = \; ( \p \bullet \r ) \q \; - \; (\q \bullet \r) \p
+( \Vector{p} \times \Vector{q} ) \times \Vector{r} 
+\; = \; 
+( \Vector{p} \bullet \Vector{r} ) \Vector{q} 
+\; - \; (\Vector{q} \bullet \Vector{r}) \Vector{p}
 \end{equation}
 \begin{equation}
-( \p \times \q ) \times \r \; = \; \left((\q \otimes \p) - (\p \otimes \q)\right) \r
+( \Vector{p} \times \Vector{q} ) \times \Vector{r} 
+\; = \;
+ \left((\Vector{q} \otimes \Vector{p})
+  - (\Vector{p} \otimes \Vector{q})\right) \Vector{r}
 \end{equation}
 
-
+\end{plSection}%{Identities for 3-dimensional vector operations}
 %-----------------------------------------------------------------
-
-\subsection{Functions on real vector spaces}
+\begin{plSection}{Functions on real vector spaces}
 \label{sec:functions}
 
 This paper describes functions of triangular meshes.
@@ -97,14 +118,14 @@ with an (implied) universal origin,
 and thus do not distinguish points and vectors.
 
 In general, the functions discussed here map between real vector spaces:
-$\f:{\Re}^{n} \mapsto \Reals^{m}$, where $\Reals^n$ is the
+$\Vector{f}:{\Re}^{n} \mapsto \Reals^{m}$, where $\Reals^n$ is the
 {\it domain} and $\Reals^m$ is the {\it codomain}.
-Strictly speaking, the {\it range} of $\f$ is the set $\f(\Reals^n)$,
+Strictly speaking, the {\it range} of $\Vector{f}$ is the set $\Vector{f}(\Reals^n)$,
 which may be a proper subset of its codomain $\Reals^m$.
 
-I typically use $\p$, $\q$, $\r$, etc., for elements of $\Reals^n$
+I typically use $\Vector{p}$, $\Vector{q}$, $\Vector{r}$, etc., for elements of $\Reals^n$
 and
-$\f$, $\g$, $\h$ for vector-valued functions.
+$\Vector{f}$, $\Vector{g}$, $\Vector{h}$ for vector-valued functions.
 I generally do not distinguish $\Re$, the real numbers,
 and $\Reals^1$, the 1-dimensional real vector space.
 I sometimes use $f$, $g$, $h$ for extra clarity in the special
@@ -114,96 +135,94 @@ The domains of many interesting functions,
 such as those that depend on vertex positions,
 are direct sums of $\Reals^3$.
 The {\it direct sum} $\Reals^n \oplus \Reals^m$ is the cartesian product
-of $\Reals^n$ and $\Reals^m$ --- the set of ordered pairs $(\p,\q)$
-where $\p \in \Reals^n$ and $\q \in \Reals^m$ ---
+of $\Reals^n$ and $\Reals^m$ --- the set of ordered pairs $(\Vector{p},\Vector{q})$
+where $\Vector{p} \in \Reals^n$ and $\Vector{q} \in \Reals^m$ ---
 with the restriction that the inner product is the obvious extension of the
 inner products on $\Reals^n$ and $\Reals^m$:
-$(\p_0,\q_0) \bullet (\p_1,\q_1) = (\p_0 \bullet \p_1) + (\q_0 \bullet \q_1).$
+$(\Vector{p}_0,\Vector{q}_0) \bullet (\Vector{p}_1,\Vector{q}_1) = (\Vector{p}_0 \bullet \Vector{p}_1) + (\Vector{q}_0 \bullet \Vector{q}_1).$
 For simplicity, I identify
 $\Reals^{3n} = \Reals^3 \oplus \Reals^3 \oplus \cdots \oplus \Reals^3 = \oplus^n \Reals^3
 = \Reals^n \oplus \Reals^n \oplus \Reals^n $.
 I will usually write an element of $\oplus^n \Reals^3$ as
-$(\p_0,\ldots,\p_{n-1})$
+$(\Vector{p}_0,\ldots,\Vector{p}_{n-1})$
 and use
-$\f(\p_0,\p_1,\ldots,\p_{n-1})$
+$\Vector{f}(\Vector{p}_0,\Vector{p}_1,\ldots,\Vector{p}_{n-1})$
 for a function that depends on $n$ vertices.
 Sometimes it will be useful to separate the $x,$ $y,$ and $z$ coordinates:
-$\p = (\x,\y,\z),$
-where $\x =(x_0, \ldots x_{n-1}) \in \Reals^n$, are the $x$-coordinates
+$\Vector{p} = (\Vector{x},\Vector{y},\Vector{z}),$
+where $\Vector{x} =(x_0, \ldots x_{n-1}) \in \Reals^n$, are the $x$-coordinates
 of the positions of the vertices, and similarly for $y$ and $z$.
 
+\end{plSection}%{Functions on real vector spaces}
 %-----------------------------------------------------------------
-
-\subsection{Derivatives}
+\begin{plSection}{Derivatives}
 \label{sec:derivatives}
 
 One way to view the derivative of a function
-$\f:{\Re}^{n} \mapsto \Reals^{m}$,
-at a point $\p$,
-is as the linear transformation $\L:{\Re}^{n} \mapsto \Reals^{m}$,
-that best approximates the local 'slope' of $\f$ at $\p$.
+$\Vector{f}:{\Re}^{n} \mapsto \Reals^{m}$,
+at a point $\Vector{p}$,
+is as the linear transformation $\Vector{L}:{\Re}^{n} \mapsto \Reals^{m}$,
+that best approximates the local 'slope' of $\Vector{f}$ at $\Vector{p}$.
 To be a little more precise, we want
 \begin{displaymath}
 \lim_{ \|{\bf \delta}  \| \mapsto 0}
-{ \|{\f(\p + {\bf \delta}) - (\f(\p) + \L({\bf\delta})) \|}
+{ \|{\Vector{f}(\Vector{p} + {\bf \delta}) - (\Vector{f}(\Vector{p}) + \Vector{L}({\bf\delta})) \|}
   \over  \|{\bf \delta}  \|}
  = 0
 \end{displaymath}
-For a concise and correct discussion, see \cite{Spivak:1965:CalculusOnManifolds}.
+For a concise and correct discussion, see \citeAuthorYearTitle{Spivak:1965:CalculusOnManifolds}.
 
 \begin{itemize}
 
-\item $\Da{\f}$
+\item $\Da{\Vector{f}}$
 
 In its most general form,
-I denote the derivative of $\f$ by $\Da{\f}$.
+I denote the derivative of $\Vector{f}$ by $\Da{\Vector{f}}$.
 Note that this is
-linear-transformation-valued function of the domain of $\f$.
+linear-transformation-valued function of the domain of $\Vector{f}$.
 
-\item $\Db{\f}{\p}$
+\item $\Db{\Vector{f}}{\Vector{p}}$
 
-I denote the derivative of $\f$ at $\p$ by $\Db{\f}{\p}$.
-$\Db{\f}{\p}$ is a specific linear transformation from
-the domain of $\f$ to the codomain of $\f$.
+I denote the derivative of $\Vector{f}$ at $\Vector{p}$ by $\Db{\Vector{f}}{\Vector{p}}$.
+$\Db{\Vector{f}}{\Vector{p}}$ is a specific linear transformation from
+the domain of $\Vector{f}$ to the codomain of $\Vector{f}$.
 
-\item $\Dc{\f}{\p}{\q}$
+\item $\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}$
 
 The derivative is most often represented by the {\it Jacobian},
 the $m \times n$ matrix of partial derivatives
 with respect to some bases for $\Reals^n$ and $\Reals^m$.
 However, it's often easier to express the derivative clearly if we
 explicitly include the argument of the linear transformation.
-In this case, I write $\Dc{\f}{\p}{\q}$
-for the derivative of $f$ at the point $\p$
-applied to the vector $\q$.
+In this case, I write $\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}$
+for the derivative of $f$ at the point $\Vector{p}$
+applied to the vector $\Vector{q}$.
 
-\item $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_i}$
+\item $\Dd{\Vector{p}_i}{\Vector{f}}{(\Vector{q}_0,\ldots,\Vector{q}_{n-1})}{\Vector{r}_i}$
 
 For functions on direct sum spaces,
-$\f(\p_0,\p_1,\ldots,\p_{n-1})$, $\p_i \in \Reals^{n_i}$,
+$\Vector{f}(\Vector{p}_0,\Vector{p}_1,\ldots,\Vector{p}_{n-1})$, $\Vector{p}_i \in \Reals^{n_i}$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
-I write $\Dd{\p_i}{\f}{(\q_0,\ldots,\q_{n-1})}{\r_0,\ldots,\r_{n-1}}$
-for the derivative of $\f$ with respect to $\p_i$,
-at the point $(\q_0,\ldots,\q_{n-1}) \in \oplus_{i=0}^{n-1} \Reals^{m_i}$,
-applied to the vector $\r_i \in \Reals^{n_i}$.
-Note that, if you consider $\f$ to be a function
+I write $\Dd{\Vector{p}_i}{\Vector{f}}{(\Vector{q}_0,\ldots,\Vector{q}_{n-1})}{\Vector{r}_0,\ldots,\Vector{r}_{n-1}}$
+for the derivative of $\Vector{f}$ with respect to $\Vector{p}_i$,
+at the point $(\Vector{q}_0,\ldots,\Vector{q}_{n-1}) \in \oplus_{i=0}^{n-1} \Reals^{m_i}$,
+applied to the vector $\Vector{r}_i \in \Reals^{n_i}$.
+Note that, if you consider $\Vector{f}$ to be a function
 of direct sums of $\Reals^1$, we have the usual
 partial derivatives.
 
 \end{itemize}
 
-
 %-----------------------------------------------------------------
-
-\subsubsection{Gradients of real-valued functions}
+\begin{plSection}{Gradients of real-valued functions}
 \label{sec:gradients}
 
 \begin{itemize}
 
 \item $\Ga{f}$
 
-In minimizing real-valued functions, $f(\p)$, $\p \in \Reals^n$,
+In minimizing real-valued functions, $f(\Vector{p})$, $\Vector{p} \in \Reals^n$,
 we frequently need
 the {\it gradient,} $\Ga{f} \in \Reals^n$,
 the vector pointing in the direction of most rapid increase of $f$,
@@ -220,332 +239,346 @@ this means the derivative is a linear function on $\Reals^n$,
 an element of the dual space of $\Reals^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
 of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
-(see \cite[p. 96, ex. 4-18]{Spivak:1965:CalculusOnManifolds}).
+(see \citeAuthorYearTitle[p. 96, ex. 4-18]{Spivak:1965:CalculusOnManifolds}).
 
 Notation for the various versions of the gradient
 follows that for derivatives:
 
-\item $\Gb{f}{\q}$
+\item $\Gb{f}{\Vector{q}}$
 
-The gradient of $f$ at $\q$.
+The gradient of $f$ at $\Vector{q}$.
 
-\item $\Gc{\p_i}{f}{\q}$
+\item $\Gc{\Vector{p}_i}{f}{\Vector{q}}$
 
 The gradient of $f$
-with respect to $\p_i$ at $\q$.
+with respect to $\Vector{p}_i$ at $\Vector{q}$.
 
-\item $(\Gb{f}{\q}) \bullet \; \r$
+\item $(\Gb{f}{\Vector{q}}) \bullet \; \Vector{r}$
 
 The analog to exressing the derivative as a linear transformation
 with an explicit argument is to write expressions for
-the inner product of the gradient and an arbitrary other vector $\r$
+the inner product of the gradient and an arbitrary other vector $\Vector{r}$
 
-\item $(\Gc{\p_i}{f}{\q}) \bullet \;\r_i$
+\item $(\Gc{\Vector{p}_i}{f}{\Vector{q}}) \bullet \;\Vector{r}_i$
 
 See above.
 
 \end{itemize}
 
-
+\end{plSection}%{Gradients of real-valued functions}
 %-----------------------------------------------------------------
-
-\subsubsection{Chain rule}
+\begin{plSection}{Chain rule}
 \label{sec:chain}
 
 The most general identity used in computing derivatives is the {\it chain rule.}
 Suppose
-$\f:\Reals^{n_0} \mapsto \Reals^{n_1}$,
-$\g:\Reals^{n_1} \mapsto \Reals^{n_2}$,
+$\Vector{f}:\Reals^{n_0} \mapsto \Reals^{n_1}$,
+$\Vector{g}:\Reals^{n_1} \mapsto \Reals^{n_2}$,
 and
-$\h = \g \circ \f : \Reals^{n_0} \mapsto \Reals^{n_2}.$
+$\Vector{h} = \Vector{g} \circ \Vector{f} : \Reals^{n_0} \mapsto \Reals^{n_2}.$
 Then
 \begin{equation}
 \label{eq:chain-rule}
-\Db{\h}{\p} \;\; = \;\; \Db{(\g \circ \f)}{\p}
-            \;\; = \;\; \Db{\g}{\f(\p)} \; \circ \; \Db{\f} {\p}.
+\Db{\Vector{h}}{\Vector{p}} \;\; = \;\; \Db{(\Vector{g} \circ \Vector{f})}{\Vector{p}}
+            \;\; = \;\; \Db{\Vector{g}}{\Vector{f}(\Vector{p})} \; \circ \; \Db{\Vector{f}} {\Vector{p}}.
 \end{equation}
 
-See \cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}, .
+See \citeAuthorYearTitle[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}, .
 
+\end{plSection}%{Chain rule}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of multilinear functions}
+\begin{plSection}{Derivatives of multilinear functions}
 \label{sec:multilinear}
 
-A function $\f(\p_0,\ldots,\p_k):\Reals^{n_0} \oplus \Reals^{n_k} \mapsto \Reals^m$
+A function $\Vector{f}(\Vector{p}_0,\ldots,\Vector{p}_k):\Reals^{n_0} \oplus \Reals^{n_k} \mapsto \Reals^m$
 is {\it multilinear} if
 \begin{equation}
-\f(a_{00} \p_{00} + a_{01} \p_{01}, \ldots, a_{k0} \p_{k0} + a_{k1} \p_{k1})
-\; = \; \sum_{i_0,\ldots,i_k = 0,1} \;(a_{0i_0} \cdots a_{ki_k}) \f(\p_{0i_0}, \ldots, \p_{ki_k}).
+\Vector{f}(a_{00} \Vector{p}_{00} + a_{01} \Vector{p}_{01}, \ldots, a_{k0} \Vector{p}_{k0} + a_{k1} \Vector{p}_{k1})
+\; = \; \sum_{i_0,\ldots,i_k = 0,1} \;(a_{0i_0} \cdots a_{ki_k}) \Vector{f}(\Vector{p}_{0i_0}, \ldots, \Vector{p}_{ki_k}).
 \end{equation}
 
-The derivative of $\f$
-at the point $(\p_0,\ldots,\p_k)$, applied to the vector $(\q_0,\ldots,\q_k)$ is
+The derivative of $\Vector{f}$
+at the point $(\Vector{p}_0,\ldots,\Vector{p}_k)$, applied to the vector $(\Vector{q}_0,\ldots,\Vector{q}_k)$ is
 
 \begin{equation}
-\Dc{\f}{(\p_0,\ldots,\p_k)}{\q_0,\ldots,\q_k}
-\; = \; \sum_{i=0,k} \f(\p_0,\ldots,\p_{i-1},\q_i,\p_{i+1},\ldots,\p_k).
+\Dc{\Vector{f}}{(\Vector{p}_0,\ldots,\Vector{p}_k)}{\Vector{q}_0,\ldots,\Vector{q}_k}
+\; = \; \sum_{i=0,k} \Vector{f}(\Vector{p}_0,\ldots,\Vector{p}_{i-1},\Vector{q}_i,\Vector{p}_{i+1},\ldots,\Vector{p}_k).
 \end{equation}
 
-See \cite[ex.~2-14]{Spivak:1965:CalculusOnManifolds}, .
+See \citeAuthorYearTitle[ex.~2-14]{Spivak:1965:CalculusOnManifolds}, .
 
-
+\end{plSection}%{Derivatives of multilinear functions}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of bilinear functions}
+\begin{plSection}{Derivatives of bilinear functions}
 \label{sec:bilinear}
 
 Bilinear functions are a useful special case of multilinear functions.
 
-A function $\f(\p,\q):\Reals^{n_0} \oplus \Reals^{n_1} \mapsto \Reals^m$
+A function 
+$\Vector{f}(\Vector{p},\Vector{q}) :
+\Reals^{n_0} \oplus \Reals^{n_1} \mapsto \Reals^m$
 is {\it bilinear} if
 \begin{eqnarray}
-\f(a_0 \p_0 + a_1 \p_1, b_0 \q_0 + b_1 \q_1) & = & a_0 b_0 f(\p_0,\q_0)  \\
-                                             & + & a_0 b_1 f(\p_0,\q_1) \nonumber \\
-                                             & + & a_1 b_0 f(\p_1,\q_0) \nonumber \\
-                                             & + & a_1 b_1 f(\p_1,\q_1).\nonumber
+\Vector{f}(a_0 \Vector{p}_0 + a_1 \Vector{p}_1, b_0 \Vector{q}_0 + b_1 \Vector{q}_1) 
+& = & a_0 b_0 f(\Vector{p}_0,\Vector{q}_0)  \\
+& + & a_0 b_1 f(\Vector{p}_0,\Vector{q}_1) \nonumber \\
+& + & a_1 b_0 f(\Vector{p}_1,\Vector{q}_0) \nonumber \\
+& + & a_1 b_1 f(\Vector{p}_1,\Vector{q}_1).\nonumber
 \end{eqnarray}
 
-The derivative of $\f$
-at the point $(\p_0,\q_0)$, applied to the vector $(\p,\q)$ is
+The derivative of $\Vector{f}$
+at the point $(\Vector{p}_0,\Vector{q}_0)$, 
+applied to the vector $(\Vector{p},\Vector{q})$ is
 
 \begin{equation}
-\Dc{\f}{(\p_0,\q_0)}{\p,\q} = \f(\p_0,\q) + \f(\p,\q_0).
+\Dc{\Vector{f}}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} = \Vector{f}(\Vector{p}_0,\Vector{q}) + \Vector{f}(\Vector{p},\Vector{q}_0).
 \end{equation}
 
-See \cite[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
+See \citeAuthorYearTitle[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
 
+\end{plSection}%{Derivatives of bilinear functions}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of linear functions}
+\begin{plSection}{Derivatives of linear functions}
 \label{sec:Derivatives-of-linear-functions}
 
 Linear functions are another useful special case of multilinear functions.
-A function $\f(\p):\Reals^{n} \mapsto \Reals^m$
+A function $\Vector{f}(\Vector{p}):\Reals^{n} \mapsto \Reals^m$
 is {\it linear} if
 \begin{equation}
-\f(a_0 \p_0 + a_1 \p_1)
+\Vector{f}(a_0 \Vector{p}_0 + a_1 \Vector{p}_1)
  =
-a_0 \f(\p_0) + a_1 \f(\p_1)
+a_0 \Vector{f}(\Vector{p}_0) + a_1 \Vector{f}(\Vector{p}_1)
 \end{equation}
 
-The derivative of $\f$ is simply $\f$ itself.
+The derivative of $\Vector{f}$ is simply $\Vector{f}$ itself.
 
+\end{plSection}{Derivatives of linear functions}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of inner products}
+\begin{plSection}{Derivatives of inner products}
 \label{sec:inner}
 
-We can view the inner product on $\Reals^m$, $\p \bullet \q$,
-as a bilinear function $d(\p,\q) : \Reals^m \oplus \Reals^m \mapsto \Re$.
+We can view the inner product on $\Reals^m$, $\Vector{p} \bullet \Vector{q}$,
+as a bilinear function $d(\Vector{p},\Vector{q}) : \Reals^m \oplus \Reals^m \mapsto \Re$.
 Thus
 \begin{equation}
-\Dc{d}{(\p_0,\q_0)}{\p,\q} = \p_0 \bullet \q + \p \bullet \q_0.
+\Dc{d}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} = \Vector{p}_0 \bullet \Vector{q} + \Vector{p} \bullet \Vector{q}_0.
 \end{equation}
 
 Suppose
-$\f:\Reals^{n} \mapsto \Reals^{m}$, and
-$\g:\Reals^{n} \mapsto \Reals^{m}$.
-The derivative of $\f \bullet \g$ is:
+$\Vector{f}:\Reals^{n} \mapsto \Reals^{m}$, and
+$\Vector{g}:\Reals^{n} \mapsto \Reals^{m}$.
+The derivative of $\Vector{f} \bullet \Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:dot_derivative}
-\Dc{(\f \bullet \g)}{\p_0}{\p}
+\Dc{(\Vector{f} \bullet \Vector{g})}{\Vector{p}_0}{\Vector{p}}
 & =
-& \Db{d}{(\f(\p_0),\g(\p_0))} \;\circ \;(\Dc{\f}{\p_0}{\p}, \Dc{\g}{\p_0}{\p})
+& \Db{d}{(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))}
+ \;\circ \;
+ (\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}}, 
+ \Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}})
 \\
 & =
-& \f(\p_0) \bullet \Dc{\g}{\p_0}{\p} \; + \; \g(\p_0) \bullet \Dc{\f}{\p_0}{\p} \nonumber
+& \Vector{f}(\Vector{p}_0) \bullet 
+\Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}} 
+\; + \; \Vector{g}(\Vector{p}_0) 
+\bullet \Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}} \nonumber
 \end{eqnarray}
 
-See \cite[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
+See \citeAuthorYearTitle[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
 
-
+\end{plSection}%{Derivatives of inner products}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of cross products}
+\begin{plSection}{Derivatives of cross products}
 \label{sec:cross}
 
 We can view the 3-dimensional cross product
 $ \times $
 as a bilinear function
-$\c(\p,\q) = \p \times \q : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
+$\Vector{c}(\Vector{p},\Vector{q}) = 
+\Vector{p} \times \Vector{q}
+ : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
 As with the inner product,
 the derivative is
 \begin{equation}
-\Dc{c}{(\p_0,\q_0)}{\p,\q} = \p_0 \times \q + \p \times \q_0.
+\Dc{c}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} 
+= \Vector{p}_0 \times \Vector{q} + \Vector{p} \times \Vector{q}_0.
 \end{equation}
 
 Suppose
-$\f:\Reals^{n} \mapsto \Reals^3$, and
-$\g:\Reals^{n} \mapsto \Reals^3$.
-The derivative of $\f \times \g$ is:
+$\Vector{f}:\Reals^{n} \mapsto \Reals^3$, and
+$\Vector{g}:\Reals^{n} \mapsto \Reals^3$.
+The derivative of $\Vector{f} \times \Vector{g}$ is:
 \begin{eqnarray}
-\Dc{(\f \times \g)}{\p_0}{\p}
+\Dc{(\Vector{f} \times \Vector{g})}{\Vector{p}_0}{\Vector{p}}
 & =
-& \Db{\c}{(\f(\p_0),\g(\p_0))} \;\circ \;(\Dc{\f}{\p_0}{\p}, \Dc{\g}{\p_0}{\p})
+& \Db{\Vector{c}}{(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))}
+\;\circ \;(\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}},
+ \Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}})
 \\
 & =
-& \f(\p_0) \;\times \;\Dc{\g}{\p_0}{\p} \;+ \;\Dc{\f}{\p_0}{\p} \;\times \;\g(\p_0) \nonumber
+& \Vector{f}(\Vector{p}_0) \;\times \;\Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}} 
+\;+ \;\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}} 
+\;\times \;\Vector{g}(\Vector{p}_0) \nonumber
 \end{eqnarray}
 
+\end{plSection}%{Derivatives of cross products}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of scalar products}
+\begin{plSection}{Derivatives of scalar products}
 \label{sec:scalar}
 
 Suppose
 $f:\Reals^{n} \mapsto \Re$, and
-$\g:\Reals^{n} \mapsto \Reals^m$.
-It follows from the chain rule that the derivative of $\h = f\g$ is:
+$\Vector{g}:\Reals^{n} \mapsto \Reals^m$.
+It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:scalar_product_derivative}
-\Db{(f\g)}{\p}
-& = & f(\p) \;\Db{\g}{\p} \;+ \g(\p) \; \Db{f}{\p}  \\
-& = & f(\p) \;\Db{\g}{\p} \;+ \g(\p) \otimes \Gb{f}{\p} \; \nonumber
+\Db{(f\Vector{g})}{\Vector{p}}
+& = & f(\Vector{p}) \;\Db{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \; \Db{f}{\Vector{p}}  \\
+& = & f(\Vector{p}) \;\Db{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \otimes \Gb{f}{\Vector{p}} \; \nonumber
 \end{eqnarray}
 
-
+\end{plSection}%{Derivatives of scalar products}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of euclidean norms}
+\begin{plSection}{Derivatives of euclidean norms}
 \label{sec:norms}
 
-Let $l_2(\p) = \; \| \p  \|: \Reals^n \mapsto \Re$ 
+Let $l_2(\Vector{p}) = \; \| \Vector{p}  \|: \Reals^n \mapsto \Re$ 
 be the usual euclidean norm on $Re^n$.
-Let $l_2^2(\p) = \; \| \p  \|^2 $
+Let $l_2^2(\Vector{p}) = \; \| \Vector{p}  \|^2 $
 be its square
-($ \| \p  \|^2  = \sum_{i=0,n-1} \p_i^2$),
-and $ \| \p  \|^3$ the cube.
+($ \| \Vector{p}  \|^2  = \sum_{i=0,n-1} \Vector{p}_i^2$),
+and $ \| \Vector{p}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
-\Gb{l_2}{\p} & = & {{ \p } \over { \| \p  \|}} \\
-\Db{l_2}{\p} & = &{{ \p^\dagger } \over { \| \p  \|}} \nonumber \\
-\Gb{l_2^2}{\p} & = & 2\p \nonumber \\ 
-\Db{l_2^2}{\p} & = & 2\p^\dagger \nonumber \\
-\Gb{l_2^3}{\p} & = & 3 \| \p  \| \p \nonumber \\
-\Db{l_2^3}{\p} & = & 3 \| \p  \| \p^\dagger \nonumber
+\Gb{l_2}{\Vector{p}} & = & {{ \Vector{p} } \over { \| \Vector{p}  \|}} \\
+\Db{l_2}{\Vector{p}} & = &{{ \Vector{p}^\dagger } \over { \| \Vector{p}  \|}} \nonumber \\
+\Gb{l_2^2}{\Vector{p}} & = & 2\Vector{p} \nonumber \\ 
+\Db{l_2^2}{\Vector{p}} & = & 2\Vector{p}^\dagger \nonumber \\
+\Gb{l_2^3}{\Vector{p}} & = & 3 \| \Vector{p}  \| \Vector{p} \nonumber \\
+\Db{l_2^3}{\Vector{p}} & = & 3 \| \Vector{p}  \| \Vector{p}^\dagger \nonumber
 \end{eqnarray}
 
-Let $\f(\p) : \Reals^n \mapsto \Reals^m$.
+Let $\Vector{f}(\Vector{p}) : \Reals^n \mapsto \Reals^m$.
 By the chain rule:
-$\Db{\| \f \|^2}{\p}  =  2 {\f(\p)}^{\dagger} \Db{\f}{\p} $.
+$\Db{\| \Vector{f} \|^2}{\Vector{p}}  =  2 {\Vector{f}(\Vector{p})}^{\dagger} \Db{\Vector{f}}{\Vector{p}} $.
 
 \begin{equation}
-\Gb{\| \f \|^2}{\p}  =  2 \;\Db{\f}{\p}^\dagger \;\circ \;\f(\p)
+\Gb{\| \Vector{f} \|^2}{\Vector{p}}  = 
+ 2 \;\Db{\Vector{f}}{\Vector{p}}^\dagger \;\circ \;\Vector{f}(\Vector{p})
 \end{equation}
 
 \begin{eqnarray}
 \label{eq:norm_derivative}
-\Db{\| \f \|}{\p}
+\Db{\| \Vector{f} \|}{\Vector{p}}
 & = &
-{{\f(\p)^\dagger} \over {\| \f(\p) \|}} \Db{\f}{\p}  \\
-\Gb{\| \f \|}{\p}
+{{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|}} \Db{\Vector{f}}{\Vector{p}}  \\
+\Gb{\| \Vector{f} \|}{\Vector{p}}
 & = &
-\left(\Db{\f}{\p}\right)^\dagger \;\circ \;{{\f(\p)} \over { \| \f(\p)  \|}}
+\left(\Db{\Vector{f}}{\Vector{p}}\right)^\dagger \;\circ \;{{\Vector{f}(\Vector{p})} \over { \| \Vector{f}(\Vector{p})  \|}}
 \label{eq:norm_gradient}
 \end{eqnarray}
 
+\end{plSection}%{Derivatives of euclidean norms}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of normalized functions}
+\begin{plSection}{Derivatives of normalized functions}
 \label{sec:Derivatives-of-normalized-functions}
 
-Let $\tilde{\f}$ be the normalized version of $\f$:
+Let $\tilde{\Vector{f}}$ be the normalized version of $\Vector{f}$:
 \begin{equation}
-\tilde{\f} \;= \;{{\f} \over {\| \f \|}}
+\tilde{\Vector{f}} \;= \;{{\Vector{f}} \over {\| \Vector{f} \|}}
 \end{equation}
 
-Then, from equations \ref{eq:scalar_product_derivative}
-and \ref{eq:norm_derivative}:
+Then, from \cref{eq:scalar_product_derivative}
+and \cref{eq:norm_derivative}:
 \begin{eqnarray}
-\Dc{\tilde{\f}}{\p}{\q}
+\Dc{\tilde{\Vector{f}}}{\Vector{p}}{\Vector{q}}
 & = &
-\Dc{\left({\f \over {\| \f \|}}\right)}{\p}{\q}
+\Dc{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}{\Vector{p}}{\Vector{q}}
 \\
 & = &
-{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
 \; + \;
-\f(\p) \; \Dc{\left({1 \over {\| \f \|}}\right)}{\p}{\q} \nonumber \\
+\Vector{f}(\Vector{p}) \; \Dc{\left({1 \over {\| \Vector{f} \|}}\right)}{\Vector{p}}{\Vector{q}} \nonumber \\
 & = &
-{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
 \; - \;
-\f(\p) {{\Dc{\| \f \|}{\p}{\q}} \over {\|\f(\p)\|^2}} \nonumber \\
+\Vector{f}(\Vector{p}) {{\Dc{\| \Vector{f} \|}{\Vector{p}}{\Vector{q}}} \over {\|\Vector{f}(\Vector{p})\|^2}} \nonumber \\
 & = &
-{\Dc{\f}{\p}{\q} \over {\| \f(\p) \|}}
+{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
 \; - \;
-\f(\p) \left( {{\f(\p)^\dagger} \over {\| \f(\p) \|^3}} \;\Dc{\f}{\p}{\q} \right) \nonumber \\
+\Vector{f}(\Vector{p}) \left( {{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|^3}} \;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \right) \nonumber \\
 & = &
-{\| \f(\p) \|^2 \Dc{\f}{\p}{\q}
+{\| \Vector{f}(\Vector{p}) \|^2 \Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}
 \; - \;
-\f(\p)\left( \f(\p) \bullet \Dc{\f}{\p}{\q} \right) }
-\over {\| \f(\p) \|^3}  \nonumber \\
+\Vector{f}(\Vector{p})\left( \Vector{f}(\Vector{p}) \bullet \Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \right) }
+\over {\| \Vector{f}(\Vector{p}) \|^3}  \nonumber \\
 & = &
-{{\| \f(\p) \|^2 \I_{\Reals^3} \;- \;\left( \f(\p) \otimes \f(\p) \right)  }
-\over {\| \f(\p) \|^3} }
-\;\Dc{\f}{\p}{\q} \nonumber \\
+{{\| \Vector{f}(\Vector{p}) \|^2 \Identity_{\Reals^3} \;- \;\left( \Vector{f}(\Vector{p}) \otimes \Vector{f}(\Vector{p}) \right)  }
+\over {\| \Vector{f}(\Vector{p}) \|^3} }
+\;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \nonumber \\
 & = &
-{{\I_{\Reals^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right)  }
-\over {\| \f(\p) \|} }
-\;\Dc{\f}{\p}{\q} \nonumber
+{{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{f}}(\Vector{p}) \otimes \tilde{\Vector{f}}(\Vector{p}) \right)  }
+\over {\| \Vector{f}(\Vector{p}) \|} }
+\;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \nonumber
 \end{eqnarray}
 
 $\otimes$ is the elementary tensor product operation.
 If you are stuck thinking in terms of row and column vectors,
-$\p \otimes \q \;= \;\p\q^\dagger$.
-More generally, if $\p \in \Reals^m$ and $\q \in \Reals^n$,
-then $\p \otimes \q$ is the rank 1 linear transformation from $\Reals^n \mapsto \Reals^m$:
-$\left(\p \otimes \q\right) (\r) \;= \;\p \left(\q \bullet \r\right)$.
+$\Vector{p} \otimes \Vector{q} \;= \;\Vector{p}\Vector{q}^\dagger$.
+More generally, if $\Vector{p} \in \Reals^m$ and $\Vector{q} \in \Reals^n$,
+then $\Vector{p} \otimes \Vector{q}$ is the rank 1 linear transformation from $\Reals^n \mapsto \Reals^m$:
+$\left(\Vector{p} \otimes \Vector{q}\right) (\Vector{r}) \;= \;\Vector{p} \left(\Vector{q} \bullet \Vector{r}\right)$.
 
-We can write the derivative above without reference to the argument $\q$:
+We can write the derivative above without reference to the argument $\Vector{q}$:
 \begin{eqnarray}
 \label{eq:normalized_function_derivative}
-\Db{\tilde{\f}}{\p}
+\Db{\tilde{\Vector{f}}}{\Vector{p}}
 & = &
-\Db{\left({\f \over {\| \f \|}}\right)}{\p}  \\
+\Db{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}{\Vector{p}}  \\
 & = &
-{{\I_{\Reals^3} \;- \;\left( \tilde{\f}(\p) \otimes \tilde{\f}(\p) \right) }
-\over {\| \f(\p) \|} }
-\;\Db{\f}{\p} \nonumber
+{{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{f}}(\Vector{p}) \otimes \tilde{\Vector{f}}(\Vector{p}) \right) }
+\over {\| \Vector{f}(\Vector{p}) \|} }
+\;\Db{\Vector{f}}{\Vector{p}} \nonumber
 \end{eqnarray}
 
 A common, trivial, normalized function is the normalized version of
 a vector:
 \begin{equation}
-\tilde{\p} \;= \;{{\p} \over {\| \p \|}}
+\tilde{\Vector{p}} \;= \;{{\Vector{p}} \over {\| \Vector{p} \|}}
 \end{equation}
 
-From equation \ref{eq:normalized_function_derivative}
+From equation \cref{eq:normalized_function_derivative}
 it follows that:
 \begin{eqnarray}
 \label{eq:normalized_vector_derivative}
-\Db{\tilde{\p}}{\q}
+\Db{\tilde{\Vector{p}}}{\Vector{q}}
 & = &
-\Db{\left({\p \over {\| \p \|}}\right)}{\q}
+\Db{\left({\Vector{p} \over {\| \Vector{p} \|}}\right)}{\Vector{q}}
 \\
 & = &
-{{\I_{\Reals^3} \;- \;\left( \tilde{\q} \otimes \tilde{\q} \right) }
-\over {\| \q \|} }
+{{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{q}} \otimes \tilde{\Vector{q}} \right) }
+\over {\| \Vector{q} \|} }
 \nonumber
 \\
 & = &
-{{\| \q \|^2 \I_{\Reals^3} \;- \;\left( \q \otimes \q \right) }
-\over {\| \q \|^3} }
+{{\| \Vector{q} \|^2 \Identity_{\Reals^3} \;- \;\left( \Vector{q} \otimes \Vector{q} \right) }
+\over {\| \Vector{q} \|^3} }
 \nonumber
 \end{eqnarray}
 
+\end{plSection}%{Derivatives of normalized functions}
 %-----------------------------------------------------------------
-
-\subsubsection{Derivatives of angles}
+\begin{plSection}{Derivatives of angles}
 \label{sec:derivatives-of-angles}
 
-The angle between 2 vectors $\p_0, \p_1 \in \Reals^m$, is the inverse cosine
+The angle between 2 vectors $\Vector{p}_0, \Vector{p}_1 \in \Reals^m$, is the inverse cosine
 of their normalized inner product:
 \begin{equation}
-\theta(\p_0,\p_1)
+\theta(\Vector{p}_0,\Vector{p}_1)
 =
 \cos^{-1}
 \left(
-{ \p_0 \bullet \p_1 } \over {\|\p_0\| \|\p_1\|}
+{ \Vector{p}_0 \bullet \Vector{p}_1 } \over {\|\Vector{p}_0\| \|\Vector{p}_1\|}
 \right)
 \end{equation}
 Recall that the derivative of the $\cos^{-1}$ is:
@@ -555,36 +588,36 @@ Recall that the derivative of the $\cos^{-1}$ is:
 It follows that:
 \begin{eqnarray}
 \label{eq:angle_gradient}
-\Gc{\p_0}{\theta(\p_0,\p_1)}{\q}
+\Gc{\Vector{p}_0}{\theta(\Vector{p}_0,\Vector{p}_1)}{\Vector{q}}
 & = &
 {{-1} \over
-{ \sqrt{1 - \left( {\q_0 \bullet \q_1} \over {\| \q_0 \| \| \q_1 \|} \right)^2 }}}
-\Gc{\p_0}{\left( {\q_0 \bullet \q_1} \over {\| \q_0 \| \| \q_1 \|} \right)} {\q}
+{ \sqrt{1 - \left( {\Vector{q}_0 \bullet \Vector{q}_1} \over {\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)^2 }}}
+\Gc{\Vector{p}_0}{\left( {\Vector{q}_0 \bullet \Vector{q}_1} \over {\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)} {\Vector{q}}
 \\
 & = &
 {
-{-\|\q_0\|\|\q_1\|}
+{-\|\Vector{q}_0\|\|\Vector{q}_1\|}
 \over
-{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
-{{\q_1} \over {\|\q_0\|\|\q_1\|}}
+{{\Vector{q}_1} \over {\|\Vector{q}_0\|\|\Vector{q}_1\|}}
 +
-{{\left( \q_0 \bullet \q_1 \right)} \over {\| \q1 \|}}
-\Gc{\p_0}{\left( {1} \over {\| \p_0 \|} \right)} {\q}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right)} \over {\| \Vector{q}1 \|}}
+\Gc{\Vector{p}_0}{\left( {1} \over {\| \Vector{p}_0 \|} \right)} {\Vector{q}}
 \right]
 \nonumber
 \\
 & = &
 {
-{-\|\q_0\|\|\q_1\|}
+{-\|\Vector{q}_0\|\|\Vector{q}_1\|}
 \over
-{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
-{{\q_1} \over {\|\q_0\|\|\q_1\|}}
+{{\Vector{q}_1} \over {\|\Vector{q}_0\|\|\Vector{q}_1\|}}
 -
-{{\left( \q_0 \bullet \q_1 \right) \q0} \over {\| \q1 \| \|\q_0\|^3}}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}_0} \over {\| \Vector{q}_1 \| \|\Vector{q}_0\|^3}}
 \right]
 \nonumber
 \\
@@ -592,32 +625,37 @@ It follows that:
 {
 {-1}
 \over
-{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
-\q_1
+\Vector{q}_1
 -
-{{\left( \q_0 \bullet \q_1 \right) \q0} \over {\|\q_0\|^2}}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}0} \over {\|\Vector{q}_0\|^2}}
 \right]
 \nonumber
 \\
 & = &
 {
-{- \q_1 \perp \q_0}
+{- \Vector{q}_1 \perp \Vector{q}_0}
 \over
-{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \nonumber
 \\
 &  &
 \nonumber
 \\
-\Gc{\p_1}{\theta(\p_0,\p_1)}{\q}
+\Gc{\Vector{p}_1}{\theta(\Vector{p}_0,\Vector{p}_1)}{\Vector{q}}
 & = &
 {
-{- \q_0 \perp \q_1}
+{- \Vector{q}_0 \perp \Vector{q}_1}
 \over
-{ \sqrt{\|\q_0\|^2\|\q_1\|^2 - \left( \q_0 \bullet \q_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \nonumber
 \end{eqnarray}
+\end{plSection}%{Derivatives of angles}
+%-----------------------------------------------------------------
+\end{plSection}%{Derivatives}
+%-----------------------------------------------------------------
+\end{plSection}%{Notation and general results}

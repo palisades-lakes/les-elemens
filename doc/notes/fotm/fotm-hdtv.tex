@@ -29,45 +29,18 @@
 
 \input{abstract}
 
-\section{Introduction}
 \input{introduction}
-%\cleardoublepage
-
-\section{Notation and general results}
 \input{general}
-
-%\part{Smoothness}
-%\cleardoublepage
-
-\section{Polylines}
 \input{curves}
-%\cleardoublepage
-
-\section{Triangular Meshes}
-\input{faces}
-\input{edges}
+\begin{plSection}{Triangular Meshes}
+\import{\sharedFolder}{faces}
+\import{\sharedFolder}{edges}
 \input{vertices}
-%\cleardoublepage
-
-\section{Subdivision Surfaces}
+\end{plSection}%{Triangular Meshes}
 \input{subdivision}
-
-%\part{Fitting}
-%\cleardoublepage
-
-\section{Data Fitting}
 \input{data-fitting}
-%\cleardoublepage
-
-\section{Image Fitting}
 \input{image-fitting}
-%\cleardoublepage
-
-\section{Registration}
 \input{registration}
-%\cleardoublepage
-
-\section{Averaging}
 \input{averaging}
 
 %-----------------------------------------------------------------
