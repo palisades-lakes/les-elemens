@@ -1,100 +1,106 @@
 \begin{plSection}{Averaging}
 \label{sec:Averaging}
 
-A {\it mesh catalog} is a set $\{ \M_0 \ldots \M_{n-1} \}$
+A {\it mesh catalog} is a set 
+$\{ \Set{M}_0 \ldots \Set{M}_{n-1} \}$
 of $n$ meshes which are all embeddings
 of the same simplicial complex
 (that is, they have the same vertices, edges, and faces,
 but the vertex positions may be different).
 
-\subsection{Linear weights}
+%-----------------------------------------------------------------
+\begin{plSection}{Linear weights}
 \label{sec:Linear-weights}
 
-We can compute a {\it weighted average mesh} by averaging the vertex positions:
+We can compute a {\it weighted average mesh} 
+by averaging the vertex positions:
 \begin{equation}
-\p_i(\w) = \sum_{j=0}^{n-1} w_j \p_{ij}
+\Vector{p}_i(\Vector{w}) = \sum_{j=0}^{n-1} w_j \Vector{p}_{ij}
 \end{equation}
-where $\p_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of the average mesh,
-and $\p_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
+where $\Vector{p}_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of the average mesh,
+and $\Vector{p}_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
 
 In {\it catalog fitting} we fit a registered weighted average mesh,
 to a set of data, $\{ \d_k \in \Reals^3; k=0 \ldots p-1 \}$
 by minimizing
 \begin{equation}
-f(\M(\Tr,\w)) = \sum_{k=0}^{p-1} \| \d_k - \Pr_{\M(\Tr,\w)} (\d_k) \|^2 ,
+f(\Set{M}(\Vector{T},\Vector{w})) = \sum_{k=0}^{p-1} \| \d_k - \Projection_{\Set{M}(\Vector{T},\Vector{w})} (\d_k) \|^2 ,
 \end{equation}
-over a family of registration transforms $\{\Tr\}$
-and vectors of weights $\w \in \Reals^n$.
-The vertex positions $\p(\Tr,\w) = (\p_0(\Tr,\w), \ldots , \p_{n-1}(\Tr,\w))$
-of the registered average mesh, $\M(\Tr,\w)$, are given by:
+over a family of registration transforms $\{\Vector{T}\}$
+and vectors of weights $\Vector{w} \in \Reals^n$.
+The vertex positions $\Vector{p}(\Vector{T},\Vector{w}) = (\Vector{p}_0(\Vector{T},\Vector{w}), \ldots , \Vector{p}_{n-1}(\Vector{T},\Vector{w}))$
+of the registered average mesh, $\Set{M}(\Vector{T},\Vector{w})$, are given by:
 \begin{equation}
-\p_i(\Tr,\w) = \Tr ( \sum_{j=0}^{n-1} w_j \p_{ij} )
+\Vector{p}_i(\Vector{T},\Vector{w}) = \Vector{T} ( \sum_{j=0}^{n-1} w_j \Vector{p}_{ij} )
 \end{equation}
 
-The partial derivative with respect to $\Tr$
+The partial derivative with respect to $\Vector{T}$
 is:
 \begin{eqnarray}
-\De{\Tr}{f(\M(\Tr,\w))}{\Tr^0,\w^0}
+\De{\Vector{T}}{f(\Set{M}(\Vector{T},\Vector{w}))}{\Vector{T}^0,\Vector{w}^0}
 & = &
-\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
 \circ
-\De{\Tr}{\p(\Tr,\w)}{\Tr^0,\w^0}
+\De{\Vector{T}}{\Vector{p}(\Vector{T},\Vector{w})}{\Vector{T}^0,\Vector{w}^0}
 \\
 & = &
-\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
 \circ
-\De{\Tr}{\Tr\p(\w^0)}{\Tr^0}
+\De{\Vector{T}}{\Vector{T}\Vector{p}(\Vector{w}^0)}{\Vector{T}^0}
 \nonumber
 \end{eqnarray}
 
-$\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}$ is the derivative of $f$ with respect to
+$\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}$ is the derivative of $f$ with respect to
 the vertex positions of of the registered average mesh.
 It's value for data fitting distance functions
 is given in \autoref{sec:data-fitting}.
 
-$\Df{\Tr}{\Tr\p}$ is given in \autoref{sec:Transforms}
-for various families of transforms $\{\Tr\}$: affine, euclidean, and rigid.
+$\Df{\Vector{T}}{\Vector{T}\Vector{p}}$ is given in \autoref{sec:Transforms}
+for various families of transforms $\{\Vector{T}\}$: affine, euclidean, and rigid.
 
-Using the chain rule, the partial derivative with respect to $\w$ is:
+Using the chain rule, the partial derivative with respect to $\Vector{w}$ is:
 \begin{eqnarray}
-\De{\w}{f(\M(\Tr,\w))}{\Tr^0,\w^0}
+\De{\Vector{w}}{f(\Set{M}(\Vector{T},\Vector{w}))}{\Vector{T}^0,\Vector{w}^0}
 & = &
-\De{\w}{f(\Tr(\M(\w)))}{\Tr^0,\w^0}
+\De{\Vector{w}}{f(\Vector{T}(\Set{M}(\Vector{w})))}{\Vector{T}^0,\Vector{w}^0}
 \\
 & = &
-\De{\p}{f(\M))}{\M(\Tr^0,\w^0)}
+\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
 \circ
-\De{\Tr}{\Tr\p(\w^0)}{\Tr^0}
+\De{\Vector{T}}{\Vector{T}\Vector{p}(\Vector{w}^0)}{\Vector{T}^0}
 \circ
-\De{\w}{\p(\w)}{\w^0}
+\De{\Vector{w}}{\Vector{p}(\Vector{w})}{\Vector{w}^0}
 \nonumber
 \end{eqnarray}
 
-$\Df{\p}{f}$ and $\Df{\Tr}{\Tr\p}$ are already known
-so we need only determine $\Df{\w}{\p(\w)}$.
+$\Df{\Vector{p}}{f}$ and $\Df{\Vector{T}}{\Vector{T}\Vector{p}}$ are already known
+so we need only determine $\Df{\Vector{w}}{\Vector{p}(\Vector{w})}$.
 Using reasoning similar
 to equation \ref{eq:total-registration-transform-derivative},
-we have $\p(\w) = \bigoplus_{j=0}^{m-1} \p_i(\w)$,
+we have $\Vector{p}(\Vector{w}) = \bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})$,
 and
-$\Df{\w}{\p(\w)}
+$\Df{\Vector{w}}{\Vector{p}(\Vector{w})}
 =
-\Df{\w}{\bigoplus_{j=0}^{m-1} \p_i(\w)}
+\Df{\Vector{w}}{\bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})}
 =
-\bigoplus_{j=0}^{m-1} \Df{\w}{\p_i(\w)}$,
+\bigoplus_{j=0}^{m-1} \Df{\Vector{w}}{\Vector{p}_i(\Vector{w})}$,
 so we can restrict ourselves to
-$\Df{\w}{\p(\w)}$, where $\p(\w) = \sum_{i=0}^{n-1} w_i \p_i$,
-and $\p, \p_i \in \Reals^3$.
+$\Df{\Vector{w}}{\Vector{p}(\Vector{w})}$, where 
+$\Vector{p}(\Vector{w}) = \sum_{i=0}^{n-1} w_i \Vector{p}_i$,
+and $\Vector{p}, \Vector{p}_i \in \Reals^3$.
 
-Note that $\p(\w)$ is a linear transform from $\Reals^n \mapsto \Reals^3$,
-which can be expressed as $\P = \sum_{i=0}^{n-1} \p_i \otimes \e_i$,
-where $\e_i$ are the canonical basis vectors of $\Reals^n$.
-($\P$ can be written as a matrix whose $i$th column is the vector $\p_i$.)
+Note that $\Vector{p}(\Vector{w})$ is a linear transform from $\Reals^n \mapsto \Reals^3$,
+which can be expressed as $\Vector{P} = \sum_{i=0}^{n-1} \Vector{p}_i \otimes \Vector{e}_i$,
+where $\Vector{e}_i$ are the canonical basis vectors of $\Reals^n$.
+($\Vector{P}$ can be written as a matrix whose $i$th column is the vector $\Vector{p}_i$.)
 Thus it follows that
 \begin{equation}
-\Df{\w}{\p(\w)} = \Df{\w}{\P\w} = \P
+\Df{\Vector{w}}{\Vector{p}(\Vector{w})} = \Df{\Vector{w}}{\Vector{P}\Vector{w}} = \Vector{P}
 \end{equation}
 
-\subsection{Convex weights}
+\end{plSection}%{Linear weights}
+%-----------------------------------------------------------------
+\begin{plSection}{Convex weights}
 \label{sec:Convex-weights}
 
 It may be desireable to restrict the weights to be convex,
@@ -102,34 +108,36 @@ that is, $0 \leq w_i \leq 1; \sum w_i = 1$.
 To use unconstrained optimization methods with convex weights,
 we re-parameterize:
 \begin{equation}
-u_i(\w) = {{w_i^2} \over {\| \w \|^2}}
+u_i(\Vector{w}) = {{w_i^2} \over {\| \Vector{w} \|^2}}
 \end{equation}
-where, as usual, $\| \w \|^2 = \sum_{j=0}^{n-1} w_j^2$.
+where, as usual, $\| \Vector{w} \|^2 = \sum_{j=0}^{n-1} w_j^2$.
 
 Then we need to compute
 \begin{eqnarray}
-\De{\w}{\p(\u(\w))}{\w^0}
+\De{\Vector{w}}{\Vector{p}(\Vector{u}(\Vector{w}))}{\Vector{w}^0}
 & = &
-\De{\u}{\p(\u)}{\u(\w^0)}
+\De{\Vector{u}}{\Vector{p}(\Vector{u})}{\Vector{u}(\Vector{w}^0)}
 \circ
-\De{\w}{\u(\w)}{\w^0}
+\De{\Vector{w}}{\Vector{u}(\Vector{w})}{\Vector{w}^0}
 \\
 & = &
-\P
+\Vector{P}
 \circ
-\De{\w}{\u(\w)}{\w^0}
+\De{\Vector{w}}{\Vector{u}(\Vector{w})}{\Vector{w}^0}
 \nonumber
 \end{eqnarray}
 
 The partial derivatives are
 \begin{eqnarray}
-\Df{w_j}{u_i(\w))}
+\Df{w_j}{u_i(\Vector{w}))}
 & = &
-\Df{w_j}{{w_i^2} \over {\| \w \|^2}}
+\Df{w_j}{{w_i^2} \over {\| \Vector{w} \|^2}}
 \\
 & = &
-{{2 w_j} \over {\| \w \|^4}} \left( \delta_{ij} \| \w \|^2 - w_i^2 \right)
+{{2 w_j} \over {\| \Vector{w} \|^4}} \left( \delta_{ij} \| \Vector{w} \|^2 - w_i^2 \right)
 \nonumber
 \end{eqnarray}
+
+\end{plSection}%{Convex weights}
 %-----------------------------------------------------------------
 \end{plSection}%{Averaging}
