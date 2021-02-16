@@ -10,106 +10,122 @@ a measure of distance between the {\it docking} mesh and its {\it target},
 over some set of registration transforms,
 for example, the rigid transformations of $\Reals^3$.
 
-We most often compute a registration transform, $\Tr$,
+We most often compute a registration transform, $\Vector{T}$,
 to minimize a distance between the transformed mesh,
-$\Tr\M$ and its target, $\Ta$:
+$\Vector{T}\Set{M}$ and its target, $\Set{T}$:
 \begin{equation}
-\min_{\Tr} d(\M(\Tr),\Ta)
+\min_{\Vector{T}} d(\Set{M}(\Vector{T}),\Set{T})
 \end{equation}
-The target, $\Ta$, may be another mesh, a set of data points,
+The target, $\Set{T}$, may be another mesh, a set of data points,
 or some other geometric object.
 The transformed mesh
-$\M(\Tr) = \M(\Tr\v) = \M(\Tr(\v_0 \ldots \v_{n-1}))$,
-where $\v = (\v_0, \ldots , \v_{n-1})$
-are the positions of the vertices of $\M$.
+$\Set{M}(\Vector{T})
+ = \Set{M}(\Vector{T}\Vector{v}) 
+ = \Set{M}(\Vector{T}(\Vector{v}_0 \ldots \Vector{v}_{n-1}))$,
+where $\Vector{v} = (\Vector{v}_0, \ldots , \Vector{v}_{n-1})$
+are the positions of the vertices of $\Set{M}$.
 
 We are also sometimes interested in registering a data set
-$\{\x_i\}$ to a mesh.
+$\Vector{x}_i\}$ to a mesh.
 In this case, we minimize
 \begin{equation}
-\min_{\Tr} d(\M,\Tr\{\x_i\})
+\min_{\Vector{T}} d(\Set{M},\Vector{T}\{\Vector{x}_i\})
 \end{equation}
 
 Both are special cases of choosing a transform on $\Reals^{3n}$
 by minimizing:
 \begin{equation}
-\min_{\Tr} f( \Tr \p),
+\min_{\Vector{T}} f( \Vector{T} \Vector{p}),
 \end{equation}
 where
-$\p = (\p_0, \ldots , \p_{n-1}) \in \Reals^{3n}$,
-$\Tr : \Reals^{3n} \mapsto \Reals^{3n}$,
+$\Vector{p} = (\Vector{p}_0, \ldots , \Vector{p}_{n-1}) \in \Reals^{3n}$,
+$\Vector{T} : \Reals^{3n} \mapsto \Reals^{3n}$,
 and
-$f : \Reals^{3n} \mapsto \Re$.
+$f : \Reals^{3n} \mapsto \Reals$.
 
-\subsection{Distance measures}
+%-----------------------------------------------------------------
+\begin{plSection}{Distance measures}
 \label{sec:Distance-measures}
 
-\subsubsection{Vertex distance}
+%-----------------------------------------------------------------
+\begin{plSection}{Vertex distance}
 \label{sec:Vertex-distance}
 
-Suppose 2 meshes have corresponding vertices,
+\textbf{TODO:} Re-write with one set of vertices and $2$
+embedding functions.
+
+Suppose $2$ meshes have corresponding vertices,
 that is,
-for each vertex $\v_{0i}$ in the docking mesh $\M_0$,
-there is a corresponding vertex $\v_{1i}$ in the target mesh $\M_1$,
-and vice versa.
+for each vertex $\Vector{v}_{0i}$ in the docking mesh $\Set{M}_0$,
+there is a corresponding vertex $\Vector{v}_{1i}$ 
+in the target mesh $\Set{M}_1$,
+and vice versa (same abstract mesh).
 Then an obvious measure of distance
 is the sum of distances between the corresponding points:
 \begin{equation}
-d_{\V}(\M_0,\M_1) = \sum_{i=0}^{n-1} \| \p_{0i} - \p_{1i} \|^2
+d_{\Set{V}}(\Set{M}_0,\Set{M}_1) = 
+\sum_{i=0}^{n-1} \| \Vector{p}_{0i} - \Vector{p}_{1i} \|^2
 \end{equation}
-The gradient of $d_v$ with respect to the positions
-of the $i$th vertex of $\M_0$ is:
+The gradient of $d_{\Set{V}}$ with respect to the positions
+of the $i$th vertex of $\Set{M}_0$ is:
 \begin{equation}
-\Gc{\p_{0i}}{d_v}{q} = 2 \left[ \q_{0i} - \p_{1i} \right]
+\Gc{\Vector{p}_{0i}}{d_{\Set{V}}}{q} = 
+2 \left[ \Vector{q}_{0i} - \Vector{p}_{1i} \right]
 \end{equation}
 
-\subsubsection{Projection distance}
+\end{plSection}%{Vertex distance}
+%-----------------------------------------------------------------
+\begin{plSection}{Projection distance}
 \label{sec:Projection-distance}
 
 In many problems, the vertex correspondence used in
-\autoref{sec:Vertex-distance} is not appropriate.
+\cref{sec:Vertex-distance} is not appropriate.
 Or we may want to register a mesh to a target data set.
 In such cases, we can use the projection distance:
 \begin{equation}
-d_{\Pr}(\M,\p_1) = \sum_{i=0}^{n-1} \| \Pr_{\M}(\p_{1i}) - \p_{1i} \|^2,
+d_{\Pr}(\Set{M},\Vector{p}_1) = \sum_{i=0}^{n-1} \| \Pr_{\Set{M}}(\Vector{p}_{1i}) - \Vector{p}_{1i} \|^2,
 \end{equation}
-where the target $\p_1 = (\p_{10}, \ldots \p_{1(n-1)})$
+where the target $\Vector{p}_1 = (\Vector{p}_{10}, \ldots \Vector{p}_{1(n-1)})$
 is either a set of data points,
 or the set of positions of the vertices of a target mesh.
-$\Pr_{\M}(\p)$ is the projection of the point $\p \in \Reals^3$
-on the mesh $\M$.
+$\Pr_{\Set{M}}(\Vector{p})$ is the projection of the point $\Vector{p} \in \Reals^3$
+on the mesh $\Set{M}$.
 This is the same as the general data fitting distance, and
 derivatives with respect to the positions of the vertices
-of $\M$ are given in \autoref{sec:data-fitting}.
+of $\Set{M}$ are given in \cref{sec:data-fitting}.
 
-\subsection{Transforms}
+\end{plSection}%{Projection distance}
+%-----------------------------------------------------------------
+\end{plSection}%{Distance measures}
+%-----------------------------------------------------------------
+\begin{plSection}{Transforms}
 \label{sec:Transforms}
 
 In this section, I describe common families
-of transforms, $\{\Tr\}$, over which to minimize:
+of transforms, $\{\Vector{T}\}$, over which to minimize:
 \begin{equation}
-\min_{\Tr} f( \Tr \p),
+\min_{\Vector{T}} f( \Vector{T} \Vector{p}),
 \end{equation}
 To do the minimization, we need to compute
 the derivative:
 \begin{equation}
-\De{\Tr}{g(\Tr)}{\Tr_0}
-= \De{\Tr}{f(\Tr\p)}{\Tr_0}
-= \De{\q}{f(\q)}{\q=\Tr_0\p}
+\De{\Vector{T}}{g(\Vector{T})}{\Vector{T}_0}
+= \De{\Vector{T}}{f(\Vector{T}\Vector{p})}{\Vector{T}_0}
+= \De{\Vector{q}}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}}
 \circ
-\De{\Tr}{\Tr\p}{\Tr_0}.
+\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}.
 \end{equation}
 o, equivalently, the gradient:
 \begin{equation}
-\Gc{\Tr}{f( \M(\Tr\p) )}{\Tr_0}
+\Gc{\Vector{T}}{f( \Set{M}(\Vector{T}\Vector{p}) )}{\Vector{T}_0}
  =
-\De{\Tr}{\Tr\p}{\Tr_0}^\dagger
-\Gc{\q}{f(\M(\q)))}{\Tr_0\p}
+\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}^\dagger
+\Gc{\Vector{q}}{f(\Set{M}(\Vector{q})))}{\Vector{T}_0\Vector{p}}
 \end{equation}
 
 I assume in the following
-that $\Df{\p}{f}$ (or $\Gb{\p}{f}$) is known,
-so the main task is computing $\Df{\Tr}{\Tr\p}$.
+that $\Df{\Vector{p}}{f}$ (or $\Gb{\Vector{p}}{f}$) is known,
+so the main task is computing $\Df{\Vector{T}}{\Vector{T}\Vector{p}}$.
 
 As mentioned in above,
 in registration problems
@@ -121,98 +137,102 @@ Derivatives and gradients of distance functions,
 with respect to vertex positions,
 are given in sections \ref{sec:Distance-measures}
 and \ref{sec:data-fitting}.
-
-\subsubsection{Direct sum transforms}
+%-----------------------------------------------------------------
+\begin{plSection}{Direct sum transforms}
 \label{sec:Direct-sum-transforms}
 
 In registration problems,we usually want to
 apply the same transform to each vertex or data point.
-Let $\Tr : \Reals^3 \mapsto \Reals^3$ be an element
+Let $\Vector{T} : \Reals^3 \mapsto \Reals^3$ be an element
 of some family of transformations on $\Reals^3$.
 A simple direct sum transform applies the same 3-dimensional
 transform to each vertex point,
 so the full mesh transform is
-$\Tr_{3n} = \bigoplus^n \Tr$,
-and $\Tr_{3n} (\bigoplus_{i=0}^{n-1} \p_i) = \bigoplus_{i=0}^{n-1} \Tr \p_i$
+$\Vector{T}_{3n} = \bigoplus^n \Vector{T}$,
+and $\Vector{T}_{3n} (\bigoplus_{i=0}^{n-1} \Vector{p}_i) = \bigoplus_{i=0}^{n-1} \Vector{T} \Vector{p}_i$
 by transforming the locations of each of the vertices
 of the mesh.
 
-In general, suppose $\Tr_i :
+In general, suppose $\Vector{T}_i :
 {\mathcal D}_i \mapsto {\mathcal C}_i; i = 0 \ldots k-1$
 are $k$ maps.
-The direct sum of the $\Tr_i$ is:
+The direct sum of the $\Vector{T}_i$ is:
 \begin{equation}
 \label{eq:diagonal-blocks}
-\Tr =
-\left( \bigoplus_{i=0}^{k-1} \Tr_i \right) :
+\Vector{T} =
+\left( \bigoplus_{i=0}^{k-1} \Vector{T}_i \right) :
 \left( \bigoplus_{i=0}^{k-1}{\mathcal D}_i \right)
 \mapsto
 \left( \bigoplus_{i=0}^{k-1}{\mathcal C}_i \right)
 \end{equation}
-$\Tr$ is a transform whose
-$k$ 'diagonal blocks' are the $\Tr_i$.
+$\Vector{T}$ is a transform whose
+$k$ 'diagonal blocks' are the $\Vector{T}_i$.
 
 Using this notation,
-$\Df{\p}{f(\p)} = \bigoplus_i \Df{\p_i}{f(\p)}$,
-$\Df{\Tr}{\Tr\p} = \bigoplus_i \Df{\Tr}{\Tr\p_i}$,
+$\Df{\Vector{p}}{f(\Vector{p})} = \bigoplus_i \Df{\Vector{p}_i}{f(\Vector{p})}$,
+$\Df{\Vector{T}}{\Vector{T}\Vector{p}} = \bigoplus_i \Df{\Vector{T}}{\Vector{T}\Vector{p}_i}$,
 and:
 \begin{equation}
 \label{eq:total-registration-transform-derivative}
-\De{\Tr}{f( \Tr \p )}{\Tr_0}
+\De{\Vector{T}}{f( \Vector{T} \Vector{p} )}{\Vector{T}_0}
  =
 \sum_i
-\De{\q_i}{f(\q)}{\q=\Tr_0\p}
+\De{\Vector{q}_i}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}}
 \circ
-\De{\Tr}{\Tr\p_i}{\Tr_0}
+\De{\Vector{T}}{\Vector{T}\Vector{p}_i}{\Vector{T}_0}
 \end{equation}
 For the gradient, the equivalent is:
 \begin{equation}
 \label{eq:registration-gradient-sum}
-\Gc{\Tr}{f( \Tr \p )}{\Tr_0}
+\Gc{\Vector{T}}{f( \Vector{T} \Vector{p} )}{\Vector{T}_0}
  =
 \sum_i
-\left( \De{\Tr}{\Tr\p_i}{\Tr_0} \right)^{\dagger} \;
-\left( \Gc{\q_i}{f(\q)}{\q=\Tr_0\p} \right)
+\left( \De{\Vector{T}}{\Vector{T}\Vector{p}_i}{\Vector{T}_0} \right)^{\dagger} \;
+\left( \Gc{\Vector{q}_i}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}} \right)
 \end{equation}
 
 The derivative with respect to vertex or data points,
-$\Df{\p_i}{f(\p)}$,
+$\Df{\Vector{p}_i}{f(\Vector{p})}$,
 is assumed to be known.
 For example, the derivatives of functions
 related to data fitting
 are discussed in chapter \ref{sec:data-fitting}.
 
 In this chapter, I focus on computing
-$\De{\Tr}{\Tr\p}{\Tr_0}$
-for $\Tr : \Reals^3 \mapsto \Reals^3$
-and $\p \in \Reals^3$.
+$\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}$
+for $\Vector{T} : \Reals^3 \mapsto \Reals^3$
+and $\Vector{p} \in \Reals^3$.
 
-\subsubsection{General linear registration}
+\end{plSection}%{Direct sum transforms}
+%-----------------------------------------------------------------
+\begin{plSection}{General linear registration}
 \label{sec:General-linear-registration}
 
-Suppose $\Tr = \L$ a linear transform on $\Reals^3$.
-We can represent $\L$ as a vector in $\Reals^9$:
+Suppose $\Vector{T} = \Vector{L}$ a linear transform on $\Reals^3$.
+We can represent $\Vector{L}$ as a vector in $\Reals^9$:
 \begin{equation}
 \label{eq:L-vector}
-\l = \left(\L_{00},\L_{01},\L_{02},
-       \L_{10},\L_{11},\L_{12},
-       \L_{20},\L_{21},\L_{22}\right),
+\Vector{l} = \left(\Vector{L}_{00},\Vector{L}_{01},\Vector{L}_{02},
+       \Vector{L}_{10},\Vector{L}_{11},\Vector{L}_{12},
+       \Vector{L}_{20},\Vector{L}_{21},\Vector{L}_{22}\right),
 \end{equation}
-where $\L_{ij}$ is the $ij$-th element of a
-matrix representation of $\L$.
-We can identify a vector $\p \in \Reals^3$
-with a linear transform $\Tr_{\p} : \Reals^9 \mapsto \Reals^3$
-by defining $\Tr_{\p}\l = \L\p$.
+where $\Vector{L}_{ij}$ is the $ij$-th element of a
+matrix representation of $\Vector{L}$.
+We can identify a vector $\Vector{p} \in \Reals^3$
+with a linear transform 
+$\Vector{T}_{\Vector{p}} : \Reals^9 \mapsto \Reals^3$
+by defining 
+$\Vector{T}_{\Vector{p}}\Vector{l} = \Vector{L}\Vector{p}$.
 In the coordinate system defined by equation \ref{eq:L-vector},
-the matrix for $\Tr_{\p}$ is:
+the matrix for $\Vector{T}_{\Vector{p}}$ is:
 \begin{equation}
 \label{eq:Tp-matrix}
-\Tr_{\p} =
+\Vector{T}_{\Vector{p}} =
 \left(
 \begin{array}{lllllllll}
-\p_0 & \p_1 & \p_2 &  0   &  0   &  0   &  0   &  0   &  0 \\
- 0   &  0   &  0   & \p_0 & \p_1 & \p_2 &  0   &  0   &  0 \\
- 0   &  0   &  0   &  0   &  0   &  0   & \p_0 & \p_1 & \p_2 \\
+\Vector{p}_0 & \Vector{p}_1 & \Vector{p}_2 &  0   &  0   &  0   &  0   &  0   &  0 \\
+ 0   &  0   &  0   & \Vector{p}_0 & \Vector{p}_1 & \Vector{p}_2 &  0   &  0   &  0 \\
+ 0   &  0   &  0   &  0   &  0   &  0   & \Vector{p}_0 & \Vector{p}_1 & \Vector{p}_2 \\
 \end{array}
 \right)
 \end{equation}
@@ -223,69 +243,71 @@ it follows that the derivative with respect to the
 unconstrained set of linear registration transforms is:
 \begin{equation}
 \label{eq:linear-transform-derivative}
-\Df{\L}{\left( \L \, \p \right)}
+\Df{\Vector{L}}{\left( \Vector{L} \, \Vector{p} \right)}
  \; = \;
-\Df{\L}{\left( \Tr_{\p} \, \L \right)}
+\Df{\Vector{L}}{\left( \Vector{T}_{\Vector{p}} \, \Vector{L} \right)}
  \; = \;
-\Tr_{\p}
+\Vector{T}_{\Vector{p}}
 \end{equation}
 
-\subsubsection{Scaled rotations}
+\end{plSection}%{General linear registration}
+%-----------------------------------------------------------------
+\begin{plSection}{Scaled rotations}
 \label{sec:Scaled-rotations}
 
 A scaled rotation
-is a linear transform $\Sc = s \R$,
-where $s \in \Re$ and $\R : \Reals^n \mapsto \Reals^n$
+is a linear transform $\Vector{S} = s \Vector{R}$,
+where $s \in \Reals$ and $\Vector{R} : \Reals^n \mapsto \Reals^n$
 is a rotation.
 
-The quaternions $\Qs$ are a convenient representation
+The quaternions $\Set{Q}$ are a convenient representation
 for the scaled rotations on $\Reals^3$.
 (See Faugeras~\cite[sec.~5.5.2]{Faugeras:1993:3dVision}.)
 
 A quaternion is a 4-tuple:
 \begin{equation}
-\q = (w, x, y, z) = (w, \v),
+\Vector{q} = (w, x, y, z) = (w, \Vector{v}),
 \end{equation}
-where $w, x, y, z \in \Re$ and $\v \in \Reals^3$.
+where $w, x, y, z \in \Reals$ and $\Vector{v} \in \Reals^3$.
 The set of quaternions has several operations:
 \begin{itemize}
 \item Quaternion conjugation $\dagger$:
 \begin{equation}
-\q^\dagger = (w, \v)^\dagger = (w, - \v)
+\Vector{q}^\dagger = (w, \Vector{v})^\dagger = (w, - \Vector{v})
 \end{equation}
 \item The quaternion product $\diamond$:
 \begin{equation}
-\q_0 \diamond \q_1 = (w_0w_1 - \v_0 \bullet \v_1, w_0 \v_1 + w_1 \v_0 + \v_0 \times \v_1)
+\Vector{q}_0 \diamond \Vector{q}_1 = (w_0w_1 - \Vector{v}_0 \bullet \Vector{v}_1, w_0 \Vector{v}_1 + w_1 \Vector{v}_0 + \Vector{v}_0 \times \Vector{v}_1)
 \end{equation}
-\item Quaternion norm $\| \|_{\Qs}$:
+\item Quaternion norm $\| \|_{\Set{Q}}$:
 \begin{equation}
-\| \q \|_{\Qs}^2
-= \q^\dagger \bullet \q
-= \q \bullet \q^\dagger
-= w^2 + \|\v\|^2
+\| \Vector{q} \|_{\Set{Q}}^2
+= \Vector{q}^\dagger \bullet \Vector{q}
+= \Vector{q} \bullet \Vector{q}^\dagger
+= w^2 + \|\Vector{v}\|^2
 = w^2 + x^2 + y^2 + z^2
 \end{equation}
 \end{itemize}
 
 The quaternion product can be extended to $\Reals^3$
-by identifying $\p \in \Reals^3$ with
-the quaternion $(0,\p)$.
+by identifying $\Vector{p} \in \Reals^3$ with
+the quaternion $(0,\Vector{p})$.
 This allows us to define a linear transform
 on $\Reals^3$ for any quaternion:
 \begin{equation}
-\Sc(\q) \p = \q \diamond \p \diamond \q^\dagger
+\Vector{S}(\Vector{q}) \Vector{p} = \Vector{q} \diamond \Vector{p} \diamond \Vector{q}^\dagger
 \end{equation}
 
-It turns out that transforms $\Sc(\q)$ so defined are scaled rotations.
-The scale is the squared norm of the quaternion $\| \q \|_{\Qs}^2$.
-The rotation is about the axis of $\v$
-by $\cos^{-1}(w / \| \q \|_{\Qs})$.
-(Note that $\q$ and $-\q$ correspond to the same scaled rotation.)
+It turns out that transforms $\Vector{S}(\Vector{q})$ so defined are scaled rotations.
+The scale is the squared norm of the quaternion $\| \Vector{q} \|_{\Set{Q}}^2$.
+The rotation is about the axis of $\Vector{v}$
+by $\cos^{-1}(w / \| \Vector{q} \|_{\Set{Q}})$.
+(Note that $\Vector{q}$ and $-\Vector{q}$ correspond to the same scaled rotation.)
 
-$\Sc(\q)$ can be written as a matrix:
+$\Vector{S}(\Vector{q})$ can be written as a matrix:
 \begin{equation}
 \label{eq:quaternion-matrix}
-\Sc(\q) =
+\Vector{S}(\Vector{q}) =
 \left(
 \begin{array}{ccc}
 w^2 + x^2 - y^2 - z^2 & 2(xy - wz)            & 2(xz + wy)           \\
@@ -295,16 +317,16 @@ w^2 + x^2 - y^2 - z^2 & 2(xy - wz)            & 2(xz + wy)           \\
 \right)
 \end{equation}
 
-Notice that the adjoint (transpose) of $\Sc(\q)$
+Notice that the adjoint (transpose) of $\Vector{S}(\Vector{q})$
 is the linear transform corresponding to the conjugate quaternion:
-$\Sc^{\dagger}(\q) =  \Sc(\q^{\dagger})$.
+$\Vector{S}^{\dagger}(\Vector{q}) =  \Vector{S}(\Vector{q}^{\dagger})$.
 
-If we consider $\Sc(\q)$ to be a 9-dimensional vector,
+If we consider $\Vector{S}(\Vector{q})$ to be a 9-dimensional vector,
 as in equation \ref{eq:L-vector},
 then the derivative can be expressed as the matrix:
 \begin{equation}
 \label{eq:quaternion-derivative-matrix}
-\Df{q}{\Sc(\q)}
+\Df{q}{\Vector{S}(\Vector{q})}
  = 2 \left(
 \begin{array}{rrrr}
   w &  x & -y & -z \\
@@ -320,14 +342,14 @@ then the derivative can be expressed as the matrix:
 \right)
 \end{equation}
 
-It's also useful to express the derivative $\Df{q}{\Sc(\q)}$
+It's also useful to express the derivative $\Df{q}{\Vector{S}(\Vector{q})}$
 as a set of partial derivative matrices,
 which are computed
 by differentiating the elements of matrix in equation
 \ref{eq:quaternion-matrix}:
 \begin{eqnarray}
 \label{eq:quaternion-matrix-partial-derivatives}
-\Df{w}{\Sc(\q)}
+\Df{w}{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -339,7 +361,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{x}{\Sc(\q)}
+\Df{x}{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -352,7 +374,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{y}{\Sc(\q)}
+\Df{y}{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -365,7 +387,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{z}{\Sc(\q)}
+\Df{z}{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -378,66 +400,66 @@ by differentiating the elements of matrix in equation
 \end{eqnarray}
 
 Note that
-$\Df{w}{\left( \Sc(\q) \; \p \right)}
- = \left( \Df{w}{\Sc(\q)}\right) \; \p$
+$\Df{w}{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
+ = \left( \Df{w}{\Vector{S}(\Vector{q})}\right) \; \Vector{p}$
 (and similarly for the partials with respect to $x,y,$ and $z$).
 
 We can write the total derivative in terms of the partials as:
 \begin{eqnarray}
-\Df{\q}{\left( \Sc(\q) \; \p \right)}
+\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
 & = &
-\left( \Df{\w}{\Sc(\q)} \; \p \right) \otimes \e_w
+\left( \Df{w}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_w
 \\
 & + &
-\left( \Df{\x}{\Sc(\q)} \; \p \right) \otimes \e_x
+\left( \Df{x}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_x
 \nonumber
 \\
 & + &
-\left( \Df{\y}{\Sc(\q)} \; \p \right) \otimes \e_y
+\left( \Df{y}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_y
 \nonumber
 \\
 & + &
-\left( \Df{\z}{\Sc(\q)} \; \p \right) \otimes \e_z
+\left( \Df{z}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_z
 \nonumber
 \end{eqnarray}
 
 In computing the gradients of registration penalties,
 we sum expressions like
-$\Df{\q}{\left( \Sc(\q)\p_i \right)}^{\dagger} \;
-\Gf{\p_i}{f}$
+$\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
+\Gf{\Vector{p}_i}{f}$
 (see equation \ref{eq:registration-gradient-sum}).
 In terms of the partial derivative matrices,
 this is:
 \begin{equation}
-\Df{\q}{\left( \Sc(\q)\p_i \right)}^{\dagger} \;
-\Gf{\p_i}{f}
+\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
+\Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{\w}{\Sc(\q)} \; \p \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\x}{\Sc(\q)} \; \p \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\y}{\Sc(\q)} \; \p \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\z}{\Sc(\q)} \; \p \right) \bullet \Gf{\p_i}{f} \\
+\left( \Df{w}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{x}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{y}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{z}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \end{equation}
 
-We sometimes encounter the inverse transform, $\Sc^{-1}(\q)$,
+We sometimes encounter the inverse transform, $\Vector{S}^{-1}(\Vector{q})$,
 which is the same as the linear transform,
-$\Sc(\q^{-1})$,
+$\Vector{S}(\Vector{q}^{-1})$,
 corresponding to the inverse quaternion
 (in the sense of the quaternion product):
-$\q^{-1} = (w, x, y, z)^{-1}
-         = {1 \over {\| q \|_{\Qs}^2}} (w, -x, -y, -z)$.
+$\Vector{q}^{-1} = (w, x, y, z)^{-1}
+         = {1 \over {\| \Vector{q} \|_{\Set{Q}}^2}} (w, -x, -y, -z)$.
 
 To compute derivatives of expressions
 involving an inverse quaternion,
-we can use the derivative of $\q^{-1}$
-with respect to $\q$:
+we can use the derivative of $\Vector{q}^{-1}$
+with respect to $\Vector{q}$:
 \begin{equation}
-\Df{\q}{\q^{-1}}
+\Df{\Vector{q}}{\Vector{q}^{-1}}
 =
-{1 \over {\| \q \|_{\Qs}^4}}
+{1 \over {\| \Vector{q} \|_{\Set{Q}}^4}}
 \left(
 \begin{array}{cccc}
 -w^2+x^2+y^2+z^2 & -2wx              & -2wy              & -2wz \\
@@ -448,181 +470,190 @@ with respect to $\q$:
 \right)
 \end{equation}
 
-\paragraph{Rotations}
+\end{plSection}%{Scaled rotations}
+%-----------------------------------------------------------------
+\begin{plSection}{Rotations}
 \label{sec:Rotations}
 
 A common representation for the rotations on $\Reals^3$
 is the set of {\it unit quaternions},
-that is, the quaternions satisfying $\| \q \|_{\Qs} = 1$.
+that is, the quaternions satisfying $\| \Vector{q} \|_{\Set{Q}} = 1$.
 However, optimization under a nonlinear constraint
-like $\| \q \|_{\Qs} = 1$ is relatively difficult,
+like $\| \Vector{q} \|_{\Set{Q}} = 1$ is relatively difficult,
 so I instead use a redundant representation by general quaternion:
 \begin{equation}
-\R(\q) = {{\Sc(\q)} \over {\| \q \|_{\Qs}^2}}
+\Vector{R}(\Vector{q}) = {{\Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
 \end{equation}
 To avoid numerical instability, it's usually enough
-to add a small penalty for $\| \q \|_{\Qs}$ far from $1$.
+to add a small penalty for $\| \Vector{q} \|_{\Set{Q}}$ far from $1$.
 
-The partial derivative matrices of $\R(\q)$ are used in the
+The partial derivative matrices of $\Vector{R}(\Vector{q})$ are used in the
 same way as,
 and can be expressed in terms of,
-the partials of $\Sc(\q)$:
+the partials of $\Vector{S}(\Vector{q})$:
 \begin{equation}
-\Df{v}{\R(\q)}
+\Df{v}{\Vector{R}(\Vector{q})}
 \; = \;
 \Df{v}{\left(
-{{\Sc(\q)} \over {\| \q \|_{\Qs}^2}}
+{{\Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
 \right)}
 \; = \;
-{{\Df{v}{\Sc(\q)}} \over {\| \q \|_{\Qs}^2}}
+{{\Df{v}{\Vector{S}(\Vector{q})}} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
 -
-{{2v \Sc(\q)} \over {\| \q \|_{\Qs}^4}}
+{{2v \Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^4}}
 \end{equation}
 where $v$ is any of $w$, $x$, $y$, or $z$.
 
-\subsubsection{Shift registration}
+\end{plSection}%{Rotations}
+%-----------------------------------------------------------------
+\begin{plSection}{Shift registration}
 \label{sec:Shift-registration}
 
 A simple shift, or translation, adds a constant vector
-to its argument: $\Tr \p = \p + \t,$
-for some $\t \in \Reals^3$.
+to its argument: $\Vector{T} \Vector{p} = \Vector{p} + \Vector{t},$
+for some $\Vector{t} \in \Reals^3$.
 The derivative with respect to
 an unconstrained translation vector
 is simply
-$\Df{\t}{(\p + \t)} = \I_3,$
-where $\I_3$ is the identity on $\Reals^3$.
+$\Df{\Vector{t}}{(\Vector{p} + \Vector{t})} = \Identity_{\Reals^3},$
+where $\Identity_{\Reals^3}$ is the identity on $\Reals^3$.
 
-\subsubsection{Affine registration}
+\end{plSection}%{Shift Registration}
+%-----------------------------------------------------------------
+\begin{plSection}{Affine registration}
 \label{sec:affine-registration}
 
-An {\it affine transformation,} $\A : \Reals^m \mapsto \Reals^n$,
+An {\it affine transformation,} $\Vector{A} : \Reals^m \mapsto \Reals^n$,
 is a linear transformation plus a translation:
-$\A \p = \L \p + \t$,
-where $\L : \Reals^m \mapsto \Reals^n$ is a linear transform,
+$\Vector{A} \Vector{p} = \Vector{L} \Vector{p} + \Vector{t}$,
+where $\Vector{L} : \Reals^m \mapsto \Reals^n$ is a linear transform,
 the {\it linear part} of the affine tranform,
-and $\t \in \Reals^n$ is $\A$'s {\it translation}.
+and $\Vector{t} \in \Reals^n$ is $\Vector{A}$'s {\it translation}.
 
-Note that, if $\A = (\L,\t)$, then its inverse is
-$\A^{-1} = (\L^{-1}, - \L^{-1}\t)$.
+Note that, if $\Vector{A} = (\Vector{L},\Vector{t})$, then its inverse is
+$\Vector{A}^{-1} = (\Vector{L}^{-1}, - \Vector{L}^{-1}\Vector{t})$.
 
 (It is sometimes useful to use a redundant representation:
-$\A \p = \L (\p + \t_0) + \t_1$,
-where $\t_0 \in \Reals^m$ and $\t_1 \in \Reals^n$,
+$\Vector{A} \Vector{p} = \Vector{L} (\Vector{p} + \Vector{t}_0) + \Vector{t}_1$,
+where $\Vector{t}_0 \in \Reals^m$ and $\Vector{t}_1 \in \Reals^n$,
 but, for simplicity, I'll stick to the minimal one-translation
 representation in this discussion.)
 
 In the context of mesh registration,
-where $\A : \Reals^3 \mapsto \Reals^3$,
-we can view $\L \in \Reals^9$ and
-$\A = (\L, \t) \in \left(\Reals^9 \oplus \Reals^3 \right)= \Reals^{12}$,
-and we can express derivatives with respect to $\A$
+where $\Vector{A} : \Reals^3 \mapsto \Reals^3$,
+we can view $\Vector{L} \in \Reals^9$ and
+$\Vector{A} = (\Vector{L}, \Vector{t}) \in \left(\Reals^9 \oplus \Reals^3 \right)= \Reals^{12}$,
+and we can express derivatives with respect to $\Vector{A}$
 in terms of the independent partial derivatives
-with respect to $\L$ and $\t$.
+with respect to $\Vector{L}$ and $\Vector{t}$.
 
 It follows from the results in the preceding sections,
 that the derivative with respect to the
 unconstrained set of affine registration transforms is:
 \begin{equation}
 \label{eq:affine-transform-derivative}
-\Df{(\L,\t)}{\left( \A \, \p \right)}
+\Df{(\Vector{L},\Vector{t})}{\left( \Vector{A} \, \Vector{p} \right)}
  \; = \;
-\Df{(\L,\t)}{\left( \L \p + \t \right)}
+\Df{(\Vector{L},\Vector{t})}{\left( \Vector{L} \Vector{p} + \Vector{t} \right)}
  \; = \;
-\Tr_{\p} \oplus \I_3,
+\Vector{T}_{\Vector{p}} \oplus _{\Reals^3},
 \end{equation}
 where $\oplus$ indicates,
 as in equation \ref{eq:diagonal-blocks},
 that the derivative is formed from the 2
 'diagonal blocks'.
 
-\subsubsection{Euclidean registration}
+\end{plSection}%{Affine registration}
+%-----------------------------------------------------------------
+\begin{plSection}{Euclidean registration}
 \label{sec:euclidean-registration}
 
 A {\it euclidean transform} is an affine transform
-$\Eu : \Reals^n \mapsto \Reals^n$,
-$\Eu \p = \Sc \p + \t $,
+$\Vector{E} : \Reals^n \mapsto \Reals^n$,
+$\Vector{E} \Vector{p} = \Vector{S} \Vector{p} + \Vector{t} $,
 whose linear part is a scaled rotation:
-$\Sc = s \R$,
-where $s \in \Re$ and $\R : \Reals^n \mapsto \Reals^n$
+$\Vector{S} = s \Vector{R}$,
+where $s \in \Reals$ and $\Vector{R} : \Reals^n \mapsto \Reals^n$
 is a rotation.
 
 Euclidean transforms are easy to invert.
 
-If $\Eu = (\Sc,\t)$, then its inverse is
-$\Eu^{-1} = (\Sc^{-1}, - \Sc^{-1}\t)$.
-The inverse of a rotation, $\R$, is its adjoint
-(tranpose) $\R^{-1} = \R^{\dagger}$.
-The inverse of a scaled rotation $\Sc = s \R$
+If $\Vector{E} = (\Vector{S},\Vector{t})$, then its inverse is
+$\Vector{E}^{-1} = (\Vector{S}^{-1}, - \Vector{S}^{-1}\Vector{t})$.
+The inverse of a rotation, $\Vector{R}$, is its adjoint
+(tranpose) $\Vector{R}^{-1} = \Vector{R}^{\dagger}$.
+The inverse of a scaled rotation $\Vector{S} = s \Vector{R}$
 is therefore
-$\Sc^{-1} = (s \R)^{-1}
-         = {1 \over s} \R^{\dagger}
-         = {1 \over {s^2}} \Sc^{\dagger}$.
+$\Vector{S}^{-1} = (s \Vector{R})^{-1}
+         = {1 \over s} \Vector{R}^{\dagger}
+         = {1 \over {s^2}} \Vector{S}^{\dagger}$.
 We can then write the inverse of a euclidean transform as
-$\Eu^{-1} = {1 \over {s^2}}(\Sc^{\dagger}, - \Sc^{\dagger}\t)$
+$\Vector{E}^{-1} = {1 \over {s^2}}(\Vector{S}^{\dagger}, - \Vector{S}^{\dagger}\Vector{t})$
 
 Using quaternions, we can represent euclidean transforms with
 7 dimensional points:
-$\Eu = (w_{\q}, x_{\q}, y_{\q}, z_{\q}, x_{\t}, y_{\t}, z_{\t})$,
-where $\q = (w_{\q}, x_{\q}, y_{\q}, z_{\q})$ is a quaternion corresponding
-to $\S$, the linear part of $\Eu$,
-and $\t = (x_{\t}, y_{\t}, z_{\t})$ is the translation part.
+$\Vector{E} = (w_{\Vector{q}}, x_{\Vector{q}}, y_{\Vector{q}}, z_{\Vector{q}}, x_{\Vector{t}}, y_{\Vector{t}}, z_{\Vector{t}})$,
+where $\Vector{q} = (w_{\Vector{q}}, x_{\Vector{q}}, y_{\Vector{q}}, z_{\Vector{q}})$ 
+is a quaternion corresponding
+to $\S$, the linear part of $\Vector{E}$,
+and $\Vector{t} = (x_{\Vector{t}}, y_{\Vector{t}}, z_{\Vector{t}})$ is the translation part.
 
 In the 7-dimensional representation, the inverse is:
 \begin{equation}
-\Eu^{-1} =
-{1 \over {\| \q \|_{\Qs}^4}}
+\Vector{E}^{-1} =
+{1 \over {\| \Vector{q} \|_{\Set{Q}}^4}}
 \left(
 \begin{array}{rcrcr}
-& &  w_{\q} & & \\
-& & -x_{\q} & & \\
-& & -y_{\q} & & \\
-& & -z_{\q} & & \\
-(-w_{\q}^2 - x_{\q}^2 + y_{\q}^2 + z_{\q}^2)
-x_{\t}
+& &  w_{\Vector{q}} & & \\
+& & -x_{\Vector{q}} & & \\
+& & -y_{\Vector{q}} & & \\
+& & -z_{\Vector{q}} & & \\
+(-w_{\Vector{q}}^2 - x_{\Vector{q}}^2 + y_{\Vector{q}}^2 + z_{\Vector{q}}^2)
+x_{\Vector{t}}
 &
 -
 &
-2 (w_{\q}z_{\q} + x_{\q}y_{\q})
-y_{\t}
+2 (w_{\Vector{q}}z_{\Vector{q}} + x_{\Vector{q}}y_{\Vector{q}})
+y_{\Vector{t}}
 &
 +
 &
-2 (w_{\q}y_{\q} - x_{\q}z_{\q})
-z_{\t}
+2 (w_{\Vector{q}}y_{\Vector{q}} - x_{\Vector{q}}z_{\Vector{q}})
+z_{\Vector{t}}
 \\
- 2 (w_{\q}z_{\q} - x_{\q}y_{\q})
-x_{\t}
+ 2 (w_{\Vector{q}}z_{\Vector{q}} - x_{\Vector{q}}y_{\Vector{q}})
+x_{\Vector{t}}
 &
 +
 &
-(-w_{\q}^2 + x_{\q}^2 - y_{\q}^2 + z_{\q}^2)
-y_{\t}
+(-w_{\Vector{q}}^2 + x_{\Vector{q}}^2 - y_{\Vector{q}}^2 + z_{\Vector{q}}^2)
+y_{\Vector{t}}
 &
 -
 &
-2 (w_{\q}x_{\q} + y_{\q}z_{\q})
-z_{\t}
+2 (w_{\Vector{q}}x_{\Vector{q}} + y_{\Vector{q}}z_{\Vector{q}})
+z_{\Vector{t}}
 \\
-- 2 (w_{\q}y_{\q} + x_{\q}z_{\q})
-x_{\t}
+- 2 (w_{\Vector{q}}y_{\Vector{q}} + x_{\Vector{q}}z_{\Vector{q}})
+x_{\Vector{t}}
 &
 +
 &
-2 (w_{\q}x_{\q} - y_{\q}z_{\q})
-y_{\t}
+2 (w_{\Vector{q}}x_{\Vector{q}} - y_{\Vector{q}}z_{\Vector{q}})
+y_{\Vector{t}}
 &
 +
 &
-(-w_{\q}^2 + x_{\q}^2 + y_{\q}^2 - z_{\q}^2)
-z_{\t}
+(-w_{\Vector{q}}^2 + x_{\Vector{q}}^2 + y_{\Vector{q}}^2 - z_{\Vector{q}}^2)
+z_{\Vector{t}}
 \end{array}
 \right)
 \end{equation}
 
 In computing the gradients of registration penalties,
 we sum expressions like
-$\Df{\q, \t}{\left( \Eu(\q,\t)\p_i \right)}^{\dagger} \;
-\Gf{\p_i}{f}$
+$\Df{\Vector{q}, \Vector{t}}{\left( \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i \right)}^{\dagger} \;
+\Gf{\Vector{p}_i}{f}$
 (see equation \ref{eq:registration-gradient-sum}).
 Using the results in sections
 \ref{sec:Scaled-rotations}
@@ -634,52 +665,57 @@ this is:
 \begin{equation}
 \label{eq:euclidean-transform-gradient}
 \left[
-\Df{\q,\t}{\; \Eu(\q,\t)\p_i}
+\Df{\Vector{q},\Vector{t}}{\; \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i}
 \right]^{\dagger} \;
-\Gf{\p_i}{f}
+\Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{\w_{\q}}{\Sc(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\x_{\q}}{\Sc(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\y_{\q}}{\Sc(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\z_{\q}}{\Sc(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
+\left( \Df{w_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{x_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{y_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{z_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \oplus
-\Gf{\p_i}{f}
+\Gf{\Vector{p}_i}{f}
 \end{equation}
 
-\subsubsection{Rigid registration}
+\end{plSection}%{Euclidean registration}
+%-----------------------------------------------------------------
+\begin{plSection}{Rigid registration}
 \label{sec:rigid-registration}
 
 A {\it rigid transform} is an affine transform
-$\G \p  = \R \p + \t $,
-whose linear part is a rotation, $\R$.
-Using the representation, $\R(\q)$,
+$\Vector{G} \Vector{p}  = \Vector{R} \Vector{p} + \Vector{t} $,
+whose linear part is a rotation, $\Vector{R}$.
+Using the representation, $\Vector{R}(\Vector{q})$,
 using {\em non-unit} quaternions,
-presented in \autoref{sec:Rotations},
+presented in \cref{sec:Rotations},
 we get the same results for the gradient terms
 as in equation \ref{eq:euclidean-transform-gradient},
-with the partials of $\Sc(\q)$ replaced by the
-partials of $\R(\q)$, that is:
+with the partials of $\Vector{S}(\Vector{q})$ replaced by the
+partials of $\Vector{R}(\Vector{q})$, that is:
 \begin{equation}
 \label{eq:rigid-transform-gradient}
 \left[
-\Df{\q,\t}{\; \G(\q,\t)\p_i}
+\Df{\Vector{q},\Vector{t}}{\; \Vector{G}(\Vector{q},\Vector{t})\Vector{p}_i}
 \right]^{\dagger} \;
-\Gf{\p_i}{f}
+\Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{\w_{\q}}{\R(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\x_{\q}}{\R(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\y_{\q}}{\R(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
-\left( \Df{\z_{\q}}{\R(\q)} \; \p_i \right) \bullet \Gf{\p_i}{f} \\
+\left( \Df{w_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{x_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{y_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Df{z_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \oplus
-\Gf{\p_i}{f}
+\Gf{\Vector{p}_i}{f}
 \end{equation}
+\end{plSection}%{Rigid registration}
+%-----------------------------------------------------------------
+\end{plSection}%{Transforms}
 %-----------------------------------------------------------------
 \end{plSection}%{Registration}
