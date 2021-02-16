@@ -21,10 +21,10 @@ where $\Vector{p}_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of 
 and $\Vector{p}_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
 
 In {\it catalog fitting} we fit a registered weighted average mesh,
-to a set of data, $\{ \d_k \in \Reals^3; k=0 \ldots p-1 \}$
+to a set of data, $\{ \Vector{d}_k \in \Reals^3; k=0 \ldots p-1 \}$
 by minimizing
 \begin{equation}
-f(\Set{M}(\Vector{T},\Vector{w})) = \sum_{k=0}^{p-1} \| \d_k - \Projection_{\Set{M}(\Vector{T},\Vector{w})} (\d_k) \|^2 ,
+f(\Set{M}(\Vector{T},\Vector{w})) = \sum_{k=0}^{p-1} \| \Vector{d}_k - \Projection_{\Set{M}(\Vector{T},\Vector{w})} (\Vector{d}_k) \|^2 ,
 \end{equation}
 over a family of registration transforms $\{\Vector{T}\}$
 and vectors of weights $\Vector{w} \in \Reals^n$.
