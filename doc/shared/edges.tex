@@ -126,21 +126,24 @@ is simply the vector difference of the two normals:
 The (total) derivative of the squared distance 
 between adjacent face normals is:
 \begin{eqnarray}
-\Db{\|\DNormal{n}(\Point{p})\|^2}{\Point{q}}
+\Derivative{\|\DNormal{n}(\Point{p})\|^2}[\Point{q}]
 & =
 2 \ \DNormal{n} ( \Point{q} )^\dagger &
-\left( \Db{ ( \DNormal{n} ) }{\Point{q}} \right)
+\left( \Derivative{ ( \DNormal{n} ) }[\Point{q}] \right)
 \\
 & =
 2 \ \DNormal{n}(\Point{q})^\dagger &
-\left( \Db{\Normal{n}(\Point{p}_{012})}{\Point{q}} - \Db{\Normal{n}(\Point{p}_{031})}{\Point{q}} \right)
+\left( 
+\Derivative{\Normal{n}(\Point{p}_{012})}[\Point{q}] 
+- \Derivative{\Normal{n}(\Point{p}_{031})}[\Point{q}]
+ \right)
 \nonumber \\
 & =
 2 \DNormal{n}(\Point{q})^\dagger &
 \{ \; \left[ \Identity_{\Reals^3}
  - \left( \Normal{n}( \Point{q}_{012} ) \otimes \Normal{n}( \Point{q}_{012} ) \right)
 \right]
-\ast \Db{\Vector{a} \left( \Point{p}_{012} \right) }{\Point{q}}
+\ast \Derivative{\Vector{a} \left( \Point{p}_{012} \right) }[\Point{q}]
 \nonumber \\
 \label{eq:deltan_derivative}
 &
@@ -148,22 +151,29 @@ between adjacent face normals is:
 - \left( \Normal{n}( \Point{q}_{031} ) \otimes \Normal{n}
  ( \Point{q}_{031} ) \right)
 \right]
-\ast \Db{\Vector{a} ( \Point{p}_{031} ) }{\Point{q}}
+\ast \Derivative{\Vector{a} ( \Point{p}_{031} ) }[\Point{q}]
 \; \}
 \nonumber
 \end{eqnarray}
 
 The partial derivatives, with respect to one of the vertices,
-like $\Dd{\Point{p}_0}{\Vector{a} ( \Point{p}_{012} ) }{\Point{q}}{\Point{r}_0}$,
+like 
+$\Derivative[\Point{p}_0]{\Vector{a} (\Point{p}_{012})}
+[\Point{q}][\Point{r}_0]$,
 all have a similar form:
 \begin{equation}
-\Dd{\Point{p}_0}{\Vector{a} ( \Point{p}_{012} ) }{\Point{q}}{\Point{r}_0} 
+\Derivative[\Point{p}_0]{\Vector{a} (\Point{p}_{012})}
+[\Point{q}][\Point{r}_0] 
  = (\Point{q}_1 - \Point{q}_3) \times \Point{r}_0
 \end{equation}
 Using this, \cref{eq:deltan_derivative}, \cref{eq:dot_cross},
 and the facts that
 $\DNormal{n}(\Point{q})  \perp  \Normal{n}(\Point{q}_{012}) = 
-- \left( \Normal{n}(\Point{q}_{031})  \perp  \Normal{n}(\Point{q}_{012}) \right)$
+- \left( 
+\Normal{n}(\Point{q}_{031})  
+\perp  
+\Normal{n}(\Point{q}_{012}) 
+\right)$
 and
 $\DNormal{n}(\Point{q})  \perp  \Normal{n}(\Point{q}_{031}) =
  \Normal{n}(\Point{q}_{012})  \perp  \Normal{n}(\Point{q}_{031})$,
@@ -257,7 +267,7 @@ The function $f(\Point{p}) = 1 - \left( \Normal{n}_{012} \bullet \Normal{n}_{031
 achieves its minimum, $0$, on flat face pairs,
 and its maximum, $2$, on face pairs that are folded back on themselves.
 It's a reasonable choice the total bending or curvature of a surface.
-And $\Da{f} = - \Da{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}$.
+And $\Derivative{f} = - \Derivative{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}$.
 
 The derivative of
 $\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
@@ -265,19 +275,26 @@ can be calculated using equations \cref{eq:dot_derivative} and
 \cref{eq:unit_normal_derivative}:
 \begin{eqnarray}
 \label{normal_dot_derivative}
-\Db{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}{\Point{q}}
-& = & \Normal{n}(\Point{q}_{031}) \bullet \Db{\Normal{n}_{012}}{\Point{q}} + \Normal{n}(\Point{q}_{012}) \bullet \Db{\Normal{n}_{031}}{\Point{q}}
+\Derivative{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}
+[\Point{q}]
+& = & \Normal{n}(\Point{q}_{031}) 
+\bullet \Derivative{\Normal{n}_{012}}{\Point{q}} 
++ \Normal{n}(\Point{q}_{012}) 
+\bullet \Derivative{\Normal{n}_{031}}[\Point{q}]
 \\
 \nonumber \\
 & = &
 \Normal{n}(\Point{q}_{031}) \bullet
-\frac{\Identity - \left(\Normal{n}(\Point{q}_{012}) \otimes \Normal{n}(\Point{q}_{012}) \right)}{\| \Vector{a}(\Point{q}_{012}) \|}
-\; \Db{\Vector{a}_{012}}{\Point{q}}
+\frac{
+\Identity - 
+\left(\Normal{n}(\Point{q}_{012}) \otimes \Normal{n}(\Point{q}_{012}) 
+\right)}{\| \Vector{a}(\Point{q}_{012}) \|}
+\; \Derivative{\Vector{a}_{012}}[\Point{q}]
 \nonumber \\
 & + &
 \Normal{n}(\Point{q}_{012}) \bullet
 \frac{\Identity - \left(\Normal{n}(\Point{q}_{031}) \otimes \Normal{n}(\Point{q}_{031}) \right)}{\| \Vector{a}(\Point{q}_{031}) \|}
-\; \Db{\Vector{a}_{031}}{\Point{q}}
+\; \Derivative{\Vector{a}_{031}}[\Point{q}]
 \nonumber
 \end{eqnarray}
 
@@ -375,9 +392,9 @@ A simple way to do that is to square some existing function,
 for example: $\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2$.
 The derivative is simply:
 \begin{equation}
-\Da{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}
+\Derivative{\left(1 - \Normal{n}_{012} \bullet \Normal{n}_{031}\right)^2}
 = -2 \left( 1 - \Normal{n}_{012} \bullet \Normal{n}_{031} \right)
-\Da{(\Normal{n}_{012} \bullet \Normal{n}_{031})}
+\Derivative{(\Normal{n}_{012} \bullet \Normal{n}_{031})}
 \end{equation}
 
 It follows from \cref{eq:simplified_normal_dot_gradient}
@@ -457,7 +474,7 @@ slightly more than $0$.
 
 The dihedral angle is a simple function of the
 signed normal angle, $\theta_n$
-(\autoref{sec:signed_normal_angle}),
+(\cref{sec:signed_normal_angle}),
 and it is generally more convenient to work
 with the signed normal angle directly,
 so I will not consider the dihedral angle further.
@@ -485,9 +502,9 @@ Recall the derivative of the $\cos^{-1}$ is:
 The derivative of $\theta_u$ can be calculated using the chain rule
 (\cref{eq:chain-rule}) and \cref{eq:normal_dot_gradient}.
 \begin{equation}
-\Db{\theta_u}{\Point{q}}
+\Derivative{\theta_u}[\Point{q}]
  = { -1 \over \sqrt{1 - \left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right)^2} }
-\; \Db{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}{\Point{q}}
+\; \Derivative{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}[\Point{q}]
 \end{equation}
 
 As above, we can write the partial gradients without reference to an argument:
@@ -505,7 +522,7 @@ As above, we can write the partial gradients without reference to an argument:
 \label{sec:signed_normal_angle}
 
 The unsigned normal angle
-($\theta_u$, \autoref{sec:unsigned_normal_angle})
+($\theta_u$, \cref{sec:unsigned_normal_angle})
 doesn't distinguish concave and convex changes in the normal vector,
 so it can't be a 1-1 function of the dihedral angle.
 More importantly, it's inadequate if we want to construct
@@ -527,7 +544,7 @@ to use correctly signed angles.
 Another reason to use signed angles is to be able
 to encourage the surface to bend in a certain
 predetermined way at certain edges.
-This is discussed in \autoref{sec:Bent-edge-neighborhoods}
+This is discussed in \cref{sec:Bent-edge-neighborhoods}
 below.
 
 The {\it signed normal angle,} $\theta_n$,
@@ -573,7 +590,9 @@ and negative if it is concave.
 
 The derivative of $\theta_n$ are simply $\kappa$
 times the derivative of $\theta_u$:
-$\Db{\theta_n}{\Point{q}} = \kappa(\Point{q}) \ast \Db{\theta_u}{\Point{q}}$.
+$\Derivative{\theta_n}{\Point{q}} 
+= 
+\kappa(\Point{q}) \ast \Derivative{\theta_u}[\Point{q}]$.
 
 \end{plSection}%{Signed normal angle}
 %-----------------------------------------------------------------
@@ -612,7 +631,7 @@ which is proportional to the distance between the adjacent normals
 (see \cref{eq:normal-distance-dot}).
 
 Note that the function that promotes evenly 
-distributed bending described in \autoref{sec:squared_normal_dot},
+distributed bending described in \cref{sec:squared_normal_dot},
 is proportional to $\sin^4({\theta_n \over 2})$. 
 
 \end{plSection}%{Signed angle and normal distance}
@@ -658,7 +677,7 @@ of prefered angles.
 ($-\pi \leq \theta_0 \leq \theta_1 \leq \pi$.)
 
 For example,
-consider the function of \autoref{sec:squared_normal_dot},
+consider the function of \cref{sec:squared_normal_dot},
 which is proportional to $\sin^4({\theta_n \over 2})$. 
 Let $s = \sin({\theta_n \over 2})$,
 a monotone function of $\theta_n$ 

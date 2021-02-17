@@ -109,23 +109,25 @@ of transforms, $\{\Vector{T}\}$, over which to minimize:
 To do the minimization, we need to compute
 the derivative:
 \begin{equation}
-\De{\Vector{T}}{g(\Vector{T})}{\Vector{T}_0}
-= \De{\Vector{T}}{f(\Vector{T}\Vector{p})}{\Vector{T}_0}
-= \De{\Vector{q}}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}}
+\Derivative[\Vector{T}]{g(\Vector{T})}[\Vector{T}_0]
+= \Derivative[\Vector{T}]{f(\Vector{T}\Vector{p})}[\Vector{T}_0]
+= \Derivative[\Vector{q}]{f(\Vector{q})}[\Vector{q}=\Vector{T}_0\Vector{p}]
 \circ
-\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}.
+\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}[\Vector{T}_0].
 \end{equation}
 o, equivalently, the gradient:
 \begin{equation}
 \Gc{\Vector{T}}{f( \Set{M}(\Vector{T}\Vector{p}) )}{\Vector{T}_0}
  =
-\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}^\dagger
+\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}[\Vector{T}_0]^\dagger
 \Gc{\Vector{q}}{f(\Set{M}(\Vector{q})))}{\Vector{T}_0\Vector{p}}
 \end{equation}
 
 I assume in the following
-that $\Df{\Vector{p}}{f}$ (or $\Gb{\Vector{p}}{f}$) is known,
-so the main task is computing $\Df{\Vector{T}}{\Vector{T}\Vector{p}}$.
+that 
+$\Derivative[\Vector{p}]{f}$ (or $\Gb{\Vector{p}}{f}$) is known,
+so the main task is computing 
+$\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}$.
 
 As mentioned in above,
 in registration problems
@@ -169,17 +171,19 @@ $\Vector{T}$ is a transform whose
 $k$ 'diagonal blocks' are the $\Vector{T}_i$.
 
 Using this notation,
-$\Df{\Vector{p}}{f(\Vector{p})} = \bigoplus_i \Df{\Vector{p}_i}{f(\Vector{p})}$,
-$\Df{\Vector{T}}{\Vector{T}\Vector{p}} = \bigoplus_i \Df{\Vector{T}}{\Vector{T}\Vector{p}_i}$,
+$\Derivative[\Vector{p}]{f(\Vector{p})} 
+= \bigoplus_i \Derivative[\Vector{p}_i]{f(\Vector{p})}$,
+$\Derivative[\Vector{T}]{\Vector{T}\Vector{p}} 
+= \bigoplus_i \Derivative[\Vector{T}]{\Vector{T}\Vector{p}_i}$,
 and:
 \begin{equation}
 \label{eq:total-registration-transform-derivative}
-\De{\Vector{T}}{f( \Vector{T} \Vector{p} )}{\Vector{T}_0}
+\Derivative[\Vector{T}]{f( \Vector{T} \Vector{p} )}[\Vector{T}_0]
  =
 \sum_i
-\De{\Vector{q}_i}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}}
+\Derivative[\Vector{q}_i]{f(\Vector{q})}[\Vector{q}=\Vector{T}_0\Vector{p}]
 \circ
-\De{\Vector{T}}{\Vector{T}\Vector{p}_i}{\Vector{T}_0}
+\Derivative[\Vector{T}]{\Vector{T}\Vector{p}_i}[\Vector{T}_0]
 \end{equation}
 For the gradient, the equivalent is:
 \begin{equation}
@@ -187,19 +191,19 @@ For the gradient, the equivalent is:
 \Gc{\Vector{T}}{f( \Vector{T} \Vector{p} )}{\Vector{T}_0}
  =
 \sum_i
-\left( \De{\Vector{T}}{\Vector{T}\Vector{p}_i}{\Vector{T}_0} \right)^{\dagger} \;
+\left( \Derivative[\Vector{T}]{\Vector{T}\Vector{p}_i}[\Vector{T}_0] \right)^{\dagger} \;
 \left( \Gc{\Vector{q}_i}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}} \right)
 \end{equation}
 
 The derivative with respect to vertex or data points,
-$\Df{\Vector{p}_i}{f(\Vector{p})}$,
+$\Derivative[\Vector{p}_i]{f(\Vector{p})}$,
 is assumed to be known.
 For example, the derivatives of functions
 related to data fitting
 are discussed in chapter \ref{sec:data-fitting}.
 
 In this chapter, I focus on computing
-$\De{\Vector{T}}{\Vector{T}\Vector{p}}{\Vector{T}_0}$
+$\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}[\Vector{T}_0]$
 for $\Vector{T} : \Reals^3 \mapsto \Reals^3$
 and $\Vector{p} \in \Reals^3$.
 
@@ -223,7 +227,7 @@ with a linear transform
 $\Vector{T}_{\Vector{p}} : \Reals^9 \mapsto \Reals^3$
 by defining 
 $\Vector{T}_{\Vector{p}}\Vector{l} = \Vector{L}\Vector{p}$.
-In the coordinate system defined by equation \ref{eq:L-vector},
+In the coordinate system defined by \cref{eq:L-vector},
 the matrix for $\Vector{T}_{\Vector{p}}$ is:
 \begin{equation}
 \label{eq:Tp-matrix}
@@ -243,9 +247,9 @@ it follows that the derivative with respect to the
 unconstrained set of linear registration transforms is:
 \begin{equation}
 \label{eq:linear-transform-derivative}
-\Df{\Vector{L}}{\left( \Vector{L} \, \Vector{p} \right)}
+\Derivative[\Vector{L}]{\left( \Vector{L} \, \Vector{p} \right)}
  \; = \;
-\Df{\Vector{L}}{\left( \Vector{T}_{\Vector{p}} \, \Vector{L} \right)}
+\Derivative[\Vector{L}]{\left( \Vector{T}_{\Vector{p}} \, \Vector{L} \right)}
  \; = \;
 \Vector{T}_{\Vector{p}}
 \end{equation}
@@ -322,11 +326,11 @@ is the linear transform corresponding to the conjugate quaternion:
 $\Vector{S}^{\dagger}(\Vector{q}) =  \Vector{S}(\Vector{q}^{\dagger})$.
 
 If we consider $\Vector{S}(\Vector{q})$ to be a 9-dimensional vector,
-as in equation \ref{eq:L-vector},
+as in \cref{eq:L-vector},
 then the derivative can be expressed as the matrix:
 \begin{equation}
 \label{eq:quaternion-derivative-matrix}
-\Df{q}{\Vector{S}(\Vector{q})}
+\Derivative[q]{\Vector{S}(\Vector{q})}
  = 2 \left(
 \begin{array}{rrrr}
   w &  x & -y & -z \\
@@ -342,14 +346,14 @@ then the derivative can be expressed as the matrix:
 \right)
 \end{equation}
 
-It's also useful to express the derivative $\Df{q}{\Vector{S}(\Vector{q})}$
+It's also useful to express the derivative $\Derivative[q]{\Vector{S}(\Vector{q})}$
 as a set of partial derivative matrices,
 which are computed
 by differentiating the elements of matrix in equation
 \ref{eq:quaternion-matrix}:
 \begin{eqnarray}
 \label{eq:quaternion-matrix-partial-derivatives}
-\Df{w}{\Vector{S}(\Vector{q})}
+\Derivative[w]{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -361,7 +365,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{x}{\Vector{S}(\Vector{q})}
+\Derivative[x]{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -374,7 +378,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{y}{\Vector{S}(\Vector{q})}
+\Derivative[y]{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -387,7 +391,7 @@ by differentiating the elements of matrix in equation
 \\
 \nonumber
 \\
-\Df{z}{\Vector{S}(\Vector{q})}
+\Derivative[z]{\Vector{S}(\Vector{q})}
 & = &
 2 \left(
 \begin{array}{rrr}
@@ -400,64 +404,73 @@ by differentiating the elements of matrix in equation
 \end{eqnarray}
 
 Note that
-$\Df{w}{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
- = \left( \Df{w}{\Vector{S}(\Vector{q})}\right) \; \Vector{p}$
+$\Derivative[w]{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
+ = \left( \Derivative[w]{\Vector{S}(\Vector{q})}\right) \; \Vector{p}$
 (and similarly for the partials with respect to $x,y,$ and $z$).
 
 We can write the total derivative in terms of the partials as:
 \begin{eqnarray}
-\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
+\Derivative[\Vector{q}]{\left( \Vector{S}(\Vector{q}) \; \Vector{p} \right)}
 & = &
-\left( \Df{w}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_w
+\left( \Derivative[w]{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_w
 \\
 & + &
-\left( \Df{x}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_x
+\left( \Derivative[x]{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_x
 \nonumber
 \\
 & + &
-\left( \Df{y}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_y
+\left( \Derivative[y]{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_y
 \nonumber
 \\
 & + &
-\left( \Df{z}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \otimes \Vector{e}_z
+\left( 
+\Derivative[z]{\Vector{S}(\Vector{q})} \; \Vector{p} \right) 
+\otimes \Vector{e}_z
 \nonumber
 \end{eqnarray}
 
 In computing the gradients of registration penalties,
 we sum expressions like
-$\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
+$\Derivative[\Vector{q}]
+{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
 \Gf{\Vector{p}_i}{f}$
-(see equation \ref{eq:registration-gradient-sum}).
+(see \cref{eq:registration-gradient-sum}).
 In terms of the partial derivative matrices,
 this is:
 \begin{equation}
-\Df{\Vector{q}}{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
+\Derivative[\Vector{q}]
+{\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
 \Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{w}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{x}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{y}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{z}{\Vector{S}(\Vector{q})} \; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[w]{\Vector{S}(\Vector{q})} 
+\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[x]{\Vector{S}(\Vector{q})} 
+\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[y]{\Vector{S}(\Vector{q})} 
+\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[z]{\Vector{S}(\Vector{q})} 
+\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \end{equation}
 
-We sometimes encounter the inverse transform, $\Vector{S}^{-1}(\Vector{q})$,
+We sometimes encounter the inverse transform, 
+$\Vector{S}^{-1}(\Vector{q})$,
 which is the same as the linear transform,
 $\Vector{S}(\Vector{q}^{-1})$,
 corresponding to the inverse quaternion
 (in the sense of the quaternion product):
 $\Vector{q}^{-1} = (w, x, y, z)^{-1}
-         = {1 \over {\| \Vector{q} \|_{\Set{Q}}^2}} (w, -x, -y, -z)$.
+= {1 \over {\| \Vector{q} \|_{\Set{Q}}^2}} (w, -x, -y, -z)$.
 
 To compute derivatives of expressions
 involving an inverse quaternion,
 we can use the derivative of $\Vector{q}^{-1}$
 with respect to $\Vector{q}$:
 \begin{equation}
-\Df{\Vector{q}}{\Vector{q}^{-1}}
+\Derivative[\Vector{q}]{\Vector{q}^{-1}}
 =
 {1 \over {\| \Vector{q} \|_{\Set{Q}}^4}}
 \left(
@@ -492,13 +505,14 @@ same way as,
 and can be expressed in terms of,
 the partials of $\Vector{S}(\Vector{q})$:
 \begin{equation}
-\Df{v}{\Vector{R}(\Vector{q})}
+\Derivative[v]{\Vector{R}(\Vector{q})}
 \; = \;
-\Df{v}{\left(
+\Derivative[v]
+{\left(
 {{\Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
 \right)}
 \; = \;
-{{\Df{v}{\Vector{S}(\Vector{q})}} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
+{{\Derivative[v]{\Vector{S}(\Vector{q})}} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
 -
 {{2v \Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^4}}
 \end{equation}
@@ -515,7 +529,7 @@ for some $\Vector{t} \in \Reals^3$.
 The derivative with respect to
 an unconstrained translation vector
 is simply
-$\Df{\Vector{t}}{(\Vector{p} + \Vector{t})} = \Identity_{\Reals^3},$
+$\Derivative[\Vector{t}]{(\Vector{p} + \Vector{t})} = \Identity_{\Reals^3},$
 where $\Identity_{\Reals^3}$ is the identity on $\Reals^3$.
 
 \end{plSection}%{Shift Registration}
@@ -552,14 +566,14 @@ that the derivative with respect to the
 unconstrained set of affine registration transforms is:
 \begin{equation}
 \label{eq:affine-transform-derivative}
-\Df{(\Vector{L},\Vector{t})}{\left( \Vector{A} \, \Vector{p} \right)}
+\Derivative[(\Vector{L},\Vector{t})]{\left( \Vector{A} \, \Vector{p} \right)}
  \; = \;
-\Df{(\Vector{L},\Vector{t})}{\left( \Vector{L} \Vector{p} + \Vector{t} \right)}
+\Derivative[(\Vector{L},\Vector{t})]{\left( \Vector{L} \Vector{p} + \Vector{t} \right)}
  \; = \;
 \Vector{T}_{\Vector{p}} \oplus _{\Reals^3},
 \end{equation}
 where $\oplus$ indicates,
-as in equation \ref{eq:diagonal-blocks},
+as in \cref{eq:diagonal-blocks},
 that the derivative is formed from the 2
 'diagonal blocks'.
 
@@ -652,9 +666,9 @@ z_{\Vector{t}}
 
 In computing the gradients of registration penalties,
 we sum expressions like
-$\Df{\Vector{q}, \Vector{t}}{\left( \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i \right)}^{\dagger} \;
+$\Derivative[\Vector{q}, \Vector{t}]{\left( \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i \right)}^{\dagger} \;
 \Gf{\Vector{p}_i}{f}$
-(see equation \ref{eq:registration-gradient-sum}).
+(see \cref{eq:registration-gradient-sum}).
 Using the results in sections
 \ref{sec:Scaled-rotations}
 and
@@ -665,16 +679,20 @@ this is:
 \begin{equation}
 \label{eq:euclidean-transform-gradient}
 \left[
-\Df{\Vector{q},\Vector{t}}{\; \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i}
+\Derivative[\Vector{q},\Vector{t}]{\; \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i}
 \right]^{\dagger} \;
 \Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{w_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{x_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{y_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{z_{\Vector{q}}}{\Vector{S}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[w_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[x_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[y_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( \Derivative[z_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \oplus
@@ -687,28 +705,37 @@ this is:
 \label{sec:rigid-registration}
 
 A {\it rigid transform} is an affine transform
-$\Vector{G} \Vector{p}  = \Vector{R} \Vector{p} + \Vector{t} $,
+$\Vector{G} \Vector{p} = \Vector{R} \Vector{p} + \Vector{t} $,
 whose linear part is a rotation, $\Vector{R}$.
 Using the representation, $\Vector{R}(\Vector{q})$,
 using {\em non-unit} quaternions,
 presented in \cref{sec:Rotations},
 we get the same results for the gradient terms
-as in equation \ref{eq:euclidean-transform-gradient},
+as in \cref{eq:euclidean-transform-gradient},
 with the partials of $\Vector{S}(\Vector{q})$ replaced by the
 partials of $\Vector{R}(\Vector{q})$, that is:
 \begin{equation}
 \label{eq:rigid-transform-gradient}
 \left[
-\Df{\Vector{q},\Vector{t}}{\; \Vector{G}(\Vector{q},\Vector{t})\Vector{p}_i}
+\Derivative[\Vector{q},\Vector{t}]
+{\Vector{G}(\Vector{q},\Vector{t}) \Vector{p}_i}
 \right]^{\dagger} \;
 \Gf{\Vector{p}_i}{f}
 =
 \left(
 \begin{array}{c}
-\left( \Df{w_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{x_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{y_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
-\left( \Df{z_{\Vector{q}}}{\Vector{R}(\Vector{q})} \; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( 
+\Derivative[w_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( 
+\Derivative[x_{\Vector{q}}]{\Vector{R}(\Vector{q})}
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( 
+\Derivative[y_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\left( 
+\Derivative[z_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
+\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
 \end{array}
 \right)
 \oplus

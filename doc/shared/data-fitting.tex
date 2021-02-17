@@ -45,7 +45,7 @@ when a data point is equidistant from 2 distinct closest mesh points.
 
 Let $\Vector{p} = \Vector{p}(\Simplex{v})$ be the position of a particular vertex $\Simplex{v}$,
 and $\Vector{d}$ the 3d data point.
-It follows from equation \ref{eq:l2-gradient} that
+It follows from \cref{eq:l2-gradient} that
 \begin{equation}
 \label{eq:vertex-distance-gradient}
 \Gc{\Vector{p}}{\| \Vector{p} - \Vector{d} \|^2}{\Vector{q}} = 2 ( \Vector{q} - \Vector{d} ).
@@ -59,7 +59,7 @@ $\Vector{p}^{\mathrm min}$ its position,
 then the partial gradient with respect
 to the position of any other vertex is zero,
 and the partial gradient with respect to $\Vector{p}^{\mathrm min}$
-is given in equation \ref{eq:vertex-distance-gradient}.
+is given in \cref{eq:vertex-distance-gradient}.
 Note that the gradient is only defined and continuous
 while $\Vector{d}$ is within the interior of the
 Voronoi regions surrounding the vertices.
@@ -88,22 +88,22 @@ b_1(\Vector{p}) & = & 1 - b_0(\Vector{p})
 
 \begin{eqnarray}
 \label{eq:edge-distance-gradient-derivation}
-\De{\Vector{p}_0}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }{\Vector{q}}
+\Derivative[\Vector{p}_0]{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }[\Vector{q}]
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\De{\Vector{p}_0}{\Projection_{\Vector{p}} (\Vector{d}) }{\Vector{q}}
+\Derivative[\Vector{p}_0]{\Projection_{\Vector{p}} (\Vector{d}) }[\Vector{q}]
 \\
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\De{\Vector{p}_0}{\left[ b_0(\Vector{p})\Vector{p}_0 + b_1(\Vector{p})\Vector{p}_1 \right]}{\Vector{q}}
+\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})\Vector{p}_0 + b_1(\Vector{p})\Vector{p}_1 \right]}[\Vector{q}]
 \nonumber \\
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\De{\Vector{p}_0}{\left[ b_0(\Vector{p})\Vector{p}_0 + (1 - b_0(\Vector{p}))\Vector{p}_1 \right]}{\Vector{q}}
+\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})\Vector{p}_0 + (1 - b_0(\Vector{p}))\Vector{p}_1 \right]}[\Vector{q}]
 \nonumber \\
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\De{\Vector{p}_0}{\left[ b_0(\Vector{p})(\Vector{p}_0 - \Vector{p}_1) \right]}{\Vector{q}}
+\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})(\Vector{p}_0 - \Vector{p}_1) \right]}[\Vector{q}]
 \nonumber \\
 & = &
 2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
@@ -135,7 +135,7 @@ then the partial gradient with respect to
 the position of any
 other vertex is zero,
 and the partial gradient with respect to $\Vector{p}_0^{\min}$ and $\Vector{p}_1^{\min}$
-is given in equation \ref{eq:edge-distance-gradient}.
+is given in \cref{eq:edge-distance-gradient}.
 
 The total gradient is defined and continuous
 when $\Vector{d}$ is within the union of the watershed regions
@@ -159,7 +159,7 @@ in terms of the barycentric coordinates as:
 \Projection_\Vector{p} (\Vector{d}) = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1 + b_2(\Vector{p}) \Vector{p}_2,
 \end{equation}
 and, by an argument simlar to that used in
-equation \ref{eq:edge-distance-gradient-derivation},
+\cref{eq:edge-distance-gradient-derivation},
 we can show that
 \begin{eqnarray}
 \label{eq:face-distance-gradient}
@@ -212,7 +212,7 @@ If any single 1 of the $r_i$ is negative,
 then $\Vector{p}$ projects on the opposite edge.
 Set the $b_i$ corresponding to the negative $r_i$
 to 0.
-Go to \autoref{sec:Distance-to-edge} to see
+Go to \cref{sec:Distance-to-edge} to see
 how to compute the remaining barycentric coordinates
 by projecting on the edge
 

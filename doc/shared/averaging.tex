@@ -37,65 +37,79 @@ of the registered average mesh, $\Set{M}(\Vector{T},\Vector{w})$, are given by:
 The partial derivative with respect to $\Vector{T}$
 is:
 \begin{eqnarray}
-\De{\Vector{T}}{f(\Set{M}(\Vector{T},\Vector{w}))}{\Vector{T}^0,\Vector{w}^0}
+\Derivative[\Vector{T}]{f(\Set{M}(\Vector{T},\Vector{w}))}[\Vector{T}^0,\Vector{w}^0]
 & = &
-\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
+\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\De{\Vector{T}}{\Vector{p}(\Vector{T},\Vector{w})}{\Vector{T}^0,\Vector{w}^0}
+\Derivative[\Vector{T}]{\Vector{p}(\Vector{T},\Vector{w})}[\Vector{T}^0,\Vector{w}^0]
 \\
 & = &
-\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
+\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\De{\Vector{T}}{\Vector{T}\Vector{p}(\Vector{w}^0)}{\Vector{T}^0}
+\Derivative[\Vector{T}]{\Vector{T}\Vector{p}(\Vector{w}^0)}[\Vector{T}^0]
 \nonumber
 \end{eqnarray}
 
-$\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}$ is the derivative of $f$ with respect to
+$\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]$ is the derivative of $f$ with respect to
 the vertex positions of of the registered average mesh.
 It's value for data fitting distance functions
-is given in \autoref{sec:data-fitting}.
+is given in \cref{sec:data-fitting}.
 
-$\Df{\Vector{T}}{\Vector{T}\Vector{p}}$ is given in \autoref{sec:Transforms}
+$\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}$ 
+is given in \cref{sec:Transforms}
 for various families of transforms $\{\Vector{T}\}$: affine, euclidean, and rigid.
 
 Using the chain rule, the partial derivative with respect to $\Vector{w}$ is:
 \begin{eqnarray}
-\De{\Vector{w}}{f(\Set{M}(\Vector{T},\Vector{w}))}{\Vector{T}^0,\Vector{w}^0}
+\Derivative[\Vector{w}]{f(\Set{M}(\Vector{T},\Vector{w}))}[\Vector{T}^0,\Vector{w}^0]
 & = &
-\De{\Vector{w}}{f(\Vector{T}(\Set{M}(\Vector{w})))}{\Vector{T}^0,\Vector{w}^0}
+\Derivative[\Vector{w}]{f(\Vector{T}(\Set{M}(\Vector{w})))}[\Vector{T}^0,\Vector{w}^0]
 \\
 & = &
-\De{\Vector{p}}{f(\Set{M}))}{\Set{M}(\Vector{T}^0,\Vector{w}^0)}
+\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\De{\Vector{T}}{\Vector{T}\Vector{p}(\Vector{w}^0)}{\Vector{T}^0}
+\Derivative[\Vector{T}]{\Vector{T}\Vector{p}(\Vector{w}^0)}[\Vector{T}^0]
 \circ
-\De{\Vector{w}}{\Vector{p}(\Vector{w})}{\Vector{w}^0}
+\Derivative[\Vector{w}]{\Vector{p}(\Vector{w})}[\Vector{w}^0]
 \nonumber
 \end{eqnarray}
 
-$\Df{\Vector{p}}{f}$ and $\Df{\Vector{T}}{\Vector{T}\Vector{p}}$ are already known
-so we need only determine $\Df{\Vector{w}}{\Vector{p}(\Vector{w})}$.
+$\Derivative[\Vector{p}]{f}$ and 
+$\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}$ 
+are already known
+so we need only determine 
+$\Derivative[\Vector{w}]{\Vector{p}(\Vector{w})}$.
 Using reasoning similar
-to equation \ref{eq:total-registration-transform-derivative},
-we have $\Vector{p}(\Vector{w}) = \bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})$,
+to \cref{eq:total-registration-transform-derivative},
+we have 
+$\Vector{p}(\Vector{w}) = 
+\bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})$,
 and
-$\Df{\Vector{w}}{\Vector{p}(\Vector{w})}
+$\Derivative[\Vector{w}]{\Vector{p}(\Vector{w})}
 =
-\Df{\Vector{w}}{\bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})}
+\Derivative[\Vector{w}]
+{\bigoplus_{j=0}^{m-1} \Vector{p}_i(\Vector{w})}
 =
-\bigoplus_{j=0}^{m-1} \Df{\Vector{w}}{\Vector{p}_i(\Vector{w})}$,
+\bigoplus_{j=0}^{m-1} 
+\Derivative[\Vector{w}]{\Vector{p}_i(\Vector{w})}$,
 so we can restrict ourselves to
-$\Df{\Vector{w}}{\Vector{p}(\Vector{w})}$, where 
+$\Derivative[\Vector{w}]{\Vector{p}(\Vector{w})}$, where 
 $\Vector{p}(\Vector{w}) = \sum_{i=0}^{n-1} w_i \Vector{p}_i$,
 and $\Vector{p}, \Vector{p}_i \in \Reals^3$.
 
-Note that $\Vector{p}(\Vector{w})$ is a linear transform from $\Reals^n \mapsto \Reals^3$,
-which can be expressed as $\Vector{P} = \sum_{i=0}^{n-1} \Vector{p}_i \otimes \Vector{e}_i$,
+Note that $\Vector{p}(\Vector{w})$ is a linear transform 
+from $\Reals^n \mapsto \Reals^3$,
+which can be expressed as 
+$\Vector{P} = \sum_{i=0}^{n-1} \Vector{p}_i \otimes \Vector{e}_i$,
 where $\Vector{e}_i$ are the canonical basis vectors of $\Reals^n$.
-($\Vector{P}$ can be written as a matrix whose $i$th column is the vector $\Vector{p}_i$.)
+($\Vector{P}$ can be written as a matrix 
+whose $i$th column is the vector $\Vector{p}_i$.)
 Thus it follows that
 \begin{equation}
-\Df{\Vector{w}}{\Vector{p}(\Vector{w})} = \Df{\Vector{w}}{\Vector{P}\Vector{w}} = \Vector{P}
+\Derivative[\Vector{w}]{\Vector{p}(\Vector{w})} 
+= 
+\Derivative[\Vector{w}]{\Vector{P}\Vector{w}} 
+= \Vector{P}
 \end{equation}
 
 \end{plSection}%{Linear weights}
@@ -114,24 +128,24 @@ where, as usual, $\| \Vector{w} \|^2 = \sum_{j=0}^{n-1} w_j^2$.
 
 Then we need to compute
 \begin{eqnarray}
-\De{\Vector{w}}{\Vector{p}(\Vector{u}(\Vector{w}))}{\Vector{w}^0}
+\Derivative[\Vector{w}]{\Vector{p}(\Vector{u}(\Vector{w}))}[\Vector{w}^0]
 & = &
-\De{\Vector{u}}{\Vector{p}(\Vector{u})}{\Vector{u}(\Vector{w}^0)}
+\Derivative[\Vector{u}]{\Vector{p}(\Vector{u})}[\Vector{u}(\Vector{w}^0)]
 \circ
-\De{\Vector{w}}{\Vector{u}(\Vector{w})}{\Vector{w}^0}
+\Derivative[\Vector{w}]{\Vector{u}(\Vector{w})}[\Vector{w}^0]
 \\
 & = &
 \Vector{P}
 \circ
-\De{\Vector{w}}{\Vector{u}(\Vector{w})}{\Vector{w}^0}
+\Derivative[\Vector{w}]{\Vector{u}(\Vector{w})}[\Vector{w}^0]
 \nonumber
 \end{eqnarray}
 
 The partial derivatives are
 \begin{eqnarray}
-\Df{w_j}{u_i(\Vector{w}))}
+\Derivative[w_j]{u_i(\Vector{w}))}
 & = &
-\Df{w_j}{{w_i^2} \over {\| \Vector{w} \|^2}}
+\Derivative[w_j]{{w_i^2} \over {\| \Vector{w} \|^2}}
 \\
 & = &
 {{2 w_j} \over {\| \Vector{w} \|^4}} \left( \delta_{ij} \| \Vector{w} \|^2 - w_i^2 \right)

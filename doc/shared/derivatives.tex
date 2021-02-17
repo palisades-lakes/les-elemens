@@ -3,7 +3,7 @@
 \label{sec:Derivatives}
 
 One way to view the derivative of a 
-function~\cite{wiki:FrechetDerivative}
+function (see \citeAuthorTitle{wiki:FrechetDerivative})
 $\Vector{f} : \Space{V} \mapsto \Space{W}$,
 at a point $\Vector{v}$,
 is as the linear function $\Vector{L}:\Space{V} \mapsto \Space{W}$,
@@ -12,11 +12,13 @@ that best approximates the local 'slope' of $\Vector{f}$ at $\Vector{v}$.
 To be a little more precise, we want
 \begin{equation}
 \lim_{ \|{\bf \delta}  \| \mapsto 0}
-\frac{ \| \Vector{f}(\Vector{v} + {\bf \delta}) - (\Vector{f}(\Vector{v}) + \Vector{L}({\bf\delta})) \|}
+\frac{ \| \Vector{f}(\Vector{v} + {\bf \delta}) - (\Vector{f}(\Vector{v}) + \Vector{L}(\Vector{\delta})) \|}
 {\|{\bf \delta}  \| }
  = 0
 \end{equation}
 
+% \\De\{(.+)\}\{(.+)\}\{(.+)\}
+% \\Derivative\[$1\]\{$2\}\[$3\]
 \begin{plNote}{}{}
 For a linear function $\Vector{L}$,
 the derivative is constant over the domain
@@ -40,37 +42,47 @@ see \citeAuthorYearTitle[chapter 2]{Spivak:1965:CalculusOnManifolds}.
 
 \begin{itemize}
 
-\item $\Da{\Vector{f}}$
+\item $\Derivative{\Vector{f}}$
 
 In its most general form,
-I denote the derivative of $\Vector{f}$ by $\Da{\Vector{f}}$.
+I denote the derivative of $\Vector{f}$ by $\Derivative{\Vector{f}}$.
 Note that this is linear-function-valued function 
 of the domain of $\Vector{f}$.
 
-\item $\Db{\Vector{f}}{\Vector{u}}$
+\item $\Derivative{\Vector{f}}[\Vector{u}]$
 
-I denote the derivative of $\Vector{f}$ at $\Vector{u}$ by $\Db{\Vector{f}}{\Vector{u}}$.
-$\Db{\Vector{f}}{\Vector{u}}$ is a specific linear transformation from
+I denote the derivative of $\Vector{f}$ at $\Vector{u}$ by 
+$\Derivative{\Vector{f}}[\Vector{u}]$.
+$\Derivative{\Vector{f}}[\Vector{u}]$ 
+is a specific linear transformation from
 the domain of $\Vector{f}$ to the codomain of $\Vector{f}$.
 
-\item $\Dc{\Vector{f}}{\Vector{u}}{\Vector{t}}$
+\item $\Derivative{\Vector{f}}[\Vector{u}][\Vector{t}]$
 
 The derivative is most often represented by the \textit{Jacobian},
 the $m \times n$ matrix of partial derivatives
 with respect to some bases for $\Space{V}$ and $\Space{W}$.
 However, it's often easier to express the derivative clearly if we
 explicitly include the argument of the linear transformation.
-In this case, I write $\Dc{\Vector{f}}{\Vector{u}}{\Vector{t}}$
+In this case, I write 
+$\Derivative{\Vector{f}}[\Vector{u}][\Vector{t}]$
 for the derivative of $\Vector{f}$ at the point $\Vector{u}$
 applied to the vector $\Vector{t}$.
 
-\item $\Dd{\Vector{v}_i}{\Vector{f}}{(\Vector{u}_0 \ldots \Vector{u}_{n-1})}{\Vector{t}_i}$
+\item $\Derivative
+[\Vector{v}_i]
+{\Vector{f}}
+[(\Vector{u}_0 \ldots \Vector{u}_{n-1})]
+[\Vector{t}_i]$
 
 For functions on direct sum spaces,
 $\Vector{f}(\Vector{v}_0,\Vector{v}_1, \ldots, \Vector{v}_{n-1})$, $\Vector{v}_i \in \Space{V}_i$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
-I write $\Dd{\Vector{v}_i}{\Vector{f}}{(\Vector{u}_0 \ldots \Vector{u}_{n-1})}{\Vector{t}_0 \ldots \Vector{t}_{n-1}}$
+I write 
+$\Derivative[\Vector{v}_i]{\Vector{f}}
+[(\Vector{u}_0 \ldots \Vector{u}_{n-1})]
+[\Vector{t}_0 \ldots \Vector{t}_{n-1}]$
 for the derivative of $\Vector{f}$ with respect to $\Vector{v}_i$,
 at the point $(\Vector{u}_0 \ldots \Vector{u}_{n-1}) \in \oplus_{i=0}^{n-1} \Space{V}_i$,
 applied to the vector $\Vector{t}_i \in \Space{V}_i$.
@@ -87,13 +99,13 @@ $\db{j}{\Vector{f}}{\Vector{u}}$ is the value of that function at $\Vector{u}$.
 The partial derivative is related to the derivative by
 \begin{eqnarray}
 \label{eq:partial-full-dervatives}
-\Db{\Vector{f}}{\Vector{u}}
+\Derivative{\Vector{f}}[\Vector{u}]
 & = &
 \sum_{j=0}^{m-1} \db{j}{\Vector{f}}{\Vector{u}} \otimes \Vector{e}_j^{\Space{V}}
 \\
 \db{j}{\Vector{f}}{\Vector{u}}
 & = &
-\Db{\Vector{f}}{\Vector{u}} \Vector{e}_j^{\Space{V}}
+\Derivative{\Vector{f}}[\Vector{u}] \Vector{e}_j^{\Space{V}}
 \nonumber
 \end{eqnarray}
 
@@ -106,10 +118,13 @@ $\da{j}{\Vector{f}_i}$ is a real-valued function on the domain of $\Vector{f}$.
 $\db{j}{\Vector{f}_i}{\Vector{u}}$ is the value of that function at $\Vector{u}$.
 The Jacobian partial derivatives form the 'matrix' representation of the derivative:
 \begin{equation}
-\Db{\Vector{f}}{\Vector{u}} =
+\Derivative{\Vector{f}}[\Vector{u}] =
 \sum_{i=0}^{m-1}
 \sum_{j=0}^{n-1}
-\db{j}{\Vector{f}_i}{\Vector{u}} \left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
+\db{j}{\Vector{f}_i}{\Vector{u}}
+\left( 
+\Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} 
+\right)
 \end{equation}
 
 \end{itemize}
@@ -119,7 +134,7 @@ we frequently need to know both the direction of maximum increase of $f$
 the rate of increase, or slope, of $f$ in that direction.
 
 $\Ga{f}$ is the \textit{gradient} of $f$.
-The gradient has a close relationship to the derivative, $\Da{f}$,
+The gradient has a close relationship to the derivative, $\Derivative{f}$,
 and the two are often confused.
 Recall that the derivative is a linear transformation
 from the domain of $f$ to its codomain.
@@ -127,7 +142,7 @@ In the case of real-valued functions,
 this means the derivative is a linear function on $\Space{V}$,
 an element of the dual space of $\Space{V}$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
-of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
+of the derivative, $\Ga{f} = (\Derivative{f})^{\dagger}$
 (see Spivak \cite[p.~96, ex.~4-18]{Spivak:1965:CalculusOnManifolds}).
 
 $\Ga{f}$ maps $\Space{V} \mapsto \Space{V}$.
@@ -156,13 +171,14 @@ we get an expression for $\Ga{f}$ in terms of the partial derivatives of $f$:
 \end{equation}
 
 $\Ga{\Vector{f}_i}$ is the gradient of a particular (real-valued) coordinate
-of a vector-valued function. It is related to the derivative $\Da{\Vector{f}}$
-in a way simlilar to the relationship between $\Da{\Vector{f}}$ and its partials $\da{j}{\Vector{f}}$.
+of a vector-valued function. It is related to the derivative $\Derivative{\Vector{f}}$
+in a way simlilar to the relationship between $\Derivative{\Vector{f}}$ and its partials $\da{j}{\Vector{f}}$.
 \begin{equation}
-\Db{\Vector{f}}{\Vector{u}} = \sum_{i=0}^{n-1}  \Vector{e}_i^{\Space{W}} \otimes \Gb{\Vector{f}_i}{\Vector{u}}
+\Derivative{\Vector{f}}{\Vector{u}} = \sum_{i=0}^{n-1}  \Vector{e}_i^{\Space{W}} \otimes \Gb{\Vector{f}_i}[\Vector{u}]
 \end{equation}
 
-The most general identity used in computing derivatives is the \textit{chain rule.}
+The most general identity used in computing derivatives 
+is the \textit{chain rule.}
 Suppose
 $\Vector{f}:\Space{U} \mapsto \Space{V}$,
 $\Vector{g}:\Space{V} \mapsto \Space{W}$,
@@ -171,15 +187,21 @@ $\Vector{h} = \Vector{g} \circ \Vector{f} : \Space{U} \mapsto \Space{W}$
 Then
 \begin{equation}
 \label{eq:chain-rule}
-\Db{\Vector{h}}{\Vector{u}}
-=  \Db{(\Vector{g} \circ \Vector{f})}{\Vector{v}}
-=  \Db{\Vector{g}}{\Vector{f}(\Vector{v})}  \circ  \Db{\Vector{f}} {\Vector{v}}.
+\Derivative{\Vector{h}}[\Vector{u}]
+=  \Derivative{(\Vector{g} \circ \Vector{f})}[\Vector{v}]
+=  \Derivative{\Vector{g}}[\Vector{f}(\Vector{v})]
+  \circ  \Derivative{\Vector{f}}[\Vector{v}].
 \end{equation}
 
-It is sometimes useful to express this in terms of the partial derivatives:
+It is sometimes useful to express this 
+in terms of the partial derivatives:
 \begin{equation}
 \label{eq:chain-rule_partials}
-\Db{\Vector{h}}{\Vector{u}} =  \sum_{i=0}^{n-1} \db{i}{\Vector{g}}{\Vector{f}(\Vector{u})} \otimes  \Gb{\Vector{f}_i}{\Vector{u}}.
+\Derivative{\Vector{h}}{\Vector{u}} 
+=  \sum_{i=0}^{n-1} 
+\db{i}{\Vector{g}}{\Vector{f}(\Vector{u})} 
+\otimes  
+\Gb{\Vector{f}_i}[\Vector{u}].
 \end{equation}
 
 See Spivak \cite[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}.
@@ -204,7 +226,7 @@ by adding or subtracting
 an element of $\Space{Y}$).
 
 All level sets are relations on $\Space{X} \times \Space{Y}$.
-Under conditions on $\Da{\Vector{f}}$
+Under conditions on $\Derivative{\Vector{f}}$
 (Spivak \cite[Theorem~2-12]{Spivak:1965:CalculusOnManifolds}),
 there is a subset of the relation which is a 
 function.
@@ -242,49 +264,50 @@ Note that
 \end{aligned} 
 \end{equation}
 
-Equation~\ref{eq:Implicit-function}, 
-the chain rule (equation~\ref{eq:chain-rule}),
+\Cref{eq:Implicit-function}, 
+the chain rule (\cref{eq:chain-rule}),
 and the linearity of $\Vector{I}_{\Space{X}}$
 imply
 \begin{equation}\label{eq:Implicit-derivative}
 \begin{aligned}
 \Vector{0}
- & = \Db{\Vector{h}}{\Vector{x}_0}
+ & = \Derivative{\Vector{h}}[\Vector{x}_0]
 \\
 & = 
-\Db{\Vector{f}}
-{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\Derivative{\Vector{f}}
+[\left[ 
+\Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) 
+\right]]
 \circ \left( 
 \Vector{I}_{\Space{X}} 
 \times 
-\Db{\Vector{g}}{\Vector{x}_0}
+\Derivative{\Vector{g}}[\Vector{x}_0]
 \right)
 \\
 & = 
 \left(
-\De{\Vector{x}}
+\Derivative[\Vector{x}]
 {\Vector{f}}
-{\left[ 
-\Vector{x}_0 , \Vector{g} 
-\left( \Vector{x}_0 \right)
- \right]}
+[\left[ 
+\Vector{x}_0 , \Vector{g} \left( \Vector{x}_0 \right)
+\right]]
 \circ 
 \Vector{I}_{\Space{X}}
 \right)
 % + 
 % \left(
-% \De{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+% \Derivative[\Vector{y}]{\Vector{f}}[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 % \circ 
-% \De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+% \Derivative[\Vector{x}]{\Vector{g}}[#3]
 % \right)
 % \\
 % & = 
-% \De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+% \Derivative[\Vector{x}]{\Vector{f}}[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 % + 
 % \left(
-% \De{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+% \Derivative[\Vector{y}]{\Vector{f}}[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 % \circ 
-% \De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+% \Derivative[\Vector{x}]{\Vector{g}}[\Vector{x}_0]
 % \right)
 \end{aligned}
 \end{equation}
@@ -292,24 +315,24 @@ imply
 which implies
 
 \begin{equation}
-\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+\Derivative[\Vector{x}]{\Vector{g}}[\Vector{x}_0]
 =
 \left(
-\De
-{\Vector{y}}
+\Derivative
+[\Vector{y}]
 {\Vector{f}}
-{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 \right)^{-1}
 \circ 
-\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\Derivative[\Vector{x}]{\Vector{f}}[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 \end{equation}
 
 When $\Space{Y}=\Space{R}$, this reduces to:
 \begin{equation}
-\De{\Vector{x}}{\Vector{g}}{\Vector{x}_0}
+\Derivative[\Vector{x}]{\Vector{g}}[\Vector{x}_0]
 =
 \dfrac{
-\De{\Vector{x}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
+\Derivative[\Vector{x}]{\Vector{f}}[\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]]
 }{
 \db{\Vector{y}}{\Vector{f}}{\left[ \Vector{x}_0 , \Vector{g}\left( \Vector{x}_0 \right) \right]}
 }
@@ -336,7 +359,7 @@ The derivative of $\Vector{f}$
 at the point $(\Vector{v}_0 \ldots \Vector{v}_k)$, applied to the vector $(\Vector{u}_0 \ldots \Vector{u}_k)$ is
 
 \begin{equation}
-\Dc{\Vector{f}}{(\Vector{v}_0 \ldots \Vector{v}_k)}{\Vector{u}_0 \ldots \Vector{u}_k}
+\Derivative{\Vector{f}}[(\Vector{v}_0 \ldots \Vector{v}_k)][\Vector{u}_0 \ldots \Vector{u}_k]
  =  \sum_{i=0,k} \Vector{f}(\Vector{v}_0 \ldots \Vector{v}_{i-1},\Vector{u}_i,\Vector{v}_{i+1} \ldots \Vector{v}_k).
 \end{equation}
 
@@ -362,10 +385,14 @@ is \textit{bilinear} if
 \end{eqnarray}
 
 The derivative of $\Vector{f}$
-at the point $(\Vector{v}_0,\Vector{u}_0)$, applied to the vector $(\Vector{v},\Vector{u})$ is
+at the point $(\Vector{v}_0,\Vector{u}_0)$, 
+applied to the vector $(\Vector{v},\Vector{u})$ is
 \begin{equation}
 \label{eq:bilinear-derivative}
-\Dc{\Vector{f}}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} = \Vector{f}(\Vector{v}_0,\Vector{u}) + \Vector{f}(\Vector{v},\Vector{u}_0).
+\Derivative{\Vector{f}}
+[(\Vector{v}_0,\Vector{u}_0)][\Vector{v},\Vector{u}]
+ = \Vector{f}(\Vector{v}_0,\Vector{u}) 
+ + \Vector{f}(\Vector{v},\Vector{u}_0).
 \end{equation}
 
 See \citeAuthorYearTitle[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
@@ -377,21 +404,38 @@ See \citeAuthorYearTitle[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
 We can view the 3-dimensional cross product
 $ \times $
 as a bilinear function
-$\times(\Vector{v},\Vector{u}) = \Vector{v} \times \Vector{u} : \Reals^3 \oplus \Reals^3 \mapsto \Reals^3$.
-From equation \ref{eq:bilinear-derivative},
-$\Dc{\times}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} = \Vector{v}_0 \times \Vector{u} + \Vector{v} \times \Vector{u}_0$.
+$\times(\Vector{v},\Vector{u}) 
+= \Vector{v} \times \Vector{u} : \Reals^3 \oplus \Reals^3 
+\mapsto \Reals^3$.
+From \cref{eq:bilinear-derivative},
+$\Derivative{\times}
+[(\Vector{v}_0,\Vector{u}_0)]
+[\Vector{v},\Vector{u}] 
+= \Vector{v}_0 \times \Vector{u} 
++ \Vector{v} \times \Vector{u}_0$.
 
 Suppose
 $\Vector{f}:\Space{V} \mapsto \Reals^3$, and
 $\Vector{g}:\Space{V} \mapsto \Reals^3$.
 The derivative of $\Vector{f} \times \Vector{g}$ is:
 \begin{eqnarray}
-\Dc{(\Vector{f} \times \Vector{g})}{\Vector{v}_0}{\Vector{v}}
+\Derivative{(\Vector{f} \times \Vector{g})}[\Vector{v}_0][\Vector{v}]
 & =
-& \Db{\times}{(\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))} \circ (\Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}}, \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}})
+& 
+\Derivative{\times}
+[\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))]
+\circ 
+(\Derivative{\Vector{f}}[\Vector{v}_0][\Vector{v}], 
+\Derivative{\Vector{g}}[\Vector{v}_0][\Vector{v}])
 \\
 & =
-& \Vector{f}(\Vector{v}_0) \times \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}} + \Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}} \times \Vector{g}(\Vector{v}_0) \nonumber
+& \Vector{f}(\Vector{v}_0) 
+\times 
+\Derivative{\Vector{g}}[\Vector{v}_0][\Vector{v}]
+ + 
+ \Derivative{\Vector{f}}
+ [\Vector{v}_0][\Vector{v}] 
+ \times \Vector{g}(\Vector{v}_0) \nonumber
 \end{eqnarray}
 
 \end{plSection}%{Cross products}
@@ -407,7 +451,9 @@ $\Vector{g}:\Space{V} \mapsto \Space{W}$.
 It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$ is:
 \begin{equation}
 \label{eq:scalar_product_derivative}
-\Db{(f\Vector{g})}{\Vector{v}} =  f(\Vector{v}) \Db{\Vector{g}}{\Vector{v}} + \Vector{g}(\Vector{v}) \otimes \Gb{f}{\Vector{v}}
+\Derivative{(f\Vector{g})}{\Vector{v}} 
+=  f(\Vector{v}) \Derivative{\Vector{g}}[\Vector{v}] 
++ \Vector{g}(\Vector{v}) \otimes \Gb{f}[\Vector{v}]
 \end{equation}
 
 \end{plSection}%{Scalar products}
@@ -420,65 +466,95 @@ $\tilde{\Vector{f}}  =  \frac{\Vector{f}}{\| \Vector{f} \|}$.
 Then, from equations \ref{eq:scalar_product_derivative}
 and \ref{eq:norm_derivative}:
 \begin{eqnarray}
-\Dc{\tilde{\Vector{f}}}{\Vector{v}}{\Vector{u}}
+\Derivative{\tilde{\Vector{f}}}[\Vector{v}][\Vector{u}]
 & = &
-\Dc{\left( \frac{\Vector{f}}{\| \Vector{f} \|}\right)}{\Vector{v}}{\Vector{u}}
+\Derivative{\left( \frac{\Vector{f}}{\| \Vector{f} \|}\right)}[\Vector{v}][\Vector{u}]
 \\
 & = &
-\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}{ \| \Vector{f}(\Vector{v}) \|}
+\frac{\Derivative{\Vector{f}}{\Vector{v}}[\Vector{u}}][ \| \Vector{f}(\Vector{v}) \|]
  +
-\Vector{f}(\Vector{v})  \Dc{ \left( \frac{1}{\| \Vector{f} \|} \right) }{\Vector{v}}{\Vector{u}} \nonumber \\
+\Vector{f}(\Vector{v})  \Derivative{ \left( \frac{1}{\| \Vector{f} \|} \right) }[\Vector{v}][\Vector{u}] \nonumber \\
 & = &
-\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}
+\frac{
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}]
+}
 {\| \Vector{f}(\Vector{v}) \|}
  -
 \Vector{f}(\Vector{v})
-\frac{\Dc{\| \Vector{f} \|}{\Vector{v}}{\Vector{u}}}
+\frac{
+\Derivative{\| \Vector{f} \|}[\Vector{v}][\Vector{u}]
+}
 {\|\Vector{f}(\Vector{v})\|^2} \nonumber \\
 & = &
-\frac{\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}}{ \| \Vector{f}(\Vector{v}) \| }
+\frac{
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}]
+}
+{\| \Vector{f}(\Vector{v}) \| }
  -
-\Vector{f}(\Vector{v}) \left( \frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|^3}  \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \right) \nonumber \\
+\Vector{f}(\Vector{v}) 
+\left(
+ \frac{\Vector{f}(\Vector{v})^\dagger}
+ {\| \Vector{f}(\Vector{v}) \|^3}  
+ \Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] 
+ \right) \nonumber \\
 & = &
 \frac{
-\| \Vector{f}(\Vector{v}) \|^2 \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}}
+\| \Vector{f}(\Vector{v}) \|^2 
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}]
  -
-\Vector{f}(\Vector{v})\left( \Vector{f}(\Vector{v}) \bullet \Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \right)
+\Vector{f}(\Vector{v})
+\left( \Vector{f}(\Vector{v})
+ \bullet 
+ \Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] \right)
 }
 {\| \Vector{f}(\Vector{v}) \|^3}  \nonumber \\
 & = &
-\frac{\| \Vector{f}(\Vector{v}) \|^2 \Identity_{\Space{W}} - \left( \Vector{f}(\Vector{v}) \otimes \Vector{f}(\Vector{v}) \right)  }
-{ \| \Vector{f}(\Vector{v}) \|^3 }
-\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \nonumber \\
+\frac{
+\| \Vector{f}(\Vector{v}) \|^2 
+\Identity_{\Space{W}} 
+\,-\, 
+\left( \Vector{f}(\Vector{v}) \otimes \Vector{f}(\Vector{v})
+ \right)  
+ }
+{ 
+\| \Vector{f}(\Vector{v}) \|^3 
+}
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] \nonumber \\
 & = &
-\frac{\Identity_{\Space{W}} - \left( \tilde{\Vector{f}}(\Vector{v}) \otimes \tilde{\Vector{f}}(\Vector{v}) \right)  }
+\frac{\Identity_{\Space{W}} 
+\,-\, 
+\left( 
+\tilde{\Vector{f}}(\Vector{v})
+ \otimes 
+ \tilde{\Vector{f}}(\Vector{v}) \right)  
+ }
 {\| \Vector{f}(\Vector{v}) \|}
-\Dc{\Vector{f}}{\Vector{v}}{\Vector{u}} \nonumber
+\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}] \nonumber
 \end{eqnarray}
 
 
 We can write the derivative above without reference to the argument $\Vector{u}$:
 \begin{equation}
 \label{eq:normalized_function_derivative}
-\Db{\tilde{\Vector{f}}}{\Vector{v}}
+\Derivative{\tilde{\Vector{f}}}[\Vector{v}]
  =
-\Db{\left( \frac{\Vector{f}}{\| \Vector{f} \|} \right)}{\Vector{v}}
+\Derivative{\left( \frac{\Vector{f}}{\| \Vector{f} \|} \right)}[\Vector{v}]
  =
 \frac{\Identity_{\Space{W}} - \left( \tilde{\Vector{f}}(\Vector{v}) \otimes \tilde{\Vector{f}}(\Vector{v}) \right) }
 { \| \Vector{f}(\Vector{v}) \| }
-\Db{\Vector{f}}{\Vector{v}}
+\Derivative{\Vector{f}}[\Vector{v}]
 \end{equation}
 
 A common, trivial, normalized function is the normalized version of
 a vector: $\tilde{\Vector{v}} =  \frac{\Vector{v}}{ \| \Vector{v} \| }$.
 
-From equation \ref{eq:normalized_function_derivative}
+From \cref{eq:normalized_function_derivative}
 it follows that:
 \begin{equation}
 \label{eq:normalized_vector_derivative}
-\Db{\tilde{\Vector{v}}}{\Vector{u}}
+\Derivative{\tilde{\Vector{v}}}[\Vector{u}]
  =
-\Db{ \left( \frac{\Vector{v}}{ \| \Vector{v} \| } \right) }{\Vector{u}}
+\Derivative{ \left( \frac{\Vector{v}}{ \| \Vector{v} \| } \right) }[\Vector{u}]
  =
 \frac{\Identity_{\Space{V}} - \left( \tilde{\Vector{u}} \otimes \tilde{\Vector{u}} \right) }
 { \| \Vector{u} \| }
@@ -501,7 +577,11 @@ We can view the inner product on $\Space{V}$, $\Vector{v} \bullet \Vector{u}$,
 as a bilinear function $\bullet(\Vector{v},\Vector{u}) : \Space{V} \oplus \Space{V} \mapsto \Reals$.
 Thus
 \begin{equation}
-\Dc{\bullet}{(\Vector{v}_0,\Vector{u}_0)}{\Vector{v},\Vector{u}} = \Vector{v}_0 \bullet \Vector{u} + \Vector{v} \bullet \Vector{u}_0.
+\Derivative{\bullet}
+[(\Vector{v}_0,\Vector{u}_0)]
+[\Vector{v},\Vector{u}] 
+= 
+\Vector{v}_0 \bullet \Vector{u} + \Vector{v} \bullet \Vector{u}_0.
 \end{equation}
 
 Suppose
@@ -510,12 +590,21 @@ $\Vector{g}:\Space{V} \mapsto \Space{V}$.
 The derivative of $\Vector{f} \bullet \Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:dot_derivative}
-\Dc{(\Vector{f} \bullet \Vector{g})}{\Vector{v}_0}{\Vector{v}}
+\Derivative{(\Vector{f} \bullet \Vector{g})}[\Vector{v}_0][\Vector{v}]
 & =
-& \Db{\bullet}{(\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))} \circ (\Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}}, \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}})
+& \Derivative{\bullet}
+[(\Vector{f}(\Vector{v}_0),\Vector{g}(\Vector{v}_0))]
+\circ 
+(\Derivative{\Vector{f}}{\Vector{v}_0}[\Vector{v}], 
+\Derivative{\Vector{g}}[\Vector{v}_0][\Vector{v}])
 \\
 & =
-& \Vector{f}(\Vector{v}_0) \bullet \Dc{\Vector{g}}{\Vector{v}_0}{\Vector{v}}  +  \Vector{g}(\Vector{v}_0) \bullet \Dc{\Vector{f}}{\Vector{v}_0}{\Vector{v}} \nonumber
+& \Vector{f}(\Vector{v}_0) \bullet 
+\Derivative{\Vector{g}}{\Vector{v}_0}{\Vector{v}}  
++  
+\Vector{g}(\Vector{v}_0) \bullet 
+\Derivative{\Vector{f}}[\Vector{v}_0][\Vector{v}] 
+\nonumber
 \end{eqnarray}
 
 See \citeAuthorYearTitle[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
@@ -599,24 +688,29 @@ be its square and $ \| \Vector{v}  \|^3$ the cube.
 \Gb{l_2}{\Vector{v}} = \frac{ \Vector{v} }{ \| \Vector{v}  \|} &
 \Gb{l_2^2}{\Vector{v}} =  2\Vector{v} &
 \Gb{l_2^3}{\Vector{v}} = 3 \| \Vector{v}  \| \Vector{v} \\
-\Db{l_2}{\Vector{v}} = \frac{ \Vector{v}^\dagger }{ \| \Vector{v}  \|} &
-\Db{l_2^2}{\Vector{v}} = 2\Vector{v}{^\dagger} &
-\Db{l_2^3}{\Vector{v}} = 3 \| \Vector{v}  \| \Vector{v}^\dagger \nonumber
+\Derivative{l_2}{\Vector{v}} = \frac{ \Vector{v}^\dagger }[ \| \Vector{v}  \|] &
+\Derivative{l_2^2}{\Vector{v}} = 2\Vector{v}[^\dagger] &
+\Derivative{l_2^3}[\Vector{v}] 
+= 3 \| \Vector{v}  \| \Vector{v}^\dagger \nonumber
 \end{eqnarray}
 
 Let $\Vector{f}(\Vector{v}) : \Space{V} \mapsto \Space{W}$.
 By the chain rule:
-$\Db{\| \Vector{f} \|^2}{\Vector{v}}  =  2 {\Vector{f}(\Vector{v})}^{\dagger} \Db{\Vector{f}}{\Vector{v}} $
+$\Derivative{\| \Vector{f} \|^2}{\Vector{v}}  
+=  2 {\Vector{f}(\Vector{v})}^{\dagger} 
+\Derivative{\Vector{f}}[\Vector{v}] $
 and
-$\Gb{\| \Vector{f} \|^2}{\Vector{v}}  =  2 \Db{\Vector{f}}{\Vector{v}}^\dagger \circ \Vector{f}(\Vector{v})$.
+$\Gb{\| \Vector{f} \|^2}{\Vector{v}}  
+=  2 \Derivative{\Vector{f}}[\Vector{v}]^\dagger 
+\circ \Vector{f}(\Vector{v})$.
 \begin{eqnarray}
 \label{eq:norm_derivative}
-\Db{\| \Vector{f} \|}{\Vector{v}}
+\Derivative{\| \Vector{f} \|}[\Vector{v}]
 & = &
-\frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|} \Db{\Vector{f}}{\Vector{v}}  \\
+\frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|} \Derivative{\Vector{f}}[\Vector{v}]  \\
 \Gb{\| \Vector{f} \|}{\Vector{v}}
 & = &
-\left(\Db{\Vector{f}}{\Vector{v}}\right)^\dagger \circ  \frac{\Vector{f}(\Vector{v})}{ \| \Vector{f}(\Vector{v})  \|}
+\left(\Derivative{\Vector{f}}{\Vector{v}}\right)^\dagger \circ  \frac{\Vector{f}(\Vector{v})}[ \| \Vector{f}(\Vector{v})  \|]
 \label{eq:norm_gradient}
 \end{eqnarray}
 
@@ -642,7 +736,7 @@ Note the dependence on both the choice of inner product,
 and the coordinate system.
 
 \begin{equation}
-\Dc{\text{volume}}{(\Vector{v}_0 \ldots \Vector{v}_{n-1})}{\Vector{u}_0 \ldots \Vector{u}_{n-1}}
+\Derivative{\text{volume}}[(\Vector{v}_0 \ldots \Vector{v}_{n-1})][\Vector{u}_0 \ldots \Vector{u}_{n-1}]
  =  \sum_{i=0}^{n-1} \Vector{u}_i \left( \prod_{j \neq i} \Vector{v}_j \right).
 \end{equation}
 
@@ -664,17 +758,17 @@ are the canonical basis vectors for $\Space{L}(\Space{V},\Space{W})$.
 
 If $\Vector{f}$ is a function between spaces of linear functions,
 $\Vector{f} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto \Space{L}(\Space{V}_1,\Space{W}_1)$,
-its derivative, $\Da{\Vector{f}}$,
+its derivative, $\Derivative{\Vector{f}}$,
 is a function from a space of linear functions
 to a space of linear functions between two
 spaces of linear functions:
-$\Da{\Vector{f}} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto
+$\Derivative{\Vector{f}} : \Space{L}(\Space{V}_0,\Space{W}_0) \mapsto
 \Space{L}(\Space{L}(\Space{V}_0,\Space{W}_0), \Space{L}(\Space{V}_1,\Space{W}_1))$.
 This can get a little confusing,
 and it often helps to consider both the partial derivatives of $\Vector{f}$
 and the gradients of the coordinates of $\Vector{f}$,
 which can make it easier to apply the chain rule to
-compositions of functions of functions via equation \ref{eq:chain-rule_partials}.
+compositions of functions of functions via \cref{eq:chain-rule_partials}.
 
 $\da{ij}{\Vector{f}}$ is the partial derivative with respect to its $ij$-th matrix coordinate,
 that is, the directional derivative of $\Vector{f}$ in the direction
@@ -699,7 +793,7 @@ and we can define the derivative of $\Pseudoinverse(\Vector{L})$ there.
 For full rank linear functions,
 we can use the chain rule and the identity
 $\Vector{L}^{-} = \left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1} \Vector{L}^{\dagger}$
-(equation \ref{eq:full-rank-pseudo-inverse})
+(\cref{eq:full-rank-pseudo-inverse})
 to compute the derivative of the pseudo-inverse
 (\cref{sec:Derivative-of-pseudo-inverse}).
 
@@ -812,7 +906,7 @@ The Jacobian, which has 4 indexes here, is given by:
 \end{equation}
 where, as usual, $\delta_{ij} = 1$ if $i=j$ and  $0$ if $i \neq j$.
 From the Jacobian, we can compute the gradients of $\LTL_{kl}$
-using equation \ref{eq:gradient-from-partials}
+using \cref{eq:gradient-from-partials}
 and the fact that
 $\Vector{E}_{ij}^{\Space{L}(\Space{V},\Space{W})}  = \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}$
 are the canonical basis vectors for $\Space{L}(\Space{V},\Space{W})$:
@@ -926,8 +1020,8 @@ The set of full rank linear functions is an open set,
 and we can define the derivative of $\Pseudoinverse(\Vector{L})$ there.
 For a full rank function,
 $\Vector{L}^{-} = \left( \Vector{L}^{\dagger} \Vector{L} \right)^{-1} \Vector{L}^{\dagger}$
-(see equation \ref{eq:full-rank-pseudo-inverse}).
-It follows from equation \ref{eq:function-product-derivative} that
+(see \cref{eq:full-rank-pseudo-inverse}).
+It follows from \cref{eq:function-product-derivative} that
 \begin{eqnarray}
 \db{ij}{\Pseudoinverse}{\Vector{L}}
 & = &
@@ -960,7 +1054,7 @@ It follows from equation \ref{eq:function-product-derivative} that
 
 By the chain rule
 \begin{eqnarray}
-\Db{\Inverse(\LTL())}{\Vector{L}}
+\Derivative{\Inverse(\LTL())}[\Vector{L}]
 & = &
 \sum_{kl}
 \db{kl}{\Inverse}{\Vector{L}^{\dagger}\Vector{L}}
@@ -984,7 +1078,7 @@ By the chain rule
 \end{eqnarray}
 
 To minimize confusion,
-recall that $\Db{\Inverse(\LTL())}{\Vector{L}}$ is
+recall that $\Derivative{\Inverse(\LTL())}[\Vector{L}]$ is
 a linear function from $\Space{L}(\Space{V},\Space{W}) \mapsto \Space{L}(\Space{V},\Space{V})$.
 Note that the central tensor product ($\otimes$) above
 is a product of
@@ -1006,11 +1100,11 @@ $
 $,
 an element of $\Space{L}(\Space{V},\Space{W})$.
 
-It follows from equation \ref{eq:partial-full-dervatives} that
+It follows from \cref{eq:partial-full-dervatives} that
 \begin{eqnarray}
 \db{ij}{\Inverse(\LTL())}{\Vector{L}}
 & = &
-\Db{\Inverse(\LTL())}{\Vector{L}}
+\Derivative{\Inverse(\LTL())}[\Vector{L}]
 \left( \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}} \right)
 \\
 & = &

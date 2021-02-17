@@ -166,7 +166,7 @@ that best approximates the local 'slope' of $\Vector{f}$ at $\Vector{p}$.
 To be a little more precise, we want
 \begin{displaymath}
 \lim_{ \|{\bf \delta}  \| \mapsto 0}
-{ \|{\Vector{f}(\Vector{p} + {\bf \delta}) - (\Vector{f}(\Vector{p}) + \Vector{L}({\bf\delta})) \|}
+{ \|{\Vector{f}(\Vector{p} + {\bf \delta}) - (\Vector{f}(\Vector{p}) + \Vector{L}(\Vector{\delta})) \|}
   \over  \|{\bf \delta}  \|}
  = 0
 \end{displaymath}
@@ -174,39 +174,49 @@ For a concise and correct discussion, see \citeAuthorYearTitle{Spivak:1965:Calcu
 
 \begin{itemize}
 
-\item $\Da{\Vector{f}}$
+\item $\Derivative{\Vector{f}}$
 
 In its most general form,
-I denote the derivative of $\Vector{f}$ by $\Da{\Vector{f}}$.
+I denote the derivative of $\Vector{f}$ by $\Derivative{\Vector{f}}$.
 Note that this is
 linear-transformation-valued function of the domain of $\Vector{f}$.
 
-\item $\Db{\Vector{f}}{\Vector{p}}$
+\item $\Derivative{\Vector{f}}[\Vector{p}]$
 
-I denote the derivative of $\Vector{f}$ at $\Vector{p}$ by $\Db{\Vector{f}}{\Vector{p}}$.
-$\Db{\Vector{f}}{\Vector{p}}$ is a specific linear transformation from
+I denote the derivative of $\Vector{f}$ 
+at $\Vector{p}$ by $\Derivative{\Vector{f}}[\Vector{p}]$.
+$\Derivative{\Vector{f}}[\Vector{p}]$ 
+is a specific linear transformation from
 the domain of $\Vector{f}$ to the codomain of $\Vector{f}$.
 
-\item $\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}$
+\item $\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]$
 
 The derivative is most often represented by the {\it Jacobian},
 the $m \times n$ matrix of partial derivatives
 with respect to some bases for $\Reals^n$ and $\Reals^m$.
 However, it's often easier to express the derivative clearly if we
 explicitly include the argument of the linear transformation.
-In this case, I write $\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}$
+In this case, I write $\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]$
 for the derivative of $f$ at the point $\Vector{p}$
 applied to the vector $\Vector{q}$.
 
-\item $\Dd{\Vector{p}_i}{\Vector{f}}{(\Vector{q}_0,\ldots,\Vector{q}_{n-1})}{\Vector{r}_i}$
+\item $\Derivative[\Vector{p}_i]{\Vector{f}}
+[(\Vector{q}_0,\ldots,\Vector{q}_{n-1})][\Vector{r}_i]$
 
 For functions on direct sum spaces,
-$\Vector{f}(\Vector{p}_0,\Vector{p}_1,\ldots,\Vector{p}_{n-1})$, $\Vector{p}_i \in \Reals^{n_i}$,
+$\Vector{f}(\Vector{p}_0,\Vector{p}_1,\ldots,
+\Vector{p}_{n-1})$, 
+$\Vector{p}_i \in \Reals^{n_i}$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
-I write $\Dd{\Vector{p}_i}{\Vector{f}}{(\Vector{q}_0,\ldots,\Vector{q}_{n-1})}{\Vector{r}_0,\ldots,\Vector{r}_{n-1}}$
+I write 
+$\Derivative[\Vector{p}_i]{\Vector{f}}
+[(\Vector{q}_0,\ldots,\Vector{q}_{n-1})]
+[\Vector{r}_0,\ldots,\Vector{r}_{n-1}]$
 for the derivative of $\Vector{f}$ with respect to $\Vector{p}_i$,
-at the point $(\Vector{q}_0,\ldots,\Vector{q}_{n-1}) \in \oplus_{i=0}^{n-1} \Reals^{m_i}$,
+at the point 
+$(\Vector{q}_0,\ldots,\Vector{q}_{n-1})
+ \in \oplus_{i=0}^{n-1} \Reals^{m_i}$,
 applied to the vector $\Vector{r}_i \in \Reals^{n_i}$.
 Note that, if you consider $\Vector{f}$ to be a function
 of direct sums of $\Reals^1$, we have the usual
@@ -230,7 +240,7 @@ whose magnitude is the rate of increase, or slope,
 of $f$ in that direction.
 
 The gradient, $\Ga{f}$,
-has a close relationship to the derivative, $\Da{f}$,
+has a close relationship to the derivative, $\Derivative{f}$,
 and the two are often confused.
 Recall that the derivative is a linear transformation
 from the domain of $f$ to its codomain.
@@ -238,7 +248,7 @@ In the case of real-valued functions,
 this means the derivative is a linear function on $\Reals^n$,
 an element of the dual space of $\Reals^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
-of the derivative, $\Ga{f} = (\Da{f})^{\dagger}$
+of the derivative, $\Ga{f} = (\Derivative{f})^{\dagger}$
 (see \citeAuthorYearTitle[p. 96, ex. 4-18]{Spivak:1965:CalculusOnManifolds}).
 
 Notation for the various versions of the gradient
@@ -270,7 +280,8 @@ See above.
 \begin{plSection}{Chain rule}
 \label{sec:chain}
 
-The most general identity used in computing derivatives is the {\it chain rule.}
+The most general identity used in computing derivatives i
+s the {\it chain rule.}
 Suppose
 $\Vector{f}:\Reals^{n_0} \mapsto \Reals^{n_1}$,
 $\Vector{g}:\Reals^{n_1} \mapsto \Reals^{n_2}$,
@@ -279,8 +290,10 @@ $\Vector{h} = \Vector{g} \circ \Vector{f} : \Reals^{n_0} \mapsto \Reals^{n_2}.$
 Then
 \begin{equation}
 \label{eq:chain-rule}
-\Db{\Vector{h}}{\Vector{p}} \;\; = \;\; \Db{(\Vector{g} \circ \Vector{f})}{\Vector{p}}
-            \;\; = \;\; \Db{\Vector{g}}{\Vector{f}(\Vector{p})} \; \circ \; \Db{\Vector{f}} {\Vector{p}}.
+\Derivative{\Vector{h}}[\Vector{u}]
+=  \Derivative{(\Vector{g} \circ \Vector{f})}[\Vector{v}]
+=  \Derivative{\Vector{g}}[\Vector{f}(\Vector{v})]
+  \circ  \Derivative{\Vector{f}}[\Vector{v}].
 \end{equation}
 
 See \citeAuthorYearTitle[Theorem~2-2]{Spivak:1965:CalculusOnManifolds}, .
@@ -301,7 +314,7 @@ The derivative of $\Vector{f}$
 at the point $(\Vector{p}_0,\ldots,\Vector{p}_k)$, applied to the vector $(\Vector{q}_0,\ldots,\Vector{q}_k)$ is
 
 \begin{equation}
-\Dc{\Vector{f}}{(\Vector{p}_0,\ldots,\Vector{p}_k)}{\Vector{q}_0,\ldots,\Vector{q}_k}
+\Derivative{\Vector{f}}[(\Vector{p}_0,\ldots,\Vector{p}_k)][\Vector{q}_0,\ldots,\Vector{q}_k]
 \; = \; \sum_{i=0,k} \Vector{f}(\Vector{p}_0,\ldots,\Vector{p}_{i-1},\Vector{q}_i,\Vector{p}_{i+1},\ldots,\Vector{p}_k).
 \end{equation}
 
@@ -331,7 +344,8 @@ at the point $(\Vector{p}_0,\Vector{q}_0)$,
 applied to the vector $(\Vector{p},\Vector{q})$ is
 
 \begin{equation}
-\Dc{\Vector{f}}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} = \Vector{f}(\Vector{p}_0,\Vector{q}) + \Vector{f}(\Vector{p},\Vector{q}_0).
+\Derivative{\Vector{f}}[(\Vector{p}_0,\Vector{q}_0)][\Vector{p},\Vector{q}]
+ = \Vector{f}(\Vector{p}_0,\Vector{q}) + \Vector{f}(\Vector{p},\Vector{q}_0).
 \end{equation}
 
 See \citeAuthorYearTitle[ex.~2-12]{Spivak:1965:CalculusOnManifolds}.
@@ -361,7 +375,8 @@ We can view the inner product on $\Reals^m$, $\Vector{p} \bullet \Vector{q}$,
 as a bilinear function $d(\Vector{p},\Vector{q}) : \Reals^m \oplus \Reals^m \mapsto \Re$.
 Thus
 \begin{equation}
-\Dc{d}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} = \Vector{p}_0 \bullet \Vector{q} + \Vector{p} \bullet \Vector{q}_0.
+\Derivative{d}[(\Vector{p}_0,\Vector{q}_0)][\Vector{p},\Vector{q}]
+ = \Vector{p}_0 \bullet \Vector{q} + \Vector{p} \bullet \Vector{q}_0.
 \end{equation}
 
 Suppose
@@ -370,18 +385,18 @@ $\Vector{g}:\Reals^{n} \mapsto \Reals^{m}$.
 The derivative of $\Vector{f} \bullet \Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:dot_derivative}
-\Dc{(\Vector{f} \bullet \Vector{g})}{\Vector{p}_0}{\Vector{p}}
+\Derivative{(\Vector{f} \bullet \Vector{g})}[\Vector{p}_0][\Vector{p}]
 & =
-& \Db{d}{(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))}
+& \Derivative{d}[(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))]
  \;\circ \;
- (\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}}, 
- \Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}})
+ (\Derivative{\Vector{f}}[\Vector{p}_0][\Vector{p}], 
+ \Derivative{\Vector{g}}[\Vector{p}_0][\Vector{p}])
 \\
 & =
 & \Vector{f}(\Vector{p}_0) \bullet 
-\Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}} 
+\Derivative{\Vector{g}}[\Vector{p}_0][\Vector{p}] 
 \; + \; \Vector{g}(\Vector{p}_0) 
-\bullet \Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}} \nonumber
+\bullet \Derivative{\Vector{f}}[\Vector{p}_0][\Vector{p}] \nonumber
 \end{eqnarray}
 
 See \citeAuthorYearTitle[ex.~2-13]{Spivak:1965:CalculusOnManifolds}.
@@ -400,7 +415,7 @@ $\Vector{c}(\Vector{p},\Vector{q}) =
 As with the inner product,
 the derivative is
 \begin{equation}
-\Dc{c}{(\Vector{p}_0,\Vector{q}_0)}{\Vector{p},\Vector{q}} 
+\Derivative{c}[(\Vector{p}_0,\Vector{q}_0)][\Vector{p},\Vector{q}] 
 = \Vector{p}_0 \times \Vector{q} + \Vector{p} \times \Vector{q}_0.
 \end{equation}
 
@@ -409,15 +424,15 @@ $\Vector{f}:\Reals^{n} \mapsto \Reals^3$, and
 $\Vector{g}:\Reals^{n} \mapsto \Reals^3$.
 The derivative of $\Vector{f} \times \Vector{g}$ is:
 \begin{eqnarray}
-\Dc{(\Vector{f} \times \Vector{g})}{\Vector{p}_0}{\Vector{p}}
+\Derivative{(\Vector{f} \times \Vector{g})}[\Vector{p}_0][\Vector{p}]
 & =
-& \Db{\Vector{c}}{(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))}
-\;\circ \;(\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}},
- \Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}})
+& \Derivative{\Vector{c}}[(\Vector{f}(\Vector{p}_0),\Vector{g}(\Vector{p}_0))]
+\;\circ \;(\Derivative{\Vector{f}}[\Vector{p}_0][\Vector{p}],
+ \Derivative{\Vector{g}}[\Vector{p}_0][\Vector{p}])
 \\
 & =
-& \Vector{f}(\Vector{p}_0) \;\times \;\Dc{\Vector{g}}{\Vector{p}_0}{\Vector{p}} 
-\;+ \;\Dc{\Vector{f}}{\Vector{p}_0}{\Vector{p}} 
+& \Vector{f}(\Vector{p}_0) \;\times \;\Derivative{\Vector{g}}[\Vector{p}_0][\Vector{p}] 
+\;+ \;\Derivative{\Vector{f}}[\Vector{p}_0][\Vector{p}] 
 \;\times \;\Vector{g}(\Vector{p}_0) \nonumber
 \end{eqnarray}
 
@@ -432,9 +447,12 @@ $\Vector{g}:\Reals^{n} \mapsto \Reals^m$.
 It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$ is:
 \begin{eqnarray}
 \label{eq:scalar_product_derivative}
-\Db{(f\Vector{g})}{\Vector{p}}
-& = & f(\Vector{p}) \;\Db{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \; \Db{f}{\Vector{p}}  \\
-& = & f(\Vector{p}) \;\Db{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \otimes \Gb{f}{\Vector{p}} \; \nonumber
+\Derivative{(f\Vector{g})}[\Vector{p}]
+& = & f(\Vector{p})
+\;\Derivative{\Vector{g}}{\Vector{p}} 
+\;+ \Vector{g}(\Vector{p}) \; 
+\Derivative{f}[\Vector{p}]  \\
+& = & f(\Vector{p}) \;\Derivative{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \otimes \Gb{f}[\Vector{p}] \; \nonumber
 \end{eqnarray}
 
 \end{plSection}%{Derivatives of scalar products}
@@ -451,30 +469,42 @@ and $ \| \Vector{p}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
 \Gb{l_2}{\Vector{p}} & = & {{ \Vector{p} } \over { \| \Vector{p}  \|}} \\
-\Db{l_2}{\Vector{p}} & = &{{ \Vector{p}^\dagger } \over { \| \Vector{p}  \|}} \nonumber \\
+\Derivative{l_2}[\Vector{p}]
+ & = & {{ \Vector{p}^\dagger } \over { \| \Vector{p}  \|}} \nonumber \\
 \Gb{l_2^2}{\Vector{p}} & = & 2\Vector{p} \nonumber \\ 
-\Db{l_2^2}{\Vector{p}} & = & 2\Vector{p}^\dagger \nonumber \\
+\Derivative{l_2^2}[\Vector{p}] & = & 2\Vector{p}^\dagger \nonumber \\
 \Gb{l_2^3}{\Vector{p}} & = & 3 \| \Vector{p}  \| \Vector{p} \nonumber \\
-\Db{l_2^3}{\Vector{p}} & = & 3 \| \Vector{p}  \| \Vector{p}^\dagger \nonumber
+\Derivative{l_2^3}[\Vector{p}] 
+& = & 3 \| \Vector{p}  \| \Vector{p}^\dagger \nonumber
 \end{eqnarray}
 
 Let $\Vector{f}(\Vector{p}) : \Reals^n \mapsto \Reals^m$.
 By the chain rule:
-$\Db{\| \Vector{f} \|^2}{\Vector{p}}  =  2 {\Vector{f}(\Vector{p})}^{\dagger} \Db{\Vector{f}}{\Vector{p}} $.
+$\Derivative{\| \Vector{f} \|^2}{\Vector{p}}  
+=  
+2 {\Vector{f}(\Vector{p})}^{\dagger}
+ \Derivative{\Vector{f}}[\Vector{p}] $.
 
 \begin{equation}
 \Gb{\| \Vector{f} \|^2}{\Vector{p}}  = 
- 2 \;\Db{\Vector{f}}{\Vector{p}}^\dagger \;\circ \;\Vector{f}(\Vector{p})
+ 2 \;\Derivative{\Vector{f}}[\Vector{p}]^\dagger 
+ \;\circ \;\Vector{f}(\Vector{p})
 \end{equation}
 
 \begin{eqnarray}
 \label{eq:norm_derivative}
-\Db{\| \Vector{f} \|}{\Vector{p}}
+\Derivative{\| \Vector{f} \|}[\Vector{p}]
 & = &
-{{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|}} \Db{\Vector{f}}{\Vector{p}}  \\
+{{\Vector{f}(\Vector{p})^\dagger} 
+\over 
+{\| \Vector{f}(\Vector{p}) \|}} 
+\Derivative{\Vector{f}}[\Vector{p}]  \\
 \Gb{\| \Vector{f} \|}{\Vector{p}}
 & = &
-\left(\Db{\Vector{f}}{\Vector{p}}\right)^\dagger \;\circ \;{{\Vector{f}(\Vector{p})} \over { \| \Vector{f}(\Vector{p})  \|}}
+\left(\Derivative{\Vector{f}}[\Vector{p}]\right)^\dagger
+ \;\circ \;{{\Vector{f}(\Vector{p})} 
+ \over
+  { \| \Vector{f}(\Vector{p})  \|}}
 \label{eq:norm_gradient}
 \end{eqnarray}
 
@@ -491,35 +521,35 @@ Let $\tilde{\Vector{f}}$ be the normalized version of $\Vector{f}$:
 Then, from \cref{eq:scalar_product_derivative}
 and \cref{eq:norm_derivative}:
 \begin{eqnarray}
-\Dc{\tilde{\Vector{f}}}{\Vector{p}}{\Vector{q}}
+\Derivative{\tilde{\Vector{f}}}[\Vector{p}][\Vector{q}]
 & = &
-\Dc{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}{\Vector{p}}{\Vector{q}}
+\Derivative{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}[\Vector{p}][\Vector{q}]
 \\
 & = &
-{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
 \; + \;
-\Vector{f}(\Vector{p}) \; \Dc{\left({1 \over {\| \Vector{f} \|}}\right)}{\Vector{p}}{\Vector{q}} \nonumber \\
+\Vector{f}(\Vector{p}) \; \Derivative{\left({1 \over {\| \Vector{f} \|}}\right)}[\Vector{p}][\Vector{q}] \nonumber \\
 & = &
-{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
 \; - \;
-\Vector{f}(\Vector{p}) {{\Dc{\| \Vector{f} \|}{\Vector{p}}{\Vector{q}}} \over {\|\Vector{f}(\Vector{p})\|^2}} \nonumber \\
+\Vector{f}(\Vector{p}) {{\Derivative{\| \Vector{f} \|}[\Vector{p}][\Vector{q}}} \over {\|\Vector{f}(\Vector{p})\|^2}] \nonumber \\
 & = &
-{\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}}
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
 \; - \;
-\Vector{f}(\Vector{p}) \left( {{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|^3}} \;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \right) \nonumber \\
+\Vector{f}(\Vector{p}) \left( {{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|^3}} \;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \right) \nonumber \\
 & = &
-{\| \Vector{f}(\Vector{p}) \|^2 \Dc{\Vector{f}}{\Vector{p}}{\Vector{q}}
+{\| \Vector{f}(\Vector{p}) \|^2 \Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]
 \; - \;
-\Vector{f}(\Vector{p})\left( \Vector{f}(\Vector{p}) \bullet \Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \right) }
+\Vector{f}(\Vector{p})\left( \Vector{f}(\Vector{p}) \bullet \Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \right) ]
 \over {\| \Vector{f}(\Vector{p}) \|^3}  \nonumber \\
 & = &
 {{\| \Vector{f}(\Vector{p}) \|^2 \Identity_{\Reals^3} \;- \;\left( \Vector{f}(\Vector{p}) \otimes \Vector{f}(\Vector{p}) \right)  }
 \over {\| \Vector{f}(\Vector{p}) \|^3} }
-\;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \nonumber \\
+\;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \nonumber \\
 & = &
 {{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{f}}(\Vector{p}) \otimes \tilde{\Vector{f}}(\Vector{p}) \right)  }
 \over {\| \Vector{f}(\Vector{p}) \|} }
-\;\Dc{\Vector{f}}{\Vector{p}}{\Vector{q}} \nonumber
+\;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \nonumber
 \end{eqnarray}
 
 $\otimes$ is the elementary tensor product operation.
@@ -532,13 +562,13 @@ $\left(\Vector{p} \otimes \Vector{q}\right) (\Vector{r}) \;= \;\Vector{p} \left(
 We can write the derivative above without reference to the argument $\Vector{q}$:
 \begin{eqnarray}
 \label{eq:normalized_function_derivative}
-\Db{\tilde{\Vector{f}}}{\Vector{p}}
+\Derivative{\tilde{\Vector{f}}}[\Vector{p}]
 & = &
-\Db{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}{\Vector{p}}  \\
+\Derivative{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}[\Vector{p}]  \\
 & = &
 {{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{f}}(\Vector{p}) \otimes \tilde{\Vector{f}}(\Vector{p}) \right) }
 \over {\| \Vector{f}(\Vector{p}) \|} }
-\;\Db{\Vector{f}}{\Vector{p}} \nonumber
+\;\Derivative{\Vector{f}}[\Vector{p}] \nonumber
 \end{eqnarray}
 
 A common, trivial, normalized function is the normalized version of
@@ -551,9 +581,9 @@ From equation \cref{eq:normalized_function_derivative}
 it follows that:
 \begin{eqnarray}
 \label{eq:normalized_vector_derivative}
-\Db{\tilde{\Vector{p}}}{\Vector{q}}
+\Derivative{\tilde{\Vector{p}}}[\Vector{q}]
 & = &
-\Db{\left({\Vector{p} \over {\| \Vector{p} \|}}\right)}{\Vector{q}}
+\Derivative{\left({\Vector{p} \over {\| \Vector{p} \|}}\right)}[\Vector{q}]
 \\
 & = &
 {{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{q}} \otimes \tilde{\Vector{q}} \right) }

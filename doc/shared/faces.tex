@@ -114,16 +114,25 @@ The {\it area-weighted normal} vector is
 
 The 'partial' derivatives of the area-weighted normal are:
 \begin{eqnarray}
-\Dd{\Point{p}_0}{\Normal{a}}{\Point{q}}{\Point{r}_0} \
-& = \ (\Point{r}_0 \times \Point{q}_1) \ + \ (\Point{q}_2 \times \Point{r}_0) & = (\Point{q}_2 - \Point{q}_1) \times \Point{r}_0 \\
-\Dd{\Point{p}_1}{\Normal{a}}{\Point{q}}{\Point{r}_1} \
-& = \ (\Point{r}_1 \times \Point{q}_2) \ + \ (\Point{q}_0 \times \Point{r}_1) & = (\Point{q}_0 - \Point{q}_2) \times \Point{r}_1 \nonumber \\
-\Dd{\Point{p}_2}{\Normal{a}}{\Point{q}}{\Point{r}_2} \
-& = \ (\Point{r}_2 \times \Point{q}_0) \ + \ (\Point{q}_1 \times \Point{r}_2) & = (\Point{q}_1 - \Point{q}_0) \times \Point{r}_2 \nonumber
+\Derivative[\Point{p}_0]{\Normal{a}}[\Point{q}][\Point{r}_0] 
+& = \ (\Point{r}_0 \times \Point{q}_1) \ + \ (\Point{q}_2 
+\times \Point{r}_0) 
+& = (\Point{q}_2 - \Point{q}_1) \times \Point{r}_0 \\
+\Derivative[\Point{p}_1]{\Normal{a}}[\Point{q}][\Point{r}_1]
+& = \ (\Point{r}_1 \times \Point{q}_2) \ 
++ \ (\Point{q}_0 \times \Point{r}_1) 
+& = (\Point{q}_0 - \Point{q}_2) \times \Point{r}_1 \nonumber \\
+\Derivative[\Point{p}_2]{\Normal{a}}[\Point{q}][\Point{r}_2] \
+& = \ (\Point{r}_2 \times \Point{q}_0) \ 
++ \ (\Point{q}_1 \times \Point{r}_2) 
+& = (\Point{q}_1 - \Point{q}_0) \times \Point{r}_2 \nonumber
 \end{eqnarray}
 
-Note that $\Df{\Point{p}}{\Normal{a}}$ is {\it skew-symmetric}, that is,
-$\Df{\Point{p}}{\Normal{a}}^{\dagger} = -\Df{\Point{p}}{\Normal{a}}.$
+Note that 
+$\Derivative[\Point{p}]{\Normal{a}}$ 
+is {\it skew-symmetric}, that is,
+$\Derivative[\Point{p}]{\Normal{a}}^{\dagger} 
+= -\Derivative[\Point{p}]{\Normal{a}}.$
 
 \end{plSection}%{Area-weighted face normal}
 %-----------------------------------------------------------------
@@ -142,20 +151,25 @@ It follows from \cref{eq:norm_derivative}
 that the first 'partial' derivative of the face area is:
 \begin{eqnarray}
 \label{eq:area_partial_derivative}
-\Dd{\Point{p}_0}{A}{\Point{q}}{\Point{r}_0}
+\Derivative[\Point{p}_0]{A}[\Point{q}][\Point{r}_0]
 & = &
 \frac{\Normal{a}(\Point{q})^\dagger}{2\|\Normal{a}(\Point{q})\|}
-{\Dd{\Point{p}_0}{\Normal{a}}{\Point{q}}{\Point{r}_0}}  \\
+{
+\Derivative[\Point{p}_0]{\Normal{a}}[\Point{q}][\Point{r}_0]
+}  \\
 & = &
 \frac{\Normal{a}(\Point{q})}{2\|\Normal{a}(\Point{q})\|}
 \bullet
-\left[(\Point{r}_0 \times \Point{q}_1) + (\Point{q}_2 \times \Point{r}_0)\right] \nonumber \\
+\left[(\Point{r}_0 \times \Point{q}_1) 
++ (\Point{q}_2 \times \Point{r}_0)\right] \nonumber \\
 & = &
 \frac{\Normal{a}(\Point{q})}{2\|\Normal{a}(\Point{q})\|}
 \bullet
-\left[(\Point{q}_2 - \Point{q}_1) \ \times \  \Point{r}_0)\right] \nonumber \\
+\left[(\Point{q}_2 - \Point{q}_1) 
+\ \times \  \Point{r}_0)\right] \nonumber \\
 & = &
-\frac{\Normal{a}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)}{2\|\Normal{a}(\Point{q})\|}
+\frac{\Normal{a}(\Point{q}) 
+\times (\Point{q}_2 - \Point{q}_1)}{2\|\Normal{a}(\Point{q})\|}
 \bullet
 \Point{r}_0 \nonumber
 \end{eqnarray}
@@ -193,11 +207,11 @@ Following \cref{eq:normalized_function_derivative}, the derivative is:
 
 \begin{eqnarray}
 \label{eq:unit_normal_derivative}
-\Dc{\Normal{n}}{\Point{p}}{\Point{q}}
+\Derivative{\Normal{n}}[\Point{p}][\Point{q}]
 &  =
 & \frac{ \left( {\| \Normal{a}(\Point{p}) \|^2 \Identity_{\Reals^3}  -  \Normal{a}(\Point{p}) \otimes \Normal{a}(\Point{p}) }
 {\| \Normal{a}(\Point{p}) \|^3} \right) }
-\; \Dc{\Normal{a}}{\Point{p}}{\Point{q}}
+\; \Derivative{\Normal{a}}[\Point{p}][\Point{q}]
  \\
 & & \nonumber\\
 &  =
@@ -224,7 +238,7 @@ Following \cref{eq:normalized_function_derivative}, the derivative is:
 \nonumber \\
 & & \nonumber\\
 &  =
-& { \left( {\Identity_{\Reals^3}  -  \Normal{n}(\Point{p}) \otimes \Normal{n}(\Point{p}) } \over {\| \Normal{a}(\Point{p}) \|} \right)} \ast \; \Dc{\Normal{a}}{\Point{p}}{\Point{q}}
+& { \left( {\Identity_{\Reals^3}  -  \Normal{n}(\Point{p}) \otimes \Normal{n}(\Point{p}) } \over {\| \Normal{a}(\Point{p}) \|} \right)} \ast \; \Derivative{\Normal{a}}[\Point{p}][\Point{q}]
 \nonumber
 \end{eqnarray}
 
