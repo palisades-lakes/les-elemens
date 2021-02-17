@@ -69,7 +69,7 @@ d_{\Set{V}}(\Set{M}_0,\Set{M}_1) =
 The gradient of $d_{\Set{V}}$ with respect to the positions
 of the $i$th vertex of $\Set{M}_0$ is:
 \begin{equation}
-\Gc{\Vector{p}_{0i}}{d_{\Set{V}}}{q} = 
+\Gradient[\Vector{p}_{0i}]{d_{\Set{V}}}[q] = 
 2 \left[ \Vector{q}_{0i} - \Vector{p}_{1i} \right]
 \end{equation}
 
@@ -83,12 +83,16 @@ In many problems, the vertex correspondence used in
 Or we may want to register a mesh to a target data set.
 In such cases, we can use the projection distance:
 \begin{equation}
-d_{\Pr}(\Set{M},\Vector{p}_1) = \sum_{i=0}^{n-1} \| \Pr_{\Set{M}}(\Vector{p}_{1i}) - \Vector{p}_{1i} \|^2,
+d_{\Pr}(\Set{M},\Vector{p}_1) 
+= \sum_{i=0}^{n-1} \| 
+\Pr_{\Set{M}}(\Vector{p}_{1i}) - \Vector{p}_{1i} \|^2,
 \end{equation}
-where the target $\Vector{p}_1 = (\Vector{p}_{10}, \ldots \Vector{p}_{1(n-1)})$
+where the target 
+$\Vector{p}_1 = (\Vector{p}_{10}, \ldots \Vector{p}_{1(n-1)})$
 is either a set of data points,
 or the set of positions of the vertices of a target mesh.
-$\Pr_{\Set{M}}(\Vector{p})$ is the projection of the point $\Vector{p} \in \Reals^3$
+$\Pr_{\Set{M}}(\Vector{p})$ is the projection of the point 
+$\Vector{p} \in \Reals^3$
 on the mesh $\Set{M}$.
 This is the same as the general data fitting distance, and
 derivatives with respect to the positions of the vertices
@@ -117,10 +121,10 @@ the derivative:
 \end{equation}
 o, equivalently, the gradient:
 \begin{equation}
-\Gc{\Vector{T}}{f( \Set{M}(\Vector{T}\Vector{p}) )}{\Vector{T}_0}
+\Gradient[\Vector{T}]{f( \Set{M}(\Vector{T}\Vector{p}) )}[\Vector{T}_0]
  =
 \Derivative[\Vector{T}]{\Vector{T}\Vector{p}}[\Vector{T}_0]^\dagger
-\Gc{\Vector{q}}{f(\Set{M}(\Vector{q})))}{\Vector{T}_0\Vector{p}}
+\Gradient[\Vector{q}]{f(\Set{M}(\Vector{q})))}[\Vector{T}_0\Vector{p}]
 \end{equation}
 
 I assume in the following
@@ -188,11 +192,11 @@ and:
 For the gradient, the equivalent is:
 \begin{equation}
 \label{eq:registration-gradient-sum}
-\Gc{\Vector{T}}{f( \Vector{T} \Vector{p} )}{\Vector{T}_0}
+\Gradient[\Vector{T}]{f( \Vector{T} \Vector{p} )}[\Vector{T}_0]
  =
 \sum_i
 \left( \Derivative[\Vector{T}]{\Vector{T}\Vector{p}_i}[\Vector{T}_0] \right)^{\dagger} \;
-\left( \Gc{\Vector{q}_i}{f(\Vector{q})}{\Vector{q}=\Vector{T}_0\Vector{p}} \right)
+\left( \Gradient[\Vector{q}_i]{f(\Vector{q})}[\Vector{q}=\Vector{T}_0\Vector{p}] \right)
 \end{equation}
 
 The derivative with respect to vertex or data points,
@@ -433,25 +437,25 @@ In computing the gradients of registration penalties,
 we sum expressions like
 $\Derivative[\Vector{q}]
 {\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
-\Gf{\Vector{p}_i}{f}$
+\Gradient[\Vector{p}_i]{f}$
 (see \cref{eq:registration-gradient-sum}).
 In terms of the partial derivative matrices,
 this is:
 \begin{equation}
 \Derivative[\Vector{q}]
 {\left( \Vector{S}(\Vector{q})\Vector{p}_i \right)}^{\dagger} \;
-\Gf{\Vector{p}_i}{f}
+\Gradient[\Vector{p}_i]{f}
 =
 \left(
 \begin{array}{c}
 \left( \Derivative[w]{\Vector{S}(\Vector{q})} 
-\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p} \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[x]{\Vector{S}(\Vector{q})} 
-\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p} \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[y]{\Vector{S}(\Vector{q})} 
-\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p} \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[z]{\Vector{S}(\Vector{q})} 
-\; \Vector{p} \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p} \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \end{array}
 \right)
 \end{equation}
@@ -667,7 +671,7 @@ z_{\Vector{t}}
 In computing the gradients of registration penalties,
 we sum expressions like
 $\Derivative[\Vector{q}, \Vector{t}]{\left( \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i \right)}^{\dagger} \;
-\Gf{\Vector{p}_i}{f}$
+\Gradient[\Vector{p}_i]{f}$
 (see \cref{eq:registration-gradient-sum}).
 Using the results in sections
 \ref{sec:Scaled-rotations}
@@ -681,22 +685,22 @@ this is:
 \left[
 \Derivative[\Vector{q},\Vector{t}]{\; \Vector{E}(\Vector{q},\Vector{t})\Vector{p}_i}
 \right]^{\dagger} \;
-\Gf{\Vector{p}_i}{f}
+\Gradient[\Vector{p}_i]{f}
 =
 \left(
 \begin{array}{c}
 \left( \Derivative[w_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[x_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[y_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( \Derivative[z_{\Vector{q}}]{\Vector{S}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \end{array}
 \right)
 \oplus
-\Gf{\Vector{p}_i}{f}
+\Gradient[\Vector{p}_i]{f}
 \end{equation}
 
 \end{plSection}%{Euclidean registration}
@@ -720,26 +724,26 @@ partials of $\Vector{R}(\Vector{q})$, that is:
 \Derivative[\Vector{q},\Vector{t}]
 {\Vector{G}(\Vector{q},\Vector{t}) \Vector{p}_i}
 \right]^{\dagger} \;
-\Gf{\Vector{p}_i}{f}
+\Gradient[\Vector{p}_i]{f}
 =
 \left(
 \begin{array}{c}
 \left( 
 \Derivative[w_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( 
 \Derivative[x_{\Vector{q}}]{\Vector{R}(\Vector{q})}
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( 
 \Derivative[y_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \left( 
 \Derivative[z_{\Vector{q}}]{\Vector{R}(\Vector{q})} 
-\; \Vector{p}_i \right) \bullet \Gf{\Vector{p}_i}{f} \\
+\; \Vector{p}_i \right) \bullet \Gradient[\Vector{p}_i]{f} \\
 \end{array}
 \right)
 \oplus
-\Gf{\Vector{p}_i}{f}
+\Gradient[\Vector{p}_i]{f}
 \end{equation}
 \end{plSection}%{Rigid registration}
 %-----------------------------------------------------------------

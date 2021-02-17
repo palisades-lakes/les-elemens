@@ -258,7 +258,7 @@ follows that for derivatives:
 
 The gradient of $f$ at $\Vector{q}$.
 
-\item $\Gc{\Vector{p}_i}{f}{\Vector{q}}$
+\item $\Gradient[\Vector{p}_i]{f}[\Vector{q}]$
 
 The gradient of $f$
 with respect to $\Vector{p}_i$ at $\Vector{q}$.
@@ -270,7 +270,7 @@ with an explicit argument is to write expressions for
 the inner product of the gradient and an arbitrary other vector 
 $\Vector{r}$
 
-\item $(\Gc{\Vector{p}_i}{f}{\Vector{q}}) \bullet \;\Vector{r}_i$
+\item $(\Gradient[\Vector{p}_i]{f}[\Vector{q}]) \bullet \;\Vector{r}_i$
 
 See above.
 
@@ -453,7 +453,10 @@ It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$
 \;\Derivative{\Vector{g}}{\Vector{p}} 
 \;+ \Vector{g}(\Vector{p}) \; 
 \Derivative{f}[\Vector{p}]  \\
-& = & f(\Vector{p}) \;\Derivative{\Vector{g}}{\Vector{p}} \;+ \Vector{g}(\Vector{p}) \otimes \Gb{f}[\Vector{p}] \; \nonumber
+& = & f(\Vector{p}) \;
+\Derivative{\Vector{g}}{\Vector{p}} 
+\;+ \Vector{g}(\Vector{p}) \otimes 
+\Gradient{f}[\Vector{p}] \; \nonumber
 \end{eqnarray}
 
 \end{plSection}%{Derivatives of scalar products}
@@ -626,14 +629,18 @@ it follows that:
 \begin{plSection}{Derivatives of angles}
 \label{sec:derivatives-of-angles}
 
-The angle between 2 vectors $\Vector{p}_0, \Vector{p}_1 \in \Reals^m$, is the inverse cosine
+The angle between 2 vectors 
+$\Vector{p}_0, \Vector{p}_1 \in \Reals^m$, 
+is the inverse cosine
 of their normalized inner product:
 \begin{equation}
 \theta(\Vector{p}_0,\Vector{p}_1)
 =
 \cos^{-1}
 \left(
-{ \Vector{p}_0 \bullet \Vector{p}_1 } \over {\|\Vector{p}_0\| \|\Vector{p}_1\|}
+{ \Vector{p}_0 \bullet \Vector{p}_1 } 
+\over 
+{\|\Vector{p}_0\| \|\Vector{p}_1\|}
 \right)
 \end{equation}
 Recall that the derivative of the $\cos^{-1}$ is:
@@ -643,23 +650,33 @@ Recall that the derivative of the $\cos^{-1}$ is:
 It follows that:
 \begin{eqnarray}
 \label{eq:angle_gradient}
-\Gc{\Vector{p}_0}{\theta(\Vector{p}_0,\Vector{p}_1)}{\Vector{q}}
+\Gradient[\Vector{p}_0]{\theta(\Vector{p}_0,\Vector{p}_1)}[\Vector{q}]
 & = &
 {{-1} \over
-{ \sqrt{1 - \left( {\Vector{q}_0 \bullet \Vector{q}_1} \over {\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)^2 }}}
-\Gc{\Vector{p}_0}{\left( {\Vector{q}_0 \bullet \Vector{q}_1} \over {\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)} {\Vector{q}}
+{ \sqrt{1 - \left( {\Vector{q}_0 \bullet \Vector{q}_1} 
+\over
+ {\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)^2 }}}
+\Gradient[\Vector{p}_0]
+{\left( {\Vector{q}_0 \bullet \Vector{q}_1} 
+\over 
+{\| \Vector{q}_0 \| \| \Vector{q}_1 \|} \right)}
+[\Vector{q}]
 \\
 & = &
 {
 {-\|\Vector{q}_0\|\|\Vector{q}_1\|}
 \over
-{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 
+- \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
 {{\Vector{q}_1} \over {\|\Vector{q}_0\|\|\Vector{q}_1\|}}
 +
-{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right)} \over {\| \Vector{q}1 \|}}
-\Gc{\Vector{p}_0}{\left( {1} \over {\| \Vector{p}_0 \|} \right)} {\Vector{q}}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right)} 
+\over {\| \Vector{q}1 \|}}
+\Gradient[\Vector{p}_0]
+{\left({1} \over {\| \Vector{p}_0 \|} \right)} 
+[\Vector{q}]
 \right]
 \nonumber
 \\
@@ -667,12 +684,15 @@ It follows that:
 {
 {-\|\Vector{q}_0\|\|\Vector{q}_1\|}
 \over
-{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 
+- \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
 {{\Vector{q}_1} \over {\|\Vector{q}_0\|\|\Vector{q}_1\|}}
 -
-{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}_0} \over {\| \Vector{q}_1 \| \|\Vector{q}_0\|^3}}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}_0} 
+\over 
+{\| \Vector{q}_1 \| \|\Vector{q}_0\|^3}}
 \right]
 \nonumber
 \\
@@ -680,12 +700,14 @@ It follows that:
 {
 {-1}
 \over
-{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 
+- \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \left[
 \Vector{q}_1
 -
-{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}0} \over {\|\Vector{q}_0\|^2}}
+{{\left( \Vector{q}_0 \bullet \Vector{q}_1 \right) \Vector{q}0} 
+\over {\|\Vector{q}_0\|^2}}
 \right]
 \nonumber
 \\
@@ -693,19 +715,21 @@ It follows that:
 {
 {- \Vector{q}_1 \perp \Vector{q}_0}
 \over
-{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2
+ - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \nonumber
 \\
 &  &
 \nonumber
 \\
-\Gc{\Vector{p}_1}{\theta(\Vector{p}_0,\Vector{p}_1)}{\Vector{q}}
+\Gradient[\Vector{p}_1]{\theta(\Vector{p}_0,\Vector{p}_1)}[\Vector{q}]
 & = &
 {
 {- \Vector{q}_0 \perp \Vector{q}_1}
 \over
-{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 - \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
+{ \sqrt{\|\Vector{q}_0\|^2\|\Vector{q}_1\|^2 
+- \left( \Vector{q}_0 \bullet \Vector{q}_1 \right)^2 }}
 }
 \nonumber
 \end{eqnarray}

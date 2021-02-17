@@ -30,21 +30,30 @@
 Consider the non-boundary vertex
 labeled $\Simplex{v}$ in figure \ref{diagram:VertexSurroundAngle}.
 $\Simplex{v}$ has degree $n$;
-the incident edges are labeled $\Simplex{e}_0, \Simplex{e}_1, \ldots, \Simplex{e}_{n-1}$;
-the incident faces are labeled $\Simplex{f}_0, \Simplex{f}_1, \ldots, \Simplex{f}_{n-1}$;
-and the neighboring vertices are labeled $\Simplex{v}_0, \Simplex{v}_1, \ldots, \Simplex{v}_{n-1}$.
-The angle between edges $\Simplex{e}_j$ and $\Simplex{e}_{j + 1 \bmod n}$ is $\gamma_j$.
+the incident edges are labeled 
+$\Simplex{e}_0, \Simplex{e}_1, \ldots, \Simplex{e}_{n-1}$;
+the incident faces are labeled 
+$\Simplex{f}_0, \Simplex{f}_1, \ldots, \Simplex{f}_{n-1}$;
+and the neighboring vertices are labeled 
+$\Simplex{v}_0, \Simplex{v}_1, \ldots, \Simplex{v}_{n-1}$.
+The angle between edges $\Simplex{e}_j$ and 
+$\Simplex{e}_{j + 1 \bmod n}$ is $\gamma_j$.
 
-$\gamma_j = \gamma(\Simplex{f}_j,\Simplex{v})$ is the {\em corner angle} in face $\Simplex{f}_j$
+$\gamma_j = \gamma(\Simplex{f}_j,\Simplex{v})$ is 
+the {\em corner angle} in face $\Simplex{f}_j$
 of vertex $\Simplex{v}$.
 
-The {\em surround angle} of $\Simplex{v}$ is the sum of all its corner angles:
+The {\em surround angle} of $\Simplex{v}$ is 
+the sum of all its corner angles:
 \begin{equation}
-\alpha(\Simplex{v}) = \sum_{j=0}^{n-1} \gamma(\Simplex{f}_j,\Simplex{v}),
+\alpha(\Simplex{v}) = 
+\sum_{j=0}^{n-1} \gamma(\Simplex{f}_j,\Simplex{v}),
 \end{equation}
 
-If the neighborhood of $\Simplex{v}$ is flat, then $\alpha(\Simplex{v})=2\pi$.
-A neighborhood with $\alpha(\Simplex{v}) < 2\pi$, corresponds very roughly
+If the neighborhood of $\Simplex{v}$ is flat, 
+then $\alpha(\Simplex{v})=2\pi$.
+A neighborhood with $\alpha(\Simplex{v}) < 2\pi$, 
+corresponds very roughly
 to positive Gaussian curvature,
 and, $\alpha(\Simplex{v}) > 2\pi$,
 is analogous to negative Gaussian curvature.
@@ -64,10 +73,12 @@ the more non-flat is the mesh.
 This leads to the following as a mesh roughness measure:
 \begin{eqnarray}
 f(\Set{M})
-& = & \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]^2
+& = & \sum_{\Simplex{v} \in \Set{V}(\Set{M})} 
+\left[ \alpha(\Simplex{v}) - 2\pi \right]^2
 \\
 & = & \sum_{\Simplex{v} \in \Set{V}(\Set{M})}
-\left[ \left(\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} \gamma(\Simplex{f},\Simplex{v})\right)
+\left[ \left(\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} 
+\gamma(\Simplex{f},\Simplex{v})\right)
  - 2\pi \right]^2
 \nonumber
 \end{eqnarray}
@@ -80,13 +91,20 @@ In computing the gradient, it's simplest to re-arrange the
 order of summation:
 \begin{eqnarray}
 \Gradient{f}
-& = & \Gradient{ \left[ \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]^2 \right]}
+& = & 
+\Gradient{\left[ \sum_{\Simplex{v} \in \Set{V}(\Set{M})} 
+\left[ \alpha(\Simplex{v}) - 2\pi \right]^2 
+\right]}
 \\
-& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right] \Gradient{\alpha(\Simplex{v})}
+& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} 
+\left[ \alpha(\Simplex{v}) - 2\pi \right] 
+\Gradient{\alpha(\Simplex{v})}
 \nonumber
 \\
-& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]
-\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} \Gradient{\gamma(\Simplex{f},\Simplex{v})}
+& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} 
+\left[ \alpha(\Simplex{v}) - 2\pi \right]
+\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} 
+\Gradient{\gamma(\Simplex{f},\Simplex{v})}
 \nonumber
 \\
 & = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})}
@@ -106,7 +124,10 @@ order of summation:
 \sum_{\Simplex{f} \in \Set{F}(\Set{M})}
 \sum_{i=0}^2
 \left[ \alpha(\Simplex{v}_i(\Simplex{f})) - 2\pi \right]
-\Gradient{\gamma(\Vector{p}_i(\Simplex{f}),\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}(\Simplex{f}))}
+\Gradient{\gamma(
+\Vector{p}_i(\Simplex{f}),
+\Vector{p}_{i+1 \% 2}(\Simplex{f}),
+\Vector{p}_{i+2 \% 3}(\Simplex{f}))}
 \nonumber
 \end{eqnarray}
 
@@ -114,57 +135,100 @@ Consider the partial gradient with respect to
 location of one of the vertices:
 \begin{eqnarray}
 \label{eq:surround_angle_partial_gradient}
-\Gc{\Vector{p}_j}{f}{q}
+\Gradient[\Vector{p}_j]{f}[q]
 & = 2 \sum_{\Simplex{f} \in \Set{F}(\Set{M})} &
 \sum_{i=0}^2
 \left[ \alpha(\Simplex{v}_i(\Simplex{f})) - 2\pi \right]
-\Gc{\Vector{p}_j}{\gamma(\Vector{p}_i(\Simplex{f}),\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}(\Simplex{f}))}{\Vector{q}}
+\Gradient[\Vector{p}_j]
+{\gamma(
+\Vector{p}_i(
+\Simplex{f}),
+\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}
+(\Simplex{f}))}[\Vector{q}]
 \\
 & = 2 \sum_{\Simplex{f} \in \Set{F}(\Simplex{v}_j)} &
 \sum_{i=0}^2
 \left[ \alpha(\Simplex{v}_i(\Simplex{f})) - 2\pi \right]
-\Gc{\Vector{p}_j}{\gamma(\Vector{p}_i(\Simplex{f}),\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}(\Simplex{f}))}{\Vector{q}}
+\Gradient[\Vector{p}_j]
+{\gamma(\Vector{p}_i(
+\Simplex{f}),
+\Vector{p}_{i+1 \% 2}(\Simplex{f}),
+\Vector{p}_{i+2 \% 3}(\Simplex{f}))}
+[\Vector{q}]
 \nonumber
 \\
 & = 2 \sum_{\Simplex{f} \in \Set{F}(\Simplex{v}_j)} & \left(
 \left[ \alpha({\mathrm p}(\Simplex{v}_j,\Simplex{f}) - 2\pi \right]
-\Gc{\Vector{p}_j}{\gamma({\mathrm p}(\Vector{p}_j,\Simplex{f}),\Vector{p}_j,{\mathrm s}(\Vector{p}_j,\Simplex{f}))}{\Vector{q}}
+\Gradient[\Vector{p}_j]
+{\gamma({\mathrm p}(
+\Vector{p}_j,
+\Simplex{f}),
+\Vector{p}_j,
+{\mathrm s}(\Vector{p}_j,\Simplex{f}))}
+[\Vector{q}]
 \right.
 \nonumber
 \\
 & & +
 \left[ \alpha(\Simplex{v}_j) - 2\pi \right]
-\Gc{\Vector{p}_j}{\gamma(\Vector{p}_j,{\mathrm s}(\Vector{p}_j,\Simplex{f}),{\mathrm p}(\Vector{p}_j,\Simplex{f})}{\Vector{q}}
+\Gradient[\Vector{p}_j]
+{\gamma(
+\Vector{p}_j,
+{\mathrm s}(
+\Vector{p}_j,
+\Simplex{f}),
+{\mathrm p}(\Vector{p}_j,\Simplex{f})}
+[\Vector{q}]
 \nonumber
 \\
 & & +
 \left.
-\left[ \alpha({\mathrm s}(\Simplex{v}_j,\Simplex{f}) - 2\pi \right]
-\Gc{\Vector{p}_j}{\gamma({\mathrm s}(\Vector{p}_j,\Simplex{f}),{\mathrm p}(\Vector{p}_j,\Simplex{f}),\Vector{p}_j)}{\Vector{q}}
+\left[\alpha({\mathrm s}(\Simplex{v}_j,\Simplex{f}) 
+- 2\pi \right]
+\Gradient[\Vector{p}_j]
+{\gamma({\mathrm s}(
+\Vector{p}_j,
+\Simplex{f}),
+{\mathrm p}(\Vector{p}_j,
+\Simplex{f}),
+\Vector{p}_j)}
+[\Vector{q}]
 \right)
 \nonumber
 \end{eqnarray}
-where ${\mathrm p}(\Simplex{v},\Simplex{f})$ is $\Simplex{v}$'s {\em predecessor},
-the vertex that comes before $\Simplex{v}$ in the oriented face $\Simplex{f}$,
+where ${\mathrm p}(\Simplex{v},\Simplex{f})$ 
+is $\Simplex{v}$'s {\em predecessor},
+the vertex that comes before $\Simplex{v}$ 
+in the oriented face $\Simplex{f}$,
 ${\mathrm s}(\Simplex{v}_j,\Simplex{f})$ the {\em successor}
 the vertex that comes after $\Simplex{v}$,
 and similarly for the vertex positions $\Vector{p}$.
 
 Consider the term corresponding to a particular face $\Simplex{f}$ in
 the sum in \cref{eq:surround_angle_partial_gradient}.
-Call that face's vertices and positions $\Simplex{v}_0, \Simplex{v}_1, \Simplex{v}_2$
+Call that face's vertices and positions 
+$\Simplex{v}_0, \Simplex{v}_1, \Simplex{v}_2$
 and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \begin{eqnarray}
-\Gc{\Vector{p}_0}{f_{\Simplex{f}}}{q}
+\Gradient[\Vector{p}_0]{f_{\Simplex{f}}}[q]
 & = &
-\left[ \alpha(\Simplex{v}_0) - 2\pi \right] \Gc{\Vector{p}_0}{\gamma(\Vector{p}_0,\Vector{p}_1,\Vector{p}_2)}{\Vector{q}}
+\left[ \alpha(\Simplex{v}_0) - 2\pi \right] 
+\Gradient[\Vector{p}_0]
+{\gamma(\Vector{p}_0,\Vector{p}_1,\Vector{p}_2)}
+[\Vector{q}]
 \\
 & + &
-\left[ \alpha(\Simplex{v}_1) - 2\pi \right] \Gc{\Vector{p}_0}{\gamma(\Vector{p}_1,\Vector{p}_2,\Vector{p}_0)}{\Vector{q}}
+\left[ \alpha(\Simplex{v}_1) - 2\pi \right] 
+\Gradient[\Vector{p}_0]
+{\gamma(\Vector{p}_1,\Vector{p}_2,\Vector{p}_0)}
+[\Vector{q}]
 \nonumber
 \\
 & + &
-\left[ \alpha(\Simplex{v}_2) - 2\pi \right] \Gc{\Vector{p}_0}{\gamma(\Vector{p}_2,\Vector{p}_0,\Vector{p}_1)}{\Vector{q}}
+\left[ \alpha(\Simplex{v}_2) - 2\pi \right] 
+\Gradient[\Vector{p}_0]
+{\gamma(\Vector{p}_2,\Vector{p}_0,\Vector{p}_1)}
+[\Vector{q}]
 \nonumber
 \\
 &  &
@@ -172,39 +236,56 @@ and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \\
 & = &
 \left[ \alpha(\Simplex{v}_0) - 2\pi \right]
-{{(\Vector{q}_1 - \Vector{q}_0) \perp (\Vector{q}_2 - \Vector{q}_0) + (\Vector{q}_2 - \Vector{q}_0) \perp (\Vector{q}_1 - \Vector{q}_0)}
+{{(\Vector{q}_1 - \Vector{q}_0) 
+\perp 
+(\Vector{q}_2 - \Vector{q}_0)
+ + (\Vector{q}_2 - \Vector{q}_0) 
+ \perp 
+ (\Vector{q}_1 - \Vector{q}_0)}
 \over
 {
 \sqrt{
-\| \Vector{q}_2 - \Vector{q}_0 \|^2 \| \Vector{q}_1 - \Vector{q}_0 \|^2
+\| \Vector{q}_2 - \Vector{q}_0 \|^2 
+\| \Vector{q}_1 - \Vector{q}_0 \|^2
 -
-\left( ( \Vector{q}_1 -\Vector{q}_0 ) \bullet ( \Vector{q}_2 -\Vector{q}_0 ) \right)^2
+\left( ( \Vector{q}_1 -\Vector{q}_0 ) 
+\bullet ( \Vector{q}_2 -\Vector{q}_0 ) \right)^2
 }
 }}
 \nonumber
 \\
 & - &
 \left[ \alpha(\Simplex{v}_1) - 2\pi \right]
-{{(\Vector{q}_0 - \Vector{q}_1) \perp (\Vector{q}_2 - \Vector{q}_1)}
+{{(\Vector{q}_0 - \Vector{q}_1) 
+\perp 
+(\Vector{q}_2 - \Vector{q}_1)}
 \over
 {
 \sqrt{
-\| \Vector{q}_0 - \Vector{q}_1 \|^2 \| \Vector{q}_2 - \Vector{q}_1 \|^2
+\| \Vector{q}_0 - \Vector{q}_1 \|^2 
+\| \Vector{q}_2 - \Vector{q}_1 \|^2
 -
-\left( ( \Vector{q}_0 -\Vector{q}_1 ) \bullet ( \Vector{q}_2 - \Vector{q}_1 ) \right)^2
+\left( ( \Vector{q}_0 -\Vector{q}_1 ) 
+\bullet 
+( \Vector{q}_2 - \Vector{q}_1 ) \right)^2
 }
 }}
 \nonumber
 \\
 & - &
 \left[ \alpha(\Simplex{v}_2) - 2\pi \right]
-{{(\Vector{q}_0 - \Vector{q}_2) \perp (\Vector{q}_1 - \Vector{q}_2)}
+{{(\Vector{q}_0 - \Vector{q}_2) 
+\perp 
+(\Vector{q}_1 - \Vector{q}_2)}
 \over
 {
 \sqrt{
-\| \Vector{q}_0 - \Vector{q}_2 \|^2 \| \Vector{q}_1 - \Vector{q}_2 \|^2
+\| \Vector{q}_0 - \Vector{q}_2 \|^2
+ \| \Vector{q}_1 - \Vector{q}_2 \|^2
 -
-\left( ( \Vector{q}_0 -\Vector{q}_2 ) \bullet ( \Vector{q}_1 -\Vector{q}_2 ) \right)^2
+\left( ( \Vector{q}_0 -\Vector{q}_2 )
+\bullet 
+( \Vector{q}_1 -\Vector{q}_2 ) \right)^2
 }
 } }
 \nonumber

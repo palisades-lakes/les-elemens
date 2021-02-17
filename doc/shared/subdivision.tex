@@ -6,13 +6,17 @@ I am only considering subdivision surfaces based on triangles
 \label{sec:Approximating-meshes}
 
 A common approach to the use of subdivision surfaces is
-to approximate the limit surface by the {\it subdivided mesh,} $\Set{M}^s$,
-a $k$ times subdivided version of the {\it control mesh,} $\Set{M}^c$
+to approximate the limit surface by the {\it subdivided mesh,} 
+$\Set{M}^s$,
+a $k$ times subdivided version of the {\it control mesh,} 
+$\Set{M}^c$
 (a typical value for $k$ is 2).
 The positions of the $n^c$ vertices of the control mesh,
-$\Vector{p}^c = (\Vector{p}^c_0 \ldots \Vector{p}^c_{n-1}) \\in \Reals^{3n^c},$
+$\Vector{p}^c = 
+(\Vector{p}^c_0 \ldots \Vector{p}^c_{n-1}) \\in \Reals^{3n^c},$
 and the $n^s$ vertices of the subdivided mesh,
-$\Vector{p}^s = (\Vector{p}^s_0 \ldots \Vector{p}^s_{n-1}) \in \Reals^{3n^s},$
+$\Vector{p}^s = 
+(\Vector{p}^s_0 \ldots \Vector{p}^s_{n-1}) \in \Reals^{3n^s},$
 are related by the {\it subdivision transform}
 $\Vector{S} : \Reals^{n^c} \mapsto \Reals^{n^s}$.
 If
@@ -21,7 +25,8 @@ $\Vector{y}^c = (y^c_0 \ldots y^c_{n-1}) \in \Reals^{n^c}$,
 and
 $\Vector{z}^c = (z^c_0 \ldots z^c_{n-1}) \in \Reals^{n^c}$,
 are the $x, y,$ and $z,$ coordinates of $\Vector{p}^c$,
-and $\Vector{x}^s, \Vector{y}^s, \Vector{z}^s$ are the same coordinates
+and $\Vector{x}^s, \Vector{y}^s, \Vector{z}^s$ 
+are the same coordinates
 of $\Vector{p}^s$, then
 \begin{eqnarray}
 \Vector{x}^s & = & \Vector{S} \Vector{x}^c
@@ -45,10 +50,14 @@ is a penalty function applied to the subdivided mesh,
 then the gradient with respect to the positions of
 the vertices of the control mesh is simply:
 \begin{equation}
-\Gc{\Vector{p}^c}{f(\Vector{S}_3 \Vector{p}^c)}{\Vector{q}^c}
- = \Vector{S}_3^{\dagger} 
-    \Gc{\Vector{p}^s}{f(\Vector{p}^s)}{\Vector{q}^s 
- = \Vector{S}_3 \Vector{q}^c}
+\Gradient[\Vector{p}^c]
+{f(\Vector{S}_3 \Vector{p}^c)}
+[\Vector{q}^c]
+ = 
+ \Vector{S}_3^{\dagger} 
+\Gradient[\Vector{p}^s]{f(\Vector{p}^s)}[\Vector{q}^c] 
+ = 
+\Vector{S}_3 \Vector{q}^c
 \end{equation}
 
 \end{plSection}%{Approximating meshes}

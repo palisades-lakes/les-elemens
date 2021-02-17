@@ -43,16 +43,19 @@ when a data point is equidistant from 2 distinct closest mesh points.
 \begin{plSection}{Distance to vertex}
 \label{sec:Distance-to-vertex}
 
-Let $\Vector{p} = \Vector{p}(\Simplex{v})$ be the position of a particular vertex $\Simplex{v}$,
+Let $\Vector{p} = \Vector{p}(\Simplex{v})$ 
+be the position of a particular vertex $\Simplex{v}$,
 and $\Vector{d}$ the 3d data point.
 It follows from \cref{eq:l2-gradient} that
 \begin{equation}
 \label{eq:vertex-distance-gradient}
-\Gc{\Vector{p}}{\| \Vector{p} - \Vector{d} \|^2}{\Vector{q}} = 2 ( \Vector{q} - \Vector{d} ).
+\Gradient[\Vector{p}]{\| \Vector{p} - \Vector{d} \|^2}[\Vector{q}] 
+= 2 ( \Vector{q} - \Vector{d} ).
 \end{equation}
 
 The distance to the nearest vertex in a set of vertices $\Set{V}$ is:
-$\min_{\Simplex{v} \in \Set{V}} \| \Vector{p}(\Simplex{v}) - \Vector{d} \|^2$.
+$\min_{\Simplex{v} \in \Set{V}} 
+\| \Vector{p}(\Simplex{v}) - \Vector{d} \|^2$.
 If $\Simplex{v}^{\mathrm min}$ is the minimizing vertex,
 and
 $\Vector{p}^{\mathrm min}$ its position,
@@ -69,10 +72,13 @@ Voronoi regions surrounding the vertices.
 \begin{plSection}{Distance to edge}
 \label{sec:Distance-to-edge}
 
-Let the edge $\Simplex{e}$ have end points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1) \in \Reals^6$.
-We can write the projection of a data point $\Vector{d}$ on $\Simplex{e}$ as:
+Let the edge $\Simplex{e}$ have end points 
+$\Vector{p} = (\Vector{p}_0, \Vector{p}_1) \in \Reals^6$.
+We can write the projection of a data point 
+$\Vector{d}$ on $\Simplex{e}$ as:
 \begin{equation}
-\Projection_\Vector{p} (\Vector{d}) = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1
+\Projection_\Vector{p} (\Vector{d}) 
+= b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1
 \end{equation}
 where
 \begin{eqnarray}
@@ -88,44 +94,79 @@ b_1(\Vector{p}) & = & 1 - b_0(\Vector{p})
 
 \begin{eqnarray}
 \label{eq:edge-distance-gradient-derivation}
-\Derivative[\Vector{p}_0]{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }[\Vector{q}]
+\Derivative[\Vector{p}_0]
+{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }
+[\Vector{q}]
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\Derivative[\Vector{p}_0]{\Projection_{\Vector{p}} (\Vector{d}) }[\Vector{q}]
+2 \left( 
+\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} 
+\right)^\dagger
+\Derivative[\Vector{p}_0]
+{\Projection_{\Vector{p}} (\Vector{d}) }
+[\Vector{q}]
 \\
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})\Vector{p}_0 + b_1(\Vector{p})\Vector{p}_1 \right]}[\Vector{q}]
+2 \left( 
+\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+ \right)^\dagger
+\Derivative[\Vector{p}_0]
+{\left[ 
+b_0(\Vector{p})\Vector{p}_0 + b_1(\Vector{p})\Vector{p}_1 
+\right]}
+[\Vector{q}]
 \nonumber \\
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})\Vector{p}_0 + (1 - b_0(\Vector{p}))\Vector{p}_1 \right]}[\Vector{q}]
+2 \left( 
+\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+ \right)^\dagger
+\Derivative[\Vector{p}_0]
+{\left[ 
+b_0(\Vector{p})\Vector{p}_0 + (1 - b_0(\Vector{p}))\Vector{p}_1 
+\right]}
+[\Vector{q}]
 \nonumber \\
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\Derivative[\Vector{p}_0]{\left[ b_0(\Vector{p})(\Vector{p}_0 - \Vector{p}_1) \right]}[\Vector{q}]
+2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+ \right)^\dagger
+\Derivative[\Vector{p}_0]
+{\left[ b_0(\Vector{p})(\Vector{p}_0 - \Vector{p}_1) \right]}
+[\Vector{q}]
 \nonumber \\
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\Vector{d}agger
-\left[ b_0(\Vector{q}) \Identity + (\Vector{q}_0 - \Vector{q}_1) \otimes \Gc{\Vector{p}_0}{b_0(\Vector{p})}{\Vector{q}} \right]
+2 \left( 
+\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\dagger
+\left[ b_0(\Vector{q}) \Identity + (\Vector{q}_0 - \Vector{q}_1)
+ \otimes 
+ \Gradient[\Vector{p}_0]{b_0(\Vector{p})}[\Vector{q}] \right]
 \nonumber
 \end{eqnarray}
-Because $\left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)$ is orthogonal to
+Because
+ $\left( \Projection_{\Vector{q}}
+  (\Vector{d}) - \Vector{d} \right)$ is orthogonal to
 $\left( \Vector{q}_0 - \Vector{q}_1 \right)$, we get:
 \begin{eqnarray}
 \label{eq:edge-distance-gradient}
-\Gc{\Vector{p}_0}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }{\Vector{q}}
-& = & 2 b_0(\Vector{q}) \left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
+\Gradient[\Vector{p}_0]
+{\| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2}
+[\Vector{q}]
+& = & 2 b_0(\Vector{q}) 
+\left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
 \\
-\Gc{\Vector{p}_1}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }{\Vector{q}}
-& = & 2 b_1(\Vector{q}) \left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\Gradient[\Vector{p}_1]
+{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+[\Vector{q}]
+& = & 2 b_1(\Vector{q}) 
+\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
 As in the vertex case,
 the distance to the nearest edge in a set of edges $\Set{E}$ is:
 \begin{equation}
-\| \Projection_{\Set{E}} (\Vector{d}) - \Vector{d}|^2 = \min_{\Simplex{e} \in \Set{E}} \| \Projection_{\Vector{p}(\Simplex{e})}(\Vector{d}) - \Vector{d} \|^2
+\| \Projection_{\Set{E}} (\Vector{d}) - \Vector{d}|^2
+ = \min_{\Simplex{e} \in \Set{E}}
+  \| \Projection_{\Vector{p}(\Simplex{e})}
+  (\Vector{d}) - \Vector{d} \|^2
 \end{equation}
 If $\Simplex{e}^{\min}$ is the minimizing edge,
 $\Simplex{v}_0^{\min}$ and $\Simplex{v}_1^{\min}$ its vertices,
@@ -134,7 +175,8 @@ the corresponding endpoints,
 then the partial gradient with respect to
 the position of any
 other vertex is zero,
-and the partial gradient with respect to $\Vector{p}_0^{\min}$ and $\Vector{p}_1^{\min}$
+and the partial gradient with respect 
+to $\Vector{p}_0^{\min}$ and $\Vector{p}_1^{\min}$
 is given in \cref{eq:edge-distance-gradient}.
 
 The total gradient is defined and continuous
@@ -151,27 +193,39 @@ edge with which it does not share a vertex.
 \begin{plSection}{Distance to face}
 \label{sec:Distance-to-face}
 
-Let the face $\Simplex{f}$ have corner points $\Vector{p} = (\Vector{p}_0, \Vector{p}_1, \Vector{p}_2) \in \Reals^9$.
+Let the face $\Simplex{f}$ have corner points 
+$\Vector{p} = (\Vector{p}_0, \Vector{p}_1, \Vector{p}_2) \in \Reals^9$.
 As in the edge case,
 we can write the projection of a data point $\Vector{d}$ on $\Simplex{f}$
 in terms of the barycentric coordinates as:
 \begin{equation}
-\Projection_\Vector{p} (\Vector{d}) = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1 + b_2(\Vector{p}) \Vector{p}_2,
+\Projection_\Vector{p} (\Vector{d}) = 
+b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1 
++ b_2(\Vector{p}) \Vector{p}_2,
 \end{equation}
-and, by an argument simlar to that used in
+and, by an argument similar to that used in
 \cref{eq:edge-distance-gradient-derivation},
 we can show that
 \begin{eqnarray}
 \label{eq:face-distance-gradient}
-\Gc{\Vector{p}_0}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }{\Vector{q}}
-& = & 2 b_0(\Vector{q}) \left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
+\Gradient[\Vector{p}_0]
+{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }
+[\Vector{q}]
+& = & 2 b_0(\Vector{q}) 
+\left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
 \\
-\Gc{\Vector{p}_1}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }{\Vector{q}}
-& = & 2 b_1(\Vector{q}) \left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\Gradient[\Vector{p}_1]
+{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+[\Vector{q}]
+& = & 2 b_1(\Vector{q}) 
+\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
 \nonumber
 \\
-\Gc{\Vector{p}_2}{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }{\Vector{q}}
-& = & 2 b_2(\Vector{q}) \left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\Gradient[\Vector{p}_2]
+{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+[\Vector{q}]
+& = & 2 b_2(\Vector{q}) 
+\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
@@ -181,7 +235,8 @@ for an edge (line segment).
 
 First center the problem by letting
 $\Vector{v} = \Vector{p} - \Vector{p}_0$,
-$\Vector{v}_1 = \Vector{p}_1 - \Vector{p}_0$, and $\Vector{v}_2 = \Vector{p}_2 - \Vector{p}_0$.
+$\Vector{v}_1 = \Vector{p}_1 - \Vector{p}_0$, 
+and $\Vector{v}_2 = \Vector{p}_2 - \Vector{p}_0$.
 Then compute the raw, unbounded barycentric coordinates
 of the projection of $\Vector{p}$ onto the plane
 spanned by the triangle:

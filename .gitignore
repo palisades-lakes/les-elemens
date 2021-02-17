@@ -30,7 +30,9 @@
 *.out
 *.xdy
 *.ist
-*syntex*
+*synctex*
+*.pl*
+*.mw
 /.externalToolBuilders/
 /.settings/
 /sum.log.txt

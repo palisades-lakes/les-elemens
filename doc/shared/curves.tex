@@ -47,7 +47,7 @@ One measure of the amount of bending is the cosine of $\alpha$:
 A little calculus shows that the partial gradients are:
 \begin{eqnarray}
 \label{eq:polyline-vertex-cosine-gradient}
-\Gf{\Vector{p}_0}{\cos(\alpha(\Vector{p}))}
+\Gradient[\Vector{p}_0]{\cos(\alpha(\Vector{p}))}
 & = &
 -
 \left[
@@ -60,14 +60,14 @@ A little calculus shows that the partial gradients are:
 {\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 \right]
 \\
-\Gf{\Vector{p}_1}{\cos(\alpha(\Vector{p}))}
+\Gradient[\Vector{p}_1]{\cos(\alpha(\Vector{p}))}
 & = &
 {{(\Vector{p}_2 - \Vector{p}_0) \perp  (\Vector{p}_1 - \Vector{p}_0)}
 \over
 {\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
 \nonumber
 \\
-\Gf{\Vector{p}_2}{\cos(\alpha(\Vector{p}))}
+\Gradient[\Vector{p}_2]{\cos(\alpha(\Vector{p}))}
 & = &
 {{(\Vector{p}_1 - \Vector{p}_0) \perp  (\Vector{p}_2 - \Vector{p}_0)}
 \over
@@ -89,13 +89,13 @@ we use $\left( \frac{1 + \cos(\alpha)}{2} \right)^2$.
 
 The gradient is:
 \begin{equation}
-\Gf{\Vector{p}}{\left( {{1 + \cos(\alpha(\Vector{p}))} \over 2} \right)^2}
+\Gradient[\Vector{p}]{\left( {{1 + \cos(\alpha(\Vector{p}))} \over 2} \right)^2}
 =
 \left( 1 + \cos(\alpha(\Vector{p})) \right)
-\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
+\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}$ is given
+$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ is given
 in \cref{eq:polyline-vertex-cosine-gradient}.
 
 \end{plSection}%{Squared Cosine}
@@ -118,13 +118,13 @@ Therefore we may choose to minimize the sum of negative angles:
 
 The gradient is:
 \begin{equation}
-\Gf{\Vector{p}}{-\alpha(\Vector{p})}
+\Gradient[\Vector{p}]{-\alpha(\Vector{p})}
 =
 {{1} \over {\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
-\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
+\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}$ is given
+$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ is given
 in \cref{eq:polyline-vertex-cosine-gradient}.
 
 \end{plSection}%{Angle}
@@ -137,15 +137,15 @@ we square $\pi - \alpha$.
 
 The gradient is:
 \begin{equation}
-\Gf{\Vector{p}}{\left( \pi - \alpha(\Vector{p}) \right)^2}
+\Gradient[\Vector{p}]{\left( \pi - \alpha(\Vector{p}) \right)^2}
 =
 {{2 \left( \pi - \alpha(\Vector{p}) \right)}
 \over
 {\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
-\Gf{\Vector{p}}{\cos\left(\alpha(\Vector{p})\right)}
+\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gf{\Vector{p}}{\cos \left( \alpha(\Vector{p}) \right)}$ is given
+$\Gradient[\Vector{p}]{\cos \left( \alpha(\Vector{p}) \right)}$ is given
 in \cref{eq:polyline-vertex-cosine-gradient}.
 
 \end{plSection}%{Squared Angle}

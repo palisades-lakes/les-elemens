@@ -59,7 +59,7 @@ The sum of corner angles for a given face is always $\pi$.
 Using \cref{eq:angle_gradient},
 it's easy to see that the partial gradients are:
 \begin{eqnarray}
-\Gc{\Point{p}_0}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gradient[\Point{p}_0]{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}[\Point{q}]
 & = &
 \frac{
 \left[ (\Point{q}_1 -\Point{q}_0) \perp (\Point{q}_2 - \Point{q}_0) \right]
@@ -69,14 +69,14 @@ it's easy to see that the partial gradients are:
 { \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
 \left( (\Point{q}_1 - \Point{q}_0) \bullet (\Point{q}_2 - \Point{q}_0) \right)^2 }}
 \\
-\Gc{\Point{p}_1}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gradient[\Point{p}_1]{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}[\Point{q}]
 & = &
 \frac{-(\Point{q}_1 -\Point{q}_0) \perp (\Point{q}_2 - \Point{q}_0)}
 { \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
 \left( (\Point{q}_1 - \Point{q}_0) \bullet (\Point{q}_2 - \Point{q}_0) \right)^2 }}
 \nonumber
 \\
-\Gc{\Point{p}_2}{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}{\Point{q}}
+\Gradient[\Point{p}_2]{\gamma(\Point{p}_0,\Point{p}_1,\Point{p}_2)}[\Point{q}]
 & = &
 \frac{-(\Point{q}_2 -\Point{q}_0) \perp (\Point{q}_1 - \Point{q}_0)}
 { \sqrt{\|\Point{q}_1 - \Point{q}_0\|^2\|\Point{q}_2 - \Point{q}_0\|^2 -
@@ -178,17 +178,43 @@ The last identity follows from \cref{eq:dot_cross}.
 
 The 'partial' gradients of the face area are then:
 \begin{eqnarray}
-\Gc{\Point{p}_0}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)}{2\|\Normal{a}(\Point{q})\|} \\
-\Gc{\Point{p}_1}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_0 - \Point{q}_2)}{2\|\Normal{a}(\Point{q})\|} \nonumber \\
-\Gc{\Point{p}_2}{A}{\Point{q}} & = & \frac{\Normal{a}(\Point{q}) \times (\Point{q}_1 - \Point{q}_0)}{2\|\Normal{a}(\Point{q})\|} \nonumber
+\Gradient[\Point{p}_0]{A}[\Point{q}] 
+& = & 
+\frac{
+\Normal{a}
+(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)}
+{2\|\Normal{a}(\Point{q})\|} \\
+\Gradient[\Point{p}_1]{A}[\Point{q}] 
+& = & \frac{
+\Normal{a}
+(\Point{q}) \times (\Point{q}_0 - \Point{q}_2)}
+{[2\|\Normal{a}(\Point{q})\|} \nonumber \\
+\Gradient[\Point{p}_2]{A}[\Point{q}]
+& = & \frac{
+\Normal{a}
+(\Point{q}) \times (\Point{q}_1 - \Point{q}_0)}
+{2\|\Normal{a}(\Point{q})\|} \nonumber
 \end{eqnarray}
 
-More simply, using the face unit normal \( \Normal{n}(\Point{p})  =  \frac{\Normal{a}(\Point{p})}{\| \Normal{a}(\Point{p}) \|} \):
+More simply, using the face unit normal 
+\( \Normal{n}(\Point{p})  
+=  
+\frac{\Normal{a}(\Point{p})}{\| \Normal{a}(\Point{p}) \|} \):
+
 \begin{eqnarray}
 \label{eq:area_gradient}
-\Gc{\Point{p}_0}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_2 - \Point{q}_1) \\
-\Gc{\Point{p}_1}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_0 - \Point{q}_2) \nonumber \\
-\Gc{\Point{p}_2}{A}{\Point{q}} & = & \frac{\Normal{n}(\Point{q})}{2} \times (\Point{q}_1 - \Point{q}_0) \nonumber
+\Gradient[\Point{p}_0]{A}[\Point{q}] 
+& = & 
+\frac{\Normal{n}(\Point{q})}{2} 
+\times (\Point{q}_2 - \Point{q}_1) \\
+\Gradient[\Point{p}_1]{A}[\Point{q}] 
+& = & 
+\frac{\Normal{n}(\Point{q})}{2} 
+\times (\Point{q}_0 - \Point{q}_2) \nonumber \\
+\Gradient[\Point{p}_2]{A}[\Point{q}] 
+& = & 
+\frac{\Normal{n}(\Point{q})}{2} 
+\times (\Point{q}_1 - \Point{q}_0) \nonumber
 \end{eqnarray}
 
 \end{plSection}%{Face area}
@@ -267,53 +293,74 @@ Using \cref{eq:area_gradient}, it follows that the
 partial gradients of L2A are:
 \begin{eqnarray}
 \label{eq:L2A_gradient}
-\Gc{\Point{p}_0}{L2A}{\Point{q}}
+\Gradient[\Point{p}_0]{L2A}[\Point{q}]
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_0 - \Point{p}_1 \right) + \left( \Point{p}_0 - \Point{p}_2 \right) \right]}
+\frac{2\left[ 
+\left( \Point{p}_0 - \Point{p}_1 \right) 
++ \left( \Point{p}_0 - \Point{p}_2 \right) 
+\right]}
 {A(\Point{q})}
 \right)
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
+\frac{ 
+\| \Point{p}_0 - \Point{p}_1 \|^2 
++ \| \Point{p}_1 - \Point{p}_2 \|^2 
++ \| \Point{p}_2 - \Point{p}_0 \|^2 
+}
 {2 A^2(\Point{q})}
 \left[ \Normal{n}(\Point{q}) \times (\Point{q}_2 - \Point{q}_1)
 \right]
 \right)
 \nonumber \\
-\Gc{\Point{p}_1}{L2A}{\Point{q}}
+\Gradient[\Point{p}_1]{L2A}[\Point{q}]
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_1 - \Point{p}_2 \right) + \left( \Point{p}_1 - \Point{p}_0 \right) \right]}
+\frac{2\left[ 
+\left( \Point{p}_1 - \Point{p}_2 \right) 
++ \left( \Point{p}_1 - \Point{p}_0 \right)
+ \right]}
 {A(\Point{q})}
 \right)
 \nonumber
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
+\frac{ 
+\| \Point{p}_0 - \Point{p}_1 \|^2 
++ \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 
+- \Point{p}_0 \|^2 }
 {2 A^2(\Point{q})}
-\left[ \Normal{n}(\Point{q}) \times (\Point{q}_0 - \Point{q}_2) \right]
+\left[ 
+\Normal{n}(\Point{q}) \times (\Point{q}_0 - \Point{q}_2) 
+\right]
 \right)
 \nonumber
 \\
-\Gc{\Point{p}_2}{L2A}{\Point{q}}
+\Gradient[\Point{p}_2]{L2A}[\Point{q}]
 & =
 &
 \left(
-\frac{2\left[ \left( \Point{p}_2 - \Point{p}_0 \right) + \left( \Point{p}_2 - \Point{p}_1 \right) \right]}
+\frac{2\left[ 
+\left( \Point{p}_2 - \Point{p}_0 \right) 
++ \left( \Point{p}_2 - \Point{p}_1 \right) 
+\right]}
 {A(\Point{q})}
 \right)
 \nonumber
 \\
 & - &
 \left(
-\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 - \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
+\frac{ \| \Point{p}_0 - \Point{p}_1 \|^2 + \| \Point{p}_1 
+- \Point{p}_2 \|^2 + \| \Point{p}_2 - \Point{p}_0 \|^2 }
 {2 A^2(\Point{q})}
-\left[ \Normal{n}(\Point{q}) \times (\Point{q}_1 - \Point{q}_0) \right]
+\left[ 
+\Normal{n}(\Point{q}) \times (\Point{q}_1 - \Point{q}_0) 
+\right]
 \right)
 \nonumber
 \end{eqnarray}
