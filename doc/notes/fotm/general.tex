@@ -230,16 +230,16 @@ partial derivatives.
 
 \begin{itemize}
 
-\item $\Ga{f}$
+\item $\Gradient{f}$
 
 In minimizing real-valued functions, $f(\Vector{p})$, $\Vector{p} \in \Reals^n$,
 we frequently need
-the {\it gradient,} $\Ga{f} \in \Reals^n$,
+the {\it gradient,} $\Gradient{f} \in \Reals^n$,
 the vector pointing in the direction of most rapid increase of $f$,
 whose magnitude is the rate of increase, or slope,
 of $f$ in that direction.
 
-The gradient, $\Ga{f}$,
+The gradient, $\Gradient{f}$,
 has a close relationship to the derivative, $\Derivative{f}$,
 and the two are often confused.
 Recall that the derivative is a linear transformation
@@ -248,13 +248,13 @@ In the case of real-valued functions,
 this means the derivative is a linear function on $\Reals^n$,
 an element of the dual space of $\Reals^n$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
-of the derivative, $\Ga{f} = (\Derivative{f})^{\dagger}$
+of the derivative, $\Gradient{f} = (\Derivative{f})^{\dagger}$
 (see \citeAuthorYearTitle[p. 96, ex. 4-18]{Spivak:1965:CalculusOnManifolds}).
 
 Notation for the various versions of the gradient
 follows that for derivatives:
 
-\item $\Gb{f}{\Vector{q}}$
+\item $\Gradient{f}[\Vector{q}]$
 
 The gradient of $f$ at $\Vector{q}$.
 
@@ -263,11 +263,12 @@ The gradient of $f$ at $\Vector{q}$.
 The gradient of $f$
 with respect to $\Vector{p}_i$ at $\Vector{q}$.
 
-\item $(\Gb{f}{\Vector{q}}) \bullet \; \Vector{r}$
+\item $(\Gradient{f}[\Vector{q}]) \bullet \; \Vector{r}$
 
-The analog to exressing the derivative as a linear transformation
+The analog to expressing the derivative as a linear transformation
 with an explicit argument is to write expressions for
-the inner product of the gradient and an arbitrary other vector $\Vector{r}$
+the inner product of the gradient and an arbitrary other vector 
+$\Vector{r}$
 
 \item $(\Gc{\Vector{p}_i}{f}{\Vector{q}}) \bullet \;\Vector{r}_i$
 
@@ -468,12 +469,14 @@ be its square
 and $ \| \Vector{p}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
-\Gb{l_2}{\Vector{p}} & = & {{ \Vector{p} } \over { \| \Vector{p}  \|}} \\
+\Gradient{l_2}[\Vector{p}] 
+& = & {{ \Vector{p} } \over { \| \Vector{p}  \|}} \\
 \Derivative{l_2}[\Vector{p}]
  & = & {{ \Vector{p}^\dagger } \over { \| \Vector{p}  \|}} \nonumber \\
-\Gb{l_2^2}{\Vector{p}} & = & 2\Vector{p} \nonumber \\ 
+\Gradient{l_2^2}[\Vector{p}] & = & 2\Vector{p} \nonumber \\ 
 \Derivative{l_2^2}[\Vector{p}] & = & 2\Vector{p}^\dagger \nonumber \\
-\Gb{l_2^3}{\Vector{p}} & = & 3 \| \Vector{p}  \| \Vector{p} \nonumber \\
+\Gradient{l_2^3}[\Vector{p}] 
+& = & 3 \| \Vector{p}  \| \Vector{p} \nonumber \\
 \Derivative{l_2^3}[\Vector{p}] 
 & = & 3 \| \Vector{p}  \| \Vector{p}^\dagger \nonumber
 \end{eqnarray}
@@ -486,7 +489,7 @@ $\Derivative{\| \Vector{f} \|^2}{\Vector{p}}
  \Derivative{\Vector{f}}[\Vector{p}] $.
 
 \begin{equation}
-\Gb{\| \Vector{f} \|^2}{\Vector{p}}  = 
+\Gradient{\| \Vector{f} \|^2}[\Vector{p}]  = 
  2 \;\Derivative{\Vector{f}}[\Vector{p}]^\dagger 
  \;\circ \;\Vector{f}(\Vector{p})
 \end{equation}
@@ -499,7 +502,7 @@ $\Derivative{\| \Vector{f} \|^2}{\Vector{p}}
 \over 
 {\| \Vector{f}(\Vector{p}) \|}} 
 \Derivative{\Vector{f}}[\Vector{p}]  \\
-\Gb{\| \Vector{f} \|}{\Vector{p}}
+\Gradient{\| \Vector{f} \|}[\Vector{p}]
 & = &
 \left(\Derivative{\Vector{f}}[\Vector{p}]\right)^\dagger
  \;\circ \;{{\Vector{f}(\Vector{p})} 

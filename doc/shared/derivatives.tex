@@ -140,7 +140,7 @@ In minimizing a real-valued function, $f(\Vector{v})$, $\Vector{v} \in \Space{V}
 we frequently need to know both the direction of maximum increase of $f$
 the rate of increase, or slope, of $f$ in that direction.
 
-$\Ga{f}$ is the \textit{gradient} of $f$.
+$\Gradient{f}$ is the \textit{gradient} of $f$.
 The gradient has a close relationship to the derivative, $\Derivative{f}$,
 and the two are often confused.
 Recall that the derivative is a linear transformation
@@ -149,13 +149,14 @@ In the case of real-valued functions,
 this means the derivative is a linear function on $\Space{V}$,
 an element of the dual space of $\Space{V}$, a 'row' vector.
 It's easy to see that the gradient is simply the dual (the 'transpose')
-of the derivative, $\Ga{f} = (\Derivative{f})^{\dagger}$
+of the derivative, $\Gradient{f} = (\Derivative{f})^{\dagger}$
 (see Spivak \cite[p.~96, ex.~4-18]{Spivak:1965:CalculusOnManifolds}).
 
-$\Ga{f}$ maps $\Space{V} \mapsto \Space{V}$.
-$\Gb{f}{\Vector{u}} \in \Space{V}$ is the gradient of $f$ at $\Vector{u} \in \Space{V}$;
+$\Gradient{f}$ maps $\Space{V} \mapsto \Space{V}$.
+$\Gradient{f}[\Vector{u}] \in \Space{V}$ 
+is the gradient of $f$ at $\Vector{u} \in \Space{V}$;
 it points in the direction of most rapid increase of
-$f$ and its magnitude $\| \Gb{f}{\Vector{u}} \|$ is the
+$f$ and its magnitude $\| \Gradient{f}[\Vector{u}] \|$ is the
 slope of $f$ in that direction.
 
 Notation for the various versions of the gradient
@@ -164,22 +165,26 @@ $\Gc{\Vector{v}_i}{f}{\Vector{u}}$ is the partial gradient of $f$ with respect t
 $\Vector{u} = \left( \Vector{u}_0 \ldots \Vector{u}_{n-1} \right) \in \Space{V} = \oplus_{i=0}^{n-1} \Space{V}_i$
 $\Gc{\Vector{v}_i}{f}{\Vector{u}}$ is an element of $\Space{V}_i$.
 
-$(\Gb{f}{\Vector{u}}) \bullet  \Vector{t}$
+$(\Gradient{f}[\Vector{u}]) \bullet  \Vector{t}$
 and
 $(\Gc{\Vector{v}_i}{f}{\Vector{u}}) \bullet \Vector{t}_i$
-are the analogs to exressing the derivative as a linear transformation
+are the analogs to expressing the derivative as a linear transformation
 with an explicit argument.
-$(\Gb{f}{\Vector{u}}) \bullet  \Vector{t}$ is a real number.
+$(\Gradient{f}[\Vector{u}]) \bullet  \Vector{t}$ is a real number.
 If we take $t$ to be the canonical basis for $\Space{V}$
-we get an expression for $\Ga{f}$ in terms of the partial derivatives of $f$:
+we get an expression for $\Gradient{f}$ in terms of the partial derivatives of $f$:
 \begin{equation}
 \label{eq:gradient-from-partials}
-\Gb{f}{\Vector{u}} = \sum_{j=0}^{m-1} \left( \db{j}{f}{\Vector{u}} \right) \Vector{e}_j^{\Space{V}}
+\Gradient{f}[\Vector{u}] 
+= \sum_{j=0}^{m-1} 
+\left( 
+\db{j}{f}{\Vector{u}} 
+\right) \Vector{e}_j^{\Space{V}}
 \end{equation}
 
-$\Ga{\Vector{f}_i}$ is the gradient of a particular (real-valued) coordinate
+$\Gradient{\Vector{f}_i}$ is the gradient of a particular (real-valued) coordinate
 of a vector-valued function. It is related to the derivative $\Derivative{\Vector{f}}$
-in a way simlilar to the relationship between $\Derivative{\Vector{f}}$ and its partials $\da{j}{\Vector{f}}$.
+in a way similar to the relationship between $\Derivative{\Vector{f}}$ and its partials $\da{j}{\Vector{f}}$.
 \begin{equation}
 \Derivative{\Vector{f}}{\Vector{u}} = \sum_{i=0}^{n-1}  \Vector{e}_i^{\Space{W}} \otimes \Gb{\Vector{f}_i}[\Vector{u}]
 \end{equation}
@@ -672,12 +677,14 @@ which results in
 \Gc{\Vector{v}_0}{\theta(\Vector{v}_0,\Vector{v}_1)}{\Vector{u}}
 & = &
 \frac{- \Vector{u}_1 \perp \Vector{u}_0}
-{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 
+- \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \\
 \Gc{\Vector{v}_1}{\theta(\Vector{v}_0,\Vector{v}_1)}{\Vector{u}}
 & = &
 \frac{- \Vector{u}_0 \perp \Vector{u}_1}
-{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 - \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
+{ \sqrt{\|\Vector{u}_0\|^2\|\Vector{u}_1\|^2 
+- \left( \Vector{u}_0 \bullet \Vector{u}_1 \right)^2 }}
 \nonumber
 \end{eqnarray}
 
@@ -692,11 +699,15 @@ Let $l_2^2(\Vector{v}) = \| \Vector{v}  \|^2 $
 be its square and $ \| \Vector{v}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
-\Gb{l_2}{\Vector{v}} = \frac{ \Vector{v} }{ \| \Vector{v}  \|} &
-\Gb{l_2^2}{\Vector{v}} =  2\Vector{v} &
-\Gb{l_2^3}{\Vector{v}} = 3 \| \Vector{v}  \| \Vector{v} \\
-\Derivative{l_2}{\Vector{v}} = \frac{ \Vector{v}^\dagger }[ \| \Vector{v}  \|] &
-\Derivative{l_2^2}{\Vector{v}} = 2\Vector{v}[^\dagger] &
+\Gradient{l_2}[\Vector{v}]
+ = \frac{ \Vector{v} }{\| \Vector{v}  \|} &
+\Gradient{l_2^2}[\Vector{v}] 
+=  2\Vector{v]}&
+\Gradient{l_2^3}[\Vector{v}]
+ = 3 \| \Vector{v}  \| \Vector{v} \\
+\Derivative{l_2}[\Vector{v}] 
+= \frac{ \Vector{v}^\dagger }{ \| \Vector{v}  \|} &
+\Derivative{l_2^2}[\Vector{v}] = 2\Vector{v}^\dagger &
 \Derivative{l_2^3}[\Vector{v}] 
 = 3 \| \Vector{v}  \| \Vector{v}^\dagger \nonumber
 \end{eqnarray}
@@ -707,7 +718,7 @@ $\Derivative{\| \Vector{f} \|^2}{\Vector{v}}
 =  2 {\Vector{f}(\Vector{v})}^{\dagger} 
 \Derivative{\Vector{f}}[\Vector{v}] $
 and
-$\Gb{\| \Vector{f} \|^2}{\Vector{v}}  
+$\Gradient{\| \Vector{f} \|^2}[\Vector{v}]  
 =  2 \Derivative{\Vector{f}}[\Vector{v}]^\dagger 
 \circ \Vector{f}(\Vector{v})$.
 \begin{eqnarray}
@@ -715,7 +726,7 @@ $\Gb{\| \Vector{f} \|^2}{\Vector{v}}
 \Derivative{\| \Vector{f} \|}[\Vector{v}]
 & = &
 \frac{\Vector{f}(\Vector{v})^\dagger}{\| \Vector{f}(\Vector{v}) \|} \Derivative{\Vector{f}}[\Vector{v}]  \\
-\Gb{\| \Vector{f} \|}{\Vector{v}}
+\Gradient{\| \Vector{f} \|}[\Vector{v}]
 & = &
 \left(\Derivative{\Vector{f}}{\Vector{v}}\right)^\dagger \circ  \frac{\Vector{f}(\Vector{v})}[ \| \Vector{f}(\Vector{v})  \|]
 \label{eq:norm_gradient}
@@ -785,9 +796,10 @@ $\Vector{L}_0 \in  \Space{L}(\Space{V}_0,\Space{W}_0)$,
 $\db{ij}{\Vector{f}}{\Vector{L}_0}$ is an element of the co-domain of $\Vector{f}$,
 a linear function in  $\Space{L}(\Space{V}_1,\Space{W}_1)$.
 
-$\Ga{\Vector{f}_{kl}}$ is the gradient of the $kl$-th matrix coordinate of the value of $\Vector{f}$.
+$\Gradient{\Vector{f}_{kl}}$ is the gradient of the $kl$-th matrix coordinate of the value of $\Vector{f}$.
 As usual, the value of the gradient at a specific $\Vector{L}_0$,
-$\Gb{\Vector{f}_{kl}}{\Vector{L}_0}$ is an element of the domain of $\Vector{f}$,
+$\Gradient{\Vector{f}_{kl}}[\Vector{L}_0]$ 
+is an element of the domain of $\Vector{f}$,
 a linear function in $\Space{L}(\Space{V}_0,\Space{W}_0)$.
 
 Note that nether of these are elements of the Jacobian of $\Vector{f}$,
@@ -918,7 +930,7 @@ and the fact that
 $\Vector{E}_{ij}^{\Space{L}(\Space{V},\Space{W})}  = \Vector{e}_i^{\Space{W}} \otimes \Vector{e}_j^{\Space{V}}$
 are the canonical basis vectors for $\Space{L}(\Space{V},\Space{W})$:
 \begin{eqnarray}
-\Gb{\LTL_{kl}}{\Vector{L}}
+\Gradient{\LTL_{kl}}[\Vector{L}]
 & = &
 \sum_{ij}
 \left( \db{ij}{\LTL_{kl}}{\Vector{L}} \right)
@@ -1066,7 +1078,7 @@ By the chain rule
 \sum_{kl}
 \db{kl}{\Inverse}{\Vector{L}^{\dagger}\Vector{L}}
 \otimes
-\Gb{\LTL_{kl}}{\Vector{L}}
+\Gradient{\LTL_{kl}}[\Vector{L}]
 \\
 & = &
 \sum_{kl}

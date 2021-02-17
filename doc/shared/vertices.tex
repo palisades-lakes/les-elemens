@@ -79,34 +79,34 @@ and then do a lookup while computing the sum.
 In computing the gradient, it's simplest to re-arrange the
 order of summation:
 \begin{eqnarray}
-\Ga{f}
-& = & \Ga{ \left[ \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]^2 \right]}
+\Gradient{f}
+& = & \Gradient{ \left[ \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]^2 \right]}
 \\
-& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right] \Ga{\alpha(\Simplex{v})}
+& = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right] \Gradient{\alpha(\Simplex{v})}
 \nonumber
 \\
 & = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})} \left[ \alpha(\Simplex{v}) - 2\pi \right]
-\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} \Ga{\gamma(\Simplex{f},\Simplex{v})}
+\sum_{\Simplex{f} \in \Set{F}(\Simplex{v})} \Gradient{\gamma(\Simplex{f},\Simplex{v})}
 \nonumber
 \\
 & = & 2 \sum_{\Simplex{v} \in \Set{V}(\Set{M})}
 \sum_{\Simplex{f} \in \Set{F}(\Simplex{v})}
 \left[ \alpha(\Simplex{v}) - 2\pi \right]
-\Ga{\gamma(\Simplex{f},\Simplex{v})}
+\Gradient{\gamma(\Simplex{f},\Simplex{v})}
 \nonumber
 \\
 & = & 2
 \sum_{\Simplex{f} \in \Set{F}(\Set{M})}
 \sum_{\Simplex{v} \in \Set{V}(\Simplex{f})}
 \left[ \alpha(\Simplex{v}) - 2\pi \right]
-\Ga{\gamma(\Simplex{f},\Simplex{v})}
+\Gradient{\gamma(\Simplex{f},\Simplex{v})}
 \nonumber
 \\
 & = & 2
 \sum_{\Simplex{f} \in \Set{F}(\Set{M})}
 \sum_{i=0}^2
 \left[ \alpha(\Simplex{v}_i(\Simplex{f})) - 2\pi \right]
-\Ga{\gamma(\Vector{p}_i(\Simplex{f}),\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}(\Simplex{f}))}
+\Gradient{\gamma(\Vector{p}_i(\Simplex{f}),\Vector{p}_{i+1 \% 2}(\Simplex{f}),\Vector{p}_{i+2 \% 3}(\Simplex{f}))}
 \nonumber
 \end{eqnarray}
 
