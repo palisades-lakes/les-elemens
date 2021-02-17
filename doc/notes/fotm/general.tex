@@ -523,31 +523,53 @@ and \cref{eq:norm_derivative}:
 \begin{eqnarray}
 \Derivative{\tilde{\Vector{f}}}[\Vector{p}][\Vector{q}]
 & = &
-\Derivative{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}[\Vector{p}][\Vector{q}]
+\Derivative{\left({\Vector{f} \over {\| \Vector{f} \|}}\right)}
+[\Vector{p}][\Vector{q}]
 \\
 & = &
-{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]
+ \over {\| \Vector{f}(\Vector{p}) \|}}
 \; + \;
-\Vector{f}(\Vector{p}) \; \Derivative{\left({1 \over {\| \Vector{f} \|}}\right)}[\Vector{p}][\Vector{q}] \nonumber \\
+\Vector{f}(\Vector{p}) \; 
+\Derivative{\left({1 \over {\| \Vector{f} \|}}\right)}
+[\Vector{p}][\Vector{q}] \nonumber \\
 & = &
-{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] 
+\over {\| \Vector{f}(\Vector{p}) \|}}
 \; - \;
-\Vector{f}(\Vector{p}) {{\Derivative{\| \Vector{f} \|}[\Vector{p}][\Vector{q}}} \over {\|\Vector{f}(\Vector{p})\|^2}] \nonumber \\
+\Vector{f}(\Vector{p}) 
+{{\Derivative{\| \Vector{f} \|}[\Vector{p}][\Vector{q}]}
+\over {\|\Vector{f}(\Vector{p})\|^2}} \nonumber \\
 & = &
-{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \over {\| \Vector{f}(\Vector{p}) \|}]
+{\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]
+ \over {\| \Vector{f}(\Vector{p}) \|}}
 \; - \;
-\Vector{f}(\Vector{p}) \left( {{\Vector{f}(\Vector{p})^\dagger} \over {\| \Vector{f}(\Vector{p}) \|^3}} \;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \right) \nonumber \\
+\Vector{f}(\Vector{p}) \left( 
+{{\Vector{f}(\Vector{p})^\dagger} 
+\over {\| \Vector{f}(\Vector{p}) \|^3}} 
+\;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] 
+\right) \nonumber \\
 & = &
-{\| \Vector{f}(\Vector{p}) \|^2 \Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]
+{\| \Vector{f}(\Vector{p}) \|^2 
+\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}]
 \; - \;
-\Vector{f}(\Vector{p})\left( \Vector{f}(\Vector{p}) \bullet \Derivative{\Vector{f}}[\Vector{p}][\Vector{q}} \right) ]
+\Vector{f}(\Vector{p})\left( 
+\Vector{f}(\Vector{p}) \bullet 
+\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \right) }
 \over {\| \Vector{f}(\Vector{p}) \|^3}  \nonumber \\
 & = &
-{{\| \Vector{f}(\Vector{p}) \|^2 \Identity_{\Reals^3} \;- \;\left( \Vector{f}(\Vector{p}) \otimes \Vector{f}(\Vector{p}) \right)  }
+{{\| \Vector{f}(\Vector{p}) \|^2 
+\Identity_{\Reals^3} \;- \;
+\left( \Vector{f}(\Vector{p})
+ \otimes \Vector{f}(\Vector{p}) \right)  }
 \over {\| \Vector{f}(\Vector{p}) \|^3} }
 \;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \nonumber \\
 & = &
-{{\Identity_{\Reals^3} \;- \;\left( \tilde{\Vector{f}}(\Vector{p}) \otimes \tilde{\Vector{f}}(\Vector{p}) \right)  }
+{{\Identity_{\Reals^3} \;- \;
+\left( 
+\tilde{\Vector{f}}(\Vector{p})
+ \otimes \tilde{\Vector{f}}(\Vector{p}) 
+ \right)  }
 \over {\| \Vector{f}(\Vector{p}) \|} }
 \;\Derivative{\Vector{f}}[\Vector{p}][\Vector{q}] \nonumber
 \end{eqnarray}

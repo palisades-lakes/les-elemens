@@ -76,7 +76,8 @@ applied to the vector $\Vector{t}$.
 [\Vector{t}_i]$
 
 For functions on direct sum spaces,
-$\Vector{f}(\Vector{v}_0,\Vector{v}_1, \ldots, \Vector{v}_{n-1})$, $\Vector{v}_i \in \Space{V}_i$,
+$\Vector{f}(\Vector{v}_0,\Vector{v}_1, \ldots, \Vector{v}_{n-1})$, 
+$\Vector{v}_i \in \Space{V}_i$,
 it's often easier to consider the derivative
 with respect to one argument at a time.
 I write 
@@ -84,7 +85,9 @@ $\Derivative[\Vector{v}_i]{\Vector{f}}
 [(\Vector{u}_0 \ldots \Vector{u}_{n-1})]
 [\Vector{t}_0 \ldots \Vector{t}_{n-1}]$
 for the derivative of $\Vector{f}$ with respect to $\Vector{v}_i$,
-at the point $(\Vector{u}_0 \ldots \Vector{u}_{n-1}) \in \oplus_{i=0}^{n-1} \Space{V}_i$,
+at the point 
+$(\Vector{u}_0 \ldots \Vector{u}_{n-1}) \in 
+\oplus_{i=0}^{n-1} \Space{V}_i$,
 applied to the vector $\Vector{t}_i \in \Space{V}_i$.
 
 \item $\da{j}{\Vector{f}} = \da{v_j}{\Vector{f}}$
@@ -92,16 +95,20 @@ applied to the vector $\Vector{t}_i \in \Space{V}_i$.
 The traditional partial derivative of $\Vector{f}$ is with respect to
 a single coordinate $v_j$ of the domain.
 More formally, this is the directional derivative of $\Vector{f}$
-in the direction of the $j$-th canonical basis vector $\Vector{e}_j^{\Space{V}}$.
+in the direction of the $j$-th canonical basis vector 
+$\Vector{e}_j^{\Space{V}}$.
 
-$\da{j}{\Vector{f}}$ is a function from the domain of $\Vector{f}$ to the co-domain of $\Vector{f}$.
-$\db{j}{\Vector{f}}{\Vector{u}}$ is the value of that function at $\Vector{u}$.
+$\da{j}{\Vector{f}}$ is a function from the domain 
+of $\Vector{f}$ to the co-domain of $\Vector{f}$.
+$\db{j}{\Vector{f}}{\Vector{u}}$ is the value of that function 
+at $\Vector{u}$.
 The partial derivative is related to the derivative by
 \begin{eqnarray}
 \label{eq:partial-full-dervatives}
 \Derivative{\Vector{f}}[\Vector{u}]
 & = &
-\sum_{j=0}^{m-1} \db{j}{\Vector{f}}{\Vector{u}} \otimes \Vector{e}_j^{\Space{V}}
+\sum_{j=0}^{m-1} \db{j}{\Vector{f}}{\Vector{u}} 
+\otimes \Vector{e}_j^{\Space{V}}
 \\
 \db{j}{\Vector{f}}{\Vector{u}}
 & = &
