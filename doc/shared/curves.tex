@@ -17,7 +17,7 @@
 \end{verbatim}
 \end{plDiagram}
 
-In this section, I disuss measures of curvature
+In this section, I discuss measures of curvature
 based on the bending at each vertex in a polyline.
 
 \end{plSection}%{Vertex Bends}
@@ -26,9 +26,11 @@ based on the bending at each vertex in a polyline.
 \label{sec:polyline-vertex-cosine}
 
 Consider the non-boundary vertex
-at point $\Vector{p}_0 \in \Reals^3$ in \cref{diagram:PolylineVertexNeighborhood}.
+at point $\Vector{p}_0 \in \Reals^3$ in 
+\cref{diagram:PolylineVertexNeighborhood}.
 $\Simplex{v}$ has degree $2$;
-the incident edges are labeled $\Simplex{e}_1$ and $Simplex{e}_2$;
+the incident edges are labeled 
+$\Simplex{e}_1$ and $\Simplex{e}_2$;
 and the neighboring vertices are at points $\Vector{p}_1 \in \Reals^3$
 and $\Vector{p}_2 \in \Reals^3$.
 The shape of the neighborhood is determined by
@@ -39,9 +41,9 @@ $\Simplex{e}_1$ and $\Simplex{e}_2$ is $\alpha(\Vector{p})$.
 One measure of the amount of bending is the cosine of $\alpha$:
 \begin{equation}
 \cos(\alpha(\Vector{p})) =
-{{(\Vector{p}_1 - \Vector{p}_0)} \over {\| \Vector{p}_1 - \Vector{p}_0 \|} }
+\frac{(\Vector{p}_1-\Vector{p}_0)}{\|\Vector{p}_1-\Vector{p}_0\|} 
 \bullet
-{{(\Vector{p}_2 - \Vector{p}_0)} \over {\| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{(\Vector{p}_2-\Vector{p}_0)}{\|\Vector{p}_2-\Vector{p}_0\|}
 \end{equation}
 
 A little calculus shows that the partial gradients are:
@@ -51,27 +53,27 @@ A little calculus shows that the partial gradients are:
 & = &
 -
 \left[
-{{(\Vector{p}_1 - \Vector{p}_0) \perp  (\Vector{p}_2 - \Vector{p}_0)}
-\over
-{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{
+(\Vector{p}_1-\Vector{p}_0)\perp(\Vector{p}_2-\Vector{p}_0)}
+{\|\Vector{p}_1 \Vector{p}_\|\,\|\Vector{p}_2-\Vector{p}_0\|}
 +
-{{(\Vector{p}_2 - \Vector{p}_0) \perp  (\Vector{p}_1 - \Vector{p}_0)}
-\over
-{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{
+(\Vector{p}_2-\Vector{p}_0)\perp(\Vector{p}_1-\Vector{p}_0)}
+{\|\Vector{p}_1-\Vector{p}_0\|\,\|\Vector{p}_2-\Vector{p}_0\|}
 \right]
 \\
 \Gradient[\Vector{p}_1]{\cos(\alpha(\Vector{p}))}
 & = &
-{{(\Vector{p}_2 - \Vector{p}_0) \perp  (\Vector{p}_1 - \Vector{p}_0)}
-\over
-{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{
+(\Vector{p}_2-\Vector{p}_0)\perp(\Vector{p}_1-\Vector{p}_0)}
+{\|\Vector{p}_1-\Vector{p}_0\|\|\Vector{p}_2-\Vector{p}_0\|}
 \nonumber
 \\
 \Gradient[\Vector{p}_2]{\cos(\alpha(\Vector{p}))}
 & = &
-{{(\Vector{p}_1 - \Vector{p}_0) \perp  (\Vector{p}_2 - \Vector{p}_0)}
-\over
-{\| \Vector{p}_1 - \Vector{p}_0 \| \| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{
+(\Vector{p}_1-\Vector{p}_0)\perp(\Vector{p}_2-\Vector{p}_0)}
+{\|\Vector{p}_1-\Vector{p}_0\|\|\Vector{p}_2-\Vector{p}_0\|}
 \nonumber
 \end{eqnarray}
 
@@ -89,13 +91,17 @@ we use $\left( \frac{1 + \cos(\alpha)}{2} \right)^2$.
 
 The gradient is:
 \begin{equation}
-\Gradient[\Vector{p}]{\left( {{1 + \cos(\alpha(\Vector{p}))} \over 2} \right)^2}
+\Gradient[\Vector{p}]
+{\left( 
+\frac{1 + \cos(\alpha(\Vector{p}))}{2} 
+\right)^2}
 =
 \left( 1 + \cos(\alpha(\Vector{p})) \right)
 \Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ is given
+$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ 
+is given
 in \cref{eq:polyline-vertex-cosine-gradient}.
 
 \end{plSection}%{Squared Cosine}
@@ -103,16 +109,15 @@ in \cref{eq:polyline-vertex-cosine-gradient}.
 \begin{plSection}{Angle}
 \label{sec:polyline-vertex-angle}
 
-
 The angle $\alpha$ is $\pi$ for a straight polyline,
 and $0$ for a maximally bent vertex.
 Therefore we may choose to minimize the sum of negative angles:
 \begin{equation}
 -\alpha(\Vector{p}) =
 -\cos^{-1} \left(
-{{(\Vector{p}_1 - \Vector{p}_0)} \over {\| \Vector{p}_1 - \Vector{p}_0 \|} }
+\frac{(\Vector{p}_1-\Vector{p}_0)}{\|\Vector{p}_1-\Vector{p}_0\|} 
 \bullet
-{{(\Vector{p}_2 - \Vector{p}_0)} \over {\| \Vector{p}_2 - \Vector{p}_0 \|} }
+\frac{(\Vector{p}_2-\Vector{p}_0)}{\|\Vector{p}_2-\Vector{p}_0\|}
 \right)
 \end{equation}
 
@@ -120,11 +125,12 @@ The gradient is:
 \begin{equation}
 \Gradient[\Vector{p}]{-\alpha(\Vector{p})}
 =
-{{1} \over {\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
+\frac{1}{\sqrt{ 1-\cos(\alpha(\Vector{p}))^2}}
 \Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 
-$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ is given
+$\Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}$ 
+is given
 in \cref{eq:polyline-vertex-cosine-gradient}.
 
 \end{plSection}%{Angle}
@@ -133,15 +139,14 @@ in \cref{eq:polyline-vertex-cosine-gradient}.
 \label{sec:polyline-vertex-squared-angle}
 
 Since $-\alpha$ ranges over $[-\pi,0]$
-we square $\pi - \alpha$.
+we square $\pi-\alpha$.
 
 The gradient is:
 \begin{equation}
-\Gradient[\Vector{p}]{\left( \pi - \alpha(\Vector{p}) \right)^2}
+\Gradient[\Vector{p}]{\left( \pi-\alpha(\Vector{p}) \right)^2}
 =
-{{2 \left( \pi - \alpha(\Vector{p}) \right)}
-\over
-{\sqrt{ 1 - \cos(\alpha(\Vector{p}))^2}}}
+\frac{2 \left( \pi-\alpha(\Vector{p}) \right)}
+{\sqrt{ 1-\cos(\alpha(\Vector{p}))^2}}
 \Gradient[\Vector{p}]{\cos\left(\alpha(\Vector{p})\right)}
 \end{equation}
 

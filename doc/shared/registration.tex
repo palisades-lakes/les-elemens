@@ -467,7 +467,7 @@ $\Vector{S}(\Vector{q}^{-1})$,
 corresponding to the inverse quaternion
 (in the sense of the quaternion product):
 $\Vector{q}^{-1} = (w, x, y, z)^{-1}
-= {1 \over {\| \Vector{q} \|_{\Set{Q}}^2}} (w, -x, -y, -z)$.
+= \frac{1}{\|\Vector{q}\|_{\Set{Q}}^2} (w, -x, -y, -z)$.
 
 To compute derivatives of expressions
 involving an inverse quaternion,
@@ -476,7 +476,7 @@ with respect to $\Vector{q}$:
 \begin{equation}
 \Derivative[\Vector{q}]{\Vector{q}^{-1}}
 =
-{1 \over {\| \Vector{q} \|_{\Set{Q}}^4}}
+\frac{1}{\|\Vector{q}\|_{\Set{Q}}^4}
 \left(
 \begin{array}{cccc}
 -w^2+x^2+y^2+z^2 & -2wx              & -2wy              & -2wz \\
@@ -499,7 +499,9 @@ However, optimization under a nonlinear constraint
 like $\| \Vector{q} \|_{\Set{Q}} = 1$ is relatively difficult,
 so I instead use a redundant representation by general quaternion:
 \begin{equation}
-\Vector{R}(\Vector{q}) = {{\Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
+\Vector{R}(\Vector{q}) = 
+\frac{\Vector{S}(\Vector{q})}
+{\| \Vector{q} \|_{\Set{Q}}^2}
 \end{equation}
 To avoid numerical instability, it's usually enough
 to add a small penalty for $\| \Vector{q} \|_{\Set{Q}}$ far from $1$.
@@ -513,12 +515,13 @@ the partials of $\Vector{S}(\Vector{q})$:
 \; = \;
 \Derivative[v]
 {\left(
-{{\Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
+\frac{\Vector{S}(\Vector{q})}{\| \Vector{q} \|_{\Set{Q}}^2}
 \right)}
 \; = \;
-{{\Derivative[v]{\Vector{S}(\Vector{q})}} \over {\| \Vector{q} \|_{\Set{Q}}^2}}
+\frac{\Derivative[v]{\Vector{S}(\Vector{q})}}
+{\| \Vector{q} \|_{\Set{Q}}^2}
 -
-{{2v \Vector{S}(\Vector{q})} \over {\| \Vector{q} \|_{\Set{Q}}^4}}
+\frac{2v \Vector{S}(\Vector{q})}{\| \Vector{q} \|_{\Set{Q}}^4}
 \end{equation}
 where $v$ is any of $w$, $x$, $y$, or $z$.
 
@@ -533,7 +536,9 @@ for some $\Vector{t} \in \Reals^3$.
 The derivative with respect to
 an unconstrained translation vector
 is simply
-$\Derivative[\Vector{t}]{(\Vector{p} + \Vector{t})} = \Identity_{\Reals^3},$
+$\Derivative[\Vector{t}]
+{(\Vector{p} + \Vector{t})} 
+= \Identity_{\Reals^3},$
 where $\Identity_{\Reals^3}$ is the identity on $\Reals^3$.
 
 \end{plSection}%{Shift Registration}
@@ -552,7 +557,8 @@ Note that, if $\Vector{A} = (\Vector{L},\Vector{t})$, then its inverse is
 $\Vector{A}^{-1} = (\Vector{L}^{-1}, - \Vector{L}^{-1}\Vector{t})$.
 
 (It is sometimes useful to use a redundant representation:
-$\Vector{A} \Vector{p} = \Vector{L} (\Vector{p} + \Vector{t}_0) + \Vector{t}_1$,
+$\Vector{A} \Vector{p} 
+= \Vector{L} (\Vector{p} + \Vector{t}_0) + \Vector{t}_1$,
 where $\Vector{t}_0 \in \Reals^m$ and $\Vector{t}_1 \in \Reals^n$,
 but, for simplicity, I'll stick to the minimal one-translation
 representation in this discussion.)
@@ -603,10 +609,12 @@ The inverse of a rotation, $\Vector{R}$, is its adjoint
 The inverse of a scaled rotation $\Vector{S} = s \Vector{R}$
 is therefore
 $\Vector{S}^{-1} = (s \Vector{R})^{-1}
-         = {1 \over s} \Vector{R}^{\dagger}
-         = {1 \over {s^2}} \Vector{S}^{\dagger}$.
+         = \frac{1}{s} \Vector{R}^{\dagger}
+         = \frac{1}{s^2} \Vector{S}^{\dagger}$.
 We can then write the inverse of a euclidean transform as
-$\Vector{E}^{-1} = {1 \over {s^2}}(\Vector{S}^{\dagger}, - \Vector{S}^{\dagger}\Vector{t})$
+$\Vector{E}^{-1} = 
+\frac{1}{s^2}(\Vector{S}^{\dagger}, 
+- \Vector{S}^{\dagger}\Vector{t})$
 
 Using quaternions, we can represent euclidean transforms with
 7 dimensional points:
@@ -619,7 +627,7 @@ and $\Vector{t} = (x_{\Vector{t}}, y_{\Vector{t}}, z_{\Vector{t}})$ is the trans
 In the 7-dimensional representation, the inverse is:
 \begin{equation}
 \Vector{E}^{-1} =
-{1 \over {\| \Vector{q} \|_{\Set{Q}}^4}}
+\frac{1}{\| \Vector{q} \|_{\Set{Q}}^4}
 \left(
 \begin{array}{rcrcr}
 & &  w_{\Vector{q}} & & \\

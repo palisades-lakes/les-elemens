@@ -466,9 +466,9 @@ positive, in fact, between $0$ and $2\pi$.
 An acutely concave edge has a dihedral angle
 of a little less than $2\pi$;
 a concave edge where the faces meet in a right angle
-${3\pi} \over 2$;
+$\frac{3\pi}{2}$;
 a flat edge is $\pi$;
-a convex right angle $\pi \over 2$;
+a convex right angle $\frac{\pi}{2}$;
 and an acutely convex edge has a dihedral angle
 slightly more than $0$.
 
@@ -485,7 +485,8 @@ so I will not consider the dihedral angle further.
 \begin{plSection}{Unsigned normal angle}
 \label{sec:unsigned_normal_angle}
 
-The inner product $\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
+The inner product 
+$\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)$
 is the cosine of $\theta_u$,
 the (unsigned) angle between the 2 face normals.
 Thus the value of the angle is:
@@ -496,14 +497,22 @@ Thus the value of the angle is:
 
 Recall the derivative of the $\cos^{-1}$ is:
 \begin{equation}
-\frac{d}{\mathit dx} \cos^{-1}(x) = { -1 \over \sqrt{1 - x^2} }
+\frac{d}{\mathit dx} \cos^{-1}(x) = \frac{-1}{\sqrt{1-x^2}}
 \end{equation}
 
 The derivative of $\theta_u$ can be calculated using the chain rule
 (\cref{eq:chain-rule}) and \cref{eq:normal_dot_gradient}.
 \begin{equation}
 \Derivative{\theta_u}[\Point{q}]
- = { -1 \over \sqrt{1 - \left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right)^2} }
+ = \frac{-1}
+{
+\sqrt{
+1-
+\left(
+\Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) 
+\right)^2
+} 
+}
 \; \Derivative{\left( \Normal{n}_{012} \bullet \Normal{n}_{031} \right)}[\Point{q}]
 \end{equation}
 
@@ -511,7 +520,15 @@ As above, we can write the partial gradients without reference to an argument:
 \begin{equation}
 \Gradient[\Point{p}_i]{\theta_u}[\Point{q}]
 =
-{ -1 \over \sqrt{1 - \left( \Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) \right)^2} }
+\frac{-1}
+{
+\sqrt{
+1 - 
+\left( 
+\Normal{n}(\Point{q}_{012}) \bullet \Normal{n}(\Point{q}_{031}) 
+\right)^2
+} 
+}
 \; \Gradient[\Point{p}_i]{\left(\Normal{n}_{012}\bullet\Normal{n}_{031}\right)}[\Point{q}]
 \end{equation}
 
@@ -553,7 +570,8 @@ unsigned normal angle, multiplied by $-1$ if the surface is
 concave at the edge.
 To make this a bit more formal,
 we can define the signed normal angle to be the amount
-of righthanded rotation about the edge tangent ($\Point{p}_1 - \Point{p}_0$)
+of righthanded rotation about the edge tangent 
+($\Point{p}_1 - \Point{p}_0$)
 needed to bring the right normal ($\Normal{n}_{031}$) to
 the left normal ($\Normal{n}_{012}$).
 We cut our angle measurement at $\pi \sim -\pi$.
@@ -563,9 +581,9 @@ is between $-\pi$ and $\pi$.
 An acutely concave edge has a signed normal angle
 of a little more than $-\pi$;
 a concave edge where the faces meet in a right angle
-$-{\pi \over 2}$;
+$-\frac{\pi}{2}$;
 a flat edge is $0$;
-a convex right angle $\pi \over 2$;
+a convex right angle $\frac{\pi}{2}$;
 and an acutely convex edge has a signed normal angle
 slightly less than $\pi$.
 
@@ -606,33 +624,36 @@ and save the time and complexity
 of computing the $\cos^{-1}$ and its derivatives,
 by considering a simple transform.
 
-First, note that $\sin({\theta_n \over 2})$
+First, note that $\sin(\frac{\theta_n}{2})$
 is a monotone function of $\theta_n$,
 ranging from $-1$, when $\theta_n = -\pi$,
 to $1$ when $\theta_n = \pi$.
 Also note that 
 \begin{equation}
-\sin({\theta_n \over 2}) 
+\sin(\frac{\theta_n}{2}) 
  = 
 \sign(\theta_n) 
-\left[ {1 - \cos(\theta_n)} 
-\over 2 \right]^{1 \over 2}
+\left[ 
+\frac{1 - \cos(\theta_n)}{2}
+\right]^{\frac{1}{2}}
  = 
 \sign(\theta_n) 
-\left[ {1 - \left( \Normal{n}_{012}\bullet\Normal{n}_{031} \right)} 
-\over 2 \right]^{1 \over 2},
+\left[ 
+\frac{1-\left(\Normal{n}_{012}\bullet\Normal{n}_{031}\right)}{2} 
+\right]^{\frac{1}{2}},
 \end{equation}
 which means that
 \begin{equation}
-\sin^2({\theta_n \over 2}) 
-= {{1 - \left( \Normal{n}_{012}\bullet\Normal{n}_{031} \right)} \over 2},
+\sin^2(\frac{\theta_n}{2}) 
+= 
+\frac{1-\left(\Normal{n}_{012}\bullet\Normal{n}_{031}\right)}{2},
 \end{equation}
 which is proportional to the distance between the adjacent normals
 (see \cref{eq:normal-distance-dot}).
 
 Note that the function that promotes evenly 
 distributed bending described in \cref{sec:squared_normal_dot},
-is proportional to $\sin^4({\theta_n \over 2})$. 
+is proportional to $\sin^4(\frac{\theta_n}{2})$. 
 
 \end{plSection}%{Signed angle and normal distance}
 %-----------------------------------------------------------------
@@ -661,9 +682,9 @@ must be, for example, convex ($\theta_n > 0$)
 but with bounded acuteness ($\theta_n < \alpha < \pi$).
 Or we may know that a given edge should be close to
 a convex right angle 
-($\left( {\pi \over 2} - \delta \right) 
+($\left( \frac{\pi}{2} - \delta \right) 
 < \theta_n < 
-\left( {\pi \over 2} + \delta \right)$)
+\left( \frac{\pi}{2} + \delta \right)$)
 for some small positive angle $\delta$.
 
 Enforcing hard constraints on $\theta_n$
@@ -673,18 +694,21 @@ of the signed normal angle, $f(\theta_n)$,
 that penalizes non-zero normal angles,
 into one that penalizes angles 
 outside an interval, $\left[\theta_0,\theta_1\right]$,
-of prefered angles.
+of preferred angles.
 ($-\pi \leq \theta_0 \leq \theta_1 \leq \pi$.)
 
 For example,
 consider the function of \cref{sec:squared_normal_dot},
-which is proportional to $\sin^4({\theta_n \over 2})$. 
-Let $s = \sin({\theta_n \over 2})$,
+which is proportional to $\sin^4(\frac{\theta_n}{2})$. 
+Let $s = \sin(\frac{\theta_n}{2})$,
 a monotone function of $\theta_n$ 
 that ranges over $\left[ -1, 1 \right]$.
 
 Then, 
-given an interval $\left[ \theta_0, \theta_1 \right] \subseteq \left[ -\pi, \pi \right]$,
+given an interval 
+$\left[ \theta_0, \theta_1 \right] 
+\subseteq 
+\left[ -\pi, \pi \right]$,
 let the {\it bent} function be:
 \begin{equation}
 f(s)
@@ -704,11 +728,9 @@ s^2 - s_0^2}
 & \theta_0 \leq \theta_n \leq \theta_1
 \\
 \\
-\left[ {
-  {\textstyle s^2 - s_1^2} 
-  \over 
-  {\textstyle 1 - s_1^2}
-  } \right]^2  
+\left[
+\frac{\textstyle s^2 - s_1^2}{\textstyle 1 - s_1^2}
+\right]^2  
 & \theta_1 \leq \theta_n \leq \pi
 \end{array}
 \right.
@@ -721,11 +743,10 @@ f(s)
 = 
 \left\{
 \begin{array}{cr}
-\left[ {
-  {\textstyle c_0 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right) } 
-  \over 
-  {\textstyle c_0 + 1}
-   } \right]^2
+\left[
+\frac{\textstyle c_0 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right) } 
+{\textstyle c_0 + 1}
+\right]^2
 & -\pi \leq \theta_n \leq \theta_0
 \\
 \\
@@ -733,15 +754,23 @@ f(s)
 & \theta_0 \leq \theta_n \leq \theta_1
 \\
 \\
-\left[ {\textstyle {c_1 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)} 
-    \over {\textstyle c_1 + 1}} \right]^2
+\left[ 
+\frac{
+\textstyle{
+c_1 - \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)
+}
+} 
+{\textstyle{ c_1 + 1}} 
+\right]^2
 & \theta_1 \leq \theta_n \leq \pi
 \end{array}
 \right.
 \end{equation}
 where $c_0 = \cos(\theta_0)$
 and $c_1 = \cos(\theta_1)$.
-Recall that $\cos(\theta_n) = \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)$.
+Recall that 
+$\cos(\theta_n) = 
+\left(\Normal{n}_{012} \bullet \Normal{n}_{031}\right)$.
 
 \end{plSection}%{Bent edge neighborhoods}
 %-----------------------------------------------------------------
@@ -749,7 +778,9 @@ Recall that $\cos(\theta_n) = \left(\Normal{n}_{012} \bullet \Normal{n}_{031}\ri
 \begin{plSection}{Weighting bend measures by length}
 \label{sec:length_weighted_bend}
 
-Let $f(\Point{p}) = f(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$ be some measure of the
+Let $f(\Point{p}) = 
+f(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$ 
+be some measure of the
 bend across the edge connecting $(\Point{p}_0,\Point{p}_1)$.
 It may be useful to weight the bend measure by the edge length:
 $\| \Point{p}_0 - \Point{p}_1 \| \ast f(\Point{p}_0,\Point{p}_1,\Point{p}_2,\Point{p}_3)$.
@@ -860,29 +891,32 @@ and the chain rule, we have:
 {\left( \frac{1}{A(\Point{p}_{012})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{012}) \times 
-\left( \Point{q}_1 - \Point{q}_2 \right)}
-\over
-{2 A(\Point{q}_{012})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{012}) \times 
+\left( \Point{q}_1 - \Point{q}_2 \right)
+}
+{2 A(\Point{q}_{012})^2 }
 \\
 \Gradient[\Point{p}_1]
 {\left( \frac{1}{A(\Point{p}_{012})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{012}) \times
- \left( \Point{q}_2 - \Point{q}_0 \right)}
-\over
-{2 A(\Point{q}_{012})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{012}) \times
+ \left( \Point{q}_2 - \Point{q}_0 \right)
+ }
+{2 A(\Point{q}_{012})^2 } 
 \nonumber
 \\
 \Gradient[\Point{p}_2]
 {\left( \frac{1}{A(\Point{p}_{012})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{012}) \times 
-\left( \Point{q}_0 - \Point{q}_1 \right)}
-\over
-{2 A(\Point{q}_{012})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{012}) \times 
+\left( \Point{q}_0 - \Point{q}_1 \right)
+}
+{2 A(\Point{q}_{012})^2 } 
 \nonumber
 \end{eqnarray}
 \begin{eqnarray}
@@ -891,29 +925,32 @@ and the chain rule, we have:
 {\left( \frac{1}{A(\Point{p}_{031})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{031}) \times
- \left( \Point{q}_3 - \Point{q}_1 \right)}
-\over
-{2 A(\Point{q}_{031})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{031}) \times
+ \left( \Point{q}_3 - \Point{q}_1 \right)
+ }
+{2 A(\Point{q}_{031})^2 }
 \\
 \Gradient[\Point{p}_1]
 {\left( \frac{1}{A(\Point{p}_{031})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{031}) \times 
-\left( \Point{q}_0 - \Point{q}_3 \right)}
-\over
-{2 A(\Point{q}_{031})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{031}) \times 
+\left( \Point{q}_0 - \Point{q}_3 \right)
+}
+{2 A(\Point{q}_{031})^2 }
 \nonumber
 \\
 \Gradient[\Point{p}_3]
 {\left( \frac{1}{A(\Point{p}_{031})} \right)}
 [\Point{q}]
 & = &
-{{\Normal{n}(\Point{q}_{031}) \times 
-\left( \Point{q}_1 - \Point{q}_0 \right)}
-\over
-{2 A(\Point{q}_{031})^2 } }
+\frac{
+\Normal{n}(\Point{q}_{031}) \times 
+\left( \Point{q}_1 - \Point{q}_0 \right)
+}
+{2 A(\Point{q}_{031})^2 }
 \nonumber
 \end{eqnarray}
 

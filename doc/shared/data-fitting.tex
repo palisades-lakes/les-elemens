@@ -6,7 +6,7 @@ $\{\Vector{d}_i; i=0 \ldots n-1\}$
 by minimizing the sum of the $l_2$ distances from the points to the mesh:
 \begin{equation}
 f(\Set{M}) = \sum_{i=0}^{n-1} 
-\| \Vector{d}_i - \Projection_\Set{M} (\Vector{d}_i) \|^2 ,
+\|\Vector{d}_i-\Projection_\Set{M} (\Vector{d}_i)\|^2 ,
 \end{equation}
 where $\Projection_\Set{M} (\Vector{d}_i)$ 
 is the point on $\Set{M}$ closest to $\Vector{d}_i$,
@@ -15,7 +15,7 @@ Note that $f:\Reals^{3n} \mapsto \Re$,
 where $n$ is the number of vertices in $\Set{M}$.
 
 We compute $\Projection_\Set{M} (\Vector{d})$ by minimizing  
-$\| \Vector{d} - \Projection_\Simplex{s} (\Vector{d}) \|^2$
+$\|\Vector{d}-\Projection_\Simplex{s} (\Vector{d})\|^2$
 over all simplices $\Simplex{s} \in \Set{M}$.
 We need only consider the faces of $\Set{M}$,
 those edges not in any face,
@@ -49,13 +49,13 @@ and $\Vector{d}$ the 3d data point.
 It follows from \cref{eq:l2-gradient} that
 \begin{equation}
 \label{eq:vertex-distance-gradient}
-\Gradient[\Vector{p}]{\| \Vector{p} - \Vector{d} \|^2}[\Vector{q}] 
-= 2 ( \Vector{q} - \Vector{d} ).
+\Gradient[\Vector{p}]{\|\Vector{p}-\Vector{d}\|^2}[\Vector{q}] 
+= 2 ( \Vector{q}-\Vector{d} ).
 \end{equation}
 
 The distance to the nearest vertex in a set of vertices $\Set{V}$ is:
 $\min_{\Simplex{v} \in \Set{V}} 
-\| \Vector{p}(\Simplex{v}) - \Vector{d} \|^2$.
+\|\Vector{p}(\Simplex{v})-\Vector{d}\|^2$.
 If $\Simplex{v}^{\mathrm min}$ is the minimizing vertex,
 and
 $\Vector{p}^{\mathrm min}$ its position,
@@ -84,22 +84,21 @@ where
 \begin{eqnarray}
 b_0(\Vector{p}) & = &
 \min\left(0,\max\left(1,
-{{ (\Vector{d} - \Vector{p}_1) \bullet (\Vector{p}_0 - \Vector{p}_1) }
-\over
-{ \| \Vector{p}_0 - \Vector{p}_1 \|^2 }
-}\right) \right) \\
-b_1(\Vector{p}) & = & 1 - b_0(\Vector{p})
+\frac{ (\Vector{d}-\Vector{p}_1) \bullet (\Vector{p}_0-\Vector{p}_1) }
+{\|\Vector{p}_0-\Vector{p}_1\|^2 }
+\right) \right) \\
+b_1(\Vector{p}) & = & 1-b_0(\Vector{p})
 \nonumber
 \end{eqnarray}
 
 \begin{eqnarray}
 \label{eq:edge-distance-gradient-derivation}
 \Derivative[\Vector{p}_0]
-{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}\|^2 }
 [\Vector{q}]
 & = &
 2 \left( 
-\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} 
+\Projection_{\Vector{q}} (\Vector{d})-\Vector{d} 
 \right)^\dagger
 \Derivative[\Vector{p}_0]
 {\Projection_{\Vector{p}} (\Vector{d}) }
@@ -107,7 +106,7 @@ b_1(\Vector{p}) & = & 1 - b_0(\Vector{p})
 \\
 & = &
 2 \left( 
-\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+\Projection_{\Vector{q}} (\Vector{d})-\Vector{d}
  \right)^\dagger
 \Derivative[\Vector{p}_0]
 {\left[ 
@@ -117,56 +116,56 @@ b_0(\Vector{p})\Vector{p}_0 + b_1(\Vector{p})\Vector{p}_1
 \nonumber \\
 & = &
 2 \left( 
-\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+\Projection_{\Vector{q}} (\Vector{d})-\Vector{d}
  \right)^\dagger
 \Derivative[\Vector{p}_0]
 {\left[ 
-b_0(\Vector{p})\Vector{p}_0 + (1 - b_0(\Vector{p}))\Vector{p}_1 
+b_0(\Vector{p})\Vector{p}_0 + (1-b_0(\Vector{p}))\Vector{p}_1 
 \right]}
 [\Vector{q}]
 \nonumber \\
 & = &
-2 \left( \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d}
+2 \left( \Projection_{\Vector{q}} (\Vector{d})-\Vector{d}
  \right)^\dagger
 \Derivative[\Vector{p}_0]
-{\left[ b_0(\Vector{p})(\Vector{p}_0 - \Vector{p}_1) \right]}
+{\left[ b_0(\Vector{p})(\Vector{p}_0-\Vector{p}_1) \right]}
 [\Vector{q}]
 \nonumber \\
 & = &
 2 \left( 
-\Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right)^\dagger
-\left[ b_0(\Vector{q}) \Identity + (\Vector{q}_0 - \Vector{q}_1)
+\Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right)^\dagger
+\left[ b_0(\Vector{q}) \Identity + (\Vector{q}_0-\Vector{q}_1)
  \otimes 
  \Gradient[\Vector{p}_0]{b_0(\Vector{p})}[\Vector{q}] \right]
 \nonumber
 \end{eqnarray}
 Because
  $\left( \Projection_{\Vector{q}}
-  (\Vector{d}) - \Vector{d} \right)$ is orthogonal to
-$\left( \Vector{q}_0 - \Vector{q}_1 \right)$, we get:
+  (\Vector{d})-\Vector{d} \right)$ is orthogonal to
+$\left( \Vector{q}_0-\Vector{q}_1 \right)$, we get:
 \begin{eqnarray}
 \label{eq:edge-distance-gradient}
 \Gradient[\Vector{p}_0]
-{\| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2}
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}\|^2}
 [\Vector{q}]
 & = & 2 b_0(\Vector{q}) 
-\left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
+\left[ \Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right]
 \\
 \Gradient[\Vector{p}_1]
-{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_1(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
 As in the vertex case,
 the distance to the nearest edge in a set of edges $\Set{E}$ is:
 \begin{equation}
-\| \Projection_{\Set{E}} (\Vector{d}) - \Vector{d}|^2
+\|\Projection_{\Set{E}} (\Vector{d})-\Vector{d}|^2
  = \min_{\Simplex{e} \in \Set{E}}
-  \| \Projection_{\Vector{p}(\Simplex{e})}
-  (\Vector{d}) - \Vector{d} \|^2
+ \|\Projection_{\Vector{p}(\Simplex{e})}
+  (\Vector{d})-\Vector{d}\|^2
 \end{equation}
 If $\Simplex{e}^{\min}$ is the minimizing edge,
 $\Simplex{v}_0^{\min}$ and $\Simplex{v}_1^{\min}$ its vertices,
@@ -209,23 +208,23 @@ we can show that
 \begin{eqnarray}
 \label{eq:face-distance-gradient}
 \Gradient[\Vector{p}_0]
-{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d} \|^2 }
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}\|^2 }
 [\Vector{q}]
 & = & 2 b_0(\Vector{q}) 
-\left[ \Projection_{\Vector{q}} (\Vector{d}) - \Vector{d} \right]
+\left[ \Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right]
 \\
 \Gradient[\Vector{p}_1]
-{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_1(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \\
 \Gradient[\Vector{p}_2]
-{ \| \Projection_{\Vector{p}} (\Vector{d}) - \Vector{d}|^2 }
+{\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_2(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d}) - \Vector{d} \right]
+\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
@@ -234,19 +233,23 @@ on a face (triangle) is slightly more complicated than
 for an edge (line segment).
 
 First center the problem by letting
-$\Vector{v} = \Vector{p} - \Vector{p}_0$,
-$\Vector{v}_1 = \Vector{p}_1 - \Vector{p}_0$, 
-and $\Vector{v}_2 = \Vector{p}_2 - \Vector{p}_0$.
+$\Vector{v} = \Vector{p}-\Vector{p}_0$,
+$\Vector{v}_1 = \Vector{p}_1-\Vector{p}_0$, 
+and $\Vector{v}_2 = \Vector{p}_2-\Vector{p}_0$.
 Then compute the raw, unbounded barycentric coordinates
 of the projection of $\Vector{p}$ onto the plane
 spanned by the triangle:
 \begin{eqnarray}
-r_0(\Vector{p}) & = & 1 - r_1(\Vector{p}) - r_2(\Vector{p})
+r_0(\Vector{p}) & = & 1-r_1(\Vector{p})-r_2(\Vector{p})
 \\
-r_1(\Vector{p}) & = & v \bullet {{\Vector{v}_1 \perp \Vector{v}_2} \over {\| \Vector{v}_1 \perp \Vector{v}_2 \|^2} }
+r_1(\Vector{p}) & = & v \bullet 
+\frac{\Vector{v}_1 \perp \Vector{v}_2}
+{\|\Vector{v}_1 \perp \Vector{v}_2\|^2}
 \nonumber
 \\
-r_2(\Vector{p}) & = & v \bullet {{\Vector{v}\Vector{v} \perp \Vector{v}_1} \over {\| \Vector{v}_2 \perp \Vector{v}_1 \|^2} }
+r_2(\Vector{p}) & = & v \bullet 
+\frac{\Vector{v}\Vector{v} \perp \Vector{v}_1} 
+{\|\Vector{v}_2 \perp \Vector{v}_1\|^2}
 \nonumber
 \end{eqnarray}
 To correctly bound the raw coordinates to numbers between 0 and 1,

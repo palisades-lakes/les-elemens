@@ -236,13 +236,14 @@ and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \\
 & = &
 \left[ \alpha(\Simplex{v}_0) - 2\pi \right]
-{{(\Vector{q}_1 - \Vector{q}_0) 
+\frac{
+(\Vector{q}_1 - \Vector{q}_0) 
 \perp 
 (\Vector{q}_2 - \Vector{q}_0)
  + (\Vector{q}_2 - \Vector{q}_0) 
  \perp 
- (\Vector{q}_1 - \Vector{q}_0)}
-\over
+ (\Vector{q}_1 - \Vector{q}_0)
+ }
 {
 \sqrt{
 \| \Vector{q}_2 - \Vector{q}_0 \|^2 
@@ -251,15 +252,16 @@ and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \left( ( \Vector{q}_1 -\Vector{q}_0 ) 
 \bullet ( \Vector{q}_2 -\Vector{q}_0 ) \right)^2
 }
-}}
+}
 \nonumber
 \\
 & - &
 \left[ \alpha(\Simplex{v}_1) - 2\pi \right]
-{{(\Vector{q}_0 - \Vector{q}_1) 
+\frac{
+(\Vector{q}_0 - \Vector{q}_1) 
 \perp 
-(\Vector{q}_2 - \Vector{q}_1)}
-\over
+(\Vector{q}_2 - \Vector{q}_1)
+}
 {
 \sqrt{
 \| \Vector{q}_0 - \Vector{q}_1 \|^2 
@@ -269,15 +271,16 @@ and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \bullet 
 ( \Vector{q}_2 - \Vector{q}_1 ) \right)^2
 }
-}}
+}
 \nonumber
 \\
 & - &
 \left[ \alpha(\Simplex{v}_2) - 2\pi \right]
-{{(\Vector{q}_0 - \Vector{q}_2) 
+\frac{
+(\Vector{q}_0 - \Vector{q}_2) 
 \perp 
-(\Vector{q}_1 - \Vector{q}_2)}
-\over
+(\Vector{q}_1 - \Vector{q}_2)
+}
 {
 \sqrt{
 \| \Vector{q}_0 - \Vector{q}_2 \|^2
@@ -287,7 +290,7 @@ and $\Vector{p}_0, \Vector{p}_1, \Vector{p}_2$.
 \bullet 
 ( \Vector{q}_1 -\Vector{q}_2 ) \right)^2
 }
-} }
+} 
 \nonumber
 \end{eqnarray}
 %-----------------------------------------------------------------

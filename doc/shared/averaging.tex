@@ -37,16 +37,21 @@ of the registered average mesh, $\Set{M}(\Vector{T},\Vector{w})$, are given by:
 The partial derivative with respect to $\Vector{T}$
 is:
 \begin{eqnarray}
-\Derivative[\Vector{T}]{f(\Set{M}(\Vector{T},\Vector{w}))}[\Vector{T}^0,\Vector{w}^0]
+\Derivative[\Vector{T}]
+{f(\Set{M}(\Vector{T},\Vector{w}))}[\Vector{T}^0,\Vector{w}^0]
 & = &
-\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
+\Derivative[\Vector{p}]
+{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\Derivative[\Vector{T}]{\Vector{p}(\Vector{T},\Vector{w})}[\Vector{T}^0,\Vector{w}^0]
+\Derivative[\Vector{T}]
+{\Vector{p}(\Vector{T},\Vector{w})}[\Vector{T}^0,\Vector{w}^0]
 \\
 & = &
-\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
+\Derivative[\Vector{p}]
+{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\Derivative[\Vector{T}]{\Vector{T}\Vector{p}(\Vector{w}^0)}[\Vector{T}^0]
+\Derivative[\Vector{T}]
+{\Vector{T}\Vector{p}(\Vector{w}^0)}[\Vector{T}^0]
 \nonumber
 \end{eqnarray}
 
@@ -59,16 +64,25 @@ $\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}$
 is given in \cref{sec:Transforms}
 for various families of transforms $\{\Vector{T}\}$: affine, euclidean, and rigid.
 
-Using the chain rule, the partial derivative with respect to $\Vector{w}$ is:
+Using the chain rule, 
+the partial derivative with respect to $\Vector{w}$ is:
 \begin{eqnarray}
-\Derivative[\Vector{w}]{f(\Set{M}(\Vector{T},\Vector{w}))}[\Vector{T}^0,\Vector{w}^0]
+\Derivative[\Vector{w}]
+{f(\Set{M}(\Vector{T},\Vector{w}))}
+[\Vector{T}^0,\Vector{w}^0]
 & = &
-\Derivative[\Vector{w}]{f(\Vector{T}(\Set{M}(\Vector{w})))}[\Vector{T}^0,\Vector{w}^0]
+\Derivative[\Vector{w}]
+{f(\Vector{T}(\Set{M}(\Vector{w})))}
+[\Vector{T}^0,\Vector{w}^0]
 \\
 & = &
-\Derivative[\Vector{p}]{f(\Set{M}))}[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
+\Derivative[\Vector{p}]
+{f(\Set{M}))}
+[\Set{M}(\Vector{T}^0,\Vector{w}^0)]
 \circ
-\Derivative[\Vector{T}]{\Vector{T}\Vector{p}(\Vector{w}^0)}[\Vector{T}^0]
+\Derivative[\Vector{T}
+]{\Vector{T}\Vector{p}(\Vector{w}^0)}
+[\Vector{T}^0]
 \circ
 \Derivative[\Vector{w}]{\Vector{p}(\Vector{w})}[\Vector{w}^0]
 \nonumber
@@ -100,8 +114,10 @@ and $\Vector{p}, \Vector{p}_i \in \Reals^3$.
 Note that $\Vector{p}(\Vector{w})$ is a linear transform 
 from $\Reals^n \mapsto \Reals^3$,
 which can be expressed as 
-$\Vector{P} = \sum_{i=0}^{n-1} \Vector{p}_i \otimes \Vector{e}_i$,
-where $\Vector{e}_i$ are the canonical basis vectors of $\Reals^n$.
+$\Vector{P} 
+= \sum_{i=0}^{n-1} \Vector{p}_i \otimes \Vector{e}_i$,
+where $\Vector{e}_i$ are the canonical basis vectors 
+of $\Reals^n$.
 ($\Vector{P}$ can be written as a matrix 
 whose $i$th column is the vector $\Vector{p}_i$.)
 Thus it follows that
@@ -117,12 +133,12 @@ Thus it follows that
 \begin{plSection}{Convex weights}
 \label{sec:Convex-weights}
 
-It may be desireable to restrict the weights to be convex,
+It may be desirable to restrict the weights to be convex,
 that is, $0 \leq w_i \leq 1; \sum w_i = 1$.
 To use unconstrained optimization methods with convex weights,
-we re-parameterize:
+we re-parametrize:
 \begin{equation}
-u_i(\Vector{w}) = {{w_i^2} \over {\| \Vector{w} \|^2}}
+u_i(\Vector{w}) = \frac{w_i^2}{\|\Vector{w}\|^2}
 \end{equation}
 where, as usual, $\| \Vector{w} \|^2 = \sum_{j=0}^{n-1} w_j^2$.
 
@@ -145,10 +161,11 @@ The partial derivatives are
 \begin{eqnarray}
 \Derivative[w_j]{u_i(\Vector{w}))}
 & = &
-\Derivative[w_j]{{w_i^2} \over {\| \Vector{w} \|^2}}
+\Derivative[w_j]{\frac{w_i^2}{\|\Vector{w}\|^2}}
 \\
 & = &
-{{2 w_j} \over {\| \Vector{w} \|^4}} \left( \delta_{ij} \| \Vector{w} \|^2 - w_i^2 \right)
+\frac{2 w_j}{\|\Vector{w}\|^4}
+\left( \delta_{ij} \| \Vector{w} \|^2 - w_i^2 \right)
 \nonumber
 \end{eqnarray}
 
