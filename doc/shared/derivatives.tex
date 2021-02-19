@@ -11,9 +11,14 @@ that best approximates the local 'slope' of $\Vector{f}$ at $\Vector{v}$.
 (In the following, $\Vector{v}$, $\Vector{u}$, and $\Vector{t}$ are elements of $\Space{V}$.)
 To be a little more precise, we want
 \begin{equation}
-\lim_{ \|\deltaBold  \| \mapsto 0}
-\frac{ \| \Vector{f}(\Vector{v} + \deltaBold) - (\Vector{f}(\Vector{v}) + \Vector{L}(\Vector{\delta})) \|}
-{\|\deltaBold  \| }
+\lim_{\|\delta\| \mapsto 0}
+\frac{
+\|
+\Vector{f}(\Vector{v}+\delta)
+\,-\,
+ (\Vector{f}(\Vector{v}) + \Vector{L}(\delta))
+\|}
+{\|\delta  \| }
  = 0
 \end{equation}
 
@@ -754,17 +759,20 @@ Let $l_2^2(\Vector{v}) = \| \Vector{v}  \|^2 $
 be its square and $ \| \Vector{v}  \|^3$ the cube.
 \begin{eqnarray}
 \label{eq:l2-gradient}
-\Gradient{l_2}[\Vector{v}]
- = \frac{ \Vector{v} }{\| \Vector{v}  \|} &
-\Gradient{l_2^2}[\Vector{v}] 
-=  2\Vector{v]}&
-\Gradient{l_2^3}[\Vector{v}]
- = 3 \| \Vector{v}  \| \Vector{v} \\
+\Gradient{l_2}[\Vector{v}] = \frac{\Vector{v}}{\|\Vector{v}\|} 
+&
+\Gradient{l_2^2}[\Vector{v}] = 2\Vector{v}
+&
+\Gradient{l_2^3}[\Vector{v}] = 3 \|\Vector{v}\| \Vector{v} 
+\\
 \Derivative{l_2}[\Vector{v}] 
-= \frac{ \Vector{v}^\dagger }{ \| \Vector{v}  \|} &
-\Derivative{l_2^2}[\Vector{v}] = 2\Vector{v}^\dagger &
+= \frac{ \Vector{v}^\dagger }{ \| \Vector{v}  \|} 
+&
+\Derivative{l_2^2}[\Vector{v}] = 2\Vector{v}^\dagger 
+&
 \Derivative{l_2^3}[\Vector{v}] 
-= 3 \| \Vector{v}  \| \Vector{v}^\dagger \nonumber
+= 3 \| \Vector{v}  \| \Vector{v}^\dagger 
+\nonumber
 \end{eqnarray}
 
 Let $\Vector{f}(\Vector{v}) : \Space{V} \mapsto \Space{W}$.
@@ -1114,8 +1122,8 @@ which implies
 
 \end{plSection}%{Inverse}
 %-----------------------------------------------------------------
-\begin{plSection}{Pseudo-inverse}
-\label{sec:Derivative-of-pseudo-inverse}
+\begin{plSection}{Pseudoinverse}
+\label{sec:Derivative-of-pseudoinverse}
 
 $\Pseudoinverse(\Vector{L}) \equiv \Vector{L}^{-}$
 
@@ -1329,7 +1337,7 @@ Putting it all together:
 
 \restoregeometry
 
-\end{plSection}%{Pseudo-inverse}
+\end{plSection}%{Pseudoinverse}
 %-----------------------------------------------------------------
 \end{plSection}%{Linear-function-valued functions}
 %-----------------------------------------------------------------
