@@ -6,15 +6,15 @@ $\{\Vector{d}_i; i=0 \ldots n-1\}$
 by minimizing the sum of the $l_2$ distances from the points to the mesh:
 \begin{equation}
 f(\Set{M}) = \sum_{i=0}^{n-1} 
-\|\Vector{d}_i-\Projection_\Set{M} (\Vector{d}_i)\|^2 ,
+\|\Vector{d}_i - \Projection_{\Set{M}} (\Vector{d}_i)\|^2 ,
 \end{equation}
-where $\Projection_\Set{M} (\Vector{d}_i)$ 
+where $\Projection_{\Set{M}} (\Vector{d}_i)$ 
 is the point on $\Set{M}$ closest to $\Vector{d}_i$,
 that is, the {\em projection} of $\Vector{d}_i$ on $\Set{M}$.
 Note that $f:\Reals^{3n} \mapsto \Re$,
 where $n$ is the number of vertices in $\Set{M}$.
 
-We compute $\Projection_\Set{M} (\Vector{d})$ by minimizing  
+We compute $\Projection_{\Set{M}} (\Vector{d})$ by minimizing  
 $\|\Vector{d}-\Projection_\Simplex{s} (\Vector{d})\|^2$
 over all simplices $\Simplex{s} \in \Set{M}$.
 We need only consider the faces of $\Set{M}$,

@@ -1,0 +1,473 @@
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Feferman}
+\label{sec:Feferman}
+\citeAuthorYearTitle{Feferman:1998:LightOfLogic,Feferman:2000:ConstructivePredicativeClassicalAnalysis}
+
+%-----------------------------------------------------------------
+\begin{plSection}{In the light of logic}
+\label{sec:In_the_light_of_logic}
+
+Fourteen collected essays about logic and foundations of 
+math. \citeAuthorYearTitle{Feferman:1998:LightOfLogic}
+Not strictly about constructivism, but many references to it.
+Probably more focused on finitism.
+
+%-----------------------------------------------------------------
+\begin{plSection}{Deciding the undecidable}
+\label{sec:Deciding_the_undecidable}
+
+\citeAuthorYearTitle[ch.~1 ``Deciding the undecidable'']{Feferman:1998:LightOfLogic}
+
+Target general audience.
+
+Background on $3$ of Hilbert's problems
+and effect of G\"{o}del incompleteness theorems.
+
+Some discussion of constructive approaches, 
+predicative/impredicative, finitary/infinitary.
+
+Metamathematical proof theory as result.
+
+Question of (non)existence 
+'genuine absolutely undecidable problems'.
+
+Conclusion mentions recent progress
+in purely finitary approaches~\cite[ch.~10]{Feferman:1998:LightOfLogic}
+and 
+use of 'proof-theoretically very weak systems'
+as basis for 'an enormous amount of scientifically applicable
+mathematics.'~\cite[ch.~14]{Feferman:1998:LightOfLogic}
+(!! what I'm looking for !!, ie, 
+what's the 'minimal' mathematical structure needed to
+solve the real world problems I'm interested in?)
+
+\end{plSection}%{Deciding the undecidable}
+%-----------------------------------------------------------------
+\begin{plSection}{Is Cantor Necessary?}
+\label{sec:Is_Cantor_Necessary}
+
+\citeAuthorYearTitle{Feferman:1989:IsCantorNecessary}
+\citeAuthorYearTitle[ch.~2 ``Is Cantor necessary?'']{Feferman:1998:LightOfLogic}
+
+Cantor diagonal argument:
+\hfill\break
+$\OneToOne$ map between binary sequences ($2^{\Space{N}}$)
+and $[0,1]\subset\Space{R}$
+Does that need a proof?
+What about finite sequences vs trailing $1$s? 
+\hfill\break
+Then assume existence of a $\OneToOne$  
+map between $2^{\Space{N}}$s 
+and $\Space{N}$,
+without any explicit construction.
+Construct an explicit missing sequence 
+for any candidate $\OneToOne$ map,
+by flipping the $i$th bit in the $i$th sequence,
+thus a contradiction?
+So $\mathfrak{c} = \card(2^{\Space{N}}) 
+= \card(\Space{R})$ must be greater than 
+$\aleph_0 = \card(\Space{N})$. 
+\hfill\break
+Claim this can be extended to any set $\Set{S}$,
+proving 
+$\card(\Set{S}) < \card(2^{\Set{S}})$,
+including 
+$\card(\Space{R}) < \card(2^{\Space{R}})$?
+Doesn't seem obvious.
+\hfill\break
+How does all this play with 
+the Hilbert hotel paradox? \citeAuthorYearTitle{wiki:HilbertHotel}
+(Problem with Hilbert hotel is 
+always space for new customer, if everybody moves one room up,
+but infinite time required to make that space.)
+
+Question $1$ for Cantor:
+\hfill\break
+Are there any cardinals other than 
+$\card(\Space{N})$ and 
+$\card(\Space{R})$?
+
+Question $2$ for Cantor (Continuum hypothesis aka CH):
+\hfill\break
+Are there any cardinals between
+$\card(\Space{N})$ and 
+$\card(\Space{R})$?
+
+Implicit of axiom of choice (AOC) used to 'prove' 
+well ordering (WO) of cardinals.
+('Cardinals' not clearly defined.
+Should it be equivalence classes of sets where
+equivalence means 'there exists'/'we can construct'
+a $\OneToOne$ mapping.)
+\hfill\break
+Well ordering used to show 'scale' of infinite cardinals
+$\aleph_0, \aleph_1, \ldots$. (Is this countable?)
+\hfill\break
+Continuum hypothesis: 
+$\mathfrak{c} = \card(2^{\Space{N}}) 
+> \card(\Space{R}) = \aleph_1$
+(and there are no cardinalities in between).
+
+Zermelo axioms of set theory, including AC.
+Start from axioms defining initial universe:
+empty set and $\Space{N}$.
+Then set operations including predicated subsets,
+'finessing' the contradiction of the
+cardinality of the set of all cardinalities,
+set of all sets,
+sets of all sets not containing themselves, 
+\ldots.
+\hfill\break
+'\ldots more fuel for criticism \ldots.'
+Weyl and Skolem improvements by basing it on 1st order logic.
+(But doesn't a first order language require sets,
+eg, a set of atomic symbols?)
+
+P.~$60$ $2$nd paragraph (Skolem's paradox):
+\hfill\break
+What's the difference between $\Set{A} \sim \PowerSet{\Set{A}}$ 
+($\card(\Set{A})=\card(\Set{\PowerSet{\Set{A}}})$
+ 'externally' vs 'internally'?
+
+\textlb{G\"{o}del's incompleteness theorems:}
+don't follow completely.
+
+\textlb{Postscript on second-order logic:}
+``second-order logic cannot be axiomatized effectively.''
+Don't follow much of argument.
+
+\textlb{Elimination of the law of the excluded middle:}
+\hfill\break
+LEM implies (for Hilbert) completed infinity (?).
+\hfill\break
+Heyting arithmetic (HA) excludes LEM;
+any true statement in PA (Peano arithmetic) 
+(and many other arithmetic systems)
+can be translated into
+a true statement in HA.
+\hfill\break
+This (somehow) implies that a finite consistency proof
+of PA would not eliminate completed infinity.
+
+\textlb{The elusiveness of Cantor's continuum problem:}
+\hfill\break
+Hilbert's program can't solve the continuum problem.
+
+
+\textlb{New axioms?}
+\hfill\break
+Dubiousness of large cardinals.
+\hfill\break
+Freiling axiom of 
+symmetry (AX) \citeAuthorYearTitle{Freiling:1986:Symmetry,wiki:FreilingsAxiomOfSymmetry}
+'disproves' CH.
+
+\end{plSection}%{Is Cantor Necessary?}
+%-----------------------------------------------------------------
+\begin{plSection}{The logic of mathematical discovery 
+versus the logical structure of mathematics}
+\label{sec:logic_of_mathematical_discovery}
+
+\citeAuthorYearTitle[ch.~3 ``The logic of mathematical discovery versus
+the logical structure of mathematics'']{Feferman:1998:LightOfLogic}
+
+Reviews work of Lakatos \citeAuthorYearTitle{Lakatos:1976:Proofs,Lakatos:1978:MSE},
+a fairly dubious 'theory' of how mathematics research is done,
+neither empirical (no significant evidence, just anecdotes),
+nor mathematically/logically rigorous.
+
+Brief comparison to 
+P\'{o}lya~\cite[ch~3,sec~7]{Feferman:1998:LightOfLogic},
+which sounds much more useful. \citeAuthorYearTitle{Polya:1957:SolveIt,
+Polya:1965:MathDiscovery,Polya:1968:PlausibleReasoning}
+``\ldots P\'{o}lya \ldots concentrates on tactics and methods
+for \textit{finding solutions} to problems and, 
+to a lesser extent,
+on \textit{finding proofs} of theorems.''
+\hfill\break
+``\ldots professional mathematicians might want \ldots
+a continuation \ldots which concentrated on \ldots
+finding difficult proofs.''
+
+Neither Lakatos or P\'{o}lya ``\ldots attempted to deal with 
+\ldots
+finding the technical but general concepts that 
+help organize masses of material and make difficult 
+proofs understandable.''
+
+\end{plSection}%{The logic of mathematical discovery versus the logical structure of mathematics}
+%-----------------------------------------------------------------
+\begin{plSection}{Foundational ways}
+\label{sec:Foundational_ways}
+
+\citeAuthorYearTitle[ch~4 ``Foundational ways'']{Feferman:1998:LightOfLogic}
+
+$20$th century crisis in mathematics and grand solutions:
+\begin{plQuote}{\citeAuthorYearTitle[ch~4 ``Foundational ways'']{Feferman:1998:LightOfLogic}}{}
+\ldots\ logicism, formalism, platonism, and constructivism \ldots\
+are all rather tired looking now, if not suffering from
+senescence and still more basic ills. \ldots
+most mathematicians have given up worrying \dots .
+If asked, say they are formalists, or that
+Zermelo-Fraenkel meets their needs, or whatever.
+\end{plQuote}
+
+Argument against category theory as alternative 
+foundation in \citeAuthorYearTitle{Feferman:1977:CategoricalFoundations}.
+
+Critics of logical foundations argue ``that mathematics
+is more reliable than any of the \ldots schemes which have been
+[proposed] to 'secure' it.''
+
+\cite[ch~4, p~99]{Feferman:1998:LightOfLogic} has
+Scott models for (self-referential) lambda 
+calculus. \citeAuthorYearTitle{Scott:1972:ContinuousLattices,
+Scott:1976:DataTypesAsLattices}
+
+Survey of models for self-referential theories in 
+\citeAuthorYearTitle{Feferman:1984:TypeFreeTheoriesI}.
+
+\end{plSection}%{Foundational ways}
+%-----------------------------------------------------------------
+\begin{plSection}{Working foundations 1991}
+\label{sec:Working_foundations_1991}
+
+\citeAuthorYearTitle[ch~5 ``Working foundations 1991'']{Feferman:1998:LightOfLogic}
+
+Rougher version of \cite[ch~4]{Feferman:1998:LightOfLogic},
+see notes in \cref{sec:Foundational_ways}.
+
+Reference to MacLane \citeAuthorYearTitle{MacLane:1981:MathModels},
+which has some relevance to motivating
+parts of mathematics (and foundations)
+from applications.
+
+\end{plSection}%{Working foundations 1991}
+%-----------------------------------------------------------------
+\begin{plSection}{(7) Reflective expansion of concepts and principles}
+
+Mentions, but does not explain, the difference 
+in constructive mathematics between
+``the idea of a function as given by a \textit{rule}
+\ldots [and] \ldots the idea of a set as given by a 
+\textit{defining property}. \citeAuthorYearTitle{Feferman:1979:ConstructiveFunctionsClasses}
+
+\end{plSection}%{(7) Reflective expansion of concepts and principles}
+%-----------------------------------------------------------------
+\begin{plSection}{G\"{o}del's life and work}
+\label{sec:Godels_life_and_work}
+
+\citeAuthorYearTitle[ch~6 ``G\"{o}del's life and work'']{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{G\"{o}del's life and work}
+%-----------------------------------------------------------------
+\begin{plSection}{Kurt G\"{o}del: conviction and caution}
+\label{sec:Kurt_Godel_conviction_and_caution}
+
+Examines admittedly limited and contradictory evidence
+of G\"{o}del's platonist/realist/objectivist view of
+mathematics: abstract mathematical entities exist outside 
+of anybody's thinking about them;
+undecidable propositions are in fact true or false, we just don't
+know (?).
+Also considers whether G\"{o}del concealed these views and 
+why. \citeAuthorYearTitle[ch~7 ``Kurt G\"{o}del: conviction and caution'']{Feferman:1998:LightOfLogic}
+
+Incompleteness theorem uses self-referential statement
+equivalent to [this statement cannot be 
+proved].~\cite[p~156]{Feferman:1998:LightOfLogic}
+
+Self-referential paradoxes 'resolved' by 
+``\ldots 'false statement in [language] B' cannot be expressed in
+B, and so [is a] \ldots statement \ldots in some other 
+language''.~\cite[p~157]{Feferman:1998:LightOfLogic}
+
+G\"{o}del refers to 
+Tarski \citeAuthorYearTitle{Tarski1944:SemanticTruth,Tarski:1983:LogicEtc} 
+for justification in 1965 version 
+of this work. \citeAuthorYearTitle{Godel:1986:CollectedWorksI}
+ 
+(Can we construct a language that can express 
+or evaluate the truth of 
+its own statements? 
+Is non-halting evaluation a way out of paradoxes?)
+
+``Thus if truth of number theory \textit{were}
+definable within itself, one could find a precise version of the
+Liar statement, giving a contradiction.
+It follows that truth is not so definable.
+But provability in the system \textit{is} definable,
+so the notions of provability and truth must be distinct.
+In particular, if all provable sentences are true,
+there must be true non-provable sentences.
+The self-referential construction applied to provability
+(which \textit{is} definable) instead of truth then 
+leads to a specific example of an undecidable 
+sentence.''~\cite[p~159]{Feferman:1998:LightOfLogic}
+
+(Is 'provability' the same as non-halting truth evaluation?)
+
+\end{plSection}%{Kurt G\"{o}del: conviction and caution}
+%-----------------------------------------------------------------
+\begin{plSection}{Introductory note to Kurt G\"{o}del's 1933 lecture}
+\label{sec:Introductory_note_Godel_1933}
+
+\citeAuthorYearTitle[ch~8 ``Introductory note to Kurt G\"{o}del's 1933 lecture'']{Feferman:1998:LightOfLogic}
+
+See also \citeAuthorYearTitle{Godel:1995:CollectedWorksIII}.
+
+\end{plSection}%{Introductory note to Kurt G\"{o}del's 1933 lecture}
+%-----------------------------------------------------------------
+\begin{plSection}{What does logic have to tell us about mathematical proofs?}
+\label{sec:What_does_logic_tell_us_about_proofs}
+
+\citeAuthorYearTitle[ch~9 ``What does logic have to tell us about mathematical proofs?'']{Feferman:1998:LightOfLogic}
+
+``One part of the analogy with physics is not so apt.
+The experimental method provides highly sophisticated, refined
+means to test physical theories {\ldots}.
+We have no such tests of logical theories.
+Rather it is primarily a matter of individual judgment
+how well these square with ordinary
+experience."~\cite[p~178]{Feferman:1998:LightOfLogic}
+
+``\ldots the process of \textit{explicit definition,} which allows
+us to expand our basic vocabulary systematically,
+is necessary to keep formal representations of informal concepts
+down to a manageable size. \ldots\ 
+If everything were written out in terms of primitive notions,
+mathematics would be 
+unlearnable.''~\cite[p~180]{Feferman:1998:LightOfLogic}
+
+Bishop's work can be formalized 
+in Feferman's $T_0$ \citeAuthorYearTitle{Feferman:1975:ExplicitMathematics}
+(a subsystem of Myhill's CST \citeAuthorYearTitle{Myhill:1975:ConstSetTheory} (?)).
+
+\end{plSection}%{What does logic have to tell us about mathematical proofs?}
+%-----------------------------------------------------------------
+\begin{plSection}{What rests on what? The proof-theoretic analysis of mathematics}
+\label{sec:What_rests_on_what}
+
+\citeAuthorYearTitle[ch~10 ``What rests on what? 
+The proof-theoretic analysis of mathematics'']{Feferman:1998:LightOfLogic}
+
+``G\"{o}del \ldots\ showed that PA [Peano arithmetic]
+could be translated into the intuitionistic system HA of
+Heyting's arithmetic,
+which differs from PA on in omitting the 
+Law of the Excluded Middle{\ldots}.''~\cite[190]{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{What rests on what? The proof-theoretic analysis of mathematics}
+%-----------------------------------------------------------------
+\begin{plSection}{G\"{o}del's \textit{Dialectica} interpretation and its two-way-stretch}
+\label{sec:Godels_Dialectica_interpretation}
+
+\citeAuthorYearTitle[ch~11 ``G\"{o}del's \textit{Dialectica} interpretation and its
+two-way-stretch'']{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{G\"{o}del's \textit{Dialectica} interpretation and its two-way-stretch}
+%-----------------------------------------------------------------
+\begin{plSection}{Infinity in mathematics: is Cantor necessary? (conclusion)}
+\label{sec:Cantor_necessary_conclusion}
+
+\citeAuthorYearTitle[ch~12 ``Infinity in mathematics: is Cantor necessary? (conclusion)'']
+{Feferman:1998:LightOfLogic}
+
+Classes of statements and formulas:
+\begin{description}
+\item[$\Pi^0_1$] statements of the form
+$\forall x (F(n) = 0)$ where $F$ is primitive recursive.
+\item[$\Sigma^0_1$] statements of the form
+$\exists x (F(n) \neq 0)$ (negations of statement in $\Pi^0_1$).
+\item[$\Pi^0_k$] sequence of $k$ alternating quantifiers,
+starting with $\forall x$.
+\textlb{(Why alternating?)}
+\item[$\Sigma^0_k$] sequence of $k$ alternating quantifiers,
+starting with $\exists x$.
+\textlb{(Why alternating?)}
+\item[$\Delta^0_k$] statements that are in both $\Pi^0_k$
+and $\Sigma^0_k$. 
+\textlb{(How is that possible?)}
+\end{description}
+Superscript $0$ is above classes refers to the fact that
+quantified variables range over $x,y,\ldots \in \Space{N}$.
+\textlb{(first order logic/arithmetic?)}
+When we add variables $X,Y,\ldots \subseteq \Space{N}$,
+then the classes are $\Pi^1_k, \Sigma^1_k, \Delta^1_k$.
+
+Collecting all arities into a single class:
+\begin{itemize}
+  \item $\Pi^i_{\infty} \, = \, \bigcup_k \Pi^i_k$
+  \item $\Sigma^i_{\infty} \, = \, \bigcup_k \Sigma^i_k$
+  \item $\Delta^i_{\infty} \, = \, \bigcup_k \Delta^i_k$
+\end{itemize}
+
+\textit{Comprehension axiom schema:}
+\begin{equation}
+\tag{$\mathcal{F}{-}\text{CA}$}
+\exists X \forall n \left[ (n \in X) \Leftrightarrow P(n) \right]
+\end{equation}
+where $\mathcal{F}$ is a class of formulas 
+\textlb{(meaning $\Pi^0_k$ or $\Sigma^0_k$?)}
+and $P \in \mathcal{F}$.
+
+For formulas in $\mathcal{F}$ and its complement,
+\begin{equation}
+\tag{$\Delta_{\mathcal{F}}{-}\text{CA}$}
+\forall n \left[ P(n) \Leftrightarrow Q(n) \right]
+\Rightarrow 
+\exists X \forall n \left[ (n \in X) \Leftrightarrow P(n) \right]
+\end{equation}
+where $P \in \mathcal{F}$ and $\sim Q \in \mathcal(F)$.
+\textlb{
+(Is ``$\sim Q$'' the same as ``$\lnot Q$'', ie, 
+``$(\text{not}\, Q)$''?)}
+
+\end{plSection}%{Infinity in mathematics: is Cantor necessary? (conclusion)}
+%-----------------------------------------------------------------
+\begin{plSection}{Weyl vindicated: \textit{Das Kontinuum} seventy years later}
+\label{sec:Weyl_vindicated}
+
+Moderate number of typos in this 
+chapter. \citeAuthorYearTitle[ch~13 ``Weyl vindicated: \textit{Das Kontinuum} seventy years later'']{Feferman:1998:LightOfLogic}
+
+Goal is to fix Weyl's program 
+using 'finite', 'definitionist/predicative', 'intuitionist' ideas
+to create a basis for scientifically applicable mathematics
+(without uncountable infinities?).
+
+Work on foundations of math \citeAuthorYearTitle{Weyl:1910:Definitionen}.
+\textit{Das Kontinuum} \citeAuthorYearTitle{Weyl:1918:Kontinuum,Weyl:1987:Continuum}.
+
+``Weyl's way out'' of Richard paradox/diagonal 
+argument.~\cite[p 262]{Feferman:1998:LightOfLogic} 
+
+Theory W (a conservative extension of PA),
+with 'variable/flexible' finite types,
+claims to formalize substantial parts of
+classical and modern 
+analysis.~\cite[ch~13 sec~8]{Feferman:1998:LightOfLogic}
+
+\end{plSection}%{Weyl vindicated: \textit{Das Kontinuum} seventy years later}
+%-----------------------------------------------------------------
+\begin{plSection}{Why a little bit goes a long way:
+logical foundations of scientifically applicable mathematics}
+\label{sec:Why_a_little_bit_goes_a_long_way}
+
+\citeAuthorYearTitle[ch~14 ``Why a little bit goes a long way:
+logical foundations of scientifically applicable mathematics'']{Feferman:1998:LightOfLogic}
+
+Quite a bit of overlap (system W) 
+with~\cite[ch 13]{Feferman:1998:LightOfLogic}.
+Not much additional detail about what, exactly,
+is the range of ``scientifically applicable mathematics''
+or how system W fulfills that.
+
+\end{plSection}%{Why a little bit goes a long way: logical foundations of scientifically applicable mathematics}
+%-----------------------------------------------------------------
+\end{plSection}%{In the light of logic}
+%-----------------------------------------------------------------
+\end{plSection}%{Feferman}
+%-----------------------------------------------------------------
+ 
