@@ -15,7 +15,7 @@ Note that $f:\Reals^{3n} \mapsto \Re$,
 where $n$ is the number of vertices in $\Set{M}$.
 
 We compute $\Projection_{\Set{M}} (\Vector{d})$ by minimizing  
-$\|\Vector{d}-\Projection_\Simplex{s} (\Vector{d})\|^2$
+$\|\Vector{d}-\Projection_{\Simplex{s}} (\Vector{d})\|^2$
 over all simplices $\Simplex{s} \in \Set{M}$.
 We need only consider the faces of $\Set{M}$,
 those edges not in any face,
@@ -77,7 +77,7 @@ $\Vector{p} = (\Vector{p}_0, \Vector{p}_1) \in \Reals^6$.
 We can write the projection of a data point 
 $\Vector{d}$ on $\Simplex{e}$ as:
 \begin{equation}
-\Projection_\Vector{p} (\Vector{d}) 
+\Projection_{\Vector{p}} (\Vector{d}) 
 = b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1
 \end{equation}
 where
@@ -155,7 +155,7 @@ $\left( \Vector{q}_0-\Vector{q}_1 \right)$, we get:
 {\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_1(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
+\left[ \Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
@@ -198,7 +198,7 @@ As in the edge case,
 we can write the projection of a data point $\Vector{d}$ on $\Simplex{f}$
 in terms of the barycentric coordinates as:
 \begin{equation}
-\Projection_\Vector{p} (\Vector{d}) = 
+\Projection_{\Vector{p}} (\Vector{d}) = 
 b_0(\Vector{p}) \Vector{p}_0 + b_1(\Vector{p}) \Vector{p}_1 
 + b_2(\Vector{p}) \Vector{p}_2,
 \end{equation}
@@ -217,14 +217,14 @@ we can show that
 {\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_1(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
+\left[ \Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \\
 \Gradient[\Vector{p}_2]
 {\|\Projection_{\Vector{p}} (\Vector{d})-\Vector{d}|^2 }
 [\Vector{q}]
 & = & 2 b_2(\Vector{q}) 
-\left[ \Projection_\Vector{q} (\Vector{d})-\Vector{d} \right]
+\left[ \Projection_{\Vector{q}} (\Vector{d})-\Vector{d} \right]
 \nonumber
 \end{eqnarray}
 
