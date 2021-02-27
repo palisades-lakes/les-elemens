@@ -73,8 +73,8 @@ $= \SetSpec{ i }{ \, i/2 \, \text{is an integer} }$.
 However, it's difficult to do much interesting with a set
 unless we have some way of finding, or generating elements.
 So another common way to specify a set is by enumeration:
-For example, the even numbers $= \{ \ldots, -4, -2, 0, 2 ,4,
-\ldots \}$.
+For example, the even numbers $= \left\{ \ldots, -4, -2, 0, 2 ,4,
+\ldots \right\}$.
 
 The enumeration notation above is something of a cheat ---
 although it's straightforward enough for finite sets, it relies on
@@ -166,7 +166,7 @@ Notation for set cardinality varies widely:
 $\#\Set{S}$,  $|\Set{S}|$,
 $\bar{\bar{\Set{S}}}$, $n(\Set{S})$,
 $\text{card}(\Set{S})$, \ldots, nearly all of which conflict
-with something (eg $\#\{ 0 \, 1 \, 2 \} = 3$ vs 
+with something (eg $\#\left\{ 0 \, 1 \, 2 \right\} = 3$ vs 
 \lstinline|#{1 2 3}| Clojure set syntax).
 I will use $\text{cardinality}(\Set{S})$.
 
@@ -309,10 +309,10 @@ Object[] toArray (Object[] a)
 {\texttt{Set} optional operations for mutable sets.}
 {Set.mutable}
 \begin{lstlisting}
-boolean add(E e) //$\; \Set{S} \leftarrow \Set{S} \cup \{e\} $
+boolean add(E e) //$\; \Set{S} \leftarrow \Set{S} \cup \left\{e\right\} $
 boolean addAll(Collection c) //$\;\Set{S}\leftarrow\Set{S}\cup\Set{C}$ 
 void  clear() //$\; \Set{S} \leftarrow \varnothing $ 
-boolean remove (Object o) //$\;\Set{S}\leftarrow\Set{S}\setminus\{e\}$
+boolean remove (Object o) //$\;\Set{S}\leftarrow\Set{S}\setminus\left\{e\right\}$
 boolean removeAll (Collection c) //$\;\Set{S}\leftarrow\Set{S}\setminus\Set{C}$ 
 boolean retainAll (Collection c) //$\;\Set{S}\leftarrow\Set{S}\cap\Set{C}$
 \end{lstlisting}
@@ -355,8 +355,8 @@ for all Clojure collections, not always what you would expect:
 (contains? s x) ;;  $x \in \Set{S}$.
 (empty? s) ;; $\Set{S} = \varnothing$
 (count s) ;; $\text{cardinality}(\Set{S})$
-(conj s x) ;; $\Set{S} \cup \{x\}$
-(disj s x) ;; $\Set{S} \setminus \{x\}$
+(conj s x) ;; $\Set{S} \cup \left\{x\right\}$
+(disj s x) ;; $\Set{S} \setminus \left\{x\right\}$
 (clojure.set/intersection s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \cap \Set{S}_1 \cap \Set{S}_2 \cap \ldots$ 
 (clojure.set/union s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \cup \Set{S}_1 \cup \Set{S}_2 \cup \ldots$ 
 (clojure.set/difference s0 s1 s2 $\ldots$) ;; $\Set{S}_0 \setminus (\Set{S}_1 \cup \Set{S}_2 \cup \ldots)$
@@ -511,14 +511,14 @@ under which one can form a set.
 Cantor’s principle states that, 
 given any specific property $\varphi(x)$ 
 concerning a variable $x$, 
-the collection $\{x:\varphi(x)\}$ is a set, 
-where $\{x:\varphi(x)\}$ is 
+the collection $\left\{x:\varphi(x)\right\}$ is a set, 
+where $\left\{x:\varphi(x)\right\}$ is 
 the set of all objects x that satisfy the property φ(x).
 For example, let $\varphi(x)$ be the property that 
 '$x$ is an odd natural number.' 
 The Comprehension Principle implies that
 
-$\Set{S}=\{x:\varphi(x)\}=\{1,3,5,7,\dots\}$ ``\cite{iep:SetTheory}
+$\Set{S}=\left\{x:\varphi(x)\right\}=\left\{1,3,5,7,\dots\right\}$ ``\cite{iep:SetTheory}
 
 Problems: \hfill\break
 where do we get the $x$ to plug into $\varphi(x)$?\hfill\break
@@ -592,8 +592,8 @@ $V_{0} \,\doteq\, \varnothing$.
 
 $V_{\beta +1} \,\doteq\, \wp(V_{\beta })$.
 $\beta$ any ordinal\cite{wiki:OrdinalNumber}.
-EG: $V_1 = \{ V_0 \} = \{ \varnothing \}$,
- $V_2 = \{ \varnothing,  \{ \varnothing \} \}$, \ldots .
+EG: $V_1 = \left\{ V_0 \right\} = \left\{ \varnothing \right\}$,
+ $V_2 = \left\{ \varnothing,  \left\{ \varnothing \right\} \right\}$, \ldots .
 
 $V_{\lambda }\,\doteq\,\bigcup _{\beta <\lambda }V_{\beta }$.
 $\lambda$ any limit ordinal\cite{wiki:LimitOrdinal}.
@@ -848,7 +848,7 @@ $\forall x\,(x\neq \varnothing \Rightarrow
  \end{plAxiom}
  
 (No infinite loops? Guarantee halting? 
-For $\Set{A} = \{\Set{A}\}$,
+For $\Set{A} = \left\{\Set{A}\right\}$,
 \textsf{(hasElement A x)} 
 returns \textsf{true} if \textsf{(== A x)}
 and \textsf{false} otherwise. )
@@ -966,7 +966,7 @@ Axiom of pairing unnecessary.
 A consequence of \nameref{sec:Axiom-schema-of-replacement}
 applied to any set with $2$ or more elements.
 Existence of a set with $\geq 2$ elements
-(eq $\{ \{\}, \{ \{\} \} \}$)
+(eq $\left\{ \left\{\right\}, \left\{ \left\{\right\} \right\} \right\}$)
 deduced from \nameref{sec:Axiom-of-infinity}
 (or axiom of empty set\cite{wiki:AxiomOfEmptySet}
 and \nameref{sec:Axiom-of-power-set}).
@@ -992,14 +992,14 @@ sets\cite{wiki:ZermeloSetTheory}.
 
 Singleton:
 (Another identity/equality issue)
-$\Set{S}=\{\Set{A},\Set{A}\}$, abbreviated $\{\Set{A}\}$,
+$\Set{S}=\left\{\Set{A},\Set{A}\right\}$, abbreviated $\left\{\Set{A}\right\}$,
 defines a singleton as a repeated pair---which doesn't make sense,
 once there's no provision for having the same element
 in a set ``more than once'', whatever that might mean.
 Axiom as stated doesn't specify $\Set{A} \neq \Set{B}$
 
 Ordered pair:
-$(a,b)=\{\{a\},\{a,b\}\}$.
+$(a,b)=\left\{\left\{a\right\},\left\{a,b\right\}\right\}$.
 See also Halmos\cite{Halmos:1960:NaiveSetTheory}.
 Is this really necessary? 
 
@@ -1052,11 +1052,11 @@ Using \nameref{sec:Axiom-schema-of-replacement}:
 Union defined as an operation on a single set:\hfill\break
 ${\displaystyle 
 \cup {\Set{F}} \; \doteq \;
-\{x\in \Set{A}:\exists \Set{Y} 
-(x \in \Set{Y} \land \Set{Y} \in \Set{F})\}.}$
+\left\{x\in \Set{A}:\exists \Set{Y} 
+(x \in \Set{Y} \land \Set{Y} \in \Set{F})\right\}.}$
 
 Define usual set union via axiom of pairing:
-$\Set{A} \cup \Set{B} \; \doteq \; \cup \{ \Set{A}, \Set{B}\}$
+$\Set{A} \cup \Set{B} \; \doteq \; \cup \left\{ \Set{A}, \Set{B}\right\}$
 
 Define union of indexed family (?) of sets
 using \nameref{sec:Axiom-schema-of-replacement}.
@@ -1074,8 +1074,8 @@ x\in \Set{A}]$.
 Note that intersection can be defined from 
 \nameref{sec:Axiom-schema-of-specification}:\hfill\linebreak
 ${\displaystyle 
-\bigcap \Set{A}=\{c\in \Set{E}:
-\forall \Set{D} (\Set{D} \in \Set{A} \Rightarrow c\in \Set{D})\}}$.
+\bigcap \Set{A}=\left\{c\in \Set{E}:
+\forall \Set{D} (\Set{D} \in \Set{A} \Rightarrow c\in \Set{D})\right\}}$.
 Note also that applying this to the empty set
 is not permitted by ''the axioms'';
 otherwise we would get a universe set 
@@ -1111,7 +1111,7 @@ defined so that for all $y\in\Set{B}$ there exist $x \in \Set{A}$
 such that $y=F_P(x)$.
 (Something backwards about this.)
 
-$\Set{B}\,=\,F_p(\Set{A}) \,=\, \{F_p(x) : x \in \Set{A}\}$ 
+$\Set{B}\,=\,F_p(\Set{A}) \,=\, \left\{F_p(x) : x \in \Set{A}\right\}$ 
 is the \textsl{image} of $\Set{A}$ under $F_p$.
 
 Principle of smallness: if $\Set{A}$ is 
@@ -1153,7 +1153,7 @@ elements\cite{wiki:AxiomOfInfinity}.
 
 More formally, asserts existence of an infinite set 
 constructed via von Neumann:
-$\emptyset, \{\emptyset\}, \{ \emptyset, \{\emptyset\} \} \cdots$
+$\emptyset, \left\{\emptyset\right\}, \left\{ \emptyset, \left\{\emptyset\right\} \right\} \cdots$
 
 Even more formal, take the minimal set satisfying:
 ${\displaystyle 
@@ -1161,7 +1161,7 @@ ${\displaystyle
  \,(\emptyset \in \mathbf {I}
  \,\land \,
  \forall x\in \mathbf {I} \,
- (\,(x\cup \{x\})\in \mathbf {I} )).}$
+ (\,(x\cup \left\{x\right\})\in \mathbf {I} )).}$
  
  Proved independent of other \textsf{ZFC} axioms.
  
@@ -1179,7 +1179,7 @@ The power set is the set of all subsets of a given set.
 The \nameref{sec:Axiom-of-power-set} says the the power set
 always exists\cite{wiki:AxiomOfPowerSet}:
 
-${\displaystyle \wp(x) \,=\, \{z\in y:z\subseteq x\}}$
+${\displaystyle \wp(x) \,=\, \left\{z\in y:z\subseteq x\right\}}$
 
 \end{plSection}%{Axiom of power set}
 %-----------------------------------------------------------------

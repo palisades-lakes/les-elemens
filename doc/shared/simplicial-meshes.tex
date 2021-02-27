@@ -4,7 +4,7 @@
 An {\it abstract $d$-simplex} (or just {\it simplex})
 $\Simplex{s}$, is a set of $d+1$ elements of some ground space.
 The elements of the simplex are its {\it vertices}, 
-$\{ \Vertex{n}_0 \ldots \Vertex{n}_d \}$.
+$\left\{ \Vertex{n}_0 \ldots \Vertex{n}_d \right\}$.
 A typical ground space might be the non-negative integers,
 which is what I will assume in the following.
 A typical implementation would be an integer array
@@ -18,8 +18,8 @@ If $\Simplex{t}$ is a face of $\Simplex{s}$,
 then the face {\it opposite} $\Simplex{t}$ in $\Simplex{s}$
 is the simplex contained those vertices of $\Simplex{s}$
 not in $\Simplex{t}$.
-If $\Simplex{t}$ is the facet of $\Simplex{s} = \{ \Vertex{n}_0 \ldots \Vertex{n}_d \}$
-containing, wlog, vertices $\{ \Vertex{n}_0 \ldots \Vertex{n}_{d-1} \}$
+If $\Simplex{t}$ is the facet of $\Simplex{s} = \left\{ \Vertex{n}_0 \ldots \Vertex{n}_d \right\}$
+containing, wlog, vertices $\left\{ \Vertex{n}_0 \ldots \Vertex{n}_{d-1} \right\}$
 then we speak of $\Vertex{n}_d$ as the {\it vertex opposite} $\Simplex{t}$
 and $\Simplex{t}$ as the {\it facet opposite} $\Vertex{n}_d$.
 
@@ -33,9 +33,9 @@ $\SimplicialComplex{K}$, is a set of simplices
 that obey an containment constraint:
 if $\Simplex{s}$ is in $\SimplicialComplex{K}$, 
 then all faces of $\Simplex{s}$ are in $\SimplicialComplex{K}$.
-The complex {\it generated} by a set of simplices $\{ \Vertex{n} \}$,
-$\SimplicialComplex{K} \left( \{ \Vertex{n} \} \right)$ 
-is the union of all $\{ \Vertex{n} \}$
+The complex {\it generated} by a set of simplices $\left\{ \Vertex{n} \right\}$,
+$\SimplicialComplex{K} \left( \left\{ \Vertex{n} \right\} \right)$ 
+is the union of all $\left\{ \Vertex{n} \right\}$
 and their faces.
 
 The {\it dimension} of a simplicial complex is the maximum dimension
@@ -76,7 +76,7 @@ a finite dimensional real inner product space.
 
 Note that this is not the usual definition,
 in which a geometric simplex is the convex hull of its vertex positions
-$\convexspan \{ \Point{p}(\Vertex{n}_0) \ldots \Point{p}(\Vertex{n}_d) \} 
+$\convexspan \left\{ \Point{p}(\Vertex{n}_0) \ldots \Point{p}(\Vertex{n}_d) \right\} 
 = \convexspan ( \Point{p}(S) )$.
 I prefer to keep the simplex distinct from its convex hull,
 but I will often omit explicit mention of the convex hull

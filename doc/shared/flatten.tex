@@ -18,7 +18,7 @@ Let $S=(\Point{p}_0, \Point{p}_1, \ldots , \Point{p}_m)$ be an $m$-simplex in $\
 Let $\pi$ be a projection from $\Reals^{n}$ to $Q$, an $(m-1)$-dimensional
 affine subspace of $\Reals^{n}$.
 Assume $\pi$ is chosen so that the points
-$\{\pi \Point{p}_0, \pi \Point{p}_1, \ldots , \pi \Point{p}_m\}$ are in {\it general position},
+$\left\{\pi \Point{p}_0, \pi \Point{p}_1, \ldots , \pi \Point{p}_m\right\}$ are in {\it general position},
 that is, any $l+1$ of the projected points spans an $l$-dimensional
 affine subspace of $Q$.
 
@@ -46,7 +46,7 @@ The second triangulation is itself the mutual refinement of both.
 \end{plTheorem}
 
 The first 2 statements are obvious.
-If we label the vertices so that $\{\pi \Point{p}_1, \ldots , \pi \Point{p}_m\}$
+If we label the vertices so that $\left\{\pi \Point{p}_1, \ldots , \pi \Point{p}_m\right\}$
 are on the boundary, and $\pi \Point{p}_0$ is in the interior,
 then the second triangulation results from refining the first
 triangulation {\it pulling} the vertex $\pi \Point{p}_0$
@@ -85,7 +85,7 @@ is $(d-1)$-dimensional.
 Let $\SimplicialComplex{K}_{d-1}$ be an oriented version of the $(d-1)$-skeleton of $\Simplex{s}$.
 
 By the results above, the oriented $(d-1)$-simplices,
-$\{ \Facet{f}_0 \ldots \Facet{f}_d \}$ in $\SimplicialComplex{K}_{d-1}$
+$\left\{ \Facet{f}_0 \ldots \Facet{f}_d \right\}$ in $\SimplicialComplex{K}_{d-1}$
 can be partitioned into two subsets, $\SimplicialComplex{K}_{d-1}^{+}$
 and $\SimplicialComplex{K}_{d-1}^{-}$, such that
 $\Projection_{\Space{A}} \left( \Point{p} ( \SimplicialComplex{K}_{d-1}^{+} ) \right)$
@@ -118,11 +118,11 @@ can be expressed
 as a convex combination of the projected realizations of the corner vertices.
 
 In this case, one of $\SimplicialComplex{K}_{d-1}^{\pm}$ is a single facet $\Facet{f}_d$
-and the other contains the remaining $d$ facets $\{\Facet{f}_0 \ldots \Facet{f}_{d-1} \}$,
+and the other contains the remaining $d$ facets $\left\{\Facet{f}_0 \ldots \Facet{f}_{d-1} \right\}$,
 which share $\Vertex{n}_0$.
 To get the mutual refinement, we split $\Facet{f}_d$ around a new vertex $\Vertex{n}_1$.
 To reduce the split children of $\Simplex{s}$ to $\SimplicialComplex{K}_{d-1}^{1}$,
-we collapse the edge $\{ \Vertex{n}_0 , \Vertex{n}_1 \}$.
+we collapse the edge $\left\{ \Vertex{n}_0 , \Vertex{n}_1 \right\}$.
 
 Note that the number of vertices in any complex containing $\Simplex{s}$
 is unchanged.
@@ -135,9 +135,9 @@ $\convexspan \left( \Projection_{\Space{A}} \left( \Point{p} ( \Simplex{s} ) \ri
 
 In this case, one of $\SimplicialComplex{K}_{d-1}^{\pm}$
 contains two facets, $\Facet{f}_{d-1}$ and $\Facet{f}_{d}$,
-and the other contains the remaining $(d-1)$ facets, $\{\Facet{f}_0 \ldots \Facet{f}_{d-2} \}$.
+and the other contains the remaining $(d-1)$ facets, $\left\{\Facet{f}_0 \ldots \Facet{f}_{d-2} \right\}$.
 $\Facet{f}_{d-1}$ and $\Facet{f}_{d}$ share a common $(d-2)$-simplex, $\Simplex{t}$.
-$\{\Facet{f}_0 \ldots \Facet{f}_{d-2} \}$ share a common edge.
+$\left\{\Facet{f}_0 \ldots \Facet{f}_{d-2} \right\}$ share a common edge.
 The common edge connects the vertex $\Vertex{n}_{d-1}$,
 which is opposite $\Simplex{t}$ in $\Facet{f}_{d-1}$,
 and the vertex $\Vertex{n}_{d}$
@@ -145,7 +145,7 @@ which is opposite $\Simplex{t}$ in $\Facet{f}_{d}$.
 To get the mutual refinement, we split $\Edge{e}$ around a new vertex $\Vertex{n}_0$
 and split $\Simplex{t}$ around a new vertex $\Vertex{n}_1$.
 To reduce the split children of $\Simplex{s}$ to $\SimplicialComplex{K}_{d-1}^{1}$,
-we collapse the edge $\{ \Vertex{n}_0 , \Vertex{n}_1 \}$.
+we collapse the edge $\left\{ \Vertex{n}_0 , \Vertex{n}_1 \right\}$.
 
 Note that the number of vertices in any complex containing $\Simplex{s}$
 is increased by 1.

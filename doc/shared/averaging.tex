@@ -2,7 +2,7 @@
 \label{sec:Averaging}
 
 A {\it mesh catalog} is a set 
-$\{ \Set{M}_0 \ldots \Set{M}_{n-1} \}$
+$\left\{ \Set{M}_0 \ldots \Set{M}_{n-1} \right\}$
 of $n$ meshes which are all embeddings
 of the same simplicial complex
 (that is, they have the same vertices, edges, and faces,
@@ -21,12 +21,12 @@ where $\Vector{p}_{i}; (i=0 \ldots m-1)$ is the position of the $i$th vertex of 
 and $\Vector{p}_{ij}$ is the position of the $i$th vertex of the $j$th catalog element.
 
 In {\it catalog fitting} we fit a registered weighted average mesh,
-to a set of data, $\{ \Vector{d}_k \in \Reals^3; k=0 \ldots p-1 \}$
+to a set of data, $\left\{ \Vector{d}_k \in \Reals^3; k=0 \ldots p-1 \right\}$
 by minimizing
 \begin{equation}
 f(\Set{M}(\Vector{T},\Vector{w})) = \sum_{k=0}^{p-1} \| \Vector{d}_k - \Projection_{\Set{M}(\Vector{T},\Vector{w})} (\Vector{d}_k) \|^2 ,
 \end{equation}
-over a family of registration transforms $\{\Vector{T}\}$
+over a family of registration transforms $\left\{\Vector{T}\right\}$
 and vectors of weights $\Vector{w} \in \Reals^n$.
 The vertex positions $\Vector{p}(\Vector{T},\Vector{w}) = (\Vector{p}_0(\Vector{T},\Vector{w}), \ldots , \Vector{p}_{n-1}(\Vector{T},\Vector{w}))$
 of the registered average mesh, $\Set{M}(\Vector{T},\Vector{w})$, are given by:
@@ -62,7 +62,7 @@ is given in \cref{sec:data-fitting}.
 
 $\Derivative[\Vector{T}]{\Vector{T}\Vector{p}}$ 
 is given in \cref{sec:Transforms}
-for various families of transforms $\{\Vector{T}\}$: affine, euclidean, and rigid.
+for various families of transforms $\left\{\Vector{T}\right\}$: affine, euclidean, and rigid.
 
 Using the chain rule, 
 the partial derivative with respect to $\Vector{w}$ is:

@@ -22,8 +22,8 @@ To be a little more precise, we want
  = 0
 \end{equation}
 
-% \\De\{(.+)\}\{(.+)\}\{(.+)\}
-% \\Derivative\[$1\]\{$2\}\[$3\]
+% \\De\left\{(.+)\right\}\left\{(.+)\right\}\left\{(.+)\right\}
+% \\Derivative\[$1\]\left\{$2\right\}\[$3\]
 \begin{plNote}{}{}
 For a linear function $\Vector{L}$,
 the derivative is constant over the domain
@@ -495,13 +495,20 @@ Suppose
 $f:\Space{V} \mapsto \Reals$, and
 $\Vector{g}:\Space{V} \mapsto \Space{W}$.
 It follows from the chain rule that the derivative of $\Vector{h} = f\Vector{g}$ is:
-\begin{equation}
+\begin{eqnarray}
 \label{eq:scalar_product_derivative}
-\Derivative{(f\Vector{g})}{\Vector{v}} 
-=  f(\Vector{v}) \Derivative{\Vector{g}}[\Vector{v}] 
+\Derivative{(f\Vector{g})}[\Vector{v}] 
+& =  &
+f(\Vector{v}) \Derivative{\Vector{g}}[\Vector{v}] 
++ \Vector{g}(\Vector{v}) 
+\Derivative{f}[\Vector{v}]
+\\
+& =  &
+f(\Vector{v}) \Derivative{\Vector{g}}[\Vector{v}] 
 + \Vector{g}(\Vector{v}) \otimes 
-\Gradient   {f}[\Vector{v}]
-\end{equation}
+\Gradient{f}[\Vector{v}]
+\nonumber
+\end{eqnarray}
 
 \end{plSection}%{Scalar products}
 %-----------------------------------------------------------------
@@ -518,7 +525,7 @@ and \ref{eq:norm_derivative}:
 \Derivative{\left( \frac{\Vector{f}}{\| \Vector{f} \|}\right)}[\Vector{v}][\Vector{u}]
 \\
 & = &
-\frac{\Derivative{\Vector{f}}{\Vector{v}}[\Vector{u}}][ \| \Vector{f}(\Vector{v}) \|]
+\frac{\Derivative{\Vector{f}}[\Vector{v}][\Vector{u}]}{\| \Vector{f}(\Vector{v}) \|}
  +
 \Vector{f}(\Vector{v})  \Derivative{ \left( \frac{1}{\| \Vector{f} \|} \right) }[\Vector{v}][\Vector{u}] \nonumber \\
 & = &
@@ -834,7 +841,7 @@ and the coordinate system.
 \label{sec:Derivatives-of-linear-function-valued-functions}
 
 The set of linear functions between two inner product spaces
-$\{ \Vector{L} : \Space{V} \mapsto \Space{W} \}$
+$\left\{ \Vector{L} : \Space{V} \mapsto \Space{W} \right\}$
 is itself a inner product space $\Space{L}(\Space{V},\Space{W})$,
 with the inner product defined by
 $\Vector{L} \bullet \Vector{M} = \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} \Vector{L}_{ij} \Vector{M}_{ij}$.

@@ -126,6 +126,7 @@ is simply the vector difference of the two normals:
 The (total) derivative of the squared distance 
 between adjacent face normals is:
 \begin{eqnarray}
+\label{eq:deltan_derivative}
 \Derivative{\|\DNormal{n}(\Point{p})\|^2}[\Point{q}]
 & =
 2 \ \DNormal{n} ( \Point{q} )^\dagger &
@@ -140,19 +141,26 @@ between adjacent face normals is:
 \nonumber \\
 & =
 2 \DNormal{n}(\Point{q})^\dagger &
-\{ \; \left[ \Identity_{\Reals^3}
- - \left( \Normal{n}( \Point{q}_{012} ) \otimes \Normal{n}( \Point{q}_{012} ) \right)
+\left\{ \; 
+\left[ \Identity_{\Reals^3}
+ - \left(
+  \Normal{n}( \Point{q}_{012} ) 
+  \otimes \Normal{n}( \Point{q}_{012} )
+   \right)
 \right]
-\ast \Derivative{\Vector{a} \left( \Point{p}_{012} \right) }[\Point{q}]
+\ast 
+\Derivative{\Vector{a} \left( \Point{p}_{012} \right) }[\Point{q}]
+\right.
 \nonumber \\
-\label{eq:deltan_derivative}
 &
-& - \left[ \Identity_{\Reals^3} 
+& 
+\left.
+- \left[ \Identity_{\Reals^3} 
 - \left( \Normal{n}( \Point{q}_{031} ) \otimes \Normal{n}
  ( \Point{q}_{031} ) \right)
 \right]
 \ast \Derivative{\Vector{a} ( \Point{p}_{031} ) }[\Point{q}]
-\; \}
+\; \right\}
 \nonumber
 \end{eqnarray}
 
