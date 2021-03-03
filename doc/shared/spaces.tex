@@ -117,8 +117,8 @@ $\Vector{v} \in \Space{V}$.
 
 \begin{plDefinition}{Linear dependence}{}
 Suppose $\Space{V}$ is a linear space and
-$\Vector{v}_0, \ldots , \Vector{v}_{n-1} \in \Space{V}$.
-If there exists $a_0, \ldots , a_{n-1}$ such that
+$\Vector{v}_0 \ldots  \Vector{v}_{n-1} \in \Space{V}$.
+If there exists $a_0 \ldots  a_{n-1}$ such that
 $\Vector{0} = \sum a_i \Vector{v}_i$ then the $\left\{ \Vector{v}_i \right\}$
 are \textit{linearly dependent}.
 \citeAuthorYearTitle[section~5]{Halmos:1958:Finite}
@@ -127,16 +127,16 @@ Otherwise they are \textit{linearly independent}.
 \end{plDefinition}
 
 \begin{plLemma}{The set of non-zero vectors
- $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+ $\Vector{v}_0 \ldots \Vector{v}_{n-1}$
 is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
 is a linear combination of the preceding 
 ones \citeAuthorYearTitle[Section 6]{Halmos:1958:Finite}.}{linearDependenceLemma}
 \textsc{Proof:}
-Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Assume  $\Vector{v}_0 \ldots \Vector{v}_{n-1}$ are linearly dependent.
 Consider the smallest $k$ such that 
-$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+$\Vector{v}_0 \ldots \Vector{v}_{k}$ is linearly dependent.
 By definition,
-there exists non-zero $a_0, \ldots ,a_{k}$ such that
+there exists non-zero $a_0 \ldots a_{k}$ such that
 \begin{equation}
 0 = \sum_0^k a_i \Vector{v}_i
 \end{equation}
@@ -147,16 +147,16 @@ which implies that
 \end{plLemma}
 
 \begin{plTheorem}{The set of non-zero vectors
- $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+ $\Vector{v}_0 \ldots \Vector{v}_{n-1}$
 is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
 is a linear combination of the preceding 
 ones \citeAuthorYearTitle[Section 6]{Halmos:1958:Finite}.}{linearDependenceTHeorem}
 \textsc{Proof:}
-Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Assume  $\Vector{v}_0 \ldots \Vector{v}_{n-1}$ are linearly dependent.
 Consider the smallest $k$ such that 
-$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+$\Vector{v}_0 \ldots \Vector{v}_{k}$ is linearly dependent.
 By definition,
-there exists non-zero $a_0, \ldots ,a_{k}$ such that
+there exists non-zero $a_0 \ldots a_{k}$ such that
 \begin{equation}
 0 = \sum_0^k a_i \Vector{v}_i
 \end{equation}
@@ -167,16 +167,16 @@ which implies that
 \end{plTheorem}
 
 \begin{plCorollary}{The set of non-zero vectors
- $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+ $\Vector{v}_0 \ldots \Vector{v}_{n-1}$
 is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
 is a linear combination of the preceding 
 ones \citeAuthorYearTitle[Section 6]{Halmos:1958:Finite}.}{linearDependenceCorollary}
 \textsc{Proof:}
-Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Assume  $\Vector{v}_0 \ldots \Vector{v}_{n-1}$ are linearly dependent.
 Consider the smallest $k$ such that 
-$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+$\Vector{v}_0 \ldots \Vector{v}_{k}$ is linearly dependent.
 By definition,
-there exists non-zero $a_0, \ldots ,a_{k}$ such that
+there exists non-zero $a_0 \ldots a_{k}$ such that
 \begin{equation}
 0 = \sum_0^k a_i \Vector{v}_i
 \end{equation}
@@ -196,11 +196,11 @@ Where $\Space{K}$ is any field.
 \begin{itemize}
   \item vectors:
   $\Set{V} = \Space{K}^n = \left\{ \Vector{x}
-  = \left[ x_0, \ldots , x_{n-1} \right] \right\}$,
+  = \left[ x_0 \ldots  x_{n-1} \right] \right\}$,
   tuples of $n$ elements $x_i \in \Space{K}$.
   \item scalars: $\Space{K}$
   \item scalar multiplication:
-  $ a *_{\Space{K}^n} \left[ x_0, \ldots , x_{n-1} \right] =
+  $ a *_{\Space{K}^n} \left[ x_0 \ldots  x_{n-1} \right] =
   \left[ \ldots , a *_{\Space{K}} x_{i} , \ldots \right]$
   \item vector addition:
   $\Vector{x} +_{\Space{K}^n} \Vector{y}
@@ -219,11 +219,11 @@ and \citeAuthorYearTitle[chapter~1]{Halmos:1958:Finite}.
 \begin{itemize}
   \item vectors:
   $\Set{V} = \Space{R}^n = \left\{ \Vector{x}
-  = \left[ x_0, \ldots , x_{n-1} \right] \right\}$,
+  = \left[ x_0 \ldots  x_{n-1} \right] \right\}$,
   tuples of $n$ elements $x_i \in \Space{R}$.
   \item scalars: $\Space{R}$
   \item scalar multiplication:
-  $ a*\left[ x_0, \ldots , x_{n-1} \right] =
+  $ a*\left[ x_0 \ldots  x_{n-1} \right] =
   \left[ \ldots , \left( a*x_i \right) , \ldots \right]$
   \item vector addition:
   $\Vector{x} + \Vector{y}
@@ -297,8 +297,8 @@ $i \in \left\{ 0, 1, \ldots, {n-1} \right\}$
 %-----------------------------------------------------------------
 \begin{plDefinition}{Linear dependence}{}
 Suppose $\Space{V}$ is a linear space and
-$\Vector{v}_0, \ldots , \Vector{v}_{n-1} \in \Space{V}$.
-If there exists $a_0, \ldots , a_{n-1}$ such that
+$\Vector{v}_0 \ldots  \Vector{v}_{n-1} \in \Space{V}$.
+If there exists $a_0 \ldots  a_{n-1}$ such that
 $\Vector{0} = \sum a_i \Vector{v}_i$ then the $\left\{ \Vector{v}_i \right\}$
 are \textit{linearly dependent}.
 \citeAuthorYearTitle[section~5]{Halmos:1958:Finite}
@@ -307,16 +307,16 @@ Otherwise they are \textit{linearly independent}.
 \end{plDefinition}
 
 \begin{plTheorem}{The set of non-zero vectors
- $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$
+ $\Vector{v}_0 \ldots \Vector{v}_{n-1}$
 is linearly dependent iff some $\Vector{v}_k, \; 1 \leq n-1$, 
 is a linear combination of the preceding 
 ones \citeAuthorYearTitle[Section 6]{Halmos:1958:Finite}.}{linearDependence}
 \textsc{Proof:}
-Assume  $\Vector{v}_0, \ldots ,\Vector{v}_{n-1}$ are linearly dependent.
+Assume  $\Vector{v}_0 \ldots \Vector{v}_{n-1}$ are linearly dependent.
 Consider the smallest $k$ such that 
-$\Vector{v}_0, \ldots ,\Vector{v}_{k}$ is linearly dependent.
+$\Vector{v}_0 \ldots \Vector{v}_{k}$ is linearly dependent.
 By definition,
-there exists non-zero $a_0, \ldots ,a_{k}$ such that
+there exists non-zero $a_0 \ldots a_{k}$ such that
 \begin{equation}
 0 = \sum_0^k a_i \Vector{v}_i
 \end{equation}

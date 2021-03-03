@@ -1596,22 +1596,22 @@ For $0 \leq \nu \leq k$:
 \begin{align}
 \left[ y_{\nu} \right] & \defeq y_{\nu}
 \\
-\left[ y_{\nu}, \ldots , y_{\nu + j} \right] & \defeq 
+\left[ y_{\nu} \ldots  y_{\nu + j} \right] & \defeq 
 \frac{
-\left[ y_{\nu + 1}, \ldots ,  y_{\nu + j} \right]
+\left[ y_{\nu + 1} \ldots   y_{\nu + j} \right]
 -
-\left[ y_{\nu}, \ldots ,  y_{\nu + j - 1} \right]
+\left[ y_{\nu} \ldots   y_{\nu + j - 1} \right]
 }{
 x_{\nu + j} - x_{\nu}
 } 
 \; \text{(forward)}
 \nonumber
 \\
-\left[ y_{\nu}, \ldots , y_{\nu - j} \right] & \defeq 
+\left[ y_{\nu} \ldots  y_{\nu - j} \right] & \defeq 
 \frac{
-\left[ y_{\nu}, \ldots ,  y_{\nu - j + 1} \right]
+\left[ y_{\nu} \ldots   y_{\nu - j + 1} \right]
 -
-\left[ y_{\nu - 1}, \ldots ,  y_{\nu - j} \right]
+\left[ y_{\nu - 1} \ldots   y_{\nu - j} \right]
 }{
 x_{\nu} - x_{\nu - j}
 } 
@@ -1620,20 +1620,20 @@ x_{\nu} - x_{\nu - j}
 \end{align}
 
 Note: $x_i$ are implied in the standard 
-$\left[ y_{\nu}, \ldots , y_{\nu + j} \right]$ notation.
+$\left[ y_{\nu} \ldots  y_{\nu + j} \right]$ notation.
 
-Given $x_0, \ldots , x_k$ and $f$:
+Given $x_0 \ldots  x_k$ and $f$:
 
 For $0 \leq \nu \leq k$:
 
 \begin{align}
 f \left[ x_{\nu} \right] & \defeq f \left( x_{\nu} \right)
 \\
-f \left[ x_{\nu}, \ldots , x_{\nu + j} \right] & \defeq 
+f \left[ x_{\nu} \ldots  x_{\nu + j} \right] & \defeq 
 \frac{
-f \left[ x_{\nu + 1}, \ldots ,  x_{\nu + j} \right]
+f \left[ x_{\nu + 1} \ldots   x_{\nu + j} \right]
 -
-f \left[ x_{\nu}, \ldots ,  x_{\nu + j - 1} \right]
+f \left[ x_{\nu} \ldots   x_{\nu + j - 1} \right]
 }{
 x_{\nu + j} - x_{\nu}
 } 

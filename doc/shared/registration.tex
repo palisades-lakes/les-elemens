@@ -22,7 +22,7 @@ The transformed mesh
 $\Set{M}(\Vector{T})
  = \Set{M}(\Vector{T}\Vector{v}) 
  = \Set{M}(\Vector{T}(\Vector{v}_0 \ldots \Vector{v}_{n-1}))$,
-where $\Vector{v} = (\Vector{v}_0, \ldots , \Vector{v}_{n-1})$
+where $\Vector{v} = (\Vector{v}_0 \ldots  \Vector{v}_{n-1})$
 are the positions of the vertices of $\Set{M}$.
 
 We are also sometimes interested in registering a data set
@@ -38,7 +38,7 @@ by minimizing:
 \min_{\Vector{T}} f( \Vector{T} \Vector{p}),
 \end{equation}
 where
-$\Vector{p} = (\Vector{p}_0, \ldots , \Vector{p}_{n-1}) \in \Reals^{3n}$,
+$\Vector{p} = (\Vector{p}_0 \ldots  \Vector{p}_{n-1}) \in \Reals^{3n}$,
 $\Vector{T} : \Reals^{3n} \mapsto \Reals^{3n}$,
 and
 $f : \Reals^{3n} \mapsto \Reals$.
