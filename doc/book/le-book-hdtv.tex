@@ -1,34 +1,39 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: biber
-% arara: makeglossaries
-% arara: makeindex
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
-% arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
-% arara: clean: { extensions: [ bbl, bcf, blg, ] }
-% arara: clean: { extensions: [ glg, glo, gls, ] }
-% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
-% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+% % arara: biber
+% % arara: texindy: { markup: xelatex }
+% % arara: makeglossaries
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
+% % arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+% % arara: clean: { extensions: [ bbl, bcf, blg, ] }
+% % arara: clean: { extensions: [ glg, glo, gls, ] }
+% % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass[12pt]{PalisadesLakesBook}
+\documentclass{PalisadesLakesBook}
 \geomHDTV
 \geomLandscape
 
-%\AsanaFonts
-%\CormorantFonts
-%\EBGaramondFonts
-\LibertinusFonts
+%\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
+%\CormorantFonts % light, missing unicode greek, needs scaliing relative to monfont
+%\EBGaramondFonts % is this duffner or pardo?
+%\ErewhonFonts
+%\FiraFonts % tall lines, all sans, much less per page, missing \in?
+%\GFSNeohellenicFonts 
+%\KpFonts
+%\LatinModernFonts
+%\LibertinusFonts
+%\NewComputerModernFonts
+%\STIXTwoFonts
 %\BonumFonts
 %\PagellaFonts
 %\ScholaFonts
 %\TermesFonts
-%\XITSFonts
-%\STIXTwoFonts
-
+\XITSFonts
 
 %-----------------------------------------------------------------
-\title{Elements of math and computation (working title)}
+\title{Elements of computable mathematics (working title)}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
 \date{draft of \today}
