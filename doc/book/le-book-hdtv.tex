@@ -1,11 +1,13 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % % arara: biber
 % % arara: texindy: { markup: xelatex }
 % % arara: makeglossaries
-% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
-% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
-% % arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% arara: clean: { extensions: [ ptc, ] }
+% % arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
 % % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 % % arara: clean: { extensions: [ glg, glo, gls, ] }
 % % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
@@ -17,7 +19,7 @@
 
 %\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
 %\CormorantFonts % light, missing unicode greek, needs scaliing relative to monfont
-%\EBGaramondFonts % is this duffner or pardo?
+\EBGaramondFonts % is this duffner or pardo?
 %\ErewhonFonts
 %\FiraFonts % tall lines, all sans, much less per page, missing \in?
 %\GFSNeohellenicFonts 
@@ -30,7 +32,7 @@
 %\PagellaFonts
 %\ScholaFonts
 %\TermesFonts
-\XITSFonts
+%\XITSFonts
 
 %-----------------------------------------------------------------
 \title{Elements of computable mathematics (working title)}
@@ -43,6 +45,7 @@
 \PalisadesLakesTableOfContents
 %-----------------------------------------------------------------
 \input{body}
+% \stopcontents[contents]
 %-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------
