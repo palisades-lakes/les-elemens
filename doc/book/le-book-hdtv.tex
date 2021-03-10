@@ -1,9 +1,10 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-halt-on-error] }
 % % arara: biber
 % % arara: texindy: { markup: xelatex }
 % % arara: makeglossaries
+% % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
 % % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
 % arara: clean: { extensions: [ ptc, ] }
@@ -13,22 +14,22 @@
 % % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
 % % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass{PalisadesLakesBook}
+\documentclass[10pt]{PalisadesLakesBook}
 \geomHDTV
 \geomLandscape
 
 %\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
-%\CormorantFonts % light, missing unicode greek, needs scaliing relative to monfont
-%\EBGaramondFonts % is this duffner or pardo?
+%\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
+\EBGaramondFonts % fewest pages
 %\ErewhonFonts
 %\FiraFonts % tall lines, all sans, much less per page, missing \in?
 %\GFSNeohellenicFonts 
 %\KpFonts
 %\LatinModernFonts
-\LibertinusFonts
+%\LibertinusFonts
 %\NewComputerModernFonts
 %\STIXTwoFonts
-%\BonumFonts
+%\BonumFonts % most pages
 %\PagellaFonts
 %\ScholaFonts
 %\TermesFonts
@@ -42,10 +43,9 @@
 %-----------------------------------------------------------------
 \begin{document}
 \maketitle
-\PalisadesLakesTableOfContents
+\PalisadesLakesTableOfContents{7}
 %-----------------------------------------------------------------
 \input{body}
-% \stopcontents[contents]
 %-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------
