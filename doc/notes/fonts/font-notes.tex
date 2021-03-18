@@ -3,8 +3,8 @@
 % arara: biber
 % arara: makeglossaries
 % arara: texindy: { markup: xelatex }
-% arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% arara: xelatex: { synctex: on, options: [-halt-on-error]  } 
+% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] } 
+% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  } 
 % arara: clean: { extensions: [ aux, log, out, run.xml, toc, mw, synctex.gz, ] }
 % arara: clean: { extensions: [ bbl, bcf, blg, ] }
 % arara: clean: { extensions: [ glg, glo, gls, ] }
@@ -14,8 +14,27 @@
 \documentclass{PalisadesLakesBook}
 \geomHDTV
 \geomLandscape
+
+%\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
+\CormorantFonts % light, missing unicode greek, needs scaling relative to monfont
+%\EBGaramondFonts % fewest pages
+%\ErewhonFonts
+%\FiraFonts % tall lines, all sans, much less per page, missing \in?
+%\GFSNeohellenicFonts 
+%\KpFonts
+%\LatinModernFonts
+%\LegibleFonts
+%\LibertinusFonts
+%\NewComputerModernFonts
+%\STIXTwoFonts
+%\BonumFonts % most pages
+%\PagellaFonts
+%\ScholaFonts
+%\TermesFonts
+%\XITSFonts
+
 %-----------------------------------------------------------------
-\title{Notes on arithmetic}
+\title{Notes on fonts and typesetting math notation}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
 \date{draft of \today}
@@ -25,13 +44,13 @@
 \PalisadesLakesTableOfContents
 %-----------------------------------------------------------------
 \def\sharedFolder{../../shared/}
-\import{\sharedFolder}{logic}
-\import{\sharedFolder}{sets}
-\import{\sharedFolder}{functions}
-\import{\sharedFolder}{mathstructures}
-\import{\sharedFolder}{algebra}
-\import{\sharedFolder}{numbers}
-\import{\sharedFolder}{arithmetic}
+
+\begin{plSection}{Rhatigan}
+\citeAuthorYearTitle{
+Rhatigan:2007:GinaPractice,
+Rhatigan:2007:MathTypefaces,
+}
+\end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------
