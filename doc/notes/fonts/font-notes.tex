@@ -1,15 +1,15 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
 % arara: biber
-% arara: texindy: { markup: xelatex }
-% arara: makeglossaries
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
-% arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
-% arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
-% arara: clean: { extensions: [ bbl, bcf, blg, ] }
-% arara: clean: { extensions: [ glg, glo, gls, ] }
-% arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
-% arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
+% % arara: texindy: { markup: xelatex }
+% %% arara: makeglossaries
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
+% % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error]  }
+% % arara: clean: { extensions: [ aux, log, out, run.xml, ptc, toc, mw, synctex.gz, ] }
+% % arara: clean: { extensions: [ bbl, bcf, blg, ] }
+% % arara: clean: { extensions: [ glg, glo, gls, ] }
+% % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
+% % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
 \documentclass[11pt]{PalisadesLakesBook}
 \geomHDTV
@@ -35,6 +35,15 @@
 %\XITSFonts
 
 %-----------------------------------------------------------------
+\togglefalse{plMath}
+\togglefalse{plCode}
+\togglefalse{plData}
+\togglefalse{plNote}
+\togglefalse{plExercise}
+\togglefalse{plQuote}
+\togglefalse{printglossary}
+\togglefalse{printindex}
+%-----------------------------------------------------------------
 \title{Notes on fonts and typesetting, text and mathematics}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
@@ -46,12 +55,78 @@
 %-----------------------------------------------------------------
 \def\sharedFolder{../../shared/}
 
+\begin{plSection}{Introduction}
+
+This is a collection of notes on font design,
+typesetting (both for text and mathematics),
+and possibly related layout problems. 
+Partially notes on reading; 
+partially my own analysis and implementation.
+
+Although it's unlikely I will finish such a thing,
+I will be approaching this topic with the mindset of:
+``what would I do if I wer going to replace \TeX, \LaTeX, etc.''.
+
+
+\end{plSection}%{Introduction}
+%-----------------------------------------------------------------
+\begin{plSection}{Reading}
+%-----------------------------------------------------------------
+\begin{plSection}{Noordzij}
+
+\citeAuthorTitle{Devroye:2014:Noordzij}
+
+\citeAuthorTitle{Middendorp:2019:Noordzij}
+
+\end{plSection}%{Noordzij}
+
+%-----------------------------------------------------------------
 \begin{plSection}{Rhatigan}
-\citeAuthorYearTitle{
-Rhatigan:2007:GinaPractice,
-Rhatigan:2007:MathTypefaces,
-}
+
+\begin{plSection}{The Monotype 4-line system}
+
+\citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}
+
+\end{plSection}%{The Monotype 4-line system}
+
+\begin{plSection}{Three typefaces for mathematics}
+
+\citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}
+
+\end{plSection}%{Three typefaces}
+
+\begin{plSection}{Gina}
+
+\citeAuthorYearTitle{Rhatigan:2007:GinaPractice}
+
+\citeAuthorYearTitle{Rhatigan:2007:GinaSpecimen}
+
+Tabular oldstyle figures (digits) are nice and, I think,
+relatively unusual.
+
+(\emph{Question:} any font with quasi-oldstyle digits that alternate 
+ascending above x-height and dropping below baseline?
+Eg, 0 rising, 1 with a descender of some kind, 2 rising, 3 with
+a descender (usual for oldstyle), 4 ascending (usual is descending).
+The remaining 6--9 alternate ascending/descending in most
+oldstyle digit renderings.
+Don't know if this would actually look good.
+Might be a project for learning FontForge?)
+
+
+Mathematics examples are too limited to judge, 
+but operators ($\int$, $\prod$) look too small. 
+(How was the math in the specimen doc typeset?)
+
+\end{plSection}%{Gina}
+
 \end{plSection}%{Rhatigan}
+%-----------------------------------------------------------------
+\end{plSection}%{Reading}
+%-----------------------------------------------------------------
+\BeginAppendices
+\input{typesetting}
+%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \end{document}
 %-----------------------------------------------------------------
