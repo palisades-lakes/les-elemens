@@ -30,6 +30,7 @@
 %\STIXTwoFonts
 %\BonumFonts % most pages
 %\PagellaFonts
+
 %\ScholaFonts
 %\TermesFonts
 %\XITSFonts
@@ -54,7 +55,7 @@
 \PalisadesLakesTableOfContents{7}
 %-----------------------------------------------------------------
 \def\sharedFolder{../../shared/}
-
+%-----------------------------------------------------------------
 \begin{plSection}{Introduction}
 
 This is a collection of notes on font design,
@@ -62,15 +63,68 @@ typesetting (both for text and mathematics),
 and possibly related layout problems. 
 Partially notes on reading; 
 partially my own analysis and implementation.
+%-----------------------------------------------------------------
+\begin{plSection}{Organizing thoughts}
 
-Although it's unlikely I will finish such a thing,
-I will be approaching this topic with the mindset of:
-``what would I do if I wer going to replace \TeX, \LaTeX, etc.''.
+\begin{itemize}
+
+\item Better handwriting, rather than reproduce the best
+traditional lead typesetting.
+
+\item \emph{Question:} Compare typesetting/fonts for
+math and \textbf{汉字}/\textbf{漢字}/Hànzì/Kanji/Hanja/Chữ Nôm?
+ 
+\item What should I (or somebody) do 
+if I (they) were going to replace \TeX, \LaTeX, etc.''.
 
 
+\end{itemize}
+%-----------------------------------------------------------------
+\end{plSection}%{Organizing thoughts}
+%-----------------------------------------------------------------
 \end{plSection}%{Introduction}
 %-----------------------------------------------------------------
 \begin{plSection}{Reading}
+%-----------------------------------------------------------------
+\begin{plSection}{Math style guides}
+%-----------------------------------------------------------------
+\begin{plSection}{American Mathematical Society}
+
+\citeAuthorYearTitle{Swanson:1999:MathIntoType}
+
+\citeAuthorYearTitle{LetourneauSharp:2017:AMSStyleGuide}
+
+\end{plSection}%{American Mathematical Society}
+%-----------------------------------------------------------------
+\begin{plSection}{London Mathematical Society}
+
+\citeAuthorYearTitle{RoddTornqkvist:2009:LMSStyleGuide}
+
+Seems aimed at traditional kind of typesetting:
+paper(?) copy marked in pencil(?)  
+passed on to typesetter for formatting.
+
+Interesting typo? on p $21$: ``$\theta$ vs $\mathscr{V}$''
+
+Useful list of ``mathematical statement'' types.
+
+Slanted fonts for emphasis; no italic in text;
+math variables italic/roman by author's choice.
+
+Latex commands used to communicate with typesetter.
+
+
+\end{plSection}%{London mathematical Society}
+%-----------------------------------------------------------------
+\begin{plSection}{Oxford University Press}
+
+\citeAuthorYearTitle{ChaundyBarrettBatey:1954:PrintingMathematics}
+
+\end{plSection}%{Oxford University Press}
+%-----------------------------------------------------------------
+\end{plSection}%{Math style guides}
+%-----------------------------------------------------------------
+\begin{plSection}{Font design}
 %-----------------------------------------------------------------
 \begin{plSection}{Noordzij}
 
@@ -86,6 +140,8 @@ I will be approaching this topic with the mindset of:
 \begin{plSection}{The Monotype 4-line system}
 
 \citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}
+
+
 
 \end{plSection}%{The Monotype 4-line system}
 
@@ -122,8 +178,11 @@ but operators ($\int$, $\prod$) look too small.
 
 \end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
+\end{plSection}%{Font design}
+%-----------------------------------------------------------------
 \end{plSection}%{Reading}
 %-----------------------------------------------------------------
+
 \BeginAppendices
 \input{typesetting}
 %-----------------------------------------------------------------
