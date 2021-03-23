@@ -62,7 +62,7 @@ This is a collection of notes on font design,
 typesetting (both for text and mathematics),
 and possibly related layout problems. 
 Partially notes on reading; 
-partially my own analysis and implementation.
+partially my own work-in-progress analysis and implementation.
 %-----------------------------------------------------------------
 \begin{plSection}{Organizing thoughts}
 
@@ -71,11 +71,14 @@ partially my own analysis and implementation.
 \item Better handwriting, rather than reproduce the best
 traditional lead typesetting.
 
-\item \emph{Question:} Compare typesetting/fonts for
-math and \textbf{汉字}/\textbf{漢字}/Hànzì/Kanji/Hanja/Chữ Nôm?
+\item \emph{Question:} Compare evolution from handwriting to 
+typesetting (including font development) for
+math and 汉字/漢字/Hànzì/Kanji/Hanja/Chữ Nôm?\\
+\citeAuthorYearTitle{MoteChu:1989:CalligraphyEABook}\\
+\citeAuthorYearTitle{Kraus:1991:BrushesWithPower}
  
-\item What should I (or somebody) do 
-if I (they) were going to replace \TeX, \LaTeX, etc.''.
+\item What could I (or somebody) do better
+if I (they) were going to replace \TeX, \LaTeX, etc.
 
 
 \end{itemize}
@@ -85,6 +88,12 @@ if I (they) were going to replace \TeX, \LaTeX, etc.''.
 \end{plSection}%{Introduction}
 %-----------------------------------------------------------------
 \begin{plSection}{Reading}
+%-----------------------------------------------------------------
+\begin{plSection}{Knuth}
+
+\citeAuthorYearTitle{Knuth:1979:MathTypography}
+
+\end{plSection}%{Knuth}
 %-----------------------------------------------------------------
 \begin{plSection}{Math style guides}
 %-----------------------------------------------------------------
@@ -133,24 +142,41 @@ Latex commands used to communicate with typesetter.
 \citeAuthorTitle{Middendorp:2019:Noordzij}
 
 \end{plSection}%{Noordzij}
-
 %-----------------------------------------------------------------
 \begin{plSection}{Rhatigan}
-
+%-----------------------------------------------------------------
 \begin{plSection}{The Monotype 4-line system}
 
 \citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}
 
+\begin{plQuote}
+{\citeAuthorYearTitle[p.~11]{Rhatigan:2007:Monotype4Line}}
+{PostwarMonotype}
+As it resumed production in the wake of the war,
+Monotype found itself struggling to meet its customers'
+demands for parts and equipment. 
+In this climate of an uncertain return to economic stability,
+it make sense that the company would choose to develop
+technology such as the 4-line system that adapted to its existing
+equipment and working methods, 
+rather than solutions that would make unrealistic demands
+on the company's ability to devise and manufacture 
+new kinds of equipment altogether. 
+\end{plQuote}
 
-
+Seems fundamentally limited. 
+No doubt a reasonable economic compromise given the technology of
+the time, but not a model for high-resolution digital typesetting.
+Maybe some insights for low-resolution display 
+(eg two or so tens of pixels to a character box side.)
 \end{plSection}%{The Monotype 4-line system}
-
+%-----------------------------------------------------------------
 \begin{plSection}{Three typefaces for mathematics}
 
 \citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}
 
 \end{plSection}%{Three typefaces}
-
+%-----------------------------------------------------------------
 \begin{plSection}{Gina}
 
 \citeAuthorYearTitle{Rhatigan:2007:GinaPractice}
@@ -169,13 +195,12 @@ oldstyle digit renderings.
 Don't know if this would actually look good.
 Might be a project for learning FontForge?)
 
-
 Mathematics examples are too limited to judge, 
 but operators ($\int$, $\prod$) look too small. 
 (How was the math in the specimen doc typeset?)
 
 \end{plSection}%{Gina}
-
+%-----------------------------------------------------------------
 \end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
 \end{plSection}%{Font design}
