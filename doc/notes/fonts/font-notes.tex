@@ -95,6 +95,11 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 
 \end{plSection}%{Knuth}
 %-----------------------------------------------------------------
+\begin{plSection}{Microsoft}
+
+
+\end{plSection}%{Microsoft}
+%-----------------------------------------------------------------
 \begin{plSection}{Math style guides}
 %-----------------------------------------------------------------
 \begin{plSection}{American Mathematical Society}
@@ -156,7 +161,7 @@ As it resumed production in the wake of the war,
 Monotype found itself struggling to meet its customers'
 demands for parts and equipment. 
 In this climate of an uncertain return to economic stability,
-it make sense that the company would choose to develop
+it makes sense that the company would choose to develop
 technology such as the 4-line system that adapted to its existing
 equipment and working methods, 
 rather than solutions that would make unrealistic demands
@@ -164,11 +169,73 @@ on the company's ability to devise and manufacture
 new kinds of equipment altogether. 
 \end{plQuote}
 
+Idea seems to be 4 half-lines, with extra 2pt spaces between the 
+upper and lower pairs.
+Half-lines wide (high) enough for sub/super script chars;
+2 half-lines (roughly?) equivalent to normal char height, 
+normal line of text.
+The extra 2pt space is to allow for clean horizontal rules in
+fractions.
+Examples (fig 8, 9) show integrals $\int$ 
+taking advantage of 
+available double line height, but not sums $\sum$,
+and the sum readability suffers.
+
+Figures 9 and 10 compare a traditional setting with 4-line result,
+and, although neither looks good to me,
+the 4-line is a little better,
+though that's primarily because the greek letters 
+in the traditional setting are too small,
+as mentioned in the captions.
+In figure 10, however, although the kerning of 
+$L^2$ is a bit better, other spacing is screwed up:
+\begin{itemize}
+\item $\sin^2 \,\omega$ rather than $\sin^{2}\!\omega$ or, even better, 
+ $\textrm{sin}^{2}\!\left(\omega\right)$
+\item $v_{\,1}\;,\;v_{2}$ rather than $v_{1},v_{2}$
+\item $\sum\,'$ rather than $\sum^{'}$
+\end{itemize}
+
+Developed together with Times 4-line Mathematics Series 569 font
+derived from Times New Roman Series 327. 
+
+\begin{plQuote}{\citeAuthorYearTitle[p.~21]{Rhatigan:2007:Monotype4Line}}
+{}
+Planning the correct keying sequence is a critical part of the
+training for a keyboard operator setting maths.
+Rather [than] reading through manuscript text 
+in a linear fashion,
+the operator needs to examine each equation in a manuscript,
+determine how much of it can be set mechanically,
+and then how the characters and symbols within that equation
+should be positioned within the 4 available lines. 
+\textit{(See figure 13.)}
+For any characters that cannot be set in line with the others
+(characters larger than 12 points, for example,
+or additional symbols that could not be fit into the matrix case),
+spaces of equal width (removed by the compositor later)
+are needed to hold their position for justification.
+\end{plQuote}
+
+\begin{plQuote}{\citeAuthorYearTitle[p.~25]{Rhatigan:2007:Monotype4Line}}
+{}
+\ldots increased the speed of maths composition 
+by an average of 26 percent.
+\end{plQuote}
+
+\begin{plQuote}{\citeAuthorYearTitle[p.~25]{Rhatigan:2007:Monotype4Line}}
+{}
+Series 569 and the principles of the 4-line layout 
+were even adapted for Monophoto---Monotype's 
+filmsetting technology---and their relevance carried on 
+until the digital era demand other solutions 
+for setting mathematics.
+\end{plQuote}
+
+\emph{Conclusions:}
 Seems fundamentally limited. 
 No doubt a reasonable economic compromise given the technology of
 the time, but not a model for high-resolution digital typesetting.
-Maybe some insights for low-resolution display 
-(eg two or so tens of pixels to a character box side.)
 \end{plSection}%{The Monotype 4-line system}
 %-----------------------------------------------------------------
 \begin{plSection}{Three typefaces for mathematics}
