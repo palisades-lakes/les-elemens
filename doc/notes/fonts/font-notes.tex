@@ -11,9 +11,11 @@
 % % arara: clean: { extensions: [ idx, ilg, ind, xdy, ] }
 % % arara: clean: { extensions: [ plCode, plData, plMath, plExercise, plNote, plQuote, ] }
 %-----------------------------------------------------------------
-\documentclass[11pt]{PalisadesLakesBook}
-\geomHDTV
-\geomLandscape
+\documentclass[12pt]{PalisadesLakesBook}
+% \geomHDTV
+% \geomLandscape
+\geomHalfDTV
+\geomPortraitOneColumn
 %-----------------------------------------------------------------
 
 %\AsanaFonts % misssing \mathhyphen; less on page than Cormorant/Garamond
@@ -73,7 +75,8 @@ traditional lead typesetting.
 
 \item \emph{Question:} Compare evolution from handwriting to 
 typesetting (including font development) for
-math and 汉字/漢字/Hànzì/Kanji/Hanja/Chữ Nôm?\\
+math and 
+汉字/\allowbreak 漢字/\allowbreak Hànzì/\allowbreak Kanji/\allowbreak Hanja/\allowbreak \mbox{Chữ Nôm}?\\
 \citeAuthorYearTitle{MoteChu:1989:CalligraphyEABook}\\
 \citeAuthorYearTitle{Kraus:1991:BrushesWithPower}
  
@@ -92,6 +95,10 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 \begin{plSection}{Knuth}
 
 \citeAuthorYearTitle{Knuth:1979:MathTypography}
+
+\citeAuthorYearTitle{BeetonPalais:2016:CMT}
+
+\citeAuthorYearTitle{Smith:2017:MathTypography}.
 
 \end{plSection}%{Knuth}
 %-----------------------------------------------------------------
@@ -153,6 +160,29 @@ Latex commands used to communicate with typesetter.
 \begin{plSection}{The Monotype 4-line system}
 
 \citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}
+
+A 38 page essay reviewing the Monotype (UK)
+4-line system for mathematics typesetting.
+The essay doesn't put much attention on the chronology
+(probably covered well in the references),
+but it appears that the development
+began some time shortly after the end of WWII,
+with the first installed system in June of 1958.
+This appears to be roughly contemporaneous with
+the development of the Monotype Filmsetter,
+which (I'm guessing) made the hot lead type machines 
+obsolete.~\cite{Eye:2012:MonotypeTimeline}
+
+\emph{Question:} What, if anything, can we learn from the
+4-line system that is relevant to digital typesetting
+of mathematics?
+
+\emph{Question:} To what extent did the limitations of
+hot lead typesetting, of any kind, 
+fail to reproduce math notation as practiced by mathematicians?
+To what extent are these (now unnecessary) restrictions
+carried over (perhaps unconsciously) into digital typesetting,
+and webpage layout?
 
 \begin{plQuote}
 {\citeAuthorYearTitle[p.~11]{Rhatigan:2007:Monotype4Line}}
@@ -236,24 +266,79 @@ for setting mathematics.
 Seems fundamentally limited. 
 No doubt a reasonable economic compromise given the technology of
 the time, but not a model for high-resolution digital typesetting.
+
+For additional history, see
+\citeAuthorYearTitle{Smith:2017:MathTypography}.
+
 \end{plSection}%{The Monotype 4-line system}
-%-----------------------------------------------------------------
-\begin{plSection}{Three typefaces for mathematics}
-
-\citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}
-
-\end{plSection}%{Three typefaces}
 %-----------------------------------------------------------------
 \begin{plSection}{Gina}
 
-\citeAuthorYearTitle{Rhatigan:2007:GinaPractice}
+\begin{plSection}{\citeAuthorYearTitle{Rhatigan:2007:GinaPractice}}
 
-\citeAuthorYearTitle{Rhatigan:2007:GinaSpecimen}
+A 40 page essay on the experience of developing the type family
+Gina.
+
+\begin{plQuote}{\citeAuthorYearTitle[p.~1]{Rhatigan:2007:GinaPractice}}{}
+This document is more an analysis of that process of discovery
+[for designing a typeface]
+than a guide to designing type.
+The missteps and the inefficiencies discussed, though, 
+point the way to more sound methods for 
+Gina's own future development as well as that of other typefaces.
+\end{plQuote}
+
+Section 2.1: Gina intended as a serif typeface 
+``matching math to the text''.
+
+(\emph{Comment:} Not a desirable goal for me, depending
+on what ``matching'' means.
+Important to easily distinguish math notation from normal text,
+especially when mixed. 
+Analogy to 漢字\allowbreak ひらがな\allowbreak カタカナ\allowbreak romaji
+(kanji hirgana katakana romaji) pre-parsed Japanese text?)
+
+
+\begin{plQuote}{\citeAuthorYearTitle[p.~3]{Rhatigan:2007:GinaPractice}}{}
+Gina was originally conceived as a serif typeface family
+for textbooks and other technical publications that may include
+equations, chemical formulas, tables, and other combinations of
+text, numerals, and symbols.
+Material like this requires type that will facilitate long dense
+passages of text, but it must also feature glyphs with enough
+individual clarity that they can be recognized outside of typical
+word shapes, such as in mathematical or chemical formulae.
+\end{plQuote}
+
+\emph{Comment:} 
+Compare to \citeAuthorYearTitle{Braille:2021:AtkinsonHyperlegible},
+\citeAuthorYearTitle{DobieScottScott:2021:AtkinsonHyperlegible}.
+
+References \citeAuthorYearTitle{Bouche:2003:DiversityMathFonts}.
+
+Figure 4 compares Gina to more conventional set of fonts:
+\begin{itemize}
+  \item Gina digits too small in $2i$ and $1.0\,g$, 
+  should either descend below baseline ot rise above x-height.
+  \item Gina $3/4$ is too small.
+  \item Conventional setting seems to use slanted rather 
+  than italic capitals, which I find easier to read, less cramped.
+  \item Gina's rounder italic $\mathit{a}$ is better; 
+  probably upright sans would be better still.
+  \item Gina seems to get heavier as Adobe Reader zooms in?
+  Conventional setting feels like the same weight regardless. 
+\end{itemize}
+
+
+\end{plSection}%{\citeAuthorYearTitle{Rhatigan:2007:GinaPractice}}
+%-----------------------------------------------------------------
+\begin{plSection}{\citeAuthorYearTitle{Rhatigan:2007:GinaSpecimen}}
 
 Tabular oldstyle figures (digits) are nice and, I think,
 relatively unusual.
 
-(\emph{Question:} any font with quasi-oldstyle digits that alternate 
+(\emph{Unrelated Question:} 
+Any font with quasi-oldstyle digits that alternate 
 ascending above x-height and dropping below baseline?
 Eg, 0 rising, 1 with a descender of some kind, 2 rising, 3 with
 a descender (usual for oldstyle), 4 ascending (usual is descending).
@@ -266,13 +351,56 @@ Mathematics examples are too limited to judge,
 but operators ($\int$, $\prod$) look too small. 
 (How was the math in the specimen doc typeset?)
 
+\end{plSection}%{\citeAuthorYearTitle{Rhatigan:2007:GinaSpecimen}}
+%-----------------------------------------------------------------
 \end{plSection}%{Gina}
+%-----------------------------------------------------------------
+\begin{plSection}{Three typefaces for mathematics}
+
+\citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}
+
+\end{plSection}%{Three typefaces}
 %-----------------------------------------------------------------
 \end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
 \end{plSection}%{Font design}
 %-----------------------------------------------------------------
 \end{plSection}%{Reading}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{plSection}{Better \TeX, \LaTeX, etc}
+
+\citeAuthorYearTitle{Knuth:1979:MathTypography}
+
+\citeAuthorYearTitle{BeetonPalais:2016:CMT} 
+(Note: in the pdf, but not the html, version, 
+the abstract has one of the classic {\TeX} gotchas:
+\verb|``\TeX typesetting''| turns into
+``\TeX typesetting'' with the \verb|\TeX| macro eating the 
+following space.)
+
+\citeAuthorYearTitle{Smith:2017:MathTypography}.
+
+Issues:
+\begin{itemize}
+  \item Speed: Fiddling with {\TeX} code is a huge time sink, 
+  constantly breaking 
+  the author's train of thought.
+  The traditional incantation: 
+  ``\texttt{latex}, \texttt{bibtex}, \texttt{latex}, \texttt{latex},''
+  and it's 2021 equivalents, are ridiculous.
+  Typesetting even a modest sized document takes easily 5 minutes.
+  Not re-setting frequently leads to an accumulation of errors
+  that are difficult to debug, or mistakes that are hard to find
+  proofreading, long after the original idea.
+  LyX tries to be WSISWIG, with limited success.
+  Even with a two-window {\TeX} on the left, pdf on the right,
+  updates should be instantaneous.
+  This is likely a relict of the 1960s punch card batch-processing
+  mentality underlying the {\TeX} ``design''.
+\end{itemize}
+
+\end{plSection}%{KA better \TeXuth}
 %-----------------------------------------------------------------
 
 \BeginAppendices
