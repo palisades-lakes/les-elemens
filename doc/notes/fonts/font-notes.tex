@@ -47,7 +47,7 @@
 \togglefalse{printglossary}
 \togglefalse{printindex}
 %-----------------------------------------------------------------
-\title{Notes on fonts and typesetting, text and mathematics}
+\title{Notes on fonts and typesetting\\ text and mathematics}
 \author{John Alan McDonald 
 (palisades dot lakes at gmail dot com)}
 \date{draft of \today}
@@ -398,6 +398,21 @@ to the angle of the pen edge.
 
 \emph{TODO:} 
 Compare this to \citeAuthorYearTitle{Noordzij:2006:TheStroke}.
+
+\begin{plDiagram}{Stroking with an edged pen}{}
+\begin{tikzpicture}
+\draw 
+[->,thick,blue] (0,0) 
+to [out=90,in=180] (1,1)
+to [out=0,in=180] (2.5,0) 
+to [out=0,in=-135] (4,1) ;
+\draw 
+[->,thick,red,xshift=0.2,yshift=0.2] (0,0) 
+to [out=90,in=180] (1,1)
+to [out=0,in=180] (2.5,0) 
+to [out=0,in=-135] (4,1) ;
+\end{tikzpicture}
+\end{plDiagram}
 
 \begin{plQuote}{\citeAuthorYearTitle[fig.~11]{Rhatigan:2007:GinaPractice}}{}
 \ldots a closer look at more types 
