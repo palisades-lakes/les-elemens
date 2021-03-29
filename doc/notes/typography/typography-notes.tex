@@ -1,6 +1,6 @@
 % !TEX TS-program = arara
 % arara: xelatex: { synctex: on, options: [-halt-on-error] } 
-% % arara: biber
+% arara: biber
 % % arara: texindy: { markup: xelatex }
 % %% arara: makeglossaries
 % % arara: xelatex: { synctex: on, options: [-interaction=batchmode, -halt-on-error] }
@@ -525,8 +525,6 @@ relationships within a set of shapes became
 an entirely new way to understand not only typefaces,
 but also typography in a broader sense.
 \end{plQuote}
- 
- 
 
 \end{plSection}%{\citeAuthorYearTitle{Rhatigan:2007:GinaPractice}}
 %-----------------------------------------------------------------
@@ -553,9 +551,97 @@ but operators ($\int$, $\prod$) look too small.
 %-----------------------------------------------------------------
 \end{plSection}%{Gina}
 %-----------------------------------------------------------------
-\begin{plSection}{Three typefaces for mathematics}
+\begin{plSection}{\citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}}
 
-\citeAuthorYearTitle{Rhatigan:2007:MathTypefaces}
+\citeAuthorYearTitle{Lawrence:2003:MathsTypography}
+
+\begin{plQuote}{\citeAuthorYearTitle[Introduction]{Rhatigan:2007:MathTypefaces}}{}
+This dissertation will examine the design and function of
+alphabetic characters of three typefaces created specifically for
+mathematics---Times 4-line Mathematics Series 569,
+\textsc{ams} Euler, and Cambria Math.
+
+{\ldots}Each typeface represents a distinct period of technical
+development, each in some sense reacting to the typefaces 
+and technologies preceding it.
+
+Times 4-line Mathematics Series 569 was created by the Monotype
+Corporation in the United Kingdom for use with its hot-metal
+composition equipment [introduced in 1957]{\ldots}.
+
+\textsc{ams} Euler was designed by typographer and
+calligrapher Hermann Zapf in collaboration with Donald E. Knuth
+[circa 1979]{\ldots}.
+
+Cambria Math was designed by Jelle Bosma [circa 2004--2007]
+to take advantage of two major technologies from Microsoft: 
+one a new way to improve the appearance of text 
+displayed on screens, 
+the other a sophisticated new method 
+of creating and typesetting equations.
+\end{plQuote}
+
+\begin{plQuote}{\citeAuthorYearTitle[1.1 Typeface requirements, p.~5]{Rhatigan:2007:MathTypefaces}}{}
+Mathematics is a field of study that employs its own vocabulary 
+and conventions, and in many ways it has a language 
+and writing system of its own. 
+Although its notation uses many familiar characters, 
+it uses them as symbols rather than words. 
+However, maths is set alongside the words that convey its meaning, 
+and publishing maths requires the ability to mix the symbolic 
+and the verbal languages with one another.
+
+Setting complex mathematics requires the use of a wide array 
+of characters that must work in harmony. 
+Numbers are mixed with alphabetic characters 
+of Latin and Greek origin in a variety of styles — 
+italic, bold, fraktur, serif and serif forms — 
+each with a specific semantic function. 
+All these characters are then mixed 
+with mathematical operators and other symbols 
+that often conflict with the scale or texture 
+of the other characters. 
+Setting maths, then, requires access to a vast set 
+of unique characters, preferably ones 
+that have been designed to work with one another. 
+(See figure 1.)
+\end{plQuote}
+
+Problems:
+
+This misses the connection to handwriting---on black/white boards
+for dialog/teaching/collaboration, on paper for calculation, 
+that is, symbolic computation.
+The 'normal' text in typeset math
+is, to some extent, a substitute for speech in the first case,
+and something akin to comments in code in the second.
+
+Another problem is ``specific semantic function'': 
+there is no standard for the natural language that is 
+math notation; 
+it varies to some degree from individual to individual,
+with dialects that are mutually unintelligible 
+between different subfields.
+
+Yet another issue is the apparent presumption of a clear division
+between alphabetic symbols and operators, and, perhaps worse,
+the assumption that there is a fixed, finite set of such glyphs.
+
+\emph{Maybe important:} 
+Writing systems are constrained by the nature of the writing
+instrument and the writing surface.
+For regular text, we have already seen an evolution away from
+handwriting, given keyboard as writing instrument
+and high resolution screen as surface.
+In principle, this makes an entirely new math notation possible,
+but not feasible unless keyboard/ mouse input enables
+fluid dialog. 
+
+Need for single character legibility, as opposed to word-shape
+readability:
+``mathematics'' vs ``mαthemαtics'' doesn't matter (probably)
+but ``x = a + 4'' vs ``χ = α + A'' are completely different.
+
 
 \end{plSection}%{Three typefaces}
 %-----------------------------------------------------------------
