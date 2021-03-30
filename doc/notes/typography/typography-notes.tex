@@ -145,8 +145,6 @@ Latex commands used to communicate with typesetter.
 %-----------------------------------------------------------------
 \end{plSection}%{Math style guides}
 %-----------------------------------------------------------------
-\begin{plSection}{Font design}
-%-----------------------------------------------------------------
 \begin{plSection}{Noordzij}
 
 \citeAuthorTitle{Devroye:2014:Noordzij}
@@ -157,9 +155,8 @@ Latex commands used to communicate with typesetter.
 %-----------------------------------------------------------------
 \begin{plSection}{Rhatigan}
 %-----------------------------------------------------------------
-\begin{plSection}{The Monotype 4-line system}
-
-\citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}
+\begin{plSection}{\citeAuthorYearTitle{Rhatigan:2007:Monotype4Line}}
+\label{sec:FourLine}
 
 A 38 page essay reviewing the Monotype (UK)
 4-line system for mathematics typesetting.
@@ -405,23 +402,31 @@ That requires connecting the left and right curves
 at extrema, in some sense.
 
 \emph{TODO:} must be some way to define the central path just once? 
+See CTAN calligraphy?
+Or \url{https://tex.stackexchange.com/questions/19715/programming-in-tikz/19720#19720}
+
+
 \begin{plDiagram}{Stroking with an edged pen}{}
 \center
 \begin{tikzpicture}
+% \path[>->,thick,gray,draw,save path=\PenPath] (0mm,0mm) 
+% to [out=90,in=180] (12mm,10mm)
+% to [out=0,in=180] (8mm,-8mm) 
+% to [out=0,in=120] (16mm,-11mm) ;
 \path[>->,thick,gray,draw] (0mm,0mm) 
 to [out=90,in=180] (12mm,10mm)
 to [out=0,in=180] (8mm,-8mm) 
-to [out=0,in=-135] (14mm,-7mm) ;
+to [out=0,in=120] (16mm,-11mm) ;
 \path[>->,thick,red,xshift=4mm,yshift=2mm,draw]
  (0mm,0mm) 
 to [out=90,in=180] (12mm,10mm)
 to [out=0,in=180] (8mm,-8mm) 
-to [out=0,in=-135] (14mm,-7mm) ;
+to [out=0,in=120] (16mm,-11mm) ;
 \path[>->,thick,blue,xshift=-4mm,yshift=-2mm,draw] 
 (0mm,0mm) 
 to [out=90,in=180] (12mm,10mm)
 to [out=0,in=180] (8mm,-8mm) 
-to [out=0,in=-135] (14mm,-7mm) ;
+to [out=0,in=120] (16mm,-11mm) ;
 % pen edge sampled at control points
 \path[thick,gray,draw] 
 (-4mm,-2mm) to (0mm,0mm) to (4mm,2mm) ; 
@@ -429,7 +434,7 @@ to [out=0,in=-135] (14mm,-7mm) ;
 (-4mm,-2mm) to (0mm,0mm) to (4mm,2mm) ; 
 \path[thick,gray,xshift=8mm,yshift=-8mm,draw] 
 (-4mm,-2mm) to (0mm,0mm) to (4mm,2mm) ; 
-\path[thick,gray,xshift=14mm,yshift=-7mm,draw] 
+\path[thick,gray,xshift=16mm,yshift=-11mm,draw] 
 (-4mm,-2mm) to (0mm,0mm) to (4mm,2mm) ; 
 \end{tikzpicture}
 \end{plDiagram}
@@ -643,21 +648,45 @@ fluid dialog.
 
 Need for single character legibility, as opposed to word-shape
 readability:
-``mathematics'' vs ``mαthemαtics'' doesn't matter (probably)
+``mathematics'' vs ``mαthemαtics'' doesn't matter (maybe)
 but ``x = a + 4'' vs ``χ = α + A'' are completely different.
 
+%-----------------------------------------------------------------
+\begin{plSection}{\citeAuthorYearTitle[2.1 Times 4-line Mathematics Series 569]{Rhatigan:2007:MathTypefaces}}
 
+The 4-line hot lead system intended as cost cutting, 
+not ideal solution.
+(But was the inspiration for metafont and tex (reference?)).
+Carried over into phototypesetting, 
+even though there might have been better approaches there?
+
+Discussion of 4-line system pretty much the same as in 
+\cref{sec:FourLine}.
+
+Brief outline of development of Times New Roman font,
+released in 1931,
+from Robert Granjon's Gros Cicero by way of Monotype Plantin.
+
+The Times 4-line Mathematics Series 569 
+replaced Monotype's recommended use of Modern Series 7 for math.
+
+\end{plSection}%{\citeAuthorYearTitle[2.1 Times 4-line Mathematics Series 569]{Rhatigan:2007:MathTypefaces}}{}
+%-----------------------------------------------------------------
+\begin{plSection}{\citeAuthorYearTitle[2.2 \textsc{ams} Euler]{Rhatigan:2007:MathTypefaces}}
+\end{plSection}%{\citeAuthorYearTitle[2.2 \textsc{ams} Euler]{Rhatigan:2007:MathTypefaces}}
+%-----------------------------------------------------------------
+\begin{plSection}{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
+\end{plSection}%{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
+%-----------------------------------------------------------------
 \end{plSection}%{Three typefaces}
 %-----------------------------------------------------------------
 \end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
-\end{plSection}%{Font design}
+\begin{plSection}{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}
+\end{plSection}%{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}
 %-----------------------------------------------------------------
-\begin{plSection}{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}{}
-\end{plSection}%{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}{}
-%-----------------------------------------------------------------
-\begin{plSection}{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}{}
-\end{plSection}%{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}{}
+\begin{plSection}{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}
+\end{plSection}%{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}
 %-----------------------------------------------------------------
 \end{plSection}%{Reading}
 %-----------------------------------------------------------------
