@@ -116,6 +116,17 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 
 \end{plSection}%{Knuth}
 %-----------------------------------------------------------------
+\begin{plSection}{Unicode Math}\label{sec:UnicodeMath}
+
+\citeAuthorYearTitle{BeetonEtAl:2014:UnicodeMath}
+
+\end{plSection}%{OpenType}
+%-----------------------------------------------------------------
+\begin{plSection}{OpenType}\label{sec:OpenType}
+
+
+\end{plSection}%{OpenType}
+%-----------------------------------------------------------------
 \begin{plSection}{Microsoft}
 
 
@@ -798,6 +809,41 @@ for a new math+ font.)
 \end{plSection}%{\citeAuthorYearTitle[2.2 \textsc{ams} Euler]{Rhatigan:2007:MathTypefaces}}
 %-----------------------------------------------------------------
 \begin{plSection}{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
+
+Cambria one of Microsoft ClearType font families;
+designed by Jelle Bosma, extended for math by Ross Mills.
+Replaced Times New Roman as MS default serif font.
+Designed to take advantage of ClearType (or is it really designed
+to make ClearType look good, avoiding font feature that might show
+ClearType's limitations?)
+
+Wikipedia article~\cite{wiki:ClearType},
+though it reads mostly like cut-and-paste from MS marketing,
+does raise some questions about whether ClearType is actually
+beneficial, or at least if it's beneficial for all users.
+Another thing to note is ClearType is very dependent 
+on LED layout, and is very rotation sensitive---designed
+to improve horizontal 'resolution' more that vertical.
+Some claims that its performance improves with increasing
+resolution---but the need for anti-aliasing of any kind should
+disappear with sufficiently high resolution.
+I have found it very tiring to use.
+It is conceivable that it has some advantages for reading
+dense text---my experience comes from my eyes failing to focus 
+after a few hours of editing code.  
+
+Rhatigan's description of ClearType is uncritical, without any
+of the caveats in the Wikipedia article.
+
+Cambria Math part of the Cambria family.
+(This is not clear to me; what exactly is a font family?)
+Cambria Math has 4683 glyphs (as of Rhatigan's 2007 thesis),
+which correspond to unicode characters.
+(\emph{TODO:} notes on unicode math in \cref{sec:UnicodeMath}.)
+
+Cambria (Math) is OpenType from the beginning.
+(\emph{TODO:} notes about OpenType in \cref{sec:OpenType}.)
+
 \end{plSection}%{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
 %-----------------------------------------------------------------
 \end{plSection}%{Three typefaces}
