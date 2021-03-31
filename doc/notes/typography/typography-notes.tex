@@ -94,11 +94,25 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 %-----------------------------------------------------------------
 \begin{plSection}{Knuth}
 
+\citeAuthorTitle{wiki:Metafont}
+
 \citeAuthorYearTitle{Knuth:1979:MathTypography}
+
+\citeAuthorYearTitle{Knuth:1982:MetafontConcept}
+
+\citeAuthorYearTitle{Knuth:1989:TypesettingConcreteMath}
+
+\citeAuthorYearTitle{Krantz:2001:MathTypography}
+
+\citeAuthorYearTitle{Beebe:2005:DesignTexMetafont}
+
+\citeAuthorYearTitle{Crossland:2008:WhyMetafontDidntCatchOn}
 
 \citeAuthorYearTitle{BeetonPalais:2016:CMT}
 
 \citeAuthorYearTitle{Smith:2017:MathTypography}.
+
+\citeAuthorYearTitle{McCarthy:2020:StanfordDigitalTypography}
 
 \end{plSection}%{Knuth}
 %-----------------------------------------------------------------
@@ -690,9 +704,97 @@ as distinct.
 \emph{Question:} would we ever want distinct glyphs 
 for sub-and super-scripts?
 
+Currently ``electronic'' version of 569 offered as font
+``Math \& Technical 17''.
+
+At this point, no evaluation of the font or 4-line typesetting.
+
 \end{plSection}%{\citeAuthorYearTitle[2.1 Times 4-line Mathematics Series 569]{Rhatigan:2007:MathTypefaces}}{}
 %-----------------------------------------------------------------
 \begin{plSection}{\citeAuthorYearTitle[2.2 \textsc{ams} Euler]{Rhatigan:2007:MathTypefaces}}
+
+Knuth and Zapf: 
+``design experiment as much as a technical experiment''
+(not sure what that means).
+
+Knuth: METAFONT and {\TeX}
+
+TeX: a ``command language''. Brief discussion of boxes and glue.
+``{\ldots}each document contains complete information 
+about how it should look''~[p~19]. 
+(Not true, in any practical sense,
+since the results are unstable w.r.t. small changes in content,
+and therefore unpredictable. Also, practical use means depending
+on 100s, in not 1000s, of libraries (aka packages) 
+with rapidly propagating dependencies, 
+with updates every month or so.)
+
+Metafont: brief, uncritical description of font fmaily specification.
+
+``METAFONT’s dynamic font creation and 
+TEX’s powerful typesetting capabilities 
+made it possible to circumvent the equipment and typefaces 
+available from professional compositors,
+yet still produce material as difficult to typeset as mathematics. 
+The software requires that decisions be made 
+by a knowledgeable user, 
+but the user can control every aspect of the work, 
+from the content to its final layout.''~[p~21]
+(Again, not true in any real sense, due to designed-in unstable
+relationships between input and output, and 
+affordances that make determining the change to input needed
+to get the desired change in output opaque,
+if not practically unsolvable.)
+
+AMS Euler: 
+
+Initially intended to be neutral and traditional.
+Zapf suggests upright italic to better alphabetic and numeric
+characters (?).
+Knuth suggested calligraphic style to recall mathematicians
+handwriting.
+Result ``stands apart from surrounding text 
+rather than blending in with it.''~[p~23]
+Zapf primary designer.
+
+Project started in 1979; first phase 2 years;
+completed (in what sense?) 1985.
+Knuth amd 7+ students took the next ``few years''
+to convert the drawings into working fonts,
+re-writing Metafont in the process.
+
+Essentially a failure for Metafont in perhaps its first use 
+by a real designer:
+\begin{plQuote}{{\citeAuthorYearTitle[p~23]{Rhatigan:2007:MathTypefaces}}}{}
+Zapf's design defied some of the basic principles of METAFONT. 
+His letters were based on calligraphy, 
+but were subtler in form than Knuth's imagined combination 
+of predictable pen strokes applied to essential skeletal shapes. 
+Reproducing his drawings required the team 
+to plot the inner and outer contours of each glyph 
+rather than building outward from a central gesture. 
+Once they had captured the essence of the glyphs 
+as single programs, 
+they had to define parameters to maintain a consistent weight 
+for the glyphs in each font 
+when the outlines were generated as bitmap fonts, 
+another challenge that exposed the subtleties of Euler 
+compared to earlier METAFONT projects.
+\end{plQuote}
+
+Characteristics:
+Upright latin italic very similar to greek;
+skips greek characters that could be confused with latin analogs.
+(cheating?)
+Fraktur and script alphabets also relatively simple.
+Small point size used for sub-, super-scripts, rather than special
+glyphs.
+Limited number of operators, non-alphabetic math symbols,
+with glyphs pulled from other fonts in Tex (also cheating?).
+
+(\emph{TODO:} evaluate Euler as a possible starting point 
+for a new math+ font.)
+
 \end{plSection}%{\citeAuthorYearTitle[2.2 \textsc{ams} Euler]{Rhatigan:2007:MathTypefaces}}
 %-----------------------------------------------------------------
 \begin{plSection}{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
@@ -702,8 +804,8 @@ for sub-and super-scripts?
 %-----------------------------------------------------------------
 \end{plSection}%{Rhatigan}
 %-----------------------------------------------------------------
-\begin{plSection}{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}
-\end{plSection}%{\citeAuthorYearTitle{Nikerson:2014:PrintedMath}}
+\begin{plSection}{\citeAuthorYearTitle{Nickerson:2014:PrintedMath}}
+\end{plSection}%{\citeAuthorYearTitle{Nickerson:2014:PrintedMath}}
 %-----------------------------------------------------------------
 \begin{plSection}{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}
 \end{plSection}%{\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}}
