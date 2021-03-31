@@ -94,6 +94,8 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 %-----------------------------------------------------------------
 \begin{plSection}{Knuth}
 
+\citeAuthorYearTitle{Coueignoux:1975:GenerationOfFonts}
+
 \citeAuthorTitle{wiki:Metafont}
 
 \citeAuthorYearTitle{Knuth:1979:MathTypography}
@@ -129,7 +131,13 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 %-----------------------------------------------------------------
 \begin{plSection}{Microsoft}
 
+\citeAuthorYearTitle{MillsHudsonLawrenceSargent:2007:MSMathTypesetting}
 
+%-----------------------------------------------------------------
+\begin{plSection}{ClearType}\label{sec:ClearType}
+\citeAuthorTitle{wiki:ClearType}
+\end{plSection}%{ClearType}
+%-----------------------------------------------------------------
 \end{plSection}%{Microsoft}
 %-----------------------------------------------------------------
 \begin{plSection}{Math style guides}
@@ -811,9 +819,10 @@ for a new math+ font.)
 \begin{plSection}{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
 
 Cambria one of Microsoft ClearType font families;
-designed by Jelle Bosma, extended for math by Ross Mills.
+designed by Jelle Bosma.
 Replaced Times New Roman as MS default serif font.
-Designed to take advantage of ClearType (or is it really designed
+Designed to take advantage of ClearType.
+(Or is it really designed
 to make ClearType look good, avoiding font feature that might show
 ClearType's limitations?)
 
@@ -824,27 +833,174 @@ beneficial, or at least if it's beneficial for all users.
 Another thing to note is ClearType is very dependent 
 on LED layout, and is very rotation sensitive---designed
 to improve horizontal 'resolution' more that vertical.
+Also very dependent on background color (maybe foreground as well,
+assuming essentially black text on white background.
 Some claims that its performance improves with increasing
 resolution---but the need for anti-aliasing of any kind should
 disappear with sufficiently high resolution.
-I have found it very tiring to use.
+Subjectively, I have found it very tiring to use.
 It is conceivable that it has some advantages for reading
 dense text---my experience comes from my eyes failing to focus 
 after a few hours of editing code.  
+
+(\emph{Question:} how is focus controlled in the human vision
+system? Does it, and how does it decide to give up, for example, 
+if you remove your glasses? I suspect the problems with
+ClearType and other anti-aliasing of text might be due to 
+giving the vision system inputs blurred just enough
+it to keep trying to focus, and failing.)
 
 Rhatigan's description of ClearType is uncritical, without any
 of the caveats in the Wikipedia article.
 
 Cambria Math part of the Cambria family.
 (This is not clear to me; what exactly is a font family?)
+Original Cambria font math glyphs intended for mixing with regular
+text---new font Cambria Math by Ross Mills intended for 
+``equations''.
 Cambria Math has 4683 glyphs (as of Rhatigan's 2007 thesis),
 which correspond to unicode characters.
-(\emph{TODO:} notes on unicode math in \cref{sec:UnicodeMath}.)
-
 Cambria (Math) is OpenType from the beginning.
+
 (\emph{TODO:} notes about OpenType in \cref{sec:OpenType}.)
 
+(\emph{TODO:} notes on unicode math in \cref{sec:UnicodeMath}.)
+
+``Characteristics of the design'': 
+``{\ldots} regular rhythm of strong vertical strokes.''
+Limited contrast between thick and thin. 
+Slight horizontal serifs; strong vertical ones.
+Bold adds weight by increasing contrast, holding thin fixed.
+Italic has modest slant.
+
+Cambria Math has loose spacing, 
+``so that individual characters will separate more easily 
+than they will combine into word shapes.''
+Cambria Math Italic more cursive than Cambria italic;
+similar differences on greek.
+(\emph{Question:} is the small difference noticeable/annoying?
+Might it be better for the math font to be clearly distinct?)
+Special sub-/super-script glyphs used sometimes; small point size
+of standard glyphs other times, according to 
+undescribed OpenType rules.
+OpenType math features include ``cut-ins'', which sound like
+a more complicated version of kerning, and doomed to failure,
+since they are defined per-glyph for a decision that needs to be
+made for a pair of glyphs (or more) plus rough relative
+positioning.
+
+(\emph{Question:} Seems like assumptions about traditional text and 
+4-line-like
+layout are contaminating math font design---some decisions about
+layout are being made per glyph, rather than per expression,
+where they likely belong. Are these things part of OpenType
+or MS specific?) 
+
+ 
 \end{plSection}%{\citeAuthorYearTitle[2.3 Cambria Math]{Rhatigan:2007:MathTypefaces}}
+%-----------------------------------------------------------------
+\begin{plSection}{\citeAuthorYearTitle[3 Comparisions]{Rhatigan:2007:MathTypefaces}}
+
+Italics: Monotype Series 569 reduced slant; AMS Euler no slant;
+Cambria Math in-between---attributed to 
+``better able to handle kerning and spacing issues''---but doesn't
+address the question of italic/slant in math directly, except
+``Zapf and Knuth — not only designing a new typeface, 
+but defining practices for a new medium as well---were 
+free to explore more radical ideas, 
+especially since they had decided that there was little reason 
+for a maths typeface to match the type used 
+for the surrounding text.''
+
+Math v Text: 
+4-line had a physical need to use text font for in-line math, 
+so fonts text and math fonts need to match.
+That constraint no longer held for Knuth or Microsoft.
+I think Rhatigan overstates Knuth's insight into what he was
+doing---consider the typesetting in 
+\citeAuthorYearTitle{Knuth:1982:MetafontConcept}.
+
+Fig. 25: Example of Concrete Roman and AMS Euler 
+from Concrete Mathematics. 
+To my eye main text is ugly and hard to
+read, though some of that may be due to scanning.
+Math is a little better, but still not good.
+Layout is cramped, not reflecting the hierarchical structure
+of the expressions.
+Not many glyphs illustrated, but, out of about a dozen,
+'A' is too closed, looks like an upside down 'V',
+and 'F' is mis-shaped and takes a moment to recognize.
+
+Cambria and Cambria Math intended to blend, 
+like Series 327 and 569.
+Not clear what happens in in-line math,
+and if it's easy to accidentally switch
+between the two fonts for what's intended to be the same symbol.
+
+Fig. 26 compares (scanned?) samples in the three fonts/systems.
+Knuth is clearly the ugliest, though that's more the text font
+than the math font nad layout, not that the math is good.
+Both 4-line 327/569 and Cambria/Cambria Math examples
+are mediocre; too cramped, operators too small, semantic structure
+obscured.
+
+Section 3.2 critiques Knuth's lack of understanding of the 4-line
+Series 327/569 typesetting (that he apparently prized),
+though still referring to 
+``his otherwise keen and thorough analysis 
+of the state of mathematical works''.
+
+Section 3.3:
+
+``Knuth’s concept for TEX composition---a series of boxed elements 
+fitting together within ever larger boxes--—is essentially 
+a continuation of the constraints that governed 
+the composition of metal type.''
+
+``Cambria’s OpenType features for maths present a new model 
+that allows the boundaries of each glyph to be described 
+as a shape more complex than a simple rectangle. 
+The designer’s ability to specify ‘cut-ins’ 
+around the bounding box of each glyph allows software 
+to adapt more easily to the spatial arrangements of mathematics.''
+Need to look at the details, but I am skeptical.
+The illustrations appear to be restricted to vertical and
+horizontal cuts, and one couold likely easily do better using
+the actual glyph shapes, or some expanded version.
+
+Fig. 28 mentions Knuth and Zapf's belief that 
+``handwriting was {\ldots} integral 
+to mathematicians’ conception of their work.''
+
+``Working with TEX and METAFONT, 
+however, empowers the author to have a direct hand 
+in presenting the work as he or she sees fit, 
+with AMS Euler suggesting that the author’s primary relationship 
+to the subject matter is through handwriting, 
+with presentation as a secondary stage. (See figure 28.) 
+Cambria — designed for on-screen reading 
+and relatively automated composition of mathematical 
+material — allows the author to work directly 
+in an electronic medium from the outset. 
+Print production with Cambria is secondary to its role 
+as a working component of the author’s writing tools.''
+
+Conclusion:
+
+Misses hierarchical nature of math expressions;
+also there's a difference between the real 2D nature of notation,
+and just horizontal and vertical.
+
+Appendix: correspondence with various sources.
+
+Beeton: AMS started working on digital math typesetting in the 1960s.
+
+Russ Mills: text mode vs math mode determines whether
+you get Cambria or Cambria Math---not clear which mode inline math is.
+Mention of Vista Math engine. 
+Mentions imaginary ``Rules of math typesetting''.
+
+\end{plSection}%{\citeAuthorYearTitle[3 Comparisions]{Rhatigan:2007:MathTypefaces}}
 %-----------------------------------------------------------------
 \end{plSection}%{Three typefaces}
 %-----------------------------------------------------------------
