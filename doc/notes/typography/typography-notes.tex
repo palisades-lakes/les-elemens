@@ -94,9 +94,132 @@ if I (they) were going to replace \TeX, \LaTeX, etc.
 %-----------------------------------------------------------------
 \begin{plSection}{Noordzij}
 
-\citeAuthorYearTitle{Noordzij:1991:TheShapeOfTheStroke}
+As of 2021-04-03, only found parts of his writing
+and some secondary sources.
+I think I've got the gist, however.
+Noordzij is a designer, calligrapher, artist, not a technical
+person. 
+What I have read is not articulated in a way that would inform the
+details of an implementation, so I'm putting aside efforts
+to further track down his writing, at least until it's 
+safe to visit libraries in person.
+In what I have seen, Noordzij doesn't seem dogmatic 
+about specifics;
+it's more a way of thinking, with variations and violation
+as circumstances dictate.
 
-\citeAuthorYearTitle{Noordzij:2006:TheStroke}
+My understanding of the basic idea:
+
+Glyphs are built out of one, or perhaps a few, strokes 
+of a (virtual) flexible edged pen.
+A stroke is determined by the path $\Point{p}(t) \in \Space{R}^2$
+followed by the center of the pen,
+and the angle $\theta(t)$ and width $w(t)$
+of the pen at each point of the path.
+In other words, the stroke is determined 
+by $s(t)$, a parametrized curve 
+from $t \in \left[ 0, 1 \right] \subset \Space{R}$
+(or some other interval when convenient)
+to $\Space{R}^2 \times 
+\left[ w_{0}, w_{1} \right] 
+\times \Set{\Theta}$,
+where 
+\begin{itemize}
+
+  \item $\left[ w_{0}, w_{1} \right]$ is 
+the range of possible pen widths $0 \leq w_{0} \leq w_{1}$.
+If the minimum width is zero, that's essentially pointed pen.
+If $w_{0}=w_{1}$, then the pen is rigid.
+
+  \item The set of possible angles, $\Set{\Theta}$
+  might be $\Space{S}^{1}$, the unit circle,
+  or it might be restricted in some way. 
+\end{itemize}
+There might also be constraints between 
+$\Point{p}(t)$, $w(t)$, and $\theta(t)$.
+For example, if the pen is only allowed to ``pull''
+and not ``push'', then the direction of motion 
+$\Derivative{p}[t]$ must be in the bottom half of the 
+plane relative to the line passing thru the pen edge.
+
+The stroke is the region in the plane touched with ink,
+with the reach of the pen's edge for one or more points 
+on the path.
+That is, the stroke region 
+\begin{equation}
+\Set{S} = 
+\SetSpec{\Point{q}}{\text{there exists} \; a,\,t \; \text{s.t.} \; 
+\Point{q} = \Point{p}(t) + a*\Vector{u}(t) \;\text{and}\ 
+|a| \leq w(t)
+}
+\end{equation}
+where $\Vector{u}(t)$ is the unit vector corresponding to the
+angle $\theta(t)$.
+
+The key distinction here is that most (?) font tools
+allow one to specify a glyph via parameterized curves that form
+its boundary, rather than as a skeleton path plus expansion.
+
+\citeAuthorYearTitle{Noordzij:1982:TheStrokeOfThePen}\\
+Unseen.
+
+\begin{plQuote}{\citeAuthorYearTitle[p~34]{Noordzij:1991:TheShapeOfTheStroke}}{}
+Abstract:
+\begin{enumerate}
+  \item Design shapes human life.
+  \item A civilization is a mode of design.
+  \item The primitive artifact (the 'DNA' of a civilization)
+  is a single stroke of writing.
+  \item The stroke is a shape.
+  \item It is defined by a description of its two dimensions.
+\end{enumerate}
+The present article is restricted to a description of the first
+dimension of the stroke (its width) in three ranges.
+By setting out the ranges on the axes of a cube
+the abstraction of the description are resulting 
+in a concrete object.
+As might be expected (3) the cube is a model for
+cultural history;
+it also seems to a specimen of parametric design.
+\par
+The concluding considerations to not leave a chance to such design.
+\end{plQuote}%{\citeAuthorYearTitle{Noordzij:1991:TheShapeOfTheStroke}}{}
+
+``The form of the stroke is determined by the shape of the tool
+and the movement of the hand.''[p~35]
+
+Figure~1: quadrants showing frequency of stroke direction.
+I believe this is $\Derivative{p}[t]$ rather than $\theta(t)$.
+May be  assuming that the pen edge is fixed at
+$30^{\circ}$.
+
+Figure~2 is an example of a triangle shaped pen---a reference to
+Metafont silliness?
+
+Section~4: ``Contrast''---variation in width of stroke, 
+but also angle.
+``Counterpoint'' is edge vector, direction plus width?
+\begin{description}
+\item{Translation:} Arabic, Hebrew, Indian, Western \emph{[sic]}
+ writing: ``stiff broad pen'' with fixed angle.
+ \item{Expansion:} Flexible pointed pen, copperplate.
+ Chinese soft brush. 
+ (I think this displays lack of familiarity 
+ with details of how Han writing works, and expectations for
+ 书法 (shūfǎ)/書法/書道). )
+ \item[Rotation:] Mannerist calligraphy.
+\end{description}
+
+Section~5: The cube. Again, are there connections to Metafont?
+
+Section~6: ``{\ldots} an Irish scribe invented the word.''
+In the first quarter of the 600s.
+I think he means that p
+reviously text was written continuously,
+without word breaks?
+\citeAuthorYearTitle{Noordzij:2006:TheStroke}\\
+Only ``Downloaded sample pages from hyphenpress.co.uk'',
+p~1--18.
 
 \citeAuthorTitle{Devroye:2014:Noordzij}
 
@@ -112,7 +235,7 @@ in his typographic design and calligraphy,
 or even in his typefaces (of which just two, 
 the lovely Ruse and the eccentric Burgundica, 
 have been made publicly available so far), 
-it’s in his students, 
+it's in his students, 
 and the writings documenting the teaching process. 
 As a teacher of typography and writing 
 at the Royal Academy of Art (KABK) in The Hague, 
@@ -124,43 +247,43 @@ the emergence of a whole generation of important type designers.
 FINDING THE AXES IN TYPE DESIGN
 
 To Noordzij, there is no essential difference 
-between the written and the printed word—--he defines typography
- as “writing with prefabricated letters.” 
+between the written and the printed word---he defines typography
+ as ``writing with prefabricated letters.''
  Printing types betray their origin in (hand)writing 
  by their construction. 
  A typeface may show diagonal or vertical contrast or stress, 
  referring respectively to the broad-nibbed or the pointed pen. 
  Noordzij invented the terms “translation” and ”expansion” 
- for these two extremes. A
- n alphabet can have an interrupted or cursive construction, 
+ for these two extremes. 
+ An alphabet can have an interrupted or cursive construction, 
  derived from the movement of the hand —is the pen lifted 
  from the paper while shaping the character or not? 
- The third variable in Noordzij’s scheme is 
+ The third variable in Noordzij's scheme is 
  the amount of contrast, 
  from monoline to the extreme thick/thin contrast 
  of certain 19th-century alphabets. 
- Combined, these three “axes” form 
- a relatively simply model—visualized in the “Noordzij cube,” 
+ Combined, these three ``axes'' form 
+ a relatively simply model—visualized in the ``Noordzij cube,'' 
  which has become famous. 
  The model helps readers and designers understand 
  the workings of letters 
  without having to fathom complex classification systems.
 
 It is the serif that illustrates the fundamental difference 
-between Noordzij’s theory and traditional type classification. 
+between Noordzij's theory and traditional type classification. 
 An essential feature in previous classification systems, 
-it becomes a mere byproduct in Noordzij’s model, an artifact. 
+it becomes a mere byproduct in Noordzij's model, an artifact. 
 He argues that low contrast is inherent to the sans serif. 
 As the contrast diminishes, the serifs disappear into the stroke. 
-Some of Noordzij’s former students were reluctant to use the term 
-“sans serif:” They preferred “low contrast.” 
+Some of Noordzij's former students were reluctant to use the term 
+``sans serif.`` They preferred ``low contrast.'' 
 Maybe some still do.
 
-Noordzij’s model is a great tool for teaching people 
+Noordzij's model is a great tool for teaching people 
 how to look analytically at letterforms. 
 But like the Maximilien Vox classification system of the 1950s, 
 it cannot be applied universally. 
-It is incompatible with many of today’s genres and subgenres, 
+It is incompatible with many of today's genres and subgenres, 
 such as almost any alphabet that involves geometric construction. 
 Noordzij seems to get normative here, 
 dismissing such non-traditional typefaces as “irrelevant.” 
@@ -173,13 +296,23 @@ He needed his model to show his students and readers
 how things work; 
 it is a sophisticated instrument of deliberately limited scope.
  
-The theory’s bible, The Stroke, was first published 
+The theory's bible, The Stroke, was first published 
 in 1985 in Dutch as De Streek, 
 but based on a more compact English booklet, 
 The stroke of the pen (1982). 
-In the 80s, Noordzij’s approach was seen by many of his international peers as an anachronism, even a bit of a crackpot, as if he denied the importance of the new digital tools by granting the central role in “making letters” to the pen, the brush, and the hand.
+In the 80s, Noordzij's approach was seen 
+by many of his international peers as an anachronism, 
+even a bit of a crackpot, 
+as if he denied the importance of the new digital tools 
+by granting the central role in ``making letters''
+to the pen, the brush, and the hand.
 
-At the yearly ATypI conferences, one regular told me, “His lectures came across as charismatic, visionary, oracular and possibly crazy.” He was talking about a way of thinking about the making of letterforms that was independent of the medium, or the technology.
+At the yearly ATypI conferences, one regular told me, 
+``His lectures came across 
+as charismatic, visionary, oracular and possibly crazy.'' 
+He was talking about a way of thinking about 
+the making of letterforms 
+that was independent of the medium, or the technology.
 \end{plQuote}%{\citeAuthorTitle{Middendorp:2019:Noordzij}}{}
 
 
@@ -836,8 +969,8 @@ with updates every month or so.)
 
 Metafont: brief, uncritical description of font fmaily specification.
 
-``METAFONT’s dynamic font creation and 
-TEX’s powerful typesetting capabilities 
+``METAFONT's dynamic font creation and 
+TEX's powerful typesetting capabilities 
 made it possible to circumvent the equipment and typefaces 
 available from professional compositors,
 yet still produce material as difficult to typeset as mathematics. 
@@ -1038,15 +1171,15 @@ of the state of mathematical works''.
 
 Section 3.3:
 
-``Knuth’s concept for TEX composition---a series of boxed elements 
+``Knuth's concept for TEX composition---a series of boxed elements 
 fitting together within ever larger boxes--—is essentially 
 a continuation of the constraints that governed 
 the composition of metal type.''
 
-``Cambria’s OpenType features for maths present a new model 
+``Cambria's OpenType features for maths present a new model 
 that allows the boundaries of each glyph to be described 
 as a shape more complex than a simple rectangle. 
-The designer’s ability to specify ‘cut-ins’ 
+The designer's ability to specify 'cut-ins' 
 around the bounding box of each glyph allows software 
 to adapt more easily to the spatial arrangements of mathematics.''
 Need to look at the details, but I am skeptical.
@@ -1056,12 +1189,12 @@ the actual glyph shapes, or some expanded version.
 
 Fig. 28 mentions Knuth and Zapf's belief that 
 ``handwriting was {\ldots} integral 
-to mathematicians’ conception of their work.''
+to mathematicians' conception of their work.''
 
 ``Working with TEX and METAFONT, 
 however, empowers the author to have a direct hand 
 in presenting the work as he or she sees fit, 
-with AMS Euler suggesting that the author’s primary relationship 
+with AMS Euler suggesting that the author's primary relationship 
 to the subject matter is through handwriting, 
 with presentation as a secondary stage. (See figure 28.) 
 Cambria — designed for on-screen reading 
@@ -1069,7 +1202,7 @@ and relatively automated composition of mathematical
 material — allows the author to work directly 
 in an electronic medium from the outset. 
 Print production with Cambria is secondary to its role 
-as a working component of the author’s writing tools.''
+as a working component of the author's writing tools.''
 
 Conclusion:
 
