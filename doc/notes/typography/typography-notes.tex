@@ -99,8 +99,11 @@ and some secondary sources.
 I think I've got the gist, however.
 Noordzij is a designer, calligrapher, artist, not a technical
 person. 
-What I have read is not articulated in a way that would inform the
-details of an implementation, so I'm putting aside efforts
+He is also either writing in a 2nd/3rd language,
+or I am reading in translation,
+which hinders the transmission of subtleties.
+What I have read is not articulated in a way that would inform 
+the details of an implementation, so I'm putting aside efforts
 to further track down his writing, at least until it's 
 safe to visit libraries in person.
 In what I have seen, Noordzij doesn't seem dogmatic 
@@ -156,9 +159,19 @@ That is, the stroke region
 where $\Vector{u}(t)$ is the unit vector corresponding to the
 angle $\theta(t)$.
 
+Tamaki points out that there are at least two angles to consider:
+$\theta$ is more-or-less rotation around the axis of the pen,
+assuming it were held vertically.
+There are nibs (eg Sailor zoom) 
+where the angle between the axis of the pen and the paper
+also changes the output.
+This also requires generalizing the shape of the nib-paper contact
+from the above idealized zero-thickness line segment,
+to shapes with 2d extent, something like Metafont.
+
 The key distinction here is that most (?) font tools
 allow one to specify a glyph via parameterized curves that form
-its boundary, rather than as a skeleton path plus expansion.
+the glyph boundary, rather than as a skeleton path plus expansion.
 
 \citeAuthorYearTitle{Noordzij:1982:TheStrokeOfThePen}\\
 Unseen.
@@ -200,9 +213,9 @@ Section~4: ``Contrast''---variation in width of stroke,
 but also angle.
 ``Counterpoint'' is edge vector, direction plus width?
 \begin{description}
-\item{Translation:} Arabic, Hebrew, Indian, Western \emph{[sic]}
+\item[Translation:] Arabic, Hebrew, Indian, Western \emph{[sic]}
  writing: ``stiff broad pen'' with fixed angle.
- \item{Expansion:} Flexible pointed pen, copperplate.
+ \item[Expansion:] Flexible pointed pen, copperplate.
  Chinese soft brush. 
  (I think this displays lack of familiarity 
  with details of how Han writing works, and expectations for
@@ -214,12 +227,142 @@ Section~5: The cube. Again, are there connections to Metafont?
 
 Section~6: ``{\ldots} an Irish scribe invented the word.''
 In the first quarter of the 600s.
-I think he means that p
-reviously text was written continuously,
+I think he means that previously text was written continuously,
 without word breaks?
+He argues that isolated words need to be 
+``strengthened by reducing the white shapes between the letters
+which demanded a corresponding reduction of the white shapes 
+within the letters.''
+(I don't buy this.) 
+``During the Middle Ages the size of the letters in respect 
+to the width of the pen was gradually reduced.''
+(This I believe, but my guess would be that it was related 
+to saving expensive parchment, and some minimum practical size
+for quill and reed pens that don't wear out too quickly.)
+ 
+Section~7 continues this story into the evolution of type 
+and printing. 
+I don't follow completely, but what I do think I understand isn't
+convincing.
+
+Section~8 discusses limitations of his cube,
+and his skepticism about adapting it to ``computer aided design''.
+He seems to think that a CAD version would be restricted 
+interpolating between examples at the corners of a cube,
+rather than making is possible to control all the parameters
+in an unbounded way, perhaps imposing constraints
+and minimizing fairing objectives to reduce the manual labor.
+
 \citeAuthorYearTitle{Noordzij:2006:TheStroke}\\
 Only ``Downloaded sample pages from hyphenpress.co.uk'',
 p~1--18.
+
+Forward~1985: seems to be commenting on a version the 
+\emph{The stroke of the pen} which is different from what I read.
+He seems to be saying that \emph{The stroke of the pen}
+classified scripts into a $2x2$ table:
+\emph{running} vs \emph{interrupted} crossed with
+\emph{translation} vs \emph{expansion}.
+He then says that \emph{contrast} is a continuous scale
+with pure \emph{translation} and \emph{expansion} as the endpoints.
+
+Forward~2005: His courses in graphic design based on calligraphy.
+``\emph{Handwriting} is single-stroke writing.
+\emph{Lettering} is writing with built-up shapes.
+{\ldots} type is a special branch of writing that differs 
+essentially from lettering. 
+The typographer can only work with writing that is arranged 
+in a font.''
+(Note this last need not be true in a digital world.
+In principle, letter shapes could be generated or adapted
+on the fly, given a good-enough description of what we want
+from them.)
+
+Last paragraph argues that the stroke of the most primitive thing,
+not the boundaries of the shapes, and then gives and example
+in figure~3 of building up a glyph shape by hatched sketching,
+with added boundaries, which more-or-less disproves 
+his assertion---hatching is fundamental here, 
+and hatching is not a stroke.
+
+Section~1 The white of the word.
+
+``A letter is two shapes, one light, one dark. I call the light
+shape the white of the letter and the dark shape the black.
+The black consists of the regions of the letter that enclose
+the white.''
+
+Figures reverse white and black.
+Examples are all versions of 'O',
+leaving open the question fo what is the 'white' for something 
+like 'E'?
+Some confusing comments about the bounding axis-aligned 
+rectangles in
+figure~1.2 and how their surface area doesn't change
+even when the 'black' does.
+
+Figure~1.3 is used to justify a claim heavier glyphs need
+to be closer together than lighter ones,
+but my reaction is that the first 2 examples are too far apart,
+both for heavy and light.
+
+``The relation between shape and countershape, which in
+writing amounts to the relation between white and black,
+is the foundation of perception.''
+This is a fairly primitive view of the human vision system.
+
+``The word is the smallest
+organic unit in writing.''
+Don't know that I believe that.
+``Whatever can be said about a letter
+or the stroke must be said with one eye on the word. In this
+book I pull apart the organism, but only to be able to make
+the word.''
+I think there is really some hierarchy: letter, word, phrase,
+sentence, paragraph, page. 
+This is even more true for math notation.
+
+``Current studies of writing do not attend to the white of
+the word, but to the black of the letter.''
+Really need to understand how the image of the page, paragraph,
+{\ldots} is processed by the vision system, at least in some
+of the vision system's components.
+
+\begin{plQuote}{\citeAuthorYearTitle[p~17]{Noordzij:2006:TheStroke}}{}
+In the same manner the academic viewpoints are safeguarded.
+It is inadmissible to suggest that type is writing,
+because such speculations undermine the prejudice (a prejudice
+is a viewpoint that may not be placed in question).
+When the facts still compel us to compare type with handwriting,
+the facts are suppressed. The history of the ‘romain
+du roi’ is a good example of this. The ‘romain du roi’ was cut
+around 1700 according to the directives of a scientifi c commission.
+The proposal was worked out on a grid – the traditional
+way of transposing drawings to scale. The minutes of
+the commission confi rm what anyone can ascertain: the designs
+follow in detail the handwriting of Nicholas Jarry, who
+worked around 1650 as calligrapher for the Cabinet du Roi.
+This history leaves us no other choice than to view the ‘romain
+du roi’ – the type – in terms of the handwriting of Jarry.
+But if this were the case the foundation beneath the sciences
+of writing would fall away. Scholars forestall the landslide by
+keeping the aff air under wraps. In its place they present the
+‘romain du roi’ as a turning point in history. The grid would
+then have had to have been the true starting point of the design,
+and the typographical letter would have become, once
+and for all, independent of handwriting.
+\end{plQuote}%{\citeAuthorYearTitle{Noordzij:2006:TheStroke}}{}
+
+\begin{plQuote}{\citeAuthorYearTitle[p~18]{Noordzij:2006:TheStroke}}{}
+Science is the art of fi nding a fi tting question for every answer.
+Theories serve to elicit questions and questions serve to
+undermine theories. Questions engender perplexity, which
+is as it should be. When my theoretical house of cards collapses,
+all it means is that better insight replaces my own,
+and I will be glad to relinquish my opinion for a better one.
+Science is lost when the questions that endanger a theory are
+warded off or ignored.
+\end{plQuote}%{\citeAuthorYearTitle[p~18]{Noordzij:2006:TheStroke}}{}
 
 \citeAuthorTitle{Devroye:2014:Noordzij}
 
