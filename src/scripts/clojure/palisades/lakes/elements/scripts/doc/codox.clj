@@ -11,7 +11,7 @@
   (:require [codox.main :as codox]))
 ;;----------------------------------------------------------------
 (def options (assoc codox/defaults
-                     :language     :clojure
+   :language     :clojure
    :root-path    (System/getProperty "user.dir")
    :output-path  "target/doc"
    :source-paths ["src/main/clojure"]
